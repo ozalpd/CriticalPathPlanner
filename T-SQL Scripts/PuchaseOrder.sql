@@ -11,6 +11,10 @@ CREATE TABLE [dbo].[PuchaseOrders](
     [Code] [nVarChar](48) Null,
     [Description] [nVarChar](256) Null,
     [Notes] [nVarChar](255) Null,
+    [IsApproved] [bit] Not Null,
+    [ApproveDate] [DateTime] Null,
+    [ApprovedUserId] [VarChar](48) Null,
+    [ApprovedUserIp] [VarChar](48) Null,
     [ModifyNr] [int] Not Null Default 1,
     [ModifyDate] [DateTime] Not Null Default GetDate(),
     [ModifierId] [VarChar](48) Not Null,
@@ -18,10 +22,6 @@ CREATE TABLE [dbo].[PuchaseOrders](
     [CreateDate] [DateTime] Not Null Default GetDate(),
     [CreatorId] [VarChar](48) Not Null,
     [CreatorIp] [VarChar](48) Not Null,
-    [IsApproved] [bit] Not Null,
-    [ApproveDate] [DateTime] Null,
-    [ApprovedUserId] [VarChar](48) Null,
-    [ApprovedUserIp] [VarChar](48) Null,
   CONSTRAINT [PK_PuchaseOrders] PRIMARY KEY CLUSTERED ([Id] ASC)
   WITH (PAD_INDEX  = OFF,
     STATISTICS_NORECOMPUTE  = OFF,
@@ -36,7 +36,7 @@ Create Nonclustered Index [idx_PuchaseOrders_OrderDate] On [dbo].[PuchaseOrders]
 Go
 Create Nonclustered Index [idx_PuchaseOrders_DueDate] On [dbo].[PuchaseOrders]([DueDate] Asc)
 Go
-Create Nonclustered Index [idx_PuchaseOrders_ModifyDate] On [dbo].[PuchaseOrders]([ModifyDate] Desc)
-Go
 Create Nonclustered Index [idx_PuchaseOrders_IsApproved] On [dbo].[PuchaseOrders]([IsApproved] Asc)
+Go
+Create Nonclustered Index [idx_PuchaseOrders_ModifyDate] On [dbo].[PuchaseOrders]([ModifyDate] Desc)
 Go
