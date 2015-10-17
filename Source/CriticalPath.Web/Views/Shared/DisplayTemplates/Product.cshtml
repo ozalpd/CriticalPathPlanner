@@ -1,0 +1,11 @@
+﻿@using CriticalPath.Web.Models
+@using CriticalPath.Data
+@using CriticalPath.Data.Resources
+@model Product
+@{
+    Layout = null;
+}
+@if (Model != null)
+{
+    <div><a href='/Products/Details/@Model.Id'>@Model.Title</a></div>
+}

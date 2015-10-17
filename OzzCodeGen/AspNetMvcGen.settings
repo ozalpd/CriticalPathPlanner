@@ -1313,6 +1313,7 @@
   </SecurityRoles>
   <TargetViewsFolder>Views</TargetViewsFolder>
   <TargetModelsFolder>Models</TargetModelsFolder>
+  <SnippetsFolder>MVC-CodeSnippets</SnippetsFolder>
   <TargetControllersFolder>Controllers</TargetControllersFolder>
   <ControllersNamespace>CriticalPath.Web.Controllers</ControllersNamespace>
   <ModelsNamespace>CriticalPath.Web.Models</ModelsNamespace>

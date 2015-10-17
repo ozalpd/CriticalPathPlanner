@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+    <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+	<data name="Address1" xml:space="preserve">
+		<value>Adres Satır 1</value>
+	</data>
+
+	<data name="Address2" xml:space="preserve">
+		<value>Adres Satır 2</value>
+	</data>
+
+	<data name="ApproveDate" xml:space="preserve">
+		<value>Onay Tarihi</value>
+	</data>
+
+	<data name="ApprovedUserId" xml:space="preserve">
+		<value>Onaylayan Kullanıcı</value>
+	</data>
+
+	<data name="ApprovedUserIp" xml:space="preserve">
+		<value>Onaylayanın IP</value>
+	</data>
+
+	<data name="Category" xml:space="preserve">
+		<value>Kategori</value>
+	</data>
+
+	<data name="CategoryId" xml:space="preserve">
+		<value>Kategori No</value>
+	</data>
+
+	<data name="City" xml:space="preserve">
+		<value>Şehir</value>
+	</data>
+
+	<data name="Code" xml:space="preserve">
+		<value>Kod</value>
+	</data>
+
+	<data name="Companies" xml:space="preserve">
+		<value>Şirketler</value>
+	</data>
+
+	<data name="CompaniesList" xml:space="preserve">
+		<value>Şirket Listesi</value>
+	</data>
+
+	<data name="Company" xml:space="preserve">
+		<value>Şirket</value>
+	</data>
+
+	<data name="CompanyId" xml:space="preserve">
+		<value>Şirket No</value>
+	</data>
+
+	<data name="CompanyName" xml:space="preserve">
+		<value>Şirket İsmi</value>
+	</data>
+
+	<data name="Contact" xml:space="preserve">
+		<value>Kişi</value>
+	</data>
+
+	<data name="Contacts" xml:space="preserve">
+		<value>Kişiler</value>
+	</data>
+
+	<data name="ContactsList" xml:space="preserve">
+		<value>Kişi Listesi</value>
+	</data>
+
+	<data name="Country" xml:space="preserve">
+		<value>Ülke</value>
+	</data>
+
+	<data name="CreateCompany" xml:space="preserve">
+		<value>Şirket Ekle</value>
+	</data>
+
+	<data name="CreateContact" xml:space="preserve">
+		<value>Kişi Ekle</value>
+	</data>
+
+	<data name="CreateCustomer" xml:space="preserve">
+		<value>Müşteri Ekle</value>
+	</data>
+
+	<data name="CreateDate" xml:space="preserve">
+		<value>Oluşturma Tarihi</value>
+	</data>
+
+	<data name="CreateOrderItem" xml:space="preserve">
+		<value>Sipariş Kalemi Ekle</value>
+	</data>
+
+	<data name="CreateProcess" xml:space="preserve">
+		<value>Süreç Başlat</value>
+	</data>
+
+	<data name="CreateProcessStep" xml:space="preserve">
+		<value>Süreç Adımı Ekle</value>
+	</data>
+
+	<data name="CreateProcessStepTemplate" xml:space="preserve">
+		<value>Süreç Adım Şablonu Ekle</value>
+	</data>
+
+	<data name="CreateProcessTemplate" xml:space="preserve">
+		<value>Süreç Şablonu Ekle</value>
+	</data>
+
+	<data name="CreateProduct" xml:space="preserve">
+		<value>Ürün Ekle</value>
+	</data>
+
+	<data name="CreateProductCategory" xml:space="preserve">
+		<value>Ürün Kategorisi Ekle</value>
+	</data>
+
+	<data name="CreatePuchaseOrder" xml:space="preserve">
+		<value>Sipariş Ekle</value>
+	</data>
+
+	<data name="CreateSupplier" xml:space="preserve">
+		<value>Tedarikçi Ekle</value>
+	</data>
+
+	<data name="CreatorId" xml:space="preserve">
+		<value>Oluşturan</value>
+	</data>
+
+	<data name="CreatorIp" xml:space="preserve">
+		<value>Oluşturan IP</value>
+	</data>
+
+	<data name="Customer" xml:space="preserve">
+		<value>Müşteri</value>
+	</data>
+
+	<data name="CustomerCode" xml:space="preserve">
+		<value>Müşteri Kodu</value>
+	</data>
+
+	<data name="CustomerId" xml:space="preserve">
+		<value>Müşteri No</value>
+	</data>
+
+	<data name="Customers" xml:space="preserve">
+		<value>Müşteriler</value>
+	</data>
+
+	<data name="CustomersList" xml:space="preserve">
+		<value>Müşteri Listesi</value>
+	</data>
+
+	<data name="DefaultTitle" xml:space="preserve">
+		<value>Varsayılan Başlık</value>
+	</data>
+
+	<data name="DeleteCompany" xml:space="preserve">
+		<value>Şirketi Sil</value>
+	</data>
+
+	<data name="DeleteContact" xml:space="preserve">
+		<value>Kişi Sil</value>
+	</data>
+
+	<data name="DeleteCustomer" xml:space="preserve">
+		<value>Müşteri Sil</value>
+	</data>
+
+	<data name="DeleteOrderItem" xml:space="preserve">
+		<value>Sipariş Kalemini Sil</value>
+	</data>
+
+	<data name="DeleteProcess" xml:space="preserve">
+		<value>Süreci Sil</value>
+	</data>
+
+	<data name="DeleteProcessStep" xml:space="preserve">
+		<value>Süreç Adımını Sil</value>
+	</data>
+
+	<data name="DeleteProcessStepTemplate" xml:space="preserve">
+		<value>Süreç Adım Şablonunu Sil</value>
+	</data>
+
+	<data name="DeleteProcessTemplate" xml:space="preserve">
+		<value>Süreç Şablonunu Sil</value>
+	</data>
+
+	<data name="DeleteProduct" xml:space="preserve">
+		<value>Ürünü Sil</value>
+	</data>
+
+	<data name="DeleteProductCategory" xml:space="preserve">
+		<value>Ürün Kategorisini Sil</value>
+	</data>
+
+	<data name="DeletePuchaseOrder" xml:space="preserve">
+		<value>Siparişi Sil</value>
+	</data>
+
+	<data name="DeleteSupplier" xml:space="preserve">
+		<value>Tedarikçiyi Sil</value>
+	</data>
+
+	<data name="Description" xml:space="preserve">
+		<value>Açıklama</value>
+	</data>
+
+	<data name="DisplayOrder" xml:space="preserve">
+		<value>Gösterim Sırası</value>
+	</data>
+
+	<data name="DueDate" xml:space="preserve">
+		<value>Vadesi</value>
+	</data>
+
+	<data name="EditCompany" xml:space="preserve">
+		<value>Şirketi Düzenle</value>
+	</data>
+
+	<data name="EditContact" xml:space="preserve">
+		<value>Kişiyi Düzenle</value>
+	</data>
+
+	<data name="EditCustomer" xml:space="preserve">
+		<value>Müşteriyi Düzenle</value>
+	</data>
+
+	<data name="EditOrderItem" xml:space="preserve">
+		<value>Sipariş Kalemini Düzenle</value>
+	</data>
+
+	<data name="EditProcess" xml:space="preserve">
+		<value>Süreci Düzenle</value>
+	</data>
+
+	<data name="EditProcessStep" xml:space="preserve">
+		<value>Süreç Adımı Düzenle</value>
+	</data>
+
+	<data name="EditProcessStepTemplate" xml:space="preserve">
+		<value>Süreç Adım Şablonunu Düzenle</value>
+	</data>
+
+	<data name="EditProcessTemplate" xml:space="preserve">
+		<value>Süreç Şablonunu Düzenle</value>
+	</data>
+
+	<data name="EditProduct" xml:space="preserve">
+		<value>Ürünü Düzenle</value>
+	</data>
+
+	<data name="EditProductCategory" xml:space="preserve">
+		<value>Ürün Kategorisini Düzenle</value>
+	</data>
+
+	<data name="EditPuchaseOrder" xml:space="preserve">
+		<value>Siparişi Düzenle</value>
+	</data>
+
+	<data name="EditSupplier" xml:space="preserve">
+		<value>Tedarikçiyi Düzenle</value>
+	</data>
+
+	<data name="EmailHome" xml:space="preserve">
+		<value>E-Posta Ev</value>
+	</data>
+
+	<data name="EmailWork" xml:space="preserve">
+		<value>E-Posta İş</value>
+	</data>
+
+	<data name="FirstName" xml:space="preserve">
+		<value>Ad</value>
+	</data>
+
+	<data name="ForecastDate" xml:space="preserve">
+		<value>Öngörülen Tarıh</value>
+	</data>
+
+	<data name="Id" xml:space="preserve">
+		<value>Kayıt No</value>
+	</data>
+
+	<data name="IsApproved" xml:space="preserve">
+		<value>Onaylandı</value>
+	</data>
+
+	<data name="IsCompleted " xml:space="preserve">
+		<value>Tamamlandı</value>
+	</data>
+
+	<data name="LastName" xml:space="preserve">
+		<value>Soyad</value>
+	</data>
+
+	<data name="ModifierId" xml:space="preserve">
+		<value>Değiştiren</value>
+	</data>
+
+	<data name="ModifierIp" xml:space="preserve">
+		<value>Değiştiren IP</value>
+	</data>
+
+	<data name="ModifyDate" xml:space="preserve">
+		<value>Değişiklik Tarihi</value>
+	</data>
+
+	<data name="ModifyNr" xml:space="preserve">
+		<value>Değişiklik No</value>
+	</data>
+
+	<data name="Notes" xml:space="preserve">
+		<value>Notlar</value>
+	</data>
+
+	<data name="OrderDate" xml:space="preserve">
+		<value>Sipariş Tarihi</value>
+	</data>
+
+	<data name="OrderItem" xml:space="preserve">
+		<value>Sipariş Kalemi</value>
+	</data>
+
+	<data name="OrderItemId" xml:space="preserve">
+		<value>Sipariş Kalemi</value>
+	</data>
+
+	<data name="OrderItems" xml:space="preserve">
+		<value>Sipariş Kalemleri</value>
+	</data>
+
+	<data name="OrderItemsList" xml:space="preserve">
+		<value>Sipariş Kalem Listesi</value>
+	</data>
+
+	<data name="Orders" xml:space="preserve">
+		<value>Siparişler</value>
+	</data>
+
+	<data name="ParentCategory" xml:space="preserve">
+		<value>Üst Kategori</value>
+	</data>
+
+	<data name="ParentCategoryId" xml:space="preserve">
+		<value>Üst Kategori No</value>
+	</data>
+
+	<data name="Phone1" xml:space="preserve">
+		<value>Telefon 1</value>
+	</data>
+
+	<data name="Phone2" xml:space="preserve">
+		<value>Telefon 2</value>
+	</data>
+
+	<data name="Phone3" xml:space="preserve">
+		<value>Telefon 3</value>
+	</data>
+
+	<data name="PhoneMobile" xml:space="preserve">
+		<value>Mobil Telefon</value>
+	</data>
+
+	<data name="PhoneWork1" xml:space="preserve">
+		<value>İş Telefonu 1</value>
+	</data>
+
+	<data name="PhoneWork2" xml:space="preserve">
+		<value>İş Telefonu 2</value>
+	</data>
+
+	<data name="Process" xml:space="preserve">
+		<value>Süreç</value>
+	</data>
+
+	<data name="Processes" xml:space="preserve">
+		<value>Süreçler</value>
+	</data>
+
+	<data name="ProcessesList" xml:space="preserve">
+		<value>Süreç Listesi</value>
+	</data>
+
+	<data name="ProcessId" xml:space="preserve">
+		<value>Süreç</value>
+	</data>
+
+	<data name="ProcessStep" xml:space="preserve">
+		<value>Süreç Adımı</value>
+	</data>
+
+	<data name="ProcessSteps" xml:space="preserve">
+		<value>Süreç Adımları</value>
+	</data>
+
+	<data name="ProcessStepsList" xml:space="preserve">
+		<value>Süreç Adım Listesi</value>
+	</data>
+
+	<data name="ProcessStepTemplate" xml:space="preserve">
+		<value>Süreç Adım Şablonu</value>
+	</data>
+
+	<data name="ProcessStepTemplates" xml:space="preserve">
+		<value>Süreç Adım Şablonları</value>
+	</data>
+
+	<data name="ProcessStepTemplatesList" xml:space="preserve">
+		<value>Süreç Adım Şablon Listesi</value>
+	</data>
+
+	<data name="ProcessTemplate" xml:space="preserve">
+		<value>Süreç Şablonu</value>
+	</data>
+
+	<data name="ProcessTemplateId" xml:space="preserve">
+		<value>Süreç Şablonu</value>
+	</data>
+
+	<data name="ProcessTemplates" xml:space="preserve">
+		<value>Süreç Şablonları</value>
+	</data>
+
+	<data name="ProcessTemplatesList" xml:space="preserve">
+		<value>Süreç Şablon Listesi</value>
+	</data>
+
+	<data name="Product" xml:space="preserve">
+		<value>Ürün</value>
+	</data>
+
+	<data name="ProductCategories" xml:space="preserve">
+		<value>Ürün Kategorileri</value>
+	</data>
+
+	<data name="ProductCategoriesList" xml:space="preserve">
+		<value>Ürün Kategori Listesi</value>
+	</data>
+
+	<data name="ProductCategory" xml:space="preserve">
+		<value>Ürün Kategorisi</value>
+	</data>
+
+	<data name="ProductId" xml:space="preserve">
+		<value>Ürün No</value>
+	</data>
+
+	<data name="Products" xml:space="preserve">
+		<value>Ürünler</value>
+	</data>
+
+	<data name="ProductsList" xml:space="preserve">
+		<value>Ürün Listesi</value>
+	</data>
+
+	<data name="PuchaseOrder" xml:space="preserve">
+		<value>Sipariş</value>
+	</data>
+
+	<data name="PuchaseOrderId" xml:space="preserve">
+		<value>Sipariş No</value>
+	</data>
+
+	<data name="PuchaseOrders" xml:space="preserve">
+		<value>Siparişler</value>
+	</data>
+
+	<data name="PuchaseOrdersList" xml:space="preserve">
+		<value>Sipariş Listesi</value>
+	</data>
+
+	<data name="Quantity" xml:space="preserve">
+		<value>Miktar</value>
+	</data>
+
+	<data name="RealizedDate" xml:space="preserve">
+		<value>Gerçekleşme Tarihi</value>
+	</data>
+
+	<data name="State" xml:space="preserve">
+		<value>Eyalet</value>
+	</data>
+
+	<data name="StepTemplates" xml:space="preserve">
+		<value>Adım Şablonları</value>
+	</data>
+
+	<data name="SubCategories" xml:space="preserve">
+		<value>Alt Kategoriler</value>
+	</data>
+
+	<data name="Supplier" xml:space="preserve">
+		<value>Tedarikçi</value>
+	</data>
+
+	<data name="SupplierCode" xml:space="preserve">
+		<value>Tedarikçi Kodu</value>
+	</data>
+
+	<data name="Suppliers" xml:space="preserve">
+		<value>Tedarikçiler</value>
+	</data>
+
+	<data name="SuppliersList" xml:space="preserve">
+		<value>Tedarikçi Listesi</value>
+	</data>
+
+	<data name="TargetDate" xml:space="preserve">
+		<value>Hedefl Tarih</value>
+	</data>
+
+	<data name="TemplateName" xml:space="preserve">
+		<value>Şablon İsmi</value>
+	</data>
+
+	<data name="Title" xml:space="preserve">
+		<value>Başlık</value>
+	</data>
+
+	<data name="ZipCode" xml:space="preserve">
+		<value>Posta Kodu</value>
+	</data>
+</root>

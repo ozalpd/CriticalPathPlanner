@@ -1,0 +1,19 @@
+﻿@model DateTime?
+@{
+    Layout = null;
+    var noSelection = !Model.HasValue ? "active" : null;
+    var htmlField = ViewData.TemplateInfo.HtmlFieldPrefix;
+    var dtpName = "dtp" + htmlField;
+    string dateString = Model.HasValue ? Model.Value.ToString("yyyy.MM.dd") : "";
+    string viewMode = htmlField.ToLowerInvariant().Contains("birthday") ? ", defaultDate: -15y" : "";
+}
+<div class="input-append date" id="@htmlField-div" data-date="@dateString" data-date-format="yyyy.mm.dd" @viewMode>
+    <input style="width:80px" type="text" value="@dateString" id="@htmlField" name="@htmlField">
+    <span class="add-on"><i class="icon-calendar"></i></span>
+    @if (ViewData.ModelMetadata.IsNullableValueType)
+    {
+        <button type="button" class="btn" onclick="javascript:$('#@htmlField').val('');">Clear</button> }
+</div>
+<script>
+   @dtpName = $('#@htmlField').datepicker({dateFormat: "yy.mm.dd" });
+</script>

@@ -1,0 +1,696 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CriticalPathDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Companies">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Phone1" Type="nvarchar" MaxLength="128" />
+          <Property Name="Phone2" Type="nvarchar" MaxLength="64" />
+          <Property Name="Phone3" Type="nvarchar" MaxLength="64" />
+          <Property Name="Address1" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Address2" Type="nvarchar" MaxLength="128" />
+          <Property Name="City" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="State" Type="nvarchar" MaxLength="32" />
+          <Property Name="ZipCode" Type="nvarchar" MaxLength="32" />
+          <Property Name="Country" Type="nvarchar" MaxLength="32" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="255" />
+          <Property Name="ModifyNr" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifierId" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="ModifierIp" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatorId" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="CreatorIp" Type="varchar" MaxLength="48" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contacts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="EmailWork" Type="nvarchar" MaxLength="64" />
+          <Property Name="EmailHome" Type="nvarchar" MaxLength="64" />
+          <Property Name="PhoneMobile" Type="nvarchar" MaxLength="64" />
+          <Property Name="PhoneWork1" Type="nvarchar" MaxLength="64" />
+          <Property Name="PhoneWork2" Type="nvarchar" MaxLength="64" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="255" />
+          <Property Name="CompanyId" Type="int" Nullable="false" />
+          <Property Name="ModifyNr" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifierId" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="ModifierIp" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatorId" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="CreatorIp" Type="varchar" MaxLength="48" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="CustomerCode" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderItems">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PuchaseOrderId" Type="int" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="255" />
+          <Property Name="ModifyNr" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifierId" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="ModifierIp" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatorId" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="CreatorIp" Type="varchar" MaxLength="48" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductCategories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="48" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+          <Property Name="ParentCategoryId" Type="int" />
+          <Property Name="ModifyNr" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifierId" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="ModifierIp" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatorId" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="CreatorIp" Type="varchar" MaxLength="48" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="48" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="ModifyNr" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifierId" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="ModifierIp" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatorId" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="CreatorIp" Type="varchar" MaxLength="48" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PuchaseOrders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="OrderDate" Type="datetime" Nullable="false" />
+          <Property Name="DueDate" Type="datetime" />
+          <Property Name="Code" Type="nvarchar" MaxLength="48" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsApproved" Type="bit" Nullable="false" />
+          <Property Name="ApproveDate" Type="datetime" />
+          <Property Name="ApprovedUserId" Type="varchar" MaxLength="48" />
+          <Property Name="ApprovedUserIp" Type="varchar" MaxLength="48" />
+          <Property Name="ModifyNr" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifierId" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="ModifierIp" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatorId" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="CreatorIp" Type="varchar" MaxLength="48" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Suppliers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="SupplierCode" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Contact_CompanyId">
+          <End Role="Companies" Type="Self.Companies" Multiplicity="1" />
+          <End Role="Contacts" Type="Self.Contacts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companies">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contacts">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_Id">
+          <End Role="Companies" Type="Self.Companies" Multiplicity="1" />
+          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Companies">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customers">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderItem_ProductId">
+          <End Role="Products" Type="Self.Products" Multiplicity="1" />
+          <End Role="OrderItems" Type="Self.OrderItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderItems">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderItem_PuchaseOrderId">
+          <End Role="PuchaseOrders" Type="Self.PuchaseOrders" Multiplicity="1" />
+          <End Role="OrderItems" Type="Self.OrderItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PuchaseOrders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderItems">
+              <PropertyRef Name="PuchaseOrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_CategoryId">
+          <End Role="ProductCategories" Type="Self.ProductCategories" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductCategories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductCategory_ParentCategoryId">
+          <End Role="ProductCategories" Type="Self.ProductCategories" Multiplicity="0..1" />
+          <End Role="ProductCategories1" Type="Self.ProductCategories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductCategories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductCategories1">
+              <PropertyRef Name="ParentCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PuchaseOrder_CustomerId">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="PuchaseOrders" Type="Self.PuchaseOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PuchaseOrders">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Supplier_Id">
+          <End Role="Companies" Type="Self.Companies" Multiplicity="1" />
+          <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Companies">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Suppliers">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CriticalPathDataModelStoreContainer">
+          <EntitySet Name="Companies" EntityType="Self.Companies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contacts" EntityType="Self.Contacts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderItems" EntityType="Self.OrderItems" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductCategories" EntityType="Self.ProductCategories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PuchaseOrders" EntityType="Self.PuchaseOrders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Suppliers" EntityType="Self.Suppliers" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Contact_CompanyId" Association="Self.FK_Contact_CompanyId">
+            <End Role="Companies" EntitySet="Companies" />
+            <End Role="Contacts" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_Id" Association="Self.FK_Customer_Id">
+            <End Role="Companies" EntitySet="Companies" />
+            <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderItem_ProductId" Association="Self.FK_OrderItem_ProductId">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="OrderItems" EntitySet="OrderItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderItem_PuchaseOrderId" Association="Self.FK_OrderItem_PuchaseOrderId">
+            <End Role="PuchaseOrders" EntitySet="PuchaseOrders" />
+            <End Role="OrderItems" EntitySet="OrderItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_CategoryId" Association="Self.FK_Product_CategoryId">
+            <End Role="ProductCategories" EntitySet="ProductCategories" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductCategory_ParentCategoryId" Association="Self.FK_ProductCategory_ParentCategoryId">
+            <End Role="ProductCategories" EntitySet="ProductCategories" />
+            <End Role="ProductCategories1" EntitySet="ProductCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PuchaseOrder_CustomerId" Association="Self.FK_PuchaseOrder_CustomerId">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="PuchaseOrders" EntitySet="PuchaseOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Supplier_Id" Association="Self.FK_Supplier_Id">
+            <End Role="Companies" EntitySet="Companies" />
+            <End Role="Suppliers" EntitySet="Suppliers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CriticalPathDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CriticalPathContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Companies" EntityType="CriticalPathDataModel.Company" />
+          <EntitySet Name="Contacts" EntityType="CriticalPathDataModel.Contact" />
+          <AssociationSet Name="FK_Contact_CompanyId" Association="CriticalPathDataModel.FK_Contact_CompanyId">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Contact" EntitySet="Contacts" />
+          </AssociationSet>
+          <EntitySet Name="ProductCategories" EntityType="CriticalPathDataModel.ProductCategory" />
+          <AssociationSet Name="FK_ProductCategory_ParentCategoryId" Association="CriticalPathDataModel.FK_ProductCategory_ParentCategoryId">
+            <End Role="ProductCategory" EntitySet="ProductCategories" />
+            <End Role="ProductCategory1" EntitySet="ProductCategories" />
+          </AssociationSet>
+          <EntitySet Name="Products" EntityType="CriticalPathDataModel.Product" />
+          <AssociationSet Name="FK_Product_CategoryId" Association="CriticalPathDataModel.FK_Product_CategoryId">
+            <End Role="ProductCategory" EntitySet="ProductCategories" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <EntitySet Name="PuchaseOrders" EntityType="CriticalPathDataModel.PuchaseOrder" />
+          <AssociationSet Name="FK_PuchaseOrder_CustomerId" Association="CriticalPathDataModel.FK_PuchaseOrder_CustomerId">
+            <End Role="Customer" EntitySet="Companies" />
+            <End Role="PuchaseOrder" EntitySet="PuchaseOrders" />
+          </AssociationSet>
+          <EntitySet Name="OrderItems" EntityType="CriticalPathDataModel.OrderItem" />
+          <AssociationSet Name="FK_OrderItem_ProductId" Association="CriticalPathDataModel.FK_OrderItem_ProductId">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="OrderItem" EntitySet="OrderItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderItem_PuchaseOrderId" Association="CriticalPathDataModel.FK_OrderItem_PuchaseOrderId">
+            <End Role="PuchaseOrder" EntitySet="PuchaseOrders" />
+            <End Role="OrderItem" EntitySet="OrderItems" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Company" Abstract="true">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Phone1" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Phone2" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="Phone3" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="Address1" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Address2" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCode" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ModifyNr" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifierId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="ModifierIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatorId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="CreatorIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Contacts" Relationship="CriticalPathDataModel.FK_Contact_CompanyId" FromRole="Company" ToRole="Contact" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="EmailWork" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="EmailHome" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneMobile" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneWork1" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneWork2" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+          <Property Name="ModifyNr" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifierId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="ModifierIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatorId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="CreatorIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Company" Relationship="CriticalPathDataModel.FK_Contact_CompanyId" FromRole="Contact" ToRole="Company" />
+        </EntityType>
+        <EntityType Name="Customer" BaseType="CriticalPathDataModel.Company">
+          <Property Name="CustomerCode" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Orders" Relationship="CriticalPathDataModel.FK_PuchaseOrder_CustomerId" FromRole="Customer" ToRole="PuchaseOrder" />
+        </EntityType>
+        <EntityType Name="Supplier" BaseType="CriticalPathDataModel.Company">
+          <Property Name="SupplierCode" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_Contact_CompanyId">
+          <End Type="CriticalPathDataModel.Company" Role="Company" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.Contact" Role="Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ProductCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" MaxLength="48" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="ParentCategoryId" Type="Int32" />
+          <Property Name="ModifyNr" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifierId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="ModifierIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatorId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="CreatorIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SubCategories" Relationship="CriticalPathDataModel.FK_ProductCategory_ParentCategoryId" FromRole="ProductCategory" ToRole="ProductCategory1" />
+          <NavigationProperty Name="ParentCategory" Relationship="CriticalPathDataModel.FK_ProductCategory_ParentCategoryId" FromRole="ProductCategory1" ToRole="ProductCategory" />
+          <NavigationProperty Name="Products" Relationship="CriticalPathDataModel.FK_Product_CategoryId" FromRole="ProductCategory" ToRole="Product" />
+        </EntityType>
+        <Association Name="FK_ProductCategory_ParentCategoryId">
+          <End Type="CriticalPathDataModel.ProductCategory" Role="ProductCategory" Multiplicity="0..1" />
+          <End Type="CriticalPathDataModel.ProductCategory" Role="ProductCategory1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductCategory1">
+              <PropertyRef Name="ParentCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" MaxLength="48" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Name="ModifyNr" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifierId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="ModifierIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatorId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="CreatorIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Category" Relationship="CriticalPathDataModel.FK_Product_CategoryId" FromRole="Product" ToRole="ProductCategory" />
+          <NavigationProperty Name="OrderItems" Relationship="CriticalPathDataModel.FK_OrderItem_ProductId" FromRole="Product" ToRole="OrderItem" />
+        </EntityType>
+        <Association Name="FK_Product_CategoryId">
+          <End Type="CriticalPathDataModel.ProductCategory" Role="ProductCategory" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PuchaseOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DueDate" Type="DateTime" Precision="3" />
+          <Property Name="Code" Type="String" MaxLength="48" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+          <Property Name="ApproveDate" Type="DateTime" Precision="3" />
+          <Property Name="ApprovedUserId" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="ApprovedUserIp" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="ModifyNr" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifierId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="ModifierIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatorId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="CreatorIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Customer" Relationship="CriticalPathDataModel.FK_PuchaseOrder_CustomerId" FromRole="PuchaseOrder" ToRole="Customer" />
+          <NavigationProperty Name="OrderItems" Relationship="CriticalPathDataModel.FK_OrderItem_PuchaseOrderId" FromRole="PuchaseOrder" ToRole="OrderItem" />
+        </EntityType>
+        <Association Name="FK_PuchaseOrder_CustomerId">
+          <End Type="CriticalPathDataModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.PuchaseOrder" Role="PuchaseOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PuchaseOrder">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="OrderItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PuchaseOrderId" Type="Int32" Nullable="false" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Notes" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ModifyNr" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifierId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="ModifierIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatorId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="CreatorIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Product" Relationship="CriticalPathDataModel.FK_OrderItem_ProductId" FromRole="OrderItem" ToRole="Product" />
+          <NavigationProperty Name="PuchaseOrder" Relationship="CriticalPathDataModel.FK_OrderItem_PuchaseOrderId" FromRole="OrderItem" ToRole="PuchaseOrder" />
+        </EntityType>
+        <Association Name="FK_OrderItem_ProductId">
+          <End Type="CriticalPathDataModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.OrderItem" Role="OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderItem">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderItem_PuchaseOrderId">
+          <End Type="CriticalPathDataModel.PuchaseOrder" Role="PuchaseOrder" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.OrderItem" Role="OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PuchaseOrder">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderItem">
+              <PropertyRef Name="PuchaseOrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CriticalPathDataModelStoreContainer" CdmEntityContainer="CriticalPathContext">
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="IsTypeOf(CriticalPathDataModel.Company)">
+              <MappingFragment StoreEntitySet="Companies">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CreatorIp" ColumnName="CreatorIp" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifierIp" ColumnName="ModifierIp" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="ModifyNr" ColumnName="ModifyNr" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Phone3" ColumnName="Phone3" />
+                <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+                <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(CriticalPathDataModel.Customer)">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CustomerCode" ColumnName="CustomerCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(CriticalPathDataModel.Supplier)">
+              <MappingFragment StoreEntitySet="Suppliers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="CriticalPathDataModel.Contact">
+              <MappingFragment StoreEntitySet="Contacts">
+                <ScalarProperty Name="CreatorIp" ColumnName="CreatorIp" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifierIp" ColumnName="ModifierIp" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="ModifyNr" ColumnName="ModifyNr" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="PhoneWork2" ColumnName="PhoneWork2" />
+                <ScalarProperty Name="PhoneWork1" ColumnName="PhoneWork1" />
+                <ScalarProperty Name="PhoneMobile" ColumnName="PhoneMobile" />
+                <ScalarProperty Name="EmailHome" ColumnName="EmailHome" />
+                <ScalarProperty Name="EmailWork" ColumnName="EmailWork" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductCategories">
+            <EntityTypeMapping TypeName="CriticalPathDataModel.ProductCategory">
+              <MappingFragment StoreEntitySet="ProductCategories">
+                <ScalarProperty Name="CreatorIp" ColumnName="CreatorIp" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifierIp" ColumnName="ModifierIp" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="ModifyNr" ColumnName="ModifyNr" />
+                <ScalarProperty Name="ParentCategoryId" ColumnName="ParentCategoryId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="CriticalPathDataModel.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="CreatorIp" ColumnName="CreatorIp" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifierIp" ColumnName="ModifierIp" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="ModifyNr" ColumnName="ModifyNr" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PuchaseOrders">
+            <EntityTypeMapping TypeName="CriticalPathDataModel.PuchaseOrder">
+              <MappingFragment StoreEntitySet="PuchaseOrders">
+                <ScalarProperty Name="CreatorIp" ColumnName="CreatorIp" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifierIp" ColumnName="ModifierIp" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="ModifyNr" ColumnName="ModifyNr" />
+                <ScalarProperty Name="ApprovedUserIp" ColumnName="ApprovedUserIp" />
+                <ScalarProperty Name="ApprovedUserId" ColumnName="ApprovedUserId" />
+                <ScalarProperty Name="ApproveDate" ColumnName="ApproveDate" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderItems">
+            <EntityTypeMapping TypeName="CriticalPathDataModel.OrderItem">
+              <MappingFragment StoreEntitySet="OrderItems">
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="CreatorIp" ColumnName="CreatorIp" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifierIp" ColumnName="ModifierIp" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="ModifyNr" ColumnName="ModifyNr" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="PuchaseOrderId" ColumnName="PuchaseOrderId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

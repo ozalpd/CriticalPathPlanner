@@ -1,0 +1,32 @@
+@using CriticalPath.Web.Models
+@using CriticalPath.Data
+@using CriticalPath.Data.Resources
+@model string
+<script>
+    function setPager(pageNr) {
+        $('#pageNr').val(pageNr);
+        $('#searchForm').submit();
+    }
+    function setDelete(item, id) {
+        $('#deleteText').html('@MessageStrings.YouAreAboutToDelete ' + item + '.<br/>@MessageStrings.AreYouSure?');
+        $('#deleteButton').attr('href', '/@Model/Delete/' + id);
+    }
+    function showMessageBox(title, text, cancelButton) {
+        if (cancelButton) {
+            $('#messageBoxCancelButton').show();
+        }
+        else {
+            $('#messageBoxCancelButton').hide();
+        }
+        $('#messageBoxTitle').html(title);
+        $('#messageBoxText').html(text);
+        $('#messageBox').modal('show');
+    }
+    function hideMessageBox() {
+        $('#messageBox').modal('hide');
+    }
+    function showCannotDelete(item, relatedRecords) {
+        var msgText = '@MessageStrings.CanNotDelete ' + item + '.<br/>@MessageStrings.BecauseOfRelatedRecords.<br/>' + relatedRecords;
+        showMessageBox('@MessageStrings.UnableToDelete!', msgText, true);
+    }
+</script>

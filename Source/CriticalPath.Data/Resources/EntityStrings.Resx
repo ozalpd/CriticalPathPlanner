@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+    <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+	<data name="Address1" xml:space="preserve">
+		<value>Address Line 1</value>
+	</data>
+
+	<data name="Address2" xml:space="preserve">
+		<value>Address Line 2</value>
+	</data>
+
+	<data name="ApproveDate" xml:space="preserve">
+		<value>Approve Date</value>
+	</data>
+
+	<data name="ApprovedUserId" xml:space="preserve">
+		<value>Approved User ID</value>
+	</data>
+
+	<data name="ApprovedUserIp" xml:space="preserve">
+		<value>Approved User IP</value>
+	</data>
+
+	<data name="Category" xml:space="preserve">
+		<value>Category</value>
+	</data>
+
+	<data name="CategoryId" xml:space="preserve">
+		<value>Category</value>
+	</data>
+
+	<data name="City" xml:space="preserve">
+		<value>City</value>
+	</data>
+
+	<data name="Code" xml:space="preserve">
+		<value>Code</value>
+	</data>
+
+	<data name="Companies" xml:space="preserve">
+		<value>Companies</value>
+	</data>
+
+	<data name="CompaniesList" xml:space="preserve">
+		<value>Companies List</value>
+	</data>
+
+	<data name="Company" xml:space="preserve">
+		<value>Company</value>
+	</data>
+
+	<data name="CompanyId" xml:space="preserve">
+		<value>Company Id</value>
+	</data>
+
+	<data name="CompanyName" xml:space="preserve">
+		<value>Company Name</value>
+	</data>
+
+	<data name="Contact" xml:space="preserve">
+		<value>Contact</value>
+	</data>
+
+	<data name="Contacts" xml:space="preserve">
+		<value>Contacts</value>
+	</data>
+
+	<data name="ContactsList" xml:space="preserve">
+		<value>Contacts List</value>
+	</data>
+
+	<data name="Country" xml:space="preserve">
+		<value>Country</value>
+	</data>
+
+	<data name="CreateCompany" xml:space="preserve">
+		<value>Create Company</value>
+	</data>
+
+	<data name="CreateContact" xml:space="preserve">
+		<value>Create Contact</value>
+	</data>
+
+	<data name="CreateCustomer" xml:space="preserve">
+		<value>Create Customer</value>
+	</data>
+
+	<data name="CreateDate" xml:space="preserve">
+		<value>Create Date</value>
+	</data>
+
+	<data name="CreateOrderItem" xml:space="preserve">
+		<value>Create Order Item</value>
+	</data>
+
+	<data name="CreateProcess" xml:space="preserve">
+		<value>Create Process</value>
+	</data>
+
+	<data name="CreateProcessStep" xml:space="preserve">
+		<value>Create Process Step</value>
+	</data>
+
+	<data name="CreateProcessStepTemplate" xml:space="preserve">
+		<value>Create Process Step Template</value>
+	</data>
+
+	<data name="CreateProcessTemplate" xml:space="preserve">
+		<value>Create Process Template</value>
+	</data>
+
+	<data name="CreateProduct" xml:space="preserve">
+		<value>Create Product</value>
+	</data>
+
+	<data name="CreateProductCategory" xml:space="preserve">
+		<value>Create Product Category</value>
+	</data>
+
+	<data name="CreatePuchaseOrder" xml:space="preserve">
+		<value>Create Puchase Order</value>
+	</data>
+
+	<data name="CreateSupplier" xml:space="preserve">
+		<value>Create Supplier</value>
+	</data>
+
+	<data name="CreatorId" xml:space="preserve">
+		<value>Creator</value>
+	</data>
+
+	<data name="CreatorIp" xml:space="preserve">
+		<value>Creator Ip</value>
+	</data>
+
+	<data name="Customer" xml:space="preserve">
+		<value>Customer</value>
+	</data>
+
+	<data name="CustomerCode" xml:space="preserve">
+		<value>Customer Code</value>
+	</data>
+
+	<data name="CustomerId" xml:space="preserve">
+		<value>Customer Id</value>
+	</data>
+
+	<data name="Customers" xml:space="preserve">
+		<value>Customers</value>
+	</data>
+
+	<data name="CustomersList" xml:space="preserve">
+		<value>Customers List</value>
+	</data>
+
+	<data name="DefaultTitle" xml:space="preserve">
+		<value>Default Title</value>
+	</data>
+
+	<data name="DeleteCompany" xml:space="preserve">
+		<value>Delete Company</value>
+	</data>
+
+	<data name="DeleteContact" xml:space="preserve">
+		<value>Delete Contact</value>
+	</data>
+
+	<data name="DeleteCustomer" xml:space="preserve">
+		<value>Delete Customer</value>
+	</data>
+
+	<data name="DeleteOrderItem" xml:space="preserve">
+		<value>Delete Order Item</value>
+	</data>
+
+	<data name="DeleteProcess" xml:space="preserve">
+		<value>Delete Process</value>
+	</data>
+
+	<data name="DeleteProcessStep" xml:space="preserve">
+		<value>Delete Process Step</value>
+	</data>
+
+	<data name="DeleteProcessStepTemplate" xml:space="preserve">
+		<value>Delete Process Step Template</value>
+	</data>
+
+	<data name="DeleteProcessTemplate" xml:space="preserve">
+		<value>Delete Process Template</value>
+	</data>
+
+	<data name="DeleteProduct" xml:space="preserve">
+		<value>Delete Product</value>
+	</data>
+
+	<data name="DeleteProductCategory" xml:space="preserve">
+		<value>Delete Product Category</value>
+	</data>
+
+	<data name="DeletePuchaseOrder" xml:space="preserve">
+		<value>Delete Puchase Order</value>
+	</data>
+
+	<data name="DeleteSupplier" xml:space="preserve">
+		<value>Delete Supplier</value>
+	</data>
+
+	<data name="Description" xml:space="preserve">
+		<value>Description</value>
+	</data>
+
+	<data name="DisplayOrder" xml:space="preserve">
+		<value>Display Order</value>
+	</data>
+
+	<data name="DueDate" xml:space="preserve">
+		<value>Due Date</value>
+	</data>
+
+	<data name="EditCompany" xml:space="preserve">
+		<value>Edit Company</value>
+	</data>
+
+	<data name="EditContact" xml:space="preserve">
+		<value>Edit Contact</value>
+	</data>
+
+	<data name="EditCustomer" xml:space="preserve">
+		<value>Edit Customer</value>
+	</data>
+
+	<data name="EditOrderItem" xml:space="preserve">
+		<value>Edit Order Item</value>
+	</data>
+
+	<data name="EditProcess" xml:space="preserve">
+		<value>Edit Process</value>
+	</data>
+
+	<data name="EditProcessStep" xml:space="preserve">
+		<value>Edit Process Step</value>
+	</data>
+
+	<data name="EditProcessStepTemplate" xml:space="preserve">
+		<value>Edit Process Step Template</value>
+	</data>
+
+	<data name="EditProcessTemplate" xml:space="preserve">
+		<value>Edit Process Template</value>
+	</data>
+
+	<data name="EditProduct" xml:space="preserve">
+		<value>Edit Product</value>
+	</data>
+
+	<data name="EditProductCategory" xml:space="preserve">
+		<value>Edit Product Category</value>
+	</data>
+
+	<data name="EditPuchaseOrder" xml:space="preserve">
+		<value>Edit Puchase Order</value>
+	</data>
+
+	<data name="EditSupplier" xml:space="preserve">
+		<value>Edit Supplier</value>
+	</data>
+
+	<data name="EmailHome" xml:space="preserve">
+		<value>Email Home</value>
+	</data>
+
+	<data name="EmailWork" xml:space="preserve">
+		<value>Email Work</value>
+	</data>
+
+	<data name="FirstName" xml:space="preserve">
+		<value>First Name</value>
+	</data>
+
+	<data name="ForecastDate" xml:space="preserve">
+		<value>Forecast Date</value>
+	</data>
+
+	<data name="Id" xml:space="preserve">
+		<value>Record Nr</value>
+	</data>
+
+	<data name="IsApproved" xml:space="preserve">
+		<value>Is Approved</value>
+	</data>
+
+	<data name="IsCompleted " xml:space="preserve">
+		<value>Is Completed </value>
+	</data>
+
+	<data name="LastName" xml:space="preserve">
+		<value>Last Name</value>
+	</data>
+
+	<data name="ModifierId" xml:space="preserve">
+		<value>Modifier</value>
+	</data>
+
+	<data name="ModifierIp" xml:space="preserve">
+		<value>Modifier Ip</value>
+	</data>
+
+	<data name="ModifyDate" xml:space="preserve">
+		<value>Modify Date</value>
+	</data>
+
+	<data name="ModifyNr" xml:space="preserve">
+		<value>Modify Nr</value>
+	</data>
+
+	<data name="Notes" xml:space="preserve">
+		<value>Notes</value>
+	</data>
+
+	<data name="OrderDate" xml:space="preserve">
+		<value>Order Date</value>
+	</data>
+
+	<data name="OrderItem" xml:space="preserve">
+		<value>Order Item</value>
+	</data>
+
+	<data name="OrderItemId" xml:space="preserve">
+		<value>Order Item Id</value>
+	</data>
+
+	<data name="OrderItems" xml:space="preserve">
+		<value>Order Items</value>
+	</data>
+
+	<data name="OrderItemsList" xml:space="preserve">
+		<value>Order Items List</value>
+	</data>
+
+	<data name="Orders" xml:space="preserve">
+		<value>Orders</value>
+	</data>
+
+	<data name="ParentCategory" xml:space="preserve">
+		<value>Parent Category</value>
+	</data>
+
+	<data name="ParentCategoryId" xml:space="preserve">
+		<value>Parent Category Id</value>
+	</data>
+
+	<data name="Phone1" xml:space="preserve">
+		<value>Phone1</value>
+	</data>
+
+	<data name="Phone2" xml:space="preserve">
+		<value>Phone2</value>
+	</data>
+
+	<data name="Phone3" xml:space="preserve">
+		<value>Phone3</value>
+	</data>
+
+	<data name="PhoneMobile" xml:space="preserve">
+		<value>Mobile Phone</value>
+	</data>
+
+	<data name="PhoneWork1" xml:space="preserve">
+		<value>Phone Work1</value>
+	</data>
+
+	<data name="PhoneWork2" xml:space="preserve">
+		<value>Phone Work2</value>
+	</data>
+
+	<data name="Process" xml:space="preserve">
+		<value>Process</value>
+	</data>
+
+	<data name="Processes" xml:space="preserve">
+		<value>Processes</value>
+	</data>
+
+	<data name="ProcessesList" xml:space="preserve">
+		<value>Processes List</value>
+	</data>
+
+	<data name="ProcessId" xml:space="preserve">
+		<value>Process Id</value>
+	</data>
+
+	<data name="ProcessStep" xml:space="preserve">
+		<value>Process Step</value>
+	</data>
+
+	<data name="ProcessSteps" xml:space="preserve">
+		<value>Process Steps</value>
+	</data>
+
+	<data name="ProcessStepsList" xml:space="preserve">
+		<value>Process Steps List</value>
+	</data>
+
+	<data name="ProcessStepTemplate" xml:space="preserve">
+		<value>Process Step Template</value>
+	</data>
+
+	<data name="ProcessStepTemplates" xml:space="preserve">
+		<value>Process Step Templates</value>
+	</data>
+
+	<data name="ProcessStepTemplatesList" xml:space="preserve">
+		<value>Process Step Templates List</value>
+	</data>
+
+	<data name="ProcessTemplate" xml:space="preserve">
+		<value>Process Template</value>
+	</data>
+
+	<data name="ProcessTemplateId" xml:space="preserve">
+		<value>Process Template Id</value>
+	</data>
+
+	<data name="ProcessTemplates" xml:space="preserve">
+		<value>Process Templates</value>
+	</data>
+
+	<data name="ProcessTemplatesList" xml:space="preserve">
+		<value>Process Templates List</value>
+	</data>
+
+	<data name="Product" xml:space="preserve">
+		<value>Product</value>
+	</data>
+
+	<data name="ProductCategories" xml:space="preserve">
+		<value>Product Categories</value>
+	</data>
+
+	<data name="ProductCategoriesList" xml:space="preserve">
+		<value>Product Categories List</value>
+	</data>
+
+	<data name="ProductCategory" xml:space="preserve">
+		<value>Product Category</value>
+	</data>
+
+	<data name="ProductId" xml:space="preserve">
+		<value>Product Id</value>
+	</data>
+
+	<data name="Products" xml:space="preserve">
+		<value>Products</value>
+	</data>
+
+	<data name="ProductsList" xml:space="preserve">
+		<value>Products List</value>
+	</data>
+
+	<data name="PuchaseOrder" xml:space="preserve">
+		<value>Puchase Order</value>
+	</data>
+
+	<data name="PuchaseOrderId" xml:space="preserve">
+		<value>Puchase Order Id</value>
+	</data>
+
+	<data name="PuchaseOrders" xml:space="preserve">
+		<value>Puchase Orders</value>
+	</data>
+
+	<data name="PuchaseOrdersList" xml:space="preserve">
+		<value>Puchase Orders List</value>
+	</data>
+
+	<data name="Quantity" xml:space="preserve">
+		<value>Quantity</value>
+	</data>
+
+	<data name="RealizedDate" xml:space="preserve">
+		<value>Realized Date</value>
+	</data>
+
+	<data name="State" xml:space="preserve">
+		<value>State</value>
+	</data>
+
+	<data name="StepTemplates" xml:space="preserve">
+		<value>Step Templates</value>
+	</data>
+
+	<data name="SubCategories" xml:space="preserve">
+		<value>Sub Categories</value>
+	</data>
+
+	<data name="Supplier" xml:space="preserve">
+		<value>Supplier</value>
+	</data>
+
+	<data name="SupplierCode" xml:space="preserve">
+		<value>Supplier Code</value>
+	</data>
+
+	<data name="Suppliers" xml:space="preserve">
+		<value>Suppliers</value>
+	</data>
+
+	<data name="SuppliersList" xml:space="preserve">
+		<value>Suppliers List</value>
+	</data>
+
+	<data name="TargetDate" xml:space="preserve">
+		<value>Target Date</value>
+	</data>
+
+	<data name="TemplateName" xml:space="preserve">
+		<value>Template Name</value>
+	</data>
+
+	<data name="Title" xml:space="preserve">
+		<value>Title</value>
+	</data>
+
+	<data name="ZipCode" xml:space="preserve">
+		<value>Zip Code</value>
+	</data>
+</root>
