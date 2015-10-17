@@ -11,79 +11,15 @@ namespace CriticalPath.Web.Controllers
 {
     public class AdmPanelController : AbstractAdminController
     {
-        protected CriticalPathContext DataContext
+        [Authorize]
+        public override ActionResult Index()
         {
-            get
-            {
-                if (_dataContext == null)
-                {
-                    _dataContext = new CriticalPathContext();
-                }
-                return _dataContext;
-            }
+            return Content("AdmPanel");
         }
-        private CriticalPathContext _dataContext;
-
 
         protected override string AdminRole
         {
             get { return SecurityRoles.Admin; }
-        }
-
-        public override async Task<ActionResult> SeedRoles()
-        {
-            var result = await base.SeedRoles();
-
-            StringBuilder sb = new StringBuilder();
-
-            var supervisor = new OzzIdentity.Models.OzzUser()
-            {
-                FirstName = "Super",
-                LastName = "Doe",
-                Email = "super1@mail.xy",
-                UserName = "super1@mail.xy"
-            };
-            var clerk = new OzzIdentity.Models.OzzUser()
-            {
-                FirstName = "Clerk",
-                LastName = "Doe",
-                Email = SecurityRoles.Clerk + "@mail.xy",
-                UserName = SecurityRoles.Clerk + "@mail.xy"
-            };
-            var observer = new OzzIdentity.Models.OzzUser()
-            {
-                FirstName = "Observer",
-                LastName = "Doe",
-                Email = SecurityRoles.Observer + "@mail.xy",
-                UserName = SecurityRoles.Observer + "@mail.xy"
-            };
-
-            var superResult = await UserManager.CreateAsync(supervisor, "Dnm!2345");
-            if (superResult.Succeeded)
-            {
-                await UserManager.AddToRoleAsync(supervisor.Id, SecurityRoles.Supervisor);
-            }
-
-            var clerkResult = await UserManager.CreateAsync(clerk, "Dnm!2345");
-            if (clerkResult.Succeeded)
-            {
-                await UserManager.AddToRoleAsync(clerk.Id, SecurityRoles.Clerk);
-            }
-
-            var obsResult = await UserManager.CreateAsync(observer, "Dnm!2345");
-            if (obsResult.Succeeded)
-            {
-                await UserManager.AddToRoleAsync(observer.Id, SecurityRoles.Observer);
-            }
-            await UserManager.CreateAsync(new OzzIdentity.Models.OzzUser()
-            {
-                FirstName = "User",
-                LastName = "Doe",
-                Email = "user@mail.xy",
-                UserName = "user1"
-            }, "Dnm!2345");
-
-            return result;
         }
 
 
@@ -99,7 +35,7 @@ namespace CriticalPath.Web.Controllers
         }
 
         [Authorize]
-        public ActionResult SeedProducts()
+        public async Task<ActionResult> SeedProducts()
         {
             string[] catgKadin = {
                 "Etek",
@@ -157,7 +93,7 @@ namespace CriticalPath.Web.Controllers
             DataContext.ProductCategories.Add(catg3);
             countCatg = AddCategory(catg3, catgCocuk, sb);
 
-            DataContext.SaveChanges(this);
+            await DataContext.SaveChangesAsync(this);
 
 
             return Content(sb.ToString());
@@ -205,10 +141,90 @@ namespace CriticalPath.Web.Controllers
             return countCatg;
         }
 
-        [Authorize]
-        public override ActionResult Index()
+
+        protected CriticalPathContext DataContext
         {
-            return Content("AdmPanel");
+            get
+            {
+                if (_dataContext == null)
+                {
+                    _dataContext = new CriticalPathContext();
+                }
+                return _dataContext;
+            }
         }
+        private CriticalPathContext _dataContext;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (_dataContext != null)
+                {
+                    _dataContext.Dispose();
+                    _dataContext = null;
+                }
+            }
+            base.Dispose(disposing);
+        }
+
+
+        //
+
+        //public override async Task<ActionResult> SeedRoles()
+        //{
+        //    var result = await base.SeedRoles();
+
+        //    StringBuilder sb = new StringBuilder();
+
+        //    var supervisor = new OzzIdentity.Models.OzzUser()
+        //    {
+        //        FirstName = "Super",
+        //        LastName = "Doe",
+        //        Email = "super1@mail.xy",
+        //        UserName = "super1@mail.xy"
+        //    };
+        //    var clerk = new OzzIdentity.Models.OzzUser()
+        //    {
+        //        FirstName = "Clerk",
+        //        LastName = "Doe",
+        //        Email = SecurityRoles.Clerk + "@mail.xy",
+        //        UserName = SecurityRoles.Clerk + "@mail.xy"
+        //    };
+        //    var observer = new OzzIdentity.Models.OzzUser()
+        //    {
+        //        FirstName = "Observer",
+        //        LastName = "Doe",
+        //        Email = SecurityRoles.Observer + "@mail.xy",
+        //        UserName = SecurityRoles.Observer + "@mail.xy"
+        //    };
+
+        //    var superResult = await UserManager.CreateAsync(supervisor, "Dnm!2345");
+        //    if (superResult.Succeeded)
+        //    {
+        //        await UserManager.AddToRoleAsync(supervisor.Id, SecurityRoles.Supervisor);
+        //    }
+
+        //    var clerkResult = await UserManager.CreateAsync(clerk, "Dnm!2345");
+        //    if (clerkResult.Succeeded)
+        //    {
+        //        await UserManager.AddToRoleAsync(clerk.Id, SecurityRoles.Clerk);
+        //    }
+
+        //    var obsResult = await UserManager.CreateAsync(observer, "Dnm!2345");
+        //    if (obsResult.Succeeded)
+        //    {
+        //        await UserManager.AddToRoleAsync(observer.Id, SecurityRoles.Observer);
+        //    }
+        //    await UserManager.CreateAsync(new OzzIdentity.Models.OzzUser()
+        //    {
+        //        FirstName = "User",
+        //        LastName = "Doe",
+        //        Email = "user@mail.xy",
+        //        UserName = "user1"
+        //    }, "Dnm!2345");
+
+        //    return result;
+        //}
     }
 }

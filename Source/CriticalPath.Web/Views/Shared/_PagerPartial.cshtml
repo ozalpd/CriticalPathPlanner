@@ -23,12 +23,22 @@
                     <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
+            <li class="disabled">
+                <a aria-label="Previous">
+                    <span aria-hidden="true">&lsaquo;</span>
+                </a>
+            </li>
         }
         else
         {
             <li>
-                <a href="#" aria-label="Previous" onclick="setPager(@(pageNr-1))">
+                <a href="#" aria-label="FirstPage" onclick="setPager(1)">
                     <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" aria-label="Previous" onclick="setPager(@(pageNr-1))">
+                    <span aria-hidden="true">&lsaquo;</span>
                 </a>
             </li>
         }
@@ -45,16 +55,24 @@
         }
         @if (pageNr < pageCount)
         {
-
             <li>
                 <a href="#" aria-label="Next" onclick="setPager(@(pageNr+1))">
+                    <span aria-hidden="true">&rsaquo;</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" aria-label="Next" onclick="setPager(@(pageCount))">
                     <span aria-hidden="true">&raquo;</span>
                 </a>
             </li>
         }
         else
         {
-
+            <li class="disabled">
+                <a aria-label="Next">
+                    <span aria-hidden="true">&rsaquo;</span>
+                </a>
+            </li>
             <li class="disabled">
                 <a aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>

@@ -18,7 +18,7 @@ namespace CriticalPath.Web.Controllers
     {
         protected virtual async Task<bool> IsUserAdminAsync()
         {
-            if (_isUserAdmin.HasValue)
+            if (!_isUserAdmin.HasValue)
             {
                 _isUserAdmin = Request.IsAuthenticated && 
                                 await UserManager.IsInRoleAsync(UserID, SecurityRoles.Admin);
@@ -31,7 +31,7 @@ namespace CriticalPath.Web.Controllers
 
         protected virtual async Task<bool> IsUserClerkAsync()
         {
-            if (_isUserClerk.HasValue)
+            if (!_isUserClerk.HasValue)
             {
                 _isUserClerk = Request.IsAuthenticated && 
                                     await UserManager.IsInRoleAsync(UserID, SecurityRoles.Clerk);
@@ -43,7 +43,7 @@ namespace CriticalPath.Web.Controllers
 
         protected virtual async Task<bool> IsUserObserverAsync()
         {
-            if (_isUserObserver.HasValue)
+            if (!_isUserObserver.HasValue)
             {
                 _isUserObserver = Request.IsAuthenticated && 
                                     await UserManager.IsInRoleAsync(UserID, SecurityRoles.Observer);
@@ -55,7 +55,7 @@ namespace CriticalPath.Web.Controllers
 
         protected virtual async Task<bool> IsUserSupervisorAsync()
         {
-            if (_isUserSupervisor.HasValue)
+            if (!_isUserSupervisor.HasValue)
             {
                 _isUserSupervisor = Request.IsAuthenticated && 
                                     await UserManager.IsInRoleAsync(UserID, SecurityRoles.Supervisor);

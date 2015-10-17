@@ -37,6 +37,10 @@ namespace CriticalPath.Data
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<PuchaseOrder> PuchaseOrders { get; set; }
         public virtual DbSet<OrderItem> OrderItems { get; set; }
+        public virtual DbSet<Process> Processes { get; set; }
+        public virtual DbSet<ProcessStep> ProcessSteps { get; set; }
+        public virtual DbSet<ProcessStepTemplate> ProcessStepTemplates { get; set; }
+        public virtual DbSet<ProcessTemplate> ProcessTemplates { get; set; }
     
         /// <summary>
         /// Default query for Companies
@@ -209,6 +213,164 @@ namespace CriticalPath.Data
                        ProductId = e.ProductId,
                        Quantity = e.Quantity,
                        Notes = e.Notes,
+                   };
+        }
+    
+    
+        /// <summary>
+        /// Default query for Processes
+        /// </summary>
+        /// <returns></returns>
+        public virtual IQueryable<Process> GetProcessQuery()
+        {
+            IQueryable<Process> query = Processes.OrderBy(p => p.Title);
+            return query;
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from Process query
+        /// </summary>
+        /// <param name="query">query to be converted</param>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<ProcessDTO> GetProcessDtoQuery()
+        {
+            return GetProcessDtoQuery(GetProcessQuery());
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from Process query
+        /// </summary>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<ProcessDTO> GetProcessDtoQuery(IQueryable<Process> query)
+        {
+            return from e in query
+                   select new ProcessDTO
+                   {
+                       Id = e.Id,
+                       Title = e.Title,
+                       IsCompleted_ = e.IsCompleted_,
+                       Description = e.Description,
+                       ProcessTemplateId = e.ProcessTemplateId,
+                       OrderItemId = e.OrderItemId,
+                       IsApproved = e.IsApproved,
+                       ApproveDate = e.ApproveDate,
+                   };
+        }
+    
+    
+        /// <summary>
+        /// Default query for ProcessSteps
+        /// </summary>
+        /// <returns></returns>
+        public virtual IQueryable<ProcessStep> GetProcessStepQuery()
+        {
+            IQueryable<ProcessStep> query = ProcessSteps.OrderBy(p => p.DisplayOrder);
+            return query;
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from ProcessStep query
+        /// </summary>
+        /// <param name="query">query to be converted</param>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<ProcessStepDTO> GetProcessStepDtoQuery()
+        {
+            return GetProcessStepDtoQuery(GetProcessStepQuery());
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from ProcessStep query
+        /// </summary>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<ProcessStepDTO> GetProcessStepDtoQuery(IQueryable<ProcessStep> query)
+        {
+            return from e in query
+                   select new ProcessStepDTO
+                   {
+                       Id = e.Id,
+                       Title = e.Title,
+                       IsCompleted_ = e.IsCompleted_,
+                       Description = e.Description,
+                       DisplayOrder = e.DisplayOrder,
+                       ProcessId = e.ProcessId,
+                       TargetDate = e.TargetDate,
+                       ForecastDate = e.ForecastDate,
+                       RealizedDate = e.RealizedDate,
+                       IsApproved = e.IsApproved,
+                       ApproveDate = e.ApproveDate,
+                   };
+        }
+    
+    
+        /// <summary>
+        /// Default query for ProcessStepTemplates
+        /// </summary>
+        /// <returns></returns>
+        public virtual IQueryable<ProcessStepTemplate> GetProcessStepTemplateQuery()
+        {
+            IQueryable<ProcessStepTemplate> query = ProcessStepTemplates.OrderBy(p => p.DisplayOrder);
+            return query;
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from ProcessStepTemplate query
+        /// </summary>
+        /// <param name="query">query to be converted</param>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<ProcessStepTemplateDTO> GetProcessStepTemplateDtoQuery()
+        {
+            return GetProcessStepTemplateDtoQuery(GetProcessStepTemplateQuery());
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from ProcessStepTemplate query
+        /// </summary>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<ProcessStepTemplateDTO> GetProcessStepTemplateDtoQuery(IQueryable<ProcessStepTemplate> query)
+        {
+            return from e in query
+                   select new ProcessStepTemplateDTO
+                   {
+                       Id = e.Id,
+                       Title = e.Title,
+                       DisplayOrder = e.DisplayOrder,
+                       ProcessTemplateId = e.ProcessTemplateId,
+                   };
+        }
+    
+    
+        /// <summary>
+        /// Default query for ProcessTemplates
+        /// </summary>
+        /// <returns></returns>
+        public virtual IQueryable<ProcessTemplate> GetProcessTemplateQuery()
+        {
+            IQueryable<ProcessTemplate> query = ProcessTemplates;
+            return query;
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from ProcessTemplate query
+        /// </summary>
+        /// <param name="query">query to be converted</param>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<ProcessTemplateDTO> GetProcessTemplateDtoQuery()
+        {
+            return GetProcessTemplateDtoQuery(GetProcessTemplateQuery());
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from ProcessTemplate query
+        /// </summary>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<ProcessTemplateDTO> GetProcessTemplateDtoQuery(IQueryable<ProcessTemplate> query)
+        {
+            return from e in query
+                   select new ProcessTemplateDTO
+                   {
+                       Id = e.Id,
+                       TemplateName = e.TemplateName,
+                       DefaultTitle = e.DefaultTitle,
                    };
         }
     

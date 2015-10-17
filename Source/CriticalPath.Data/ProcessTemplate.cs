@@ -12,19 +12,18 @@ namespace CriticalPath.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class OrderItem : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate
+    public partial class ProcessTemplate : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public OrderItem()
+        public ProcessTemplate()
         {
             this.Processes = new HashSet<Process>();
+            this.StepTemplates = new HashSet<ProcessStepTemplate>();
         }
     
         public int Id { get; set; }
-        public int PuchaseOrderId { get; set; }
-        public int ProductId { get; set; }
-        public int Quantity { get; set; }
-        public string Notes { get; set; }
+        public string TemplateName { get; set; }
+        public string DefaultTitle { get; set; }
         public int ModifyNr { get; set; }
         public System.DateTime ModifyDate { get; set; }
         public string ModifierId { get; set; }
@@ -33,22 +32,20 @@ namespace CriticalPath.Data
         public string CreatorId { get; set; }
         public string CreatorIp { get; set; }
     
-        public virtual Product Product { get; set; }
-        public virtual PuchaseOrder PuchaseOrder { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Process> Processes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProcessStepTemplate> StepTemplates { get; set; }
     	/// <summary>
-    	/// Clones all properties in a new OrderItem instance,
+    	/// Clones all properties in a new ProcessTemplate instance,
     	/// except PrimaryKey(s)
     	/// </summary>
-    	/// <returns>New OrderItem instance</returns>
-        public OrderItem Clone()
+    	/// <returns>New ProcessTemplate instance</returns>
+        public ProcessTemplate Clone()
         {
-            var clone = new OrderItem();
-            clone.PuchaseOrderId = PuchaseOrderId;
-            clone.ProductId = ProductId;
-            clone.Quantity = Quantity;
-            clone.Notes = Notes;
+            var clone = new ProcessTemplate();
+            clone.TemplateName = TemplateName;
+            clone.DefaultTitle = DefaultTitle;
             clone.ModifyNr = ModifyNr;
             clone.ModifyDate = ModifyDate;
             clone.ModifierId = ModifierId;
@@ -62,49 +59,43 @@ namespace CriticalPath.Data
             return clone;
         }
     
-    	// Use below function in a partial class file (eg. OrderItem.part.cs)
+    	// Use below function in a partial class file (eg. ProcessTemplate.part.cs)
     	// to add more complexity to clone
-        partial void Cloning(OrderItem clone);
+        partial void Cloning(ProcessTemplate clone);
     }
     
-    //Data Transfer Object type for OrderItem
-    public partial class OrderItemDTO
+    //Data Transfer Object type for ProcessTemplate
+    public partial class ProcessTemplateDTO
     {
-        public OrderItemDTO() { }
+        public ProcessTemplateDTO() { }
     
-        public OrderItemDTO(OrderItem entity)
+        public ProcessTemplateDTO(ProcessTemplate entity)
         {
             Id = entity.Id;
-            PuchaseOrderId = entity.PuchaseOrderId;
-            ProductId = entity.ProductId;
-            Quantity = entity.Quantity;
-            Notes = entity.Notes;
+            TemplateName = entity.TemplateName;
+            DefaultTitle = entity.DefaultTitle;
         
             Initilazing(entity);
         }
     
-        partial void Initilazing(OrderItem entity);
+        partial void Initilazing(ProcessTemplate entity);
         
-        public virtual OrderItem ToOrderItem()
+        public virtual ProcessTemplate ToProcessTemplate()
         {
-            var entity = new OrderItem();
+            var entity = new ProcessTemplate();
             entity.Id = Id;
-            entity.PuchaseOrderId = PuchaseOrderId;
-            entity.ProductId = ProductId;
-            entity.Quantity = Quantity;
-            entity.Notes = Notes;
+            entity.TemplateName = TemplateName;
+            entity.DefaultTitle = DefaultTitle;
     
             Converting(entity);
     
             return entity;
         }
     
-        partial void Converting(OrderItem entity);
+        partial void Converting(ProcessTemplate entity);
       
         public int Id { get; set; }
-        public int PuchaseOrderId { get; set; }
-        public int ProductId { get; set; }
-        public int Quantity { get; set; }
-        public string Notes { get; set; }
+        public string TemplateName { get; set; }
+        public string DefaultTitle { get; set; }
     }
 }

@@ -16,8 +16,9 @@ namespace CriticalPath.Web.Controllers
     {
         partial void SetViewBags(Product product)
         {
-            //TODO: Optimize query
-            var queryCategoryId = DataContext.ProductCategories;
+            var queryCategoryId = DataContext
+                                    .GetProductCategoryQuery()
+                                    .Where(c => c.SubCategories.Count == 0);
             int categoryId = product == null ? 0 : product.CategoryId;
             ViewBag.CategoryId = new SelectList(queryCategoryId, "Id", "Title", categoryId);
         }
@@ -30,7 +31,7 @@ namespace CriticalPath.Web.Controllers
         {
             if (!_canUserEdit.HasValue)
             {
-                _canUserEdit = Request.IsAuthenticated && await IsUserAdminAsync() && await IsUserSupervisorAsync() && await IsUserClerkAsync();
+                _canUserEdit = Request.IsAuthenticated && (await IsUserAdminAsync() || await IsUserSupervisorAsync() || await IsUserClerkAsync());
             }
             return _canUserEdit.Value;
         }
@@ -40,7 +41,7 @@ namespace CriticalPath.Web.Controllers
         {
             if (!_canUserCreate.HasValue)
             {
-                _canUserCreate = Request.IsAuthenticated && await IsUserAdminAsync() && await IsUserSupervisorAsync() && await IsUserClerkAsync();
+                _canUserCreate = Request.IsAuthenticated && (await IsUserAdminAsync() || await IsUserSupervisorAsync() || await IsUserClerkAsync());
             }
             return _canUserCreate.Value;
         }
@@ -50,7 +51,7 @@ namespace CriticalPath.Web.Controllers
         {
             if (!_canUserDelete.HasValue)
             {
-                _canUserDelete = Request.IsAuthenticated && await IsUserAdminAsync() && await IsUserSupervisorAsync();
+                _canUserDelete = Request.IsAuthenticated && (await IsUserAdminAsync() || await IsUserSupervisorAsync());
             }
             return _canUserDelete.Value;
         }

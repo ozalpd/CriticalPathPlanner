@@ -1,14 +1,7 @@
-using System;
 using System.Linq;
-using System.Text;
-using System.Collections;
-using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity;
-using System.Net;
 using System.Web.Mvc;
 using System.Threading.Tasks;
-using CriticalPath.Web.Models;
 using CriticalPath.Data;
 
 namespace CriticalPath.Web.Controllers
@@ -31,7 +24,7 @@ namespace CriticalPath.Web.Controllers
         {
             if (!_canUserEdit.HasValue)
             {
-                _canUserEdit = Request.IsAuthenticated && await IsUserAdminAsync() && await IsUserClerkAsync();
+                _canUserEdit = Request.IsAuthenticated && (await IsUserAdminAsync() || await IsUserSupervisorAsync() || await IsUserClerkAsync());
             }
             return _canUserEdit.Value;
         }
@@ -41,7 +34,7 @@ namespace CriticalPath.Web.Controllers
         {
             if (!_canUserCreate.HasValue)
             {
-                _canUserCreate = Request.IsAuthenticated && await IsUserAdminAsync() && await IsUserClerkAsync();
+                _canUserCreate = Request.IsAuthenticated && (await IsUserAdminAsync() || await IsUserSupervisorAsync() || await IsUserClerkAsync());
             }
             return _canUserCreate.Value;
         }
@@ -51,7 +44,7 @@ namespace CriticalPath.Web.Controllers
         {
             if (!_canUserDelete.HasValue)
             {
-                _canUserDelete = Request.IsAuthenticated && await IsUserAdminAsync();
+                _canUserDelete = Request.IsAuthenticated && (await IsUserAdminAsync() || await IsUserSupervisorAsync());
             }
             return _canUserDelete.Value;
         }
