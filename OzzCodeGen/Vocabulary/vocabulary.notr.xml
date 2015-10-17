@@ -185,20 +185,12 @@
     <Translation>Create Order Item</Translation>
   </Vocab>
   <Vocab>
-    <Name>CreateProcess</Name>
-    <Translation>Create Process</Translation>
+    <Name>CreateProccess</Name>
+    <Translation>Create Proccess</Translation>
   </Vocab>
   <Vocab>
-    <Name>CreateProcessStep</Name>
-    <Translation>Create Process Step</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>CreateProcessStepTemplate</Name>
-    <Translation>Create Process Step Template</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>CreateProcessTemplate</Name>
-    <Translation>Create Process Template</Translation>
+    <Name>CreateProccessStep</Name>
+    <Translation>Create Proccess Step</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateProduct</Name>
@@ -249,10 +241,6 @@
     <Translation>Date</Translation>
   </Vocab>
   <Vocab>
-    <Name>DefaultTitle</Name>
-    <Translation>Default Title</Translation>
-  </Vocab>
-  <Vocab>
     <Name>Delete</Name>
     <Translation>Delete</Translation>
   </Vocab>
@@ -277,20 +265,12 @@
     <Translation>Delete Order Item</Translation>
   </Vocab>
   <Vocab>
-    <Name>DeleteProcess</Name>
-    <Translation>Delete Process</Translation>
+    <Name>DeleteProccess</Name>
+    <Translation>Delete Proccess</Translation>
   </Vocab>
   <Vocab>
-    <Name>DeleteProcessStep</Name>
-    <Translation>Delete Process Step</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>DeleteProcessStepTemplate</Name>
-    <Translation>Delete Process Step Template</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>DeleteProcessTemplate</Name>
-    <Translation>Delete Process Template</Translation>
+    <Name>DeleteProccessStep</Name>
+    <Translation>Delete Proccess Step</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteProduct</Name>
@@ -377,20 +357,12 @@
     <Translation>Edit Order Item</Translation>
   </Vocab>
   <Vocab>
-    <Name>EditProcess</Name>
-    <Translation>Edit Process</Translation>
+    <Name>EditProccess</Name>
+    <Translation>Edit Proccess</Translation>
   </Vocab>
   <Vocab>
-    <Name>EditProcessStep</Name>
-    <Translation>Edit Process Step</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>EditProcessStepTemplate</Name>
-    <Translation>Edit Process Step Template</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>EditProcessTemplate</Name>
-    <Translation>Edit Process Template</Translation>
+    <Name>EditProccessStep</Name>
+    <Translation>Edit Proccess Step</Translation>
   </Vocab>
   <Vocab>
     <Name>EditProduct</Name>
@@ -475,10 +447,6 @@
   <Vocab>
     <Name>IsApproved</Name>
     <Translation>Is Approved</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>IsCompleted </Name>
-    <Translation>Is Completed </Translation>
   </Vocab>
   <Vocab>
     <Name>IsPublished</Name>
@@ -677,60 +645,32 @@
     <Translation>Print</Translation>
   </Vocab>
   <Vocab>
-    <Name>Process</Name>
-    <Translation>Process</Translation>
+    <Name>Proccess</Name>
+    <Translation>Proccess</Translation>
   </Vocab>
   <Vocab>
-    <Name>Processes</Name>
-    <Translation>Processes</Translation>
+    <Name>Proccesses</Name>
+    <Translation>Proccesses</Translation>
   </Vocab>
   <Vocab>
-    <Name>ProcessesList</Name>
-    <Translation>Processes List</Translation>
+    <Name>ProccessesList</Name>
+    <Translation>Proccesses List</Translation>
   </Vocab>
   <Vocab>
-    <Name>ProcessId</Name>
-    <Translation>Process Id</Translation>
+    <Name>ProccessId</Name>
+    <Translation>Proccess Id</Translation>
   </Vocab>
   <Vocab>
-    <Name>ProcessStep</Name>
-    <Translation>Process Step</Translation>
+    <Name>ProccessStep</Name>
+    <Translation>Proccess Step</Translation>
   </Vocab>
   <Vocab>
-    <Name>ProcessSteps</Name>
-    <Translation>Process Steps</Translation>
+    <Name>ProccessSteps</Name>
+    <Translation>Proccess Steps</Translation>
   </Vocab>
   <Vocab>
-    <Name>ProcessStepsList</Name>
-    <Translation>Process Steps List</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>ProcessStepTemplate</Name>
-    <Translation>Process Step Template</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>ProcessStepTemplates</Name>
-    <Translation>Process Step Templates</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>ProcessStepTemplatesList</Name>
-    <Translation>Process Step Templates List</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>ProcessTemplate</Name>
-    <Translation>Process Template</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>ProcessTemplateId</Name>
-    <Translation>Process Template Id</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>ProcessTemplates</Name>
-    <Translation>Process Templates</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>ProcessTemplatesList</Name>
-    <Translation>Process Templates List</Translation>
+    <Name>ProccessStepsList</Name>
+    <Translation>Proccess Steps List</Translation>
   </Vocab>
   <Vocab>
     <Name>Product</Name>
@@ -845,10 +785,6 @@
     <Translation>State</Translation>
   </Vocab>
   <Vocab>
-    <Name>StepTemplates</Name>
-    <Translation>Step Templates</Translation>
-  </Vocab>
-  <Vocab>
     <Name>SubCategories</Name>
     <Translation>Sub Categories</Translation>
   </Vocab>
@@ -887,10 +823,6 @@
   <Vocab>
     <Name>TaxOffice</Name>
     <Translation>Tax Office</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>TemplateName</Name>
-    <Translation>Template Name</Translation>
   </Vocab>
   <Vocab>
     <Name>Title</Name>

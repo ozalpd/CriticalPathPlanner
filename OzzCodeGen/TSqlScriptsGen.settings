@@ -695,13 +695,13 @@
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
-      <Name>Process</Name>
+      <Name>Proccess</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
       <InheritedEntity>IApproval</InheritedEntity>
       <UseInheritance>false</UseInheritance>
       <SchemaName>dbo</SchemaName>
-      <TableName>Processes</TableName>
+      <TableName>Proccesses</TableName>
       <ModifyTrack>false</ModifyTrack>
       <StoredProcs>false</StoredProcs>
       <CustomStoredProcs>false</CustomStoredProcs>
@@ -717,16 +717,6 @@
           <Nullable>false</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>IsCompleted </Name>
-          <Exclude>false</Exclude>
-          <DataType>bit</DataType>
-          <Lenght>0</Lenght>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
-          <SortDesc>false</SortDesc>
-          <Nullable>false</Nullable>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
           <Name>Description</Name>
           <Exclude>false</Exclude>
           <DataType>nVarChar</DataType>
@@ -735,17 +725,6 @@
           <Indexed>false</Indexed>
           <SortDesc>false</SortDesc>
           <Nullable>true</Nullable>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
-          <Name>ProcessTemplateId</Name>
-          <Exclude>false</Exclude>
-          <DataType>int</DataType>
-          <Lenght>0</Lenght>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
-          <SortDesc>false</SortDesc>
-          <Nullable>false</Nullable>
-          <ForeignKeyTable>ProcessTemplates</ForeignKeyTable>
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>OrderItemId</Name>
@@ -761,13 +740,13 @@
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
-      <Name>ProcessStep</Name>
+      <Name>ProccessStep</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
       <InheritedEntity>IApproval</InheritedEntity>
       <UseInheritance>false</UseInheritance>
       <SchemaName>dbo</SchemaName>
-      <TableName>ProcessSteps</TableName>
+      <TableName>ProccessSteps</TableName>
       <ModifyTrack>false</ModifyTrack>
       <StoredProcs>false</StoredProcs>
       <CustomStoredProcs>false</CustomStoredProcs>
@@ -779,16 +758,6 @@
           <Lenght>128</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
-          <SortDesc>false</SortDesc>
-          <Nullable>false</Nullable>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
-          <Name>IsCompleted </Name>
-          <Exclude>false</Exclude>
-          <DataType>bit</DataType>
-          <Lenght>0</Lenght>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
         </StorageColumnSetting>
@@ -808,20 +777,20 @@
           <DataType>int</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
+          <Indexed>false</Indexed>
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>ProcessId</Name>
+          <Name>ProccessId</Name>
           <Exclude>false</Exclude>
           <DataType>int</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
+          <Indexed>false</Indexed>
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
-          <ForeignKeyTable>Processes</ForeignKeyTable>
+          <ForeignKeyTable>Proccesses</ForeignKeyTable>
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>TargetDate</Name>
@@ -852,85 +821,6 @@
           <Indexed>false</Indexed>
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
-        </StorageColumnSetting>
-      </Properties>
-    </BaseEntitySetting>
-    <BaseEntitySetting xsi:type="StorageEntitySetting">
-      <Name>ProcessTemplate</Name>
-      <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
-      <InheritedEntity>IModified</InheritedEntity>
-      <UseInheritance>false</UseInheritance>
-      <SchemaName>dbo</SchemaName>
-      <TableName>ProcessTemplates</TableName>
-      <ModifyTrack>false</ModifyTrack>
-      <StoredProcs>false</StoredProcs>
-      <CustomStoredProcs>false</CustomStoredProcs>
-      <Properties>
-        <StorageColumnSetting>
-          <Name>TemplateName</Name>
-          <Exclude>false</Exclude>
-          <DataType>nVarChar</DataType>
-          <Lenght>128</Lenght>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
-          <SortDesc>false</SortDesc>
-          <Nullable>false</Nullable>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
-          <Name>DefaultTitle</Name>
-          <Exclude>false</Exclude>
-          <DataType>nVarChar</DataType>
-          <Lenght>128</Lenght>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>false</Indexed>
-          <SortDesc>false</SortDesc>
-          <Nullable>false</Nullable>
-        </StorageColumnSetting>
-      </Properties>
-    </BaseEntitySetting>
-    <BaseEntitySetting xsi:type="StorageEntitySetting">
-      <Name>ProcessStepTemplate</Name>
-      <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
-      <InheritedEntity>IModified</InheritedEntity>
-      <UseInheritance>false</UseInheritance>
-      <SchemaName>dbo</SchemaName>
-      <TableName>ProcessStepTemplates</TableName>
-      <ModifyTrack>false</ModifyTrack>
-      <StoredProcs>false</StoredProcs>
-      <CustomStoredProcs>false</CustomStoredProcs>
-      <Properties>
-        <StorageColumnSetting>
-          <Name>Title</Name>
-          <Exclude>false</Exclude>
-          <DataType>nVarChar</DataType>
-          <Lenght>128</Lenght>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>false</Indexed>
-          <SortDesc>false</SortDesc>
-          <Nullable>false</Nullable>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
-          <Name>DisplayOrder</Name>
-          <Exclude>false</Exclude>
-          <DataType>int</DataType>
-          <Lenght>0</Lenght>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
-          <SortDesc>false</SortDesc>
-          <Nullable>false</Nullable>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
-          <Name>ProcessTemplateId</Name>
-          <Exclude>false</Exclude>
-          <DataType>int</DataType>
-          <Lenght>0</Lenght>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
-          <SortDesc>false</SortDesc>
-          <Nullable>false</Nullable>
-          <ForeignKeyTable>ProcessTemplates</ForeignKeyTable>
         </StorageColumnSetting>
       </Properties>
     </BaseEntitySetting>

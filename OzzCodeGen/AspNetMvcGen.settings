@@ -951,7 +951,7 @@
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
-      <Name>Process</Name>
+      <Name>Proccess</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
       <Properties>
@@ -967,17 +967,6 @@
           <UseForEdit>TextBox</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>IsCompleted </Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
-          <InIndexView>true</InIndexView>
-          <InDetailsView>true</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForEdit>Standart</UseForEdit>
-        </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
           <Name>Description</Name>
           <Exclude>false</Exclude>
           <UseInSearch>true</UseInSearch>
@@ -987,28 +976,6 @@
           <InEditView>true</InEditView>
           <HasValidation>true</HasValidation>
           <UseForEdit>TextBox</UseForEdit>
-        </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
-          <Name>ProcessTemplate</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
-          <InIndexView>true</InIndexView>
-          <InDetailsView>true</InDetailsView>
-          <InCreateView>false</InCreateView>
-          <InEditView>false</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForEdit>Standart</UseForEdit>
-        </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
-          <Name>ProcessTemplateId</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
-          <InIndexView>false</InIndexView>
-          <InDetailsView>false</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>false</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForEdit>DropDownList</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
           <Name>OrderItemId</Name>
@@ -1032,23 +999,12 @@
           <HasValidation>true</HasValidation>
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
-          <Name>ProcessSteps</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
-          <InIndexView>true</InIndexView>
-          <InDetailsView>true</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForEdit>Standart</UseForEdit>
-        </AspNetMvcPropertySetting>
       </Properties>
-      <ControllerName>Processes</ControllerName>
-      <DataSetName>Processes</DataSetName>
+      <ControllerName>Proccesses</ControllerName>
+      <DataSetName>Proccesses</DataSetName>
       <DataContextClass>CriticalPathContext</DataContextClass>
       <SaveParameter>this</SaveParameter>
-      <ModelForEdit>Process</ModelForEdit>
+      <ModelForEdit>Proccess</ModelForEdit>
       <RolesCanView>users</RolesCanView>
       <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
@@ -1061,7 +1017,7 @@
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
-      <Name>ProcessStep</Name>
+      <Name>ProccessStep</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
       <Properties>
@@ -1075,17 +1031,6 @@
           <InEditView>true</InEditView>
           <HasValidation>true</HasValidation>
           <UseForEdit>ReadOnlyDisplay</UseForEdit>
-        </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
-          <Name>IsCompleted </Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
-          <InIndexView>true</InIndexView>
-          <InDetailsView>true</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
           <Name>Description</Name>
@@ -1110,7 +1055,7 @@
           <UseForEdit>HiddenInput</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>ProcessId</Name>
+          <Name>ProccessId</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>false</InIndexView>
@@ -1121,7 +1066,7 @@
           <UseForEdit>HiddenInput</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>Process</Name>
+          <Name>Proccess</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>
@@ -1165,132 +1110,11 @@
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
       </Properties>
-      <ControllerName>ProcessSteps</ControllerName>
-      <DataSetName>ProcessSteps</DataSetName>
+      <ControllerName>ProccessSteps</ControllerName>
+      <DataSetName>ProccessSteps</DataSetName>
       <DataContextClass>CriticalPathContext</DataContextClass>
       <SaveParameter>this</SaveParameter>
-      <ModelForEdit>ProcessStep</ModelForEdit>
-      <RolesCanView>users</RolesCanView>
-      <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
-      <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
-      <RolesCanDelete>admin, supervisor</RolesCanDelete>
-      <GenerateController>true</GenerateController>
-      <IndexView>true</IndexView>
-      <DetailsView>true</DetailsView>
-      <CreateView>true</CreateView>
-      <EditView>true</EditView>
-      <BaseControllerName>BaseController</BaseControllerName>
-    </BaseEntitySetting>
-    <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
-      <Name>ProcessTemplate</Name>
-      <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
-      <Properties>
-        <AspNetMvcPropertySetting>
-          <Name>TemplateName</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>true</UseInSearch>
-          <InIndexView>true</InIndexView>
-          <InDetailsView>true</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForEdit>TextBox</UseForEdit>
-        </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
-          <Name>DefaultTitle</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>true</UseInSearch>
-          <InIndexView>true</InIndexView>
-          <InDetailsView>true</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForEdit>TextBox</UseForEdit>
-        </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
-          <Name>StepTemplates</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
-          <InIndexView>true</InIndexView>
-          <InDetailsView>true</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForEdit>Standart</UseForEdit>
-        </AspNetMvcPropertySetting>
-      </Properties>
-      <ControllerName>ProcessTemplates</ControllerName>
-      <DataSetName>ProcessTemplates</DataSetName>
-      <DataContextClass>CriticalPathContext</DataContextClass>
-      <SaveParameter>this</SaveParameter>
-      <ModelForEdit>ProcessTemplate</ModelForEdit>
-      <RolesCanView>users</RolesCanView>
-      <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
-      <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
-      <RolesCanDelete>admin, supervisor</RolesCanDelete>
-      <GenerateController>true</GenerateController>
-      <IndexView>true</IndexView>
-      <DetailsView>true</DetailsView>
-      <CreateView>true</CreateView>
-      <EditView>true</EditView>
-      <BaseControllerName>BaseController</BaseControllerName>
-    </BaseEntitySetting>
-    <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
-      <Name>ProcessStepTemplate</Name>
-      <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
-      <Properties>
-        <AspNetMvcPropertySetting>
-          <Name>Title</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>true</UseInSearch>
-          <InIndexView>true</InIndexView>
-          <InDetailsView>true</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForEdit>TextBox</UseForEdit>
-        </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
-          <Name>DisplayOrder</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
-          <InIndexView>true</InIndexView>
-          <InDetailsView>true</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForEdit>Standart</UseForEdit>
-        </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
-          <Name>ProcessTemplateId</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
-          <InIndexView>false</InIndexView>
-          <InDetailsView>false</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForEdit>HiddenInput</UseForEdit>
-        </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
-          <Name>ProcessTemplate</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
-          <InIndexView>true</InIndexView>
-          <InDetailsView>true</InDetailsView>
-          <InCreateView>false</InCreateView>
-          <InEditView>false</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForEdit>Standart</UseForEdit>
-        </AspNetMvcPropertySetting>
-      </Properties>
-      <ControllerName>ProcessStepTemplates</ControllerName>
-      <DataSetName>ProcessStepTemplates</DataSetName>
-      <DataContextClass>CriticalPathContext</DataContextClass>
-      <SaveParameter>this</SaveParameter>
-      <ModelForEdit>ProcessStepTemplate</ModelForEdit>
+      <ModelForEdit>ProccessStep</ModelForEdit>
       <RolesCanView>users</RolesCanView>
       <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
