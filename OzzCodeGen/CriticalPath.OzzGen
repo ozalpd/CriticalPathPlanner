@@ -1047,13 +1047,209 @@
         </BaseProperty>
       </Properties>
     </EntityDefinition>
+    <EntityDefinition>
+      <Name>Proccess</Name>
+      <EntitySource />
+      <NamespaceName>CriticalPath</NamespaceName>
+      <DisplayOrder>13</DisplayOrder>
+      <Abstract>false</Abstract>
+      <LetDownloadAll>false</LetDownloadAll>
+      <DisplayName>Proccess</DisplayName>
+      <DisplayMember>Title</DisplayMember>
+      <BaseTypeName>IApproval</BaseTypeName>
+      <Properties>
+        <BaseProperty xsi:type="StringProperty">
+          <Name>Title</Name>
+          <DisplayOrder>100100</DisplayOrder>
+          <DisplayName>Title</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>string</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <UiVisible>true</UiVisible>
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>false</IsNullable>
+          <MaxLenght>128</MaxLenght>
+        </BaseProperty>
+        <BaseProperty xsi:type="StringProperty">
+          <Name>Description</Name>
+          <DisplayOrder>100300</DisplayOrder>
+          <DisplayName>Description</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>string</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <UiVisible>true</UiVisible>
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>true</IsNullable>
+          <MaxLenght>256</MaxLenght>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>OrderItemId</Name>
+          <DisplayOrder>200100</DisplayOrder>
+          <DisplayName>Order Item Id</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>int</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <UiVisible>true</UiVisible>
+          <IsKey>false</IsKey>
+          <IsForeignKey>true</IsForeignKey>
+          <IsNullable>false</IsNullable>
+        </BaseProperty>
+        <BaseProperty xsi:type="ComplexProperty">
+          <Name>OrderItem</Name>
+          <DisplayOrder>200200</DisplayOrder>
+          <DisplayName>Order Item</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>OrderItem</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <UiVisible>true</UiVisible>
+          <DependentPropertyName>OrderItemId</DependentPropertyName>
+          <DependentPropertyType>int</DependentPropertyType>
+        </BaseProperty>
+      </Properties>
+    </EntityDefinition>
+    <EntityDefinition>
+      <Name>ProccessStep</Name>
+      <EntitySource />
+      <NamespaceName>CriticalPath</NamespaceName>
+      <DisplayOrder>14</DisplayOrder>
+      <Abstract>false</Abstract>
+      <LetDownloadAll>false</LetDownloadAll>
+      <DisplayName>Proccess Step</DisplayName>
+      <DisplayMember>Title</DisplayMember>
+      <BaseTypeName>IApproval</BaseTypeName>
+      <Properties>
+        <BaseProperty xsi:type="StringProperty">
+          <Name>Title</Name>
+          <DisplayOrder>100100</DisplayOrder>
+          <DisplayName>Title</DisplayName>
+          <Editable>false</Editable>
+          <TypeName>string</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <UiVisible>true</UiVisible>
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>false</IsNullable>
+          <MaxLenght>128</MaxLenght>
+        </BaseProperty>
+        <BaseProperty xsi:type="StringProperty">
+          <Name>Description</Name>
+          <DisplayOrder>100300</DisplayOrder>
+          <DisplayName>Description</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>string</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <UiVisible>true</UiVisible>
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>true</IsNullable>
+          <MaxLenght>256</MaxLenght>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>DisplayOrder</Name>
+          <DisplayOrder>100500</DisplayOrder>
+          <DisplayName>Display Order</DisplayName>
+          <Editable>false</Editable>
+          <TypeName>int</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <UiVisible>true</UiVisible>
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>false</IsNullable>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>ProccessId</Name>
+          <DisplayOrder>300100</DisplayOrder>
+          <DisplayName>Proccess Id</DisplayName>
+          <Editable>false</Editable>
+          <TypeName>int</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <UiVisible>true</UiVisible>
+          <IsKey>false</IsKey>
+          <IsForeignKey>true</IsForeignKey>
+          <IsNullable>false</IsNullable>
+        </BaseProperty>
+        <BaseProperty xsi:type="ComplexProperty">
+          <Name>Proccess</Name>
+          <DisplayOrder>300100</DisplayOrder>
+          <DisplayName>Proccess</DisplayName>
+          <Editable>false</Editable>
+          <TypeName>Proccess</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <UiVisible>true</UiVisible>
+          <DependentPropertyName>ProccessId</DependentPropertyName>
+          <DependentPropertyType>int</DependentPropertyType>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>TargetDate</Name>
+          <DisplayOrder>500100</DisplayOrder>
+          <DisplayName>Target Date</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>DateTime</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <UiVisible>true</UiVisible>
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>false</IsNullable>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>ForecastDate</Name>
+          <DisplayOrder>500100</DisplayOrder>
+          <DisplayName>Target Date</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>DateTime</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <UiVisible>true</UiVisible>
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>false</IsNullable>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>RealizedDate</Name>
+          <DisplayOrder>500100</DisplayOrder>
+          <DisplayName>Target Date</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>DateTime</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <UiVisible>true</UiVisible>
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>false</IsNullable>
+        </BaseProperty>
+      </Properties>
+    </EntityDefinition>
   </DataModel>
   <StripSourcePrefixes>false</StripSourcePrefixes>
   <SourceClassPrefix />
   <CodeEngineList>
     <string>AspNetMvc_Controller_View_Generator</string>
-    <string>T-Sql_Scripts_Generator</string>
     <string>Localization_Resource_Generator</string>
+    <string>T-Sql_Scripts_Generator</string>
     <string>Metadata_Class_Generator</string>
   </CodeEngineList>
 </CodeGenProject>

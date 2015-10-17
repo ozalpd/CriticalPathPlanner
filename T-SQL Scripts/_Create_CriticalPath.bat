@@ -46,12 +46,22 @@
 
 @echo .
 @echo .
-@echo 9 - Executing _FinishingSetup.sql...
+@echo 9 - Executing Proccess.sql...
+@sqlcmd -S .\SqlExpress -d CriticalPath -E -i Proccess.sql
+
+@echo .
+@echo .
+@echo 10 - Executing ProccessStep.sql...
+@sqlcmd -S .\SqlExpress -d CriticalPath -E -i ProccessStep.sql
+
+@echo .
+@echo .
+@echo 11 - Executing _FinishingSetup.sql...
 @sqlcmd -S .\SqlExpress -d CriticalPath -E -i _FinishingSetup.sql
 
 @echo .
 @echo .
-@echo 10 - Executing _IdentityDB.sql...
+@echo 12 - Executing _IdentityDB.sql...
 @sqlcmd -S .\SqlExpress -d CriticalPath -E -i _IdentityDB.sql
 
 @echo .

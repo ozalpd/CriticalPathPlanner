@@ -185,6 +185,14 @@
     <Translation>Sipariş Kalemi Ekle</Translation>
   </Vocab>
   <Vocab>
+    <Name>CreateProccess</Name>
+    <Translation>Create Proccess</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateProccessStep</Name>
+    <Translation>Create Proccess Step</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CreateProduct</Name>
     <Translation>Ürün Ekle</Translation>
   </Vocab>
@@ -255,6 +263,14 @@
   <Vocab>
     <Name>DeleteOrderItem</Name>
     <Translation>Sipariş Kalemini Sil</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteProccess</Name>
+    <Translation>Delete Proccess</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteProccessStep</Name>
+    <Translation>Delete Proccess Step</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteProduct</Name>
@@ -341,6 +357,14 @@
     <Translation>Sipariş Kalemini Düzenle</Translation>
   </Vocab>
   <Vocab>
+    <Name>EditProccess</Name>
+    <Translation>Edit Proccess</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditProccessStep</Name>
+    <Translation>Edit Proccess Step</Translation>
+  </Vocab>
+  <Vocab>
     <Name>EditProduct</Name>
     <Translation>Ürünü Düzenle</Translation>
   </Vocab>
@@ -387,6 +411,10 @@
   <Vocab>
     <Name>FirstName</Name>
     <Translation>Ad</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ForecastDate</Name>
+    <Translation>Forecast Date</Translation>
   </Vocab>
   <Vocab>
     <Name>Height</Name>
@@ -537,6 +565,10 @@
     <Translation>Sipariş Kalemi</Translation>
   </Vocab>
   <Vocab>
+    <Name>OrderItemId</Name>
+    <Translation>Order Item Id</Translation>
+  </Vocab>
+  <Vocab>
     <Name>OrderItems</Name>
     <Translation>Sipariş Kalemleri</Translation>
   </Vocab>
@@ -613,6 +645,34 @@
     <Translation>Yazdır</Translation>
   </Vocab>
   <Vocab>
+    <Name>Proccess</Name>
+    <Translation>Proccess</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Proccesses</Name>
+    <Translation>Proccesses</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ProccessesList</Name>
+    <Translation>Proccesses List</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ProccessId</Name>
+    <Translation>Proccess Id</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ProccessStep</Name>
+    <Translation>Proccess Step</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ProccessSteps</Name>
+    <Translation>Proccess Steps</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ProccessStepsList</Name>
+    <Translation>Proccess Steps List</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Product</Name>
     <Translation>Ürün</Translation>
   </Vocab>
@@ -671,6 +731,10 @@
   <Vocab>
     <Name>Rarely</Name>
     <Translation>Nadiren</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RealizedDate</Name>
+    <Translation>Realized Date</Translation>
   </Vocab>
   <Vocab>
     <Name>Record</Name>
@@ -747,6 +811,10 @@
   <Vocab>
     <Name>Surname</Name>
     <Translation>Soyad</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TargetDate</Name>
+    <Translation>Target Date</Translation>
   </Vocab>
   <Vocab>
     <Name>TaxNr</Name>
