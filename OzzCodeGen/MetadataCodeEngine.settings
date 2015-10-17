@@ -130,6 +130,72 @@
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="MetadataEntitySetting">
+      <Name>Contact</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <Properties>
+        <MetadataPropertySetting>
+          <Name>FirstName</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>LastName</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>EmailWork</Name>
+          <Exclude>false</Exclude>
+          <DataType>EmailAddress</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>EmailHome</Name>
+          <Exclude>false</Exclude>
+          <DataType>EmailAddress</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>PhoneMobile</Name>
+          <Exclude>false</Exclude>
+          <DataType>PhoneNumber</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>PhoneWork1</Name>
+          <Exclude>false</Exclude>
+          <DataType>PhoneNumber</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>PhoneWork2</Name>
+          <Exclude>false</Exclude>
+          <DataType>PhoneNumber</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Notes</Name>
+          <Exclude>false</Exclude>
+          <DataType>MultilineText</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>CompanyId</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Company</Name>
+          <Exclude>false</Exclude>
+          <Required />
+        </MetadataPropertySetting>
+      </Properties>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="MetadataEntitySetting">
       <Name>Company</Name>
       <Exclude>true</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
@@ -233,72 +299,6 @@
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>Orders</Name>
-          <Exclude>false</Exclude>
-          <Required />
-        </MetadataPropertySetting>
-      </Properties>
-    </BaseEntitySetting>
-    <BaseEntitySetting xsi:type="MetadataEntitySetting">
-      <Name>Contact</Name>
-      <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
-      <Properties>
-        <MetadataPropertySetting>
-          <Name>FirstName</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>LastName</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>EmailWork</Name>
-          <Exclude>false</Exclude>
-          <DataType>EmailAddress</DataType>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>EmailHome</Name>
-          <Exclude>false</Exclude>
-          <DataType>EmailAddress</DataType>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>PhoneMobile</Name>
-          <Exclude>false</Exclude>
-          <DataType>PhoneNumber</DataType>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>PhoneWork1</Name>
-          <Exclude>false</Exclude>
-          <DataType>PhoneNumber</DataType>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>PhoneWork2</Name>
-          <Exclude>false</Exclude>
-          <DataType>PhoneNumber</DataType>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>Notes</Name>
-          <Exclude>false</Exclude>
-          <DataType>MultilineText</DataType>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>CompanyId</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>Company</Name>
           <Exclude>false</Exclude>
           <Required />
         </MetadataPropertySetting>
@@ -446,7 +446,7 @@
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="MetadataEntitySetting">
-      <Name>Proccess</Name>
+      <Name>Process</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
       <Properties>
@@ -457,10 +457,27 @@
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
+          <Name>IsCompleted </Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
           <Name>Description</Name>
           <Exclude>false</Exclude>
           <DataType>MultilineText</DataType>
           <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>ProcessTemplate</Name>
+          <Exclude>false</Exclude>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>ProcessTemplateId</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>OrderItemId</Name>
@@ -473,10 +490,15 @@
           <Exclude>false</Exclude>
           <Required />
         </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>ProcessSteps</Name>
+          <Exclude>false</Exclude>
+          <Required />
+        </MetadataPropertySetting>
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="MetadataEntitySetting">
-      <Name>ProccessStep</Name>
+      <Name>ProcessStep</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
       <Properties>
@@ -485,6 +507,12 @@
           <Exclude>false</Exclude>
           <DataType />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>IsCompleted </Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>Description</Name>
@@ -499,33 +527,87 @@
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>ProccessId</Name>
+          <Name>ProcessId</Name>
           <Exclude>false</Exclude>
           <DataType />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>Proccess</Name>
+          <Name>Process</Name>
           <Exclude>false</Exclude>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>TargetDate</Name>
           <Exclude>false</Exclude>
-          <DataType>Date</DataType>
+          <DataType />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>ForecastDate</Name>
           <Exclude>false</Exclude>
-          <DataType>Date</DataType>
+          <DataType />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>RealizedDate</Name>
           <Exclude>false</Exclude>
-          <DataType>Date</DataType>
+          <DataType />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+      </Properties>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="MetadataEntitySetting">
+      <Name>ProcessTemplate</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <Properties>
+        <MetadataPropertySetting>
+          <Name>TemplateName</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>DefaultTitle</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>StepTemplates</Name>
+          <Exclude>false</Exclude>
+          <Required />
+        </MetadataPropertySetting>
+      </Properties>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="MetadataEntitySetting">
+      <Name>ProcessStepTemplate</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <Properties>
+        <MetadataPropertySetting>
+          <Name>Title</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>DisplayOrder</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>ProcessTemplateId</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>ProcessTemplate</Name>
+          <Exclude>false</Exclude>
+          <Required />
         </MetadataPropertySetting>
       </Properties>
     </BaseEntitySetting>
