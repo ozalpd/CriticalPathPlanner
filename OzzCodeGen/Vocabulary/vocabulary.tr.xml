@@ -185,12 +185,20 @@
     <Translation>Sipariş Kalemi Ekle</Translation>
   </Vocab>
   <Vocab>
-    <Name>CreateProccess</Name>
-    <Translation>Create Proccess</Translation>
+    <Name>CreateProcess</Name>
+    <Translation>Süreç Başlat</Translation>
   </Vocab>
   <Vocab>
-    <Name>CreateProccessStep</Name>
-    <Translation>Create Proccess Step</Translation>
+    <Name>CreateProcessStep</Name>
+    <Translation>Süreç Adımı Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateProcessStepTemplate</Name>
+    <Translation>Süreç Adım Şablonu Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateProcessTemplate</Name>
+    <Translation>Süreç Şablonu Ekle</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateProduct</Name>
@@ -241,6 +249,10 @@
     <Translation>Tarihi</Translation>
   </Vocab>
   <Vocab>
+    <Name>DefaultTitle</Name>
+    <Translation>Varsayılan Başlık</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Delete</Name>
     <Translation>Sil</Translation>
   </Vocab>
@@ -265,12 +277,20 @@
     <Translation>Sipariş Kalemini Sil</Translation>
   </Vocab>
   <Vocab>
-    <Name>DeleteProccess</Name>
-    <Translation>Delete Proccess</Translation>
+    <Name>DeleteProcess</Name>
+    <Translation>Süreci Sil</Translation>
   </Vocab>
   <Vocab>
-    <Name>DeleteProccessStep</Name>
-    <Translation>Delete Proccess Step</Translation>
+    <Name>DeleteProcessStep</Name>
+    <Translation>Süreç Adımını Sil</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteProcessStepTemplate</Name>
+    <Translation>Süreç Adım Şablonunu Sil</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteProcessTemplate</Name>
+    <Translation>Süreç Şablonunu Sil</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteProduct</Name>
@@ -357,12 +377,20 @@
     <Translation>Sipariş Kalemini Düzenle</Translation>
   </Vocab>
   <Vocab>
-    <Name>EditProccess</Name>
-    <Translation>Edit Proccess</Translation>
+    <Name>EditProcess</Name>
+    <Translation>Süreci Düzenle</Translation>
   </Vocab>
   <Vocab>
-    <Name>EditProccessStep</Name>
-    <Translation>Edit Proccess Step</Translation>
+    <Name>EditProcessStep</Name>
+    <Translation>Süreç Adımı Düzenle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditProcessStepTemplate</Name>
+    <Translation>Süreç Adım Şablonunu Düzenle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditProcessTemplate</Name>
+    <Translation>Süreç Şablonunu Düzenle</Translation>
   </Vocab>
   <Vocab>
     <Name>EditProduct</Name>
@@ -414,7 +442,7 @@
   </Vocab>
   <Vocab>
     <Name>ForecastDate</Name>
-    <Translation>Forecast Date</Translation>
+    <Translation>Öngörülen Tarıh</Translation>
   </Vocab>
   <Vocab>
     <Name>Height</Name>
@@ -447,6 +475,10 @@
   <Vocab>
     <Name>IsApproved</Name>
     <Translation>Onaylandı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>IsCompleted </Name>
+    <Translation>Tamamlandı</Translation>
   </Vocab>
   <Vocab>
     <Name>IsPublished</Name>
@@ -566,7 +598,7 @@
   </Vocab>
   <Vocab>
     <Name>OrderItemId</Name>
-    <Translation>Order Item Id</Translation>
+    <Translation>Sipariş Kalemi</Translation>
   </Vocab>
   <Vocab>
     <Name>OrderItems</Name>
@@ -645,32 +677,60 @@
     <Translation>Yazdır</Translation>
   </Vocab>
   <Vocab>
-    <Name>Proccess</Name>
-    <Translation>Proccess</Translation>
+    <Name>Process</Name>
+    <Translation>Süreç</Translation>
   </Vocab>
   <Vocab>
-    <Name>Proccesses</Name>
-    <Translation>Proccesses</Translation>
+    <Name>Processes</Name>
+    <Translation>Süreçler</Translation>
   </Vocab>
   <Vocab>
-    <Name>ProccessesList</Name>
-    <Translation>Proccesses List</Translation>
+    <Name>ProcessesList</Name>
+    <Translation>Süreç Listesi</Translation>
   </Vocab>
   <Vocab>
-    <Name>ProccessId</Name>
-    <Translation>Proccess Id</Translation>
+    <Name>ProcessId</Name>
+    <Translation>Süreç</Translation>
   </Vocab>
   <Vocab>
-    <Name>ProccessStep</Name>
-    <Translation>Proccess Step</Translation>
+    <Name>ProcessStep</Name>
+    <Translation>Süreç Adımı</Translation>
   </Vocab>
   <Vocab>
-    <Name>ProccessSteps</Name>
-    <Translation>Proccess Steps</Translation>
+    <Name>ProcessSteps</Name>
+    <Translation>Süreç Adımları</Translation>
   </Vocab>
   <Vocab>
-    <Name>ProccessStepsList</Name>
-    <Translation>Proccess Steps List</Translation>
+    <Name>ProcessStepsList</Name>
+    <Translation>Süreç Adım Listesi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ProcessStepTemplate</Name>
+    <Translation>Süreç Adım Şablonu</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ProcessStepTemplates</Name>
+    <Translation>Süreç Adım Şablonları</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ProcessStepTemplatesList</Name>
+    <Translation>Süreç Adım Şablon Listesi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ProcessTemplate</Name>
+    <Translation>Süreç Şablonu</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ProcessTemplateId</Name>
+    <Translation>Süreç Şablonu</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ProcessTemplates</Name>
+    <Translation>Süreç Şablonları</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ProcessTemplatesList</Name>
+    <Translation>Süreç Şablon Listesi</Translation>
   </Vocab>
   <Vocab>
     <Name>Product</Name>
@@ -734,7 +794,7 @@
   </Vocab>
   <Vocab>
     <Name>RealizedDate</Name>
-    <Translation>Realized Date</Translation>
+    <Translation>Gerçekleşme Tarihi</Translation>
   </Vocab>
   <Vocab>
     <Name>Record</Name>
@@ -785,6 +845,10 @@
     <Translation>Eyalet</Translation>
   </Vocab>
   <Vocab>
+    <Name>StepTemplates</Name>
+    <Translation>Adım Şablonları</Translation>
+  </Vocab>
+  <Vocab>
     <Name>SubCategories</Name>
     <Translation>Alt Kategoriler</Translation>
   </Vocab>
@@ -814,7 +878,7 @@
   </Vocab>
   <Vocab>
     <Name>TargetDate</Name>
-    <Translation>Target Date</Translation>
+    <Translation>Hedefl Tarih</Translation>
   </Vocab>
   <Vocab>
     <Name>TaxNr</Name>
@@ -823,6 +887,10 @@
   <Vocab>
     <Name>TaxOffice</Name>
     <Translation>Vergi Dairesi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TemplateName</Name>
+    <Translation>Şablon İsmi</Translation>
   </Vocab>
   <Vocab>
     <Name>Title</Name>

@@ -1048,13 +1048,13 @@
       </Properties>
     </EntityDefinition>
     <EntityDefinition>
-      <Name>Proccess</Name>
+      <Name>Process</Name>
       <EntitySource />
       <NamespaceName>CriticalPath</NamespaceName>
-      <DisplayOrder>13</DisplayOrder>
+      <DisplayOrder>14</DisplayOrder>
       <Abstract>false</Abstract>
       <LetDownloadAll>false</LetDownloadAll>
-      <DisplayName>Proccess</DisplayName>
+      <DisplayName>Process</DisplayName>
       <DisplayMember>Title</DisplayMember>
       <BaseTypeName>IApproval</BaseTypeName>
       <Properties>
@@ -1089,8 +1089,49 @@
           <MaxLenght>256</MaxLenght>
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
-          <Name>OrderItemId</Name>
+          <Name>IsCompleted </Name>
+          <DisplayOrder>100200</DisplayOrder>
+          <DisplayName>Is Completed </DisplayName>
+          <Editable>true</Editable>
+          <TypeName>bool</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <UiVisible>true</UiVisible>
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>false</IsNullable>
+        </BaseProperty>
+        <BaseProperty xsi:type="ComplexProperty">
+          <Name>ProcessTemplate</Name>
           <DisplayOrder>200100</DisplayOrder>
+          <DisplayName>Process Template</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>ProcessTemplate</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <UiVisible>true</UiVisible>
+          <DependentPropertyName>ProcessTemplateId</DependentPropertyName>
+          <DependentPropertyType>int</DependentPropertyType>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>ProcessTemplateId</Name>
+          <DisplayOrder>200100</DisplayOrder>
+          <DisplayName>Process Template Id</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>int</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <UiVisible>true</UiVisible>
+          <IsKey>false</IsKey>
+          <IsForeignKey>true</IsForeignKey>
+          <IsNullable>false</IsNullable>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>OrderItemId</Name>
+          <DisplayOrder>400100</DisplayOrder>
           <DisplayName>Order Item Id</DisplayName>
           <Editable>true</Editable>
           <TypeName>int</TypeName>
@@ -1104,7 +1145,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="ComplexProperty">
           <Name>OrderItem</Name>
-          <DisplayOrder>200200</DisplayOrder>
+          <DisplayOrder>400200</DisplayOrder>
           <DisplayName>Order Item</DisplayName>
           <Editable>true</Editable>
           <TypeName>OrderItem</TypeName>
@@ -1115,16 +1156,27 @@
           <DependentPropertyName>OrderItemId</DependentPropertyName>
           <DependentPropertyType>int</DependentPropertyType>
         </BaseProperty>
+        <BaseProperty xsi:type="CollectionProperty">
+          <Name>ProcessSteps</Name>
+          <DisplayOrder>500100</DisplayOrder>
+          <DisplayName>Process Steps</DisplayName>
+          <Editable>false</Editable>
+          <TypeName>ICollection&lt;ProcessStep&gt;</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <UiVisible>true</UiVisible>
+        </BaseProperty>
       </Properties>
     </EntityDefinition>
     <EntityDefinition>
-      <Name>ProccessStep</Name>
+      <Name>ProcessStep</Name>
       <EntitySource />
       <NamespaceName>CriticalPath</NamespaceName>
-      <DisplayOrder>14</DisplayOrder>
+      <DisplayOrder>15</DisplayOrder>
       <Abstract>false</Abstract>
       <LetDownloadAll>false</LetDownloadAll>
-      <DisplayName>Proccess Step</DisplayName>
+      <DisplayName>Process Step</DisplayName>
       <DisplayMember>Title</DisplayMember>
       <BaseTypeName>IApproval</BaseTypeName>
       <Properties>
@@ -1157,6 +1209,20 @@
           <IsForeignKey>false</IsForeignKey>
           <IsNullable>true</IsNullable>
           <MaxLenght>256</MaxLenght>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>IsCompleted </Name>
+          <DisplayOrder>100200</DisplayOrder>
+          <DisplayName>Is Completed </DisplayName>
+          <Editable>true</Editable>
+          <TypeName>bool</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <UiVisible>true</UiVisible>
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>false</IsNullable>
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>DisplayOrder</Name>
@@ -1173,9 +1239,9 @@
           <IsNullable>false</IsNullable>
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
-          <Name>ProccessId</Name>
+          <Name>ProcessId</Name>
           <DisplayOrder>300100</DisplayOrder>
-          <DisplayName>Proccess Id</DisplayName>
+          <DisplayName>Process Id</DisplayName>
           <Editable>false</Editable>
           <TypeName>int</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1187,20 +1253,21 @@
           <IsNullable>false</IsNullable>
         </BaseProperty>
         <BaseProperty xsi:type="ComplexProperty">
-          <Name>Proccess</Name>
+          <Name>Process</Name>
           <DisplayOrder>300100</DisplayOrder>
-          <DisplayName>Proccess</DisplayName>
+          <DisplayName>Process</DisplayName>
           <Editable>false</Editable>
-          <TypeName>Proccess</TypeName>
+          <TypeName>Process</TypeName>
           <IsClientComputed>false</IsClientComputed>
           <IsServerComputed>false</IsServerComputed>
           <IsStoreGenerated>false</IsStoreGenerated>
           <UiVisible>true</UiVisible>
-          <DependentPropertyName>ProccessId</DependentPropertyName>
+          <DependentPropertyName>ProcessId</DependentPropertyName>
           <DependentPropertyType>int</DependentPropertyType>
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>TargetDate</Name>
+          <Comment>Target Finish Date</Comment>
           <DisplayOrder>500100</DisplayOrder>
           <DisplayName>Target Date</DisplayName>
           <Editable>true</Editable>
@@ -1211,14 +1278,129 @@
           <UiVisible>true</UiVisible>
           <IsKey>false</IsKey>
           <IsForeignKey>false</IsForeignKey>
-          <IsNullable>false</IsNullable>
+          <IsNullable>true</IsNullable>
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>ForecastDate</Name>
+          <Comment>Forecasted Finish Date</Comment>
           <DisplayOrder>500100</DisplayOrder>
-          <DisplayName>Target Date</DisplayName>
+          <DisplayName>Forecast Date</DisplayName>
           <Editable>true</Editable>
           <TypeName>DateTime</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <UiVisible>true</UiVisible>
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>true</IsNullable>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>RealizedDate</Name>
+          <Comment>Realized Finish Date</Comment>
+          <DisplayOrder>500100</DisplayOrder>
+          <DisplayName>Realized Date</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>DateTime</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <UiVisible>true</UiVisible>
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>true</IsNullable>
+        </BaseProperty>
+      </Properties>
+    </EntityDefinition>
+    <EntityDefinition>
+      <Name>ProcessTemplate</Name>
+      <EntitySource />
+      <Comment>Template for creating a new Process object</Comment>
+      <NamespaceName>CriticalPath</NamespaceName>
+      <DisplayOrder>16</DisplayOrder>
+      <Abstract>false</Abstract>
+      <LetDownloadAll>false</LetDownloadAll>
+      <DisplayName>Process Template</DisplayName>
+      <DisplayMember>TemplateName</DisplayMember>
+      <BaseTypeName>IModified</BaseTypeName>
+      <Properties>
+        <BaseProperty xsi:type="StringProperty">
+          <Name>TemplateName</Name>
+          <DisplayOrder>100100</DisplayOrder>
+          <DisplayName>Template Name</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>string</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <UiVisible>true</UiVisible>
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>false</IsNullable>
+          <MaxLenght>128</MaxLenght>
+        </BaseProperty>
+        <BaseProperty xsi:type="StringProperty">
+          <Name>DefaultTitle</Name>
+          <DisplayOrder>100200</DisplayOrder>
+          <DisplayName>Default Title</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>string</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <UiVisible>true</UiVisible>
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>false</IsNullable>
+          <MaxLenght>128</MaxLenght>
+        </BaseProperty>
+        <BaseProperty xsi:type="CollectionProperty">
+          <Name>StepTemplates</Name>
+          <DisplayOrder>300100</DisplayOrder>
+          <DisplayName>Step Templates</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>ICollection&lt;ProcessStepTemplate&gt;</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <UiVisible>true</UiVisible>
+        </BaseProperty>
+      </Properties>
+    </EntityDefinition>
+    <EntityDefinition>
+      <Name>ProcessStepTemplate</Name>
+      <EntitySource />
+      <Comment>Template for creating ProcessStep</Comment>
+      <NamespaceName>CriticalPath</NamespaceName>
+      <DisplayOrder>17</DisplayOrder>
+      <Abstract>false</Abstract>
+      <LetDownloadAll>false</LetDownloadAll>
+      <DisplayName>Process Step Template</DisplayName>
+      <DisplayMember>Title</DisplayMember>
+      <BaseTypeName>IModified</BaseTypeName>
+      <Properties>
+        <BaseProperty xsi:type="StringProperty">
+          <Name>Title</Name>
+          <Comment>This fixed property ProcessStep. After a ProcessStep record created, that record cannot be not modified</Comment>
+          <DisplayOrder>500100</DisplayOrder>
+          <DisplayName>Title</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>string</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <UiVisible>true</UiVisible>
+          <IsKey>false</IsKey>
+          <IsForeignKey>false</IsForeignKey>
+          <IsNullable>false</IsNullable>
+          <MaxLenght>128</MaxLenght>
+        </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>DisplayOrder</Name>
+          <DisplayOrder>500200</DisplayOrder>
+          <DisplayName>Display Order</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>int</TypeName>
           <IsClientComputed>false</IsClientComputed>
           <IsServerComputed>false</IsServerComputed>
           <IsStoreGenerated>false</IsStoreGenerated>
@@ -1228,18 +1410,31 @@
           <IsNullable>false</IsNullable>
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
-          <Name>RealizedDate</Name>
-          <DisplayOrder>500100</DisplayOrder>
-          <DisplayName>Target Date</DisplayName>
+          <Name>ProcessTemplateId</Name>
+          <DisplayOrder>800100</DisplayOrder>
+          <DisplayName>Process Template Id</DisplayName>
           <Editable>true</Editable>
-          <TypeName>DateTime</TypeName>
+          <TypeName>int</TypeName>
           <IsClientComputed>false</IsClientComputed>
           <IsServerComputed>false</IsServerComputed>
           <IsStoreGenerated>false</IsStoreGenerated>
           <UiVisible>true</UiVisible>
           <IsKey>false</IsKey>
-          <IsForeignKey>false</IsForeignKey>
+          <IsForeignKey>true</IsForeignKey>
           <IsNullable>false</IsNullable>
+        </BaseProperty>
+        <BaseProperty xsi:type="ComplexProperty">
+          <Name>ProcessTemplate</Name>
+          <DisplayOrder>800200</DisplayOrder>
+          <DisplayName>Process Template</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>ProcessTemplate</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <UiVisible>true</UiVisible>
+          <DependentPropertyName>ProcessTemplateId</DependentPropertyName>
+          <DependentPropertyType>int</DependentPropertyType>
         </BaseProperty>
       </Properties>
     </EntityDefinition>
@@ -1248,8 +1443,8 @@
   <SourceClassPrefix />
   <CodeEngineList>
     <string>AspNetMvc_Controller_View_Generator</string>
-    <string>Localization_Resource_Generator</string>
-    <string>T-Sql_Scripts_Generator</string>
     <string>Metadata_Class_Generator</string>
+    <string>T-Sql_Scripts_Generator</string>
+    <string>Localization_Resource_Generator</string>
   </CodeEngineList>
 </CodeGenProject>
