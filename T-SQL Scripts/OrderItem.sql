@@ -6,6 +6,7 @@ CREATE TABLE [dbo].[OrderItems](
     [Id] [int] Identity(1,1) Not Null,
     [PuchaseOrderId] [int] Not Null Constraint FK_OrderItem_PuchaseOrderId Foreign Key References [dbo].[PuchaseOrders]([Id]),
     [ProductId] [int] Not Null Constraint FK_OrderItem_ProductId Foreign Key References [dbo].[Products]([Id]),
+    [Quantity] [int] Not Null,
     [Notes] [nVarChar](255) Null,
     [ModifyNr] [int] Not Null Default 1,
     [ModifyDate] [DateTime] Not Null Default GetDate(),

@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfVocab xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Vocab>
+    <Name>Action</Name>
+    <Translation>Eylem</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Add</Name>
+    <Translation>Ekle</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddNew</Name>
     <Translation>Yeni Ekle</Translation>
   </Vocab>
@@ -33,8 +41,24 @@
     <Translation>Onaylayanın IP</Translation>
   </Vocab>
   <Vocab>
+    <Name>AreYouSure</Name>
+    <Translation>Yapmak istediğinizden emin misiniz</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>BackToIndex</Name>
+    <Translation>Listeye Geri Dön</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>BecauseOfRelatedRecords</Name>
+    <Translation>İlişkili kayıtlar mevcut</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Cancel</Name>
     <Translation>Vazgeç</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CanNotDelete</Name>
+    <Translation>Silinemiyor</Translation>
   </Vocab>
   <Vocab>
     <Name>Categories</Name>
@@ -129,6 +153,10 @@
     <Translation>Ülke</Translation>
   </Vocab>
   <Vocab>
+    <Name>Create</Name>
+    <Translation>Oluştur</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CreateCompany</Name>
     <Translation>Şirket Ekle</Translation>
   </Vocab>
@@ -205,6 +233,10 @@
     <Translation>Tarihi</Translation>
   </Vocab>
   <Vocab>
+    <Name>Delete</Name>
+    <Translation>Sil</Translation>
+  </Vocab>
+  <Vocab>
     <Name>DeleteCompany</Name>
     <Translation>Şirketi Sil</Translation>
   </Vocab>
@@ -254,7 +286,11 @@
   </Vocab>
   <Vocab>
     <Name>Details</Name>
-    <Translation>Detaylar</Translation>
+    <Translation>Detay</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Display</Name>
+    <Translation>Göster</Translation>
   </Vocab>
   <Vocab>
     <Name>DisplayOrder</Name>
@@ -279,6 +315,10 @@
   <Vocab>
     <Name>Duplicate</Name>
     <Translation>Çoğalt</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Edit</Name>
+    <Translation>Düzenle</Translation>
   </Vocab>
   <Vocab>
     <Name>EditCompany</Name>
@@ -405,6 +445,10 @@
     <Translation>Mevkii</Translation>
   </Vocab>
   <Vocab>
+    <Name>Login</Name>
+    <Translation>Giriş Yap</Translation>
+  </Vocab>
+  <Vocab>
     <Name>LogIn</Name>
     <Translation>Giriş Yap</Translation>
   </Vocab>
@@ -415,6 +459,10 @@
   <Vocab>
     <Name>LogOn</Name>
     <Translation>Giriş Yap</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Logout</Name>
+    <Translation>Çıkış Yap</Translation>
   </Vocab>
   <Vocab>
     <Name>LogOut</Name>
@@ -455,6 +503,10 @@
   <Vocab>
     <Name>No</Name>
     <Translation>Hayır</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>NoResults</Name>
+    <Translation>Hiç sonuç bulunamadı</Translation>
   </Vocab>
   <Vocab>
     <Name>Normal</Name>
@@ -621,6 +673,10 @@
     <Translation>Nadiren</Translation>
   </Vocab>
   <Vocab>
+    <Name>Record</Name>
+    <Translation>Kayıt</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Register</Name>
     <Translation>Kayıt ol</Translation>
   </Vocab>
@@ -643,6 +699,10 @@
   <Vocab>
     <Name>SelectPlease</Name>
     <Translation>Lütfen Seçiniz</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Show</Name>
+    <Translation>Göster</Translation>
   </Vocab>
   <Vocab>
     <Name>Size</Name>
@@ -713,6 +773,10 @@
     <Translation>İlçeler</Translation>
   </Vocab>
   <Vocab>
+    <Name>UnableToDelete</Name>
+    <Translation>Silinemez</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Unit</Name>
     <Translation>Birim</Translation>
   </Vocab>
@@ -735,6 +799,10 @@
   <Vocab>
     <Name>Yes</Name>
     <Translation>Evet</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>YouAreAboutToDelete</Name>
+    <Translation>Silmek üzeresiniz olduğunuz kayıt</Translation>
   </Vocab>
   <Vocab>
     <Name>ZipCode</Name>

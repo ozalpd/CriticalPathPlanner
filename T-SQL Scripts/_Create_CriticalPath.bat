@@ -50,6 +50,11 @@
 @sqlcmd -S .\SqlExpress -d CriticalPath -E -i _FinishingSetup.sql
 
 @echo .
+@echo .
+@echo 10 - Executing _IdentityDB.sql...
+@sqlcmd -S .\SqlExpress -d CriticalPath -E -i _IdentityDB.sql
+
+@echo .
 @echo * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 @echo *
 @echo * Create scripts for database CriticalPath executed on Server .\SqlExpress
