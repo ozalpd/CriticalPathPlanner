@@ -2,24 +2,18 @@ using System;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Threading.Tasks;
+using CriticalPath.Data;
 using CriticalPath.Web.Models;
 using System.Net;
 using System.Web.Mvc;
-using System.Data;
-using System.Data.Entity;
-using CriticalPath.Data;
 
 namespace CriticalPath.Web.Controllers
 {
     public partial class CustomersController : BaseController 
     {
-        private async Task<Customer> FindAsyncCustomer(int id)
-        {
-            return await DataContext
-                            .GetCustomerQuery()
-                            .FirstOrDefaultAsync(x => x.Id == id);
-        }
         partial void SetViewBags(Customer customer);
         partial void SetDefaults(Customer customer);
 
@@ -205,31 +199,5 @@ namespace CriticalPath.Web.Controllers
             return _canUserDelete.Value;
         }
         bool? _canUserDelete;
-        
-        protected CriticalPathContext DataContext
-        {
-            get
-            {
-                if (_dataContext == null)
-                {
-                    _dataContext = new CriticalPathContext();
-                }
-                return _dataContext;
-            }
-        }
-        private CriticalPathContext _dataContext;
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                if (_dataContext != null)
-                {
-                    _dataContext.Dispose();
-                    _dataContext = null;
-                }
-            }
-            base.Dispose(disposing);
-        }
     }
 }

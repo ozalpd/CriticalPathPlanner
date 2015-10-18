@@ -5,7 +5,7 @@ GO
 CREATE TABLE [dbo].[Processes](
     [Id] [int] Identity(1,1) Not Null,
     [Title] [nVarChar](128) Not Null,
-    [IsCompleted ] [bit] Not Null,
+    [IsCompleted] [bit] Not Null,
     [Description] [nVarChar](256) Null,
     [ProcessTemplateId] [int] Not Null Constraint FK_Process_ProcessTemplateId Foreign Key References [dbo].[ProcessTemplates]([Id]),
     [OrderItemId] [int] Not Null Constraint FK_Process_OrderItemId Foreign Key References [dbo].[OrderItems]([Id]),
@@ -28,7 +28,7 @@ CREATE TABLE [dbo].[Processes](
     ALLOW_PAGE_LOCKS  = ON)
   ON [PRIMARY]) ON [PRIMARY]
 Go
-Create Nonclustered Index [idx_Processes_IsCompleted ] On [dbo].[Processes]([IsCompleted ] Asc)
+Create Nonclustered Index [idx_Processes_IsCompleted] On [dbo].[Processes]([IsCompleted] Asc)
 Go
 Create Nonclustered Index [idx_Processes_ProcessTemplateId] On [dbo].[Processes]([ProcessTemplateId] Asc)
 Go

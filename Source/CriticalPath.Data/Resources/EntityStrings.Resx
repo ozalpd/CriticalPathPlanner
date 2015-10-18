@@ -347,8 +347,8 @@
 		<value>Is Approved</value>
 	</data>
 
-	<data name="IsCompleted " xml:space="preserve">
-		<value>Is Completed </value>
+	<data name="IsCompleted" xml:space="preserve">
+		<value>Is Completed</value>
 	</data>
 
 	<data name="LastName" xml:space="preserve">

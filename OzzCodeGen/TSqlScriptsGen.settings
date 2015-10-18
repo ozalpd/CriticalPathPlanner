@@ -717,7 +717,7 @@
           <Nullable>false</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>IsCompleted </Name>
+          <Name>IsCompleted</Name>
           <Exclude>false</Exclude>
           <DataType>bit</DataType>
           <Lenght>0</Lenght>
@@ -783,7 +783,7 @@
           <Nullable>false</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>IsCompleted </Name>
+          <Name>IsCompleted</Name>
           <Exclude>false</Exclude>
           <DataType>bit</DataType>
           <Lenght>0</Lenght>

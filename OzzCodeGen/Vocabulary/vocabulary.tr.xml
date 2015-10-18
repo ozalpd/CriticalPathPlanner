@@ -25,6 +25,10 @@
     <Translation>Adres Satır 2</Translation>
   </Vocab>
   <Vocab>
+    <Name>Admin</Name>
+    <Translation>Admin</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Always</Name>
     <Translation>Her zaman</Translation>
   </Vocab>
@@ -481,7 +485,7 @@
     <Translation>Onaylandı</Translation>
   </Vocab>
   <Vocab>
-    <Name>IsCompleted </Name>
+    <Name>IsCompleted</Name>
     <Translation>Tamamlandı</Translation>
   </Vocab>
   <Vocab>

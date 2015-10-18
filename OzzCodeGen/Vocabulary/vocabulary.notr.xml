@@ -25,6 +25,10 @@
     <Translation>Address Line 2</Translation>
   </Vocab>
   <Vocab>
+    <Name>Admin</Name>
+    <Translation>Admin</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Always</Name>
     <Translation>Always</Translation>
   </Vocab>

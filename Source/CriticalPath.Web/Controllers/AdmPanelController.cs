@@ -4,6 +4,10 @@ using OzzIdentity.Controllers;
 using OzzUtils;
 using System;
 using System.Text;
+using System.Collections;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Web.Mvc;
 using System.Threading.Tasks;
 
@@ -22,7 +26,6 @@ namespace CriticalPath.Web.Controllers
             get { return SecurityRoles.Admin; }
         }
 
-
         //will be used in SeedRoles action
         protected override string[] GetApplicationRoles()
         {
@@ -35,52 +38,67 @@ namespace CriticalPath.Web.Controllers
         }
 
         [Authorize]
-        public async Task<ActionResult> SeedProducts()
+        public async Task<ActionResult> SeedData()
         {
+            var sb = new StringBuilder();
+
+            await SeedProducts(sb);
+
+            await DataContext.SaveChangesAsync(this);
+            return Content(sb.ToString());
+        }
+
+        private async Task SeedProducts(StringBuilder sb)
+        {
+            var query = await DataContext.ProductCategories.CountAsync();
+            if (query > 0)
+                return;
+
             string[] catgKadin = {
                 "Etek",
                 "Şort",
                 "Bluz / Tshirt",
                 "Elbise",
-                "Pantolon / Tayt",
-                "Hırka / Kazak",
-                "Ceket / Kaban",
-                "Büyük Beden",
-                "Sweatshirt",
-                "Eşofman",
-                "Tulum"};
+                //"Pantolon / Tayt",
+                //"Hırka / Kazak",
+                //"Ceket / Kaban",
+                //"Büyük Beden",
+                //"Sweatshirt",
+                //"Eşofman",
+                //"Tulum"
+            };
             string[] catgErkek = {
                 "Şort",
                 "T-Shirt",
                 "Pantolon",
-                "Denim Pantolon",
+                //"Denim Pantolon",
                 "Gömlek",
                 "Takım Elbise",
-                "Mayo Şort",
-                "Sweatshirt",
-                "Hırka / Kazak",
-                "Ceket / Kaban",
-                "Yelek",
-                "Eşofman"};
+                //"Mayo Şort",
+                //"Sweatshirt",
+                //"Hırka / Kazak",
+                //"Ceket / Kaban",
+                //"Yelek",
+                //"Eşofman"
+            };
             string[] catgCocuk = {
                 "Çocuk T-Shirt",
-                "Çocuk Body",
+                //"Çocuk Body",
                 "Çocuk Elbise",
                 "Çocuk Etek",
                 "Çocuk Pantolon",
                 "Çocuk Şort",
                 "Çocuk Gömlek",
                 "Çocuk Mont",
-                "Çocuk Hırka",
-                "Çocuk Kazak",
-                "Çocuk Eşofman",
-                "Çocuk Tulum",
-                "Çocuk Hastane Çıkışı",
-                "Çocuk Tayt",
-                "Çocuk Deniz Şortu"};
+                //"Çocuk Hırka",
+                //"Çocuk Kazak",
+                //"Çocuk Eşofman",
+                //"Çocuk Tulum",
+                //"Çocuk Hastane Çıkışı",
+                //"Çocuk Tayt",
+                //"Çocuk Deniz Şortu"
+            };
 
-
-            var sb = new StringBuilder();
             int countCatg = 0;
             ProductCategory catg1 = new ProductCategory() { Title = "Kadın Giyim" };
             countCatg = AddCategory(catg1, catgKadin, sb);
@@ -92,11 +110,6 @@ namespace CriticalPath.Web.Controllers
             ProductCategory catg3 = new ProductCategory() { Title = "Çocuk Giyim" };
             DataContext.ProductCategories.Add(catg3);
             countCatg = AddCategory(catg3, catgCocuk, sb);
-
-            await DataContext.SaveChangesAsync(this);
-
-
-            return Content(sb.ToString());
         }
 
         private int AddCategory(ProductCategory parentCatg, string[] subCategories, StringBuilder sb)
@@ -116,7 +129,7 @@ namespace CriticalPath.Web.Controllers
                 DataContext.ProductCategories.Add(catg);
                 countCatg++;
                 Random rnd = new Random();
-                int countProduct = rnd.Next(5, 15);
+                int countProduct = rnd.Next(3, 7);
                 for (int i = 0; i < countProduct; i++)
                 {
                     string[] lips = Text.GetRandomLipsumSentence().Split(' ');

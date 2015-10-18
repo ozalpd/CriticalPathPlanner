@@ -11,18 +11,18 @@
 
 @echo .
 @echo .
-@echo 2 - Executing Supplier.sql...
+@echo 2 - Executing Contact.sql...
+@sqlcmd -S .\SqlExpress -d CriticalPath -E -i Contact.sql
+
+@echo .
+@echo .
+@echo 3 - Executing Supplier.sql...
 @sqlcmd -S .\SqlExpress -d CriticalPath -E -i Supplier.sql
 
 @echo .
 @echo .
-@echo 3 - Executing Customer.sql...
+@echo 4 - Executing Customer.sql...
 @sqlcmd -S .\SqlExpress -d CriticalPath -E -i Customer.sql
-
-@echo .
-@echo .
-@echo 4 - Executing Contact.sql...
-@sqlcmd -S .\SqlExpress -d CriticalPath -E -i Contact.sql
 
 @echo .
 @echo .

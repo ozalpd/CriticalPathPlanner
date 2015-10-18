@@ -5,7 +5,7 @@ GO
 CREATE TABLE [dbo].[ProcessSteps](
     [Id] [int] Identity(1,1) Not Null,
     [Title] [nVarChar](128) Not Null,
-    [IsCompleted ] [bit] Not Null,
+    [IsCompleted] [bit] Not Null,
     [Description] [nVarChar](256) Null,
     [DisplayOrder] [int] Not Null,
     [ProcessId] [int] Not Null Constraint FK_ProcessStep_ProcessId Foreign Key References [dbo].[Processes]([Id]),
@@ -31,7 +31,7 @@ CREATE TABLE [dbo].[ProcessSteps](
     ALLOW_PAGE_LOCKS  = ON)
   ON [PRIMARY]) ON [PRIMARY]
 Go
-Create Nonclustered Index [idx_ProcessSteps_IsCompleted ] On [dbo].[ProcessSteps]([IsCompleted ] Asc)
+Create Nonclustered Index [idx_ProcessSteps_IsCompleted] On [dbo].[ProcessSteps]([IsCompleted] Asc)
 Go
 Create Nonclustered Index [idx_ProcessSteps_DisplayOrder] On [dbo].[ProcessSteps]([DisplayOrder] Asc)
 Go

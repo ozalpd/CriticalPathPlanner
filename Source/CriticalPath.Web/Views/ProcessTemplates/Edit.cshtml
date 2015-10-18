@@ -1,0 +1,45 @@
+@using CriticalPath.Web.Models
+@using CriticalPath.Data
+@using CriticalPath.Data.Resources
+@model ProcessTemplate
+@{
+    ViewBag.Title = EntityStrings.EditProcessTemplate;
+}
+
+<h2>@EntityStrings.ProcessTemplate</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.Id)
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.TemplateName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.TemplateName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.TemplateName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.DefaultTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.DefaultTitle, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.DefaultTitle, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.StepTemplates, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(m => m.StepTemplates, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    @Html.Partial("_SaveButtonsPartial")
+</div>
+}
+
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

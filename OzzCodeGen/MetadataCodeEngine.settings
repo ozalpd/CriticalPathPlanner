@@ -397,6 +397,11 @@
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
+          <Name>OrderItems</Name>
+          <Exclude>false</Exclude>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
           <Name>Notes</Name>
           <Exclude>false</Exclude>
           <DataType>MultilineText</DataType>
@@ -457,7 +462,7 @@
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>IsCompleted </Name>
+          <Name>IsCompleted</Name>
           <Exclude>false</Exclude>
           <DataType />
           <Required />
@@ -509,7 +514,7 @@
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>IsCompleted </Name>
+          <Name>IsCompleted</Name>
           <Exclude>false</Exclude>
           <DataType />
           <Required />

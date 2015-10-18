@@ -1,0 +1,35 @@
+@using CriticalPath.Web.Models
+@using CriticalPath.Data
+@using CriticalPath.Data.Resources
+@model ProcessTemplate
+@{
+    ViewBag.Title = EntityStrings.ProcessTemplate;
+}
+
+<h2>@EntityStrings.ProcessTemplate @ActionStrings.Details</h2>
+
+<div class="row">
+    <label class="control-label col-md-2">
+        @Html.DisplayNameFor(model => model.TemplateName)
+    </label>
+    <div class="col-md-10">
+        @Html.DisplayFor(m => m.TemplateName)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2">
+        @Html.DisplayNameFor(model => model.DefaultTitle)
+    </label>
+    <div class="col-md-10">
+        @Html.DisplayFor(m => m.DefaultTitle)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2">
+        @Html.DisplayNameFor(model => model.StepTemplates)
+    </label>
+    <div class="col-md-10">
+        @Html.DisplayFor(m => m.StepTemplates)
+    </div>
+</div>
+@Html.Partial("_DetailFormButtonsPartial")

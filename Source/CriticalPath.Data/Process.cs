@@ -22,7 +22,7 @@ namespace CriticalPath.Data
     
         public int Id { get; set; }
         public string Title { get; set; }
-        public bool IsCompleted_ { get; set; }
+        public bool IsCompleted { get; set; }
         public string Description { get; set; }
         public int ProcessTemplateId { get; set; }
         public int OrderItemId { get; set; }
@@ -51,7 +51,7 @@ namespace CriticalPath.Data
         {
             var clone = new Process();
             clone.Title = Title;
-            clone.IsCompleted_ = IsCompleted_;
+            clone.IsCompleted = IsCompleted;
             clone.Description = Description;
             clone.ProcessTemplateId = ProcessTemplateId;
             clone.OrderItemId = OrderItemId;
@@ -86,7 +86,7 @@ namespace CriticalPath.Data
         {
             Id = entity.Id;
             Title = entity.Title;
-            IsCompleted_ = entity.IsCompleted_;
+            IsCompleted = entity.IsCompleted;
             Description = entity.Description;
             ProcessTemplateId = entity.ProcessTemplateId;
             OrderItemId = entity.OrderItemId;
@@ -103,7 +103,7 @@ namespace CriticalPath.Data
             var entity = new Process();
             entity.Id = Id;
             entity.Title = Title;
-            entity.IsCompleted_ = IsCompleted_;
+            entity.IsCompleted = IsCompleted;
             entity.Description = Description;
             entity.ProcessTemplateId = ProcessTemplateId;
             entity.OrderItemId = OrderItemId;
@@ -119,7 +119,7 @@ namespace CriticalPath.Data
       
         public int Id { get; set; }
         public string Title { get; set; }
-        public bool IsCompleted_ { get; set; }
+        public bool IsCompleted { get; set; }
         public string Description { get; set; }
         public int ProcessTemplateId { get; set; }
         public int OrderItemId { get; set; }

@@ -16,13 +16,7 @@
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.Id)
         
-        <div class="form-group">
-            @Html.LabelFor(model => model.CompanyId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("CompanyId", null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.CompanyId, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        @Html.HiddenFor(m => m.CompanyId)
         <div class="form-group">
             @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">

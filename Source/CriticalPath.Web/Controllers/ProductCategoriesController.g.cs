@@ -2,24 +2,18 @@ using System;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Threading.Tasks;
+using CriticalPath.Data;
 using CriticalPath.Web.Models;
 using System.Net;
 using System.Web.Mvc;
-using System.Data;
-using System.Data.Entity;
-using CriticalPath.Data;
 
 namespace CriticalPath.Web.Controllers
 {
     public partial class ProductCategoriesController : BaseController 
     {
-        private async Task<ProductCategory> FindAsyncProductCategory(int id)
-        {
-            return await DataContext
-                            .GetProductCategoryQuery()
-                            .FirstOrDefaultAsync(x => x.Id == id);
-        }
         partial void SetViewBags(ProductCategory productCategory);
         partial void SetDefaults(ProductCategory productCategory);
 
@@ -105,6 +99,19 @@ namespace CriticalPath.Web.Controllers
             SetViewBags(productCategory);
             return View(productCategory);
         }
+		
+        protected virtual async Task<bool> CanUserCreate()
+        {
+            if (!_canUserCreate.HasValue)
+            {
+                _canUserCreate = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync() ||
+                                    await IsUserClerkAsync());
+            }
+            return _canUserCreate.Value;
+        }
+        bool? _canUserCreate;
 
         [Authorize(Roles = "admin, supervisor, clerk")]
         public async Task<ActionResult> Edit(int? id)  //GET: /ProductCategories/Edit/5
@@ -143,6 +150,19 @@ namespace CriticalPath.Web.Controllers
             return View(productCategory);
         }
 
+        protected virtual async Task<bool> CanUserEdit()
+        {
+            if (!_canUserEdit.HasValue)
+            {
+                _canUserEdit = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync() ||
+                                    await IsUserClerkAsync());
+            }
+            return _canUserEdit.Value;
+        }
+        bool? _canUserEdit;
+
         [Authorize(Roles = "admin, supervisor")]
         public async Task<ActionResult> Delete(int? id)  //GET: /ProductCategories/Delete/5
         {
@@ -162,31 +182,17 @@ namespace CriticalPath.Web.Controllers
 
             return RedirectToAction("Index");
         }
-        
-        protected CriticalPathContext DataContext
+		
+        protected virtual async Task<bool> CanUserDelete()
         {
-            get
+            if (!_canUserDelete.HasValue)
             {
-                if (_dataContext == null)
-                {
-                    _dataContext = new CriticalPathContext();
-                }
-                return _dataContext;
+                _canUserDelete = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync());
             }
+            return _canUserDelete.Value;
         }
-        private CriticalPathContext _dataContext;
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                if (_dataContext != null)
-                {
-                    _dataContext.Dispose();
-                    _dataContext = null;
-                }
-            }
-            base.Dispose(disposing);
-        }
+        bool? _canUserDelete;
     }
 }

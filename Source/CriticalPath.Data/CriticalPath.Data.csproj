@@ -78,12 +78,27 @@
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Metadata\Contact.meta.cs" />
+    <Compile Include="Metadata\ContactDTO.meta.cs" />
     <Compile Include="Metadata\Customer.meta.cs" />
+    <Compile Include="Metadata\CustomerDTO.meta.cs" />
     <Compile Include="Metadata\OrderItem.meta.cs" />
+    <Compile Include="Metadata\OrderItemDTO.meta.cs" />
+    <Compile Include="Metadata\Process.meta.cs" />
+    <Compile Include="Metadata\ProcessDTO.meta.cs" />
+    <Compile Include="Metadata\ProcessStep.meta.cs" />
+    <Compile Include="Metadata\ProcessStepDTO.meta.cs" />
+    <Compile Include="Metadata\ProcessStepTemplate.meta.cs" />
+    <Compile Include="Metadata\ProcessStepTemplateDTO.meta.cs" />
+    <Compile Include="Metadata\ProcessTemplate.meta.cs" />
+    <Compile Include="Metadata\ProcessTemplateDTO.meta.cs" />
     <Compile Include="Metadata\Product.meta.cs" />
     <Compile Include="Metadata\ProductCategory.meta.cs" />
+    <Compile Include="Metadata\ProductCategoryDTO.meta.cs" />
+    <Compile Include="Metadata\ProductDTO.meta.cs" />
     <Compile Include="Metadata\PuchaseOrder.meta.cs" />
+    <Compile Include="Metadata\PuchaseOrderDTO.meta.cs" />
     <Compile Include="Metadata\Supplier.meta.cs" />
+    <Compile Include="Metadata\SupplierDTO.meta.cs" />
     <Compile Include="OrderItem.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>

@@ -1,0 +1,100 @@
+@using CriticalPath.Web.Models
+@using CriticalPath.Data
+@using CriticalPath.Data.Resources
+@model IEnumerable<Supplier>
+@{
+    ViewBag.Title = @EntityStrings.Suppliers;
+
+    //Authorization Flags
+    bool canUserEdit = ViewBag.canUserEdit;
+    bool canUserCreate = ViewBag.canUserCreate;
+    bool canUserDelete = ViewBag.canUserDelete;
+
+    //Records & Pager
+    int pageNr = ViewBag.pageNr;
+    int totalCount = ViewBag.totalCount;
+    int pageSize = ViewBag.pageSize;
+    int pageCount = ViewBag.pageCount;
+}
+<div class="row well">
+    <div class="col-md-8">
+        <h4>@EntityStrings.Suppliers</h4>
+    </div>
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "searchForm" }))
+    {
+        @Html.Hidden("pageNr", pageNr)
+        <div class="col-md-4">
+            <div class="input-group">
+                @Html.TextBox("SearchString", null, new { @class = "form-control" })
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" onclick="setPager(1)">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                </span>
+            </div>
+        </div>
+    }
+</div>
+@if (totalCount > 0)
+{
+    <table class="table table-hover">
+        <tr>
+            <th>@ActionStrings.Action</th>
+            <th>@Html.DisplayNameFor(model => model.CompanyName)</th>
+            <th>@Html.DisplayNameFor(model => model.SupplierCode)</th>
+            <th>@Html.DisplayNameFor(model => model.City)</th>
+            <th>@Html.DisplayNameFor(model => model.Country)</th>
+        </tr>
+    @foreach (var item in Model)
+    {
+            int contactsCount = item.Contacts.Count;
+            bool canDelete = canUserDelete && (contactsCount + 0) == 0;
+            <tr>
+                <td>
+                    <div class="btn-group">
+                        <button type="button" title="@ActionStrings.Action" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">
+                            <span class="glyphicon glyphicon-tasks"></span> <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink(ActionStrings.Details, "Details", new { id = item.Id })</li>
+                            @if (canUserEdit)
+                            {
+                                <li>@Html.ActionLink(ActionStrings.Edit, "Edit", new { id = item.Id })</li>
+                            }
+                            @if (canDelete)
+                            {
+                                <li>
+                                    <a href="#deleteConfirm" data-toggle="modal" onclick="setDelete('<b>@(item.CompanyName)</b>', @item.Id);">
+                                        @ActionStrings.Delete
+                                    </a>
+                                </li>
+                            }
+                            else if (canUserDelete)
+                            {
+                                string cannotDelete = string.Format("Contacts: {0}<br/>", contactsCount );
+                                <li>
+                                    <a onclick="showCannotDelete('<b>@(item.CompanyName)</b>', '@cannotDelete');">
+                                        @ActionStrings.Delete
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.CompanyName)</td>
+                <td>@Html.DisplayFor(modelItem => item.SupplierCode)</td>
+                <td>@Html.DisplayFor(modelItem => item.City)</td>
+                <td>@Html.DisplayFor(modelItem => item.Country)</td>
+            </tr>
+    }
+    </table>
+    @Html.Partial("_PagerPartial")
+    @Html.Partial("_MessageBoxPartial")
+}
+else
+{
+    <h4>@MessageStrings.NoResults!</h4>
+}
+@section scripts{
+    @Html.Partial("_IndexScriptsPartial", "Suppliers")
+}

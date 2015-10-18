@@ -18,7 +18,8 @@ defaultQuerySettings.SortProperties
 		"CompanyName",
 		"Name",
 		"LastName",
-		"FirstName"
+		"FirstName",
+		"TemplateName"
 	});
 //Object properties those are excluded in DataTransferObjects
 defaultQuerySettings.DtoExclusions

@@ -1,0 +1,87 @@
+@using CriticalPath.Web.Models
+@using CriticalPath.Data
+@using CriticalPath.Data.Resources
+@model IEnumerable<ProcessStepTemplate>
+@{
+    ViewBag.Title = @EntityStrings.ProcessStepTemplates;
+
+    //Authorization Flags
+    bool canUserEdit = ViewBag.canUserEdit;
+    bool canUserCreate = ViewBag.canUserCreate;
+    bool canUserDelete = ViewBag.canUserDelete;
+
+    //Records & Pager
+    int pageNr = ViewBag.pageNr;
+    int totalCount = ViewBag.totalCount;
+    int pageSize = ViewBag.pageSize;
+    int pageCount = ViewBag.pageCount;
+}
+<div class="row well">
+    <div class="col-md-8">
+        <h4>@EntityStrings.ProcessStepTemplates</h4>
+    </div>
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "searchForm" }))
+    {
+        @Html.Hidden("pageNr", pageNr)
+        <div class="col-md-4">
+            <div class="input-group">
+                @Html.TextBox("SearchString", null, new { @class = "form-control" })
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" onclick="setPager(1)">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                </span>
+            </div>
+        </div>
+    }
+</div>
+@if (totalCount > 0)
+{
+    <table class="table table-hover">
+        <tr>
+            <th>@ActionStrings.Action</th>
+            <th>@Html.DisplayNameFor(model => model.Title)</th>
+            <th>@Html.DisplayNameFor(model => model.DisplayOrder)</th>
+            <th>@Html.DisplayNameFor(model => model.ProcessTemplate)</th>
+        </tr>
+    @foreach (var item in Model)
+    {
+            <tr>
+                <td>
+                    <div class="btn-group">
+                        <button type="button" title="@ActionStrings.Action" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">
+                            <span class="glyphicon glyphicon-tasks"></span> <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink(ActionStrings.Details, "Details", new { id = item.Id })</li>
+                            @if (canUserEdit)
+                            {
+                                <li>@Html.ActionLink(ActionStrings.Edit, "Edit", new { id = item.Id })</li>
+                            }
+                            @if (canUserDelete)
+                            {
+                                <li>
+                                    <a href="#deleteConfirm" data-toggle="modal" onclick="setDelete('<b>@(item.Title)</b>', @item.Id);">
+                                    @ActionStrings.Delete
+                                </a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                <td>@Html.DisplayFor(modelItem => item.DisplayOrder)</td>
+                <td>@Html.DisplayFor(modelItem => item.ProcessTemplate)</td>
+            </tr>
+    }
+    </table>
+    @Html.Partial("_PagerPartial")
+    @Html.Partial("_MessageBoxPartial")
+}
+else
+{
+    <h4>@MessageStrings.NoResults!</h4>
+}
+@section scripts{
+    @Html.Partial("_IndexScriptsPartial", "ProcessStepTemplates")
+}

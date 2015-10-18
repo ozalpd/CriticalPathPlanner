@@ -184,11 +184,25 @@
     <Compile Include="Controllers\CustomersController.part.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OrderItemsController.g.cs" />
+    <Compile Include="Controllers\OrderItemsController.part.cs" />
+    <Compile Include="Controllers\ProcessesController.g.cs" />
+    <Compile Include="Controllers\ProcessesController.part.cs" />
+    <Compile Include="Controllers\ProcessStepsController.g.cs" />
+    <Compile Include="Controllers\ProcessStepsController.part.cs" />
+    <Compile Include="Controllers\ProcessStepTemplatesController.g.cs" />
+    <Compile Include="Controllers\ProcessStepTemplatesController.part.cs" />
+    <Compile Include="Controllers\ProcessTemplatesController.g.cs" />
+    <Compile Include="Controllers\ProcessTemplatesController.part.cs" />
     <Compile Include="Controllers\ProductCategoriesController.g.cs" />
     <Compile Include="Controllers\ProductCategoriesController.part.cs" />
     <Compile Include="Controllers\AdmPanelController.cs" />
     <Compile Include="Controllers\ProductsController.g.cs" />
     <Compile Include="Controllers\ProductsController.part.cs" />
+    <Compile Include="Controllers\PuchaseOrdersController.g.cs" />
+    <Compile Include="Controllers\PuchaseOrdersController.part.cs" />
+    <Compile Include="Controllers\SuppliersController.g.cs" />
+    <Compile Include="Controllers\SuppliersController.part.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -295,6 +309,22 @@
     <Content Include="Views\Contacts\Edit.cshtml" />
     <Content Include="Views\Contacts\Index.cshtml" />
     <Content Include="Views\Shared\_PagerPartial.cshtml" />
+    <Content Include="Views\Suppliers\Create.cshtml" />
+    <Content Include="Views\Suppliers\Details.cshtml" />
+    <Content Include="Views\Suppliers\Edit.cshtml" />
+    <Content Include="Views\Suppliers\Index.cshtml" />
+    <Content Include="Views\PuchaseOrders\Create.cshtml" />
+    <Content Include="Views\PuchaseOrders\Details.cshtml" />
+    <Content Include="Views\PuchaseOrders\Edit.cshtml" />
+    <Content Include="Views\PuchaseOrders\Index.cshtml" />
+    <Content Include="Views\OrderItems\Create.cshtml" />
+    <Content Include="Views\OrderItems\Details.cshtml" />
+    <Content Include="Views\OrderItems\Edit.cshtml" />
+    <Content Include="Views\OrderItems\Index.cshtml" />
+    <Content Include="Views\Processes\Create.cshtml" />
+    <Content Include="Views\Processes\Details.cshtml" />
+    <Content Include="Views\Processes\Edit.cshtml" />
+    <Content Include="Views\Processes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

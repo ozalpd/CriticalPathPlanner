@@ -35,6 +35,21 @@
                             <li>@Html.ActionLink(@EntityStrings.CreateProductCategory, "Create", "ProductCategories")</li>
                         </ul>
                     </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            @EntityStrings.PuchaseOrders<b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink(@EntityStrings.PuchaseOrders, "Index", "PuchaseOrders")</li>
+                            <li>@Html.ActionLink(@EntityStrings.CreatePuchaseOrder, "Create", "PuchaseOrders")</li>
+                            <li class="divider"></li>
+                            <li>@Html.ActionLink(@EntityStrings.Customers, "Index", "Customers")</li>
+                            <li>@Html.ActionLink(@EntityStrings.CreateCustomer, "Create", "Customers")</li>
+                            <li class="divider"></li>
+                            <li>@Html.ActionLink(@EntityStrings.Suppliers, "Index", "Suppliers")</li>
+                            <li>@Html.ActionLink(@EntityStrings.CreateSupplier, "Create", "Suppliers")</li>
+                        </ul>
+                    </li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

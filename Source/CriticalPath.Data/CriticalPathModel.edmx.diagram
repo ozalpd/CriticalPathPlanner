@@ -16,12 +16,12 @@
         <AssociationConnector Association="CriticalPathDataModel.FK_ProductCategory_ParentCategoryId" />
         <EntityTypeShape EntityType="CriticalPathDataModel.Product" Width="1.5" PointX="5.75" PointY="5" />
         <AssociationConnector Association="CriticalPathDataModel.FK_Product_CategoryId" />
-        <EntityTypeShape EntityType="CriticalPathDataModel.PuchaseOrder" Width="1.5" PointX="8.5" PointY="0.5" />
+        <EntityTypeShape EntityType="CriticalPathDataModel.PuchaseOrder" Width="1.5" PointX="8.125" PointY="0.5" />
         <AssociationConnector Association="CriticalPathDataModel.FK_PuchaseOrder_CustomerId" />
         <EntityTypeShape EntityType="CriticalPathDataModel.OrderItem" Width="1.5" PointX="5.75" PointY="0.5" />
         <AssociationConnector Association="CriticalPathDataModel.FK_OrderItem_ProductId" />
         <AssociationConnector Association="CriticalPathDataModel.FK_OrderItem_PuchaseOrderId" />
-        <EntityTypeShape EntityType="CriticalPathDataModel.Process" Width="1.5" PointX="3.25" PointY="0.5" />
+        <EntityTypeShape EntityType="CriticalPathDataModel.Process" Width="1.75" PointX="3.25" PointY="0.5" />
         <EntityTypeShape EntityType="CriticalPathDataModel.ProcessStep" Width="1.5" PointX="0.5" PointY="0.5" />
         <EntityTypeShape EntityType="CriticalPathDataModel.ProcessStepTemplate" Width="1.875" PointX="0.5" PointY="6.375" />
         <EntityTypeShape EntityType="CriticalPathDataModel.ProcessTemplate" Width="1.75" PointX="3.25" PointY="6.375" />

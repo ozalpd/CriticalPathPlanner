@@ -248,7 +248,7 @@ namespace CriticalPath.Data
                    {
                        Id = e.Id,
                        Title = e.Title,
-                       IsCompleted_ = e.IsCompleted_,
+                       IsCompleted = e.IsCompleted,
                        Description = e.Description,
                        ProcessTemplateId = e.ProcessTemplateId,
                        OrderItemId = e.OrderItemId,
@@ -345,7 +345,7 @@ namespace CriticalPath.Data
         /// <returns></returns>
         public virtual IQueryable<ProcessTemplate> GetProcessTemplateQuery()
         {
-            IQueryable<ProcessTemplate> query = ProcessTemplates;
+            IQueryable<ProcessTemplate> query = ProcessTemplates.OrderBy(p => p.TemplateName);
             return query;
         }
     

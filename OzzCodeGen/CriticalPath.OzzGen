@@ -438,7 +438,7 @@
           <Name>CompanyId</Name>
           <DisplayOrder>100300</DisplayOrder>
           <DisplayName>Company Id</DisplayName>
-          <Editable>true</Editable>
+          <Editable>false</Editable>
           <TypeName>int</TypeName>
           <IsClientComputed>false</IsClientComputed>
           <IsServerComputed>false</IsServerComputed>
@@ -452,7 +452,7 @@
           <Name>Company</Name>
           <DisplayOrder>100400</DisplayOrder>
           <DisplayName>Company</DisplayName>
-          <Editable>true</Editable>
+          <Editable>false</Editable>
           <TypeName>Company</TypeName>
           <IsClientComputed>false</IsClientComputed>
           <IsServerComputed>false</IsServerComputed>
@@ -853,7 +853,7 @@
           <Name>CustomerId</Name>
           <DisplayOrder>401100</DisplayOrder>
           <DisplayName>Customer Id</DisplayName>
-          <Editable>true</Editable>
+          <Editable>false</Editable>
           <TypeName>int</TypeName>
           <IsClientComputed>false</IsClientComputed>
           <IsServerComputed>false</IsServerComputed>
@@ -867,7 +867,7 @@
           <Name>Customer</Name>
           <DisplayOrder>401200</DisplayOrder>
           <DisplayName>Customer</DisplayName>
-          <Editable>true</Editable>
+          <Editable>false</Editable>
           <TypeName>Customer</TypeName>
           <IsClientComputed>false</IsClientComputed>
           <IsServerComputed>false</IsServerComputed>
@@ -936,7 +936,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>Notes</Name>
-          <DisplayOrder>606000</DisplayOrder>
+          <DisplayOrder>800600</DisplayOrder>
           <DisplayName>Notes</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
@@ -948,6 +948,17 @@
           <IsForeignKey>false</IsForeignKey>
           <IsNullable>true</IsNullable>
           <MaxLenght>255</MaxLenght>
+        </BaseProperty>
+        <BaseProperty xsi:type="CollectionProperty">
+          <Name>OrderItems</Name>
+          <DisplayOrder>700100</DisplayOrder>
+          <DisplayName>Order Items</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>ICollection&lt;OrderItem&gt;</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <UiVisible>true</UiVisible>
         </BaseProperty>
       </Properties>
     </EntityDefinition>
@@ -966,7 +977,7 @@
           <Name>PuchaseOrderId</Name>
           <DisplayOrder>600100</DisplayOrder>
           <DisplayName>Puchase Order Id</DisplayName>
-          <Editable>true</Editable>
+          <Editable>false</Editable>
           <TypeName>int</TypeName>
           <IsClientComputed>false</IsClientComputed>
           <IsServerComputed>false</IsServerComputed>
@@ -980,7 +991,7 @@
           <Name>PuchaseOrder</Name>
           <DisplayOrder>600200</DisplayOrder>
           <DisplayName>Order</DisplayName>
-          <Editable>true</Editable>
+          <Editable>false</Editable>
           <TypeName>PuchaseOrder</TypeName>
           <IsClientComputed>false</IsClientComputed>
           <IsServerComputed>false</IsServerComputed>
@@ -993,7 +1004,7 @@
           <Name>ProductId</Name>
           <DisplayOrder>600300</DisplayOrder>
           <DisplayName>Product Id</DisplayName>
-          <Editable>true</Editable>
+          <Editable>false</Editable>
           <TypeName>int</TypeName>
           <IsClientComputed>false</IsClientComputed>
           <IsServerComputed>false</IsServerComputed>
@@ -1007,7 +1018,7 @@
           <Name>Product</Name>
           <DisplayOrder>600400</DisplayOrder>
           <DisplayName>Product</DisplayName>
-          <Editable>true</Editable>
+          <Editable>false</Editable>
           <TypeName>Product</TypeName>
           <IsClientComputed>false</IsClientComputed>
           <IsServerComputed>false</IsServerComputed>
@@ -1089,7 +1100,7 @@
           <MaxLenght>256</MaxLenght>
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
-          <Name>IsCompleted </Name>
+          <Name>IsCompleted</Name>
           <DisplayOrder>100200</DisplayOrder>
           <DisplayName>Is Completed </DisplayName>
           <Editable>true</Editable>
@@ -1106,7 +1117,7 @@
           <Name>ProcessTemplate</Name>
           <DisplayOrder>200100</DisplayOrder>
           <DisplayName>Process Template</DisplayName>
-          <Editable>true</Editable>
+          <Editable>false</Editable>
           <TypeName>ProcessTemplate</TypeName>
           <IsClientComputed>false</IsClientComputed>
           <IsServerComputed>false</IsServerComputed>
@@ -1119,7 +1130,7 @@
           <Name>ProcessTemplateId</Name>
           <DisplayOrder>200100</DisplayOrder>
           <DisplayName>Process Template Id</DisplayName>
-          <Editable>true</Editable>
+          <Editable>false</Editable>
           <TypeName>int</TypeName>
           <IsClientComputed>false</IsClientComputed>
           <IsServerComputed>false</IsServerComputed>
@@ -1133,7 +1144,7 @@
           <Name>OrderItemId</Name>
           <DisplayOrder>400100</DisplayOrder>
           <DisplayName>Order Item Id</DisplayName>
-          <Editable>true</Editable>
+          <Editable>false</Editable>
           <TypeName>int</TypeName>
           <IsClientComputed>false</IsClientComputed>
           <IsServerComputed>false</IsServerComputed>
@@ -1147,7 +1158,7 @@
           <Name>OrderItem</Name>
           <DisplayOrder>400200</DisplayOrder>
           <DisplayName>Order Item</DisplayName>
-          <Editable>true</Editable>
+          <Editable>false</Editable>
           <TypeName>OrderItem</TypeName>
           <IsClientComputed>false</IsClientComputed>
           <IsServerComputed>false</IsServerComputed>
@@ -1211,7 +1222,7 @@
           <MaxLenght>256</MaxLenght>
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
-          <Name>IsCompleted </Name>
+          <Name>IsCompleted</Name>
           <DisplayOrder>100200</DisplayOrder>
           <DisplayName>Is Completed </DisplayName>
           <Editable>true</Editable>
@@ -1444,7 +1455,7 @@
   <CodeEngineList>
     <string>AspNetMvc_Controller_View_Generator</string>
     <string>Localization_Resource_Generator</string>
-    <string>Metadata_Class_Generator</string>
     <string>T-Sql_Scripts_Generator</string>
+    <string>Metadata_Class_Generator</string>
   </CodeEngineList>
 </CodeGenProject>

@@ -709,11 +709,11 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Is Completed .
+        ///   Looks up a localized string similar to Is Completed.
         /// </summary>
-        public static string IsCompleted_ {
+        public static string IsCompleted {
             get {
-                return ResourceManager.GetString("IsCompleted ", resourceCulture);
+                return ResourceManager.GetString("IsCompleted", resourceCulture);
             }
         }
         
