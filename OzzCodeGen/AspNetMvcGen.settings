@@ -34,6 +34,7 @@
       <DetailsView>false</DetailsView>
       <CreateView>false</CreateView>
       <EditView>false</EditView>
+      <CreateToDetails>false</CreateToDetails>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -88,6 +89,7 @@
       <DetailsView>false</DetailsView>
       <CreateView>false</CreateView>
       <EditView>false</EditView>
+      <CreateToDetails>false</CreateToDetails>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -153,6 +155,7 @@
       <DetailsView>false</DetailsView>
       <CreateView>false</CreateView>
       <EditView>false</EditView>
+      <CreateToDetails>false</CreateToDetails>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -218,6 +221,7 @@
       <DetailsView>false</DetailsView>
       <CreateView>false</CreateView>
       <EditView>false</EditView>
+      <CreateToDetails>false</CreateToDetails>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -272,12 +276,13 @@
       <DetailsView>false</DetailsView>
       <CreateView>false</CreateView>
       <EditView>false</EditView>
+      <CreateToDetails>false</CreateToDetails>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>Contact</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
+      <OverwriteExisting>true</OverwriteExisting>
       <Properties>
         <AspNetMvcPropertySetting>
           <Name>CompanyId</Name>
@@ -288,7 +293,7 @@
           <InCreateView>true</InCreateView>
           <InEditView>true</InEditView>
           <HasValidation>true</HasValidation>
-          <UseForEdit>DropDownList</UseForEdit>
+          <UseForEdit>HiddenInput</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
           <Name>Company</Name>
@@ -381,8 +386,8 @@
         <AspNetMvcPropertySetting>
           <Name>Notes</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>true</UseInSearch>
-          <InIndexView>true</InIndexView>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>false</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
           <InEditView>true</InEditView>
@@ -392,7 +397,7 @@
       </Properties>
       <ControllerName>Contacts</ControllerName>
       <DataSetName>Contacts</DataSetName>
-      <ForeignKeyForCreate>CompanyId</ForeignKeyForCreate>
+      <StrongDependedForeignKey>CompanyId</StrongDependedForeignKey>
       <SaveParameter>this</SaveParameter>
       <ModelForEdit>Contact</ModelForEdit>
       <RolesCanView>users</RolesCanView>
@@ -404,6 +409,7 @@
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
+      <CreateToDetails>false</CreateToDetails>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -557,12 +563,13 @@
       <DetailsView>false</DetailsView>
       <CreateView>false</CreateView>
       <EditView>false</EditView>
+      <CreateToDetails>false</CreateToDetails>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>Supplier</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
+      <OverwriteExisting>true</OverwriteExisting>
       <Properties>
         <AspNetMvcPropertySetting>
           <Name>SupplierCode</Name>
@@ -589,12 +596,13 @@
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
+      <CreateToDetails>false</CreateToDetails>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>Customer</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
+      <OverwriteExisting>true</OverwriteExisting>
       <Properties>
         <AspNetMvcPropertySetting>
           <Name>CustomerCode</Name>
@@ -632,12 +640,13 @@
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
+      <CreateToDetails>false</CreateToDetails>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>ProductCategory</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
+      <OverwriteExisting>true</OverwriteExisting>
       <Properties>
         <AspNetMvcPropertySetting>
           <Name>ParentCategoryId</Name>
@@ -697,12 +706,13 @@
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
+      <CreateToDetails>false</CreateToDetails>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>Product</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
+      <OverwriteExisting>true</OverwriteExisting>
       <Properties>
         <AspNetMvcPropertySetting>
           <Name>CategoryId</Name>
@@ -740,12 +750,13 @@
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
+      <CreateToDetails>true</CreateToDetails>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>PuchaseOrder</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
+      <OverwriteExisting>true</OverwriteExisting>
       <Properties>
         <AspNetMvcPropertySetting>
           <Name>Title</Name>
@@ -849,7 +860,7 @@
       </Properties>
       <ControllerName>PuchaseOrders</ControllerName>
       <DataSetName>PuchaseOrders</DataSetName>
-      <ForeignKeyForCreate>CustomerId</ForeignKeyForCreate>
+      <StrongDependedForeignKey>CustomerId</StrongDependedForeignKey>
       <SaveParameter>this</SaveParameter>
       <ModelForEdit>PuchaseOrder</ModelForEdit>
       <RolesCanView>users</RolesCanView>
@@ -861,12 +872,13 @@
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
+      <CreateToDetails>false</CreateToDetails>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>OrderItem</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
+      <OverwriteExisting>true</OverwriteExisting>
       <Properties>
         <AspNetMvcPropertySetting>
           <Name>PuchaseOrderId</Name>
@@ -948,12 +960,13 @@
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
+      <CreateToDetails>false</CreateToDetails>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>Process</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
+      <OverwriteExisting>true</OverwriteExisting>
       <Properties>
         <AspNetMvcPropertySetting>
           <Name>Title</Name>
@@ -1046,7 +1059,7 @@
       </Properties>
       <ControllerName>Processes</ControllerName>
       <DataSetName>Processes</DataSetName>
-      <ForeignKeyForCreate>OrderItemId</ForeignKeyForCreate>
+      <StrongDependedForeignKey>OrderItemId</StrongDependedForeignKey>
       <SaveParameter>this</SaveParameter>
       <ModelForEdit>Process</ModelForEdit>
       <RolesCanView>users</RolesCanView>
@@ -1058,12 +1071,13 @@
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
+      <CreateToDetails>false</CreateToDetails>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>ProcessStep</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
+      <OverwriteExisting>true</OverwriteExisting>
       <Properties>
         <AspNetMvcPropertySetting>
           <Name>Title</Name>
@@ -1178,12 +1192,13 @@
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
+      <CreateToDetails>false</CreateToDetails>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>ProcessTemplate</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
+      <OverwriteExisting>true</OverwriteExisting>
       <Properties>
         <AspNetMvcPropertySetting>
           <Name>TemplateName</Name>
@@ -1221,7 +1236,7 @@
       </Properties>
       <ControllerName>ProcessTemplates</ControllerName>
       <DataSetName>ProcessTemplates</DataSetName>
-      <ForeignKeyForCreate />
+      <StrongDependedForeignKey />
       <SaveParameter>this</SaveParameter>
       <ModelForEdit>ProcessTemplate</ModelForEdit>
       <RolesCanView>users</RolesCanView>
@@ -1233,12 +1248,13 @@
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
+      <CreateToDetails>false</CreateToDetails>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>ProcessStepTemplate</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
+      <OverwriteExisting>true</OverwriteExisting>
       <Properties>
         <AspNetMvcPropertySetting>
           <Name>Title</Name>
@@ -1287,7 +1303,7 @@
       </Properties>
       <ControllerName>ProcessStepTemplates</ControllerName>
       <DataSetName>ProcessStepTemplates</DataSetName>
-      <ForeignKeyForCreate>ProcessTemplateId</ForeignKeyForCreate>
+      <StrongDependedForeignKey>ProcessTemplateId</StrongDependedForeignKey>
       <SaveParameter>this</SaveParameter>
       <ModelForEdit>ProcessStepTemplate</ModelForEdit>
       <RolesCanView>users</RolesCanView>
@@ -1299,6 +1315,7 @@
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
+      <CreateToDetails>false</CreateToDetails>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
   </EntitySettings>

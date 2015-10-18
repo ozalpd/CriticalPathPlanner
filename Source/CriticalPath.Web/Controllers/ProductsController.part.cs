@@ -23,8 +23,12 @@ namespace CriticalPath.Web.Controllers
             ViewBag.CategoryId = new SelectList(queryCategoryId, "Id", "Title", categoryId);
         }
 
+        //public new class QueryParameters : BaseController.QueryParameters
+        //{
 
-        //Purpose: To set default property values for newly created Product entity
+        //}
+
+        //Purpose of SetDefaults: To set default property values for newly created Product entity
         //partial void SetDefaults(Product product) { }
 
     }

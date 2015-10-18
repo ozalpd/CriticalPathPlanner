@@ -78,6 +78,8 @@
                                     </a>
                                 </li>
                             }
+                            <li class="divider"></li>
+                                <li>@Html.ActionLink(EntityStrings.CreateContact, "Create", "Contacts", new { companyId = item.Id }, null)</li>
                         </ul>
                     </div>
                 </td>

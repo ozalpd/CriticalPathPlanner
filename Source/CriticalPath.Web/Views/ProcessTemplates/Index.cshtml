@@ -77,6 +77,8 @@
                                     </a>
                                 </li>
                             }
+                            <li class="divider"></li>
+                                <li>@Html.ActionLink(EntityStrings.CreateProcessStepTemplate, "Create", "ProcessStepTemplates", new { processTemplateId = item.Id }, null)</li>
                         </ul>
                     </div>
                 </td>

@@ -57,6 +57,7 @@
     <Compile Include="Contact.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Contact.part.cs" />
     <Compile Include="CriticalPathContext.cust.cs" />
     <Compile Include="CriticalPathContext.save.cs" />
     <Compile Include="CriticalPathModel.Context.cs">

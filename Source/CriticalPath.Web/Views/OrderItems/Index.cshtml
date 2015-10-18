@@ -62,11 +62,13 @@
                             @if (canUserDelete)
                             {
                                 <li>
-                                    <a href="#deleteConfirm" data-toggle="modal" onclick="setDelete('<b>@(item.Title)</b>', @item.Id);">
+                                    <a href="#deleteConfirm" data-toggle="modal" onclick="setDelete('<b>@(item.Product.Title)</b>', @item.Id);">
                                     @ActionStrings.Delete
                                 </a>
                                 </li>
                             }
+                            <li class="divider"></li>
+                                <li>@Html.ActionLink(EntityStrings.CreateProcess, "Create", "Processes", new { orderItemId = item.Id }, null)</li>
                         </ul>
                     </div>
                 </td>

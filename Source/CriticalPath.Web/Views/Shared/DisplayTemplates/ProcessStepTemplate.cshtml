@@ -1,0 +1,11 @@
+@using CriticalPath.Web.Models
+@using CriticalPath.Data
+@using CriticalPath.Data.Resources
+@model ProcessStepTemplate
+@{
+    Layout = null;
+}
+@if (Model != null)
+{
+    <div><a href='/ProcessStepTemplates/Details/@Model.Id'>@Model.Title</a></div>
+}

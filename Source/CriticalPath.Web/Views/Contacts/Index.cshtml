@@ -48,7 +48,6 @@
             <th>@Html.DisplayNameFor(model => model.PhoneMobile)</th>
             <th>@Html.DisplayNameFor(model => model.PhoneWork1)</th>
             <th>@Html.DisplayNameFor(model => model.PhoneWork2)</th>
-            <th>@Html.DisplayNameFor(model => model.Notes)</th>
         </tr>
     @foreach (var item in Model)
     {
@@ -67,7 +66,7 @@
                             @if (canUserDelete)
                             {
                                 <li>
-                                    <a href="#deleteConfirm" data-toggle="modal" onclick="setDelete('<b>@(item.Title)</b>', @item.Id);">
+                                    <a href="#deleteConfirm" data-toggle="modal" onclick="setDelete('<b>@(item.FullName)</b>', @item.Id);">
                                     @ActionStrings.Delete
                                 </a>
                                 </li>
@@ -83,7 +82,6 @@
                 <td>@Html.DisplayFor(modelItem => item.PhoneMobile)</td>
                 <td>@Html.DisplayFor(modelItem => item.PhoneWork1)</td>
                 <td>@Html.DisplayFor(modelItem => item.PhoneWork2)</td>
-                <td>@Html.DisplayFor(modelItem => item.Notes)</td>
             </tr>
     }
     </table>

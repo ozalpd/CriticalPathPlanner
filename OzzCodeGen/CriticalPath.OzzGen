@@ -311,7 +311,7 @@
       <Abstract>false</Abstract>
       <LetDownloadAll>false</LetDownloadAll>
       <DisplayName>Contact</DisplayName>
-      <DisplayMember>LastName</DisplayMember>
+      <DisplayMember>FullName</DisplayMember>
       <BaseTypeName>IModified</BaseTypeName>
       <Properties>
         <BaseProperty xsi:type="StringProperty">

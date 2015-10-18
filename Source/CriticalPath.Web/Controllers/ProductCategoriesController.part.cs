@@ -17,6 +17,8 @@ namespace CriticalPath.Web.Controllers
 			ViewBag.ParentCategoryId = new SelectList(queryParentCategory, "Id", "Title", parentCategoryId);
 		}
 
+        public new class QueryParameters : BaseController.QueryParameters { }
+
         //Purpose: To set default property values for newly created ProductCategory entity
         //partial void SetDefaults(ProductCategory productCategory) { }
     }

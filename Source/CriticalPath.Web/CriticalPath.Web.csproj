@@ -178,6 +178,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.g.cs" />
+    <Compile Include="Controllers\BaseController.part.cs" />
     <Compile Include="Controllers\ContactsController.g.cs" />
     <Compile Include="Controllers\ContactsController.part.cs" />
     <Compile Include="Controllers\CustomersController.g.cs" />
@@ -325,6 +326,28 @@
     <Content Include="Views\Processes\Details.cshtml" />
     <Content Include="Views\Processes\Edit.cshtml" />
     <Content Include="Views\Processes\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Company.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Contact.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Customer.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Supplier.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\OrderItem.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Process.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ProcessStep.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ProcessStepTemplate.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ProcessTemplate.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\PuchaseOrder.cshtml" />
+    <Content Include="Views\ProcessTemplates\Create.cshtml" />
+    <Content Include="Views\ProcessTemplates\Details.cshtml" />
+    <Content Include="Views\ProcessTemplates\Edit.cshtml" />
+    <Content Include="Views\ProcessTemplates\Index.cshtml" />
+    <Content Include="Views\ProcessStepTemplates\Create.cshtml" />
+    <Content Include="Views\ProcessStepTemplates\Details.cshtml" />
+    <Content Include="Views\ProcessStepTemplates\Edit.cshtml" />
+    <Content Include="Views\ProcessStepTemplates\Index.cshtml" />
+    <Content Include="Views\ProcessSteps\Create.cshtml" />
+    <Content Include="Views\ProcessSteps\Details.cshtml" />
+    <Content Include="Views\ProcessSteps\Edit.cshtml" />
+    <Content Include="Views\ProcessSteps\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -16,42 +16,33 @@ namespace CriticalPath.Web.Controllers
     {
         partial void SetViewBags(Product product);
         partial void SetDefaults(Product product);
-
         
         
-        public async Task<ActionResult> Index(string searchString, int pageNr = 1, int pageSize = 10)
+        public async Task<ActionResult> Index(QueryParameters qParams)
         {
             var query = DataContext.GetProductQuery();
-            if (!string.IsNullOrEmpty(searchString))
+            if (!string.IsNullOrEmpty(qParams.SearchString))
             {
                 query = from a in query
                         where
-                            a.Title.Contains(searchString) | 
-                            a.Code.Contains(searchString) 
+                            a.Title.Contains(qParams.SearchString) | 
+                            a.Code.Contains(qParams.SearchString) 
                         select a;
             }
-            int totalCount = await query.CountAsync();
-            int pageCount = totalCount > 0 ? (int)Math.Ceiling(totalCount / (double)pageSize) : 0;
-            if (pageNr < 1) pageNr = 1;
-            if (pageNr > pageCount) pageNr = pageCount;
-            int skip = (pageNr - 1) * pageSize;
-
-            ViewBag.pageNr = pageNr;
-            ViewBag.totalCount = totalCount;
-            ViewBag.pageSize = pageSize;
-            ViewBag.pageCount = pageCount;
+            qParams.TotalCount = await query.CountAsync();
+            SetPagerParameters(qParams);
 
             ViewBag.canUserEdit = await CanUserEdit();
             ViewBag.canUserCreate = await CanUserCreate();
             ViewBag.canUserDelete = await CanUserDelete();
 
-            if (totalCount > 0)
+            if (qParams.TotalCount > 0)
             {
-                return View(await query.Skip(skip).Take(pageSize).ToListAsync());
+                return View(await query.Skip(qParams.Skip).Take(qParams.PageSize).ToListAsync());
             }
             else
             {
-                return View(new List<Product>());
+                return View(new List<Product>());   //there isn't any record, so no need to run a query
             }
         }
 
@@ -72,6 +63,7 @@ namespace CriticalPath.Web.Controllers
             return View(product);
         }
 
+        [HttpGet]
         [Authorize(Roles = "admin, supervisor, clerk")]
         public ActionResult Create()  //GET: /Products/Create
         {
@@ -81,8 +73,8 @@ namespace CriticalPath.Web.Controllers
             return View(product);
         }
 
-        [Authorize(Roles = "admin, supervisor, clerk")]
         [HttpPost]
+        [Authorize(Roles = "admin, supervisor, clerk")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(Product product)  //POST: /Products/Create
         {
@@ -93,13 +85,13 @@ namespace CriticalPath.Web.Controllers
  
                 DataContext.Products.Add(product);
                 await DataContext.SaveChangesAsync(this);
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { Id = product.Id });
             }
 
             SetViewBags(product);
             return View(product);
         }
-		
+        
         protected virtual async Task<bool> CanUserCreate()
         {
             if (!_canUserCreate.HasValue)
@@ -182,7 +174,7 @@ namespace CriticalPath.Web.Controllers
 
             return RedirectToAction("Index");
         }
-		
+        
         protected virtual async Task<bool> CanUserDelete()
         {
             if (!_canUserDelete.HasValue)

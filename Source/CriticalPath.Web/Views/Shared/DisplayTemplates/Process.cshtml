@@ -1,0 +1,11 @@
+@using CriticalPath.Web.Models
+@using CriticalPath.Data
+@using CriticalPath.Data.Resources
+@model Process
+@{
+    Layout = null;
+}
+@if (Model != null)
+{
+    <div><a href='/Processes/Details/@Model.Id'>@Model.Title</a></div>
+}
