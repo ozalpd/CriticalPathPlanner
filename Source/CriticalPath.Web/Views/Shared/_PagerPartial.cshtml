@@ -14,6 +14,8 @@
         pagerStart = pageCount - pagers + 1;
     }
 }
+@if (pageCount > 1)
+{
 <nav>
     <ul class="pagination">
         @if (pageNr == 1)
@@ -37,7 +39,7 @@
                 </a>
             </li>
             <li>
-                <a href="#" aria-label="Previous" onclick="setPager(@(pageNr-1))">
+                <a href="#" aria-label="Previous" onclick="setPager(@(pageNr - 1))">
                     <span aria-hidden="true">&lsaquo;</span>
                 </a>
             </li>
@@ -56,7 +58,7 @@
         @if (pageNr < pageCount)
         {
             <li>
-                <a href="#" aria-label="Next" onclick="setPager(@(pageNr+1))">
+                <a href="#" aria-label="Next" onclick="setPager(@(pageNr + 1))">
                     <span aria-hidden="true">&rsaquo;</span>
                 </a>
             </li>
@@ -81,3 +83,4 @@
         }
     </ul>
 </nav>
+}

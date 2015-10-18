@@ -12,28 +12,34 @@ using CriticalPath.Data;
 
 namespace CriticalPath.Web.Controllers
 {
-    public partial class ProductsController : BaseController 
+    public partial class ContactsController : BaseController 
     {
-        private async Task<Product> FindAsyncProduct(int id)
+        private async Task<Contact> FindAsyncContact(int id)
         {
             return await DataContext
-                            .GetProductQuery()
+                            .GetContactQuery()
                             .FirstOrDefaultAsync(x => x.Id == id);
         }
-        partial void SetViewBags(Product product);
-        partial void SetDefaults(Product product);
+        partial void SetViewBags(Contact contact);
+        partial void SetDefaults(Contact contact);
 
         
-        
+        [Authorize]
         public async Task<ActionResult> Index(string searchString, int pageNr = 1, int pageSize = 10)
         {
-            var query = DataContext.GetProductQuery();
+            var query = DataContext.GetContactQuery();
             if (!string.IsNullOrEmpty(searchString))
             {
                 query = from a in query
                         where
-                            a.Title.Contains(searchString) | 
-                            a.Code.Contains(searchString) 
+                            a.FirstName.Contains(searchString) | 
+                            a.LastName.Contains(searchString) | 
+                            a.EmailWork.Contains(searchString) | 
+                            a.EmailHome.Contains(searchString) | 
+                            a.PhoneMobile.Contains(searchString) | 
+                            a.PhoneWork1.Contains(searchString) | 
+                            a.PhoneWork2.Contains(searchString) | 
+                            a.Notes.Contains(searchString) 
                         select a;
             }
             int totalCount = await query.CountAsync();
@@ -57,53 +63,53 @@ namespace CriticalPath.Web.Controllers
             }
             else
             {
-                return View(new List<Product>());
+                return View(new List<Contact>());
             }
         }
 
-        
-        public async Task<ActionResult> Details(int? id)  //GET: /Products/Details/5
+        [Authorize]
+        public async Task<ActionResult> Details(int? id)  //GET: /Contacts/Details/5
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = await FindAsyncProduct(id.Value);
+            Contact contact = await FindAsyncContact(id.Value);
 
-            if (product == null)
+            if (contact == null)
             {
                 return HttpNotFound();
             }
 
-            return View(product);
+            return View(contact);
         }
 
         [Authorize(Roles = "admin, supervisor, clerk")]
-        public ActionResult Create()  //GET: /Products/Create
+        public ActionResult Create()  //GET: /Contacts/Create
         {
-            var product = new Product();
-            SetDefaults(product);
+            var contact = new Contact();
+            SetDefaults(contact);
             SetViewBags(null);
-            return View(product);
+            return View(contact);
         }
 
         [Authorize(Roles = "admin, supervisor, clerk")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(Product product)  //POST: /Products/Create
+        public async Task<ActionResult> Create(Contact contact)  //POST: /Contacts/Create
         {
-            DataContext.SetInsertDefaults(product, this);
+            DataContext.SetInsertDefaults(contact, this);
 
             if (ModelState.IsValid)
             {
  
-                DataContext.Products.Add(product);
+                DataContext.Contacts.Add(contact);
                 await DataContext.SaveChangesAsync(this);
                 return RedirectToAction("Index");
             }
 
-            SetViewBags(product);
-            return View(product);
+            SetViewBags(contact);
+            return View(contact);
         }
 		
         protected virtual async Task<bool> CanUserCreate()
@@ -120,40 +126,40 @@ namespace CriticalPath.Web.Controllers
         bool? _canUserCreate;
 
         [Authorize(Roles = "admin, supervisor, clerk")]
-        public async Task<ActionResult> Edit(int? id)  //GET: /Products/Edit/5
+        public async Task<ActionResult> Edit(int? id)  //GET: /Contacts/Edit/5
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = await FindAsyncProduct(id.Value);
+            Contact contact = await FindAsyncContact(id.Value);
 
-            if (product == null)
+            if (contact == null)
             {
                 return HttpNotFound();
             }
 
-            SetViewBags(product);
-            return View(product);
+            SetViewBags(contact);
+            return View(contact);
         }
 
         [Authorize(Roles = "admin, supervisor, clerk")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(Product product)  //POST: /Products/Edit/5
+        public async Task<ActionResult> Edit(Contact contact)  //POST: /Contacts/Edit/5
         {
-            DataContext.SetInsertDefaults(product, this);
+            DataContext.SetInsertDefaults(contact, this);
 
             if (ModelState.IsValid)
             {
  
-                DataContext.Entry(product).State = EntityState.Modified;
+                DataContext.Entry(contact).State = EntityState.Modified;
                 await DataContext.SaveChangesAsync(this);
                 return RedirectToAction("Index");
             }
 
-            SetViewBags(product);
-            return View(product);
+            SetViewBags(contact);
+            return View(contact);
         }
 
         protected virtual async Task<bool> CanUserEdit()
@@ -170,20 +176,20 @@ namespace CriticalPath.Web.Controllers
         bool? _canUserEdit;
 
         [Authorize(Roles = "admin, supervisor")]
-        public async Task<ActionResult> Delete(int? id)  //GET: /Products/Delete/5
+        public async Task<ActionResult> Delete(int? id)  //GET: /Contacts/Delete/5
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = await FindAsyncProduct(id.Value);
+            Contact contact = await FindAsyncContact(id.Value);
 
-            if (product == null)
+            if (contact == null)
             {
                 return HttpNotFound();
             }
             
-            DataContext.Products.Remove(product);
+            DataContext.Contacts.Remove(contact);
             await DataContext.SaveChangesAsync(this);
 
             return RedirectToAction("Index");

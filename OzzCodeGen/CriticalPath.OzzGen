@@ -436,7 +436,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>CompanyId</Name>
-          <DisplayOrder>900300</DisplayOrder>
+          <DisplayOrder>100300</DisplayOrder>
           <DisplayName>Company Id</DisplayName>
           <Editable>true</Editable>
           <TypeName>int</TypeName>
@@ -450,7 +450,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="ComplexProperty">
           <Name>Company</Name>
-          <DisplayOrder>900400</DisplayOrder>
+          <DisplayOrder>100400</DisplayOrder>
           <DisplayName>Company</DisplayName>
           <Editable>true</Editable>
           <TypeName>Company</TypeName>

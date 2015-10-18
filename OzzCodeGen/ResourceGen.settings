@@ -141,6 +141,18 @@
       <LocalizeEntityName>true</LocalizeEntityName>
       <Properties>
         <LocalizationPropertySetting>
+          <Name>CompanyId</Name>
+          <Exclude>false</Exclude>
+          <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
+          <LocalizeValidationMsg>false</LocalizeValidationMsg>
+        </LocalizationPropertySetting>
+        <LocalizationPropertySetting>
+          <Name>Company</Name>
+          <Exclude>false</Exclude>
+          <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
+          <LocalizeValidationMsg>false</LocalizeValidationMsg>
+        </LocalizationPropertySetting>
+        <LocalizationPropertySetting>
           <Name>FirstName</Name>
           <Exclude>false</Exclude>
           <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
@@ -184,18 +196,6 @@
         </LocalizationPropertySetting>
         <LocalizationPropertySetting>
           <Name>Notes</Name>
-          <Exclude>false</Exclude>
-          <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
-          <LocalizeValidationMsg>false</LocalizeValidationMsg>
-        </LocalizationPropertySetting>
-        <LocalizationPropertySetting>
-          <Name>CompanyId</Name>
-          <Exclude>false</Exclude>
-          <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
-          <LocalizeValidationMsg>false</LocalizeValidationMsg>
-        </LocalizationPropertySetting>
-        <LocalizationPropertySetting>
-          <Name>Company</Name>
           <Exclude>false</Exclude>
           <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
           <LocalizeValidationMsg>false</LocalizeValidationMsg>

@@ -1,0 +1,83 @@
+@using CriticalPath.Web.Models
+@using CriticalPath.Data
+@using CriticalPath.Data.Resources
+@model Contact
+@{
+    ViewBag.Title = EntityStrings.Contact;
+}
+
+<h2>@EntityStrings.Contact @ActionStrings.Details</h2>
+
+<div class="row">
+    <label class="control-label col-md-2">
+        @Html.DisplayNameFor(model => model.Company)
+    </label>
+    <div class="col-md-10">
+        @Html.DisplayFor(m => m.Company)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2">
+        @Html.DisplayNameFor(model => model.FirstName)
+    </label>
+    <div class="col-md-10">
+        @Html.DisplayFor(m => m.FirstName)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2">
+        @Html.DisplayNameFor(model => model.LastName)
+    </label>
+    <div class="col-md-10">
+        @Html.DisplayFor(m => m.LastName)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2">
+        @Html.DisplayNameFor(model => model.EmailWork)
+    </label>
+    <div class="col-md-10">
+        @Html.DisplayFor(m => m.EmailWork)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2">
+        @Html.DisplayNameFor(model => model.EmailHome)
+    </label>
+    <div class="col-md-10">
+        @Html.DisplayFor(m => m.EmailHome)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2">
+        @Html.DisplayNameFor(model => model.PhoneMobile)
+    </label>
+    <div class="col-md-10">
+        @Html.DisplayFor(m => m.PhoneMobile)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2">
+        @Html.DisplayNameFor(model => model.PhoneWork1)
+    </label>
+    <div class="col-md-10">
+        @Html.DisplayFor(m => m.PhoneWork1)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2">
+        @Html.DisplayNameFor(model => model.PhoneWork2)
+    </label>
+    <div class="col-md-10">
+        @Html.DisplayFor(m => m.PhoneWork2)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2">
+        @Html.DisplayNameFor(model => model.Notes)
+    </label>
+    <div class="col-md-10">
+        @Html.DisplayFor(m => m.Notes)
+    </div>
+</div>
+@Html.Partial("_DetailFormButtonsPartial")

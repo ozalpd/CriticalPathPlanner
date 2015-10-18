@@ -135,6 +135,17 @@
       <OverwriteExisting>false</OverwriteExisting>
       <Properties>
         <MetadataPropertySetting>
+          <Name>CompanyId</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Company</Name>
+          <Exclude>false</Exclude>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
           <Name>FirstName</Name>
           <Exclude>false</Exclude>
           <DataType />
@@ -180,17 +191,6 @@
           <Name>Notes</Name>
           <Exclude>false</Exclude>
           <DataType>MultilineText</DataType>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>CompanyId</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>Company</Name>
-          <Exclude>false</Exclude>
           <Required />
         </MetadataPropertySetting>
       </Properties>

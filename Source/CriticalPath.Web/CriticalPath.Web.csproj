@@ -178,6 +178,10 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.g.cs" />
+    <Compile Include="Controllers\ContactsController.g.cs" />
+    <Compile Include="Controllers\ContactsController.part.cs" />
+    <Compile Include="Controllers\CustomersController.g.cs" />
+    <Compile Include="Controllers\CustomersController.part.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductCategoriesController.g.cs" />
@@ -282,6 +286,14 @@
     <Content Include="Views\Products\Create.cshtml" />
     <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\Products\Edit.cshtml" />
+    <Content Include="Views\Customers\Create.cshtml" />
+    <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Customers\Edit.cshtml" />
+    <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\Contacts\Create.cshtml" />
+    <Content Include="Views\Contacts\Details.cshtml" />
+    <Content Include="Views\Contacts\Edit.cshtml" />
+    <Content Include="Views\Contacts\Index.cshtml" />
     <Content Include="Views\Shared\_PagerPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
