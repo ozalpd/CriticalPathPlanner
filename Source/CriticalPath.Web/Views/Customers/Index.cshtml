@@ -44,6 +44,8 @@
             <th>@Html.DisplayNameFor(model => model.CustomerCode)</th>
             <th>@Html.DisplayNameFor(model => model.City)</th>
             <th>@Html.DisplayNameFor(model => model.Country)</th>
+            <th>@Html.DisplayNameFor(model => model.Contacts)</th>
+            <th>@Html.DisplayNameFor(model => model.Orders)</th>
         </tr>
     @foreach (var item in Model)
     {
@@ -80,8 +82,8 @@
                                 </li>
                             }
                             <li class="divider"></li>
-                                <li>@Html.ActionLink(EntityStrings.CreateContact, "Create", "Contacts", new { companyId = item.Id }, null)</li>
-                                <li>@Html.ActionLink(EntityStrings.CreatePuchaseOrder, "Create", "PuchaseOrders", new { customerId = item.Id }, null)</li>
+                                <li>@Html.ActionLink(EntityStrings.AddContact, "Create", "Contacts", new { companyId = item.Id }, null)</li>
+                                <li>@Html.ActionLink(EntityStrings.AddPuchaseOrder, "Create", "PuchaseOrders", new { customerId = item.Id }, null)</li>
                         </ul>
                     </div>
                 </td>
@@ -89,6 +91,8 @@
                 <td>@Html.DisplayFor(modelItem => item.CustomerCode)</td>
                 <td>@Html.DisplayFor(modelItem => item.City)</td>
                 <td>@Html.DisplayFor(modelItem => item.Country)</td>
+                <td>@contactsCount</td>
+                <td>@ordersCount</td>
             </tr>
     }
     </table>

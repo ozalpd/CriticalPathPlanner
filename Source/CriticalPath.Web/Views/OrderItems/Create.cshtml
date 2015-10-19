@@ -5,9 +5,7 @@
 @{
     ViewBag.Title = EntityStrings.CreateOrderItem;
 }
-
 <h2>@EntityStrings.OrderItem</h2>
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -16,6 +14,7 @@
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.Id)
         
+        @Html.HiddenFor(m => m.DisplayOrder)
         @Html.HiddenFor(m => m.PuchaseOrderId)
         <div class="form-group">
             @Html.LabelFor(model => model.ProductId, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -38,10 +37,9 @@
                 @Html.ValidationMessageFor(m => m.Notes, "", new { @class = "text-danger" })
             </div>
         </div>
-    @Html.Partial("_SaveButtonsPartial")
-</div>
+        @Html.Partial("_SaveButtonsPartial")
+    </div>
 }
-
 @section Scripts
 {
     @Scripts.Render("~/bundles/jqueryval")

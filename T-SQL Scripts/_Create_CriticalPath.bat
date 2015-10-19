@@ -63,6 +63,7 @@
 @echo .
 @echo 12 - Executing ProcessStepTemplate.sql...
 @sqlcmd -S .\SqlExpress -d CriticalPath -E -i ProcessStepTemplate.sql
+@sqlcmd -S .\SqlExpress -d CriticalPath -E -i ProcessTemplate-Data.sql
 
 @echo .
 @echo .

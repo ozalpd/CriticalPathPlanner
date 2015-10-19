@@ -11,6 +11,7 @@ using System.Data.Entity;
 using System.Web.Mvc;
 using System.Threading.Tasks;
 using OzzIdentity;
+using OzzIdentity.Models;
 
 namespace CriticalPath.Web.Controllers
 {
@@ -20,13 +21,20 @@ namespace CriticalPath.Web.Controllers
         public override ActionResult Index()
         {
             var sb = new StringBuilder();
-            sb.Append("<h4>Test users</h4>");
+            sb.Append("<h4>Test Panel</h4>");
 
-            var userStore = new OzzUserStore();
-            var users = userStore.Users;
-            foreach (var item in users)
+            var idContext = new OzzIdentityDbContext();
+            var users = idContext.Users;
+
+            foreach (var user in users)
             {
-                sb.Append(item.UserName);
+                sb.Append(user.Id);
+                sb.Append(" ");
+                sb.Append(user.UserName);
+                sb.Append(" ");
+                sb.Append(user.FirstName);
+                sb.Append(" ");
+                sb.Append(user.LastName);
                 sb.Append("<br>");
             }
             return Content(sb.ToString());

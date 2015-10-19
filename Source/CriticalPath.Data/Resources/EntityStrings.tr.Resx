@@ -59,12 +59,108 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 
+	<data name="AddCompany" xml:space="preserve">
+		<value>Şirket Ekle</value>
+	</data>
+
+	<data name="AddContact" xml:space="preserve">
+		<value>Kişi Ekle</value>
+	</data>
+
+	<data name="AddCustomer" xml:space="preserve">
+		<value>Müşteri Ekle</value>
+	</data>
+
+	<data name="AddNewCompany" xml:space="preserve">
+		<value>Yeni Şirket Ekle</value>
+	</data>
+
+	<data name="AddNewContact" xml:space="preserve">
+		<value>Yeni Kişi Ekle</value>
+	</data>
+
+	<data name="AddNewCustomer" xml:space="preserve">
+		<value>Yeni Müşteri Ekle</value>
+	</data>
+
+	<data name="AddNewOrderItem" xml:space="preserve">
+		<value>Yeni Sipariş Kalemi Ekle</value>
+	</data>
+
+	<data name="AddNewProcess" xml:space="preserve">
+		<value>Yeni Süreç Ekle</value>
+	</data>
+
+	<data name="AddNewProcessStep" xml:space="preserve">
+		<value>Yeni Süreç Adımı Ekle</value>
+	</data>
+
+	<data name="AddNewProcessStepTemplate" xml:space="preserve">
+		<value>Yeni Süreç Adım Şablonu Ekle</value>
+	</data>
+
+	<data name="AddNewProcessTemplate" xml:space="preserve">
+		<value>Yeni Süreç Şablonu Ekle</value>
+	</data>
+
+	<data name="AddNewProduct" xml:space="preserve">
+		<value>Yeni Ürün Ekle</value>
+	</data>
+
+	<data name="AddNewProductCategory" xml:space="preserve">
+		<value>Yeni Ürün Kategorisi Ekle</value>
+	</data>
+
+	<data name="AddNewPuchaseOrder" xml:space="preserve">
+		<value>Yeni Sipariş Ekle</value>
+	</data>
+
+	<data name="AddNewSupplier" xml:space="preserve">
+		<value>Yeni Tedarikçi Ekle</value>
+	</data>
+
+	<data name="AddOrderItem" xml:space="preserve">
+		<value>Sipariş Kalemi Ekle</value>
+	</data>
+
+	<data name="AddProcess" xml:space="preserve">
+		<value>Süreç Ekle</value>
+	</data>
+
+	<data name="AddProcessStep" xml:space="preserve">
+		<value>Süreç Adımı Ekle</value>
+	</data>
+
+	<data name="AddProcessStepTemplate" xml:space="preserve">
+		<value>Süreç Adım Şablonu Ekle</value>
+	</data>
+
+	<data name="AddProcessTemplate" xml:space="preserve">
+		<value>Süreç Şablonu Ekle</value>
+	</data>
+
+	<data name="AddProduct" xml:space="preserve">
+		<value>Ürün Ekle</value>
+	</data>
+
+	<data name="AddProductCategory" xml:space="preserve">
+		<value>Ürün Kategorisi Ekle</value>
+	</data>
+
+	<data name="AddPuchaseOrder" xml:space="preserve">
+		<value>Sipariş Ekle</value>
+	</data>
+
 	<data name="Address1" xml:space="preserve">
 		<value>Adres Satır 1</value>
 	</data>
 
 	<data name="Address2" xml:space="preserve">
 		<value>Adres Satır 2</value>
+	</data>
+
+	<data name="AddSupplier" xml:space="preserve">
+		<value>Tedarikçi Ekle</value>
 	</data>
 
 	<data name="ApproveDate" xml:space="preserve">
@@ -132,15 +228,15 @@
 	</data>
 
 	<data name="CreateCompany" xml:space="preserve">
-		<value>Şirket Ekle</value>
+		<value>Şirket Oluştur</value>
 	</data>
 
 	<data name="CreateContact" xml:space="preserve">
-		<value>Kişi Ekle</value>
+		<value>Kişi Oluştur</value>
 	</data>
 
 	<data name="CreateCustomer" xml:space="preserve">
-		<value>Müşteri Ekle</value>
+		<value>Müşteri Oluştur</value>
 	</data>
 
 	<data name="CreateDate" xml:space="preserve">
@@ -148,7 +244,7 @@
 	</data>
 
 	<data name="CreateOrderItem" xml:space="preserve">
-		<value>Sipariş Kalemi Ekle</value>
+		<value>Sipariş Kalemi Oluştur</value>
 	</data>
 
 	<data name="CreateProcess" xml:space="preserve">
@@ -156,31 +252,31 @@
 	</data>
 
 	<data name="CreateProcessStep" xml:space="preserve">
-		<value>Süreç Adımı Ekle</value>
+		<value>Süreç Adımı Oluştur</value>
 	</data>
 
 	<data name="CreateProcessStepTemplate" xml:space="preserve">
-		<value>Süreç Adım Şablonu Ekle</value>
+		<value>Süreç Adım Şablonu Oluştur</value>
 	</data>
 
 	<data name="CreateProcessTemplate" xml:space="preserve">
-		<value>Süreç Şablonu Ekle</value>
+		<value>Süreç Şablonu Oluştur</value>
 	</data>
 
 	<data name="CreateProduct" xml:space="preserve">
-		<value>Ürün Ekle</value>
+		<value>Ürün Oluştur</value>
 	</data>
 
 	<data name="CreateProductCategory" xml:space="preserve">
-		<value>Ürün Kategorisi Ekle</value>
+		<value>Ürün Kategorisi Oluştur</value>
 	</data>
 
 	<data name="CreatePuchaseOrder" xml:space="preserve">
-		<value>Sipariş Ekle</value>
+		<value>Sipariş Oluştur</value>
 	</data>
 
 	<data name="CreateSupplier" xml:space="preserve">
-		<value>Tedarikçi Ekle</value>
+		<value>Tedarikçi Oluştur</value>
 	</data>
 
 	<data name="CreatorId" xml:space="preserve">

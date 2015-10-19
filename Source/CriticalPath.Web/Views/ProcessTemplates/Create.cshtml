@@ -5,9 +5,7 @@
 @{
     ViewBag.Title = EntityStrings.CreateProcessTemplate;
 }
-
 <h2>@EntityStrings.ProcessTemplate</h2>
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -30,10 +28,9 @@
                 @Html.ValidationMessageFor(m => m.DefaultTitle, "", new { @class = "text-danger" })
             </div>
         </div>
-    @Html.Partial("_SaveButtonsPartial")
-</div>
+        @Html.Partial("_SaveButtonsPartial")
+    </div>
 }
-
 @section Scripts
 {
     @Scripts.Render("~/bundles/jqueryval")

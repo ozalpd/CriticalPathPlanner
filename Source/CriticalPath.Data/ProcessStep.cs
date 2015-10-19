@@ -16,13 +16,13 @@ namespace CriticalPath.Data
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public bool IsCompleted_ { get; set; }
+        public bool IsCompleted { get; set; }
         public string Description { get; set; }
         public int DisplayOrder { get; set; }
         public int ProcessId { get; set; }
-        public System.DateTime TargetDate { get; set; }
-        public System.DateTime ForecastDate { get; set; }
-        public System.DateTime RealizedDate { get; set; }
+        public Nullable<System.DateTime> TargetDate { get; set; }
+        public Nullable<System.DateTime> ForecastDate { get; set; }
+        public Nullable<System.DateTime> RealizedDate { get; set; }
         public bool IsApproved { get; set; }
         public Nullable<System.DateTime> ApproveDate { get; set; }
         public string ApprovedUserId { get; set; }
@@ -45,7 +45,7 @@ namespace CriticalPath.Data
         {
             var clone = new ProcessStep();
             clone.Title = Title;
-            clone.IsCompleted_ = IsCompleted_;
+            clone.IsCompleted = IsCompleted;
             clone.Description = Description;
             clone.DisplayOrder = DisplayOrder;
             clone.ProcessId = ProcessId;
@@ -83,7 +83,7 @@ namespace CriticalPath.Data
         {
             Id = entity.Id;
             Title = entity.Title;
-            IsCompleted_ = entity.IsCompleted_;
+            IsCompleted = entity.IsCompleted;
             Description = entity.Description;
             DisplayOrder = entity.DisplayOrder;
             ProcessId = entity.ProcessId;
@@ -103,7 +103,7 @@ namespace CriticalPath.Data
             var entity = new ProcessStep();
             entity.Id = Id;
             entity.Title = Title;
-            entity.IsCompleted_ = IsCompleted_;
+            entity.IsCompleted = IsCompleted;
             entity.Description = Description;
             entity.DisplayOrder = DisplayOrder;
             entity.ProcessId = ProcessId;
@@ -122,13 +122,13 @@ namespace CriticalPath.Data
       
         public int Id { get; set; }
         public string Title { get; set; }
-        public bool IsCompleted_ { get; set; }
+        public bool IsCompleted { get; set; }
         public string Description { get; set; }
         public int DisplayOrder { get; set; }
         public int ProcessId { get; set; }
-        public System.DateTime TargetDate { get; set; }
-        public System.DateTime ForecastDate { get; set; }
-        public System.DateTime RealizedDate { get; set; }
+        public Nullable<System.DateTime> TargetDate { get; set; }
+        public Nullable<System.DateTime> ForecastDate { get; set; }
+        public Nullable<System.DateTime> RealizedDate { get; set; }
         public bool IsApproved { get; set; }
         public Nullable<System.DateTime> ApproveDate { get; set; }
     }

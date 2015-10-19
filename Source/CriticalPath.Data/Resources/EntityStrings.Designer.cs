@@ -61,6 +61,213 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Company.
+        /// </summary>
+        public static string AddCompany {
+            get {
+                return ResourceManager.GetString("AddCompany", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Contact.
+        /// </summary>
+        public static string AddContact {
+            get {
+                return ResourceManager.GetString("AddContact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Customer.
+        /// </summary>
+        public static string AddCustomer {
+            get {
+                return ResourceManager.GetString("AddCustomer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add New Company.
+        /// </summary>
+        public static string AddNewCompany {
+            get {
+                return ResourceManager.GetString("AddNewCompany", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add New Contact.
+        /// </summary>
+        public static string AddNewContact {
+            get {
+                return ResourceManager.GetString("AddNewContact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add New Customer.
+        /// </summary>
+        public static string AddNewCustomer {
+            get {
+                return ResourceManager.GetString("AddNewCustomer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add New Order Item.
+        /// </summary>
+        public static string AddNewOrderItem {
+            get {
+                return ResourceManager.GetString("AddNewOrderItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add New Process.
+        /// </summary>
+        public static string AddNewProcess {
+            get {
+                return ResourceManager.GetString("AddNewProcess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add New Process Step.
+        /// </summary>
+        public static string AddNewProcessStep {
+            get {
+                return ResourceManager.GetString("AddNewProcessStep", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add New Process Step Template.
+        /// </summary>
+        public static string AddNewProcessStepTemplate {
+            get {
+                return ResourceManager.GetString("AddNewProcessStepTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add New Process Template.
+        /// </summary>
+        public static string AddNewProcessTemplate {
+            get {
+                return ResourceManager.GetString("AddNewProcessTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add New Product.
+        /// </summary>
+        public static string AddNewProduct {
+            get {
+                return ResourceManager.GetString("AddNewProduct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add New Product Category.
+        /// </summary>
+        public static string AddNewProductCategory {
+            get {
+                return ResourceManager.GetString("AddNewProductCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add New Puchase Order.
+        /// </summary>
+        public static string AddNewPuchaseOrder {
+            get {
+                return ResourceManager.GetString("AddNewPuchaseOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add New Supplier.
+        /// </summary>
+        public static string AddNewSupplier {
+            get {
+                return ResourceManager.GetString("AddNewSupplier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Order Item.
+        /// </summary>
+        public static string AddOrderItem {
+            get {
+                return ResourceManager.GetString("AddOrderItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Process.
+        /// </summary>
+        public static string AddProcess {
+            get {
+                return ResourceManager.GetString("AddProcess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Process Step.
+        /// </summary>
+        public static string AddProcessStep {
+            get {
+                return ResourceManager.GetString("AddProcessStep", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Process Step Template.
+        /// </summary>
+        public static string AddProcessStepTemplate {
+            get {
+                return ResourceManager.GetString("AddProcessStepTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Process Template.
+        /// </summary>
+        public static string AddProcessTemplate {
+            get {
+                return ResourceManager.GetString("AddProcessTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Product.
+        /// </summary>
+        public static string AddProduct {
+            get {
+                return ResourceManager.GetString("AddProduct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Product Category.
+        /// </summary>
+        public static string AddProductCategory {
+            get {
+                return ResourceManager.GetString("AddProductCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Puchase Order.
+        /// </summary>
+        public static string AddPuchaseOrder {
+            get {
+                return ResourceManager.GetString("AddPuchaseOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Address Line 1.
         /// </summary>
         public static string Address1 {
@@ -75,6 +282,15 @@ namespace CriticalPath.Data.Resources {
         public static string Address2 {
             get {
                 return ResourceManager.GetString("Address2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Supplier.
+        /// </summary>
+        public static string AddSupplier {
+            get {
+                return ResourceManager.GetString("AddSupplier", resourceCulture);
             }
         }
         
@@ -169,7 +385,7 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Company Id.
+        ///   Looks up a localized string similar to Company.
         /// </summary>
         public static string CompanyId {
             get {
@@ -376,7 +592,7 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Customer Id.
+        ///   Looks up a localized string similar to Customer.
         /// </summary>
         public static string CustomerId {
             get {
@@ -790,7 +1006,7 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Order Item Id.
+        ///   Looks up a localized string similar to Order Item.
         /// </summary>
         public static string OrderItemId {
             get {
@@ -835,7 +1051,7 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Parent Category Id.
+        ///   Looks up a localized string similar to Parent Category.
         /// </summary>
         public static string ParentCategoryId {
             get {
@@ -925,7 +1141,7 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Process Id.
+        ///   Looks up a localized string similar to Process.
         /// </summary>
         public static string ProcessId {
             get {
@@ -997,7 +1213,7 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Process Template Id.
+        ///   Looks up a localized string similar to Process Template.
         /// </summary>
         public static string ProcessTemplateId {
             get {
@@ -1060,7 +1276,7 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Product Id.
+        ///   Looks up a localized string similar to Product.
         /// </summary>
         public static string ProductId {
             get {
@@ -1096,7 +1312,7 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Puchase Order Id.
+        ///   Looks up a localized string similar to Puchase Order.
         /// </summary>
         public static string PuchaseOrderId {
             get {

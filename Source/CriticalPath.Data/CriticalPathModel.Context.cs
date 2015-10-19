@@ -185,7 +185,7 @@ namespace CriticalPath.Data
         /// <returns></returns>
         public virtual IQueryable<OrderItem> GetOrderItemQuery()
         {
-            IQueryable<OrderItem> query = OrderItems;
+            IQueryable<OrderItem> query = OrderItems.OrderBy(p => p.DisplayOrder);
             return query;
         }
     
@@ -211,6 +211,7 @@ namespace CriticalPath.Data
                        Id = e.Id,
                        PuchaseOrderId = e.PuchaseOrderId,
                        ProductId = e.ProductId,
+                       DisplayOrder = e.DisplayOrder,
                        Quantity = e.Quantity,
                        Notes = e.Notes,
                    };
@@ -289,7 +290,7 @@ namespace CriticalPath.Data
                    {
                        Id = e.Id,
                        Title = e.Title,
-                       IsCompleted_ = e.IsCompleted_,
+                       IsCompleted = e.IsCompleted,
                        Description = e.Description,
                        DisplayOrder = e.DisplayOrder,
                        ProcessId = e.ProcessId,

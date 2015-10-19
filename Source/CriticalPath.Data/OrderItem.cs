@@ -12,7 +12,7 @@ namespace CriticalPath.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class OrderItem : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate
+    public partial class OrderItem : IDisplayOrder, ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public OrderItem()
@@ -23,6 +23,7 @@ namespace CriticalPath.Data
         public int Id { get; set; }
         public int PuchaseOrderId { get; set; }
         public int ProductId { get; set; }
+        public int DisplayOrder { get; set; }
         public int Quantity { get; set; }
         public string Notes { get; set; }
         public int ModifyNr { get; set; }
@@ -47,6 +48,7 @@ namespace CriticalPath.Data
             var clone = new OrderItem();
             clone.PuchaseOrderId = PuchaseOrderId;
             clone.ProductId = ProductId;
+            clone.DisplayOrder = DisplayOrder;
             clone.Quantity = Quantity;
             clone.Notes = Notes;
             clone.ModifyNr = ModifyNr;
@@ -77,6 +79,7 @@ namespace CriticalPath.Data
             Id = entity.Id;
             PuchaseOrderId = entity.PuchaseOrderId;
             ProductId = entity.ProductId;
+            DisplayOrder = entity.DisplayOrder;
             Quantity = entity.Quantity;
             Notes = entity.Notes;
         
@@ -91,6 +94,7 @@ namespace CriticalPath.Data
             entity.Id = Id;
             entity.PuchaseOrderId = PuchaseOrderId;
             entity.ProductId = ProductId;
+            entity.DisplayOrder = DisplayOrder;
             entity.Quantity = Quantity;
             entity.Notes = Notes;
     
@@ -104,6 +108,7 @@ namespace CriticalPath.Data
         public int Id { get; set; }
         public int PuchaseOrderId { get; set; }
         public int ProductId { get; set; }
+        public int DisplayOrder { get; set; }
         public int Quantity { get; set; }
         public string Notes { get; set; }
     }

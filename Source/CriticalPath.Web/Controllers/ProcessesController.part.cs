@@ -16,23 +16,33 @@ namespace CriticalPath.Web.Controllers
     {
         partial void SetViewBags(Process process)
         {
-            //TODO: Optimize query
-            var queryProcessTemplateId = DataContext.ProcessTemplates;
+            var queryTemplateId = DataContext.GetProcessTemplateDtoQuery();
             int processTemplateId = process == null ? 0 : process.ProcessTemplateId;
-            ViewBag.ProcessTemplateId = new SelectList(queryProcessTemplateId, "Id", "TemplateName", processTemplateId);
+            ViewBag.ProcessTemplateId = new SelectList(queryTemplateId, "Id", "TemplateName", processTemplateId);
+
             //TODO: Optimize query
-            var queryOrderItemId = DataContext.OrderItems;
+            //var queryOrderItemId = DataContext.GetOrderItemDtoQuery();
             //int orderItemId = process == null ? 0 : process.OrderItemId;
             //ViewBag.OrderItemId = new SelectList(queryOrderItemId, "Id", "Product.Title", orderItemId);
         }
 
+        protected void SetSteps(Process process)
+        {
+            var queryTemplate = DataContext.GetProcessStepTemplateQuery();
+            foreach (var step in queryTemplate)
+            {
+                process.ProcessSteps.Add(new ProcessStep()
+                {
+                    Title = step.Title,
+                    DisplayOrder = step.DisplayOrder
+                });
+            }
+        }
 
         //public new class QueryParameters : BaseController.QueryParameters
         //{
 
         //}
 
-        //Purpose: To set default property values for newly created Process entity
-        //partial void SetDefaults(Process process) { }
     }
 }

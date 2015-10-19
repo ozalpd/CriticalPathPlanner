@@ -8,7 +8,7 @@
         <EntityTypeShape EntityType="CriticalPathDataModel.Company" Width="1.5" PointX="12.875" PointY="0.5" />
         <EntityTypeShape EntityType="CriticalPathDataModel.Contact" Width="1.5" PointX="15.25" PointY="0.5" />
         <EntityTypeShape EntityType="CriticalPathDataModel.Customer" Width="1.5" PointX="10.625" PointY="0.5" />
-        <EntityTypeShape EntityType="CriticalPathDataModel.Supplier" Width="1.5" PointX="10.625" PointY="3.375" />
+        <EntityTypeShape EntityType="CriticalPathDataModel.Supplier" Width="1.5" PointX="10.75" PointY="3.25" />
         <AssociationConnector Association="CriticalPathDataModel.FK_Contact_CompanyId" />
         <InheritanceConnector EntityType="CriticalPathDataModel.Customer" />
         <InheritanceConnector EntityType="CriticalPathDataModel.Supplier" />

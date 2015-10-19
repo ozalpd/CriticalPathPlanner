@@ -59,12 +59,108 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 
+	<data name="AddCompany" xml:space="preserve">
+		<value>Add Company</value>
+	</data>
+
+	<data name="AddContact" xml:space="preserve">
+		<value>Add Contact</value>
+	</data>
+
+	<data name="AddCustomer" xml:space="preserve">
+		<value>Add Customer</value>
+	</data>
+
+	<data name="AddNewCompany" xml:space="preserve">
+		<value>Add New Company</value>
+	</data>
+
+	<data name="AddNewContact" xml:space="preserve">
+		<value>Add New Contact</value>
+	</data>
+
+	<data name="AddNewCustomer" xml:space="preserve">
+		<value>Add New Customer</value>
+	</data>
+
+	<data name="AddNewOrderItem" xml:space="preserve">
+		<value>Add New Order Item</value>
+	</data>
+
+	<data name="AddNewProcess" xml:space="preserve">
+		<value>Add New Process</value>
+	</data>
+
+	<data name="AddNewProcessStep" xml:space="preserve">
+		<value>Add New Process Step</value>
+	</data>
+
+	<data name="AddNewProcessStepTemplate" xml:space="preserve">
+		<value>Add New Process Step Template</value>
+	</data>
+
+	<data name="AddNewProcessTemplate" xml:space="preserve">
+		<value>Add New Process Template</value>
+	</data>
+
+	<data name="AddNewProduct" xml:space="preserve">
+		<value>Add New Product</value>
+	</data>
+
+	<data name="AddNewProductCategory" xml:space="preserve">
+		<value>Add New Product Category</value>
+	</data>
+
+	<data name="AddNewPuchaseOrder" xml:space="preserve">
+		<value>Add New Puchase Order</value>
+	</data>
+
+	<data name="AddNewSupplier" xml:space="preserve">
+		<value>Add New Supplier</value>
+	</data>
+
+	<data name="AddOrderItem" xml:space="preserve">
+		<value>Add Order Item</value>
+	</data>
+
+	<data name="AddProcess" xml:space="preserve">
+		<value>Add Process</value>
+	</data>
+
+	<data name="AddProcessStep" xml:space="preserve">
+		<value>Add Process Step</value>
+	</data>
+
+	<data name="AddProcessStepTemplate" xml:space="preserve">
+		<value>Add Process Step Template</value>
+	</data>
+
+	<data name="AddProcessTemplate" xml:space="preserve">
+		<value>Add Process Template</value>
+	</data>
+
+	<data name="AddProduct" xml:space="preserve">
+		<value>Add Product</value>
+	</data>
+
+	<data name="AddProductCategory" xml:space="preserve">
+		<value>Add Product Category</value>
+	</data>
+
+	<data name="AddPuchaseOrder" xml:space="preserve">
+		<value>Add Puchase Order</value>
+	</data>
+
 	<data name="Address1" xml:space="preserve">
 		<value>Address Line 1</value>
 	</data>
 
 	<data name="Address2" xml:space="preserve">
 		<value>Address Line 2</value>
+	</data>
+
+	<data name="AddSupplier" xml:space="preserve">
+		<value>Add Supplier</value>
 	</data>
 
 	<data name="ApproveDate" xml:space="preserve">

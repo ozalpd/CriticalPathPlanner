@@ -542,7 +542,7 @@
           <Name>Contacts</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
-          <InIndexView>false</InIndexView>
+          <InIndexView>true</InIndexView>
           <InDetailsView>false</InDetailsView>
           <InCreateView>false</InCreateView>
           <InEditView>false</InEditView>
@@ -619,7 +619,7 @@
           <Name>Orders</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
-          <InIndexView>false</InIndexView>
+          <InIndexView>true</InIndexView>
           <InDetailsView>false</InDetailsView>
           <InCreateView>false</InCreateView>
           <InEditView>false</InEditView>
@@ -881,6 +881,17 @@
       <OverwriteExisting>true</OverwriteExisting>
       <Properties>
         <AspNetMvcPropertySetting>
+          <Name>DisplayOrder</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>false</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForEdit>HiddenInput</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
           <Name>PuchaseOrderId</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
@@ -967,7 +978,7 @@
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>Process</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>true</OverwriteExisting>
+      <OverwriteExisting>false</OverwriteExisting>
       <Properties>
         <AspNetMvcPropertySetting>
           <Name>Title</Name>
@@ -1050,7 +1061,7 @@
           <Name>ProcessSteps</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
-          <InIndexView>false</InIndexView>
+          <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>false</InCreateView>
           <InEditView>true</InEditView>
@@ -1069,7 +1080,7 @@
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>true</GenerateController>
       <IndexView>true</IndexView>
-      <DetailsView>true</DetailsView>
+      <DetailsView>false</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
       <CreateToDetails>true</CreateToDetails>
@@ -1078,7 +1089,7 @@
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>ProcessStep</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>true</OverwriteExisting>
+      <OverwriteExisting>false</OverwriteExisting>
       <Properties>
         <AspNetMvcPropertySetting>
           <Name>Title</Name>
@@ -1230,7 +1241,7 @@
           <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>false</InCreateView>
-          <InEditView>true</InEditView>
+          <InEditView>false</InEditView>
           <HasValidation>false</HasValidation>
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
@@ -1241,9 +1252,9 @@
       <SaveParameter>this</SaveParameter>
       <ModelForEdit>ProcessTemplate</ModelForEdit>
       <RolesCanView>users</RolesCanView>
-      <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
-      <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
-      <RolesCanDelete>admin, supervisor</RolesCanDelete>
+      <RolesCanCreate>admin</RolesCanCreate>
+      <RolesCanEdit>admin</RolesCanEdit>
+      <RolesCanDelete>admin</RolesCanDelete>
       <GenerateController>true</GenerateController>
       <IndexView>true</IndexView>
       <DetailsView>true</DetailsView>
@@ -1308,9 +1319,9 @@
       <SaveParameter>this</SaveParameter>
       <ModelForEdit>ProcessStepTemplate</ModelForEdit>
       <RolesCanView>users</RolesCanView>
-      <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
-      <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
-      <RolesCanDelete>admin, supervisor</RolesCanDelete>
+      <RolesCanCreate>admin</RolesCanCreate>
+      <RolesCanEdit>admin</RolesCanEdit>
+      <RolesCanDelete>admin</RolesCanDelete>
       <GenerateController>true</GenerateController>
       <IndexView>true</IndexView>
       <DetailsView>true</DetailsView>

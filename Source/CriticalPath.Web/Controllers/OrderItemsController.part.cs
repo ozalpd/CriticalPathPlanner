@@ -32,7 +32,17 @@ namespace CriticalPath.Web.Controllers
 
         //}
 
-        //Purpose: To set default property values for newly created OrderItem entity
-        //partial void SetDefaults(OrderItem orderItem) { }
+        partial void SetDefaults(OrderItem orderItem)
+        {
+            int count = 0;
+            if (orderItem.PuchaseOrderId > 0)
+            {
+                count = DataContext
+                        .OrderItems
+                        .Where(o => o.PuchaseOrderId == orderItem.PuchaseOrderId)
+                        .Count();
+            }
+            orderItem.DisplayOrder = 100 * (count + 1);
+        }
     }
 }

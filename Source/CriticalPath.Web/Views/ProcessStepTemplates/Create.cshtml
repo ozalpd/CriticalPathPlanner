@@ -5,9 +5,7 @@
 @{
     ViewBag.Title = EntityStrings.CreateProcessStepTemplate;
 }
-
 <h2>@EntityStrings.ProcessStepTemplate</h2>
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -31,10 +29,9 @@
             </div>
         </div>
         @Html.HiddenFor(m => m.ProcessTemplateId)
-    @Html.Partial("_SaveButtonsPartial")
-</div>
+        @Html.Partial("_SaveButtonsPartial")
+    </div>
 }
-
 @section Scripts
 {
     @Scripts.Render("~/bundles/jqueryval")

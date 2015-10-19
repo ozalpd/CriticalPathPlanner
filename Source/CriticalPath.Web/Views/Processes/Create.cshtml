@@ -5,9 +5,7 @@
 @{
     ViewBag.Title = EntityStrings.CreateProcess;
 }
-
 <h2>@EntityStrings.Process</h2>
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -38,10 +36,9 @@
             </div>
         </div>
         @Html.HiddenFor(m => m.OrderItemId)
-    @Html.Partial("_SaveButtonsPartial")
-</div>
+        @Html.Partial("_SaveButtonsPartial")
+    </div>
 }
-
 @section Scripts
 {
     @Scripts.Render("~/bundles/jqueryval")

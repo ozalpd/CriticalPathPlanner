@@ -1,4 +1,5 @@
 ﻿@using CriticalPath.Data.Resources
+@using CriticalPath.Web.Models
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,6 +52,18 @@
                             <li>@Html.ActionLink(@EntityStrings.CreateSupplier, "Create", "Suppliers")</li>
                         </ul>
                     </li>
+                    @if (User.IsInRole(SecurityRoles.Admin))
+                    {
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                @CommonStrings.Admin<b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink(@EntityStrings.ProcessTemplates, "Index", "ProcessTemplates")</li>
+                                <li>@Html.ActionLink(@EntityStrings.CreateProcessTemplate, "Create", "ProcessTemplates")</li>
+                            </ul>
+                        </li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

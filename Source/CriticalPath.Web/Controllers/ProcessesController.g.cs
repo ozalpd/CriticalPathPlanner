@@ -91,7 +91,7 @@ namespace CriticalPath.Web.Controllers
 
             if (ModelState.IsValid)
             {
- 
+                SetSteps(process);
                 DataContext.Processes.Add(process);
                 await DataContext.SaveChangesAsync(this);
                 return RedirectToAction("Details", new { Id = process.Id });

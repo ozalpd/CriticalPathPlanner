@@ -7,5 +7,5 @@
 }
 @if (Model != null)
 {
-    <div><a href='/ProcessStepTemplates/Details/@Model.Id'>@Model.Title</a></div>
+    <div><a href='/ProcessStepTemplates/Details/@Model.Id'>@Model.DisplayOrder.ToString("#00000") - @Model.Title</a></div>
 }

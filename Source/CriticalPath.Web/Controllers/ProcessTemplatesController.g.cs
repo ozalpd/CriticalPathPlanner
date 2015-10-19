@@ -64,7 +64,7 @@ namespace CriticalPath.Web.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "admin, supervisor, clerk")]
+        [Authorize(Roles = "admin")]
         public ActionResult Create()  //GET: /ProcessTemplates/Create
         {
             var processTemplate = new ProcessTemplate();
@@ -74,7 +74,7 @@ namespace CriticalPath.Web.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "admin, supervisor, clerk")]
+        [Authorize(Roles = "admin")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(ProcessTemplate processTemplate)  //POST: /ProcessTemplates/Create
         {
@@ -97,15 +97,13 @@ namespace CriticalPath.Web.Controllers
             if (!_canUserCreate.HasValue)
             {
                 _canUserCreate = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync() ||
-                                    await IsUserClerkAsync());
+                                    await IsUserAdminAsync());
             }
             return _canUserCreate.Value;
         }
         bool? _canUserCreate;
 
-        [Authorize(Roles = "admin, supervisor, clerk")]
+        [Authorize(Roles = "admin")]
         public async Task<ActionResult> Edit(int? id)  //GET: /ProcessTemplates/Edit/5
         {
             if (id == null)
@@ -123,7 +121,7 @@ namespace CriticalPath.Web.Controllers
             return View(processTemplate);
         }
 
-        [Authorize(Roles = "admin, supervisor, clerk")]
+        [Authorize(Roles = "admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit(ProcessTemplate processTemplate)  //POST: /ProcessTemplates/Edit/5
@@ -147,15 +145,13 @@ namespace CriticalPath.Web.Controllers
             if (!_canUserEdit.HasValue)
             {
                 _canUserEdit = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync() ||
-                                    await IsUserClerkAsync());
+                                    await IsUserAdminAsync());
             }
             return _canUserEdit.Value;
         }
         bool? _canUserEdit;
 
-        [Authorize(Roles = "admin, supervisor")]
+        [Authorize(Roles = "admin")]
         public async Task<ActionResult> Delete(int? id)  //GET: /ProcessTemplates/Delete/5
         {
             if (id == null)
@@ -180,8 +176,7 @@ namespace CriticalPath.Web.Controllers
             if (!_canUserDelete.HasValue)
             {
                 _canUserDelete = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync());
+                                    await IsUserAdminAsync());
             }
             return _canUserDelete.Value;
         }

@@ -4,6 +4,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[OrderItems](
     [Id] [int] Identity(1,1) Not Null,
+    [DisplayOrder] [int] Not Null,
     [PuchaseOrderId] [int] Not Null Constraint FK_OrderItem_PuchaseOrderId Foreign Key References [dbo].[PuchaseOrders]([Id]),
     [ProductId] [int] Not Null Constraint FK_OrderItem_ProductId Foreign Key References [dbo].[Products]([Id]),
     [Quantity] [int] Not Null,

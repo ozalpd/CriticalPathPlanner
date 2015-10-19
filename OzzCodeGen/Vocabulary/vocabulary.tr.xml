@@ -9,8 +9,100 @@
     <Translation>Ekle</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddCompany</Name>
+    <Translation>Şirket Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddContact</Name>
+    <Translation>Kişi Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddCustomer</Name>
+    <Translation>Müşteri Ekle</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddNew</Name>
     <Translation>Yeni Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewCompany</Name>
+    <Translation>Yeni Şirket Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewContact</Name>
+    <Translation>Yeni Kişi Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewCustomer</Name>
+    <Translation>Yeni Müşteri Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewOrderItem</Name>
+    <Translation>Yeni Sipariş Kalemi Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewProcess</Name>
+    <Translation>Yeni Süreç Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewProcessStep</Name>
+    <Translation>Yeni Süreç Adımı Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewProcessStepTemplate</Name>
+    <Translation>Yeni Süreç Adım Şablonu Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewProcessTemplate</Name>
+    <Translation>Yeni Süreç Şablonu Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewProduct</Name>
+    <Translation>Yeni Ürün Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewProductCategory</Name>
+    <Translation>Yeni Ürün Kategorisi Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewPuchaseOrder</Name>
+    <Translation>Yeni Sipariş Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewSupplier</Name>
+    <Translation>Yeni Tedarikçi Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddOrderItem</Name>
+    <Translation>Sipariş Kalemi Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddProcess</Name>
+    <Translation>Süreç Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddProcessStep</Name>
+    <Translation>Süreç Adımı Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddProcessStepTemplate</Name>
+    <Translation>Süreç Adım Şablonu Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddProcessTemplate</Name>
+    <Translation>Süreç Şablonu Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddProduct</Name>
+    <Translation>Ürün Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddProductCategory</Name>
+    <Translation>Ürün Kategorisi Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddPuchaseOrder</Name>
+    <Translation>Sipariş Ekle</Translation>
   </Vocab>
   <Vocab>
     <Name>Address</Name>
@@ -23,6 +115,10 @@
   <Vocab>
     <Name>Address2</Name>
     <Translation>Adres Satır 2</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddSupplier</Name>
+    <Translation>Tedarikçi Ekle</Translation>
   </Vocab>
   <Vocab>
     <Name>Admin</Name>
@@ -162,15 +258,15 @@
   </Vocab>
   <Vocab>
     <Name>CreateCompany</Name>
-    <Translation>Şirket Ekle</Translation>
+    <Translation>Şirket Oluştur</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateContact</Name>
-    <Translation>Kişi Ekle</Translation>
+    <Translation>Kişi Oluştur</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateCustomer</Name>
-    <Translation>Müşteri Ekle</Translation>
+    <Translation>Müşteri Oluştur</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateDate</Name>
@@ -178,15 +274,15 @@
   </Vocab>
   <Vocab>
     <Name>CreateNew</Name>
-    <Translation>Yeni Ekle</Translation>
+    <Translation>Yeni Oluştur</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateOrder</Name>
-    <Translation>Sipariş Ekle</Translation>
+    <Translation>Sipariş Oluştur</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateOrderItem</Name>
-    <Translation>Sipariş Kalemi Ekle</Translation>
+    <Translation>Sipariş Kalemi Oluştur</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateProcess</Name>
@@ -194,31 +290,31 @@
   </Vocab>
   <Vocab>
     <Name>CreateProcessStep</Name>
-    <Translation>Süreç Adımı Ekle</Translation>
+    <Translation>Süreç Adımı Oluştur</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateProcessStepTemplate</Name>
-    <Translation>Süreç Adım Şablonu Ekle</Translation>
+    <Translation>Süreç Adım Şablonu Oluştur</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateProcessTemplate</Name>
-    <Translation>Süreç Şablonu Ekle</Translation>
+    <Translation>Süreç Şablonu Oluştur</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateProduct</Name>
-    <Translation>Ürün Ekle</Translation>
+    <Translation>Ürün Oluştur</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateProductCategory</Name>
-    <Translation>Ürün Kategorisi Ekle</Translation>
+    <Translation>Ürün Kategorisi Oluştur</Translation>
   </Vocab>
   <Vocab>
     <Name>CreatePuchaseOrder</Name>
-    <Translation>Sipariş Ekle</Translation>
+    <Translation>Sipariş Oluştur</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateSupplier</Name>
-    <Translation>Tedarikçi Ekle</Translation>
+    <Translation>Tedarikçi Oluştur</Translation>
   </Vocab>
   <Vocab>
     <Name>CreatorId</Name>
@@ -811,6 +907,10 @@
   <Vocab>
     <Name>Register</Name>
     <Translation>Kayıt ol</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Remove</Name>
+    <Translation>Çıkar</Translation>
   </Vocab>
   <Vocab>
     <Name>Save</Name>
