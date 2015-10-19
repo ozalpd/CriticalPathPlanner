@@ -375,13 +375,13 @@
         <MetadataPropertySetting>
           <Name>OrderDate</Name>
           <Exclude>false</Exclude>
-          <DataType />
+          <DataType>Date</DataType>
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>DueDate</Name>
           <Exclude>false</Exclude>
-          <DataType />
+          <DataType>Date</DataType>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
@@ -545,19 +545,19 @@
         <MetadataPropertySetting>
           <Name>TargetDate</Name>
           <Exclude>false</Exclude>
-          <DataType />
+          <DataType>Date</DataType>
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>ForecastDate</Name>
           <Exclude>false</Exclude>
-          <DataType />
+          <DataType>Date</DataType>
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>RealizedDate</Name>
           <Exclude>false</Exclude>
-          <DataType />
+          <DataType>Date</DataType>
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
       </Properties>

@@ -90,7 +90,7 @@ namespace CriticalPath.Web.Controllers
  
                 DataContext.Companies.Add(customer);
                 await DataContext.SaveChangesAsync(this);
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { Id = customer.Id });
             }
 
             SetViewBags(customer);

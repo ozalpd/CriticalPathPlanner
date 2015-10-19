@@ -85,7 +85,7 @@ namespace CriticalPath.Web.Controllers
  
                 DataContext.ProcessTemplates.Add(processTemplate);
                 await DataContext.SaveChangesAsync(this);
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { Id = processTemplate.Id });
             }
 
             SetViewBags(processTemplate);

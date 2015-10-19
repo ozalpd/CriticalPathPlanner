@@ -28,7 +28,9 @@ namespace CriticalPath.Web.Controllers
 
         //}
 
-        //Purpose: To set default property values for newly created PuchaseOrder entity
-        //partial void SetDefaults(PuchaseOrder puchaseOrder) { }
+        partial void SetDefaults(PuchaseOrder puchaseOrder)
+        {
+            puchaseOrder.OrderDate = DateTime.Now.Date;
+        }
     }
 }

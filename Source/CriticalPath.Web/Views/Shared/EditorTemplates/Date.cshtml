@@ -8,11 +8,12 @@
     string viewMode = htmlField.ToLowerInvariant().Contains("birthday") ? ", defaultDate: -15y" : "";
 }
 <div class="input-append date" id="@htmlField-div" data-date="@dateString" data-date-format="yyyy.mm.dd" @viewMode>
-    <input style="width:80px" type="text" value="@dateString" id="@htmlField" name="@htmlField">
+    <input style="width:130px;height:32px" type="text" value="@dateString" id="@htmlField" name="@htmlField">
     <span class="add-on"><i class="icon-calendar"></i></span>
     @if (ViewData.ModelMetadata.IsNullableValueType)
     {
-        <button type="button" class="btn" onclick="javascript:$('#@htmlField').val('');">Clear</button> }
+        <button type="button" class="btn btn-default" onclick="javascript:$('#@htmlField').val('');">Clear</button>
+    }
 </div>
 <script>
    @dtpName = $('#@htmlField').datepicker({dateFormat: "yy.mm.dd" });

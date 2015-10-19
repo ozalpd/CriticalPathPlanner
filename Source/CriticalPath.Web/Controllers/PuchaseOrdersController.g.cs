@@ -96,7 +96,7 @@ namespace CriticalPath.Web.Controllers
  
                 DataContext.PuchaseOrders.Add(puchaseOrder);
                 await DataContext.SaveChangesAsync(this);
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { Id = puchaseOrder.Id });
             }
 
             SetViewBags(puchaseOrder);

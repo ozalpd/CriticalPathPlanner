@@ -64,9 +64,17 @@ namespace CriticalPath.Web.Controllers
 
         [HttpGet]
         [Authorize(Roles = "admin, supervisor, clerk")]
-        public ActionResult Create()  //GET: /OrderItems/Create
+        [Route("OrderItems/Create/{puchaseOrderId:int?}")]
+        public async Task<ActionResult> Create(int? puchaseOrderId)  //GET: /OrderItems/Create
         {
             var orderItem = new OrderItem();
+            if (puchaseOrderId != null)
+            {
+                var puchaseOrder = await FindAsyncPuchaseOrder(puchaseOrderId.Value);
+                if (puchaseOrder == null)
+                    return HttpNotFound();
+                orderItem.PuchaseOrder = puchaseOrder;
+            }
             SetDefaults(orderItem);
             SetViewBags(null);
             return View(orderItem);
@@ -75,7 +83,8 @@ namespace CriticalPath.Web.Controllers
         [HttpPost]
         [Authorize(Roles = "admin, supervisor, clerk")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(OrderItem orderItem)  //POST: /OrderItems/Create
+        [Route("OrderItems/Create/{puchaseOrderId:int?}")]
+        public async Task<ActionResult> Create(int? puchaseOrderId, OrderItem orderItem)  //POST: /OrderItems/Create
         {
             DataContext.SetInsertDefaults(orderItem, this);
 
@@ -84,7 +93,7 @@ namespace CriticalPath.Web.Controllers
  
                 DataContext.OrderItems.Add(orderItem);
                 await DataContext.SaveChangesAsync(this);
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { Id = orderItem.Id });
             }
 
             SetViewBags(orderItem);

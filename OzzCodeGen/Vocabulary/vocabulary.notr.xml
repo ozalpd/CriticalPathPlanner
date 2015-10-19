@@ -122,7 +122,7 @@
   </Vocab>
   <Vocab>
     <Name>CompanyId</Name>
-    <Translation>Company Id</Translation>
+    <Translation>Company</Translation>
   </Vocab>
   <Vocab>
     <Name>CompanyName</Name>
@@ -238,7 +238,7 @@
   </Vocab>
   <Vocab>
     <Name>CustomerId</Name>
-    <Translation>Customer Id</Translation>
+    <Translation>Customer</Translation>
   </Vocab>
   <Vocab>
     <Name>Customers</Name>
@@ -598,7 +598,7 @@
   </Vocab>
   <Vocab>
     <Name>OrderId</Name>
-    <Translation>Order Id</Translation>
+    <Translation>Order</Translation>
   </Vocab>
   <Vocab>
     <Name>OrderItem</Name>
@@ -606,7 +606,7 @@
   </Vocab>
   <Vocab>
     <Name>OrderItemId</Name>
-    <Translation>Order Item Id</Translation>
+    <Translation>Order Item</Translation>
   </Vocab>
   <Vocab>
     <Name>OrderItems</Name>
@@ -634,7 +634,7 @@
   </Vocab>
   <Vocab>
     <Name>ParentCategoryId</Name>
-    <Translation>Parent Category Id</Translation>
+    <Translation>Parent Category</Translation>
   </Vocab>
   <Vocab>
     <Name>Password</Name>
@@ -698,7 +698,7 @@
   </Vocab>
   <Vocab>
     <Name>ProcessId</Name>
-    <Translation>Process Id</Translation>
+    <Translation>Process</Translation>
   </Vocab>
   <Vocab>
     <Name>ProcessStep</Name>
@@ -730,7 +730,7 @@
   </Vocab>
   <Vocab>
     <Name>ProcessTemplateId</Name>
-    <Translation>Process Template Id</Translation>
+    <Translation>Process Template</Translation>
   </Vocab>
   <Vocab>
     <Name>ProcessTemplates</Name>
@@ -758,11 +758,11 @@
   </Vocab>
   <Vocab>
     <Name>ProductCategoryId</Name>
-    <Translation>Product Category Id</Translation>
+    <Translation>Product Category</Translation>
   </Vocab>
   <Vocab>
     <Name>ProductId</Name>
-    <Translation>Product Id</Translation>
+    <Translation>Product</Translation>
   </Vocab>
   <Vocab>
     <Name>Products</Name>
@@ -782,7 +782,7 @@
   </Vocab>
   <Vocab>
     <Name>PuchaseOrderId</Name>
-    <Translation>Puchase Order Id</Translation>
+    <Translation>Puchase Order</Translation>
   </Vocab>
   <Vocab>
     <Name>PuchaseOrders</Name>

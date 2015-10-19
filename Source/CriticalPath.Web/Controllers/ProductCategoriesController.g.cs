@@ -85,7 +85,7 @@ namespace CriticalPath.Web.Controllers
  
                 DataContext.ProductCategories.Add(productCategory);
                 await DataContext.SaveChangesAsync(this);
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { Id = productCategory.Id });
             }
 
             SetViewBags(productCategory);

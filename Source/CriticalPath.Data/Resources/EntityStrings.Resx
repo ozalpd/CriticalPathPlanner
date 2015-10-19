@@ -108,7 +108,7 @@
 	</data>
 
 	<data name="CompanyId" xml:space="preserve">
-		<value>Company Id</value>
+		<value>Company</value>
 	</data>
 
 	<data name="CompanyName" xml:space="preserve">
@@ -200,7 +200,7 @@
 	</data>
 
 	<data name="CustomerId" xml:space="preserve">
-		<value>Customer Id</value>
+		<value>Customer</value>
 	</data>
 
 	<data name="Customers" xml:space="preserve">
@@ -384,7 +384,7 @@
 	</data>
 
 	<data name="OrderItemId" xml:space="preserve">
-		<value>Order Item Id</value>
+		<value>Order Item</value>
 	</data>
 
 	<data name="OrderItems" xml:space="preserve">
@@ -404,7 +404,7 @@
 	</data>
 
 	<data name="ParentCategoryId" xml:space="preserve">
-		<value>Parent Category Id</value>
+		<value>Parent Category</value>
 	</data>
 
 	<data name="Phone1" xml:space="preserve">
@@ -444,7 +444,7 @@
 	</data>
 
 	<data name="ProcessId" xml:space="preserve">
-		<value>Process Id</value>
+		<value>Process</value>
 	</data>
 
 	<data name="ProcessStep" xml:space="preserve">
@@ -476,7 +476,7 @@
 	</data>
 
 	<data name="ProcessTemplateId" xml:space="preserve">
-		<value>Process Template Id</value>
+		<value>Process Template</value>
 	</data>
 
 	<data name="ProcessTemplates" xml:space="preserve">
@@ -504,7 +504,7 @@
 	</data>
 
 	<data name="ProductId" xml:space="preserve">
-		<value>Product Id</value>
+		<value>Product</value>
 	</data>
 
 	<data name="Products" xml:space="preserve">
@@ -520,7 +520,7 @@
 	</data>
 
 	<data name="PuchaseOrderId" xml:space="preserve">
-		<value>Puchase Order Id</value>
+		<value>Puchase Order</value>
 	</data>
 
 	<data name="PuchaseOrders" xml:space="preserve">

@@ -94,7 +94,7 @@ namespace CriticalPath.Web.Controllers
  
                 DataContext.Processes.Add(process);
                 await DataContext.SaveChangesAsync(this);
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { Id = process.Id });
             }
 
             SetViewBags(process);

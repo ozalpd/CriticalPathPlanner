@@ -85,7 +85,7 @@ namespace CriticalPath.Web.Controllers
  
                 DataContext.ProcessSteps.Add(processStep);
                 await DataContext.SaveChangesAsync(this);
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { Id = processStep.Id });
             }
 
             SetViewBags(processStep);

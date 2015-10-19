@@ -409,7 +409,7 @@
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
-      <CreateToDetails>false</CreateToDetails>
+      <CreateToDetails>true</CreateToDetails>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -563,7 +563,7 @@
       <DetailsView>false</DetailsView>
       <CreateView>false</CreateView>
       <EditView>false</EditView>
-      <CreateToDetails>false</CreateToDetails>
+      <CreateToDetails>true</CreateToDetails>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -596,7 +596,7 @@
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
-      <CreateToDetails>false</CreateToDetails>
+      <CreateToDetails>true</CreateToDetails>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -640,7 +640,7 @@
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
-      <CreateToDetails>false</CreateToDetails>
+      <CreateToDetails>true</CreateToDetails>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -706,7 +706,7 @@
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
-      <CreateToDetails>false</CreateToDetails>
+      <CreateToDetails>true</CreateToDetails>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -855,7 +855,7 @@
           <InCreateView>true</InCreateView>
           <InEditView>true</InEditView>
           <HasValidation>true</HasValidation>
-          <UseForEdit>TextBox</UseForEdit>
+          <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
       </Properties>
       <ControllerName>PuchaseOrders</ControllerName>
@@ -872,7 +872,7 @@
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
-      <CreateToDetails>false</CreateToDetails>
+      <CreateToDetails>true</CreateToDetails>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -944,11 +944,12 @@
           <InCreateView>true</InCreateView>
           <InEditView>true</InEditView>
           <HasValidation>true</HasValidation>
-          <UseForEdit>TextBox</UseForEdit>
+          <UseForEdit>TextArea</UseForEdit>
         </AspNetMvcPropertySetting>
       </Properties>
       <ControllerName>OrderItems</ControllerName>
       <DataSetName>OrderItems</DataSetName>
+      <StrongDependedForeignKey>PuchaseOrderId</StrongDependedForeignKey>
       <SaveParameter>this</SaveParameter>
       <ModelForEdit>OrderItem</ModelForEdit>
       <RolesCanView>users</RolesCanView>
@@ -960,7 +961,7 @@
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
-      <CreateToDetails>false</CreateToDetails>
+      <CreateToDetails>true</CreateToDetails>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -1071,7 +1072,7 @@
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
-      <CreateToDetails>false</CreateToDetails>
+      <CreateToDetails>true</CreateToDetails>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -1192,7 +1193,7 @@
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
-      <CreateToDetails>false</CreateToDetails>
+      <CreateToDetails>true</CreateToDetails>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -1248,7 +1249,7 @@
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
-      <CreateToDetails>false</CreateToDetails>
+      <CreateToDetails>true</CreateToDetails>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -1315,7 +1316,7 @@
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
-      <CreateToDetails>false</CreateToDetails>
+      <CreateToDetails>true</CreateToDetails>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
   </EntitySettings>

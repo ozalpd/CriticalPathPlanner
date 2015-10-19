@@ -93,7 +93,7 @@ namespace CriticalPath.Web.Controllers
  
                 DataContext.ProcessStepTemplates.Add(processStepTemplate);
                 await DataContext.SaveChangesAsync(this);
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { Id = processStepTemplate.Id });
             }
 
             SetViewBags(processStepTemplate);

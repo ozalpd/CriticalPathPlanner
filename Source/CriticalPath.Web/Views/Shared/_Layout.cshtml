@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Critical Path Application</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/themes")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
@@ -55,6 +56,10 @@
             </div>
         </div>
     </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -62,9 +67,5 @@
             <p>&copy; @DateTime.Now.Year - Critical Path Application</p>
         </footer>
     </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
 </body>
 </html>

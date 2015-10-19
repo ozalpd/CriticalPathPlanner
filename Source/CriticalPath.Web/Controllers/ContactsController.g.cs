@@ -99,7 +99,7 @@ namespace CriticalPath.Web.Controllers
  
                 DataContext.Contacts.Add(contact);
                 await DataContext.SaveChangesAsync(this);
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { Id = contact.Id });
             }
 
             SetViewBags(contact);
