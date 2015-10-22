@@ -12,10 +12,10 @@ namespace CriticalPath.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class PuchaseOrder : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate, IApproval
+    public partial class PurchaseOrder : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate, IApproval
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public PuchaseOrder()
+        public PurchaseOrder()
         {
             this.OrderItems = new HashSet<OrderItem>();
         }
@@ -44,13 +44,13 @@ namespace CriticalPath.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderItem> OrderItems { get; set; }
     	/// <summary>
-    	/// Clones all properties in a new PuchaseOrder instance,
+    	/// Clones all properties in a new PurchaseOrder instance,
     	/// except PrimaryKey(s)
     	/// </summary>
-    	/// <returns>New PuchaseOrder instance</returns>
-        public PuchaseOrder Clone()
+    	/// <returns>New PurchaseOrder instance</returns>
+        public PurchaseOrder Clone()
         {
-            var clone = new PuchaseOrder();
+            var clone = new PurchaseOrder();
             clone.Title = Title;
             clone.CustomerId = CustomerId;
             clone.OrderDate = OrderDate;
@@ -75,17 +75,17 @@ namespace CriticalPath.Data
             return clone;
         }
     
-    	// Use below function in a partial class file (eg. PuchaseOrder.part.cs)
+    	// Use below function in a partial class file (eg. PurchaseOrder.part.cs)
     	// to add more complexity to clone
-        partial void Cloning(PuchaseOrder clone);
+        partial void Cloning(PurchaseOrder clone);
     }
     
-    //Data Transfer Object type for PuchaseOrder
-    public partial class PuchaseOrderDTO
+    //Data Transfer Object type for PurchaseOrder
+    public partial class PurchaseOrderDTO
     {
-        public PuchaseOrderDTO() { }
+        public PurchaseOrderDTO() { }
     
-        public PuchaseOrderDTO(PuchaseOrder entity)
+        public PurchaseOrderDTO(PurchaseOrder entity)
         {
             Id = entity.Id;
             Title = entity.Title;
@@ -101,11 +101,11 @@ namespace CriticalPath.Data
             Initilazing(entity);
         }
     
-        partial void Initilazing(PuchaseOrder entity);
+        partial void Initilazing(PurchaseOrder entity);
         
-        public virtual PuchaseOrder ToPuchaseOrder()
+        public virtual PurchaseOrder ToPurchaseOrder()
         {
-            var entity = new PuchaseOrder();
+            var entity = new PurchaseOrder();
             entity.Id = Id;
             entity.Title = Title;
             entity.CustomerId = CustomerId;
@@ -122,7 +122,7 @@ namespace CriticalPath.Data
             return entity;
         }
     
-        partial void Converting(PuchaseOrder entity);
+        partial void Converting(PurchaseOrder entity);
       
         public int Id { get; set; }
         public string Title { get; set; }

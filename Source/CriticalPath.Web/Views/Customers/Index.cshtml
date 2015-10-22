@@ -11,7 +11,7 @@
     bool canUserDelete = ViewBag.canUserDelete;
 
     //Records & Pager
-    int pageNr = ViewBag.pageNr;
+    int page = ViewBag.page;
     int totalCount = ViewBag.totalCount;
     int pageSize = ViewBag.pageSize;
     int pageCount = ViewBag.pageCount;
@@ -22,7 +22,7 @@
     </div>
     @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "searchForm" }))
     {
-        @Html.Hidden("pageNr", pageNr)
+        @Html.Hidden("page", page)
         <div class="col-md-4 col-sm-5">
             @Html.Partial("_SearchBoxPartial")
         </div>
@@ -64,7 +64,7 @@
                             }
                             <li class="divider"></li>
                                 <li>@Html.ActionLink(EntityStrings.AddContact, "Create", "Contacts", new { companyId = item.Id }, null)</li>
-                                <li>@Html.ActionLink(EntityStrings.AddPuchaseOrder, "Create", "PuchaseOrders", new { customerId = item.Id }, null)</li>
+                                <li>@Html.ActionLink(EntityStrings.AddPurchaseOrder, "Create", "PurchaseOrders", new { customerId = item.Id }, null)</li>
                         </ul>
                     </div>
                 </td>

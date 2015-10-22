@@ -21,7 +21,7 @@ namespace CriticalPath.Data
         }
     
         public int Id { get; set; }
-        public int PuchaseOrderId { get; set; }
+        public int PurchaseOrderId { get; set; }
         public int ProductId { get; set; }
         public int DisplayOrder { get; set; }
         public int Quantity { get; set; }
@@ -35,7 +35,7 @@ namespace CriticalPath.Data
         public string CreatorIp { get; set; }
     
         public virtual Product Product { get; set; }
-        public virtual PuchaseOrder PuchaseOrder { get; set; }
+        public virtual PurchaseOrder PurchaseOrder { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Process> Processes { get; set; }
     	/// <summary>
@@ -46,7 +46,7 @@ namespace CriticalPath.Data
         public OrderItem Clone()
         {
             var clone = new OrderItem();
-            clone.PuchaseOrderId = PuchaseOrderId;
+            clone.PurchaseOrderId = PurchaseOrderId;
             clone.ProductId = ProductId;
             clone.DisplayOrder = DisplayOrder;
             clone.Quantity = Quantity;
@@ -77,7 +77,7 @@ namespace CriticalPath.Data
         public OrderItemDTO(OrderItem entity)
         {
             Id = entity.Id;
-            PuchaseOrderId = entity.PuchaseOrderId;
+            PurchaseOrderId = entity.PurchaseOrderId;
             ProductId = entity.ProductId;
             DisplayOrder = entity.DisplayOrder;
             Quantity = entity.Quantity;
@@ -92,7 +92,7 @@ namespace CriticalPath.Data
         {
             var entity = new OrderItem();
             entity.Id = Id;
-            entity.PuchaseOrderId = PuchaseOrderId;
+            entity.PurchaseOrderId = PurchaseOrderId;
             entity.ProductId = ProductId;
             entity.DisplayOrder = DisplayOrder;
             entity.Quantity = Quantity;
@@ -106,7 +106,7 @@ namespace CriticalPath.Data
         partial void Converting(OrderItem entity);
       
         public int Id { get; set; }
-        public int PuchaseOrderId { get; set; }
+        public int PurchaseOrderId { get; set; }
         public int ProductId { get; set; }
         public int DisplayOrder { get; set; }
         public int Quantity { get; set; }

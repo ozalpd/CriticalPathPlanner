@@ -26,11 +26,11 @@ namespace CriticalPath.Data
             public int DisplayOrder { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "PuchaseOrderId")]
-            public int PuchaseOrderId { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "PurchaseOrderId")]
+            public int PurchaseOrderId { get; set; }
 
-            [Display(ResourceType = typeof(EntityStrings), Name = "PuchaseOrder")]
-            public PuchaseOrder PuchaseOrder { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "PurchaseOrder")]
+            public PurchaseOrder PurchaseOrder { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Display(ResourceType = typeof(EntityStrings), Name = "ProductId")]

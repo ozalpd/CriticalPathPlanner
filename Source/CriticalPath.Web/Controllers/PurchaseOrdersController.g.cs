@@ -14,12 +14,12 @@ using CriticalPath.Data.Resources;
 
 namespace CriticalPath.Web.Controllers
 {
-    public partial class PuchaseOrdersController : BaseController 
+    public partial class PurchaseOrdersController : BaseController 
     {
         [Authorize]
         public async Task<ActionResult> Index(QueryParameters qParams)
         {
-            var query = DataContext.GetPuchaseOrderQuery();
+            var query = DataContext.GetPurchaseOrderQuery();
             if (!string.IsNullOrEmpty(qParams.SearchString))
             {
                 query = from a in query
@@ -47,7 +47,7 @@ namespace CriticalPath.Web.Controllers
             }
             else
             {
-                return View(new List<PuchaseOrder>());   //there isn't any record, so no need to run a query
+                return View(new List<PurchaseOrder>());   //there isn't any record, so no need to run a query
             }
         }
         
@@ -91,128 +91,128 @@ namespace CriticalPath.Web.Controllers
 
 
         [Authorize]
-        public async Task<ActionResult> Details(int? id)  //GET: /PuchaseOrders/Details/5
+        public async Task<ActionResult> Details(int? id)  //GET: /PurchaseOrders/Details/5
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PuchaseOrder puchaseOrder = await FindAsyncPuchaseOrder(id.Value);
+            PurchaseOrder purchaseOrder = await FindAsyncPurchaseOrder(id.Value);
 
-            if (puchaseOrder == null)
+            if (purchaseOrder == null)
             {
                 return HttpNotFound();
             }
 
-            return View(puchaseOrder);
+            return View(purchaseOrder);
         }
 
 
         [HttpGet]
         [Authorize(Roles = "admin, supervisor, clerk")]
-        [Route("PuchaseOrders/Create/{customerId:int?}")]
-        public async Task<ActionResult> Create(int? customerId)  //GET: /PuchaseOrders/Create
+        [Route("PurchaseOrders/Create/{customerId:int?}")]
+        public async Task<ActionResult> Create(int? customerId)  //GET: /PurchaseOrders/Create
         {
-            var puchaseOrder = new PuchaseOrder();
+            var purchaseOrder = new PurchaseOrder();
             if (customerId != null)
             {
                 var customer = await FindAsyncCustomer(customerId.Value);
                 if (customer == null)
                     return HttpNotFound();
-                puchaseOrder.Customer = customer;
+                purchaseOrder.Customer = customer;
             }
-            SetDefaults(puchaseOrder);
+            SetDefaults(purchaseOrder);
             SetViewBags(null);
-            return View(puchaseOrder);
+            return View(purchaseOrder);
         }
 
         [HttpPost]
         [Authorize(Roles = "admin, supervisor, clerk")]
         [ValidateAntiForgeryToken]
-        [Route("PuchaseOrders/Create/{customerId:int?}")]
-        public async Task<ActionResult> Create(int? customerId, PuchaseOrder puchaseOrder)  //POST: /PuchaseOrders/Create
+        [Route("PurchaseOrders/Create/{customerId:int?}")]
+        public async Task<ActionResult> Create(int? customerId, PurchaseOrder purchaseOrder)  //POST: /PurchaseOrders/Create
         {
-            DataContext.SetInsertDefaults(puchaseOrder, this);
+            DataContext.SetInsertDefaults(purchaseOrder, this);
 
             if (ModelState.IsValid)
             {
-                OnCreateSaving(puchaseOrder);
+                OnCreateSaving(purchaseOrder);
  
-                DataContext.PuchaseOrders.Add(puchaseOrder);
+                DataContext.PurchaseOrders.Add(purchaseOrder);
                 await DataContext.SaveChangesAsync(this);
  
-                OnCreateSaved(puchaseOrder);
+                OnCreateSaved(purchaseOrder);
                 return RedirectToAction("Index");
             }
 
-            SetViewBags(puchaseOrder);
-            return View(puchaseOrder);
+            SetViewBags(purchaseOrder);
+            return View(purchaseOrder);
         }
 
 
         [Authorize(Roles = "admin, supervisor, clerk")]
-        public async Task<ActionResult> Edit(int? id)  //GET: /PuchaseOrders/Edit/5
+        public async Task<ActionResult> Edit(int? id)  //GET: /PurchaseOrders/Edit/5
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PuchaseOrder puchaseOrder = await FindAsyncPuchaseOrder(id.Value);
+            PurchaseOrder purchaseOrder = await FindAsyncPurchaseOrder(id.Value);
 
-            if (puchaseOrder == null)
+            if (purchaseOrder == null)
             {
                 return HttpNotFound();
             }
 
-            SetViewBags(puchaseOrder);
-            return View(puchaseOrder);
+            SetViewBags(purchaseOrder);
+            return View(purchaseOrder);
         }
 
         [Authorize(Roles = "admin, supervisor, clerk")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(PuchaseOrder puchaseOrder)  //POST: /PuchaseOrders/Edit/5
+        public async Task<ActionResult> Edit(PurchaseOrder purchaseOrder)  //POST: /PurchaseOrders/Edit/5
         {
-            DataContext.SetInsertDefaults(puchaseOrder, this);
+            DataContext.SetInsertDefaults(purchaseOrder, this);
 
             if (ModelState.IsValid)
             {
-                OnEditSaving(puchaseOrder);
+                OnEditSaving(purchaseOrder);
  
-                DataContext.Entry(puchaseOrder).State = EntityState.Modified;
+                DataContext.Entry(purchaseOrder).State = EntityState.Modified;
                 await DataContext.SaveChangesAsync(this);
  
-                OnEditSaved(puchaseOrder);
+                OnEditSaved(purchaseOrder);
                 return RedirectToAction("Index");
             }
 
-            SetViewBags(puchaseOrder);
-            return View(puchaseOrder);
+            SetViewBags(purchaseOrder);
+            return View(purchaseOrder);
         }
 
 
         [Authorize(Roles = "admin, supervisor")]
-        public async Task<ActionResult> Delete(int? id)  //GET: /PuchaseOrders/Delete/5
+        public async Task<ActionResult> Delete(int? id)  //GET: /PurchaseOrders/Delete/5
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PuchaseOrder puchaseOrder = await FindAsyncPuchaseOrder(id.Value);
+            PurchaseOrder purchaseOrder = await FindAsyncPurchaseOrder(id.Value);
 
-            if (puchaseOrder == null)
+            if (purchaseOrder == null)
             {
                 return HttpNotFound();
             }
 
-            int orderItemsCount = puchaseOrder.OrderItems.Count;
+            int orderItemsCount = purchaseOrder.OrderItems.Count;
             if ((orderItemsCount) > 0)
             {
                 var sb = new StringBuilder();
 
                 sb.Append(MessageStrings.CanNotDelete);
                 sb.Append(" <b>");
-                sb.Append(puchaseOrder.Title);
+                sb.Append(purchaseOrder.Title);
                 sb.Append("</b>.<br/>");
                 sb.Append(MessageStrings.BecauseOfRelatedRecords);
                 sb.Append(".<br/>");
@@ -228,7 +228,7 @@ namespace CriticalPath.Web.Controllers
                 return GetErrorResult(sb, HttpStatusCode.BadRequest);
             }
 
-            DataContext.PuchaseOrders.Remove(puchaseOrder);
+            DataContext.PurchaseOrders.Remove(purchaseOrder);
             try
             {
                 await DataContext.SaveChangesAsync(this);
@@ -237,7 +237,7 @@ namespace CriticalPath.Web.Controllers
             {
                 var sb = new StringBuilder();
                 sb.Append(MessageStrings.CanNotDelete);
-                sb.Append(puchaseOrder.Title);
+                sb.Append(purchaseOrder.Title);
                 sb.Append("<br/>");
                 AppendExceptionMsg(ex, sb);
 
@@ -253,11 +253,11 @@ namespace CriticalPath.Web.Controllers
         }
 
         //Partial methods
-        partial void OnCreateSaving(PuchaseOrder puchaseOrder);
-        partial void OnCreateSaved(PuchaseOrder puchaseOrder);
-        partial void OnEditSaving(PuchaseOrder puchaseOrder);
-        partial void OnEditSaved(PuchaseOrder puchaseOrder);
-        partial void SetDefaults(PuchaseOrder puchaseOrder);
-        partial void SetViewBags(PuchaseOrder puchaseOrder);
+        partial void OnCreateSaving(PurchaseOrder purchaseOrder);
+        partial void OnCreateSaved(PurchaseOrder purchaseOrder);
+        partial void OnEditSaving(PurchaseOrder purchaseOrder);
+        partial void OnEditSaved(PurchaseOrder purchaseOrder);
+        partial void SetDefaults(PurchaseOrder purchaseOrder);
+        partial void SetViewBags(PurchaseOrder purchaseOrder);
     }
 }

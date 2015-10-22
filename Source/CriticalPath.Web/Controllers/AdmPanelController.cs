@@ -268,20 +268,19 @@ namespace CriticalPath.Web.Controllers
 
             int countCatg = 0;
             ProductCategory catg1 = new ProductCategory() { Title = "Kadın Giyim" };
-            countCatg = AddCategory(catg1, catgKadin, sb);
+            countCatg = AddCategory(catg1, catgKadin, sb, countCatg);
 
             ProductCategory catg2 = new ProductCategory() { Title = "Erkek Giyim" };
             DataContext.ProductCategories.Add(catg2);
-            countCatg = AddCategory(catg2, catgErkek, sb);
+            countCatg = AddCategory(catg2, catgErkek, sb, countCatg);
 
             ProductCategory catg3 = new ProductCategory() { Title = "Çocuk Giyim" };
             DataContext.ProductCategories.Add(catg3);
-            countCatg = AddCategory(catg3, catgCocuk, sb);
+            countCatg = AddCategory(catg3, catgCocuk, sb, countCatg);
         }
 
-        private int AddCategory(ProductCategory parentCatg, string[] subCategories, StringBuilder sb)
+        private int AddCategory(ProductCategory parentCatg, string[] subCategories, StringBuilder sb, int countCatg)
         {
-            int countCatg = 0;
             DataContext.ProductCategories.Add(parentCatg);
             sb.Append("Category ");
             sb.Append(parentCatg.Title);
@@ -297,9 +296,10 @@ namespace CriticalPath.Web.Controllers
                 countCatg++;
                 Random rnd = new Random();
                 int countProduct = rnd.Next(3, 7);
+                var lipsums = Text.LipsumSentences;
                 for (int i = 0; i < countProduct; i++)
                 {
-                    string[] lips = Text.GetRandomLipsumSentence().Split(' ');
+                    string[] lips = lipsums[countCatg % lipsums.Length].Split(' ');
                     int wordCount = rnd.Next(2, 4);
                     var prod = new Product() { Category = catg };
                     for (int j = 0; j < wordCount; j++)

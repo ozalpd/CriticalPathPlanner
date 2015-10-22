@@ -2,10 +2,10 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE TABLE [dbo].[PuchaseOrders](
+CREATE TABLE [dbo].[PurchaseOrders](
     [Id] [int] Identity(1,1) Not Null,
     [Title] [nVarChar](128) Not Null,
-    [CustomerId] [int] Not Null Constraint FK_PuchaseOrder_CustomerId Foreign Key References [dbo].[Customers]([Id]),
+    [CustomerId] [int] Not Null Constraint FK_PurchaseOrder_CustomerId Foreign Key References [dbo].[Customers]([Id]),
     [OrderDate] [DateTime] Not Null,
     [DueDate] [DateTime] Null,
     [Code] [nVarChar](48) Null,
@@ -22,7 +22,7 @@ CREATE TABLE [dbo].[PuchaseOrders](
     [CreateDate] [DateTime] Not Null Default GetDate(),
     [CreatorId] [VarChar](48) Not Null,
     [CreatorIp] [VarChar](48) Not Null,
-  CONSTRAINT [PK_PuchaseOrders] PRIMARY KEY CLUSTERED ([Id] ASC)
+  CONSTRAINT [PK_PurchaseOrders] PRIMARY KEY CLUSTERED ([Id] ASC)
   WITH (PAD_INDEX  = OFF,
     STATISTICS_NORECOMPUTE  = OFF,
     IGNORE_DUP_KEY = OFF,
@@ -30,13 +30,13 @@ CREATE TABLE [dbo].[PuchaseOrders](
     ALLOW_PAGE_LOCKS  = ON)
   ON [PRIMARY]) ON [PRIMARY]
 Go
-Create Nonclustered Index [idx_PuchaseOrders_CustomerId] On [dbo].[PuchaseOrders]([CustomerId] Asc)
+Create Nonclustered Index [idx_PurchaseOrders_CustomerId] On [dbo].[PurchaseOrders]([CustomerId] Asc)
 Go
-Create Nonclustered Index [idx_PuchaseOrders_OrderDate] On [dbo].[PuchaseOrders]([OrderDate] Asc)
+Create Nonclustered Index [idx_PurchaseOrders_OrderDate] On [dbo].[PurchaseOrders]([OrderDate] Asc)
 Go
-Create Nonclustered Index [idx_PuchaseOrders_DueDate] On [dbo].[PuchaseOrders]([DueDate] Asc)
+Create Nonclustered Index [idx_PurchaseOrders_DueDate] On [dbo].[PurchaseOrders]([DueDate] Asc)
 Go
-Create Nonclustered Index [idx_PuchaseOrders_IsApproved] On [dbo].[PuchaseOrders]([IsApproved] Asc)
+Create Nonclustered Index [idx_PurchaseOrders_IsApproved] On [dbo].[PurchaseOrders]([IsApproved] Asc)
 Go
-Create Nonclustered Index [idx_PuchaseOrders_ModifyDate] On [dbo].[PuchaseOrders]([ModifyDate] Desc)
+Create Nonclustered Index [idx_PurchaseOrders_ModifyDate] On [dbo].[PurchaseOrders]([ModifyDate] Desc)
 Go

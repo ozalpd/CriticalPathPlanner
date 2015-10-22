@@ -26,7 +26,7 @@ namespace CriticalPath.Web.Controllers
         public partial class QueryParameters
         {
             public string SearchString { get; set; }
-            public int PageNr { get; set; } = 1;
+            public int Page { get; set; } = 1;
             public int PageSize { get; set; } = 10;
             public int PageCount
             {
@@ -38,7 +38,7 @@ namespace CriticalPath.Web.Controllers
 
             public int Skip
             {
-                get { return (PageNr - 1) * PageSize; }
+                get { return (Page - 1) * PageSize; }
             }
 
             public int TotalCount
@@ -47,9 +47,9 @@ namespace CriticalPath.Web.Controllers
                 set
                 {
                     _totalCount = value;
-                    if (PageNr < 1) PageNr = 1;
-                    if (PageNr > PageCount) PageNr = PageCount;
-                    int skip = (PageNr - 1) * PageSize;
+                    if (Page < 1) Page = 1;
+                    if (Page > PageCount) Page = PageCount;
+                    int skip = (Page - 1) * PageSize;
                 }
             }
             int _totalCount;
@@ -57,7 +57,7 @@ namespace CriticalPath.Web.Controllers
 
         protected virtual void SetPagerParameters(QueryParameters qParams)
         {
-            ViewBag.pageNr = qParams.PageNr;
+            ViewBag.page = qParams.Page;
             ViewBag.totalCount = qParams.TotalCount;
             ViewBag.pageSize = qParams.PageSize;
             ViewBag.pageCount = qParams.PageCount;
@@ -148,10 +148,10 @@ namespace CriticalPath.Web.Controllers
                             .FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        protected virtual async Task<PuchaseOrder> FindAsyncPuchaseOrder(int id)
+        protected virtual async Task<PurchaseOrder> FindAsyncPurchaseOrder(int id)
         {
             return await DataContext
-                            .GetPuchaseOrderQuery()
+                            .GetPurchaseOrderQuery()
                             .FirstOrDefaultAsync(x => x.Id == id);
         }
 

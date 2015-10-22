@@ -27,9 +27,9 @@ namespace CriticalPath.Web.Controllers
                             a.Notes.Contains(qParams.SearchString) 
                         select a;
             }
-            if (qParams.PuchaseOrderId != null)
+            if (qParams.PurchaseOrderId != null)
             {
-                query = query.Where(x => x.PuchaseOrderId == qParams.PuchaseOrderId);
+                query = query.Where(x => x.PurchaseOrderId == qParams.PurchaseOrderId);
             }
             if (qParams.ProductId != null)
             {
@@ -111,16 +111,16 @@ namespace CriticalPath.Web.Controllers
 
         [HttpGet]
         [Authorize(Roles = "admin, supervisor, clerk")]
-        [Route("OrderItems/Create/{puchaseOrderId:int?}")]
-        public async Task<ActionResult> Create(int? puchaseOrderId)  //GET: /OrderItems/Create
+        [Route("OrderItems/Create/{purchaseOrderId:int?}")]
+        public async Task<ActionResult> Create(int? purchaseOrderId)  //GET: /OrderItems/Create
         {
             var orderItem = new OrderItem();
-            if (puchaseOrderId != null)
+            if (purchaseOrderId != null)
             {
-                var puchaseOrder = await FindAsyncPuchaseOrder(puchaseOrderId.Value);
-                if (puchaseOrder == null)
+                var purchaseOrder = await FindAsyncPurchaseOrder(purchaseOrderId.Value);
+                if (purchaseOrder == null)
                     return HttpNotFound();
-                orderItem.PuchaseOrder = puchaseOrder;
+                orderItem.PurchaseOrder = purchaseOrder;
             }
             SetDefaults(orderItem);
             SetViewBags(null);
@@ -130,8 +130,8 @@ namespace CriticalPath.Web.Controllers
         [HttpPost]
         [Authorize(Roles = "admin, supervisor, clerk")]
         [ValidateAntiForgeryToken]
-        [Route("OrderItems/Create/{puchaseOrderId:int?}")]
-        public async Task<ActionResult> Create(int? puchaseOrderId, OrderItem orderItem)  //POST: /OrderItems/Create
+        [Route("OrderItems/Create/{purchaseOrderId:int?}")]
+        public async Task<ActionResult> Create(int? purchaseOrderId, OrderItem orderItem)  //POST: /OrderItems/Create
         {
             DataContext.SetInsertDefaults(orderItem, this);
 
@@ -227,7 +227,7 @@ namespace CriticalPath.Web.Controllers
 
         public new partial class QueryParameters : BaseController.QueryParameters
         {
-            public int? PuchaseOrderId { get; set; }
+            public int? PurchaseOrderId { get; set; }
             public int? ProductId { get; set; }
         }
 

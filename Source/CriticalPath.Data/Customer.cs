@@ -17,13 +17,13 @@ namespace CriticalPath.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Customer()
         {
-            this.Orders = new HashSet<PuchaseOrder>();
+            this.Orders = new HashSet<PurchaseOrder>();
         }
     
         public string CustomerCode { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PuchaseOrder> Orders { get; set; }
+        public virtual ICollection<PurchaseOrder> Orders { get; set; }
     	/// <summary>
     	/// Clones all properties in a new Customer instance,
     	/// except PrimaryKey(s)

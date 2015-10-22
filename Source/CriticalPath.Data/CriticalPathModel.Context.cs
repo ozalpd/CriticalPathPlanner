@@ -35,7 +35,7 @@ namespace CriticalPath.Data
         public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<ProductCategory> ProductCategories { get; set; }
         public virtual DbSet<Product> Products { get; set; }
-        public virtual DbSet<PuchaseOrder> PuchaseOrders { get; set; }
+        public virtual DbSet<PurchaseOrder> PurchaseOrders { get; set; }
         public virtual DbSet<OrderItem> OrderItems { get; set; }
         public virtual DbSet<Process> Processes { get; set; }
         public virtual DbSet<ProcessStep> ProcessSteps { get; set; }
@@ -209,7 +209,7 @@ namespace CriticalPath.Data
                    select new OrderItemDTO
                    {
                        Id = e.Id,
-                       PuchaseOrderId = e.PuchaseOrderId,
+                       PurchaseOrderId = e.PurchaseOrderId,
                        ProductId = e.ProductId,
                        DisplayOrder = e.DisplayOrder,
                        Quantity = e.Quantity,
@@ -455,33 +455,33 @@ namespace CriticalPath.Data
     
     
         /// <summary>
-        /// Default query for PuchaseOrders
+        /// Default query for PurchaseOrders
         /// </summary>
         /// <returns></returns>
-        public virtual IQueryable<PuchaseOrder> GetPuchaseOrderQuery()
+        public virtual IQueryable<PurchaseOrder> GetPurchaseOrderQuery()
         {
-            IQueryable<PuchaseOrder> query = PuchaseOrders.OrderBy(p => p.Title);
+            IQueryable<PurchaseOrder> query = PurchaseOrders.OrderBy(p => p.Title);
             return query;
         }
     
         /// <summary>
-        /// Gets a lighter data transfer object query from PuchaseOrder query
+        /// Gets a lighter data transfer object query from PurchaseOrder query
         /// </summary>
         /// <param name="query">query to be converted</param>
         /// <returns>Converted data transfer object query</returns>
-        public virtual IQueryable<PuchaseOrderDTO> GetPuchaseOrderDtoQuery()
+        public virtual IQueryable<PurchaseOrderDTO> GetPurchaseOrderDtoQuery()
         {
-            return GetPuchaseOrderDtoQuery(GetPuchaseOrderQuery());
+            return GetPurchaseOrderDtoQuery(GetPurchaseOrderQuery());
         }
     
         /// <summary>
-        /// Gets a lighter data transfer object query from PuchaseOrder query
+        /// Gets a lighter data transfer object query from PurchaseOrder query
         /// </summary>
         /// <returns>Converted data transfer object query</returns>
-        public virtual IQueryable<PuchaseOrderDTO> GetPuchaseOrderDtoQuery(IQueryable<PuchaseOrder> query)
+        public virtual IQueryable<PurchaseOrderDTO> GetPurchaseOrderDtoQuery(IQueryable<PurchaseOrder> query)
         {
             return from e in query
-                   select new PuchaseOrderDTO
+                   select new PurchaseOrderDTO
                    {
                        Id = e.Id,
                        Title = e.Title,

@@ -713,7 +713,7 @@
           <DisplayOrder>802300</DisplayOrder>
           <DisplayName>Orders</DisplayName>
           <Editable>true</Editable>
-          <TypeName>ICollection&lt;PuchaseOrder&gt;</TypeName>
+          <TypeName>ICollection&lt;PurchaseOrder&gt;</TypeName>
           <IsClientComputed>false</IsClientComputed>
           <IsServerComputed>false</IsServerComputed>
           <IsStoreGenerated>false</IsStoreGenerated>
@@ -835,13 +835,13 @@
       </Properties>
     </EntityDefinition>
     <EntityDefinition>
-      <Name>PuchaseOrder</Name>
+      <Name>PurchaseOrder</Name>
       <EntitySource />
       <NamespaceName>CriticalPath</NamespaceName>
       <DisplayOrder>12</DisplayOrder>
       <Abstract>false</Abstract>
       <LetDownloadAll>false</LetDownloadAll>
-      <DisplayName>Puchase Order</DisplayName>
+      <DisplayName>Purchase Order</DisplayName>
       <DisplayMember>Title</DisplayMember>
       <BaseTypeName>IApproval</BaseTypeName>
       <Properties>
@@ -999,9 +999,9 @@
           <IsNullable>false</IsNullable>
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
-          <Name>PuchaseOrderId</Name>
+          <Name>PurchaseOrderId</Name>
           <DisplayOrder>601300</DisplayOrder>
-          <DisplayName>Puchase Order Id</DisplayName>
+          <DisplayName>Purchase Order Id</DisplayName>
           <Editable>false</Editable>
           <TypeName>int</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1013,16 +1013,16 @@
           <IsNullable>false</IsNullable>
         </BaseProperty>
         <BaseProperty xsi:type="ComplexProperty">
-          <Name>PuchaseOrder</Name>
+          <Name>PurchaseOrder</Name>
           <DisplayOrder>601400</DisplayOrder>
           <DisplayName>Order</DisplayName>
           <Editable>false</Editable>
-          <TypeName>PuchaseOrder</TypeName>
+          <TypeName>PurchaseOrder</TypeName>
           <IsClientComputed>false</IsClientComputed>
           <IsServerComputed>false</IsServerComputed>
           <IsStoreGenerated>false</IsStoreGenerated>
           <UiVisible>true</UiVisible>
-          <DependentPropertyName>PuchaseOrderId</DependentPropertyName>
+          <DependentPropertyName>PurchaseOrderId</DependentPropertyName>
           <DependentPropertyType>int</DependentPropertyType>
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">

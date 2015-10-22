@@ -36,8 +36,8 @@
 
 @echo .
 @echo .
-@echo 7 - Executing PuchaseOrder.sql...
-@sqlcmd -S .\SqlExpress -d CriticalPath -E -i PuchaseOrder.sql
+@echo 7 - Executing PurchaseOrder.sql...
+@sqlcmd -S .\SqlExpress -d CriticalPath -E -i PurchaseOrder.sql
 
 @echo .
 @echo .

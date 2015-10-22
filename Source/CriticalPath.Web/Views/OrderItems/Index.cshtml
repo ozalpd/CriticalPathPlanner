@@ -11,7 +11,7 @@
     bool canUserDelete = ViewBag.canUserDelete;
 
     //Records & Pager
-    int pageNr = ViewBag.pageNr;
+    int page = ViewBag.page;
     int totalCount = ViewBag.totalCount;
     int pageSize = ViewBag.pageSize;
     int pageCount = ViewBag.pageCount;
@@ -22,7 +22,7 @@
     </div>
     @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "searchForm" }))
     {
-        @Html.Hidden("pageNr", pageNr)
+        @Html.Hidden("page", page)
         <div class="col-md-4 col-sm-5">
             @Html.Partial("_SearchBoxPartial")
         </div>
@@ -33,7 +33,7 @@
     <table class="table table-hover">
         <tr>
             <th>@ActionStrings.Action</th>
-            <th>@Html.DisplayNameFor(model => model.PuchaseOrder)</th>
+            <th>@Html.DisplayNameFor(model => model.PurchaseOrder)</th>
             <th>@Html.DisplayNameFor(model => model.Product)</th>
             <th>@Html.DisplayNameFor(model => model.Quantity)</th>
             <th>@Html.DisplayNameFor(model => model.Notes)</th>
@@ -65,7 +65,7 @@
                         </ul>
                     </div>
                 </td>
-                <td>@Html.DisplayFor(modelItem => item.PuchaseOrder)</td>
+                <td>@Html.DisplayFor(modelItem => item.PurchaseOrder)</td>
                 <td>@Html.DisplayFor(modelItem => item.Product)</td>
                 <td>@Html.DisplayFor(modelItem => item.Quantity)</td>
                 <td>@Html.DisplayFor(modelItem => item.Notes)</td>

@@ -13,13 +13,13 @@ using CriticalPath.Data.Resources;
 
 namespace CriticalPath.Data
 {
-    [MetadataTypeAttribute(typeof(PuchaseOrder.PuchaseOrderMetadata))]
-    public partial class PuchaseOrder
+    [MetadataTypeAttribute(typeof(PurchaseOrderDTO.PurchaseOrderMetadata))]
+    public partial class PurchaseOrderDTO
 	{
-        internal sealed partial class PuchaseOrderMetadata
+        internal sealed partial class PurchaseOrderMetadata
 		{
             // This metadata class is not intended to be instantiated.
-            private PuchaseOrderMetadata() { }
+            private PurchaseOrderMetadata() { }
 
             [StringLength(128, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
@@ -29,9 +29,6 @@ namespace CriticalPath.Data
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Display(ResourceType = typeof(EntityStrings), Name = "CustomerId")]
             public int CustomerId { get; set; }
-
-            [Display(ResourceType = typeof(EntityStrings), Name = "Customer")]
-            public Customer Customer { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [DataType(DataType.Date)]
@@ -50,9 +47,6 @@ namespace CriticalPath.Data
             [DataType(DataType.MultilineText)]
             [Display(ResourceType = typeof(EntityStrings), Name = "Description")]
             public string Description { get; set; }
-
-            [Display(ResourceType = typeof(EntityStrings), Name = "OrderItems")]
-            public ICollection<OrderItem> OrderItems { get; set; }
 
             [StringLength(255, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [DataType(DataType.MultilineText)]

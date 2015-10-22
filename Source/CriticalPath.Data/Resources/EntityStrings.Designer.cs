@@ -178,11 +178,11 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add New Puchase Order.
+        ///   Looks up a localized string similar to Add New Purchase Order.
         /// </summary>
-        public static string AddNewPuchaseOrder {
+        public static string AddNewPurchaseOrder {
             get {
-                return ResourceManager.GetString("AddNewPuchaseOrder", resourceCulture);
+                return ResourceManager.GetString("AddNewPurchaseOrder", resourceCulture);
             }
         }
         
@@ -259,11 +259,11 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add Puchase Order.
+        ///   Looks up a localized string similar to Add Purchase Order.
         /// </summary>
-        public static string AddPuchaseOrder {
+        public static string AddPurchaseOrder {
             get {
-                return ResourceManager.GetString("AddPuchaseOrder", resourceCulture);
+                return ResourceManager.GetString("AddPurchaseOrder", resourceCulture);
             }
         }
         
@@ -538,11 +538,11 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Create Puchase Order.
+        ///   Looks up a localized string similar to Create Purchase Order.
         /// </summary>
-        public static string CreatePuchaseOrder {
+        public static string CreatePurchaseOrder {
             get {
-                return ResourceManager.GetString("CreatePuchaseOrder", resourceCulture);
+                return ResourceManager.GetString("CreatePurchaseOrder", resourceCulture);
             }
         }
         
@@ -718,11 +718,11 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Delete Puchase Order.
+        ///   Looks up a localized string similar to Delete Purchase Order.
         /// </summary>
-        public static string DeletePuchaseOrder {
+        public static string DeletePurchaseOrder {
             get {
-                return ResourceManager.GetString("DeletePuchaseOrder", resourceCulture);
+                return ResourceManager.GetString("DeletePurchaseOrder", resourceCulture);
             }
         }
         
@@ -853,11 +853,11 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit Puchase Order.
+        ///   Looks up a localized string similar to Edit Purchase Order.
         /// </summary>
-        public static string EditPuchaseOrder {
+        public static string EditPurchaseOrder {
             get {
-                return ResourceManager.GetString("EditPuchaseOrder", resourceCulture);
+                return ResourceManager.GetString("EditPurchaseOrder", resourceCulture);
             }
         }
         
@@ -1303,38 +1303,38 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Puchase Order.
+        ///   Looks up a localized string similar to Purchase Order.
         /// </summary>
-        public static string PuchaseOrder {
+        public static string PurchaseOrder {
             get {
-                return ResourceManager.GetString("PuchaseOrder", resourceCulture);
+                return ResourceManager.GetString("PurchaseOrder", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Puchase Order.
+        ///   Looks up a localized string similar to Purchase Order.
         /// </summary>
-        public static string PuchaseOrderId {
+        public static string PurchaseOrderId {
             get {
-                return ResourceManager.GetString("PuchaseOrderId", resourceCulture);
+                return ResourceManager.GetString("PurchaseOrderId", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Puchase Orders.
+        ///   Looks up a localized string similar to Purchase Orders.
         /// </summary>
-        public static string PuchaseOrders {
+        public static string PurchaseOrders {
             get {
-                return ResourceManager.GetString("PuchaseOrders", resourceCulture);
+                return ResourceManager.GetString("PurchaseOrders", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Puchase Orders List.
+        ///   Looks up a localized string similar to Purchase Orders List.
         /// </summary>
-        public static string PuchaseOrdersList {
+        public static string PurchaseOrdersList {
             get {
-                return ResourceManager.GetString("PuchaseOrdersList", resourceCulture);
+                return ResourceManager.GetString("PurchaseOrdersList", resourceCulture);
             }
         }
         

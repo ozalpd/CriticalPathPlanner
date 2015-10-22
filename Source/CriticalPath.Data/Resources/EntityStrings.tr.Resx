@@ -111,7 +111,7 @@
 		<value>Yeni Ürün Kategorisi Ekle</value>
 	</data>
 
-	<data name="AddNewPuchaseOrder" xml:space="preserve">
+	<data name="AddNewPurchaseOrder" xml:space="preserve">
 		<value>Yeni Sipariş Ekle</value>
 	</data>
 
@@ -147,7 +147,7 @@
 		<value>Ürün Kategorisi Ekle</value>
 	</data>
 
-	<data name="AddPuchaseOrder" xml:space="preserve">
+	<data name="AddPurchaseOrder" xml:space="preserve">
 		<value>Sipariş Ekle</value>
 	</data>
 
@@ -271,7 +271,7 @@
 		<value>Ürün Kategorisi Oluştur</value>
 	</data>
 
-	<data name="CreatePuchaseOrder" xml:space="preserve">
+	<data name="CreatePurchaseOrder" xml:space="preserve">
 		<value>Sipariş Oluştur</value>
 	</data>
 
@@ -351,7 +351,7 @@
 		<value>Ürün Kategorisini Sil</value>
 	</data>
 
-	<data name="DeletePuchaseOrder" xml:space="preserve">
+	<data name="DeletePurchaseOrder" xml:space="preserve">
 		<value>Siparişi Sil</value>
 	</data>
 
@@ -411,7 +411,7 @@
 		<value>Ürün Kategorisini Düzenle</value>
 	</data>
 
-	<data name="EditPuchaseOrder" xml:space="preserve">
+	<data name="EditPurchaseOrder" xml:space="preserve">
 		<value>Siparişi Düzenle</value>
 	</data>
 
@@ -611,19 +611,19 @@
 		<value>Ürün Listesi</value>
 	</data>
 
-	<data name="PuchaseOrder" xml:space="preserve">
+	<data name="PurchaseOrder" xml:space="preserve">
 		<value>Sipariş</value>
 	</data>
 
-	<data name="PuchaseOrderId" xml:space="preserve">
+	<data name="PurchaseOrderId" xml:space="preserve">
 		<value>Sipariş No</value>
 	</data>
 
-	<data name="PuchaseOrders" xml:space="preserve">
+	<data name="PurchaseOrders" xml:space="preserve">
 		<value>Siparişler</value>
 	</data>
 
-	<data name="PuchaseOrdersList" xml:space="preserve">
+	<data name="PurchaseOrdersList" xml:space="preserve">
 		<value>Sipariş Listesi</value>
 	</data>
 

@@ -111,8 +111,8 @@
 		<value>Add New Product Category</value>
 	</data>
 
-	<data name="AddNewPuchaseOrder" xml:space="preserve">
-		<value>Add New Puchase Order</value>
+	<data name="AddNewPurchaseOrder" xml:space="preserve">
+		<value>Add New Purchase Order</value>
 	</data>
 
 	<data name="AddNewSupplier" xml:space="preserve">
@@ -147,8 +147,8 @@
 		<value>Add Product Category</value>
 	</data>
 
-	<data name="AddPuchaseOrder" xml:space="preserve">
-		<value>Add Puchase Order</value>
+	<data name="AddPurchaseOrder" xml:space="preserve">
+		<value>Add Purchase Order</value>
 	</data>
 
 	<data name="Address1" xml:space="preserve">
@@ -271,8 +271,8 @@
 		<value>Create Product Category</value>
 	</data>
 
-	<data name="CreatePuchaseOrder" xml:space="preserve">
-		<value>Create Puchase Order</value>
+	<data name="CreatePurchaseOrder" xml:space="preserve">
+		<value>Create Purchase Order</value>
 	</data>
 
 	<data name="CreateSupplier" xml:space="preserve">
@@ -351,8 +351,8 @@
 		<value>Delete Product Category</value>
 	</data>
 
-	<data name="DeletePuchaseOrder" xml:space="preserve">
-		<value>Delete Puchase Order</value>
+	<data name="DeletePurchaseOrder" xml:space="preserve">
+		<value>Delete Purchase Order</value>
 	</data>
 
 	<data name="DeleteSupplier" xml:space="preserve">
@@ -411,8 +411,8 @@
 		<value>Edit Product Category</value>
 	</data>
 
-	<data name="EditPuchaseOrder" xml:space="preserve">
-		<value>Edit Puchase Order</value>
+	<data name="EditPurchaseOrder" xml:space="preserve">
+		<value>Edit Purchase Order</value>
 	</data>
 
 	<data name="EditSupplier" xml:space="preserve">
@@ -611,20 +611,20 @@
 		<value>Products List</value>
 	</data>
 
-	<data name="PuchaseOrder" xml:space="preserve">
-		<value>Puchase Order</value>
+	<data name="PurchaseOrder" xml:space="preserve">
+		<value>Purchase Order</value>
 	</data>
 
-	<data name="PuchaseOrderId" xml:space="preserve">
-		<value>Puchase Order</value>
+	<data name="PurchaseOrderId" xml:space="preserve">
+		<value>Purchase Order</value>
 	</data>
 
-	<data name="PuchaseOrders" xml:space="preserve">
-		<value>Puchase Orders</value>
+	<data name="PurchaseOrders" xml:space="preserve">
+		<value>Purchase Orders</value>
 	</data>
 
-	<data name="PuchaseOrdersList" xml:space="preserve">
-		<value>Puchase Orders List</value>
+	<data name="PurchaseOrdersList" xml:space="preserve">
+		<value>Purchase Orders List</value>
 	</data>
 
 	<data name="Quantity" xml:space="preserve">

@@ -17,7 +17,7 @@ namespace CriticalPath.Web.Controllers
         partial void SetViewBags(OrderItem orderItem)
         {
             //TODO: Optimize query
-            var queryPuchaseOrderId = DataContext.PuchaseOrders;
+            var queryPuchaseOrderId = DataContext.PurchaseOrders;
             //int puchaseOrderId = orderItem == null ? 0 : orderItem.PuchaseOrderId;
             //ViewBag.PuchaseOrderId = new SelectList(queryPuchaseOrderId, "Id", "Title", puchaseOrderId);
             //TODO: Optimize query
@@ -35,11 +35,11 @@ namespace CriticalPath.Web.Controllers
         partial void SetDefaults(OrderItem orderItem)
         {
             int count = 0;
-            if (orderItem.PuchaseOrderId > 0)
+            if (orderItem.PurchaseOrderId > 0)
             {
                 count = DataContext
                         .OrderItems
-                        .Where(o => o.PuchaseOrderId == orderItem.PuchaseOrderId)
+                        .Where(o => o.PurchaseOrderId == orderItem.PurchaseOrderId)
                         .Count();
             }
             orderItem.DisplayOrder = 100 * (count + 1);

@@ -820,7 +820,7 @@
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
-      <Name>PuchaseOrder</Name>
+      <Name>PurchaseOrder</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>true</OverwriteExisting>
       <Properties>
@@ -924,11 +924,11 @@
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
       </Properties>
-      <ControllerName>PuchaseOrders</ControllerName>
-      <DataSetName>PuchaseOrders</DataSetName>
+      <ControllerName>PurchaseOrders</ControllerName>
+      <DataSetName>PurchaseOrders</DataSetName>
       <StrongDependedForeignKey>CustomerId</StrongDependedForeignKey>
       <SaveParameter>this</SaveParameter>
-      <ModelForEdit>PuchaseOrder</ModelForEdit>
+      <ModelForEdit>PurchaseOrder</ModelForEdit>
       <RolesCanView>users</RolesCanView>
       <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
@@ -963,7 +963,7 @@
           <UseForEdit>HiddenInput</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>PuchaseOrderId</Name>
+          <Name>PurchaseOrderId</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>false</InIndexView>
@@ -974,7 +974,7 @@
           <UseForEdit>HiddenInput</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>PuchaseOrder</Name>
+          <Name>PurchaseOrder</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>
@@ -1031,7 +1031,7 @@
       </Properties>
       <ControllerName>OrderItems</ControllerName>
       <DataSetName>OrderItems</DataSetName>
-      <StrongDependedForeignKey>PuchaseOrderId</StrongDependedForeignKey>
+      <StrongDependedForeignKey>PurchaseOrderId</StrongDependedForeignKey>
       <SaveParameter>this</SaveParameter>
       <ModelForEdit>OrderItem</ModelForEdit>
       <RolesCanView>users</RolesCanView>

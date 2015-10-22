@@ -5,7 +5,7 @@ GO
 CREATE TABLE [dbo].[OrderItems](
     [Id] [int] Identity(1,1) Not Null,
     [DisplayOrder] [int] Not Null,
-    [PuchaseOrderId] [int] Not Null Constraint FK_OrderItem_PuchaseOrderId Foreign Key References [dbo].[PuchaseOrders]([Id]),
+    [PurchaseOrderId] [int] Not Null Constraint FK_OrderItem_PurchaseOrderId Foreign Key References [dbo].[PurchaseOrders]([Id]),
     [ProductId] [int] Not Null Constraint FK_OrderItem_ProductId Foreign Key References [dbo].[Products]([Id]),
     [Quantity] [int] Not Null,
     [Notes] [nVarChar](255) Null,
@@ -24,7 +24,7 @@ CREATE TABLE [dbo].[OrderItems](
     ALLOW_PAGE_LOCKS  = ON)
   ON [PRIMARY]) ON [PRIMARY]
 Go
-Create Nonclustered Index [idx_OrderItems_PuchaseOrderId] On [dbo].[OrderItems]([PuchaseOrderId] Asc)
+Create Nonclustered Index [idx_OrderItems_PurchaseOrderId] On [dbo].[OrderItems]([PurchaseOrderId] Asc)
 Go
 Create Nonclustered Index [idx_OrderItems_ProductId] On [dbo].[OrderItems]([ProductId] Asc)
 Go

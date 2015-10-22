@@ -1,9 +1,9 @@
 @using CriticalPath.Web.Models
 @using CriticalPath.Data
 @using CriticalPath.Data.Resources
-@model IEnumerable<PuchaseOrder>
+@model IEnumerable<PurchaseOrder>
 @{
-    ViewBag.Title = @EntityStrings.PuchaseOrders;
+    ViewBag.Title = @EntityStrings.PurchaseOrders;
 
     //Authorization Flags
     bool canUserEdit = ViewBag.canUserEdit;
@@ -11,18 +11,18 @@
     bool canUserDelete = ViewBag.canUserDelete;
 
     //Records & Pager
-    int pageNr = ViewBag.pageNr;
+    int page = ViewBag.page;
     int totalCount = ViewBag.totalCount;
     int pageSize = ViewBag.pageSize;
     int pageCount = ViewBag.pageCount;
 }
 <div class="row well">
     <div class="col-md-8 col-sm-7">
-        <h4>@EntityStrings.PuchaseOrders</h4>
+        <h4>@EntityStrings.PurchaseOrders</h4>
     </div>
     @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "searchForm" }))
     {
-        @Html.Hidden("pageNr", pageNr)
+        @Html.Hidden("page", page)
         <div class="col-md-4 col-sm-5">
             @Html.Partial("_SearchBoxPartial")
         </div>
@@ -64,7 +64,7 @@
                                 </li>
                             }
                             <li class="divider"></li>
-                                <li>@Html.ActionLink(EntityStrings.AddOrderItem, "Create", "OrderItems", new { puchaseOrderId = item.Id }, null)</li>
+                                <li>@Html.ActionLink(EntityStrings.AddOrderItem, "Create", "OrderItems", new { purchaseOrderId = item.Id }, null)</li>
                         </ul>
                     </div>
                 </td>
@@ -89,5 +89,5 @@ else
     <h4>@MessageStrings.NoResults!</h4>
 }
 @section scripts{
-    @Html.Partial("_IndexScriptsPartial", "PuchaseOrders")
+    @Html.Partial("_IndexScriptsPartial", "PurchaseOrders")
 }

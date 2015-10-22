@@ -200,8 +200,8 @@
     <Compile Include="Controllers\AdmPanelController.cs" />
     <Compile Include="Controllers\ProductsController.g.cs" />
     <Compile Include="Controllers\ProductsController.part.cs" />
-    <Compile Include="Controllers\PuchaseOrdersController.g.cs" />
-    <Compile Include="Controllers\PuchaseOrdersController.part.cs" />
+    <Compile Include="Controllers\PurchaseOrdersController.g.cs" />
+    <Compile Include="Controllers\PurchaseOrdersController.part.cs" />
     <Compile Include="Controllers\SuppliersController.g.cs" />
     <Compile Include="Controllers\SuppliersController.part.cs" />
     <Compile Include="Global.asax.cs">
@@ -376,10 +376,6 @@
     <Content Include="Views\Suppliers\Details.cshtml" />
     <Content Include="Views\Suppliers\Edit.cshtml" />
     <Content Include="Views\Suppliers\Index.cshtml" />
-    <Content Include="Views\PuchaseOrders\Create.cshtml" />
-    <Content Include="Views\PuchaseOrders\Details.cshtml" />
-    <Content Include="Views\PuchaseOrders\Edit.cshtml" />
-    <Content Include="Views\PuchaseOrders\Index.cshtml" />
     <Content Include="Views\OrderItems\Create.cshtml" />
     <Content Include="Views\OrderItems\Details.cshtml" />
     <Content Include="Views\OrderItems\Edit.cshtml" />
@@ -411,6 +407,10 @@
     <Content Include="Views\ProcessSteps\Edit.cshtml" />
     <Content Include="Views\ProcessSteps\Index.cshtml" />
     <Content Include="Views\Shared\_SearchBoxPartial.cshtml" />
+    <Content Include="Views\PurchaseOrders\Create.cshtml" />
+    <Content Include="Views\PurchaseOrders\Details.cshtml" />
+    <Content Include="Views\PurchaseOrders\Edit.cshtml" />
+    <Content Include="Views\PurchaseOrders\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

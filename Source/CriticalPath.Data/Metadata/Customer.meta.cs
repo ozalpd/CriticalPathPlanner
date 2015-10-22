@@ -82,7 +82,7 @@ namespace CriticalPath.Data
             public ICollection<Contact> Contacts { get; set; }
 
             [Display(ResourceType = typeof(EntityStrings), Name = "Orders")]
-            public ICollection<PuchaseOrder> Orders { get; set; }
+            public ICollection<PurchaseOrder> Orders { get; set; }
 
 		}
 	}

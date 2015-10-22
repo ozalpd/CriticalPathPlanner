@@ -96,8 +96,8 @@
     <Compile Include="Metadata\ProductCategory.meta.cs" />
     <Compile Include="Metadata\ProductCategoryDTO.meta.cs" />
     <Compile Include="Metadata\ProductDTO.meta.cs" />
-    <Compile Include="Metadata\PuchaseOrder.meta.cs" />
-    <Compile Include="Metadata\PuchaseOrderDTO.meta.cs" />
+    <Compile Include="Metadata\PurchaseOrder.meta.cs" />
+    <Compile Include="Metadata\PurchaseOrderDTO.meta.cs" />
     <Compile Include="Metadata\Supplier.meta.cs" />
     <Compile Include="Metadata\SupplierDTO.meta.cs" />
     <Compile Include="OrderItem.cs">
@@ -122,7 +122,7 @@
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PuchaseOrder.cs">
+    <Compile Include="PurchaseOrder.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Resources\ActionStrings.Designer.cs">
