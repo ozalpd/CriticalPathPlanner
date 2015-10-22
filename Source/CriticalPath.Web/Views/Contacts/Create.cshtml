@@ -5,9 +5,7 @@
 @{
     ViewBag.Title = EntityStrings.CreateContact;
 }
-
 <h2>@EntityStrings.Contact</h2>
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -16,67 +14,66 @@
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.Id)
         
-        @Html.HiddenFor(m => m.CompanyId)
         <div class="form-group">
-            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2 col-sm-3" })
+            <div class="col-md-10 col-sm-9">
                 @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
                 @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2 col-sm-3" })
+            <div class="col-md-10 col-sm-9">
                 @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
                 @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.EmailWork, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            @Html.LabelFor(model => model.EmailWork, htmlAttributes: new { @class = "control-label col-md-2 col-sm-3" })
+            <div class="col-md-10 col-sm-9">
                 @Html.TextBoxFor(m => m.EmailWork, new { @class = "form-control" })
                 @Html.ValidationMessageFor(m => m.EmailWork, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.EmailHome, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            @Html.LabelFor(model => model.EmailHome, htmlAttributes: new { @class = "control-label col-md-2 col-sm-3" })
+            <div class="col-md-10 col-sm-9">
                 @Html.TextBoxFor(m => m.EmailHome, new { @class = "form-control" })
                 @Html.ValidationMessageFor(m => m.EmailHome, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.PhoneMobile, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            @Html.LabelFor(model => model.PhoneMobile, htmlAttributes: new { @class = "control-label col-md-2 col-sm-3" })
+            <div class="col-md-10 col-sm-9">
                 @Html.TextBoxFor(m => m.PhoneMobile, new { @class = "form-control" })
                 @Html.ValidationMessageFor(m => m.PhoneMobile, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.PhoneWork1, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            @Html.LabelFor(model => model.PhoneWork1, htmlAttributes: new { @class = "control-label col-md-2 col-sm-3" })
+            <div class="col-md-10 col-sm-9">
                 @Html.TextBoxFor(m => m.PhoneWork1, new { @class = "form-control" })
                 @Html.ValidationMessageFor(m => m.PhoneWork1, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.PhoneWork2, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            @Html.LabelFor(model => model.PhoneWork2, htmlAttributes: new { @class = "control-label col-md-2 col-sm-3" })
+            <div class="col-md-10 col-sm-9">
                 @Html.TextBoxFor(m => m.PhoneWork2, new { @class = "form-control" })
                 @Html.ValidationMessageFor(m => m.PhoneWork2, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.Notes, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            @Html.LabelFor(model => model.Notes, htmlAttributes: new { @class = "control-label col-md-2 col-sm-3" })
+            <div class="col-md-10 col-sm-9">
                 @Html.TextBoxFor(m => m.Notes, new { @class = "form-control" })
                 @Html.ValidationMessageFor(m => m.Notes, "", new { @class = "text-danger" })
             </div>
         </div>
-    @Html.Partial("_SaveButtonsPartial")
-</div>
+        @Html.HiddenFor(m => m.CompanyId)
+        @Html.Partial("_SaveButtonsPartial")
+    </div>
 }
-
 @section Scripts
 {
     @Scripts.Render("~/bundles/jqueryval")

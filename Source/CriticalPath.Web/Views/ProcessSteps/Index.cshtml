@@ -17,21 +17,14 @@
     int pageCount = ViewBag.pageCount;
 }
 <div class="row well">
-    <div class="col-md-8">
+    <div class="col-md-8 col-sm-7">
         <h4>@EntityStrings.ProcessSteps</h4>
     </div>
     @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "searchForm" }))
     {
         @Html.Hidden("pageNr", pageNr)
-        <div class="col-md-4">
-            <div class="input-group">
-                @Html.TextBox("SearchString", null, new { @class = "form-control" })
-                <span class="input-group-btn">
-                    <button type="button" class="btn btn-default" onclick="setPager(1)">
-                        <span class="glyphicon glyphicon-search"></span>
-                    </button>
-                </span>
-            </div>
+        <div class="col-md-4 col-sm-5">
+            @Html.Partial("_SearchBoxPartial")
         </div>
     }
 </div>
@@ -41,12 +34,13 @@
         <tr>
             <th>@ActionStrings.Action</th>
             <th>@Html.DisplayNameFor(model => model.Title)</th>
-            <th>@Html.DisplayNameFor(model => model.IsCompleted)</th>
             <th>@Html.DisplayNameFor(model => model.Description)</th>
+            <th>@Html.DisplayNameFor(model => model.IsCompleted)</th>
             <th>@Html.DisplayNameFor(model => model.Process)</th>
             <th>@Html.DisplayNameFor(model => model.TargetDate)</th>
             <th>@Html.DisplayNameFor(model => model.ForecastDate)</th>
             <th>@Html.DisplayNameFor(model => model.RealizedDate)</th>
+            <th>@Html.DisplayNameFor(model => model.Template)</th>
             <th>@Html.DisplayNameFor(model => model.IsApproved)</th>
         </tr>
     @foreach (var item in Model)
@@ -75,18 +69,22 @@
                     </div>
                 </td>
                 <td>@Html.DisplayFor(modelItem => item.Title)</td>
-                <td>@Html.DisplayFor(modelItem => item.IsCompleted)</td>
                 <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                <td>@Html.DisplayFor(modelItem => item.IsCompleted)</td>
                 <td>@Html.DisplayFor(modelItem => item.Process)</td>
                 <td>@Html.DisplayFor(modelItem => item.TargetDate)</td>
                 <td>@Html.DisplayFor(modelItem => item.ForecastDate)</td>
                 <td>@Html.DisplayFor(modelItem => item.RealizedDate)</td>
+                <td>@Html.DisplayFor(modelItem => item.Template)</td>
                 <td>@Html.DisplayFor(modelItem => item.IsApproved)</td>
             </tr>
     }
     </table>
     @Html.Partial("_PagerPartial")
-    @Html.Partial("_MessageBoxPartial")
+    if (canUserDelete)
+    {
+        @Html.Partial("_MessageBoxPartial")
+    }
 }
 else
 {

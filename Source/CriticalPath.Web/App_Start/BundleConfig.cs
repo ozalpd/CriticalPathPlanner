@@ -38,9 +38,40 @@ namespace CriticalPath.Web
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            /* */
+            bundles.Add(new StyleBundle("~/Content/Slate").Include( //Dark & Cool
+                      "~/Content/Slate/bootstrap.min.css",
+                      "~/Content/Slate/Light.css",
+                        "~/Content/themes/dark-hive/jquery-ui.css",
+                        "~/Content/themes/dark-hive/theme.css",
+                      "~/Content/Site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/Superhero").Include(
+                    "~/Content/Superhero/bootstrap.min.css",
+                      "~/Content/NavbarColors-Red.css",
+                      "~/Content/Site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/Cosmo").Include(
+                    "~/Content/Cosmo/bootstrap.min.css",
+                      "~/Content/NavbarColors-Blue.css",
+                      "~/Content/Site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/Flatly").Include(
+                      "~/Content/Flatly/bootstrap.min.css",
+                      "~/Content/NavbarColors-Red.css",
+                      "~/Content/Site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/Darkly").Include(
+                      "~/Content/Darkly/bootstrap.min.css",
+                      "~/Content/Site.css"));
+                     
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/Default/bootstrap.min.css",
+                      "~/Content/Default/darker.css",
+                      "~/Content/NavbarColors-Blue.css",
+                      //"~/Content/NavbarColors-Grey.css",
+                      //"~/Content/NavbarColors-Red.css",
+                      "~/Content/Site.css"));
         }
     }
 }

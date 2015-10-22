@@ -17,21 +17,14 @@
     int pageCount = ViewBag.pageCount;
 }
 <div class="row well">
-    <div class="col-md-8">
+    <div class="col-md-8 col-sm-7">
         <h4>@EntityStrings.PuchaseOrders</h4>
     </div>
     @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "searchForm" }))
     {
         @Html.Hidden("pageNr", pageNr)
-        <div class="col-md-4">
-            <div class="input-group">
-                @Html.TextBox("SearchString", null, new { @class = "form-control" })
-                <span class="input-group-btn">
-                    <button type="button" class="btn btn-default" onclick="setPager(1)">
-                        <span class="glyphicon glyphicon-search"></span>
-                    </button>
-                </span>
-            </div>
+        <div class="col-md-4 col-sm-5">
+            @Html.Partial("_SearchBoxPartial")
         </div>
     }
 </div>
@@ -50,8 +43,6 @@
         </tr>
     @foreach (var item in Model)
     {
-            int orderItemsCount = item.OrderItems.Count;
-            bool canDelete = canUserDelete && (orderItemsCount + 0) == 0;
             <tr>
                 <td>
                     <div class="btn-group">
@@ -64,19 +55,10 @@
                             {
                                 <li>@Html.ActionLink(ActionStrings.Edit, "Edit", new { id = item.Id })</li>
                             }
-                            @if (canDelete)
+                            @if (canUserDelete)
                             {
                                 <li>
                                     <a href="#deleteConfirm" data-toggle="modal" onclick="setDelete('<b>@(item.Title)</b>', @item.Id);">
-                                        @ActionStrings.Delete
-                                    </a>
-                                </li>
-                            }
-                            else if (canUserDelete)
-                            {
-                                string cannotDelete = string.Format("OrderItems: {0}<br/>", orderItemsCount );
-                                <li>
-                                    <a onclick="showCannotDelete('<b>@(item.Title)</b>', '@cannotDelete');">
                                         @ActionStrings.Delete
                                     </a>
                                 </li>
@@ -91,13 +73,16 @@
                 <td>@Html.DisplayFor(modelItem => item.OrderDate)</td>
                 <td>@Html.DisplayFor(modelItem => item.DueDate)</td>
                 <td>@Html.DisplayFor(modelItem => item.Code)</td>
-                <td>@orderItemsCount</td>
+                <td>@item.OrderItems.Count</td>
                 <td>@Html.DisplayFor(modelItem => item.IsApproved)</td>
             </tr>
     }
     </table>
     @Html.Partial("_PagerPartial")
-    @Html.Partial("_MessageBoxPartial")
+    if (canUserDelete)
+    {
+        @Html.Partial("_MessageBoxPartial")
+    }
 }
 else
 {

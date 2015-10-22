@@ -17,22 +17,22 @@
         @Html.HiddenFor(m => m.DisplayOrder)
         @Html.HiddenFor(m => m.PuchaseOrderId)
         <div class="form-group">
-            @Html.LabelFor(model => model.ProductId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            @Html.LabelFor(model => model.ProductId, htmlAttributes: new { @class = "control-label col-md-2 col-sm-3" })
+            <div class="col-md-10 col-sm-9">
                 @Html.DropDownList("ProductId", null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(m => m.ProductId, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.Quantity, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            @Html.LabelFor(model => model.Quantity, htmlAttributes: new { @class = "control-label col-md-2 col-sm-3" })
+            <div class="col-md-10 col-sm-9">
                 @Html.EditorFor(m => m.Quantity, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(m => m.Quantity, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.Notes, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            @Html.LabelFor(model => model.Notes, htmlAttributes: new { @class = "control-label col-md-2 col-sm-3" })
+            <div class="col-md-10 col-sm-9">
                 @Html.TextAreaFor(m => m.Notes, new { @class = "form-control" })
                 @Html.ValidationMessageFor(m => m.Notes, "", new { @class = "text-danger" })
             </div>

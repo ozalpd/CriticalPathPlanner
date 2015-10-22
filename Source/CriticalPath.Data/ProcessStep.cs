@@ -34,8 +34,10 @@ namespace CriticalPath.Data
         public System.DateTime CreateDate { get; set; }
         public string CreatorId { get; set; }
         public string CreatorIp { get; set; }
+        public int TemplateId { get; set; }
     
         public virtual Process Process { get; set; }
+        public virtual ProcessStepTemplate Template { get; set; }
     	/// <summary>
     	/// Clones all properties in a new ProcessStep instance,
     	/// except PrimaryKey(s)
@@ -63,6 +65,7 @@ namespace CriticalPath.Data
             clone.CreateDate = CreateDate;
             clone.CreatorId = CreatorId;
             clone.CreatorIp = CreatorIp;
+            clone.TemplateId = TemplateId;
     
             Cloning(clone);
     
@@ -92,6 +95,7 @@ namespace CriticalPath.Data
             RealizedDate = entity.RealizedDate;
             IsApproved = entity.IsApproved;
             ApproveDate = entity.ApproveDate;
+            TemplateId = entity.TemplateId;
         
             Initilazing(entity);
         }
@@ -112,6 +116,7 @@ namespace CriticalPath.Data
             entity.RealizedDate = RealizedDate;
             entity.IsApproved = IsApproved;
             entity.ApproveDate = ApproveDate;
+            entity.TemplateId = TemplateId;
     
             Converting(entity);
     
@@ -131,5 +136,6 @@ namespace CriticalPath.Data
         public Nullable<System.DateTime> RealizedDate { get; set; }
         public bool IsApproved { get; set; }
         public Nullable<System.DateTime> ApproveDate { get; set; }
+        public int TemplateId { get; set; }
     }
 }

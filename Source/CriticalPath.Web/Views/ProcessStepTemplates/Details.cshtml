@@ -9,27 +9,35 @@
 <h2>@EntityStrings.ProcessStepTemplate @ActionStrings.Details</h2>
 
 <div class="row">
-    <label class="control-label col-md-2">
+    <label class="control-label col-md-2 col-sm-3">
         @Html.DisplayNameFor(model => model.Title)
     </label>
-    <div class="col-md-10">
+    <div class="col-md-10 col-sm-9">
         @Html.DisplayFor(m => m.Title)
     </div>
 </div>
 <div class="row">
-    <label class="control-label col-md-2">
+    <label class="control-label col-md-2 col-sm-3">
         @Html.DisplayNameFor(model => model.DisplayOrder)
     </label>
-    <div class="col-md-10">
+    <div class="col-md-10 col-sm-9">
         @Html.DisplayFor(m => m.DisplayOrder)
     </div>
 </div>
 <div class="row">
-    <label class="control-label col-md-2">
+    <label class="control-label col-md-2 col-sm-3">
         @Html.DisplayNameFor(model => model.ProcessTemplate)
     </label>
-    <div class="col-md-10">
+    <div class="col-md-10 col-sm-9">
         @Html.DisplayFor(m => m.ProcessTemplate)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.RequiredWorkDays)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.RequiredWorkDays)
     </div>
 </div>
 @Html.Partial("_DetailFormButtonsPartial")

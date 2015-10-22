@@ -2,21 +2,20 @@ using System;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
+using System.Net;
+using System.Web.Mvc;
 using System.Data;
 using System.Data.Entity;
 using System.Threading.Tasks;
 using CriticalPath.Data;
 using CriticalPath.Web.Models;
-using System.Net;
-using System.Web.Mvc;
+using CriticalPath.Data.Resources;
 
 namespace CriticalPath.Web.Controllers
 {
     public partial class ProcessesController : BaseController 
     {
-        partial void SetViewBags(Process process);
-        partial void SetDefaults(Process process);
-        
         [Authorize]
         public async Task<ActionResult> Index(QueryParameters qParams)
         {
@@ -28,6 +27,14 @@ namespace CriticalPath.Web.Controllers
                             a.Title.Contains(qParams.SearchString) | 
                             a.Description.Contains(qParams.SearchString) 
                         select a;
+            }
+            if (qParams.ProcessTemplateId != null)
+            {
+                query = query.Where(x => x.ProcessTemplateId == qParams.ProcessTemplateId);
+            }
+            if (qParams.OrderItemId != null)
+            {
+                query = query.Where(x => x.OrderItemId == qParams.OrderItemId);
             }
             qParams.TotalCount = await query.CountAsync();
             SetPagerParameters(qParams);
@@ -45,6 +52,45 @@ namespace CriticalPath.Web.Controllers
                 return View(new List<Process>());   //there isn't any record, so no need to run a query
             }
         }
+        
+        protected virtual async Task<bool> CanUserCreate()
+        {
+            if (!_canUserCreate.HasValue)
+            {
+                _canUserCreate = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync() ||
+                                    await IsUserClerkAsync());
+            }
+            return _canUserCreate.Value;
+        }
+        bool? _canUserCreate;
+
+        protected virtual async Task<bool> CanUserEdit()
+        {
+            if (!_canUserEdit.HasValue)
+            {
+                _canUserEdit = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync() ||
+                                    await IsUserClerkAsync());
+            }
+            return _canUserEdit.Value;
+        }
+        bool? _canUserEdit;
+        
+        protected virtual async Task<bool> CanUserDelete()
+        {
+            if (!_canUserDelete.HasValue)
+            {
+                _canUserDelete = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync());
+            }
+            return _canUserDelete.Value;
+        }
+        bool? _canUserDelete;
+
 
         [Authorize]
         public async Task<ActionResult> Details(int? id)  //GET: /Processes/Details/5
@@ -62,6 +108,7 @@ namespace CriticalPath.Web.Controllers
 
             return View(process);
         }
+
 
         [HttpGet]
         [Authorize(Roles = "admin, supervisor, clerk")]
@@ -91,28 +138,19 @@ namespace CriticalPath.Web.Controllers
 
             if (ModelState.IsValid)
             {
-                SetSteps(process);
+                OnCreateSaving(process);
+ 
                 DataContext.Processes.Add(process);
                 await DataContext.SaveChangesAsync(this);
-                return RedirectToAction("Details", new { Id = process.Id });
+ 
+                OnCreateSaved(process);
+                return RedirectToAction("Index");
             }
 
             SetViewBags(process);
             return View(process);
         }
-        
-        protected virtual async Task<bool> CanUserCreate()
-        {
-            if (!_canUserCreate.HasValue)
-            {
-                _canUserCreate = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync() ||
-                                    await IsUserClerkAsync());
-            }
-            return _canUserCreate.Value;
-        }
-        bool? _canUserCreate;
+
 
         [Authorize(Roles = "admin, supervisor, clerk")]
         public async Task<ActionResult> Edit(int? id)  //GET: /Processes/Edit/5
@@ -141,9 +179,12 @@ namespace CriticalPath.Web.Controllers
 
             if (ModelState.IsValid)
             {
+                OnEditSaving(process);
  
                 DataContext.Entry(process).State = EntityState.Modified;
                 await DataContext.SaveChangesAsync(this);
+ 
+                OnEditSaved(process);
                 return RedirectToAction("Index");
             }
 
@@ -151,18 +192,6 @@ namespace CriticalPath.Web.Controllers
             return View(process);
         }
 
-        protected virtual async Task<bool> CanUserEdit()
-        {
-            if (!_canUserEdit.HasValue)
-            {
-                _canUserEdit = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync() ||
-                                    await IsUserClerkAsync());
-            }
-            return _canUserEdit.Value;
-        }
-        bool? _canUserEdit;
 
         [Authorize(Roles = "admin, supervisor")]
         public async Task<ActionResult> Delete(int? id)  //GET: /Processes/Delete/5
@@ -177,23 +206,61 @@ namespace CriticalPath.Web.Controllers
             {
                 return HttpNotFound();
             }
-            
-            DataContext.Processes.Remove(process);
-            await DataContext.SaveChangesAsync(this);
 
-            return RedirectToAction("Index");
-        }
-        
-        protected virtual async Task<bool> CanUserDelete()
-        {
-            if (!_canUserDelete.HasValue)
+            int processStepsCount = process.ProcessSteps.Count;
+            if ((processStepsCount) > 0)
             {
-                _canUserDelete = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync());
+                var sb = new StringBuilder();
+
+                sb.Append(MessageStrings.CanNotDelete);
+                sb.Append(" <b>");
+                sb.Append(process.Title);
+                sb.Append("</b>.<br/>");
+                sb.Append(MessageStrings.BecauseOfRelatedRecords);
+                sb.Append(".<br/>");
+
+                if (processStepsCount > 0)
+                {
+                    sb.Append(EntityStrings.ProcessSteps);
+                    sb.Append(": ");
+                    sb.Append(processStepsCount);
+                    sb.Append("<br/>");
+                }
+
+                return GetErrorResult(sb, HttpStatusCode.BadRequest);
             }
-            return _canUserDelete.Value;
+
+            DataContext.Processes.Remove(process);
+            try
+            {
+                await DataContext.SaveChangesAsync(this);
+            }
+            catch (Exception ex)
+            {
+                var sb = new StringBuilder();
+                sb.Append(MessageStrings.CanNotDelete);
+                sb.Append(process.Title);
+                sb.Append("<br/>");
+                AppendExceptionMsg(ex, sb);
+
+                return GetErrorResult(sb, HttpStatusCode.InternalServerError);
+            }
+
+            return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
-        bool? _canUserDelete;
+
+        public new partial class QueryParameters : BaseController.QueryParameters
+        {
+            public int? ProcessTemplateId { get; set; }
+            public int? OrderItemId { get; set; }
+        }
+
+        //Partial methods
+        partial void OnCreateSaving(Process process);
+        partial void OnCreateSaved(Process process);
+        partial void OnEditSaving(Process process);
+        partial void OnEditSaved(Process process);
+        partial void SetDefaults(Process process);
+        partial void SetViewBags(Process process);
     }
 }

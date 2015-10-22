@@ -7,6 +7,7 @@ CREATE TABLE [dbo].[ProcessStepTemplates](
     [Title] [nVarChar](128) Not Null,
     [DisplayOrder] [int] Not Null,
     [ProcessTemplateId] [int] Not Null Constraint FK_ProcessStepTemplate_ProcessTemplateId Foreign Key References [dbo].[ProcessTemplates]([Id]),
+    [RequiredWorkDays] [int] Not Null,
     [ModifyNr] [int] Not Null Default 1,
     [ModifyDate] [DateTime] Not Null Default GetDate(),
     [ModifierId] [VarChar](48) Not Null,

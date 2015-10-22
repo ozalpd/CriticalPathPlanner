@@ -30,11 +30,16 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>false</GenerateController>
+      <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateCreateAction>true</GenerateCreateAction>
+      <GenerateDeleteAction>true</GenerateDeleteAction>
+      <GenerateEditAction>true</GenerateEditAction>
+      <GenerateDetailsAction>true</GenerateDetailsAction>
       <IndexView>false</IndexView>
       <DetailsView>false</DetailsView>
       <CreateView>false</CreateView>
       <EditView>false</EditView>
-      <CreateToDetails>false</CreateToDetails>
+      <AfterSaveRedirect>"Index"</AfterSaveRedirect>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -85,11 +90,16 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>false</GenerateController>
+      <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateCreateAction>true</GenerateCreateAction>
+      <GenerateDeleteAction>true</GenerateDeleteAction>
+      <GenerateEditAction>true</GenerateEditAction>
+      <GenerateDetailsAction>true</GenerateDetailsAction>
       <IndexView>false</IndexView>
       <DetailsView>false</DetailsView>
       <CreateView>false</CreateView>
       <EditView>false</EditView>
-      <CreateToDetails>false</CreateToDetails>
+      <AfterSaveRedirect>"Index"</AfterSaveRedirect>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -151,11 +161,16 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>false</GenerateController>
+      <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateCreateAction>true</GenerateCreateAction>
+      <GenerateDeleteAction>true</GenerateDeleteAction>
+      <GenerateEditAction>true</GenerateEditAction>
+      <GenerateDetailsAction>true</GenerateDetailsAction>
       <IndexView>false</IndexView>
       <DetailsView>false</DetailsView>
       <CreateView>false</CreateView>
       <EditView>false</EditView>
-      <CreateToDetails>false</CreateToDetails>
+      <AfterSaveRedirect>"Index"</AfterSaveRedirect>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -217,11 +232,16 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>false</GenerateController>
+      <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateCreateAction>true</GenerateCreateAction>
+      <GenerateDeleteAction>true</GenerateDeleteAction>
+      <GenerateEditAction>true</GenerateEditAction>
+      <GenerateDetailsAction>true</GenerateDetailsAction>
       <IndexView>false</IndexView>
       <DetailsView>false</DetailsView>
       <CreateView>false</CreateView>
       <EditView>false</EditView>
-      <CreateToDetails>false</CreateToDetails>
+      <AfterSaveRedirect>"Index"</AfterSaveRedirect>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -272,11 +292,16 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>false</GenerateController>
+      <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateCreateAction>true</GenerateCreateAction>
+      <GenerateDeleteAction>true</GenerateDeleteAction>
+      <GenerateEditAction>true</GenerateEditAction>
+      <GenerateDetailsAction>true</GenerateDetailsAction>
       <IndexView>false</IndexView>
       <DetailsView>false</DetailsView>
       <CreateView>false</CreateView>
       <EditView>false</EditView>
-      <CreateToDetails>false</CreateToDetails>
+      <AfterSaveRedirect>"Index"</AfterSaveRedirect>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -284,28 +309,6 @@
       <Exclude>false</Exclude>
       <OverwriteExisting>true</OverwriteExisting>
       <Properties>
-        <AspNetMvcPropertySetting>
-          <Name>CompanyId</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
-          <InIndexView>false</InIndexView>
-          <InDetailsView>false</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForEdit>HiddenInput</UseForEdit>
-        </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
-          <Name>Company</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
-          <InIndexView>true</InIndexView>
-          <InDetailsView>true</InDetailsView>
-          <InCreateView>false</InCreateView>
-          <InEditView>false</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForEdit>Standart</UseForEdit>
-        </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
           <Name>FirstName</Name>
           <Exclude>false</Exclude>
@@ -394,6 +397,28 @@
           <HasValidation>true</HasValidation>
           <UseForEdit>TextBox</UseForEdit>
         </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>CompanyId</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>false</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForEdit>HiddenInput</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>Company</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
       </Properties>
       <ControllerName>Contacts</ControllerName>
       <DataSetName>Contacts</DataSetName>
@@ -405,11 +430,16 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>true</GenerateController>
+      <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateCreateAction>true</GenerateCreateAction>
+      <GenerateDeleteAction>true</GenerateDeleteAction>
+      <GenerateEditAction>true</GenerateEditAction>
+      <GenerateDetailsAction>true</GenerateDetailsAction>
       <IndexView>true</IndexView>
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
-      <CreateToDetails>true</CreateToDetails>
+      <AfterSaveRedirect>"Index"</AfterSaveRedirect>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -559,11 +589,16 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>false</GenerateController>
+      <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateCreateAction>true</GenerateCreateAction>
+      <GenerateDeleteAction>true</GenerateDeleteAction>
+      <GenerateEditAction>true</GenerateEditAction>
+      <GenerateDetailsAction>true</GenerateDetailsAction>
       <IndexView>false</IndexView>
       <DetailsView>false</DetailsView>
       <CreateView>false</CreateView>
       <EditView>false</EditView>
-      <CreateToDetails>true</CreateToDetails>
+      <AfterSaveRedirect>"Index"</AfterSaveRedirect>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -592,11 +627,16 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>true</GenerateController>
+      <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateCreateAction>true</GenerateCreateAction>
+      <GenerateDeleteAction>true</GenerateDeleteAction>
+      <GenerateEditAction>true</GenerateEditAction>
+      <GenerateDetailsAction>true</GenerateDetailsAction>
       <IndexView>true</IndexView>
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
-      <CreateToDetails>true</CreateToDetails>
+      <AfterSaveRedirect>"Index"</AfterSaveRedirect>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -636,11 +676,16 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>true</GenerateController>
+      <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateCreateAction>true</GenerateCreateAction>
+      <GenerateDeleteAction>true</GenerateDeleteAction>
+      <GenerateEditAction>true</GenerateEditAction>
+      <GenerateDetailsAction>true</GenerateDetailsAction>
       <IndexView>true</IndexView>
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
-      <CreateToDetails>true</CreateToDetails>
+      <AfterSaveRedirect>"Index"</AfterSaveRedirect>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -702,11 +747,16 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>true</GenerateController>
+      <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateCreateAction>true</GenerateCreateAction>
+      <GenerateDeleteAction>true</GenerateDeleteAction>
+      <GenerateEditAction>true</GenerateEditAction>
+      <GenerateDetailsAction>true</GenerateDetailsAction>
       <IndexView>true</IndexView>
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
-      <CreateToDetails>true</CreateToDetails>
+      <AfterSaveRedirect>"Index"</AfterSaveRedirect>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -736,6 +786,17 @@
           <HasValidation>true</HasValidation>
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>OrderItems</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>false</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
+          <HasValidation>false</HasValidation>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
       </Properties>
       <ControllerName>Products</ControllerName>
       <DataSetName>Products</DataSetName>
@@ -746,11 +807,16 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>true</GenerateController>
+      <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateCreateAction>true</GenerateCreateAction>
+      <GenerateDeleteAction>true</GenerateDeleteAction>
+      <GenerateEditAction>true</GenerateEditAction>
+      <GenerateDetailsAction>true</GenerateDetailsAction>
       <IndexView>true</IndexView>
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
-      <CreateToDetails>true</CreateToDetails>
+      <AfterSaveRedirect>"Index"</AfterSaveRedirect>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -836,17 +902,6 @@
           <UseForEdit>TextBox</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>OrderItems</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
-          <InIndexView>true</InIndexView>
-          <InDetailsView>true</InDetailsView>
-          <InCreateView>false</InCreateView>
-          <InEditView>false</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForEdit>Standart</UseForEdit>
-        </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
           <Name>Notes</Name>
           <Exclude>false</Exclude>
           <UseInSearch>true</UseInSearch>
@@ -854,6 +909,17 @@
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
           <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>OrderItems</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
           <HasValidation>true</HasValidation>
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
@@ -868,11 +934,16 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>true</GenerateController>
+      <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateCreateAction>true</GenerateCreateAction>
+      <GenerateDeleteAction>true</GenerateDeleteAction>
+      <GenerateEditAction>true</GenerateEditAction>
+      <GenerateDetailsAction>true</GenerateDetailsAction>
       <IndexView>true</IndexView>
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
-      <CreateToDetails>true</CreateToDetails>
+      <AfterSaveRedirect>"Index"</AfterSaveRedirect>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -968,20 +1039,36 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>true</GenerateController>
+      <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateCreateAction>true</GenerateCreateAction>
+      <GenerateDeleteAction>true</GenerateDeleteAction>
+      <GenerateEditAction>true</GenerateEditAction>
+      <GenerateDetailsAction>true</GenerateDetailsAction>
       <IndexView>true</IndexView>
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
-      <CreateToDetails>true</CreateToDetails>
+      <AfterSaveRedirect>"Index"</AfterSaveRedirect>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>Process</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
+      <OverwriteExisting>true</OverwriteExisting>
       <Properties>
         <AspNetMvcPropertySetting>
           <Name>Title</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>Description</Name>
           <Exclude>false</Exclude>
           <UseInSearch>true</UseInSearch>
           <InIndexView>true</InIndexView>
@@ -1001,17 +1088,6 @@
           <InEditView>true</InEditView>
           <HasValidation>true</HasValidation>
           <UseForEdit>Standart</UseForEdit>
-        </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
-          <Name>Description</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>true</UseInSearch>
-          <InIndexView>true</InIndexView>
-          <InDetailsView>true</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForEdit>TextBox</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
           <Name>ProcessTemplate</Name>
@@ -1079,17 +1155,22 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>true</GenerateController>
+      <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateCreateAction>true</GenerateCreateAction>
+      <GenerateDeleteAction>true</GenerateDeleteAction>
+      <GenerateEditAction>true</GenerateEditAction>
+      <GenerateDetailsAction>true</GenerateDetailsAction>
       <IndexView>true</IndexView>
       <DetailsView>false</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
-      <CreateToDetails>true</CreateToDetails>
+      <AfterSaveRedirect>"Index"</AfterSaveRedirect>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>ProcessStep</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
+      <OverwriteExisting>true</OverwriteExisting>
       <Properties>
         <AspNetMvcPropertySetting>
           <Name>Title</Name>
@@ -1103,9 +1184,9 @@
           <UseForEdit>ReadOnlyDisplay</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>IsCompleted</Name>
+          <Name>Description</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
+          <UseInSearch>true</UseInSearch>
           <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
@@ -1114,9 +1195,9 @@
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>Description</Name>
+          <Name>IsCompleted</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>true</UseInSearch>
+          <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
@@ -1190,6 +1271,28 @@
           <HasValidation>true</HasValidation>
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>TemplateId</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>false</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForEdit>DropDownList</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>Template</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
       </Properties>
       <ControllerName>ProcessSteps</ControllerName>
       <DataSetName>ProcessSteps</DataSetName>
@@ -1200,11 +1303,16 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>true</GenerateController>
+      <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateCreateAction>false</GenerateCreateAction>
+      <GenerateDeleteAction>false</GenerateDeleteAction>
+      <GenerateEditAction>true</GenerateEditAction>
+      <GenerateDetailsAction>true</GenerateDetailsAction>
       <IndexView>true</IndexView>
       <DetailsView>true</DetailsView>
-      <CreateView>true</CreateView>
+      <CreateView>false</CreateView>
       <EditView>true</EditView>
-      <CreateToDetails>true</CreateToDetails>
+      <AfterSaveRedirect>"Index"</AfterSaveRedirect>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -1256,11 +1364,16 @@
       <RolesCanEdit>admin</RolesCanEdit>
       <RolesCanDelete>admin</RolesCanDelete>
       <GenerateController>true</GenerateController>
+      <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateCreateAction>true</GenerateCreateAction>
+      <GenerateDeleteAction>true</GenerateDeleteAction>
+      <GenerateEditAction>true</GenerateEditAction>
+      <GenerateDetailsAction>true</GenerateDetailsAction>
       <IndexView>true</IndexView>
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
-      <CreateToDetails>true</CreateToDetails>
+      <AfterSaveRedirect>"Index"</AfterSaveRedirect>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -1312,6 +1425,17 @@
           <HasValidation>true</HasValidation>
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>RequiredWorkDays</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
       </Properties>
       <ControllerName>ProcessStepTemplates</ControllerName>
       <DataSetName>ProcessStepTemplates</DataSetName>
@@ -1323,11 +1447,16 @@
       <RolesCanEdit>admin</RolesCanEdit>
       <RolesCanDelete>admin</RolesCanDelete>
       <GenerateController>true</GenerateController>
+      <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateCreateAction>true</GenerateCreateAction>
+      <GenerateDeleteAction>true</GenerateDeleteAction>
+      <GenerateEditAction>true</GenerateEditAction>
+      <GenerateDetailsAction>true</GenerateDetailsAction>
       <IndexView>true</IndexView>
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
-      <CreateToDetails>true</CreateToDetails>
+      <AfterSaveRedirect>"Index"</AfterSaveRedirect>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
   </EntitySettings>

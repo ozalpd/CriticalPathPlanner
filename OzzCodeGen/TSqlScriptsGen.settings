@@ -239,17 +239,6 @@
       <CustomStoredProcs>false</CustomStoredProcs>
       <Properties>
         <StorageColumnSetting>
-          <Name>CompanyId</Name>
-          <Exclude>false</Exclude>
-          <DataType>int</DataType>
-          <Lenght>0</Lenght>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
-          <SortDesc>false</SortDesc>
-          <Nullable>false</Nullable>
-          <ForeignKeyTable>Companies</ForeignKeyTable>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
           <Name>FirstName</Name>
           <Exclude>false</Exclude>
           <DataType>nVarChar</DataType>
@@ -328,6 +317,17 @@
           <Indexed>false</Indexed>
           <SortDesc>false</SortDesc>
           <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>CompanyId</Name>
+          <Exclude>false</Exclude>
+          <DataType>int</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>true</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+          <ForeignKeyTable>Companies</ForeignKeyTable>
         </StorageColumnSetting>
       </Properties>
     </BaseEntitySetting>
@@ -727,16 +727,6 @@
           <Nullable>false</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>IsCompleted</Name>
-          <Exclude>false</Exclude>
-          <DataType>bit</DataType>
-          <Lenght>0</Lenght>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
-          <SortDesc>false</SortDesc>
-          <Nullable>false</Nullable>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
           <Name>Description</Name>
           <Exclude>false</Exclude>
           <DataType>nVarChar</DataType>
@@ -745,6 +735,16 @@
           <Indexed>false</Indexed>
           <SortDesc>false</SortDesc>
           <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>IsCompleted</Name>
+          <Exclude>false</Exclude>
+          <DataType>bit</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>true</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>ProcessTemplateId</Name>
@@ -793,16 +793,6 @@
           <Nullable>false</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>IsCompleted</Name>
-          <Exclude>false</Exclude>
-          <DataType>bit</DataType>
-          <Lenght>0</Lenght>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
-          <SortDesc>false</SortDesc>
-          <Nullable>false</Nullable>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
           <Name>Description</Name>
           <Exclude>false</Exclude>
           <DataType>nVarChar</DataType>
@@ -811,6 +801,16 @@
           <Indexed>false</Indexed>
           <SortDesc>false</SortDesc>
           <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>IsCompleted</Name>
+          <Exclude>false</Exclude>
+          <DataType>bit</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>true</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>DisplayOrder</Name>
@@ -862,6 +862,17 @@
           <Indexed>false</Indexed>
           <SortDesc>false</SortDesc>
           <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>TemplateId</Name>
+          <Exclude>false</Exclude>
+          <DataType>int</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+          <ForeignKeyTable>ProcessStepTemplates</ForeignKeyTable>
         </StorageColumnSetting>
       </Properties>
     </BaseEntitySetting>
@@ -943,6 +954,16 @@
           <Nullable>false</Nullable>
           <ForeignKeyTable>ProcessTemplates</ForeignKeyTable>
         </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>RequiredWorkDays</Name>
+          <Exclude>false</Exclude>
+          <DataType>int</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+        </StorageColumnSetting>
       </Properties>
     </BaseEntitySetting>
   </EntitySettings>
@@ -951,4 +972,5 @@
   <DatabaseName>CriticalPath</DatabaseName>
   <DatabaseServer>.\SqlExpress</DatabaseServer>
   <AfterScripts>_IdentityDB.sql</AfterScripts>
+  <SchemaName>dbo</SchemaName>
 </TSqlScriptsEngine>

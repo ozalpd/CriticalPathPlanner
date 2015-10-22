@@ -5,8 +5,8 @@ GO
 CREATE TABLE [dbo].[Processes](
     [Id] [int] Identity(1,1) Not Null,
     [Title] [nVarChar](128) Not Null,
-    [IsCompleted] [bit] Not Null,
     [Description] [nVarChar](256) Null,
+    [IsCompleted] [bit] Not Null,
     [ProcessTemplateId] [int] Not Null Constraint FK_Process_ProcessTemplateId Foreign Key References [dbo].[ProcessTemplates]([Id]),
     [OrderItemId] [int] Not Null Constraint FK_Process_OrderItemId Foreign Key References [dbo].[OrderItems]([Id]),
     [IsApproved] [bit] Not Null,

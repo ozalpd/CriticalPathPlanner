@@ -28,7 +28,14 @@ namespace CriticalPath.Web.Controllers
 
         //}
 
-        //Purpose: To set default property values for newly created ProcessStepTemplate entity
-        //partial void SetDefaults(ProcessStepTemplate processStepTemplate) { }
+        partial void SetDefaults(ProcessStepTemplate processStepTemplate)
+        {
+            int count = DataContext
+                        .ProcessStepTemplates
+                        .Where(t => t.ProcessTemplateId == processStepTemplate.ProcessTemplateId)
+                        .Count();
+
+            processStepTemplate.DisplayOrder = 10000 * (count + 1);
+        }
     }
 }

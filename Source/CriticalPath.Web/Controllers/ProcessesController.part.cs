@@ -26,7 +26,7 @@ namespace CriticalPath.Web.Controllers
             //ViewBag.OrderItemId = new SelectList(queryOrderItemId, "Id", "Product.Title", orderItemId);
         }
 
-        protected void SetSteps(Process process)
+        partial void OnCreateSaving(Process process)
         {
             var queryTemplate = DataContext.GetProcessStepTemplateQuery();
             foreach (var step in queryTemplate)
@@ -34,7 +34,8 @@ namespace CriticalPath.Web.Controllers
                 process.ProcessSteps.Add(new ProcessStep()
                 {
                     Title = step.Title,
-                    DisplayOrder = step.DisplayOrder
+                    DisplayOrder = step.DisplayOrder,
+                    TemplateId = step.Id
                 });
             }
         }

@@ -64,19 +64,35 @@
 	</data>
 
 	<data name="BecauseOfRelatedRecords" xml:space="preserve">
-		<value>İlişkili kayıtlar mevcut</value>
+		<value>&#304;li&#351;kili kay&#305;tlar mevcut</value>
 	</data>
 
 	<data name="CanNotDelete" xml:space="preserve">
 		<value>Silinemiyor</value>
 	</data>
 
+	<data name="Deleting" xml:space="preserve">
+		<value>Siliniyor</value>
+	</data>
+
+	<data name="EnterKeywordHere" xml:space="preserve">
+		<value>Arama kelimenizi girin</value>
+	</data>
+
 	<data name="NoResults" xml:space="preserve">
 		<value>Hiç sonuç bulunamadı</value>
 	</data>
 
+	<data name="PleaseWait" xml:space="preserve">
+		<value>Lütfen Bekleyin</value>
+	</data>
+
 	<data name="UnableToDelete" xml:space="preserve">
 		<value>Silinemez</value>
+	</data>
+
+	<data name="UnexpectedError" xml:space="preserve">
+		<value>Beklenmedik Hata</value>
 	</data>
 
 	<data name="YouAreAboutToDelete" xml:space="preserve">

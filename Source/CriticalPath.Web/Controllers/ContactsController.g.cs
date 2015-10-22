@@ -2,21 +2,20 @@ using System;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
+using System.Net;
+using System.Web.Mvc;
 using System.Data;
 using System.Data.Entity;
 using System.Threading.Tasks;
 using CriticalPath.Data;
 using CriticalPath.Web.Models;
-using System.Net;
-using System.Web.Mvc;
+using CriticalPath.Data.Resources;
 
 namespace CriticalPath.Web.Controllers
 {
     public partial class ContactsController : BaseController 
     {
-        partial void SetViewBags(Contact contact);
-        partial void SetDefaults(Contact contact);
-        
         [Authorize]
         public async Task<ActionResult> Index(QueryParameters qParams)
         {
@@ -34,6 +33,10 @@ namespace CriticalPath.Web.Controllers
                             a.PhoneWork2.Contains(qParams.SearchString) 
                         select a;
             }
+            if (qParams.CompanyId != null)
+            {
+                query = query.Where(x => x.CompanyId == qParams.CompanyId);
+            }
             qParams.TotalCount = await query.CountAsync();
             SetPagerParameters(qParams);
 
@@ -50,6 +53,45 @@ namespace CriticalPath.Web.Controllers
                 return View(new List<Contact>());   //there isn't any record, so no need to run a query
             }
         }
+        
+        protected virtual async Task<bool> CanUserCreate()
+        {
+            if (!_canUserCreate.HasValue)
+            {
+                _canUserCreate = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync() ||
+                                    await IsUserClerkAsync());
+            }
+            return _canUserCreate.Value;
+        }
+        bool? _canUserCreate;
+
+        protected virtual async Task<bool> CanUserEdit()
+        {
+            if (!_canUserEdit.HasValue)
+            {
+                _canUserEdit = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync() ||
+                                    await IsUserClerkAsync());
+            }
+            return _canUserEdit.Value;
+        }
+        bool? _canUserEdit;
+        
+        protected virtual async Task<bool> CanUserDelete()
+        {
+            if (!_canUserDelete.HasValue)
+            {
+                _canUserDelete = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync());
+            }
+            return _canUserDelete.Value;
+        }
+        bool? _canUserDelete;
+
 
         [Authorize]
         public async Task<ActionResult> Details(int? id)  //GET: /Contacts/Details/5
@@ -67,6 +109,7 @@ namespace CriticalPath.Web.Controllers
 
             return View(contact);
         }
+
 
         [HttpGet]
         [Authorize(Roles = "admin, supervisor, clerk")]
@@ -96,28 +139,19 @@ namespace CriticalPath.Web.Controllers
 
             if (ModelState.IsValid)
             {
+                OnCreateSaving(contact);
  
                 DataContext.Contacts.Add(contact);
                 await DataContext.SaveChangesAsync(this);
-                return RedirectToAction("Details", new { Id = contact.Id });
+ 
+                OnCreateSaved(contact);
+                return RedirectToAction("Index");
             }
 
             SetViewBags(contact);
             return View(contact);
         }
-        
-        protected virtual async Task<bool> CanUserCreate()
-        {
-            if (!_canUserCreate.HasValue)
-            {
-                _canUserCreate = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync() ||
-                                    await IsUserClerkAsync());
-            }
-            return _canUserCreate.Value;
-        }
-        bool? _canUserCreate;
+
 
         [Authorize(Roles = "admin, supervisor, clerk")]
         public async Task<ActionResult> Edit(int? id)  //GET: /Contacts/Edit/5
@@ -146,9 +180,12 @@ namespace CriticalPath.Web.Controllers
 
             if (ModelState.IsValid)
             {
+                OnEditSaving(contact);
  
                 DataContext.Entry(contact).State = EntityState.Modified;
                 await DataContext.SaveChangesAsync(this);
+ 
+                OnEditSaved(contact);
                 return RedirectToAction("Index");
             }
 
@@ -156,18 +193,6 @@ namespace CriticalPath.Web.Controllers
             return View(contact);
         }
 
-        protected virtual async Task<bool> CanUserEdit()
-        {
-            if (!_canUserEdit.HasValue)
-            {
-                _canUserEdit = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync() ||
-                                    await IsUserClerkAsync());
-            }
-            return _canUserEdit.Value;
-        }
-        bool? _canUserEdit;
 
         [Authorize(Roles = "admin, supervisor")]
         public async Task<ActionResult> Delete(int? id)  //GET: /Contacts/Delete/5
@@ -182,23 +207,37 @@ namespace CriticalPath.Web.Controllers
             {
                 return HttpNotFound();
             }
-            
-            DataContext.Contacts.Remove(contact);
-            await DataContext.SaveChangesAsync(this);
 
-            return RedirectToAction("Index");
-        }
-        
-        protected virtual async Task<bool> CanUserDelete()
-        {
-            if (!_canUserDelete.HasValue)
+            DataContext.Contacts.Remove(contact);
+            try
             {
-                _canUserDelete = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync());
+                await DataContext.SaveChangesAsync(this);
             }
-            return _canUserDelete.Value;
+            catch (Exception ex)
+            {
+                var sb = new StringBuilder();
+                sb.Append(MessageStrings.CanNotDelete);
+                sb.Append(contact.FullName);
+                sb.Append("<br/>");
+                AppendExceptionMsg(ex, sb);
+
+                return GetErrorResult(sb, HttpStatusCode.InternalServerError);
+            }
+
+            return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
-        bool? _canUserDelete;
+
+        public new partial class QueryParameters : BaseController.QueryParameters
+        {
+            public int? CompanyId { get; set; }
+        }
+
+        //Partial methods
+        partial void OnCreateSaving(Contact contact);
+        partial void OnCreateSaved(Contact contact);
+        partial void OnEditSaving(Contact contact);
+        partial void OnEditSaved(Contact contact);
+        partial void SetDefaults(Contact contact);
+        partial void SetViewBags(Contact contact);
     }
 }

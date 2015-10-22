@@ -71,12 +71,28 @@
 		<value>Can not delete</value>
 	</data>
 
+	<data name="Deleting" xml:space="preserve">
+		<value>Deleting</value>
+	</data>
+
+	<data name="EnterKeywordHere" xml:space="preserve">
+		<value>Enter keyword here</value>
+	</data>
+
 	<data name="NoResults" xml:space="preserve">
 		<value>There is no results to display</value>
 	</data>
 
+	<data name="PleaseWait" xml:space="preserve">
+		<value>Please Wait</value>
+	</data>
+
 	<data name="UnableToDelete" xml:space="preserve">
 		<value>Unable to Delete</value>
+	</data>
+
+	<data name="UnexpectedError" xml:space="preserve">
+		<value>Unexpected Error</value>
 	</data>
 
 	<data name="YouAreAboutToDelete" xml:space="preserve">

@@ -34,7 +34,6 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CompanyId" Type="int" Nullable="false" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="64" Nullable="false" />
           <Property Name="LastName" Type="nvarchar" MaxLength="64" Nullable="false" />
           <Property Name="EmailWork" Type="nvarchar" MaxLength="64" />
@@ -43,6 +42,7 @@
           <Property Name="PhoneWork1" Type="nvarchar" MaxLength="64" />
           <Property Name="PhoneWork2" Type="nvarchar" MaxLength="64" />
           <Property Name="Notes" Type="nvarchar" MaxLength="255" />
+          <Property Name="CompanyId" Type="int" Nullable="false" />
           <Property Name="ModifyNr" Type="int" Nullable="false" />
           <Property Name="ModifyDate" Type="datetime" Nullable="false" />
           <Property Name="ModifierId" Type="varchar" MaxLength="48" Nullable="false" />
@@ -82,8 +82,8 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="IsCompleted" Type="bit" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="256" />
+          <Property Name="IsCompleted" Type="bit" Nullable="false" />
           <Property Name="ProcessTemplateId" Type="int" Nullable="false" />
           <Property Name="OrderItemId" Type="int" Nullable="false" />
           <Property Name="IsApproved" Type="bit" Nullable="false" />
@@ -104,13 +104,14 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="IsCompleted" Type="bit" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="256" />
+          <Property Name="IsCompleted" Type="bit" Nullable="false" />
           <Property Name="DisplayOrder" Type="int" Nullable="false" />
           <Property Name="ProcessId" Type="int" Nullable="false" />
           <Property Name="TargetDate" Type="datetime" />
           <Property Name="ForecastDate" Type="datetime" />
           <Property Name="RealizedDate" Type="datetime" />
+          <Property Name="TemplateId" Type="int" Nullable="false" />
           <Property Name="IsApproved" Type="bit" Nullable="false" />
           <Property Name="ApproveDate" Type="datetime" />
           <Property Name="ApprovedUserId" Type="varchar" MaxLength="48" />
@@ -131,6 +132,7 @@
           <Property Name="Title" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="DisplayOrder" Type="int" Nullable="false" />
           <Property Name="ProcessTemplateId" Type="int" Nullable="false" />
+          <Property Name="RequiredWorkDays" Type="int" Nullable="false" />
           <Property Name="ModifyNr" Type="int" Nullable="false" />
           <Property Name="ModifyDate" Type="datetime" Nullable="false" />
           <Property Name="ModifierId" Type="varchar" MaxLength="48" Nullable="false" />
@@ -303,6 +305,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ProcessStep_TemplateId">
+          <End Role="ProcessStepTemplates" Type="Self.ProcessStepTemplates" Multiplicity="1" />
+          <End Role="ProcessSteps" Type="Self.ProcessSteps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProcessStepTemplates">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProcessSteps">
+              <PropertyRef Name="TemplateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ProcessStepTemplate_ProcessTemplateId">
           <End Role="ProcessTemplates" Type="Self.ProcessTemplates" Multiplicity="1" />
           <End Role="ProcessStepTemplates" Type="Self.ProcessStepTemplates" Multiplicity="*" />
@@ -404,6 +418,10 @@
             <End Role="Processes" EntitySet="Processes" />
             <End Role="ProcessSteps" EntitySet="ProcessSteps" />
           </AssociationSet>
+          <AssociationSet Name="FK_ProcessStep_TemplateId" Association="Self.FK_ProcessStep_TemplateId">
+            <End Role="ProcessStepTemplates" EntitySet="ProcessStepTemplates" />
+            <End Role="ProcessSteps" EntitySet="ProcessSteps" />
+          </AssociationSet>
           <AssociationSet Name="FK_ProcessStepTemplate_ProcessTemplateId" Association="Self.FK_ProcessStepTemplate_ProcessTemplateId">
             <End Role="ProcessTemplates" EntitySet="ProcessTemplates" />
             <End Role="ProcessStepTemplates" EntitySet="ProcessStepTemplates" />
@@ -479,6 +497,10 @@
           <AssociationSet Name="FK_ProcessStepTemplate_ProcessTemplateId" Association="CriticalPathDataModel.FK_ProcessStepTemplate_ProcessTemplateId">
             <End Role="ProcessTemplate" EntitySet="ProcessTemplates" />
             <End Role="ProcessStepTemplate" EntitySet="ProcessStepTemplates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProcessStep_TemplateId" Association="CriticalPathDataModel.FK_ProcessStep_TemplateId">
+            <End Role="ProcessStepTemplate" EntitySet="ProcessStepTemplates" />
+            <End Role="ProcessStep" EntitySet="ProcessSteps" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Company" Abstract="true">
@@ -729,6 +751,7 @@
           <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
           <Property Name="ProcessId" Type="Int32" Nullable="false" />
+          <Property Name="TemplateId" Type="Int32" Nullable="false" />
           <Property Name="TargetDate" Type="DateTime" Precision="3" />
           <Property Name="ForecastDate" Type="DateTime" Precision="3" />
           <Property Name="RealizedDate" Type="DateTime" Precision="3" />
@@ -744,6 +767,7 @@
           <Property Name="CreatorId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
           <Property Name="CreatorIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Process" Relationship="CriticalPathDataModel.FK_ProcessStep_ProcessId" FromRole="ProcessStep" ToRole="Process" />
+          <NavigationProperty Name="Template" Relationship="CriticalPathDataModel.FK_ProcessStep_TemplateId" FromRole="ProcessStep" ToRole="ProcessStepTemplate" />
         </EntityType>
         <EntityType Name="ProcessStepTemplate">
           <Key>
@@ -753,6 +777,7 @@
           <Property Name="Title" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
           <Property Name="ProcessTemplateId" Type="Int32" Nullable="false" />
+          <Property Name="RequiredWorkDays" Type="Int32" Nullable="false" />
           <Property Name="ModifyNr" Type="Int32" Nullable="false" />
           <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
@@ -761,6 +786,7 @@
           <Property Name="CreatorId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
           <Property Name="CreatorIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="ProcessTemplate" Relationship="CriticalPathDataModel.FK_ProcessStepTemplate_ProcessTemplateId" FromRole="ProcessStepTemplate" ToRole="ProcessTemplate" />
+          <NavigationProperty Name="ProcessSteps" Relationship="CriticalPathDataModel.FK_ProcessStep_TemplateId" FromRole="ProcessStepTemplate" ToRole="ProcessStep" />
         </EntityType>
         <EntityType Name="ProcessTemplate">
           <Key>
@@ -824,6 +850,18 @@
             </Principal>
             <Dependent Role="ProcessStepTemplate">
               <PropertyRef Name="ProcessTemplateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProcessStep_TemplateId">
+          <End Type="CriticalPathDataModel.ProcessStepTemplate" Role="ProcessStepTemplate" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.ProcessStep" Role="ProcessStep" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProcessStepTemplate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProcessStep">
+              <PropertyRef Name="TemplateId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -999,6 +1037,7 @@
           <EntitySetMapping Name="ProcessSteps">
             <EntityTypeMapping TypeName="CriticalPathDataModel.ProcessStep">
               <MappingFragment StoreEntitySet="ProcessSteps">
+                <ScalarProperty Name="TemplateId" ColumnName="TemplateId" />
                 <ScalarProperty Name="IsCompleted" ColumnName="IsCompleted" />
                 <ScalarProperty Name="CreatorIp" ColumnName="CreatorIp" />
                 <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
@@ -1025,6 +1064,7 @@
           <EntitySetMapping Name="ProcessStepTemplates">
             <EntityTypeMapping TypeName="CriticalPathDataModel.ProcessStepTemplate">
               <MappingFragment StoreEntitySet="ProcessStepTemplates">
+                <ScalarProperty Name="RequiredWorkDays" ColumnName="RequiredWorkDays" />
                 <ScalarProperty Name="CreatorIp" ColumnName="CreatorIp" />
                 <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
                 <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />

@@ -88,6 +88,24 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Deleting.
+        /// </summary>
+        public static string Deleting {
+            get {
+                return ResourceManager.GetString("Deleting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter keyword here.
+        /// </summary>
+        public static string EnterKeywordHere {
+            get {
+                return ResourceManager.GetString("EnterKeywordHere", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to There is no results to display.
         /// </summary>
         public static string NoResults {
@@ -97,11 +115,29 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please Wait.
+        /// </summary>
+        public static string PleaseWait {
+            get {
+                return ResourceManager.GetString("PleaseWait", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to Delete.
         /// </summary>
         public static string UnableToDelete {
             get {
                 return ResourceManager.GetString("UnableToDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unexpected Error.
+        /// </summary>
+        public static string UnexpectedError {
+            get {
+                return ResourceManager.GetString("UnexpectedError", resourceCulture);
             }
         }
         

@@ -1357,6 +1357,15 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Required Work Days.
+        /// </summary>
+        public static string RequiredWorkDays {
+            get {
+                return ResourceManager.GetString("RequiredWorkDays", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to State.
         /// </summary>
         public static string State {
@@ -1425,6 +1434,24 @@ namespace CriticalPath.Data.Resources {
         public static string TargetDate {
             get {
                 return ResourceManager.GetString("TargetDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Template.
+        /// </summary>
+        public static string Template {
+            get {
+                return ResourceManager.GetString("Template", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Template.
+        /// </summary>
+        public static string TemplateId {
+            get {
+                return ResourceManager.GetString("TemplateId", resourceCulture);
             }
         }
         

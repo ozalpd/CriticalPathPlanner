@@ -521,6 +521,10 @@
     <Translation>Email Work</Translation>
   </Vocab>
   <Vocab>
+    <Name>EnterKeywordHere</Name>
+    <Translation>Enter keyword here</Translation>
+  </Vocab>
+  <Vocab>
     <Name>ExpireDate</Name>
     <Translation>Expire Date</Translation>
   </Vocab>
@@ -777,6 +781,10 @@
     <Translation>Phone Work2</Translation>
   </Vocab>
   <Vocab>
+    <Name>PleaseWait</Name>
+    <Translation>Please Wait</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Print</Name>
     <Translation>Print</Translation>
   </Vocab>
@@ -913,6 +921,10 @@
     <Translation>Remove</Translation>
   </Vocab>
   <Vocab>
+    <Name>RequiredWorkDays</Name>
+    <Translation>Required Work Days</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Save</Name>
     <Translation>Save</Translation>
   </Vocab>
@@ -997,6 +1009,14 @@
     <Translation>Tax Office</Translation>
   </Vocab>
   <Vocab>
+    <Name>Template</Name>
+    <Translation>Template</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TemplateId</Name>
+    <Translation>Template</Translation>
+  </Vocab>
+  <Vocab>
     <Name>TemplateName</Name>
     <Translation>Template Name</Translation>
   </Vocab>
@@ -1019,6 +1039,10 @@
   <Vocab>
     <Name>UnableToDelete</Name>
     <Translation>Unable to Delete</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>UnexpectedError</Name>
+    <Translation>Unexpected Error</Translation>
   </Vocab>
   <Vocab>
     <Name>Unit</Name>

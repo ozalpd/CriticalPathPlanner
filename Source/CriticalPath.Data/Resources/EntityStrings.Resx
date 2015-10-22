@@ -635,6 +635,10 @@
 		<value>Realized Date</value>
 	</data>
 
+	<data name="RequiredWorkDays" xml:space="preserve">
+		<value>Required Work Days</value>
+	</data>
+
 	<data name="State" xml:space="preserve">
 		<value>State</value>
 	</data>
@@ -665,6 +669,14 @@
 
 	<data name="TargetDate" xml:space="preserve">
 		<value>Target Date</value>
+	</data>
+
+	<data name="Template" xml:space="preserve">
+		<value>Template</value>
+	</data>
+
+	<data name="TemplateId" xml:space="preserve">
+		<value>Template</value>
 	</data>
 
 	<data name="TemplateName" xml:space="preserve">

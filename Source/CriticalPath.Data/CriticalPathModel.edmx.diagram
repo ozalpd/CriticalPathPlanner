@@ -29,6 +29,7 @@
         <AssociationConnector Association="CriticalPathDataModel.FK_Process_ProcessTemplateId" />
         <AssociationConnector Association="CriticalPathDataModel.FK_ProcessStep_ProcessId" />
         <AssociationConnector Association="CriticalPathDataModel.FK_ProcessStepTemplate_ProcessTemplateId" />
+        <AssociationConnector Association="CriticalPathDataModel.FK_ProcessStep_TemplateId" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

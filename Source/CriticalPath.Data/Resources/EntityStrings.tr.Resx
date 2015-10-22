@@ -635,6 +635,10 @@
 		<value>Gerçekleşme Tarihi</value>
 	</data>
 
+	<data name="RequiredWorkDays" xml:space="preserve">
+		<value>Gereken İş Günü</value>
+	</data>
+
 	<data name="State" xml:space="preserve">
 		<value>Eyalet</value>
 	</data>
@@ -665,6 +669,14 @@
 
 	<data name="TargetDate" xml:space="preserve">
 		<value>Hedefl Tarih</value>
+	</data>
+
+	<data name="Template" xml:space="preserve">
+		<value>Şablon</value>
+	</data>
+
+	<data name="TemplateId" xml:space="preserve">
+		<value>Şablon</value>
 	</data>
 
 	<data name="TemplateName" xml:space="preserve">

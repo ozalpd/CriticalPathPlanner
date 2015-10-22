@@ -2,21 +2,20 @@ using System;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
+using System.Net;
+using System.Web.Mvc;
 using System.Data;
 using System.Data.Entity;
 using System.Threading.Tasks;
 using CriticalPath.Data;
 using CriticalPath.Web.Models;
-using System.Net;
-using System.Web.Mvc;
+using CriticalPath.Data.Resources;
 
 namespace CriticalPath.Web.Controllers
 {
     public partial class ProductCategoriesController : BaseController 
     {
-        partial void SetViewBags(ProductCategory productCategory);
-        partial void SetDefaults(ProductCategory productCategory);
-        
         
         public async Task<ActionResult> Index(QueryParameters qParams)
         {
@@ -28,6 +27,10 @@ namespace CriticalPath.Web.Controllers
                             a.Title.Contains(qParams.SearchString) | 
                             a.Code.Contains(qParams.SearchString) 
                         select a;
+            }
+            if (qParams.ParentCategoryId != null)
+            {
+                query = query.Where(x => x.ParentCategoryId == qParams.ParentCategoryId);
             }
             qParams.TotalCount = await query.CountAsync();
             SetPagerParameters(qParams);
@@ -45,6 +48,45 @@ namespace CriticalPath.Web.Controllers
                 return View(new List<ProductCategory>());   //there isn't any record, so no need to run a query
             }
         }
+        
+        protected virtual async Task<bool> CanUserCreate()
+        {
+            if (!_canUserCreate.HasValue)
+            {
+                _canUserCreate = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync() ||
+                                    await IsUserClerkAsync());
+            }
+            return _canUserCreate.Value;
+        }
+        bool? _canUserCreate;
+
+        protected virtual async Task<bool> CanUserEdit()
+        {
+            if (!_canUserEdit.HasValue)
+            {
+                _canUserEdit = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync() ||
+                                    await IsUserClerkAsync());
+            }
+            return _canUserEdit.Value;
+        }
+        bool? _canUserEdit;
+        
+        protected virtual async Task<bool> CanUserDelete()
+        {
+            if (!_canUserDelete.HasValue)
+            {
+                _canUserDelete = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync());
+            }
+            return _canUserDelete.Value;
+        }
+        bool? _canUserDelete;
+
 
         
         public async Task<ActionResult> Details(int? id)  //GET: /ProductCategories/Details/5
@@ -62,6 +104,7 @@ namespace CriticalPath.Web.Controllers
 
             return View(productCategory);
         }
+
 
         [HttpGet]
         [Authorize(Roles = "admin, supervisor, clerk")]
@@ -82,28 +125,19 @@ namespace CriticalPath.Web.Controllers
 
             if (ModelState.IsValid)
             {
+                OnCreateSaving(productCategory);
  
                 DataContext.ProductCategories.Add(productCategory);
                 await DataContext.SaveChangesAsync(this);
-                return RedirectToAction("Details", new { Id = productCategory.Id });
+ 
+                OnCreateSaved(productCategory);
+                return RedirectToAction("Index");
             }
 
             SetViewBags(productCategory);
             return View(productCategory);
         }
-        
-        protected virtual async Task<bool> CanUserCreate()
-        {
-            if (!_canUserCreate.HasValue)
-            {
-                _canUserCreate = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync() ||
-                                    await IsUserClerkAsync());
-            }
-            return _canUserCreate.Value;
-        }
-        bool? _canUserCreate;
+
 
         [Authorize(Roles = "admin, supervisor, clerk")]
         public async Task<ActionResult> Edit(int? id)  //GET: /ProductCategories/Edit/5
@@ -132,9 +166,12 @@ namespace CriticalPath.Web.Controllers
 
             if (ModelState.IsValid)
             {
+                OnEditSaving(productCategory);
  
                 DataContext.Entry(productCategory).State = EntityState.Modified;
                 await DataContext.SaveChangesAsync(this);
+ 
+                OnEditSaved(productCategory);
                 return RedirectToAction("Index");
             }
 
@@ -142,18 +179,6 @@ namespace CriticalPath.Web.Controllers
             return View(productCategory);
         }
 
-        protected virtual async Task<bool> CanUserEdit()
-        {
-            if (!_canUserEdit.HasValue)
-            {
-                _canUserEdit = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync() ||
-                                    await IsUserClerkAsync());
-            }
-            return _canUserEdit.Value;
-        }
-        bool? _canUserEdit;
 
         [Authorize(Roles = "admin, supervisor")]
         public async Task<ActionResult> Delete(int? id)  //GET: /ProductCategories/Delete/5
@@ -168,23 +193,69 @@ namespace CriticalPath.Web.Controllers
             {
                 return HttpNotFound();
             }
-            
-            DataContext.ProductCategories.Remove(productCategory);
-            await DataContext.SaveChangesAsync(this);
 
-            return RedirectToAction("Index");
-        }
-        
-        protected virtual async Task<bool> CanUserDelete()
-        {
-            if (!_canUserDelete.HasValue)
+            int subCategoriesCount = productCategory.SubCategories.Count;
+            int productsCount = productCategory.Products.Count;
+            if ((subCategoriesCount + productsCount) > 0)
             {
-                _canUserDelete = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync());
+                var sb = new StringBuilder();
+
+                sb.Append(MessageStrings.CanNotDelete);
+                sb.Append(" <b>");
+                sb.Append(productCategory.Title);
+                sb.Append("</b>.<br/>");
+                sb.Append(MessageStrings.BecauseOfRelatedRecords);
+                sb.Append(".<br/>");
+
+                if (subCategoriesCount > 0)
+                {
+                    sb.Append(EntityStrings.SubCategories);
+                    sb.Append(": ");
+                    sb.Append(subCategoriesCount);
+                    sb.Append("<br/>");
+                }
+
+                if (productsCount > 0)
+                {
+                    sb.Append(EntityStrings.Products);
+                    sb.Append(": ");
+                    sb.Append(productsCount);
+                    sb.Append("<br/>");
+                }
+
+                return GetErrorResult(sb, HttpStatusCode.BadRequest);
             }
-            return _canUserDelete.Value;
+
+            DataContext.ProductCategories.Remove(productCategory);
+            try
+            {
+                await DataContext.SaveChangesAsync(this);
+            }
+            catch (Exception ex)
+            {
+                var sb = new StringBuilder();
+                sb.Append(MessageStrings.CanNotDelete);
+                sb.Append(productCategory.Title);
+                sb.Append("<br/>");
+                AppendExceptionMsg(ex, sb);
+
+                return GetErrorResult(sb, HttpStatusCode.InternalServerError);
+            }
+
+            return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
-        bool? _canUserDelete;
+
+        public new partial class QueryParameters : BaseController.QueryParameters
+        {
+            public int? ParentCategoryId { get; set; }
+        }
+
+        //Partial methods
+        partial void OnCreateSaving(ProductCategory productCategory);
+        partial void OnCreateSaved(ProductCategory productCategory);
+        partial void OnEditSaving(ProductCategory productCategory);
+        partial void OnEditSaved(ProductCategory productCategory);
+        partial void SetDefaults(ProductCategory productCategory);
+        partial void SetViewBags(ProductCategory productCategory);
     }
 }

@@ -23,10 +23,10 @@ namespace CriticalPath.Web.Controllers
         }
 
 
-        //public new class QueryParameters : BaseController.QueryParameters
-        //{
+        public new partial class QueryParameters : BaseController.QueryParameters
+        {
 
-        //}
+        }
 
         //Purpose: To set default property values for newly created Contact entity
         //partial void SetDefaults(Contact contact) { }

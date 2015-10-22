@@ -299,6 +299,7 @@ namespace CriticalPath.Data
                        RealizedDate = e.RealizedDate,
                        IsApproved = e.IsApproved,
                        ApproveDate = e.ApproveDate,
+                       TemplateId = e.TemplateId,
                    };
         }
     
@@ -336,6 +337,7 @@ namespace CriticalPath.Data
                        Title = e.Title,
                        DisplayOrder = e.DisplayOrder,
                        ProcessTemplateId = e.ProcessTemplateId,
+                       RequiredWorkDays = e.RequiredWorkDays,
                    };
         }
     

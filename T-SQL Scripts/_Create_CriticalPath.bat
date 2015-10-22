@@ -56,14 +56,14 @@
 
 @echo .
 @echo .
-@echo 11 - Executing ProcessStep.sql...
-@sqlcmd -S .\SqlExpress -d CriticalPath -E -i ProcessStep.sql
+@echo 11 - Executing ProcessStepTemplate.sql...
+@sqlcmd -S .\SqlExpress -d CriticalPath -E -i ProcessStepTemplate.sql
+@sqlcmd -S .\SqlExpress -d CriticalPath -E -i ProcessTemplate-Data.sql
 
 @echo .
 @echo .
-@echo 12 - Executing ProcessStepTemplate.sql...
-@sqlcmd -S .\SqlExpress -d CriticalPath -E -i ProcessStepTemplate.sql
-@sqlcmd -S .\SqlExpress -d CriticalPath -E -i ProcessTemplate-Data.sql
+@echo 12 - Executing ProcessStep.sql...
+@sqlcmd -S .\SqlExpress -d CriticalPath -E -i ProcessStep.sql
 
 @echo .
 @echo .

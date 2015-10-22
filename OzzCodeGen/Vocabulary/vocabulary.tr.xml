@@ -150,7 +150,7 @@
   </Vocab>
   <Vocab>
     <Name>BecauseOfRelatedRecords</Name>
-    <Translation>İlişkili kayıtlar mevcut</Translation>
+    <Translation>&amp;#304;li&amp;#351;kili kay&amp;#305;tlar mevcut</Translation>
   </Vocab>
   <Vocab>
     <Name>Cancel</Name>
@@ -521,6 +521,10 @@
     <Translation>E-Posta İş</Translation>
   </Vocab>
   <Vocab>
+    <Name>EnterKeywordHere</Name>
+    <Translation>Arama kelimenizi girin</Translation>
+  </Vocab>
+  <Vocab>
     <Name>ExpireDate</Name>
     <Translation>Yayın Sonlama Tarihi</Translation>
   </Vocab>
@@ -777,6 +781,10 @@
     <Translation>İş Telefonu 2</Translation>
   </Vocab>
   <Vocab>
+    <Name>PleaseWait</Name>
+    <Translation>Lütfen Bekleyin</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Print</Name>
     <Translation>Yazdır</Translation>
   </Vocab>
@@ -913,6 +921,10 @@
     <Translation>Çıkar</Translation>
   </Vocab>
   <Vocab>
+    <Name>RequiredWorkDays</Name>
+    <Translation>Gereken İş Günü</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Save</Name>
     <Translation>Kaydet</Translation>
   </Vocab>
@@ -997,6 +1009,14 @@
     <Translation>Vergi Dairesi</Translation>
   </Vocab>
   <Vocab>
+    <Name>Template</Name>
+    <Translation>Şablon</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TemplateId</Name>
+    <Translation>Şablon</Translation>
+  </Vocab>
+  <Vocab>
     <Name>TemplateName</Name>
     <Translation>Şablon İsmi</Translation>
   </Vocab>
@@ -1019,6 +1039,10 @@
   <Vocab>
     <Name>UnableToDelete</Name>
     <Translation>Silinemez</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>UnexpectedError</Name>
+    <Translation>Beklenmedik Hata</Translation>
   </Vocab>
   <Vocab>
     <Name>Unit</Name>

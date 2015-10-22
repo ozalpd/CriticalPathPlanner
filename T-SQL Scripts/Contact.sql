@@ -4,7 +4,6 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Contacts](
     [Id] [int] Identity(1,1) Not Null,
-    [CompanyId] [int] Not Null Constraint FK_Contact_CompanyId Foreign Key References [dbo].[Companies]([Id]),
     [FirstName] [nVarChar](64) Not Null,
     [LastName] [nVarChar](64) Not Null,
     [EmailWork] [nVarChar](64) Null,
@@ -13,6 +12,7 @@ CREATE TABLE [dbo].[Contacts](
     [PhoneWork1] [nVarChar](64) Null,
     [PhoneWork2] [nVarChar](64) Null,
     [Notes] [nVarChar](255) Null,
+    [CompanyId] [int] Not Null Constraint FK_Contact_CompanyId Foreign Key References [dbo].[Companies]([Id]),
     [ModifyNr] [int] Not Null Default 1,
     [ModifyDate] [DateTime] Not Null Default GetDate(),
     [ModifierId] [VarChar](48) Not Null,
@@ -28,11 +28,11 @@ CREATE TABLE [dbo].[Contacts](
     ALLOW_PAGE_LOCKS  = ON)
   ON [PRIMARY]) ON [PRIMARY]
 Go
-Create Nonclustered Index [idx_Contacts_CompanyId] On [dbo].[Contacts]([CompanyId] Asc)
-Go
 Create Nonclustered Index [idx_Contacts_FirstName] On [dbo].[Contacts]([FirstName] Asc)
 Go
 Create Nonclustered Index [idx_Contacts_LastName] On [dbo].[Contacts]([LastName] Asc)
+Go
+Create Nonclustered Index [idx_Contacts_CompanyId] On [dbo].[Contacts]([CompanyId] Asc)
 Go
 Create Nonclustered Index [idx_Contacts_ModifyDate] On [dbo].[Contacts]([ModifyDate] Desc)
 Go

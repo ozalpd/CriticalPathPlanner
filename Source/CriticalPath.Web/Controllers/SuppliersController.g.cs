@@ -2,21 +2,20 @@ using System;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
+using System.Net;
+using System.Web.Mvc;
 using System.Data;
 using System.Data.Entity;
 using System.Threading.Tasks;
 using CriticalPath.Data;
 using CriticalPath.Web.Models;
-using System.Net;
-using System.Web.Mvc;
+using CriticalPath.Data.Resources;
 
 namespace CriticalPath.Web.Controllers
 {
     public partial class SuppliersController : BaseController 
     {
-        partial void SetViewBags(Supplier supplier);
-        partial void SetDefaults(Supplier supplier);
-        
         [Authorize]
         public async Task<ActionResult> Index(QueryParameters qParams)
         {
@@ -50,6 +49,45 @@ namespace CriticalPath.Web.Controllers
                 return View(new List<Supplier>());   //there isn't any record, so no need to run a query
             }
         }
+        
+        protected virtual async Task<bool> CanUserCreate()
+        {
+            if (!_canUserCreate.HasValue)
+            {
+                _canUserCreate = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync() ||
+                                    await IsUserClerkAsync());
+            }
+            return _canUserCreate.Value;
+        }
+        bool? _canUserCreate;
+
+        protected virtual async Task<bool> CanUserEdit()
+        {
+            if (!_canUserEdit.HasValue)
+            {
+                _canUserEdit = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync() ||
+                                    await IsUserClerkAsync());
+            }
+            return _canUserEdit.Value;
+        }
+        bool? _canUserEdit;
+        
+        protected virtual async Task<bool> CanUserDelete()
+        {
+            if (!_canUserDelete.HasValue)
+            {
+                _canUserDelete = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync());
+            }
+            return _canUserDelete.Value;
+        }
+        bool? _canUserDelete;
+
 
         [Authorize]
         public async Task<ActionResult> Details(int? id)  //GET: /Suppliers/Details/5
@@ -67,6 +105,7 @@ namespace CriticalPath.Web.Controllers
 
             return View(supplier);
         }
+
 
         [HttpGet]
         [Authorize(Roles = "admin, supervisor, clerk")]
@@ -87,28 +126,19 @@ namespace CriticalPath.Web.Controllers
 
             if (ModelState.IsValid)
             {
+                OnCreateSaving(supplier);
  
                 DataContext.Companies.Add(supplier);
                 await DataContext.SaveChangesAsync(this);
-                return RedirectToAction("Details", new { Id = supplier.Id });
+ 
+                OnCreateSaved(supplier);
+                return RedirectToAction("Index");
             }
 
             SetViewBags(supplier);
             return View(supplier);
         }
-        
-        protected virtual async Task<bool> CanUserCreate()
-        {
-            if (!_canUserCreate.HasValue)
-            {
-                _canUserCreate = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync() ||
-                                    await IsUserClerkAsync());
-            }
-            return _canUserCreate.Value;
-        }
-        bool? _canUserCreate;
+
 
         [Authorize(Roles = "admin, supervisor, clerk")]
         public async Task<ActionResult> Edit(int? id)  //GET: /Suppliers/Edit/5
@@ -137,9 +167,12 @@ namespace CriticalPath.Web.Controllers
 
             if (ModelState.IsValid)
             {
+                OnEditSaving(supplier);
  
                 DataContext.Entry(supplier).State = EntityState.Modified;
                 await DataContext.SaveChangesAsync(this);
+ 
+                OnEditSaved(supplier);
                 return RedirectToAction("Index");
             }
 
@@ -147,18 +180,6 @@ namespace CriticalPath.Web.Controllers
             return View(supplier);
         }
 
-        protected virtual async Task<bool> CanUserEdit()
-        {
-            if (!_canUserEdit.HasValue)
-            {
-                _canUserEdit = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync() ||
-                                    await IsUserClerkAsync());
-            }
-            return _canUserEdit.Value;
-        }
-        bool? _canUserEdit;
 
         [Authorize(Roles = "admin, supervisor")]
         public async Task<ActionResult> Delete(int? id)  //GET: /Suppliers/Delete/5
@@ -173,23 +194,56 @@ namespace CriticalPath.Web.Controllers
             {
                 return HttpNotFound();
             }
-            
-            DataContext.Companies.Remove(supplier);
-            await DataContext.SaveChangesAsync(this);
 
-            return RedirectToAction("Index");
-        }
-        
-        protected virtual async Task<bool> CanUserDelete()
-        {
-            if (!_canUserDelete.HasValue)
+            int contactsCount = supplier.Contacts.Count;
+            if ((contactsCount) > 0)
             {
-                _canUserDelete = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync());
+                var sb = new StringBuilder();
+
+                sb.Append(MessageStrings.CanNotDelete);
+                sb.Append(" <b>");
+                sb.Append(supplier.CompanyName);
+                sb.Append("</b>.<br/>");
+                sb.Append(MessageStrings.BecauseOfRelatedRecords);
+                sb.Append(".<br/>");
+
+                if (contactsCount > 0)
+                {
+                    sb.Append(EntityStrings.Contacts);
+                    sb.Append(": ");
+                    sb.Append(contactsCount);
+                    sb.Append("<br/>");
+                }
+
+                return GetErrorResult(sb, HttpStatusCode.BadRequest);
             }
-            return _canUserDelete.Value;
+
+            DataContext.Companies.Remove(supplier);
+            try
+            {
+                await DataContext.SaveChangesAsync(this);
+            }
+            catch (Exception ex)
+            {
+                var sb = new StringBuilder();
+                sb.Append(MessageStrings.CanNotDelete);
+                sb.Append(supplier.CompanyName);
+                sb.Append("<br/>");
+                AppendExceptionMsg(ex, sb);
+
+                return GetErrorResult(sb, HttpStatusCode.InternalServerError);
+            }
+
+            return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
-        bool? _canUserDelete;
+
+
+        //Partial methods
+        partial void OnCreateSaving(Supplier supplier);
+        partial void OnCreateSaved(Supplier supplier);
+        partial void OnEditSaving(Supplier supplier);
+        partial void OnEditSaved(Supplier supplier);
+        partial void SetDefaults(Supplier supplier);
+        partial void SetViewBags(Supplier supplier);
     }
 }

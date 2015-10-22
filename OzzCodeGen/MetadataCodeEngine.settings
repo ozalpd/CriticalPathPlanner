@@ -25,7 +25,7 @@
         <MetadataPropertySetting>
           <Name>CreateDate</Name>
           <Exclude>true</Exclude>
-          <DataType />
+          <DataType>Date</DataType>
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
@@ -56,7 +56,7 @@
         <MetadataPropertySetting>
           <Name>ModifyDate</Name>
           <Exclude>true</Exclude>
-          <DataType />
+          <DataType>Date</DataType>
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
@@ -87,7 +87,7 @@
         <MetadataPropertySetting>
           <Name>ApproveDate</Name>
           <Exclude>false</Exclude>
-          <DataType />
+          <DataType>Date</DataType>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
@@ -135,17 +135,6 @@
       <OverwriteExisting>false</OverwriteExisting>
       <Properties>
         <MetadataPropertySetting>
-          <Name>CompanyId</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>Company</Name>
-          <Exclude>false</Exclude>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
           <Name>FirstName</Name>
           <Exclude>false</Exclude>
           <DataType />
@@ -191,6 +180,17 @@
           <Name>Notes</Name>
           <Exclude>false</Exclude>
           <DataType>MultilineText</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>CompanyId</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Company</Name>
+          <Exclude>false</Exclude>
           <Required />
         </MetadataPropertySetting>
       </Properties>
@@ -348,6 +348,11 @@
           <Exclude>false</Exclude>
           <Required />
         </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>OrderItems</Name>
+          <Exclude>false</Exclude>
+          <Required />
+        </MetadataPropertySetting>
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="MetadataEntitySetting">
@@ -375,13 +380,13 @@
         <MetadataPropertySetting>
           <Name>OrderDate</Name>
           <Exclude>false</Exclude>
-          <DataType />
+          <DataType>Date</DataType>
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>DueDate</Name>
           <Exclude>false</Exclude>
-          <DataType />
+          <DataType>Date</DataType>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
@@ -397,14 +402,14 @@
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>OrderItems</Name>
-          <Exclude>false</Exclude>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
           <Name>Notes</Name>
           <Exclude>false</Exclude>
           <DataType>MultilineText</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>OrderItems</Name>
+          <Exclude>false</Exclude>
           <Required />
         </MetadataPropertySetting>
       </Properties>
@@ -469,15 +474,15 @@
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>IsCompleted</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
           <Name>Description</Name>
           <Exclude>false</Exclude>
           <DataType>MultilineText</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>IsCompleted</Name>
+          <Exclude>false</Exclude>
+          <DataType />
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
@@ -521,15 +526,15 @@
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>IsCompleted</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
           <Name>Description</Name>
           <Exclude>false</Exclude>
           <DataType>MultilineText</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>IsCompleted</Name>
+          <Exclude>false</Exclude>
+          <DataType />
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
@@ -552,19 +557,30 @@
         <MetadataPropertySetting>
           <Name>TargetDate</Name>
           <Exclude>false</Exclude>
-          <DataType />
+          <DataType>Date</DataType>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>ForecastDate</Name>
           <Exclude>false</Exclude>
-          <DataType />
+          <DataType>Date</DataType>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>RealizedDate</Name>
           <Exclude>false</Exclude>
+          <DataType>Date</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>TemplateId</Name>
+          <Exclude>false</Exclude>
           <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Template</Name>
+          <Exclude>false</Exclude>
           <Required />
         </MetadataPropertySetting>
       </Properties>
@@ -620,6 +636,13 @@
           <Name>ProcessTemplate</Name>
           <Exclude>false</Exclude>
           <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>RequiredWorkDays</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <Range>1,1000</Range>
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
       </Properties>
     </BaseEntitySetting>

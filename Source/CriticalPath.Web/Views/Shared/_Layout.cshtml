@@ -6,13 +6,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Critical Path Application</title>
-    @Styles.Render("~/Content/css")
-    @Styles.Render("~/Content/themes")
+    @Styles.Render("~/Content/Slate")
+    @*
+        @Styles.Render("~/Content/css")
+        @Styles.Render("~/Content/themes")
+    *@
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -24,7 +27,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink(CommonStrings.Home, "Index", "Home")</li>
+                    @*<li>@Html.ActionLink(CommonStrings.Home, "Index", "Home")</li>*@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             @EntityStrings.Products<b class="caret"></b>
@@ -50,6 +53,9 @@
                             <li class="divider"></li>
                             <li>@Html.ActionLink(@EntityStrings.Suppliers, "Index", "Suppliers")</li>
                             <li>@Html.ActionLink(@EntityStrings.CreateSupplier, "Create", "Suppliers")</li>
+                            <li class="divider"></li>
+                            <li>@Html.ActionLink(@EntityStrings.Processes, "Index", "Processes")</li>
+                            <li>@Html.ActionLink(@EntityStrings.ProcessSteps, "Index", "ProcessSteps")</li>
                         </ul>
                     </li>
                     @if (User.IsInRole(SecurityRoles.Admin))

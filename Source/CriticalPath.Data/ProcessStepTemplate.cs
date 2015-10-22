@@ -14,6 +14,12 @@ namespace CriticalPath.Data
     
     public partial class ProcessStepTemplate : IDisplayOrder, ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ProcessStepTemplate()
+        {
+            this.ProcessSteps = new HashSet<ProcessStep>();
+        }
+    
         public int Id { get; set; }
         public string Title { get; set; }
         public int DisplayOrder { get; set; }
@@ -25,8 +31,11 @@ namespace CriticalPath.Data
         public System.DateTime CreateDate { get; set; }
         public string CreatorId { get; set; }
         public string CreatorIp { get; set; }
+        public int RequiredWorkDays { get; set; }
     
         public virtual ProcessTemplate ProcessTemplate { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProcessStep> ProcessSteps { get; set; }
     	/// <summary>
     	/// Clones all properties in a new ProcessStepTemplate instance,
     	/// except PrimaryKey(s)
@@ -45,6 +54,7 @@ namespace CriticalPath.Data
             clone.CreateDate = CreateDate;
             clone.CreatorId = CreatorId;
             clone.CreatorIp = CreatorIp;
+            clone.RequiredWorkDays = RequiredWorkDays;
     
             Cloning(clone);
     
@@ -67,6 +77,7 @@ namespace CriticalPath.Data
             Title = entity.Title;
             DisplayOrder = entity.DisplayOrder;
             ProcessTemplateId = entity.ProcessTemplateId;
+            RequiredWorkDays = entity.RequiredWorkDays;
         
             Initilazing(entity);
         }
@@ -80,6 +91,7 @@ namespace CriticalPath.Data
             entity.Title = Title;
             entity.DisplayOrder = DisplayOrder;
             entity.ProcessTemplateId = ProcessTemplateId;
+            entity.RequiredWorkDays = RequiredWorkDays;
     
             Converting(entity);
     
@@ -92,5 +104,6 @@ namespace CriticalPath.Data
         public string Title { get; set; }
         public int DisplayOrder { get; set; }
         public int ProcessTemplateId { get; set; }
+        public int RequiredWorkDays { get; set; }
     }
 }
