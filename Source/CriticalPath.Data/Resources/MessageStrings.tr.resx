@@ -60,7 +60,7 @@
   </resheader>
 
 	<data name="AreYouSure" xml:space="preserve">
-		<value>Yapmak istediğinizden emin misiniz</value>
+		<value>Devam etmek istediğinizden emin misiniz</value>
 	</data>
 
 	<data name="BecauseOfRelatedRecords" xml:space="preserve">
@@ -96,6 +96,6 @@
 	</data>
 
 	<data name="YouAreAboutToDelete" xml:space="preserve">
-		<value>Silmek üzeresiniz olduğunuz kayıt</value>
+		<value>Silmek üzere olduğunuz kayıt</value>
 	</data>
 </root>

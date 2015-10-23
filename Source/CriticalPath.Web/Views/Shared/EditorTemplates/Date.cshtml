@@ -7,16 +7,19 @@
     var dtpName = "dtp" + htmlField;
     string dateString = Model.HasValue ? Model.Value.ToString("yyyy.MM.dd") : "";
     string viewMode = htmlField.ToLowerInvariant().Contains("birthday") ? ", defaultDate: -15y" : "";
+    string divClass = ViewData.ModelMetadata.IsNullableValueType ?
+                        "input-group date col-md-5 col-sm-6" :
+                        "input-group date col-md-5 col-sm-6";
 }
-<div class="input-group date col-lg-3 col-md-4 col-sm-5 col-xs-9" id="@htmlField-div" data-date="@dateString" data-date-format="yyyy.mm.dd" @viewMode>
+<div class='@divClass' id="@htmlField-div" data-date="@dateString" data-date-format="yyyy.mm.dd" @viewMode>
+    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
     <input type="text" value="@dateString" id="@htmlField" name="@htmlField" class="form-control">
     @if (ViewData.ModelMetadata.IsNullableValueType)
     {
         <span class="input-group-btn">
-            <button type="button" class="btn btn-default" onclick="javascript:$('#@htmlField').val('');">@ActionStrings.Clear</button>
+            <button type="button" class="btn btn-primary" onclick="javascript:$('#@htmlField').val('');">@ActionStrings.Clear</button>
         </span>
     }
-    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
 </div>
 <script>
    @dtpName = $('#@htmlField').datepicker({dateFormat: "yy.mm.dd" });

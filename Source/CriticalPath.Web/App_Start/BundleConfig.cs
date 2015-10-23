@@ -38,40 +38,91 @@ namespace CriticalPath.Web
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
-            /* */
-            bundles.Add(new StyleBundle("~/Content/Slate").Include( //Dark & Cool
+            /* Dark & Cool */
+            bundles.Add(new StyleBundle("~/Content/Slate").Include(
+                      "~/Content/Slate/bootstrap.min.css",
+                      "~/Content/themes/dark-hive/jquery-ui.css",
+                      "~/Content/themes/dark-hive/theme.css",
+                      "~/Content/Site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/Slate-Ligth").Include(
                       "~/Content/Slate/bootstrap.min.css",
                       "~/Content/Slate/Light.css",
-                        "~/Content/themes/dark-hive/jquery-ui.css",
-                        "~/Content/themes/dark-hive/theme.css",
+                      "~/Content/themes/dark-hive/jquery-ui.css",
+                      "~/Content/themes/dark-hive/theme.css",
                       "~/Content/Site.css"));
 
             bundles.Add(new StyleBundle("~/Content/Superhero").Include(
-                    "~/Content/Superhero/bootstrap.min.css",
-                      "~/Content/NavbarColors-Red.css",
-                      "~/Content/Site.css"));
+                        "~/Content/Superhero/bootstrap.min.css",
+                        "~/Content/NavbarColors-Red.css",
+                        "~/Content/themes/base/core.css",
+                        "~/Content/themes/base/datepicker.css",
+                        "~/Content/themes/base/theme.css",
+                        "~/Content/Site.css"));
 
             bundles.Add(new StyleBundle("~/Content/Cosmo").Include(
-                    "~/Content/Cosmo/bootstrap.min.css",
-                      "~/Content/NavbarColors-Blue.css",
-                      "~/Content/Site.css"));
+                        "~/Content/Cosmo/bootstrap.min.css",
+                        "~/Content/themes/base/core.css",
+                        "~/Content/themes/base/datepicker.css",
+                        "~/Content/themes/base/theme.css",
+                        "~/Content/NavbarColors-Blue.css",
+                        "~/Content/Site.css"));
 
             bundles.Add(new StyleBundle("~/Content/Flatly").Include(
-                      "~/Content/Flatly/bootstrap.min.css",
-                      "~/Content/NavbarColors-Red.css",
-                      "~/Content/Site.css"));
+                        "~/Content/Flatly/bootstrap.min.css",
+                        "~/Content/themes/base/core.css",
+                        "~/Content/themes/base/datepicker.css",
+                        "~/Content/themes/base/theme.css",
+                        "~/Content/NavbarColors-Red.css",
+                        "~/Content/Site.css"));
 
             bundles.Add(new StyleBundle("~/Content/Darkly").Include(
-                      "~/Content/Darkly/bootstrap.min.css",
-                      "~/Content/Site.css"));
-                     
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/Default/bootstrap.min.css",
-                      "~/Content/Default/darker.css",
-                      "~/Content/NavbarColors-Blue.css",
-                      //"~/Content/NavbarColors-Grey.css",
-                      //"~/Content/NavbarColors-Red.css",
-                      "~/Content/Site.css"));
+                        "~/Content/Darkly/bootstrap.min.css",
+                        "~/Content/themes/base/core.css",
+                        "~/Content/themes/base/datepicker.css",
+                        "~/Content/themes/base/theme.css",
+                        "~/Content/Site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/Default").Include(
+                        "~/Content/Default/bootstrap.min.css",
+                        "~/Content/themes/base/core.css",
+                        "~/Content/themes/base/datepicker.css",
+                        "~/Content/themes/base/theme.css",
+                        "~/Content/Site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/Default-Darker").Include(
+                        "~/Content/Default/bootstrap.min.css",
+                        "~/Content/themes/base/core.css",
+                        "~/Content/themes/base/datepicker.css",
+                        "~/Content/themes/base/theme.css",
+                        "~/Content/Default/darker.css",
+                        "~/Content/Site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/Default-Blue").Include(
+                        "~/Content/Default/bootstrap.min.css",
+                        "~/Content/Default/darker.css",
+                        "~/Content/NavbarColors-Blue.css",
+                        //"~/Content/NavbarColors-Grey.css",
+                        //"~/Content/NavbarColors-Red.css",
+                        "~/Content/themes/base/core.css",
+                        "~/Content/themes/base/datepicker.css",
+                        "~/Content/themes/base/theme.css",
+                        "~/Content/Site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/Default-Red").Include(
+                        "~/Content/Default/bootstrap.min.css",
+                        "~/Content/Default/darker.css",
+                        //"~/Content/NavbarColors-Blue.css",
+                        //"~/Content/NavbarColors-Grey.css",
+                        "~/Content/NavbarColors-Red.css",
+                        "~/Content/themes/base/core.css",
+                        "~/Content/themes/base/datepicker.css",
+                        "~/Content/themes/base/theme.css",
+                        "~/Content/Site.css"));
+
+            //bundles.Add(new StyleBundle("~/Content/css").Include(
+            //            "~/Content/Default/bootstrap.min.css",
+            //            "~/Content/Site.css"));
         }
     }
 }

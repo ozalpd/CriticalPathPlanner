@@ -1,0 +1,37 @@
+﻿@using CriticalPath.Web.Models
+@using CriticalPath.Data.Resources
+@model SelectThemeVM
+@{
+    ViewBag.Title = "Select Theme";
+}
+<div class="mt30">&nbsp;</div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-md-2 col-xs-3">Select Theme</label>
+            <div class="col-lg-5 col-md-6 col-sm-9">
+                <div class="input-group">
+                    <select name="Theme" id="theme" class="form-control">
+                        @foreach (var item in Model.ThemeList)
+                        {
+                            string selected = Model.Theme.Equals(item) ? "selected=\"selected\"" : string.Empty;
+                            <option value="@item" @selected>@Model.GetThemName(item)</option>
+                        }
+                    </select>
+                    <span class="input-group-btn">
+                        <input type="submit" value='@ActionStrings.Select' class="btn btn-default" />
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@section bottom
+{
+    <div class="container">
+        <h3 class="col-md-offset-2 col-xs-3">Sample View</h3>
+    </div>
+    <iframe src="/Products?pageSize=6" width="100%" height="800px" frameborder="0" />
+}

@@ -6,10 +6,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Critical Path Application</title>
-    @Styles.Render("~/Content/Slate")
+
+    @Styles.Render(AppSettings.SelectedTheme)
+
     @*
-        @Styles.Render("~/Content/css")
-        @Styles.Render("~/Content/themes")
+    @Styles.Render("~/Content/Slate")
+
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/themes")
     *@
     @Scripts.Render("~/bundles/modernizr")
 
@@ -65,6 +69,8 @@
                                 @CommonStrings.Admin<b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Set Application Theme", "SelectTheme", "AdmPanel")</li>
+                                <li class="divider"></li>
                                 <li>@Html.ActionLink(@EntityStrings.ProcessTemplates, "Index", "ProcessTemplates")</li>
                                 <li>@Html.ActionLink(@EntityStrings.CreateProcessTemplate, "Create", "ProcessTemplates")</li>
                             </ul>
@@ -86,5 +92,6 @@
             <p>&copy; @DateTime.Now.Year - Critical Path Application</p>
         </footer>
     </div>
+    @RenderSection("bottom", required: false)
 </body>
 </html>

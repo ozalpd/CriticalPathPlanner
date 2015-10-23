@@ -142,7 +142,7 @@
   </Vocab>
   <Vocab>
     <Name>AreYouSure</Name>
-    <Translation>Yapmak istediğinizden emin misiniz</Translation>
+    <Translation>Devam etmek istediğinizden emin misiniz</Translation>
   </Vocab>
   <Vocab>
     <Name>BackToIndex</Name>
@@ -1070,7 +1070,7 @@
   </Vocab>
   <Vocab>
     <Name>YouAreAboutToDelete</Name>
-    <Translation>Silmek üzeresiniz olduğunuz kayıt</Translation>
+    <Translation>Silmek üzere olduğunuz kayıt</Translation>
   </Vocab>
   <Vocab>
     <Name>ZipCode</Name>
