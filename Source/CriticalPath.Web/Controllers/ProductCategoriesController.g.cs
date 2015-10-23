@@ -204,22 +204,16 @@ namespace CriticalPath.Web.Controllers
                 sb.Append(" <b>");
                 sb.Append(productCategory.Title);
                 sb.Append("</b>.<br/>");
-                sb.Append(MessageStrings.BecauseOfRelatedRecords);
-                sb.Append(".<br/>");
 
                 if (subCategoriesCount > 0)
                 {
-                    sb.Append(EntityStrings.SubCategories);
-                    sb.Append(": ");
-                    sb.Append(subCategoriesCount);
+                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, subCategoriesCount, EntityStrings.SubCategories));
                     sb.Append("<br/>");
                 }
 
                 if (productsCount > 0)
                 {
-                    sb.Append(EntityStrings.Products);
-                    sb.Append(": ");
-                    sb.Append(productsCount);
+                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, productsCount, EntityStrings.Products));
                     sb.Append("<br/>");
                 }
 

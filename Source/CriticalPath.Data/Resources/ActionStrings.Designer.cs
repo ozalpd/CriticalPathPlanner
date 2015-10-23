@@ -88,7 +88,7 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Back to List.
+        ///   Looks up a localized string similar to Go to List.
         /// </summary>
         public static string BackToIndex {
             get {
@@ -183,6 +183,15 @@ namespace CriticalPath.Data.Resources {
         public static string Edit {
             get {
                 return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Erase.
+        /// </summary>
+        public static string Erase {
+            get {
+                return ResourceManager.GetString("Erase", resourceCulture);
             }
         }
         

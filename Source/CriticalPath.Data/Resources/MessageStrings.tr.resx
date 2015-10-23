@@ -64,7 +64,7 @@
 	</data>
 
 	<data name="BecauseOfRelatedRecords" xml:space="preserve">
-		<value>&#304;li&#351;kili kay&#305;tlar mevcut</value>
+		<value>Bu kayıtla ilişkili başka kayıtlar mevcut.</value>
 	</data>
 
 	<data name="CanNotDelete" xml:space="preserve">
@@ -85,6 +85,10 @@
 
 	<data name="PleaseWait" xml:space="preserve">
 		<value>Lütfen Bekleyin</value>
+	</data>
+
+	<data name="RelatedRecordsExist" xml:space="preserve">
+		<value>Bu kayıt {0} adet {1} kaydına sahip.</value>
 	</data>
 
 	<data name="UnableToDelete" xml:space="preserve">

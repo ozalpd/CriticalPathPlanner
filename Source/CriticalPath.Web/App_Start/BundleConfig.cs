@@ -43,6 +43,7 @@ namespace CriticalPath.Web
                       "~/Content/Slate/bootstrap.min.css",
                       "~/Content/themes/dark-hive/jquery-ui.css",
                       "~/Content/themes/dark-hive/theme.css",
+                      "~/Content/tools.css",
                       "~/Content/Site.css"));
 
             bundles.Add(new StyleBundle("~/Content/Slate-Ligth").Include(
@@ -50,6 +51,7 @@ namespace CriticalPath.Web
                       "~/Content/Slate/Light.css",
                       "~/Content/themes/dark-hive/jquery-ui.css",
                       "~/Content/themes/dark-hive/theme.css",
+                      "~/Content/tools.css",
                       "~/Content/Site.css"));
 
             bundles.Add(new StyleBundle("~/Content/Superhero").Include(
@@ -58,6 +60,7 @@ namespace CriticalPath.Web
                         "~/Content/themes/base/core.css",
                         "~/Content/themes/base/datepicker.css",
                         "~/Content/themes/base/theme.css",
+                        "~/Content/tools.css",
                         "~/Content/Site.css"));
 
             bundles.Add(new StyleBundle("~/Content/Cosmo").Include(
@@ -66,6 +69,7 @@ namespace CriticalPath.Web
                         "~/Content/themes/base/datepicker.css",
                         "~/Content/themes/base/theme.css",
                         "~/Content/NavbarColors-Blue.css",
+                        "~/Content/tools.css",
                         "~/Content/Site.css"));
 
             bundles.Add(new StyleBundle("~/Content/Flatly").Include(
@@ -74,6 +78,7 @@ namespace CriticalPath.Web
                         "~/Content/themes/base/datepicker.css",
                         "~/Content/themes/base/theme.css",
                         "~/Content/NavbarColors-Red.css",
+                        "~/Content/tools.css",
                         "~/Content/Site.css"));
 
             bundles.Add(new StyleBundle("~/Content/Darkly").Include(
@@ -81,6 +86,7 @@ namespace CriticalPath.Web
                         "~/Content/themes/base/core.css",
                         "~/Content/themes/base/datepicker.css",
                         "~/Content/themes/base/theme.css",
+                        "~/Content/tools.css",
                         "~/Content/Site.css"));
 
             bundles.Add(new StyleBundle("~/Content/Default").Include(
@@ -88,6 +94,7 @@ namespace CriticalPath.Web
                         "~/Content/themes/base/core.css",
                         "~/Content/themes/base/datepicker.css",
                         "~/Content/themes/base/theme.css",
+                        "~/Content/tools.css",
                         "~/Content/Site.css"));
 
             bundles.Add(new StyleBundle("~/Content/Default-Darker").Include(
@@ -96,6 +103,7 @@ namespace CriticalPath.Web
                         "~/Content/themes/base/datepicker.css",
                         "~/Content/themes/base/theme.css",
                         "~/Content/Default/darker.css",
+                        "~/Content/tools.css",
                         "~/Content/Site.css"));
 
             bundles.Add(new StyleBundle("~/Content/Default-Blue").Include(
@@ -107,6 +115,7 @@ namespace CriticalPath.Web
                         "~/Content/themes/base/core.css",
                         "~/Content/themes/base/datepicker.css",
                         "~/Content/themes/base/theme.css",
+                        "~/Content/tools.css",
                         "~/Content/Site.css"));
 
             bundles.Add(new StyleBundle("~/Content/Default-Red").Include(
@@ -118,6 +127,7 @@ namespace CriticalPath.Web
                         "~/Content/themes/base/core.css",
                         "~/Content/themes/base/datepicker.css",
                         "~/Content/themes/base/theme.css",
+                        "~/Content/tools.css",
                         "~/Content/Site.css"));
 
             //bundles.Add(new StyleBundle("~/Content/css").Include(

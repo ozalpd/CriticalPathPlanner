@@ -13,7 +13,7 @@
             <label class="control-label col-md-2 col-xs-3">Select Theme</label>
             <div class="col-lg-5 col-md-6 col-sm-9">
                 <div class="input-group">
-                    <select name="Theme" id="theme" class="form-control">
+                    <select name="Theme" id="theme" class="form-control" onchange="submit()">
                         @foreach (var item in Model.ThemeList)
                         {
                             string selected = Model.Theme.Equals(item) ? "selected=\"selected\"" : string.Empty;
@@ -30,8 +30,10 @@
 }
 @section bottom
 {
-    <div class="container">
-        <h3 class="col-md-offset-2 col-xs-3">Sample View</h3>
-    </div>
-    <iframe src="/Products?pageSize=6" width="100%" height="800px" frameborder="0" />
+    <hr />
+    <div class="container"><h2>List View</h2></div>
+    <iframe src="/Products?pageSize=5" width="100%" height="600px" frameborder="0"></iframe>
+    <hr />
+    <div class="container"><h2>Form View</h2></div>
+    <iframe src="/ProductCategories/Create" width="100%" height="540px" frameborder="0"></iframe>
 }

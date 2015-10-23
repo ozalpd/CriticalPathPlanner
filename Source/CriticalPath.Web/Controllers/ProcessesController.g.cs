@@ -216,14 +216,10 @@ namespace CriticalPath.Web.Controllers
                 sb.Append(" <b>");
                 sb.Append(process.Title);
                 sb.Append("</b>.<br/>");
-                sb.Append(MessageStrings.BecauseOfRelatedRecords);
-                sb.Append(".<br/>");
 
                 if (processStepsCount > 0)
                 {
-                    sb.Append(EntityStrings.ProcessSteps);
-                    sb.Append(": ");
-                    sb.Append(processStepsCount);
+                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, processStepsCount, EntityStrings.ProcessSteps));
                     sb.Append("<br/>");
                 }
 

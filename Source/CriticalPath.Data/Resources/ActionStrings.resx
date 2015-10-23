@@ -72,7 +72,7 @@
 	</data>
 
 	<data name="BackToIndex" xml:space="preserve">
-		<value>Back to List</value>
+		<value>Go to List</value>
 	</data>
 
 	<data name="Cancel" xml:space="preserve">
@@ -113,6 +113,10 @@
 
 	<data name="Edit" xml:space="preserve">
 		<value>Edit</value>
+	</data>
+
+	<data name="Erase" xml:space="preserve">
+		<value>Erase</value>
 	</data>
 
 	<data name="Login" xml:space="preserve">

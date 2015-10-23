@@ -24,6 +24,7 @@
       <ControllerName>IPrimaryKeys</ControllerName>
       <DataSetName>IPrimaryKeys</DataSetName>
       <SaveParameter>this</SaveParameter>
+      <ModelForCreate>IPrimaryKey</ModelForCreate>
       <ModelForEdit>IPrimaryKey</ModelForEdit>
       <RolesCanView>users</RolesCanView>
       <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
@@ -84,6 +85,7 @@
       <ControllerName>ICreateds</ControllerName>
       <DataSetName>ICreateds</DataSetName>
       <SaveParameter>this</SaveParameter>
+      <ModelForCreate>ICreated</ModelForCreate>
       <ModelForEdit>ICreated</ModelForEdit>
       <RolesCanView>users</RolesCanView>
       <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
@@ -155,6 +157,7 @@
       <ControllerName>IModifieds</ControllerName>
       <DataSetName>IModifieds</DataSetName>
       <SaveParameter>this</SaveParameter>
+      <ModelForCreate>IModified</ModelForCreate>
       <ModelForEdit>IModified</ModelForEdit>
       <RolesCanView>users</RolesCanView>
       <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
@@ -226,6 +229,7 @@
       <ControllerName>IApprovals</ControllerName>
       <DataSetName>IApprovals</DataSetName>
       <SaveParameter>this</SaveParameter>
+      <ModelForCreate>IApproval</ModelForCreate>
       <ModelForEdit>IApproval</ModelForEdit>
       <RolesCanView>users</RolesCanView>
       <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
@@ -286,6 +290,7 @@
       <ControllerName>IDescriptions</ControllerName>
       <DataSetName>IDescriptions</DataSetName>
       <SaveParameter>this</SaveParameter>
+      <ModelForCreate>IDescription</ModelForCreate>
       <ModelForEdit>IDescription</ModelForEdit>
       <RolesCanView>users</RolesCanView>
       <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
@@ -424,6 +429,7 @@
       <DataSetName>Contacts</DataSetName>
       <StrongDependedForeignKey>CompanyId</StrongDependedForeignKey>
       <SaveParameter>this</SaveParameter>
+      <ModelForCreate>Contact</ModelForCreate>
       <ModelForEdit>Contact</ModelForEdit>
       <RolesCanView>users</RolesCanView>
       <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
@@ -583,6 +589,7 @@
       <ControllerName>Companies</ControllerName>
       <DataSetName>Companies</DataSetName>
       <SaveParameter>this</SaveParameter>
+      <ModelForCreate>Company</ModelForCreate>
       <ModelForEdit>Company</ModelForEdit>
       <RolesCanView>users</RolesCanView>
       <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
@@ -621,6 +628,7 @@
       <ControllerName>Suppliers</ControllerName>
       <DataSetName>Companies</DataSetName>
       <SaveParameter>this</SaveParameter>
+      <ModelForCreate>Supplier</ModelForCreate>
       <ModelForEdit>Supplier</ModelForEdit>
       <RolesCanView>users</RolesCanView>
       <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
@@ -670,6 +678,7 @@
       <ControllerName>Customers</ControllerName>
       <DataSetName>Companies</DataSetName>
       <SaveParameter>this</SaveParameter>
+      <ModelForCreate>Customer</ModelForCreate>
       <ModelForEdit>Customer</ModelForEdit>
       <RolesCanView>users</RolesCanView>
       <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
@@ -741,6 +750,7 @@
       <ControllerName>ProductCategories</ControllerName>
       <DataSetName>ProductCategories</DataSetName>
       <SaveParameter>this</SaveParameter>
+      <ModelForCreate>ProductCategory</ModelForCreate>
       <ModelForEdit>ProductCategory</ModelForEdit>
       <RolesCanView>everyone</RolesCanView>
       <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
@@ -801,6 +811,7 @@
       <ControllerName>Products</ControllerName>
       <DataSetName>Products</DataSetName>
       <SaveParameter>this</SaveParameter>
+      <ModelForCreate>Product</ModelForCreate>
       <ModelForEdit>Product</ModelForEdit>
       <RolesCanView>everyone</RolesCanView>
       <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
@@ -928,6 +939,7 @@
       <DataSetName>PurchaseOrders</DataSetName>
       <StrongDependedForeignKey>CustomerId</StrongDependedForeignKey>
       <SaveParameter>this</SaveParameter>
+      <ModelForCreate>PurchaseOrder</ModelForCreate>
       <ModelForEdit>PurchaseOrder</ModelForEdit>
       <RolesCanView>users</RolesCanView>
       <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
@@ -1033,6 +1045,7 @@
       <DataSetName>OrderItems</DataSetName>
       <StrongDependedForeignKey>PurchaseOrderId</StrongDependedForeignKey>
       <SaveParameter>this</SaveParameter>
+      <ModelForCreate>OrderItem</ModelForCreate>
       <ModelForEdit>OrderItem</ModelForEdit>
       <RolesCanView>users</RolesCanView>
       <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
@@ -1149,6 +1162,7 @@
       <DataSetName>Processes</DataSetName>
       <StrongDependedForeignKey>OrderItemId</StrongDependedForeignKey>
       <SaveParameter>this</SaveParameter>
+      <ModelForCreate>Process</ModelForCreate>
       <ModelForEdit>Process</ModelForEdit>
       <RolesCanView>users</RolesCanView>
       <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
@@ -1297,6 +1311,7 @@
       <ControllerName>ProcessSteps</ControllerName>
       <DataSetName>ProcessSteps</DataSetName>
       <SaveParameter>this</SaveParameter>
+      <ModelForCreate>ProcessStep</ModelForCreate>
       <ModelForEdit>ProcessStep</ModelForEdit>
       <RolesCanView>users</RolesCanView>
       <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
@@ -1358,6 +1373,7 @@
       <DataSetName>ProcessTemplates</DataSetName>
       <StrongDependedForeignKey />
       <SaveParameter>this</SaveParameter>
+      <ModelForCreate>ProcessTemplate</ModelForCreate>
       <ModelForEdit>ProcessTemplate</ModelForEdit>
       <RolesCanView>users</RolesCanView>
       <RolesCanCreate>admin</RolesCanCreate>
@@ -1441,6 +1457,7 @@
       <DataSetName>ProcessStepTemplates</DataSetName>
       <StrongDependedForeignKey>ProcessTemplateId</StrongDependedForeignKey>
       <SaveParameter>this</SaveParameter>
+      <ModelForCreate>ProcessStepTemplate</ModelForCreate>
       <ModelForEdit>ProcessStepTemplate</ModelForEdit>
       <RolesCanView>users</RolesCanView>
       <RolesCanCreate>admin</RolesCanCreate>

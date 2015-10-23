@@ -204,14 +204,10 @@ namespace CriticalPath.Web.Controllers
                 sb.Append(" <b>");
                 sb.Append(supplier.CompanyName);
                 sb.Append("</b>.<br/>");
-                sb.Append(MessageStrings.BecauseOfRelatedRecords);
-                sb.Append(".<br/>");
 
                 if (contactsCount > 0)
                 {
-                    sb.Append(EntityStrings.Contacts);
-                    sb.Append(": ");
-                    sb.Append(contactsCount);
+                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, contactsCount, EntityStrings.Contacts));
                     sb.Append("<br/>");
                 }
 

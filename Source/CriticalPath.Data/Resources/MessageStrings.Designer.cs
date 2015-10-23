@@ -124,6 +124,15 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Related {0} {1} records exist..
+        /// </summary>
+        public static string RelatedRecordsExist {
+            get {
+                return ResourceManager.GetString("RelatedRecordsExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to Delete.
         /// </summary>
         public static string UnableToDelete {

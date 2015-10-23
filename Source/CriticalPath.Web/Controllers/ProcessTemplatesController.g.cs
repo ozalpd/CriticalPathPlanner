@@ -194,14 +194,10 @@ namespace CriticalPath.Web.Controllers
                 sb.Append(" <b>");
                 sb.Append(processTemplate.TemplateName);
                 sb.Append("</b>.<br/>");
-                sb.Append(MessageStrings.BecauseOfRelatedRecords);
-                sb.Append(".<br/>");
 
                 if (stepTemplatesCount > 0)
                 {
-                    sb.Append(EntityStrings.StepTemplates);
-                    sb.Append(": ");
-                    sb.Append(stepTemplatesCount);
+                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, stepTemplatesCount, EntityStrings.StepTemplates));
                     sb.Append("<br/>");
                 }
 

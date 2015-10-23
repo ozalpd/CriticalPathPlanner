@@ -64,7 +64,7 @@
 	</data>
 
 	<data name="BecauseOfRelatedRecords" xml:space="preserve">
-		<value>Because of related records</value>
+		<value>This record has some relations.</value>
 	</data>
 
 	<data name="CanNotDelete" xml:space="preserve">
@@ -85,6 +85,10 @@
 
 	<data name="PleaseWait" xml:space="preserve">
 		<value>Please Wait</value>
+	</data>
+
+	<data name="RelatedRecordsExist" xml:space="preserve">
+		<value>This record has {0} related {1}.</value>
 	</data>
 
 	<data name="UnableToDelete" xml:space="preserve">

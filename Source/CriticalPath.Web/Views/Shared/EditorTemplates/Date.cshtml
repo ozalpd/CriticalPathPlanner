@@ -8,12 +8,12 @@
     string dateString = Model.HasValue ? Model.Value.ToString("yyyy.MM.dd") : "";
     string viewMode = htmlField.ToLowerInvariant().Contains("birthday") ? ", defaultDate: -15y" : "";
     string divClass = ViewData.ModelMetadata.IsNullableValueType ?
-                        "input-group date col-md-5 col-sm-6" :
-                        "input-group date col-md-5 col-sm-6";
+                        "input-group date col-md-6 col-sm-7" :
+                        "input-group date col-md-6 col-sm-7";
 }
 <div class='@divClass' id="@htmlField-div" data-date="@dateString" data-date-format="yyyy.mm.dd" @viewMode>
     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-    <input type="text" value="@dateString" id="@htmlField" name="@htmlField" class="form-control">
+    <input type="text" value="@dateString" id="@htmlField" name="@htmlField" class="form-control" autocomplete="off"">
     @if (ViewData.ModelMetadata.IsNullableValueType)
     {
         <span class="input-group-btn">

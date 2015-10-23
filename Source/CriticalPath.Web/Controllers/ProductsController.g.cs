@@ -203,14 +203,10 @@ namespace CriticalPath.Web.Controllers
                 sb.Append(" <b>");
                 sb.Append(product.Title);
                 sb.Append("</b>.<br/>");
-                sb.Append(MessageStrings.BecauseOfRelatedRecords);
-                sb.Append(".<br/>");
 
                 if (orderItemsCount > 0)
                 {
-                    sb.Append(EntityStrings.OrderItems);
-                    sb.Append(": ");
-                    sb.Append(orderItemsCount);
+                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, orderItemsCount, EntityStrings.OrderItems));
                     sb.Append("<br/>");
                 }
 

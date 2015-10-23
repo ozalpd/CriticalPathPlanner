@@ -72,7 +72,7 @@
 	</data>
 
 	<data name="BackToIndex" xml:space="preserve">
-		<value>Listeye Geri Dön</value>
+		<value>Listeye Git</value>
 	</data>
 
 	<data name="Cancel" xml:space="preserve">
@@ -113,6 +113,10 @@
 
 	<data name="Edit" xml:space="preserve">
 		<value>Düzenle</value>
+	</data>
+
+	<data name="Erase" xml:space="preserve">
+		<value>Tam Sil</value>
 	</data>
 
 	<data name="Login" xml:space="preserve">
