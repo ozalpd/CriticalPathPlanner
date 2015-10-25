@@ -26,6 +26,12 @@ namespace CriticalPath.Data
         public string Description { get; set; }
         public int ProcessTemplateId { get; set; }
         public int OrderItemId { get; set; }
+        public System.DateTime TargetStartDate { get; set; }
+        public Nullable<System.DateTime> TargetEndDate { get; set; }
+        public Nullable<System.DateTime> ForecastStartDate { get; set; }
+        public Nullable<System.DateTime> ForecastEndDate { get; set; }
+        public Nullable<System.DateTime> RealizedStartDate { get; set; }
+        public Nullable<System.DateTime> RealizedEndDate { get; set; }
         public bool IsApproved { get; set; }
         public Nullable<System.DateTime> ApproveDate { get; set; }
         public string ApprovedUserId { get; set; }
@@ -55,6 +61,12 @@ namespace CriticalPath.Data
             clone.Description = Description;
             clone.ProcessTemplateId = ProcessTemplateId;
             clone.OrderItemId = OrderItemId;
+            clone.TargetStartDate = TargetStartDate;
+            clone.TargetEndDate = TargetEndDate;
+            clone.ForecastStartDate = ForecastStartDate;
+            clone.ForecastEndDate = ForecastEndDate;
+            clone.RealizedStartDate = RealizedStartDate;
+            clone.RealizedEndDate = RealizedEndDate;
             clone.IsApproved = IsApproved;
             clone.ApproveDate = ApproveDate;
             clone.ApprovedUserId = ApprovedUserId;
@@ -90,6 +102,12 @@ namespace CriticalPath.Data
             Description = entity.Description;
             ProcessTemplateId = entity.ProcessTemplateId;
             OrderItemId = entity.OrderItemId;
+            TargetStartDate = entity.TargetStartDate;
+            TargetEndDate = entity.TargetEndDate;
+            ForecastStartDate = entity.ForecastStartDate;
+            ForecastEndDate = entity.ForecastEndDate;
+            RealizedStartDate = entity.RealizedStartDate;
+            RealizedEndDate = entity.RealizedEndDate;
             IsApproved = entity.IsApproved;
             ApproveDate = entity.ApproveDate;
         
@@ -107,6 +125,12 @@ namespace CriticalPath.Data
             entity.Description = Description;
             entity.ProcessTemplateId = ProcessTemplateId;
             entity.OrderItemId = OrderItemId;
+            entity.TargetStartDate = TargetStartDate;
+            entity.TargetEndDate = TargetEndDate;
+            entity.ForecastStartDate = ForecastStartDate;
+            entity.ForecastEndDate = ForecastEndDate;
+            entity.RealizedStartDate = RealizedStartDate;
+            entity.RealizedEndDate = RealizedEndDate;
             entity.IsApproved = IsApproved;
             entity.ApproveDate = ApproveDate;
     
@@ -123,6 +147,12 @@ namespace CriticalPath.Data
         public string Description { get; set; }
         public int ProcessTemplateId { get; set; }
         public int OrderItemId { get; set; }
+        public System.DateTime TargetStartDate { get; set; }
+        public Nullable<System.DateTime> TargetEndDate { get; set; }
+        public Nullable<System.DateTime> ForecastStartDate { get; set; }
+        public Nullable<System.DateTime> ForecastEndDate { get; set; }
+        public Nullable<System.DateTime> RealizedStartDate { get; set; }
+        public Nullable<System.DateTime> RealizedEndDate { get; set; }
         public bool IsApproved { get; set; }
         public Nullable<System.DateTime> ApproveDate { get; set; }
     }

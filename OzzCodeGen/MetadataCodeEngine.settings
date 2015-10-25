@@ -92,13 +92,13 @@
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>ApprovedUserId</Name>
-          <Exclude>false</Exclude>
+          <Exclude>true</Exclude>
           <DataType />
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>ApprovedUserIp</Name>
-          <Exclude>false</Exclude>
+          <Exclude>true</Exclude>
           <DataType />
           <Required />
         </MetadataPropertySetting>
@@ -508,6 +508,42 @@
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
+          <Name>TargetStartDate</Name>
+          <Exclude>false</Exclude>
+          <DataType>Date</DataType>
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>TargetEndDate</Name>
+          <Exclude>false</Exclude>
+          <DataType>Date</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>ForecastStartDate</Name>
+          <Exclude>false</Exclude>
+          <DataType>Date</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>ForecastEndDate</Name>
+          <Exclude>false</Exclude>
+          <DataType>Date</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>RealizedStartDate</Name>
+          <Exclude>false</Exclude>
+          <DataType>Date</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>RealizedEndDate</Name>
+          <Exclude>false</Exclude>
+          <DataType>Date</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
           <Name>ProcessSteps</Name>
           <Exclude>false</Exclude>
           <Required />
@@ -555,19 +591,37 @@
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>TargetDate</Name>
+          <Name>TargetStartDate</Name>
+          <Exclude>false</Exclude>
+          <DataType>Date</DataType>
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>TargetEndDate</Name>
           <Exclude>false</Exclude>
           <DataType>Date</DataType>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>ForecastDate</Name>
+          <Name>ForecastStartDate</Name>
           <Exclude>false</Exclude>
           <DataType>Date</DataType>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>RealizedDate</Name>
+          <Name>ForecastEndDate</Name>
+          <Exclude>false</Exclude>
+          <DataType>Date</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>RealizedStartDate</Name>
+          <Exclude>false</Exclude>
+          <DataType>Date</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>RealizedEndDate</Name>
           <Exclude>false</Exclude>
           <DataType>Date</DataType>
           <Required />

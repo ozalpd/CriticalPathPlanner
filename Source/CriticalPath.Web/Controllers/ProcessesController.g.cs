@@ -144,7 +144,7 @@ namespace CriticalPath.Web.Controllers
                 await DataContext.SaveChangesAsync(this);
  
                 OnCreateSaved(process);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "ProcessSteps", new { processId = process.Id, pageSize = process.ProcessSteps.Count });
             }
 
             SetViewBags(process);
@@ -185,7 +185,7 @@ namespace CriticalPath.Web.Controllers
                 await DataContext.SaveChangesAsync(this);
  
                 OnEditSaved(process);
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { id = process.Id });
             }
 
             SetViewBags(process);

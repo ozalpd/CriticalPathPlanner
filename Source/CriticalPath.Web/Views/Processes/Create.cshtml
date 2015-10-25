@@ -36,6 +36,20 @@
             </div>
         </div>
         @Html.HiddenFor(m => m.OrderItemId)
+        <div class="form-group">
+            @Html.LabelFor(model => model.TargetStartDate, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.EditorFor(m => m.TargetStartDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(m => m.TargetStartDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ForecastStartDate, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.EditorFor(m => m.ForecastStartDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(m => m.ForecastStartDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
         @Html.Partial("_SaveButtonsPartial")
     </div>
 }

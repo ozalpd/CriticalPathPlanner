@@ -86,6 +86,12 @@
           <Property Name="IsCompleted" Type="bit" Nullable="false" />
           <Property Name="ProcessTemplateId" Type="int" Nullable="false" />
           <Property Name="OrderItemId" Type="int" Nullable="false" />
+          <Property Name="TargetStartDate" Type="datetime" Nullable="false" />
+          <Property Name="TargetEndDate" Type="datetime" />
+          <Property Name="ForecastStartDate" Type="datetime" />
+          <Property Name="ForecastEndDate" Type="datetime" />
+          <Property Name="RealizedStartDate" Type="datetime" />
+          <Property Name="RealizedEndDate" Type="datetime" />
           <Property Name="IsApproved" Type="bit" Nullable="false" />
           <Property Name="ApproveDate" Type="datetime" />
           <Property Name="ApprovedUserId" Type="varchar" MaxLength="48" />
@@ -108,9 +114,12 @@
           <Property Name="IsCompleted" Type="bit" Nullable="false" />
           <Property Name="DisplayOrder" Type="int" Nullable="false" />
           <Property Name="ProcessId" Type="int" Nullable="false" />
-          <Property Name="TargetDate" Type="datetime" />
-          <Property Name="ForecastDate" Type="datetime" />
-          <Property Name="RealizedDate" Type="datetime" />
+          <Property Name="TargetStartDate" Type="datetime" Nullable="false" />
+          <Property Name="TargetEndDate" Type="datetime" />
+          <Property Name="ForecastStartDate" Type="datetime" />
+          <Property Name="ForecastEndDate" Type="datetime" />
+          <Property Name="RealizedStartDate" Type="datetime" />
+          <Property Name="RealizedEndDate" Type="datetime" />
           <Property Name="TemplateId" Type="int" Nullable="false" />
           <Property Name="IsApproved" Type="bit" Nullable="false" />
           <Property Name="ApproveDate" Type="datetime" />
@@ -726,6 +735,12 @@
           <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="ProcessTemplateId" Type="Int32" Nullable="false" />
           <Property Name="OrderItemId" Type="Int32" Nullable="false" />
+          <Property Name="TargetStartDate" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="TargetEndDate" Type="DateTime" Precision="3" />
+          <Property Name="ForecastStartDate" Type="DateTime" Precision="3" />
+          <Property Name="ForecastEndDate" Type="DateTime" Precision="3" />
+          <Property Name="RealizedStartDate" Type="DateTime" Precision="3" />
+          <Property Name="RealizedEndDate" Type="DateTime" Precision="3" />
           <Property Name="IsApproved" Type="Boolean" Nullable="false" />
           <Property Name="ApproveDate" Type="DateTime" Precision="3" />
           <Property Name="ApprovedUserId" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
@@ -752,9 +767,12 @@
           <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
           <Property Name="ProcessId" Type="Int32" Nullable="false" />
           <Property Name="TemplateId" Type="Int32" Nullable="false" />
-          <Property Name="TargetDate" Type="DateTime" Precision="3" />
-          <Property Name="ForecastDate" Type="DateTime" Precision="3" />
-          <Property Name="RealizedDate" Type="DateTime" Precision="3" />
+          <Property Name="TargetStartDate" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="TargetEndDate" Type="DateTime" Precision="3" />
+          <Property Name="ForecastStartDate" Type="DateTime" Precision="3" />
+          <Property Name="ForecastEndDate" Type="DateTime" Precision="3" />
+          <Property Name="RealizedStartDate" Type="DateTime" Precision="3" />
+          <Property Name="RealizedEndDate" Type="DateTime" Precision="3" />
           <Property Name="IsApproved" Type="Boolean" Nullable="false" />
           <Property Name="ApproveDate" Type="DateTime" Precision="3" />
           <Property Name="ApprovedUserId" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
@@ -1014,6 +1032,12 @@
           <EntitySetMapping Name="Processes">
             <EntityTypeMapping TypeName="CriticalPathDataModel.Process">
               <MappingFragment StoreEntitySet="Processes">
+                <ScalarProperty Name="RealizedEndDate" ColumnName="RealizedEndDate" />
+                <ScalarProperty Name="RealizedStartDate" ColumnName="RealizedStartDate" />
+                <ScalarProperty Name="ForecastEndDate" ColumnName="ForecastEndDate" />
+                <ScalarProperty Name="ForecastStartDate" ColumnName="ForecastStartDate" />
+                <ScalarProperty Name="TargetEndDate" ColumnName="TargetEndDate" />
+                <ScalarProperty Name="TargetStartDate" ColumnName="TargetStartDate" />
                 <ScalarProperty Name="CreatorIp" ColumnName="CreatorIp" />
                 <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
                 <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
@@ -1037,6 +1061,9 @@
           <EntitySetMapping Name="ProcessSteps">
             <EntityTypeMapping TypeName="CriticalPathDataModel.ProcessStep">
               <MappingFragment StoreEntitySet="ProcessSteps">
+                <ScalarProperty Name="RealizedStartDate" ColumnName="RealizedStartDate" />
+                <ScalarProperty Name="ForecastStartDate" ColumnName="ForecastStartDate" />
+                <ScalarProperty Name="TargetStartDate" ColumnName="TargetStartDate" />
                 <ScalarProperty Name="TemplateId" ColumnName="TemplateId" />
                 <ScalarProperty Name="IsCompleted" ColumnName="IsCompleted" />
                 <ScalarProperty Name="CreatorIp" ColumnName="CreatorIp" />
@@ -1050,9 +1077,9 @@
                 <ScalarProperty Name="ApprovedUserId" ColumnName="ApprovedUserId" />
                 <ScalarProperty Name="ApproveDate" ColumnName="ApproveDate" />
                 <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
-                <ScalarProperty Name="RealizedDate" ColumnName="RealizedDate" />
-                <ScalarProperty Name="ForecastDate" ColumnName="ForecastDate" />
-                <ScalarProperty Name="TargetDate" ColumnName="TargetDate" />
+                <ScalarProperty Name="RealizedEndDate" ColumnName="RealizedEndDate" />
+                <ScalarProperty Name="ForecastEndDate" ColumnName="ForecastEndDate" />
+                <ScalarProperty Name="TargetEndDate" ColumnName="TargetEndDate" />
                 <ScalarProperty Name="ProcessId" ColumnName="ProcessId" />
                 <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
                 <ScalarProperty Name="Description" ColumnName="Description" />

@@ -1,0 +1,31 @@
+﻿@using CriticalPath.Data.Resources
+@model bool
+@{
+    // make use of MVC4 nullable class attribute values
+    var yesSelected = Model ? "glyphicon-check text-success" : "glyphicon-unchecked text-danger";
+
+    // get the name of the ID - this is to support multiple fields
+    var htmlField = ViewData.TemplateInfo.HtmlFieldPrefix;
+    var toggleFunction = "toggle" + ViewData.TemplateInfo.HtmlFieldPrefix + "()";
+}
+@Html.HiddenFor(model => model)
+<span id="true-@htmlField" style="font-size:28px;cursor:pointer;" class="glyphicon @yesSelected" onclick='@toggleFunction'></span>
+<script>
+    function @toggleFunction {
+        var current = $('#@htmlField').val();
+        if(current.toLowerCase() =='true'){
+            $('#@htmlField').val(false);
+            $('#true-@htmlField').removeClass('glyphicon-check');
+            $('#true-@htmlField').removeClass('text-success');
+            $('#true-@htmlField').addClass('glyphicon-unchecked');
+            $('#true-@htmlField').addClass('text-danger');
+        }
+        else{
+            $('#@htmlField').val(true);
+            $('#true-@htmlField').removeClass('glyphicon-unchecked');
+            $('#true-@htmlField').removeClass('text-danger');
+            $('#true-@htmlField').addClass('glyphicon-check');
+            $('#true-@htmlField').addClass('text-success');
+        }
+    }
+</script>

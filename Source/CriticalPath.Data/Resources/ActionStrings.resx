@@ -71,6 +71,10 @@
 		<value>Add New</value>
 	</data>
 
+	<data name="Approve" xml:space="preserve">
+		<value>Approve</value>
+	</data>
+
 	<data name="BackToIndex" xml:space="preserve">
 		<value>Go to List</value>
 	</data>
@@ -135,6 +139,14 @@
 		<value>Logout</value>
 	</data>
 
+	<data name="No" xml:space="preserve">
+		<value>No</value>
+	</data>
+
+	<data name="OK" xml:space="preserve">
+		<value>OK</value>
+	</data>
+
 	<data name="Print" xml:space="preserve">
 		<value>Print</value>
 	</data>
@@ -169,5 +181,9 @@
 
 	<data name="Update" xml:space="preserve">
 		<value>Update</value>
+	</data>
+
+	<data name="Yes" xml:space="preserve">
+		<value>Yes</value>
 	</data>
 </root>

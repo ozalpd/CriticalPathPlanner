@@ -898,11 +898,20 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Forecast Date.
+        ///   Looks up a localized string similar to Forecast End Date.
         /// </summary>
-        public static string ForecastDate {
+        public static string ForecastEndDate {
             get {
-                return ResourceManager.GetString("ForecastDate", resourceCulture);
+                return ResourceManager.GetString("ForecastEndDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Forecast Start Date.
+        /// </summary>
+        public static string ForecastStartDate {
+            get {
+                return ResourceManager.GetString("ForecastStartDate", resourceCulture);
             }
         }
         
@@ -1348,11 +1357,20 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Realized Date.
+        ///   Looks up a localized string similar to Realized End Date.
         /// </summary>
-        public static string RealizedDate {
+        public static string RealizedEndDate {
             get {
-                return ResourceManager.GetString("RealizedDate", resourceCulture);
+                return ResourceManager.GetString("RealizedEndDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Realized Start Date.
+        /// </summary>
+        public static string RealizedStartDate {
+            get {
+                return ResourceManager.GetString("RealizedStartDate", resourceCulture);
             }
         }
         
@@ -1429,11 +1447,20 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Target Date.
+        ///   Looks up a localized string similar to Target End Date.
         /// </summary>
-        public static string TargetDate {
+        public static string TargetEndDate {
             get {
-                return ResourceManager.GetString("TargetDate", resourceCulture);
+                return ResourceManager.GetString("TargetEndDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Target Start Date.
+        /// </summary>
+        public static string TargetStartDate {
+            get {
+                return ResourceManager.GetString("TargetStartDate", resourceCulture);
             }
         }
         

@@ -253,6 +253,12 @@ namespace CriticalPath.Data
                        Description = e.Description,
                        ProcessTemplateId = e.ProcessTemplateId,
                        OrderItemId = e.OrderItemId,
+                       TargetStartDate = e.TargetStartDate,
+                       TargetEndDate = e.TargetEndDate,
+                       ForecastStartDate = e.ForecastStartDate,
+                       ForecastEndDate = e.ForecastEndDate,
+                       RealizedStartDate = e.RealizedStartDate,
+                       RealizedEndDate = e.RealizedEndDate,
                        IsApproved = e.IsApproved,
                        ApproveDate = e.ApproveDate,
                    };
@@ -294,12 +300,15 @@ namespace CriticalPath.Data
                        Description = e.Description,
                        DisplayOrder = e.DisplayOrder,
                        ProcessId = e.ProcessId,
-                       TargetDate = e.TargetDate,
-                       ForecastDate = e.ForecastDate,
-                       RealizedDate = e.RealizedDate,
+                       TemplateId = e.TemplateId,
+                       TargetStartDate = e.TargetStartDate,
+                       TargetEndDate = e.TargetEndDate,
+                       ForecastStartDate = e.ForecastStartDate,
+                       ForecastEndDate = e.ForecastEndDate,
+                       RealizedStartDate = e.RealizedStartDate,
+                       RealizedEndDate = e.RealizedEndDate,
                        IsApproved = e.IsApproved,
                        ApproveDate = e.ApproveDate,
-                       TemplateId = e.TemplateId,
                    };
         }
     

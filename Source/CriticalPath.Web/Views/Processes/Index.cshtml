@@ -23,6 +23,7 @@
     @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "searchForm" }))
     {
         @Html.Hidden("page", page)
+        @Html.Hidden("pageSize", pageSize)
         <div class="col-md-4 col-sm-5">
             @Html.Partial("_SearchBoxPartial")
         </div>
@@ -34,11 +35,14 @@
         <tr>
             <th>@ActionStrings.Action</th>
             <th>@Html.DisplayNameFor(model => model.Title)</th>
-            <th>@Html.DisplayNameFor(model => model.Description)</th>
             <th>@Html.DisplayNameFor(model => model.IsCompleted)</th>
-            <th>@Html.DisplayNameFor(model => model.ProcessTemplate)</th>
             <th>@Html.DisplayNameFor(model => model.OrderItem)</th>
-            <th>@Html.DisplayNameFor(model => model.ProcessSteps)</th>
+            <th>@Html.DisplayNameFor(model => model.TargetStartDate)</th>
+            <th>@Html.DisplayNameFor(model => model.TargetEndDate)</th>
+            <th>@Html.DisplayNameFor(model => model.ForecastStartDate)</th>
+            <th>@Html.DisplayNameFor(model => model.ForecastEndDate)</th>
+            <th>@Html.DisplayNameFor(model => model.RealizedStartDate)</th>
+            <th>@Html.DisplayNameFor(model => model.RealizedEndDate)</th>
             <th>@Html.DisplayNameFor(model => model.IsApproved)</th>
         </tr>
     @foreach (var item in Model)
@@ -67,11 +71,14 @@
                     </div>
                 </td>
                 <td>@Html.DisplayFor(modelItem => item.Title)</td>
-                <td>@Html.DisplayFor(modelItem => item.Description)</td>
                 <td>@Html.DisplayFor(modelItem => item.IsCompleted)</td>
-                <td>@Html.DisplayFor(modelItem => item.ProcessTemplate)</td>
                 <td>@Html.DisplayFor(modelItem => item.OrderItem)</td>
-                <td>@item.ProcessSteps.Count</td>
+                <td align="right">@Html.DisplayFor(modelItem => item.TargetStartDate)</td>
+                <td>@Html.DisplayFor(modelItem => item.TargetEndDate)</td>
+                <td>@Html.DisplayFor(modelItem => item.ForecastStartDate)</td>
+                <td>@Html.DisplayFor(modelItem => item.ForecastEndDate)</td>
+                <td>@Html.DisplayFor(modelItem => item.RealizedStartDate)</td>
+                <td>@Html.DisplayFor(modelItem => item.RealizedEndDate)</td>
                 <td>@Html.DisplayFor(modelItem => item.IsApproved)</td>
             </tr>
     }

@@ -143,7 +143,7 @@ namespace CriticalPath.Web.Controllers
                 await DataContext.SaveChangesAsync(this);
  
                 OnCreateSaved(orderItem);
-                return RedirectToAction("Index");
+                return RedirectToAction("Create", "Processes", new { orderItemId = orderItem.Id });
             }
 
             SetViewBags(orderItem);
@@ -184,7 +184,7 @@ namespace CriticalPath.Web.Controllers
                 await DataContext.SaveChangesAsync(this);
  
                 OnEditSaved(orderItem);
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "PurchaseOrders", new { id = orderItem.PurchaseOrderId });
             }
 
             SetViewBags(orderItem);

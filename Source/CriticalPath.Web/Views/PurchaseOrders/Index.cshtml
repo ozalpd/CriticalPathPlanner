@@ -9,6 +9,7 @@
     bool canUserEdit = ViewBag.canUserEdit;
     bool canUserCreate = ViewBag.canUserCreate;
     bool canUserDelete = ViewBag.canUserDelete;
+    bool canUserApprove = ViewBag.canUserDelete;
 
     //Records & Pager
     int page = ViewBag.page;
@@ -32,17 +33,17 @@
 {
     <table class="table table-hover">
         <tr>
-            <th>@ActionStrings.Action</th>
+            <th width="20px">@ActionStrings.Action</th>
+            <th width="20px">@Html.DisplayNameFor(model => model.IsApproved)</th>
             <th>@Html.DisplayNameFor(model => model.Title)</th>
             <th>@Html.DisplayNameFor(model => model.Customer)</th>
             <th>@Html.DisplayNameFor(model => model.OrderDate)</th>
             <th>@Html.DisplayNameFor(model => model.DueDate)</th>
             <th>@Html.DisplayNameFor(model => model.Code)</th>
             <th>@Html.DisplayNameFor(model => model.OrderItems)</th>
-            <th>@Html.DisplayNameFor(model => model.IsApproved)</th>
         </tr>
-    @foreach (var item in Model)
-    {
+        @foreach (var item in Model)
+        {
             <tr>
                 <td>
                     <div class="btn-group">
@@ -63,20 +64,27 @@
                                     </a>
                                 </li>
                             }
-                            <li class="divider"></li>
+                            @if (!item.IsApproved)
+                            {
+                                <li class="divider"></li>
                                 <li>@Html.ActionLink(EntityStrings.AddOrderItem, "Create", "OrderItems", new { purchaseOrderId = item.Id }, null)</li>
+                                if (canUserApprove)
+                                {
+                                    <li>@Html.ActionLink(ActionStrings.Approve, "Approve", new { id = item.Id })</li>
+                                }
+                            }
                         </ul>
                     </div>
                 </td>
+                <td>@Html.DisplayFor(modelItem => item.IsApproved)</td>
                 <td>@Html.DisplayFor(modelItem => item.Title)</td>
                 <td>@Html.DisplayFor(modelItem => item.Customer)</td>
                 <td>@Html.DisplayFor(modelItem => item.OrderDate)</td>
                 <td>@Html.DisplayFor(modelItem => item.DueDate)</td>
                 <td>@Html.DisplayFor(modelItem => item.Code)</td>
                 <td>@item.OrderItems.Count</td>
-                <td>@Html.DisplayFor(modelItem => item.IsApproved)</td>
             </tr>
-    }
+        }
     </table>
     @Html.Partial("_PagerPartial")
     if (canUserDelete)

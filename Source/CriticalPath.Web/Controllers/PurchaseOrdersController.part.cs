@@ -23,6 +23,42 @@ namespace CriticalPath.Web.Controllers
             ViewBag.CustomerId = new SelectList(queryCustomerId, "Id", "CompanyName", customerId);
         }
 
+        [Authorize(Roles = "admin, supervisor")]
+        public async Task<ActionResult> Approve(int? id)  //GET: /PurchaseOrders/Edit/5
+        {
+            if (id == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            PurchaseOrder purchaseOrder = await FindAsyncPurchaseOrder(id.Value);
+
+            if (purchaseOrder == null)
+                return HttpNotFound();
+
+            if(purchaseOrder.IsApproved)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            return View(purchaseOrder);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin, supervisor")]
+        public async Task<ActionResult> Approve(PurchaseOrderDTO vm)
+        {
+            PurchaseOrder purchaseOrder = await FindAsyncPurchaseOrder(vm.Id);
+            if (vm.IsApproved)
+            {
+                purchaseOrder.IsApproved = true;
+                purchaseOrder.ApproveDate = DateTime.Today;
+                purchaseOrder.ApprovedUserId = UserID;
+                purchaseOrder.ApprovedUserIp = GetUserIP();
+                await DataContext.SaveChangesAsync(this);
+                return RedirectToAction("Details", new { id = purchaseOrder.Id });
+            }
+
+            return View(purchaseOrder);
+        }
+
 
         partial void SetDefaults(PurchaseOrder purchaseOrder)
         {

@@ -129,6 +129,10 @@
     <Translation>Her zaman</Translation>
   </Vocab>
   <Vocab>
+    <Name>Approve</Name>
+    <Translation>Onayla</Translation>
+  </Vocab>
+  <Vocab>
     <Name>ApproveDate</Name>
     <Translation>Onay Tarihi</Translation>
   </Vocab>
@@ -530,7 +534,7 @@
   </Vocab>
   <Vocab>
     <Name>ExpireDate</Name>
-    <Translation>Yayın Sonlama Tarihi</Translation>
+    <Translation>Yayın Bitiş Tarihi</Translation>
   </Vocab>
   <Vocab>
     <Name>Fast</Name>
@@ -550,7 +554,15 @@
   </Vocab>
   <Vocab>
     <Name>ForecastDate</Name>
-    <Translation>Öngörülen Tarıh</Translation>
+    <Translation>Öngörülen Tarih</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ForecastEndDate</Name>
+    <Translation>Öngörülen Bitiş Tarihi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ForecastStartDate</Name>
+    <Translation>Öngörülen Start Tarihi</Translation>
   </Vocab>
   <Vocab>
     <Name>Height</Name>
@@ -590,7 +602,7 @@
   </Vocab>
   <Vocab>
     <Name>IsCompleted</Name>
-    <Translation>Tamamlandı</Translation>
+    <Translation>Bitti</Translation>
   </Vocab>
   <Vocab>
     <Name>IsPublished</Name>
@@ -691,6 +703,10 @@
   <Vocab>
     <Name>Often</Name>
     <Translation>Sık sık</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>OK</Name>
+    <Translation>Tamam</Translation>
   </Vocab>
   <Vocab>
     <Name>Order</Name>
@@ -913,6 +929,14 @@
     <Translation>Gerçekleşme Tarihi</Translation>
   </Vocab>
   <Vocab>
+    <Name>RealizedEndDate</Name>
+    <Translation>Gerçekleşen Bitiş Tarihi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RealizedStartDate</Name>
+    <Translation>Gerçekleşen Başlama Tarihi</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Record</Name>
     <Translation>Kayıt</Translation>
   </Vocab>
@@ -1006,7 +1030,15 @@
   </Vocab>
   <Vocab>
     <Name>TargetDate</Name>
-    <Translation>Hedefl Tarih</Translation>
+    <Translation>Hedeflenen Tarih</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TargetEndDate</Name>
+    <Translation>Hedeflenen Bitiş Tarihi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TargetStartDate</Name>
+    <Translation>Hedeflenen Başlama Tarihi</Translation>
   </Vocab>
   <Vocab>
     <Name>TaxNr</Name>

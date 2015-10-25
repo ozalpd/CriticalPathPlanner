@@ -431,8 +431,12 @@
 		<value>First Name</value>
 	</data>
 
-	<data name="ForecastDate" xml:space="preserve">
-		<value>Forecast Date</value>
+	<data name="ForecastEndDate" xml:space="preserve">
+		<value>Forecast End Date</value>
+	</data>
+
+	<data name="ForecastStartDate" xml:space="preserve">
+		<value>Forecast Start Date</value>
 	</data>
 
 	<data name="Id" xml:space="preserve">
@@ -440,11 +444,11 @@
 	</data>
 
 	<data name="IsApproved" xml:space="preserve">
-		<value>Is Approved</value>
+		<value>Approved</value>
 	</data>
 
 	<data name="IsCompleted" xml:space="preserve">
-		<value>Is Completed</value>
+		<value>Completed</value>
 	</data>
 
 	<data name="LastName" xml:space="preserve">
@@ -631,8 +635,12 @@
 		<value>Quantity</value>
 	</data>
 
-	<data name="RealizedDate" xml:space="preserve">
-		<value>Realized Date</value>
+	<data name="RealizedEndDate" xml:space="preserve">
+		<value>Realized End Date</value>
+	</data>
+
+	<data name="RealizedStartDate" xml:space="preserve">
+		<value>Realized Start Date</value>
 	</data>
 
 	<data name="RequiredWorkDays" xml:space="preserve">
@@ -667,8 +675,12 @@
 		<value>Suppliers List</value>
 	</data>
 
-	<data name="TargetDate" xml:space="preserve">
-		<value>Target Date</value>
+	<data name="TargetEndDate" xml:space="preserve">
+		<value>Target End Date</value>
+	</data>
+
+	<data name="TargetStartDate" xml:space="preserve">
+		<value>Target Start Date</value>
 	</data>
 
 	<data name="Template" xml:space="preserve">

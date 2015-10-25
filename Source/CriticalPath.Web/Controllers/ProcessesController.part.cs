@@ -29,15 +29,36 @@ namespace CriticalPath.Web.Controllers
         partial void OnCreateSaving(Process process)
         {
             var queryTemplate = DataContext.GetProcessStepTemplateQuery();
-            foreach (var step in queryTemplate)
+            DateTime targetDate = process.TargetStartDate;
+            DateTime forecastDate = process.ForecastStartDate.HasValue ?
+                                    process.ForecastStartDate.Value : DateTime.MinValue;
+
+            foreach (var template in queryTemplate)
             {
-                process.ProcessSteps.Add(new ProcessStep()
+                var step = new ProcessStep()
                 {
-                    Title = step.Title,
-                    DisplayOrder = step.DisplayOrder,
-                    TemplateId = step.Id
-                });
+                    Title = template.Title,
+                    DisplayOrder = template.DisplayOrder,
+                    TemplateId = template.Id,
+                    TargetStartDate = targetDate
+                };
+                targetDate =  targetDate.AddDays(template.RequiredWorkDays);
+                step.TargetEndDate = targetDate;
+                targetDate = targetDate.AddDays(1);
+                if (process.ForecastStartDate.HasValue)
+                {
+                    step.ForecastStartDate = forecastDate;
+                    forecastDate = forecastDate.AddDays(template.RequiredWorkDays);
+                    step.ForecastEndDate = forecastDate;
+                    forecastDate = forecastDate.AddDays(1);
+                }
+                process.ProcessSteps.Add(step);
             }
+        }
+
+        partial void SetDefaults(Process process)
+        {
+            process.TargetStartDate = DateTime.Today;
         }
 
         //public new class QueryParameters : BaseController.QueryParameters

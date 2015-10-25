@@ -1,0 +1,15 @@
+﻿@using CriticalPath.Web.Models
+@using CriticalPath.Data
+@using CriticalPath.Data.Resources
+@model Product
+@{
+    Layout = null;
+}
+@if (Model != null)
+{
+    if (Model.Category != null)
+    {
+        <h4 class="mt6 pull-left" title="@EntityStrings.Category">@Model.Category.Title /&nbsp;</h4>
+    }
+    <h4 class="mt6 pull-left" title="@Model.Code">@Model.Title</h4>
+}

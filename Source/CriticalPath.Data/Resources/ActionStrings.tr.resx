@@ -71,6 +71,10 @@
 		<value>Yeni Ekle</value>
 	</data>
 
+	<data name="Approve" xml:space="preserve">
+		<value>Onayla</value>
+	</data>
+
 	<data name="BackToIndex" xml:space="preserve">
 		<value>Listeye Git</value>
 	</data>
@@ -135,6 +139,14 @@
 		<value>Çıkış Yap</value>
 	</data>
 
+	<data name="No" xml:space="preserve">
+		<value>Hayır</value>
+	</data>
+
+	<data name="OK" xml:space="preserve">
+		<value>Tamam</value>
+	</data>
+
 	<data name="Print" xml:space="preserve">
 		<value>Yazdır</value>
 	</data>
@@ -169,5 +181,9 @@
 
 	<data name="Update" xml:space="preserve">
 		<value>Güncelle</value>
+	</data>
+
+	<data name="Yes" xml:space="preserve">
+		<value>Evet</value>
 	</data>
 </root>

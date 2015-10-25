@@ -431,8 +431,12 @@
 		<value>Ad</value>
 	</data>
 
-	<data name="ForecastDate" xml:space="preserve">
-		<value>Öngörülen Tarıh</value>
+	<data name="ForecastEndDate" xml:space="preserve">
+		<value>Öngörülen Bitiş Tarihi</value>
+	</data>
+
+	<data name="ForecastStartDate" xml:space="preserve">
+		<value>Öngörülen Start Tarihi</value>
 	</data>
 
 	<data name="Id" xml:space="preserve">
@@ -444,7 +448,7 @@
 	</data>
 
 	<data name="IsCompleted" xml:space="preserve">
-		<value>Tamamlandı</value>
+		<value>Bitti</value>
 	</data>
 
 	<data name="LastName" xml:space="preserve">
@@ -631,8 +635,12 @@
 		<value>Miktar</value>
 	</data>
 
-	<data name="RealizedDate" xml:space="preserve">
-		<value>Gerçekleşme Tarihi</value>
+	<data name="RealizedEndDate" xml:space="preserve">
+		<value>Gerçekleşen Bitiş Tarihi</value>
+	</data>
+
+	<data name="RealizedStartDate" xml:space="preserve">
+		<value>Gerçekleşen Başlama Tarihi</value>
 	</data>
 
 	<data name="RequiredWorkDays" xml:space="preserve">
@@ -667,8 +675,12 @@
 		<value>Tedarikçi Listesi</value>
 	</data>
 
-	<data name="TargetDate" xml:space="preserve">
-		<value>Hedefl Tarih</value>
+	<data name="TargetEndDate" xml:space="preserve">
+		<value>Hedeflenen Bitiş Tarihi</value>
+	</data>
+
+	<data name="TargetStartDate" xml:space="preserve">
+		<value>Hedeflenen Başlama Tarihi</value>
 	</data>
 
 	<data name="Template" xml:space="preserve">
