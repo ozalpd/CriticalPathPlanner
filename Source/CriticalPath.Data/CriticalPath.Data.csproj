@@ -57,7 +57,7 @@
     <Compile Include="Contact.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contact.part.cs" />
+    <Compile Include="Partials\Contact.part.cs" />
     <Compile Include="CriticalPathContext.cust.cs" />
     <Compile Include="CriticalPathContext.save.cs" />
     <Compile Include="CriticalPathModel.Context.cs">
@@ -106,15 +106,18 @@
     <Compile Include="Process.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Partials\ProcessDTO.part.cs" />
     <Compile Include="ProcessStep.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Partials\ProcessStepDTO.part.cs" />
     <Compile Include="ProcessStepTemplate.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ProcessTemplate.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Partials\ProcessTemplateDTO.part.cs" />
     <Compile Include="Product.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
@@ -125,6 +128,7 @@
     <Compile Include="PurchaseOrder.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Partials\PurchaseOrderDTO.part.cs" />
     <Compile Include="Resources\ActionStrings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

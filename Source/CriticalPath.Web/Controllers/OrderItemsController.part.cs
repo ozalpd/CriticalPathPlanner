@@ -12,27 +12,98 @@ using System.Web.Mvc;
 
 namespace CriticalPath.Web.Controllers
 {
-    public partial class OrderItemsController 
+    public partial class OrderItemsController
     {
-        partial void SetViewBags(OrderItem orderItem)
+        [Authorize]
+        public async Task<ActionResult> Index(QueryParameters qParams)
         {
-            //TODO: Optimize query
-            var queryPuchaseOrderId = DataContext.PurchaseOrders;
+            var query = DataContext.GetOrderItemQuery();
+            if (!string.IsNullOrEmpty(qParams.SearchString))
+            {
+                query = from a in query
+                        where
+                            a.Notes.Contains(qParams.SearchString) ||
+                            a.PurchaseOrder.Title.Contains(qParams.SearchString) ||
+                            a.PurchaseOrder.Code.Contains(qParams.SearchString) ||
+                            a.Product.Title.Contains(qParams.SearchString) ||
+                            a.Product.Code.Contains(qParams.SearchString) ||
+                            a.Product.Description.Contains(qParams.SearchString)
+                        select a;
+            }
+            if (qParams.PurchaseOrderId != null)
+            {
+                query = query.Where(x => x.PurchaseOrderId == qParams.PurchaseOrderId);
+            }
+            if (qParams.ProductId != null)
+            {
+                query = query.Where(x => x.ProductId == qParams.ProductId);
+            }
+            qParams.TotalCount = await query.CountAsync();
+            PutPagerInViewBag(qParams);
+            await PutCanUserInViewBag();
+
+            if (qParams.TotalCount > 0)
+            {
+                return View(await query.Skip(qParams.Skip).Take(qParams.PageSize).ToListAsync());
+            }
+            else
+            {
+                return View(new List<OrderItem>());   //there isn't any record, so no need to run a query
+            }
+        }
+
+        protected override async Task<bool> CanUserCreate()
+        {
+            if (!_canUserCreate.HasValue)
+            {
+                _canUserCreate = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync() ||
+                                    await IsUserClerkAsync());
+            }
+            return _canUserCreate.Value;
+        }
+        bool? _canUserCreate;
+
+        protected override async Task<bool> CanUserEdit()
+        {
+            if (!_canUserEdit.HasValue)
+            {
+                _canUserEdit = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync() ||
+                                    await IsUserClerkAsync());
+            }
+            return _canUserEdit.Value;
+        }
+        bool? _canUserEdit;
+
+        protected override async Task<bool> CanUserDelete()
+        {
+            if (!_canUserDelete.HasValue)
+            {
+                _canUserDelete = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync());
+            }
+            return _canUserDelete.Value;
+        }
+        bool? _canUserDelete;
+
+
+        partial void SetSelectLists(OrderItem orderItem)
+        {
+            //var queryPuchaseOrderId = DataContext.GetPurchaseOrderDtoQuery();
             //int puchaseOrderId = orderItem == null ? 0 : orderItem.PuchaseOrderId;
             //ViewBag.PuchaseOrderId = new SelectList(queryPuchaseOrderId, "Id", "Title", puchaseOrderId);
-            //TODO: Optimize query
-            var queryProductId = DataContext.Products;
+
+            //TODO: ProductCategory selectlist and its ParentCategory selectlist
+            var queryProductId = DataContext.GetProductDtoQuery();
             int productId = orderItem == null ? 0 : orderItem.ProductId;
             ViewBag.ProductId = new SelectList(queryProductId, "Id", "Title", productId);
         }
 
-
-        //public new class QueryParameters : BaseController.QueryParameters
-        //{
-
-        //}
-
-        partial void SetDefaults(OrderItem orderItem)
+        protected override void SetOrderItemDefaults(OrderItem orderItem)
         {
             int count = 0;
             if (orderItem.PurchaseOrderId > 0)

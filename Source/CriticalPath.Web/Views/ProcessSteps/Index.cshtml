@@ -2,96 +2,107 @@
 @using CriticalPath.Data
 @using CriticalPath.Data.Resources
 @model IEnumerable<ProcessStep>
-@{
+    @{
     ViewBag.Title = @EntityStrings.ProcessSteps;
 
     //Authorization Flags
     bool canUserEdit = ViewBag.canUserEdit;
     bool canUserCreate = ViewBag.canUserCreate;
     bool canUserDelete = ViewBag.canUserDelete;
+    bool canUserApprove = ViewBag.canUserApprove;
 
     //Records & Pager
     int page = ViewBag.page;
     int totalCount = ViewBag.totalCount;
     int pageSize = ViewBag.pageSize;
     int pageCount = ViewBag.pageCount;
-}
-<div class="row well">
-    <div class="col-md-8 col-sm-7">
-        <h4>@EntityStrings.ProcessSteps</h4>
-    </div>
-    @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "searchForm" }))
-    {
+
+    int processId = ViewBag.processId;
+    var firstStep = Model.FirstOrDefault();
+    var title = (processId > 0 && firstStep != null && firstStep.Process != null) ?
+    firstStep.Process.Title :
+    EntityStrings.ProcessSteps;
+    }
+    <div class="row well">
+        <div class="col-md-8 col-sm-7">
+            <h4>@title</h4>
+        </div>
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "searchForm" }))
+        {
         @Html.Hidden("page", page)
         <div class="col-md-4 col-sm-5">
             @Html.Partial("_SearchBoxPartial")
         </div>
-    }
-</div>
-@if (totalCount > 0)
-{
+        }
+    </div>
+    @if (totalCount > 0)
+    {
     <table class="table table-hover">
         <tr>
             <th>@ActionStrings.Action</th>
             <th>@Html.DisplayNameFor(model => model.Title)</th>
+            <th>@Html.DisplayNameFor(model => model.IsApproved)</th>
             <th>@Html.DisplayNameFor(model => model.IsCompleted)</th>
+            @if (!(processId > 0))
+            {
             <th>@Html.DisplayNameFor(model => model.Process)</th>
+            }
             <th>@Html.DisplayNameFor(model => model.TargetStartDate)</th>
             <th>@Html.DisplayNameFor(model => model.TargetEndDate)</th>
             <th>@Html.DisplayNameFor(model => model.ForecastStartDate)</th>
             <th>@Html.DisplayNameFor(model => model.ForecastEndDate)</th>
             <th>@Html.DisplayNameFor(model => model.RealizedStartDate)</th>
             <th>@Html.DisplayNameFor(model => model.RealizedEndDate)</th>
-            <th>@Html.DisplayNameFor(model => model.IsApproved)</th>
         </tr>
-    @foreach (var item in Model)
-    {
-            <tr>
-                <td>
-                    <div class="btn-group">
-                        <button type="button" title="@ActionStrings.Action" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">
-                            <span class="glyphicon glyphicon-tasks"></span> <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" role="menu">
-                            <li>@Html.ActionLink(ActionStrings.Details, "Details", new { id = item.Id })</li>
-                            @if (canUserEdit)
-                            {
-                                <li>@Html.ActionLink(ActionStrings.Edit, "Edit", new { id = item.Id })</li>
-                            }
-                            @if (canUserDelete)
-                            {
-                                <li>
-                                    <a href="#deleteConfirm" data-toggle="modal" onclick="setDelete('<b>@(item.Title)</b>', @item.Id);">
-                                    @ActionStrings.Delete
-                                </a>
-                                </li>
-                            }
-                        </ul>
-                    </div>
-                </td>
-                <td>@Html.DisplayFor(modelItem => item.Title)</td>
-                <td>@Html.DisplayFor(modelItem => item.IsCompleted)</td>
-                <td>@Html.DisplayFor(modelItem => item.Process)</td>
-                <td>@Html.DisplayFor(modelItem => item.TargetStartDate)</td>
-                <td>@Html.DisplayFor(modelItem => item.TargetEndDate)</td>
-                <td>@Html.DisplayFor(modelItem => item.ForecastStartDate)</td>
-                <td>@Html.DisplayFor(modelItem => item.ForecastEndDate)</td>
-                <td>@Html.DisplayFor(modelItem => item.RealizedStartDate)</td>
-                <td>@Html.DisplayFor(modelItem => item.RealizedEndDate)</td>
-                <td>@Html.DisplayFor(modelItem => item.IsApproved)</td>
-            </tr>
-    }
+        @foreach (var item in Model)
+        {
+            var process = item.Process;
+        <tr>
+            <td>
+                <div class="btn-group">
+                    <button type="button" title="@ActionStrings.Action" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-tasks"></span> <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>@Html.ActionLink(ActionStrings.Details, "Details", new { id = item.Id })</li>
+                        @if (canUserEdit)
+                        {
+                        <li>@Html.ActionLink(ActionStrings.Edit, "Edit", new { id = item.Id })</li>
+                        }
+                        @if (process!=null && process.IsApproved && !item.IsApproved && canUserApprove)
+                        {
+                        <li class="divider"></li>
+                        <li>@Html.ActionLink(ActionStrings.Approve, "Approve", new { id = item.Id })</li>
+                        }
+                    </ul>
+                </div>
+            </td>
+            <td>@Html.DisplayFor(modelItem => item.Title)</td>
+            <td>@Html.DisplayFor(modelItem => item.IsApproved)</td>
+            <td>@Html.DisplayFor(modelItem => item.IsCompleted)</td>
+            @if (!(processId > 0))
+            {
+            <td>@Html.DisplayFor(modelItem => item.Process)</td>
+            }
+            <td>@Html.DisplayFor(modelItem => item.TargetStartDate)</td>
+            <td>@Html.DisplayFor(modelItem => item.TargetEndDate)</td>
+            <td>@Html.DisplayFor(modelItem => item.ForecastStartDate)</td>
+            <td>@Html.DisplayFor(modelItem => item.ForecastEndDate)</td>
+            <td>@Html.DisplayFor(modelItem => item.RealizedStartDate)</td>
+            <td>@Html.DisplayFor(modelItem => item.RealizedEndDate)</td>
+        </tr>
+        }
     </table>
     @Html.Partial("_PagerPartial")
     if (canUserDelete)
     {
-        @Html.Partial("_MessageBoxPartial")
+    @Html.Partial("_MessageBoxPartial")
     }
-}
-else
-{
+    }
+    else
+    {
     <h4>@MessageStrings.NoResults!</h4>
-}
-@section scripts{
+    }
+    @section scripts{
     @Html.Partial("_IndexScriptsPartial", "ProcessSteps")
-}
+    }

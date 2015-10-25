@@ -37,10 +37,7 @@ defaultQuerySettings.DtoExclusions
             defaultQuerySettings.PublishPropertyName
         });
 
-/*  
-	Interface Definition List
-	Begins Here
-*/
+//  Interface Definition List
 List<InterfaceDefinition> AutoGenInterfaces = new List<InterfaceDefinition>();
 InterfaceDefinition displayOrder = new InterfaceDefinition() { Name = "IDisplayOrder" };
 AutoGenInterfaces.Add(displayOrder);
@@ -74,17 +71,23 @@ InterfaceDefinition modifydate = new InterfaceDefinition() { Name = "IModifyDate
 AutoGenInterfaces.Add(modifydate);
 modifydate.Properties.Add(new InterfaceProperty() { TypeName = "System.DateTime", Name = "ModifyDate", OnInsertSetTo = "DateTime.Now", OnUpdateSetTo = "DateTime.Now" });
 
+InterfaceDefinition isApproved = new InterfaceDefinition() { Name = "IIsApproved" };
+AutoGenInterfaces.Add(isApproved);
+isApproved.Properties.Add(new InterfaceProperty() { TypeName = "int", Name = "Id" });
+var approveDate = new InterfaceProperty() { TypeName = "Nullable<System.DateTime>", Name = "ApproveDate", OnInsertSetTo = "DateTime.Now", OnUpdateSetTo = "DateTime.Now" };
+var approveFlag = new InterfaceProperty() { TypeName = "bool", Name = "IsApproved" };
+isApproved.Properties.Add(approveDate);
+isApproved.Properties.Add(approveFlag);
+
 InterfaceDefinition approval = new InterfaceDefinition() { Name = "IApproval" };
 AutoGenInterfaces.Add(approval);
-approval.Properties.Add(new InterfaceProperty() { TypeName = "Nullable<System.DateTime>", Name = "ApproveDate", OnInsertSetTo = "DateTime.Now", OnUpdateSetTo = "DateTime.Now" });
-approval.Properties.Add(new InterfaceProperty() { TypeName = "bool", Name = "IsApproved" });
+approval.Properties.Add(approveDate);
+approval.Properties.Add(approveFlag);
 approval.Properties.Add(new InterfaceProperty() { TypeName = "string", Name = "ApprovedUserId" });
 approval.Properties.Add(new InterfaceProperty() { TypeName = "string", Name = "ApprovedUserIp" });
 
-/*  
-	Interface Definition List
-	Ends Here 
-*/
+//Ends Here - Interface Definition List
+
  #>
 <#+ 
 /*  Utility Methods Begins Here */

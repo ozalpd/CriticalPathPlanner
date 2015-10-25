@@ -259,6 +259,17 @@
           <Nullable>false</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
+          <Name>CompanyId</Name>
+          <Exclude>false</Exclude>
+          <DataType>int</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>true</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+          <ForeignKeyTable>Companies</ForeignKeyTable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
           <Name>EmailWork</Name>
           <Exclude>false</Exclude>
           <DataType>nVarChar</DataType>
@@ -317,17 +328,6 @@
           <Indexed>false</Indexed>
           <SortDesc>false</SortDesc>
           <Nullable>true</Nullable>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
-          <Name>CompanyId</Name>
-          <Exclude>false</Exclude>
-          <DataType>int</DataType>
-          <Lenght>0</Lenght>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
-          <SortDesc>false</SortDesc>
-          <Nullable>false</Nullable>
-          <ForeignKeyTable>Companies</ForeignKeyTable>
         </StorageColumnSetting>
       </Properties>
     </BaseEntitySetting>

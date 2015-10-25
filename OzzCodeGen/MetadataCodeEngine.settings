@@ -147,6 +147,17 @@
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
+          <Name>Company</Name>
+          <Exclude>false</Exclude>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>CompanyId</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
           <Name>EmailWork</Name>
           <Exclude>false</Exclude>
           <DataType>EmailAddress</DataType>
@@ -180,17 +191,6 @@
           <Name>Notes</Name>
           <Exclude>false</Exclude>
           <DataType>MultilineText</DataType>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>CompanyId</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>Company</Name>
-          <Exclude>false</Exclude>
           <Required />
         </MetadataPropertySetting>
       </Properties>

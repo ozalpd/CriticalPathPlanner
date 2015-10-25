@@ -157,6 +157,10 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TemplateName" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="DefaultTitle" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="IsApproved" Type="bit" Nullable="false" />
+          <Property Name="ApproveDate" Type="datetime" />
+          <Property Name="ApprovedUserId" Type="varchar" MaxLength="48" />
+          <Property Name="ApprovedUserIp" Type="varchar" MaxLength="48" />
           <Property Name="ModifyNr" Type="int" Nullable="false" />
           <Property Name="ModifyDate" Type="datetime" Nullable="false" />
           <Property Name="ModifierId" Type="varchar" MaxLength="48" Nullable="false" />
@@ -813,6 +817,10 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TemplateName" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="DefaultTitle" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+          <Property Name="ApproveDate" Type="DateTime" Precision="3" />
+          <Property Name="ApprovedUserId" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="ApprovedUserIp" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
           <Property Name="ModifyNr" Type="Int32" Nullable="false" />
           <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
@@ -1109,6 +1117,10 @@
           <EntitySetMapping Name="ProcessTemplates">
             <EntityTypeMapping TypeName="CriticalPathDataModel.ProcessTemplate">
               <MappingFragment StoreEntitySet="ProcessTemplates">
+                <ScalarProperty Name="ApprovedUserIp" ColumnName="ApprovedUserIp" />
+                <ScalarProperty Name="ApprovedUserId" ColumnName="ApprovedUserId" />
+                <ScalarProperty Name="ApproveDate" ColumnName="ApproveDate" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
                 <ScalarProperty Name="CreatorIp" ColumnName="CreatorIp" />
                 <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
                 <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />

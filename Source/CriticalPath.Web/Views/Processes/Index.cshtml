@@ -9,6 +9,7 @@
     bool canUserEdit = ViewBag.canUserEdit;
     bool canUserCreate = ViewBag.canUserCreate;
     bool canUserDelete = ViewBag.canUserDelete;
+    bool canUserApprove = ViewBag.canUserApprove;
 
     //Records & Pager
     int page = ViewBag.page;
@@ -35,6 +36,7 @@
         <tr>
             <th>@ActionStrings.Action</th>
             <th>@Html.DisplayNameFor(model => model.Title)</th>
+            <th>@Html.DisplayNameFor(model => model.IsApproved)</th>
             <th>@Html.DisplayNameFor(model => model.IsCompleted)</th>
             <th>@Html.DisplayNameFor(model => model.OrderItem)</th>
             <th>@Html.DisplayNameFor(model => model.TargetStartDate)</th>
@@ -43,10 +45,9 @@
             <th>@Html.DisplayNameFor(model => model.ForecastEndDate)</th>
             <th>@Html.DisplayNameFor(model => model.RealizedStartDate)</th>
             <th>@Html.DisplayNameFor(model => model.RealizedEndDate)</th>
-            <th>@Html.DisplayNameFor(model => model.IsApproved)</th>
         </tr>
-    @foreach (var item in Model)
-    {
+        @foreach (var item in Model)
+        {
             <tr>
                 <td>
                     <div class="btn-group">
@@ -67,21 +68,27 @@
                                     </a>
                                 </li>
                             }
+                            <li class="divider"></li>
+                            @if (!item.IsApproved && canUserApprove)
+                            {
+                                <li>@Html.ActionLink(ActionStrings.Approve, "Approve", new { id = item.Id })</li>
+                            }
+                            <li>@Html.ActionLink(EntityStrings.ProcessSteps, "Index", "ProcessSteps", new { processId = item.Id, pageSize = item.ProcessSteps.Count }, null)</li>
                         </ul>
                     </div>
                 </td>
                 <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                <td>@Html.DisplayFor(modelItem => item.IsApproved)</td>
                 <td>@Html.DisplayFor(modelItem => item.IsCompleted)</td>
                 <td>@Html.DisplayFor(modelItem => item.OrderItem)</td>
                 <td align="right">@Html.DisplayFor(modelItem => item.TargetStartDate)</td>
-                <td>@Html.DisplayFor(modelItem => item.TargetEndDate)</td>
-                <td>@Html.DisplayFor(modelItem => item.ForecastStartDate)</td>
-                <td>@Html.DisplayFor(modelItem => item.ForecastEndDate)</td>
-                <td>@Html.DisplayFor(modelItem => item.RealizedStartDate)</td>
-                <td>@Html.DisplayFor(modelItem => item.RealizedEndDate)</td>
-                <td>@Html.DisplayFor(modelItem => item.IsApproved)</td>
+                <td align="right">@Html.DisplayFor(modelItem => item.ForecastStartDate)</td>
+                <td align="right">@Html.DisplayFor(modelItem => item.RealizedStartDate)</td>
+                <td align="right">@Html.DisplayFor(modelItem => item.ForecastEndDate)</td>
+                <td align="right">@Html.DisplayFor(modelItem => item.TargetEndDate)</td>
+                <td align="right">@Html.DisplayFor(modelItem => item.RealizedEndDate)</td>
             </tr>
-    }
+        }
     </table>
     @Html.Partial("_PagerPartial")
     if (canUserDelete)

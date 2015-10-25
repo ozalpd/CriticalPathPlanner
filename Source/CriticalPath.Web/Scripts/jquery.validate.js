@@ -287,8 +287,8 @@ $.extend($.validator, {
 		}
 	},
 
-	// http://docs.jquery.com/Plugins/Validation/Validator/setDefaults
-	setDefaults: function( settings ) {
+	// http://docs.jquery.com/Plugins/Validation/Validator/SetEntityDefaults
+	SetEntityDefaults: function( settings ) {
 		$.extend( $.validator.defaults, settings );
 	},
 

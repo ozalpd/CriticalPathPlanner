@@ -1,26 +1,51 @@
-using System;
-using System.Linq;
-using System.Collections;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Threading.Tasks;
-using CriticalPath.Data;
-using CriticalPath.Web.Models;
 using System.Net;
 using System.Web.Mvc;
+using System.Threading.Tasks;
+using CriticalPath.Data;
 
 namespace CriticalPath.Web.Controllers
 {
-    public partial class ProcessTemplatesController 
+    public partial class ProcessTemplatesController
     {
+        protected override async Task PutCanUserInViewBag()
+        {
+            ViewBag.canUserApprove = await CanUserApprove();
+            await base.PutCanUserInViewBag();
+        }
 
-        //public new class QueryParameters : BaseController.QueryParameters
-        //{
+        [Authorize(Roles = "admin, supervisor")]
+        public async Task<ActionResult> Approve(int? id)  //GET: /PurchaseOrders/Edit/5
+        {
+            if (id == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-        //}
+            var processTemplate = await FindAsyncProcessTemplate(id.Value);
+
+            if (processTemplate == null)
+                return HttpNotFound();
+
+            if (processTemplate.IsApproved)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            return View(processTemplate);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin, supervisor")]
+        public async Task<ActionResult> Approve(ProcessTemplateDTO vm)
+        {
+            var processTemplate = await FindAsyncProcessTemplate(vm.Id);
+            if (vm.IsApproved && processTemplate != null)
+            {
+                await ApproveSaveAsync(processTemplate);
+                return RedirectToAction("Details", new { id = processTemplate.Id });
+            }
+
+            return View(processTemplate);
+        }
 
         //Purpose: To set default property values for newly created ProcessTemplate entity
-        //partial void SetDefaults(ProcessTemplate processTemplate) { }
+        //protected override void SetProcessTemplateDefaults(ProcessTemplate processTemplate) { }
     }
 }

@@ -17,81 +17,6 @@ namespace CriticalPath.Web.Controllers
     public partial class OrderItemsController : BaseController 
     {
         [Authorize]
-        public async Task<ActionResult> Index(QueryParameters qParams)
-        {
-            var query = DataContext.GetOrderItemQuery();
-            if (!string.IsNullOrEmpty(qParams.SearchString))
-            {
-                query = from a in query
-                        where
-                            a.Notes.Contains(qParams.SearchString) 
-                        select a;
-            }
-            if (qParams.PurchaseOrderId != null)
-            {
-                query = query.Where(x => x.PurchaseOrderId == qParams.PurchaseOrderId);
-            }
-            if (qParams.ProductId != null)
-            {
-                query = query.Where(x => x.ProductId == qParams.ProductId);
-            }
-            qParams.TotalCount = await query.CountAsync();
-            SetPagerParameters(qParams);
-
-            ViewBag.canUserEdit = await CanUserEdit();
-            ViewBag.canUserCreate = await CanUserCreate();
-            ViewBag.canUserDelete = await CanUserDelete();
-
-            if (qParams.TotalCount > 0)
-            {
-                return View(await query.Skip(qParams.Skip).Take(qParams.PageSize).ToListAsync());
-            }
-            else
-            {
-                return View(new List<OrderItem>());   //there isn't any record, so no need to run a query
-            }
-        }
-        
-        protected virtual async Task<bool> CanUserCreate()
-        {
-            if (!_canUserCreate.HasValue)
-            {
-                _canUserCreate = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync() ||
-                                    await IsUserClerkAsync());
-            }
-            return _canUserCreate.Value;
-        }
-        bool? _canUserCreate;
-
-        protected virtual async Task<bool> CanUserEdit()
-        {
-            if (!_canUserEdit.HasValue)
-            {
-                _canUserEdit = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync() ||
-                                    await IsUserClerkAsync());
-            }
-            return _canUserEdit.Value;
-        }
-        bool? _canUserEdit;
-        
-        protected virtual async Task<bool> CanUserDelete()
-        {
-            if (!_canUserDelete.HasValue)
-            {
-                _canUserDelete = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync());
-            }
-            return _canUserDelete.Value;
-        }
-        bool? _canUserDelete;
-
-
-        [Authorize]
         public async Task<ActionResult> Details(int? id)  //GET: /OrderItems/Details/5
         {
             if (id == null)
@@ -108,7 +33,6 @@ namespace CriticalPath.Web.Controllers
             return View(orderItem);
         }
 
-
         [HttpGet]
         [Authorize(Roles = "admin, supervisor, clerk")]
         [Route("OrderItems/Create/{purchaseOrderId:int?}")]
@@ -122,8 +46,8 @@ namespace CriticalPath.Web.Controllers
                     return HttpNotFound();
                 orderItem.PurchaseOrder = purchaseOrder;
             }
-            SetDefaults(orderItem);
-            SetViewBags(null);
+            SetOrderItemDefaults(orderItem);
+            SetSelectLists(null);
             return View(orderItem);
         }
 
@@ -146,10 +70,9 @@ namespace CriticalPath.Web.Controllers
                 return RedirectToAction("Create", "Processes", new { orderItemId = orderItem.Id });
             }
 
-            SetViewBags(orderItem);
+            SetSelectLists(orderItem);
             return View(orderItem);
         }
-
 
         [Authorize(Roles = "admin, supervisor, clerk")]
         public async Task<ActionResult> Edit(int? id)  //GET: /OrderItems/Edit/5
@@ -165,7 +88,7 @@ namespace CriticalPath.Web.Controllers
                 return HttpNotFound();
             }
 
-            SetViewBags(orderItem);
+            SetSelectLists(orderItem);
             return View(orderItem);
         }
 
@@ -187,7 +110,7 @@ namespace CriticalPath.Web.Controllers
                 return RedirectToAction("Details", "PurchaseOrders", new { id = orderItem.PurchaseOrderId });
             }
 
-            SetViewBags(orderItem);
+            SetSelectLists(orderItem);
             return View(orderItem);
         }
 
@@ -231,12 +154,12 @@ namespace CriticalPath.Web.Controllers
             public int? ProductId { get; set; }
         }
 
+
         //Partial methods
         partial void OnCreateSaving(OrderItem orderItem);
         partial void OnCreateSaved(OrderItem orderItem);
         partial void OnEditSaving(OrderItem orderItem);
         partial void OnEditSaved(OrderItem orderItem);
-        partial void SetDefaults(OrderItem orderItem);
-        partial void SetViewBags(OrderItem orderItem);
+        partial void SetSelectLists(OrderItem orderItem);
     }
 }

@@ -33,11 +33,8 @@ namespace CriticalPath.Web.Controllers
                 query = query.Where(x => x.ParentCategoryId == qParams.ParentCategoryId);
             }
             qParams.TotalCount = await query.CountAsync();
-            SetPagerParameters(qParams);
-
-            ViewBag.canUserEdit = await CanUserEdit();
-            ViewBag.canUserCreate = await CanUserCreate();
-            ViewBag.canUserDelete = await CanUserDelete();
+            PutPagerInViewBag(qParams);
+            await PutCanUserInViewBag();
 
             if (qParams.TotalCount > 0)
             {
@@ -49,7 +46,7 @@ namespace CriticalPath.Web.Controllers
             }
         }
         
-        protected virtual async Task<bool> CanUserCreate()
+        protected override async Task<bool> CanUserCreate()
         {
             if (!_canUserCreate.HasValue)
             {
@@ -62,7 +59,7 @@ namespace CriticalPath.Web.Controllers
         }
         bool? _canUserCreate;
 
-        protected virtual async Task<bool> CanUserEdit()
+        protected override async Task<bool> CanUserEdit()
         {
             if (!_canUserEdit.HasValue)
             {
@@ -75,7 +72,7 @@ namespace CriticalPath.Web.Controllers
         }
         bool? _canUserEdit;
         
-        protected virtual async Task<bool> CanUserDelete()
+        protected override async Task<bool> CanUserDelete()
         {
             if (!_canUserDelete.HasValue)
             {
@@ -86,7 +83,6 @@ namespace CriticalPath.Web.Controllers
             return _canUserDelete.Value;
         }
         bool? _canUserDelete;
-
 
         
         public async Task<ActionResult> Details(int? id)  //GET: /ProductCategories/Details/5
@@ -105,14 +101,13 @@ namespace CriticalPath.Web.Controllers
             return View(productCategory);
         }
 
-
         [HttpGet]
         [Authorize(Roles = "admin, supervisor, clerk")]
         public ActionResult Create()  //GET: /ProductCategories/Create
         {
             var productCategory = new ProductCategory();
-            SetDefaults(productCategory);
-            SetViewBags(null);
+            SetProductCategoryDefaults(productCategory);
+            SetSelectLists(null);
             return View(productCategory);
         }
 
@@ -134,10 +129,9 @@ namespace CriticalPath.Web.Controllers
                 return RedirectToAction("Index");
             }
 
-            SetViewBags(productCategory);
+            SetSelectLists(productCategory);
             return View(productCategory);
         }
-
 
         [Authorize(Roles = "admin, supervisor, clerk")]
         public async Task<ActionResult> Edit(int? id)  //GET: /ProductCategories/Edit/5
@@ -153,7 +147,7 @@ namespace CriticalPath.Web.Controllers
                 return HttpNotFound();
             }
 
-            SetViewBags(productCategory);
+            SetSelectLists(productCategory);
             return View(productCategory);
         }
 
@@ -175,7 +169,7 @@ namespace CriticalPath.Web.Controllers
                 return RedirectToAction("Index");
             }
 
-            SetViewBags(productCategory);
+            SetSelectLists(productCategory);
             return View(productCategory);
         }
 
@@ -244,12 +238,12 @@ namespace CriticalPath.Web.Controllers
             public int? ParentCategoryId { get; set; }
         }
 
+
         //Partial methods
         partial void OnCreateSaving(ProductCategory productCategory);
         partial void OnCreateSaved(ProductCategory productCategory);
         partial void OnEditSaving(ProductCategory productCategory);
         partial void OnEditSaved(ProductCategory productCategory);
-        partial void SetDefaults(ProductCategory productCategory);
-        partial void SetViewBags(ProductCategory productCategory);
+        partial void SetSelectLists(ProductCategory productCategory);
     }
 }

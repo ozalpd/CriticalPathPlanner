@@ -17,80 +17,6 @@ namespace CriticalPath.Web.Controllers
     public partial class PurchaseOrdersController : BaseController 
     {
         [Authorize]
-        public async Task<ActionResult> Index(QueryParameters qParams)
-        {
-            var query = DataContext.GetPurchaseOrderQuery();
-            if (!string.IsNullOrEmpty(qParams.SearchString))
-            {
-                query = from a in query
-                        where
-                            a.Title.Contains(qParams.SearchString) | 
-                            a.Code.Contains(qParams.SearchString) | 
-                            a.Description.Contains(qParams.SearchString) | 
-                            a.Notes.Contains(qParams.SearchString) 
-                        select a;
-            }
-            if (qParams.CustomerId != null)
-            {
-                query = query.Where(x => x.CustomerId == qParams.CustomerId);
-            }
-            qParams.TotalCount = await query.CountAsync();
-            SetPagerParameters(qParams);
-
-            ViewBag.canUserEdit = await CanUserEdit();
-            ViewBag.canUserCreate = await CanUserCreate();
-            ViewBag.canUserDelete = await CanUserDelete();
-
-            if (qParams.TotalCount > 0)
-            {
-                return View(await query.Skip(qParams.Skip).Take(qParams.PageSize).ToListAsync());
-            }
-            else
-            {
-                return View(new List<PurchaseOrder>());   //there isn't any record, so no need to run a query
-            }
-        }
-        
-        protected virtual async Task<bool> CanUserCreate()
-        {
-            if (!_canUserCreate.HasValue)
-            {
-                _canUserCreate = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync() ||
-                                    await IsUserClerkAsync());
-            }
-            return _canUserCreate.Value;
-        }
-        bool? _canUserCreate;
-
-        protected virtual async Task<bool> CanUserEdit()
-        {
-            if (!_canUserEdit.HasValue)
-            {
-                _canUserEdit = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync() ||
-                                    await IsUserClerkAsync());
-            }
-            return _canUserEdit.Value;
-        }
-        bool? _canUserEdit;
-        
-        protected virtual async Task<bool> CanUserDelete()
-        {
-            if (!_canUserDelete.HasValue)
-            {
-                _canUserDelete = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync());
-            }
-            return _canUserDelete.Value;
-        }
-        bool? _canUserDelete;
-
-
-        [Authorize]
         public async Task<ActionResult> Details(int? id)  //GET: /PurchaseOrders/Details/5
         {
             if (id == null)
@@ -107,7 +33,6 @@ namespace CriticalPath.Web.Controllers
             return View(purchaseOrder);
         }
 
-
         [HttpGet]
         [Authorize(Roles = "admin, supervisor, clerk")]
         [Route("PurchaseOrders/Create/{customerId:int?}")]
@@ -121,8 +46,8 @@ namespace CriticalPath.Web.Controllers
                     return HttpNotFound();
                 purchaseOrder.Customer = customer;
             }
-            SetDefaults(purchaseOrder);
-            SetViewBags(null);
+            SetPurchaseOrderDefaults(purchaseOrder);
+            SetSelectLists(null);
             return View(purchaseOrder);
         }
 
@@ -145,10 +70,9 @@ namespace CriticalPath.Web.Controllers
                 return RedirectToAction("Create", "OrderItems", new { purchaseOrderId = purchaseOrder.Id });
             }
 
-            SetViewBags(purchaseOrder);
+            SetSelectLists(purchaseOrder);
             return View(purchaseOrder);
         }
-
 
         [Authorize(Roles = "admin, supervisor, clerk")]
         public async Task<ActionResult> Edit(int? id)  //GET: /PurchaseOrders/Edit/5
@@ -164,7 +88,7 @@ namespace CriticalPath.Web.Controllers
                 return HttpNotFound();
             }
 
-            SetViewBags(purchaseOrder);
+            SetSelectLists(purchaseOrder);
             return View(purchaseOrder);
         }
 
@@ -186,7 +110,7 @@ namespace CriticalPath.Web.Controllers
                 return RedirectToAction("Details", new { id = purchaseOrder.Id });
             }
 
-            SetViewBags(purchaseOrder);
+            SetSelectLists(purchaseOrder);
             return View(purchaseOrder);
         }
 
@@ -248,12 +172,12 @@ namespace CriticalPath.Web.Controllers
             public int? CustomerId { get; set; }
         }
 
+
         //Partial methods
         partial void OnCreateSaving(PurchaseOrder purchaseOrder);
         partial void OnCreateSaved(PurchaseOrder purchaseOrder);
         partial void OnEditSaving(PurchaseOrder purchaseOrder);
         partial void OnEditSaved(PurchaseOrder purchaseOrder);
-        partial void SetDefaults(PurchaseOrder purchaseOrder);
-        partial void SetViewBags(PurchaseOrder purchaseOrder);
+        partial void SetSelectLists(PurchaseOrder purchaseOrder);
     }
 }

@@ -21,7 +21,7 @@ using CriticalPath.Data.Resources;
 
 namespace CriticalPath.Web.Controllers
 {
-    public partial class BaseController : OzzIdentity.Controllers.AbstractController 
+    public abstract partial class BaseController : OzzIdentity.Controllers.AbstractController 
     {
         public partial class QueryParameters
         {
@@ -55,13 +55,24 @@ namespace CriticalPath.Web.Controllers
             int _totalCount;
         }
 
-        protected virtual void SetPagerParameters(QueryParameters qParams)
+        protected virtual void PutPagerInViewBag(QueryParameters qParams)
         {
             ViewBag.page = qParams.Page;
             ViewBag.totalCount = qParams.TotalCount;
             ViewBag.pageSize = qParams.PageSize;
             ViewBag.pageCount = qParams.PageCount;
         }
+
+        protected virtual async Task PutCanUserInViewBag()
+        {
+            ViewBag.canUserEdit = await CanUserEdit();
+            ViewBag.canUserCreate = await CanUserCreate();
+            ViewBag.canUserDelete = await CanUserDelete();
+        }
+		//If we forget to implement override methods, we will keep it secure.
+        protected virtual async Task<bool> CanUserCreate() { return false; }
+        protected virtual async Task<bool> CanUserEdit() { return false; }
+        protected virtual async Task<bool> CanUserDelete() { return false; }
 
         protected virtual async Task<bool> IsUserAdminAsync()
         {
@@ -120,12 +131,16 @@ namespace CriticalPath.Web.Controllers
                             .FirstOrDefaultAsync(x => x.Id == id);
         }
 
+		protected virtual void SetContactDefaults(Contact contact) { }
+
         protected virtual async Task<Supplier> FindAsyncSupplier(int id)
         {
             return await DataContext
                             .GetSupplierQuery()
                             .FirstOrDefaultAsync(x => x.Id == id);
         }
+
+		protected virtual void SetSupplierDefaults(Supplier supplier) { }
 
         protected virtual async Task<Customer> FindAsyncCustomer(int id)
         {
@@ -134,12 +149,16 @@ namespace CriticalPath.Web.Controllers
                             .FirstOrDefaultAsync(x => x.Id == id);
         }
 
+		protected virtual void SetCustomerDefaults(Customer customer) { }
+
         protected virtual async Task<ProductCategory> FindAsyncProductCategory(int id)
         {
             return await DataContext
                             .GetProductCategoryQuery()
                             .FirstOrDefaultAsync(x => x.Id == id);
         }
+
+		protected virtual void SetProductCategoryDefaults(ProductCategory productCategory) { }
 
         protected virtual async Task<Product> FindAsyncProduct(int id)
         {
@@ -148,12 +167,16 @@ namespace CriticalPath.Web.Controllers
                             .FirstOrDefaultAsync(x => x.Id == id);
         }
 
+		protected virtual void SetProductDefaults(Product product) { }
+
         protected virtual async Task<PurchaseOrder> FindAsyncPurchaseOrder(int id)
         {
             return await DataContext
                             .GetPurchaseOrderQuery()
                             .FirstOrDefaultAsync(x => x.Id == id);
         }
+
+		protected virtual void SetPurchaseOrderDefaults(PurchaseOrder purchaseOrder) { }
 
         protected virtual async Task<OrderItem> FindAsyncOrderItem(int id)
         {
@@ -162,12 +185,16 @@ namespace CriticalPath.Web.Controllers
                             .FirstOrDefaultAsync(x => x.Id == id);
         }
 
+		protected virtual void SetOrderItemDefaults(OrderItem orderItem) { }
+
         protected virtual async Task<Process> FindAsyncProcess(int id)
         {
             return await DataContext
                             .GetProcessQuery()
                             .FirstOrDefaultAsync(x => x.Id == id);
         }
+
+		protected virtual void SetProcessDefaults(Process process) { }
 
         protected virtual async Task<ProcessStep> FindAsyncProcessStep(int id)
         {
@@ -176,6 +203,8 @@ namespace CriticalPath.Web.Controllers
                             .FirstOrDefaultAsync(x => x.Id == id);
         }
 
+		protected virtual void SetProcessStepDefaults(ProcessStep processStep) { }
+
         protected virtual async Task<ProcessTemplate> FindAsyncProcessTemplate(int id)
         {
             return await DataContext
@@ -183,12 +212,16 @@ namespace CriticalPath.Web.Controllers
                             .FirstOrDefaultAsync(x => x.Id == id);
         }
 
+		protected virtual void SetProcessTemplateDefaults(ProcessTemplate processTemplate) { }
+
         protected virtual async Task<ProcessStepTemplate> FindAsyncProcessStepTemplate(int id)
         {
             return await DataContext
                             .GetProcessStepTemplateQuery()
                             .FirstOrDefaultAsync(x => x.Id == id);
         }
+
+		protected virtual void SetProcessStepTemplateDefaults(ProcessStepTemplate processStepTemplate) { }
         #endregion
         
         protected void AppendExceptionMsg(Exception ex, StringBuilder sb)

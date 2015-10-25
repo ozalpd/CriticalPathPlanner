@@ -436,7 +436,7 @@
 	</data>
 
 	<data name="ForecastStartDate" xml:space="preserve">
-		<value>Öngörülen Start Tarihi</value>
+		<value>Öngörülen Başlama Tarihi</value>
 	</data>
 
 	<data name="Id" xml:space="preserve">

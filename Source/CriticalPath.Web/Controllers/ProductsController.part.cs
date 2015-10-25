@@ -14,7 +14,7 @@ namespace CriticalPath.Web.Controllers
 {
     public partial class ProductsController 
     {
-        partial void SetViewBags(Product product)
+        protected override void SetProductDefaults(Product product)
         {
             var queryCategoryId = DataContext
                                     .GetProductCategoryQuery()
@@ -22,14 +22,5 @@ namespace CriticalPath.Web.Controllers
             int categoryId = product == null ? 0 : product.CategoryId;
             ViewBag.CategoryId = new SelectList(queryCategoryId, "Id", "Title", categoryId);
         }
-
-        //public new class QueryParameters : BaseController.QueryParameters
-        //{
-
-        //}
-
-        //Purpose of SetDefaults: To set default property values for newly created Product entity
-        //partial void SetDefaults(Product product) { }
-
     }
 }

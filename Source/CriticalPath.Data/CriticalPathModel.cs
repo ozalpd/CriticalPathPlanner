@@ -54,6 +54,13 @@ namespace CriticalPath.Data
         System.DateTime ModifyDate { get; set; }
     }
     
+    public interface IIsApproved
+    {
+        int Id { get; set; }
+        Nullable<System.DateTime> ApproveDate { get; set; }
+        bool IsApproved { get; set; }
+    }
+    
     public interface IApproval
     {
         Nullable<System.DateTime> ApproveDate { get; set; }

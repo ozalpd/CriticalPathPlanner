@@ -6,6 +6,10 @@ CREATE TABLE [dbo].[ProcessTemplates](
     [Id] [int] Identity(1,1) Not Null,
     [TemplateName] [nVarChar](128) Not Null,
     [DefaultTitle] [nVarChar](128) Not Null,
+    [IsApproved] [bit] Not Null,
+    [ApproveDate] [DateTime] Null,
+    [ApprovedUserId] [VarChar](48) Null,
+    [ApprovedUserIp] [VarChar](48) Null,
     [ModifyNr] [int] Not Null Default 1,
     [ModifyDate] [DateTime] Not Null Default GetDate(),
     [ModifierId] [VarChar](48) Not Null,
@@ -22,6 +26,8 @@ CREATE TABLE [dbo].[ProcessTemplates](
   ON [PRIMARY]) ON [PRIMARY]
 Go
 Create Nonclustered Index [idx_ProcessTemplates_TemplateName] On [dbo].[ProcessTemplates]([TemplateName] Asc)
+Go
+Create Nonclustered Index [idx_ProcessTemplates_IsApproved] On [dbo].[ProcessTemplates]([IsApproved] Asc)
 Go
 Create Nonclustered Index [idx_ProcessTemplates_ModifyDate] On [dbo].[ProcessTemplates]([ModifyDate] Desc)
 Go

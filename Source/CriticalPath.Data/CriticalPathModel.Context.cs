@@ -383,6 +383,8 @@ namespace CriticalPath.Data
                        Id = e.Id,
                        TemplateName = e.TemplateName,
                        DefaultTitle = e.DefaultTitle,
+                       IsApproved = e.IsApproved,
+                       ApproveDate = e.ApproveDate,
                    };
         }
     

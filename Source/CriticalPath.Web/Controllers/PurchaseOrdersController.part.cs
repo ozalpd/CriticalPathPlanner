@@ -16,11 +16,81 @@ namespace CriticalPath.Web.Controllers
 {
     public partial class PurchaseOrdersController 
     {
-        partial void SetViewBags(PurchaseOrder purchaseOrder)
+        [Authorize]
+        public async Task<ActionResult> Index(QueryParameters qParams)
         {
-            var queryCustomerId = DataContext.GetCustomerDtoQuery();
-            int customerId = purchaseOrder == null ? 0 : purchaseOrder.CustomerId;
-            ViewBag.CustomerId = new SelectList(queryCustomerId, "Id", "CompanyName", customerId);
+            var query = DataContext.GetPurchaseOrderQuery();
+            if (!string.IsNullOrEmpty(qParams.SearchString))
+            {
+                query = from a in query
+                        where
+                            a.Title.Contains(qParams.SearchString) |
+                            a.Code.Contains(qParams.SearchString) |
+                            a.Description.Contains(qParams.SearchString) |
+                            a.Customer.CompanyName.Contains(qParams.SearchString) |
+                            a.Notes.Contains(qParams.SearchString)
+                        select a;
+            }
+            if (qParams.CustomerId != null)
+            {
+                query = query.Where(x => x.CustomerId == qParams.CustomerId);
+            }
+            qParams.TotalCount = await query.CountAsync();
+            PutPagerInViewBag(qParams);
+            await PutCanUserInViewBag();
+
+            if (qParams.TotalCount > 0)
+            {
+                return View(await query.Skip(qParams.Skip).Take(qParams.PageSize).ToListAsync());
+            }
+            else
+            {
+                return View(new List<PurchaseOrder>());   //there isn't any record, so no need to run a query
+            }
+        }
+
+        protected override async Task<bool> CanUserCreate()
+        {
+            if (!_canUserCreate.HasValue)
+            {
+                _canUserCreate = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync() ||
+                                    await IsUserClerkAsync());
+            }
+            return _canUserCreate.Value;
+        }
+        bool? _canUserCreate;
+
+        protected override async Task<bool> CanUserEdit()
+        {
+            if (!_canUserEdit.HasValue)
+            {
+                _canUserEdit = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync() ||
+                                    await IsUserClerkAsync());
+            }
+            return _canUserEdit.Value;
+        }
+        bool? _canUserEdit;
+
+        protected override async Task<bool> CanUserDelete()
+        {
+            if (!_canUserDelete.HasValue)
+            {
+                _canUserDelete = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync());
+            }
+            return _canUserDelete.Value;
+        }
+        bool? _canUserDelete;
+
+        protected override async Task PutCanUserInViewBag()
+        {
+            ViewBag.canUserApprove = await CanUserApprove();
+            await base.PutCanUserInViewBag();
         }
 
         [Authorize(Roles = "admin, supervisor")]
@@ -29,7 +99,7 @@ namespace CriticalPath.Web.Controllers
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            PurchaseOrder purchaseOrder = await FindAsyncPurchaseOrder(id.Value);
+            var purchaseOrder = await FindAsyncPurchaseOrder(id.Value);
 
             if (purchaseOrder == null)
                 return HttpNotFound();
@@ -45,24 +115,26 @@ namespace CriticalPath.Web.Controllers
         [Authorize(Roles = "admin, supervisor")]
         public async Task<ActionResult> Approve(PurchaseOrderDTO vm)
         {
-            PurchaseOrder purchaseOrder = await FindAsyncPurchaseOrder(vm.Id);
-            if (vm.IsApproved)
+            var purchaseOrder = await FindAsyncPurchaseOrder(vm.Id);
+            if (vm.IsApproved && purchaseOrder != null)
             {
-                purchaseOrder.IsApproved = true;
-                purchaseOrder.ApproveDate = DateTime.Today;
-                purchaseOrder.ApprovedUserId = UserID;
-                purchaseOrder.ApprovedUserIp = GetUserIP();
-                await DataContext.SaveChangesAsync(this);
+                await ApproveSaveAsync(purchaseOrder);
                 return RedirectToAction("Details", new { id = purchaseOrder.Id });
             }
 
             return View(purchaseOrder);
         }
 
-
-        partial void SetDefaults(PurchaseOrder purchaseOrder)
+        protected override void SetPurchaseOrderDefaults(PurchaseOrder purchaseOrder)
         {
             purchaseOrder.OrderDate = DateTime.Today;
+        }
+
+        partial void SetSelectLists(PurchaseOrder purchaseOrder)
+        {
+            var queryCustomerId = DataContext.GetCustomerDtoQuery();
+            int customerId = purchaseOrder == null ? 0 : purchaseOrder.CustomerId;
+            ViewBag.CustomerId = new SelectList(queryCustomerId, "Id", "CompanyName", customerId);
         }
     }
 }

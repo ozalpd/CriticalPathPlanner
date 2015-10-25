@@ -10,6 +10,22 @@
 
 <div class="row">
     <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.IsApproved)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.IsApproved)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.ApproveDate)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.ApproveDate)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
         @Html.DisplayNameFor(model => model.TemplateName)
     </label>
     <div class="col-md-10 col-sm-9">

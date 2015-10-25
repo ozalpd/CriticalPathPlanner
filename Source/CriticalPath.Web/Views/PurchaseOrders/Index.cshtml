@@ -9,7 +9,7 @@
     bool canUserEdit = ViewBag.canUserEdit;
     bool canUserCreate = ViewBag.canUserCreate;
     bool canUserDelete = ViewBag.canUserDelete;
-    bool canUserApprove = ViewBag.canUserDelete;
+    bool canUserApprove = ViewBag.canUserApprove;
 
     //Records & Pager
     int page = ViewBag.page;
@@ -64,15 +64,16 @@
                                     </a>
                                 </li>
                             }
+                            <li class="divider"></li>
                             @if (!item.IsApproved)
                             {
-                                <li class="divider"></li>
                                 <li>@Html.ActionLink(EntityStrings.AddOrderItem, "Create", "OrderItems", new { purchaseOrderId = item.Id }, null)</li>
                                 if (canUserApprove)
                                 {
                                     <li>@Html.ActionLink(ActionStrings.Approve, "Approve", new { id = item.Id })</li>
                                 }
                             }
+                            <li>@Html.ActionLink(EntityStrings.OrderItems, "Index", "OrderItems", new { purchaseOrderId = item.Id, pageSize = item.OrderItems.Count }, null)</li>
                         </ul>
                     </div>
                 </td>

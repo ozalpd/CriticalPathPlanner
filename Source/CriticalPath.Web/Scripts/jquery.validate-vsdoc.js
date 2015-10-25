@@ -315,8 +315,8 @@ $.extend($.validator, {
 		}
 	},
 
-	// http://docs.jquery.com/Plugins/Validation/Validator/setDefaults
-	setDefaults: function(settings) {
+	// http://docs.jquery.com/Plugins/Validation/Validator/SetEntityDefaults
+	SetEntityDefaults: function(settings) {
 		/// <summary>
 		/// Modify default settings for validation.
 		/// Accepts everything that Plugins/Validation/validate accepts.

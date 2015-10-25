@@ -12,11 +12,127 @@ using System.Web.Mvc;
 
 namespace CriticalPath.Web.Controllers
 {
-    public partial class ProcessesController 
+    public partial class ProcessesController
     {
-        partial void SetViewBags(Process process)
+        [Authorize]
+        public async Task<ActionResult> Index(QueryParameters qParams)
         {
-            var queryTemplateId = DataContext.GetProcessTemplateDtoQuery();
+            var query = DataContext.GetProcessQuery();
+            if (!string.IsNullOrEmpty(qParams.SearchString))
+            {
+                query = from a in query
+                        where
+                            a.Title.Contains(qParams.SearchString) |
+                            a.Description.Contains(qParams.SearchString) |
+                            a.OrderItem.Notes.Contains(qParams.SearchString) |
+                            a.OrderItem.Product.Title.Contains(qParams.SearchString) |
+                            a.OrderItem.Product.Code.Contains(qParams.SearchString)
+                        select a;
+            }
+            if (qParams.ProcessTemplateId != null)
+            {
+                query = query.Where(x => x.ProcessTemplateId == qParams.ProcessTemplateId);
+            }
+            if (qParams.OrderItemId != null)
+            {
+                query = query.Where(x => x.OrderItemId == qParams.OrderItemId);
+            }
+            qParams.TotalCount = await query.CountAsync();
+            PutPagerInViewBag(qParams);
+            await PutCanUserInViewBag();
+
+            if (qParams.TotalCount > 0)
+            {
+                return View(await query.Skip(qParams.Skip).Take(qParams.PageSize).ToListAsync());
+            }
+            else
+            {
+                return View(new List<Process>());   //there isn't any record, so no need to run a query
+            }
+        }
+
+        protected override async Task<bool> CanUserCreate()
+        {
+            if (!_canUserCreate.HasValue)
+            {
+                _canUserCreate = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync() ||
+                                    await IsUserClerkAsync());
+            }
+            return _canUserCreate.Value;
+        }
+        bool? _canUserCreate;
+
+        protected override async Task<bool> CanUserEdit()
+        {
+            if (!_canUserEdit.HasValue)
+            {
+                _canUserEdit = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync() ||
+                                    await IsUserClerkAsync());
+            }
+            return _canUserEdit.Value;
+        }
+        bool? _canUserEdit;
+
+        protected override async Task<bool> CanUserDelete()
+        {
+            if (!_canUserDelete.HasValue)
+            {
+                _canUserDelete = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync());
+            }
+            return _canUserDelete.Value;
+        }
+        bool? _canUserDelete;
+
+        protected override async Task PutCanUserInViewBag()
+        {
+            ViewBag.canUserApprove = await CanUserApprove();
+            await base.PutCanUserInViewBag();
+        }
+
+        [Authorize(Roles = "admin, supervisor")]
+        public async Task<ActionResult> Approve(int? id)  //GET: /PurchaseOrders/Edit/5
+        {
+            if (id == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            var process = await FindAsyncProcess(id.Value);
+
+            if (process == null)
+                return HttpNotFound();
+
+            if (process.IsApproved)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            return View(process);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin, supervisor")]
+        public async Task<ActionResult> Approve(ProcessDTO vm)
+        {
+            var process = await FindAsyncProcess(vm.Id);
+            if (vm.IsApproved && process != null)
+            {
+                await ApproveSaveAsync(process);
+                return RedirectToAction("Details", new { id = process.Id });
+            }
+
+            return View(process);
+        }
+
+
+        partial void SetSelectLists(Process process)
+        {
+            var queryTemplateId = DataContext
+                                    .GetProcessTemplateDtoQuery()
+                                    .Where(t => t.IsApproved);
             int processTemplateId = process == null ? 0 : process.ProcessTemplateId;
             ViewBag.ProcessTemplateId = new SelectList(queryTemplateId, "Id", "TemplateName", processTemplateId);
 
@@ -56,15 +172,9 @@ namespace CriticalPath.Web.Controllers
             }
         }
 
-        partial void SetDefaults(Process process)
+        protected override void SetProcessDefaults(Process process)
         {
             process.TargetStartDate = DateTime.Today;
         }
-
-        //public new class QueryParameters : BaseController.QueryParameters
-        //{
-
-        //}
-
     }
 }

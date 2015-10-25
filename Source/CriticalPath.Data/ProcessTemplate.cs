@@ -12,7 +12,7 @@ namespace CriticalPath.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class ProcessTemplate : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate
+    public partial class ProcessTemplate : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate, IIsApproved, IApproval
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ProcessTemplate()
@@ -24,6 +24,10 @@ namespace CriticalPath.Data
         public int Id { get; set; }
         public string TemplateName { get; set; }
         public string DefaultTitle { get; set; }
+        public bool IsApproved { get; set; }
+        public Nullable<System.DateTime> ApproveDate { get; set; }
+        public string ApprovedUserId { get; set; }
+        public string ApprovedUserIp { get; set; }
         public int ModifyNr { get; set; }
         public System.DateTime ModifyDate { get; set; }
         public string ModifierId { get; set; }
@@ -46,6 +50,10 @@ namespace CriticalPath.Data
             var clone = new ProcessTemplate();
             clone.TemplateName = TemplateName;
             clone.DefaultTitle = DefaultTitle;
+            clone.IsApproved = IsApproved;
+            clone.ApproveDate = ApproveDate;
+            clone.ApprovedUserId = ApprovedUserId;
+            clone.ApprovedUserIp = ApprovedUserIp;
             clone.ModifyNr = ModifyNr;
             clone.ModifyDate = ModifyDate;
             clone.ModifierId = ModifierId;
@@ -74,6 +82,8 @@ namespace CriticalPath.Data
             Id = entity.Id;
             TemplateName = entity.TemplateName;
             DefaultTitle = entity.DefaultTitle;
+            IsApproved = entity.IsApproved;
+            ApproveDate = entity.ApproveDate;
         
             Initilazing(entity);
         }
@@ -86,6 +96,8 @@ namespace CriticalPath.Data
             entity.Id = Id;
             entity.TemplateName = TemplateName;
             entity.DefaultTitle = DefaultTitle;
+            entity.IsApproved = IsApproved;
+            entity.ApproveDate = ApproveDate;
     
             Converting(entity);
     
@@ -97,5 +109,7 @@ namespace CriticalPath.Data
         public int Id { get; set; }
         public string TemplateName { get; set; }
         public string DefaultTitle { get; set; }
+        public bool IsApproved { get; set; }
+        public Nullable<System.DateTime> ApproveDate { get; set; }
     }
 }

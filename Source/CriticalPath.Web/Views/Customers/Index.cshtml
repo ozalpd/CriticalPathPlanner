@@ -9,6 +9,8 @@
     bool canUserEdit = ViewBag.canUserEdit;
     bool canUserCreate = ViewBag.canUserCreate;
     bool canUserDelete = ViewBag.canUserDelete;
+    bool canUserAddPurchaseOrder = ViewBag.canUserAddPurchaseOrder;
+    bool canUserAddContact = ViewBag.canUserAddContact;
 
     //Records & Pager
     int page = ViewBag.page;
@@ -40,8 +42,8 @@
             <th>@Html.DisplayNameFor(model => model.Contacts)</th>
             <th>@Html.DisplayNameFor(model => model.Orders)</th>
         </tr>
-    @foreach (var item in Model)
-    {
+        @foreach (var item in Model)
+        {
             <tr>
                 <td>
                     <div class="btn-group">
@@ -62,9 +64,18 @@
                                     </a>
                                 </li>
                             }
-                            <li class="divider"></li>
+                            @if (canUserAddPurchaseOrder || canUserAddContact)
+                            {
+                                <li class="divider"></li>
+                            }
+                            @if (canUserAddContact)
+                            {
                                 <li>@Html.ActionLink(EntityStrings.AddContact, "Create", "Contacts", new { companyId = item.Id }, null)</li>
+                            }
+                            @if (canUserAddPurchaseOrder)
+                            {
                                 <li>@Html.ActionLink(EntityStrings.AddPurchaseOrder, "Create", "PurchaseOrders", new { customerId = item.Id }, null)</li>
+                            }
                         </ul>
                     </div>
                 </td>
@@ -75,7 +86,7 @@
                 <td>@item.Contacts.Count</td>
                 <td>@item.Orders.Count</td>
             </tr>
-    }
+        }
     </table>
     @Html.Partial("_PagerPartial")
     if (canUserDelete)

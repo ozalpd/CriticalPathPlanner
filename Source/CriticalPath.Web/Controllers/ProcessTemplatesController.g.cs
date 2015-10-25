@@ -29,11 +29,8 @@ namespace CriticalPath.Web.Controllers
                         select a;
             }
             qParams.TotalCount = await query.CountAsync();
-            SetPagerParameters(qParams);
-
-            ViewBag.canUserEdit = await CanUserEdit();
-            ViewBag.canUserCreate = await CanUserCreate();
-            ViewBag.canUserDelete = await CanUserDelete();
+            PutPagerInViewBag(qParams);
+            await PutCanUserInViewBag();
 
             if (qParams.TotalCount > 0)
             {
@@ -45,7 +42,7 @@ namespace CriticalPath.Web.Controllers
             }
         }
         
-        protected virtual async Task<bool> CanUserCreate()
+        protected override async Task<bool> CanUserCreate()
         {
             if (!_canUserCreate.HasValue)
             {
@@ -56,7 +53,7 @@ namespace CriticalPath.Web.Controllers
         }
         bool? _canUserCreate;
 
-        protected virtual async Task<bool> CanUserEdit()
+        protected override async Task<bool> CanUserEdit()
         {
             if (!_canUserEdit.HasValue)
             {
@@ -67,7 +64,7 @@ namespace CriticalPath.Web.Controllers
         }
         bool? _canUserEdit;
         
-        protected virtual async Task<bool> CanUserDelete()
+        protected override async Task<bool> CanUserDelete()
         {
             if (!_canUserDelete.HasValue)
             {
@@ -77,7 +74,6 @@ namespace CriticalPath.Web.Controllers
             return _canUserDelete.Value;
         }
         bool? _canUserDelete;
-
 
         [Authorize]
         public async Task<ActionResult> Details(int? id)  //GET: /ProcessTemplates/Details/5
@@ -96,14 +92,13 @@ namespace CriticalPath.Web.Controllers
             return View(processTemplate);
         }
 
-
         [HttpGet]
         [Authorize(Roles = "admin")]
         public ActionResult Create()  //GET: /ProcessTemplates/Create
         {
             var processTemplate = new ProcessTemplate();
-            SetDefaults(processTemplate);
-            SetViewBags(null);
+            SetProcessTemplateDefaults(processTemplate);
+            SetSelectLists(null);
             return View(processTemplate);
         }
 
@@ -122,13 +117,12 @@ namespace CriticalPath.Web.Controllers
                 await DataContext.SaveChangesAsync(this);
  
                 OnCreateSaved(processTemplate);
-                return RedirectToAction("Index");
+                return RedirectToAction("Create", "ProcessStepTemplates", new { processTemplateId = processTemplate.Id });
             }
 
-            SetViewBags(processTemplate);
+            SetSelectLists(processTemplate);
             return View(processTemplate);
         }
-
 
         [Authorize(Roles = "admin")]
         public async Task<ActionResult> Edit(int? id)  //GET: /ProcessTemplates/Edit/5
@@ -144,7 +138,7 @@ namespace CriticalPath.Web.Controllers
                 return HttpNotFound();
             }
 
-            SetViewBags(processTemplate);
+            SetSelectLists(processTemplate);
             return View(processTemplate);
         }
 
@@ -163,10 +157,10 @@ namespace CriticalPath.Web.Controllers
                 await DataContext.SaveChangesAsync(this);
  
                 OnEditSaved(processTemplate);
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { id = processTemplate.Id });
             }
 
-            SetViewBags(processTemplate);
+            SetSelectLists(processTemplate);
             return View(processTemplate);
         }
 
@@ -229,7 +223,6 @@ namespace CriticalPath.Web.Controllers
         partial void OnCreateSaved(ProcessTemplate processTemplate);
         partial void OnEditSaving(ProcessTemplate processTemplate);
         partial void OnEditSaved(ProcessTemplate processTemplate);
-        partial void SetDefaults(ProcessTemplate processTemplate);
-        partial void SetViewBags(ProcessTemplate processTemplate);
+        partial void SetSelectLists(ProcessTemplate processTemplate);
     }
 }

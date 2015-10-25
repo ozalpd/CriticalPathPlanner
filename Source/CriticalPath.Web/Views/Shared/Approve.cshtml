@@ -1,0 +1,39 @@
+﻿@using CriticalPath.Web.Models
+@using CriticalPath.Data
+@using CriticalPath.Data.Resources
+@model IIsApproved
+@{
+    ViewBag.Title = ActionStrings.Approve;
+}
+<h2>@ViewBag.Title</h2>
+
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayForModel()
+    </div>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id)
+    <div class="row mt40">
+        <label class="control-label col-md-2 col-sm-3">
+            @Html.DisplayNameFor(model => model.IsApproved)
+        </label>
+        <div class="col-md-8 col-sm-8">
+            @Html.EditorFor(m => m.IsApproved)
+        </div>
+    </div>
+    <div class="row mt20">
+        <div class="col-md-offset-2 col-sm-offset-3 col-md-3 col-sm-4">
+            <input type="submit" value='@ActionStrings.Approve' class="btn btn-lg btn-success" />
+        </div>
+        <div class="col-md-3 col-sm-3">
+            @Html.ActionLink(@ActionStrings.BackToIndex, "Index", null, new { @class = "btn btn-lg btn-warning pull-right" })
+        </div>
+    </div>
+}

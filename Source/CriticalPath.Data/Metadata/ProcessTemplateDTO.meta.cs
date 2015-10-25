@@ -31,6 +31,13 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "DefaultTitle")]
             public string DefaultTitle { get; set; }
 
+            [Display(ResourceType = typeof(EntityStrings), Name = "IsApproved")]
+            public bool IsApproved { get; set; }
+
+            [DataType(DataType.Date)]
+            [Display(ResourceType = typeof(EntityStrings), Name = "ApproveDate")]
+            public DateTime ApproveDate { get; set; }
+
 		}
 	}
 }

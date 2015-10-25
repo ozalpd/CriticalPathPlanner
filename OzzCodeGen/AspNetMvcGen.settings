@@ -359,6 +359,30 @@
           <UseForEdit>TextBox</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
+          <Name>Company</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>CompanyId</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>false</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>DropDownList</UseForCreate>
+          <UseForEdit>HiddenInput</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
           <Name>EmailWork</Name>
           <Exclude>false</Exclude>
           <UseInSearch>true</UseInSearch>
@@ -386,7 +410,7 @@
           <Name>PhoneMobile</Name>
           <Exclude>false</Exclude>
           <UseInSearch>true</UseInSearch>
-          <InIndexView>true</InIndexView>
+          <InIndexView>false</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
           <InEditView>true</InEditView>
@@ -398,7 +422,7 @@
           <Name>PhoneWork1</Name>
           <Exclude>false</Exclude>
           <UseInSearch>true</UseInSearch>
-          <InIndexView>true</InIndexView>
+          <InIndexView>false</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
           <InEditView>true</InEditView>
@@ -410,7 +434,7 @@
           <Name>PhoneWork2</Name>
           <Exclude>false</Exclude>
           <UseInSearch>true</UseInSearch>
-          <InIndexView>true</InIndexView>
+          <InIndexView>false</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
           <InEditView>true</InEditView>
@@ -430,30 +454,6 @@
           <UseForCreate>TextBox</UseForCreate>
           <UseForEdit>TextBox</UseForEdit>
         </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
-          <Name>CompanyId</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
-          <InIndexView>false</InIndexView>
-          <InDetailsView>false</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForCreate>DropDownList</UseForCreate>
-          <UseForEdit>HiddenInput</UseForEdit>
-        </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
-          <Name>Company</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
-          <InIndexView>true</InIndexView>
-          <InDetailsView>true</InDetailsView>
-          <InCreateView>false</InCreateView>
-          <InEditView>false</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForCreate>Standart</UseForCreate>
-          <UseForEdit>Standart</UseForEdit>
-        </AspNetMvcPropertySetting>
       </Properties>
       <ControllerName>Contacts</ControllerName>
       <DataSetName>Contacts</DataSetName>
@@ -466,12 +466,12 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>true</GenerateController>
-      <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateIndexAction>false</GenerateIndexAction>
       <GenerateCreateAction>true</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
-      <IndexView>true</IndexView>
+      <IndexView>false</IndexView>
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
@@ -738,7 +738,7 @@
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
-      <IndexView>true</IndexView>
+      <IndexView>false</IndexView>
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
@@ -1013,7 +1013,7 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>true</GenerateController>
-      <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateIndexAction>false</GenerateIndexAction>
       <GenerateCreateAction>true</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
@@ -1052,7 +1052,7 @@
           <InCreateView>true</InCreateView>
           <InEditView>true</InEditView>
           <HasValidation>true</HasValidation>
-          <UseForCreate>DropDownList</UseForCreate>
+          <UseForCreate>HiddenInput</UseForCreate>
           <UseForEdit>HiddenInput</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
@@ -1127,7 +1127,7 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>true</GenerateController>
-      <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateIndexAction>false</GenerateIndexAction>
       <GenerateCreateAction>true</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
@@ -1325,12 +1325,12 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>true</GenerateController>
-      <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateIndexAction>false</GenerateIndexAction>
       <GenerateCreateAction>true</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
-      <IndexView>true</IndexView>
+      <IndexView>false</IndexView>
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
@@ -1522,12 +1522,12 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>true</GenerateController>
-      <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateIndexAction>false</GenerateIndexAction>
       <GenerateCreateAction>false</GenerateCreateAction>
       <GenerateDeleteAction>false</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
-      <IndexView>true</IndexView>
+      <IndexView>false</IndexView>
       <DetailsView>true</DetailsView>
       <CreateView>false</CreateView>
       <EditView>true</EditView>
@@ -1593,12 +1593,12 @@
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
-      <IndexView>true</IndexView>
+      <IndexView>false</IndexView>
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
-      <CreateRedirect>"Index"</CreateRedirect>
-      <EditRedirect>"Index"</EditRedirect>
+      <CreateRedirect>"Create", "ProcessStepTemplates", new { processTemplateId = processTemplate.Id }</CreateRedirect>
+      <EditRedirect>"Details", new { id = processTemplate.Id }</EditRedirect>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -1687,8 +1687,8 @@
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
-      <CreateRedirect>"Index"</CreateRedirect>
-      <EditRedirect>"Index"</EditRedirect>
+      <CreateRedirect>"Create", new { processTemplateId = processTemplateId }</CreateRedirect>
+      <EditRedirect>"Index", new { processTemplateId = processStepTemplate.ProcessTemplateId }</EditRedirect>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
   </EntitySettings>

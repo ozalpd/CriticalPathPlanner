@@ -41,127 +41,189 @@ namespace CriticalPath.Web.Controllers
             }
 
             Customer[] customers = {new Customer {
-                CompanyName = "Nurplex",
-                City = "Norfolk",
-                CustomerCode = "Nurplex",
-                Address1 = "389 Cleveland Street",
-                Notes = "In aliqua fugiat magna adipisicing magna cillum enim exercitation ullamco cillum ullamco.",
-                Phone1 = "(944) 444-2599",
-                Phone2 = "(877) 466-3224"
-            }, new Customer
-            {
-                 CompanyName = "Wazzu",
-                CustomerCode = "1234",
-                 City = "Homestead",
-                 Address1 = "118 Applegate Court",
-                 Phone1 = "+1 (888) 435-3835",
-                 Phone2 = "+1 (898) 597-3808",
-                 Notes = "Laborum aliquip pariatur aliqua dolor voluptate cillum proident officia in.",
+                    CompanyName = "Nurplex",
+                    City = "Norfolk",
+                    CustomerCode = "Nurplex",
+                    Address1 = "389 Cleveland Street",
+                    Notes = "In aliqua fugiat magna adipisicing magna cillum enim exercitation ullamco cillum ullamco.",
+                    Phone1 = "(944) 444-2599",
+                    Phone2 = "(877) 466-3224"
             }, new Customer {
-                     CompanyName = "Qiao Corp.",
-                CustomerCode = "Qiao",
-                     City = "Hartsville/Hartley",
-                     Address1 = "253 Reeve Place",
-                     Phone1 = "+1 (880) 473-3081",
-                     Phone2 = "+1 (972) 568-2580",
-                     Notes = "Mollit Lorem cupidatat voluptate occaecat sunt sunt eu in dolore ad eiusmod.",
+                    CompanyName = "Wazzu",
+                    CustomerCode = "1234",
+                    City = "Homestead",
+                    Address1 = "118 Applegate Court",
+                    Phone1 = "+1 (888) 435-3835",
+                    Phone2 = "+1 (898) 597-3808",
+                    Notes = "Laborum aliquip pariatur aliqua dolor voluptate cillum proident officia in.",
             }, new Customer {
-                     CompanyName = "Solaren",
-                CustomerCode = "555",
-                     City = "Olney",
-                     Address1 = "694 Ashford Street",
-                     Phone1 = "+1 (983) 445-2431",
-                     Phone2 = "+1 (931) 552-3165",
-                     Notes = "Ea ea amet consectetur excepteur velit reprehenderit tempor dolor eiusmod laborum voluptate aute.",
+                    CompanyName = "Qiao Corp.",
+                    CustomerCode = "Qiao",
+                    City = "Hartsville/Hartley",
+                    Address1 = "253 Reeve Place",
+                    Phone1 = "+1 (880) 473-3081",
+                    Phone2 = "+1 (972) 568-2580",
+                    Notes = "Mollit Lorem cupidatat voluptate occaecat sunt sunt eu in dolore ad eiusmod.",
             }, new Customer {
-                     CompanyName = "Cowtown Incorporated",
-                CustomerCode = "Cowtown",
-                     City = "Edgewater",
-                     Address1 = "397 Vandam Street",
-                     Phone1 = "+1 (999) 498-3117",
-                     Phone2 = "+1 (876) 457-3103",
-                     Notes = "Do ex magna mollit excepteur eu fugiat sit minim ullamco est est.",
+                    CompanyName = "Solaren",
+                    CustomerCode = "555",
+                    City = "Olney",
+                    Address1 = "694 Ashford Street",
+                    Phone1 = "+1 (983) 445-2431",
+                    Phone2 = "+1 (931) 552-3165",
+                    Notes = "Ea ea amet consectetur excepteur velit reprehenderit tempor dolor eiusmod laborum voluptate aute.",
             }, new Customer {
-                     CompanyName = "Genesynk Associates",
-                CustomerCode = "Genesynk",
-                     City = "Tedrow",
-                     Address1 = "415 Newport Street",
-                     Phone1 = "+1 (984) 410-2831",
-                     Phone2 = "+1 (873) 545-2215",
-                     Notes = "Ullamco reprehenderit esse id qui voluptate ipsum veniam.",
+                    CompanyName = "Cowtown Incorporated",
+                    CustomerCode = "Cowtown",
+                    City = "Edgewater",
+                    Address1 = "397 Vandam Street",
+                    Phone1 = "+1 (999) 498-3117",
+                    Phone2 = "+1 (876) 457-3103",
+                    Notes = "Do ex magna mollit excepteur eu fugiat sit minim ullamco est est.",
             }, new Customer {
-                     CompanyName = "Zilch Industries",
-                CustomerCode = "Zilch",
-                     City = "Katonah",
-                     Address1 = "594 Eckford Street",
-                     Phone1 = "+1 (835) 416-2323",
-                     Phone2 = "+1 (845) 440-2230",
-                     Notes = "Mollit minim cillum ex reprehenderit nisi proident nulla.",
+                    CompanyName = "Loreanna Textile Corp",
+                    City = "Norfolk",
+                    CustomerCode = "Loreanna",
+                    Address1 = "389 Cleveland Street",
+                    Notes = "In aliqua fugiat magna adipisicing magna cillum enim exercitation ullamco cillum ullamco.",
+                    Phone1 = "(944) 444-2599",
+                    Phone2 = "(877) 466-3224"
+            }, new Customer {
+                    CompanyName = "Zelda Inc.",
+                    CustomerCode = "Zelda",
+                    City = "Homestead",
+                    Address1 = "118 Applegate Court",
+                    Phone1 = "+1 (888) 435-3835",
+                    Phone2 = "+1 (898) 597-3808",
+                    Notes = "Laborum aliquip pariatur aliqua dolor voluptate cillum proident officia in.",
+            }, new Customer {
+                    CompanyName = "Textile Corp.",
+                    CustomerCode = "TextileCorp",
+                    City = "Hartsville/Hartley",
+                    Address1 = "253 Reeve Place",
+                    Phone1 = "+1 (880) 473-3081",
+                    Phone2 = "+1 (972) 568-2580",
+                    Notes = "Mollit Lorem cupidatat voluptate occaecat sunt sunt eu in dolore ad eiusmod.",
+            }, new Customer {
+                    CompanyName = "Kaliburn LLC",
+                    CustomerCode = "Kaliburn",
+                    City = "Kaliburn",
+                    Address1 = "694 Ashford Street",
+                    Phone1 = "+1 (983) 445-2431",
+                    Phone2 = "+1 (931) 552-3165",
+                    Notes = "Ea ea amet consectetur excepteur velit reprehenderit tempor dolor eiusmod laborum voluptate aute.",
+            }, new Customer {
+                    CompanyName = "Medow Incorporated",
+                    CustomerCode = "MedowInc",
+                    City = "Edgewater",
+                    Address1 = "397 Vandam Street",
+                    Phone1 = "+1 (999) 498-3117",
+                    Phone2 = "+1 (876) 457-3103",
+                    Notes = "Do ex magna mollit excepteur eu fugiat sit minim ullamco est est.",
+            }, new Customer {
+                    CompanyName = "Genesynk Associates",
+                    CustomerCode = "Genesynk",
+                    City = "Tedrow",
+                    Address1 = "415 Newport Street",
+                    Phone1 = "+1 (984) 410-2831",
+                    Phone2 = "+1 (873) 545-2215",
+                    Notes = "Ullamco reprehenderit esse id qui voluptate ipsum veniam.",
+            }, new Customer {
+                    CompanyName = "Zilch Industries",
+                    CustomerCode = "Zilch",
+                    City = "Katonah",
+                    Address1 = "594 Eckford Street",
+                    Phone1 = "+1 (835) 416-2323",
+                    Phone2 = "+1 (845) 440-2230",
+                    Notes = "Mollit minim cillum ex reprehenderit nisi proident nulla.",
             } };
 
-            int i = Randomizer.RandomNr(0, customers.Length - 1);
-            customers[i].Contacts.Add(new Contact
+            int i = 0;
+            var c = customers[i];
+            c.Contacts.Add(new Contact
             {
                 FirstName = "Tucker",
                 LastName = "Gentry",
-                EmailHome = "tucker.gentry@undefined.tv"
+                EmailHome = "tucker.gentry@" + c.CompanyName.ToLowerInvariant().Replace(".", "").Replace(" ", "") + ".tv"
             });
-            i = Randomizer.RandomNr(0, customers.Length - 1);
-            customers[i].Contacts.Add(new Contact
+            i++; c = customers[i % customers.Length];
+            c.Contacts.Add(new Contact
             {
                 FirstName = "Thelma",
                 LastName = "Mcdaniel",
-                EmailWork = "thelma.mcdaniel@undefined.me"
+                EmailWork = "thelma.mcdaniel@" + c.CompanyName.ToLowerInvariant().Replace(".", "").Replace(" ", "") + ".me"
             });
-            i = Randomizer.RandomNr(0, customers.Length - 1);
-            customers[i].Contacts.Add(new Contact
+            i++; c = customers[i % customers.Length];
+            c.Contacts.Add(new Contact
             {
                 FirstName = "Michael",
                 LastName = "Bradshaw",
-                EmailHome = "michael.bradshaw@undefined.info"
+                EmailHome = "michael.bradshaw@" + c.CompanyName.ToLowerInvariant().Replace(".", "").Replace(" ", "") + ".info"
             });
-            i = Randomizer.RandomNr(0, customers.Length - 1);
-            customers[i].Contacts.Add(new Contact
+            i++; c = customers[i % customers.Length];
+            c.Contacts.Add(new Contact
             {
                 FirstName = "Jannie",
                 LastName = "Murray",
-                EmailWork = "jannie.murray@undefined.org"
+                EmailWork = "jannie.murray@" + c.CompanyName.ToLowerInvariant().Replace(".", "").Replace(" ", "") + ".org"
             });
-            i = Randomizer.RandomNr(0, customers.Length - 1);
-            customers[i].Contacts.Add(new Contact
+            i++; c = customers[i % customers.Length];
+            c.Contacts.Add(new Contact
             {
                 FirstName = "Weber",
                 LastName = "Gross",
-                EmailWork = "weber.gross@undefined.biz"
+                EmailWork = "weber.gross@" + c.CompanyName.ToLowerInvariant().Replace(".", "").Replace(" ", "") + ".biz"
             });
-            i = Randomizer.RandomNr(0, customers.Length - 1);
-            customers[i].Contacts.Add(new Contact
+            i++; c = customers[i % customers.Length];
+            c.Contacts.Add(new Contact
             {
                 FirstName = "Myra",
                 LastName = "Aguilar",
-                EmailHome = "myra.aguilar@undefined.tv"
+                EmailHome = "myra.aguilar@" + c.CompanyName.ToLowerInvariant().Replace(".", "").Replace(" ", "") + ".tv"
             });
 
-            i = Randomizer.RandomNr(0, customers.Length - 1);
-            customers[i].Contacts.Add(new Contact
+            i++; c = customers[i % customers.Length];
+            c.Contacts.Add(new Contact
             {
                 FirstName = "Bray",
                 LastName = "Spencer",
-                EmailWork = "bray.spencer@undefined.ca"
+                EmailWork = "bray.spencer@" + c.CompanyName.ToLowerInvariant().Replace(".", "").Replace(" ", "") + ".ca"
             });
-            i = Randomizer.RandomNr(0, customers.Length - 1);
-            customers[i].Contacts.Add(new Contact
+            i++; c = customers[i % customers.Length];
+            c.Contacts.Add(new Contact
             {
                 FirstName = "Ruiz",
                 LastName = "Moody",
-                EmailHome = "ruiz.moody@undefined.biz"
+                EmailHome = "ruiz.moody@" + c.CompanyName.ToLowerInvariant().Replace(".", "").Replace(" ", "") + ".biz"
             });
-            i = Randomizer.RandomNr(0, customers.Length - 1);
-            customers[i].Contacts.Add(new Contact
+            i++; c = customers[i % customers.Length];
+            c.Contacts.Add(new Contact
             {
                 FirstName = "Bridgette",
                 LastName = "Murray",
-                EmailWork = "bridgette.murray@undefined.tv"
+                EmailWork = "bridgette.murray@" + c.CompanyName.ToLowerInvariant().Replace(".", "").Replace(" ", "") + ".tv"
+            });
+
+            i++; c = customers[i % customers.Length];
+            c.Contacts.Add(new Contact
+            {
+                FirstName = "Mücahit",
+                LastName = "Demir",
+                EmailWork = "mucahit.demir@" + c.CompanyName.ToLowerInvariant().Replace(".", "").Replace(" ", "") + ".ca"
+            });
+            i++; c = customers[i % customers.Length];
+            c.Contacts.Add(new Contact
+            {
+                FirstName = "Özge",
+                LastName = "Şahin",
+                EmailHome = "ozge.sahin@" + c.CompanyName.ToLowerInvariant().Replace(".", "").Replace(" ", "") + ".biz"
+            });
+            i++; c = customers[i % customers.Length];
+            c.Contacts.Add(new Contact
+            {
+                FirstName = "Selahattin",
+                LastName = "Çakaler",
+                EmailWork = "selahattin.c@" + c.CompanyName.ToLowerInvariant().Replace(".", "").Replace(" ", "") + ".tv"
             });
             foreach (var item in customers)
             {

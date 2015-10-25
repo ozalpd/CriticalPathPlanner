@@ -3914,7 +3914,7 @@ $.extend(Datepicker.prototype, {
 	 * @param  settings  object - the new settings to use as defaults (anonymous object)
 	 * @return the manager object
 	 */
-	setDefaults: function(settings) {
+	SetEntityDefaults: function(settings) {
 		datepicker_extendRemove(this._defaults, settings || {});
 		return this;
 	},

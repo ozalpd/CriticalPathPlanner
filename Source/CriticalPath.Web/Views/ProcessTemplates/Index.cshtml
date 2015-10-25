@@ -9,6 +9,7 @@
     bool canUserEdit = ViewBag.canUserEdit;
     bool canUserCreate = ViewBag.canUserCreate;
     bool canUserDelete = ViewBag.canUserDelete;
+    bool canUserApprove = ViewBag.canUserApprove;
 
     //Records & Pager
     int page = ViewBag.page;
@@ -23,6 +24,7 @@
     @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "searchForm" }))
     {
         @Html.Hidden("page", page)
+        @Html.Hidden("pageSize", pageSize)
         <div class="col-md-4 col-sm-5">
             @Html.Partial("_SearchBoxPartial")
         </div>
@@ -33,12 +35,13 @@
     <table class="table table-hover">
         <tr>
             <th>@ActionStrings.Action</th>
+            <th>@Html.DisplayNameFor(model => model.IsApproved)</th>
             <th>@Html.DisplayNameFor(model => model.TemplateName)</th>
             <th>@Html.DisplayNameFor(model => model.DefaultTitle)</th>
             <th>@Html.DisplayNameFor(model => model.StepTemplates)</th>
         </tr>
-    @foreach (var item in Model)
-    {
+        @foreach (var item in Model)
+        {
             <tr>
                 <td>
                     <div class="btn-group">
@@ -60,15 +63,24 @@
                                 </li>
                             }
                             <li class="divider"></li>
+                            @if (!item.IsApproved && canUserEdit)
+                            {
                                 <li>@Html.ActionLink(EntityStrings.AddProcessStepTemplate, "Create", "ProcessStepTemplates", new { processTemplateId = item.Id }, null)</li>
+                            }
+                            <li>@Html.ActionLink(EntityStrings.ProcessStepTemplates, "Index", "ProcessStepTemplates", new { processTemplateId = item.Id, pageSize = 25 }, null)</li>
+                            @if (!item.IsApproved && canUserApprove)
+                            {
+                                <li>@Html.ActionLink(ActionStrings.Approve, "Approve", new { id = item.Id })</li>
+                            }
                         </ul>
                     </div>
                 </td>
+                <td>@Html.DisplayFor(modelItem => item.IsApproved)</td>
                 <td>@Html.DisplayFor(modelItem => item.TemplateName)</td>
                 <td>@Html.DisplayFor(modelItem => item.DefaultTitle)</td>
                 <td>@item.StepTemplates.Count</td>
             </tr>
-    }
+        }
     </table>
     @Html.Partial("_PagerPartial")
     if (canUserDelete)
