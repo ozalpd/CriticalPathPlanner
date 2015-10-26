@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Mvc;
 
 namespace CriticalPath.Web.Controllers
 {
@@ -29,6 +30,65 @@ namespace CriticalPath.Web.Controllers
             await DataContext.SaveChangesAsync(this);
         }
 
+        #region SetSelectList Helper Methods
+
+        protected async Task SetProductCategorySelectListAsync(Product product)
+        {
+            var productCategory = product == null ? null : product.Category == null ? null : product.Category;
+            if (productCategory == null && product != null && product.CategoryId > 0)
+                productCategory = await FindAsyncProductCategory(product.CategoryId);
+
+            await SetProductCategorySelectListAsync(productCategory);
+        }
+
+        protected async Task SetProductCategorySelectListAsync(ProductCategory productCategory)
+        {
+            int parentCategoryId = productCategory == null ? 0 : productCategory.ParentCategoryId ?? 0;
+            List<ProductCategoryDTO> categoryList;
+            if (parentCategoryId > 0)
+            {
+                var querySubCatg = from c in DataContext.GetProductCategoryDtoQuery()
+                                   where c.ParentCategoryId == parentCategoryId
+                                   select c;
+                categoryList = await querySubCatg.ToListAsync();
+            }
+            else
+            {
+                categoryList = new List<ProductCategoryDTO>();
+            }
+            int categoryId = productCategory == null ? 0 : productCategory.Id;
+            ViewBag.CategoryId = new SelectList(categoryList, "Id", "Title", categoryId);
+
+            var query = from c in DataContext.GetProductCategoryDtoQuery()
+                        where c.ParentCategoryId == null
+                        select c;
+            List<ProductCategoryDTO> parentCategoryList = await query.ToListAsync();
+            ViewBag.ParentCategoryId = new SelectList(parentCategoryList, "Id", "Title", parentCategoryId);
+        }
+
+        protected async Task SetProductSelectListAsync(Product product)
+        {
+            int productCategoryId = product == null ? 0 :
+                                    product.Category == null ? product.CategoryId : product.Category.Id;
+            List<ProductDTO> productList;
+            if (productCategoryId > 0)
+            {
+                var query = from p in DataContext.GetProductDtoQuery()
+                            where p.CategoryId == productCategoryId
+                            select p;
+                productList = await query.ToListAsync();
+            }
+            else
+            {
+                productList = new List<ProductDTO>();
+            }
+            ViewBag.ProductId = new SelectList(productList, "Id", "Title", productCategoryId);
+            await SetProductCategorySelectListAsync(product);
+        }
+
+        #endregion
+
+        #region CanUserAdd Authorization Methods
 
         protected virtual async Task<bool> CanUserAddPurchaseOrder()
         {
@@ -67,5 +127,7 @@ namespace CriticalPath.Web.Controllers
             return _canUserApprove.Value;
         }
         bool? _canUserApprove;
+
+        #endregion
     }
 }

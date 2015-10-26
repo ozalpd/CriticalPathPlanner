@@ -420,6 +420,8 @@
     <Content Include="Views\Shared\DisplayTemplates\PurchaseOrder.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Boolean.cshtml" />
     <Content Include="Views\Shared\Approve.cshtml" />
+    <Content Include="Views\Shared\_ProductCategorySelectPartial.cshtml" />
+    <Content Include="Views\Shared\_ProductSelectPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

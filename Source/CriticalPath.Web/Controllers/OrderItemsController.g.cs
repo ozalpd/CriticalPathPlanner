@@ -47,7 +47,7 @@ namespace CriticalPath.Web.Controllers
                 orderItem.PurchaseOrder = purchaseOrder;
             }
             SetOrderItemDefaults(orderItem);
-            SetSelectLists(null);
+            await SetProductSelectListAsync(orderItem.Product);
             return View(orderItem);
         }
 
@@ -70,7 +70,7 @@ namespace CriticalPath.Web.Controllers
                 return RedirectToAction("Create", "Processes", new { orderItemId = orderItem.Id });
             }
 
-            SetSelectLists(orderItem);
+            await SetProductSelectListAsync(orderItem.Product);
             return View(orderItem);
         }
 
@@ -88,7 +88,7 @@ namespace CriticalPath.Web.Controllers
                 return HttpNotFound();
             }
 
-            SetSelectLists(orderItem);
+            await SetProductSelectListAsync(orderItem.Product);
             return View(orderItem);
         }
 
@@ -110,7 +110,7 @@ namespace CriticalPath.Web.Controllers
                 return RedirectToAction("Details", "PurchaseOrders", new { id = orderItem.PurchaseOrderId });
             }
 
-            SetSelectLists(orderItem);
+            await SetProductSelectListAsync(orderItem.Product);
             return View(orderItem);
         }
 

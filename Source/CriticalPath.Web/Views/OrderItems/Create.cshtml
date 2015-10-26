@@ -9,20 +9,15 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.Id)
-        
+
         @Html.HiddenFor(m => m.DisplayOrder)
         @Html.HiddenFor(m => m.PurchaseOrderId)
-        <div class="form-group">
-            @Html.LabelFor(model => model.ProductId, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
-            <div class="col-lg-5 col-md-6 col-sm-7">
-                @Html.DropDownList("ProductId", null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.ProductId, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        @Html.Partial("_ProductSelectPartial");
+
         <div class="form-group">
             @Html.LabelFor(model => model.Quantity, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
             <div class="col-lg-5 col-md-6 col-sm-7">
