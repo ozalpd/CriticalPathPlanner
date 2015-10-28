@@ -160,6 +160,5 @@ namespace CriticalPath.Web.Controllers
         partial void OnCreateSaved(OrderItem orderItem);
         partial void OnEditSaving(OrderItem orderItem);
         partial void OnEditSaved(OrderItem orderItem);
-        partial void SetSelectLists(OrderItem orderItem);
     }
 }

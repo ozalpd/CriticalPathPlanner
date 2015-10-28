@@ -16,10 +16,9 @@ namespace CriticalPath.Web.Controllers
 {
     public partial class ContactsController
     {
-        [Authorize]
-        public async Task<ActionResult> Index(QueryParameters qParams) //mod: Search by CompanyName
+        protected virtual IQueryable<Contact> GetContactQuery(QueryParameters qParams)
         {
-            var query = DataContext.GetContactQuery();
+            var query = GetContactQuery();
             if (!string.IsNullOrEmpty(qParams.SearchString))
             {
                 query = from a in query
@@ -35,69 +34,8 @@ namespace CriticalPath.Web.Controllers
             {
                 query = query.Where(x => x.CompanyId == qParams.CompanyId);
             }
-            qParams.TotalCount = await query.CountAsync();
-            PutPagerInViewBag(qParams);
-            await PutCanUserInViewBag();
 
-            if (qParams.TotalCount > 0)
-            {
-                return View(await query.Skip(qParams.Skip).Take(qParams.PageSize).ToListAsync());
-            }
-            else
-            {
-                return View(new List<Contact>());   //there isn't any record, so no need to run a query
-            }
+            return query;
         }
-
-        protected override async Task<bool> CanUserCreate()
-        {
-            if (!_canUserCreate.HasValue)
-            {
-                _canUserCreate = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync() ||
-                                    await IsUserClerkAsync());
-            }
-            return _canUserCreate.Value;
-        }
-        bool? _canUserCreate;
-
-        protected override async Task<bool> CanUserEdit()
-        {
-            if (!_canUserEdit.HasValue)
-            {
-                _canUserEdit = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync() ||
-                                    await IsUserClerkAsync());
-            }
-            return _canUserEdit.Value;
-        }
-        bool? _canUserEdit;
-
-        protected override async Task<bool> CanUserDelete()
-        {
-            if (!_canUserDelete.HasValue)
-            {
-                _canUserDelete = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync());
-            }
-            return _canUserDelete.Value;
-        }
-        bool? _canUserDelete;
-
-
-        //partial void SetSelectLists(Contact contact)
-        //{
-        //TODO: Optimize query
-        //var queryCompanyId = DataContext.Companies;
-        //int companyId = contact == null ? 0 : contact.CompanyId;
-        //ViewBag.CompanyId = new SelectList(queryCompanyId, "Id", "CompanyName", companyId);
-        //}
-
-
-        //Purpose: To set default property values for newly created Contact entity
-        //protected override void SetContactDefaults(Contact contact) { }
     }
 }

@@ -14,79 +14,31 @@ using CriticalPath.Data.Resources;
 
 namespace CriticalPath.Web.Controllers
 {
-    public partial class PurchaseOrdersController 
+    public partial class PurchaseOrdersController
     {
-        [Authorize]
-        public async Task<ActionResult> Index(QueryParameters qParams)
+        protected virtual IQueryable<PurchaseOrder> GetPurchaseOrderQuery(QueryParameters qParams)
         {
-            var query = DataContext.GetPurchaseOrderQuery();
+            var query = GetPurchaseOrderQuery();
             if (!string.IsNullOrEmpty(qParams.SearchString))
             {
                 query = from a in query
                         where
-                            a.Title.Contains(qParams.SearchString) |
-                            a.Code.Contains(qParams.SearchString) |
-                            a.Description.Contains(qParams.SearchString) |
-                            a.Customer.CompanyName.Contains(qParams.SearchString) |
-                            a.Notes.Contains(qParams.SearchString)
+                           a.Title.Contains(qParams.SearchString) |
+                           a.Code.Contains(qParams.SearchString) |
+                           a.Description.Contains(qParams.SearchString) |
+                           a.Customer.CompanyName.Contains(qParams.SearchString) |
+                           a.Notes.Contains(qParams.SearchString)
                         select a;
             }
             if (qParams.CustomerId != null)
             {
                 query = query.Where(x => x.CustomerId == qParams.CustomerId);
             }
-            qParams.TotalCount = await query.CountAsync();
-            PutPagerInViewBag(qParams);
-            await PutCanUserInViewBag();
 
-            if (qParams.TotalCount > 0)
-            {
-                return View(await query.Skip(qParams.Skip).Take(qParams.PageSize).ToListAsync());
-            }
-            else
-            {
-                return View(new List<PurchaseOrder>());   //there isn't any record, so no need to run a query
-            }
+            return query;
         }
 
-        protected override async Task<bool> CanUserCreate()
-        {
-            if (!_canUserCreate.HasValue)
-            {
-                _canUserCreate = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync() ||
-                                    await IsUserClerkAsync());
-            }
-            return _canUserCreate.Value;
-        }
-        bool? _canUserCreate;
-
-        protected override async Task<bool> CanUserEdit()
-        {
-            if (!_canUserEdit.HasValue)
-            {
-                _canUserEdit = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync() ||
-                                    await IsUserClerkAsync());
-            }
-            return _canUserEdit.Value;
-        }
-        bool? _canUserEdit;
-
-        protected override async Task<bool> CanUserDelete()
-        {
-            if (!_canUserDelete.HasValue)
-            {
-                _canUserDelete = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync());
-            }
-            return _canUserDelete.Value;
-        }
-        bool? _canUserDelete;
-
+        //TODO:Put Sizes; XS S M L XL XXL 3XL 4XL TOTAL
         protected override async Task PutCanUserInViewBag()
         {
             ViewBag.canUserApprove = await CanUserApprove();
@@ -121,13 +73,19 @@ namespace CriticalPath.Web.Controllers
                 await ApproveSaveAsync(purchaseOrder);
                 return RedirectToAction("Details", new { id = purchaseOrder.Id });
             }
+            if (purchaseOrder.DueDate == null)
+            {
+                //TODO:get 42 days from an AppSetting
+                purchaseOrder.DueDate = DateTime.Today.AddDays(42);
+            }
 
             return View(purchaseOrder);
         }
 
-        protected override void SetPurchaseOrderDefaults(PurchaseOrder purchaseOrder)
+        protected override Task SetPurchaseOrderDefaults(PurchaseOrder purchaseOrder)
         {
             purchaseOrder.OrderDate = DateTime.Today;
+            return Task.FromResult(default(object));
         }
 
         partial void SetSelectLists(PurchaseOrder purchaseOrder)

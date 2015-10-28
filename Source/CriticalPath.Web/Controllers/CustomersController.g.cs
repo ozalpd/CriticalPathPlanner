@@ -16,10 +16,9 @@ namespace CriticalPath.Web.Controllers
 {
     public partial class CustomersController : BaseController 
     {
-        [Authorize]
-        public async Task<ActionResult> Index(QueryParameters qParams)
+        protected virtual IQueryable<Customer> GetCustomerQuery(QueryParameters qParams)
         {
-            var query = DataContext.GetCustomerQuery();
+            var query = GetCustomerQuery();
             if (!string.IsNullOrEmpty(qParams.SearchString))
             {
                 query = from a in query
@@ -33,6 +32,14 @@ namespace CriticalPath.Web.Controllers
                             a.Address2.Contains(qParams.SearchString) 
                         select a;
             }
+
+            return query;
+        }
+
+        [Authorize]
+        public async Task<ActionResult> Index(QueryParameters qParams)
+        {
+            var query = GetCustomerQuery(qParams);
             qParams.TotalCount = await query.CountAsync();
             PutPagerInViewBag(qParams);
             await PutCanUserInViewBag();
@@ -104,11 +111,11 @@ namespace CriticalPath.Web.Controllers
 
         [HttpGet]
         [Authorize(Roles = "admin, supervisor, clerk")]
-        public ActionResult Create()  //GET: /Customers/Create
+        public async Task<ActionResult> Create()  //GET: /Customers/Create
         {
             var customer = new Customer();
-            SetCustomerDefaults(customer);
-            SetSelectLists(null);
+            await SetCustomerDefaults(customer);
+            SetSelectLists(customer);
             return View(customer);
         }
 

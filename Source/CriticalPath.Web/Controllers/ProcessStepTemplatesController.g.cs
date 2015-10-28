@@ -16,10 +16,9 @@ namespace CriticalPath.Web.Controllers
 {
     public partial class ProcessStepTemplatesController : BaseController 
     {
-        [Authorize]
-        public async Task<ActionResult> Index(QueryParameters qParams)
+        protected virtual IQueryable<ProcessStepTemplate> GetProcessStepTemplateQuery(QueryParameters qParams)
         {
-            var query = DataContext.GetProcessStepTemplateQuery();
+            var query = GetProcessStepTemplateQuery();
             if (!string.IsNullOrEmpty(qParams.SearchString))
             {
                 query = from a in query
@@ -31,6 +30,14 @@ namespace CriticalPath.Web.Controllers
             {
                 query = query.Where(x => x.ProcessTemplateId == qParams.ProcessTemplateId);
             }
+
+            return query;
+        }
+
+        [Authorize]
+        public async Task<ActionResult> Index(QueryParameters qParams)
+        {
+            var query = GetProcessStepTemplateQuery(qParams);
             qParams.TotalCount = await query.CountAsync();
             PutPagerInViewBag(qParams);
             await PutCanUserInViewBag();
@@ -108,8 +115,8 @@ namespace CriticalPath.Web.Controllers
                     return HttpNotFound();
                 processStepTemplate.ProcessTemplate = processTemplate;
             }
-            SetProcessStepTemplateDefaults(processStepTemplate);
-            SetSelectLists(null);
+            await SetProcessStepTemplateDefaults(processStepTemplate);
+            SetSelectLists(processStepTemplate);
             return View(processStepTemplate);
         }
 

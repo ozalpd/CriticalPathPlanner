@@ -26,6 +26,6 @@ namespace CriticalPath.Web.Controllers
 
 
         //Purpose: To set default property values for newly created Customer entity
-        //protected override void SetCustomerDefaults(Customer customer) { }
+        //protected override async Task SetCustomerDefaults(Customer customer) { }
     }
 }

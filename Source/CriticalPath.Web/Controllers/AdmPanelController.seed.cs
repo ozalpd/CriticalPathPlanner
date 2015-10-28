@@ -26,7 +26,6 @@ namespace CriticalPath.Web.Controllers
             await DataContext.SaveChangesAsync(this);
             await SeedContacts(sb);
             await DataContext.SaveChangesAsync(this);
-            //TODO: Seed ProcessTemplates
 
             return Content(sb.ToString());
         }

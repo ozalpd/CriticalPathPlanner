@@ -70,9 +70,9 @@ namespace CriticalPath.Web.Controllers
             ViewBag.canUserDelete = await CanUserDelete();
         }
 		//If we forget to implement override methods, we will keep it secure.
-        protected virtual async Task<bool> CanUserCreate() { return false; }
-        protected virtual async Task<bool> CanUserEdit() { return false; }
-        protected virtual async Task<bool> CanUserDelete() { return false; }
+        protected virtual Task<bool> CanUserCreate() { return Task.FromResult(false); }
+        protected virtual Task<bool> CanUserEdit() { return Task.FromResult(false); }
+        protected virtual Task<bool> CanUserDelete() { return Task.FromResult(false); }
 
         protected virtual async Task<bool> IsUserAdminAsync()
         {
@@ -122,106 +122,238 @@ namespace CriticalPath.Web.Controllers
         }
         bool? _isUserSupervisor;
 
-        #region Find Methods for Entities
+        #region Query Methods for Entity Types
 
+        /// <summary>
+        /// Finds an Contact by PrimaryKey value
+        /// </summary>
+        /// <param name="id">Represents PrimaryKey of Contact.Id</param>
+        /// <returns></returns>
         protected virtual async Task<Contact> FindAsyncContact(int id)
         {
-            return await DataContext
-                            .GetContactQuery()
+            return await GetContactQuery()
                             .FirstOrDefaultAsync(x => x.Id == id);
         }
 
-		protected virtual void SetContactDefaults(Contact contact) { }
+        protected virtual IQueryable<Contact> GetContactQuery()
+		{
+		    return DataContext.GetContactQuery();
+		}
 
+		protected virtual Task SetContactDefaults(Contact contact)
+        {
+            return Task.FromResult(default(object));
+        }
+
+        /// <summary>
+        /// Finds an Supplier by PrimaryKey value
+        /// </summary>
+        /// <param name="id">Represents PrimaryKey of Supplier.Id</param>
+        /// <returns></returns>
         protected virtual async Task<Supplier> FindAsyncSupplier(int id)
         {
-            return await DataContext
-                            .GetSupplierQuery()
+            return await GetSupplierQuery()
                             .FirstOrDefaultAsync(x => x.Id == id);
         }
 
-		protected virtual void SetSupplierDefaults(Supplier supplier) { }
+        protected virtual IQueryable<Supplier> GetSupplierQuery()
+		{
+		    return DataContext.GetSupplierQuery();
+		}
 
+		protected virtual Task SetSupplierDefaults(Supplier supplier)
+        {
+            return Task.FromResult(default(object));
+        }
+
+        /// <summary>
+        /// Finds an Customer by PrimaryKey value
+        /// </summary>
+        /// <param name="id">Represents PrimaryKey of Customer.Id</param>
+        /// <returns></returns>
         protected virtual async Task<Customer> FindAsyncCustomer(int id)
         {
-            return await DataContext
-                            .GetCustomerQuery()
+            return await GetCustomerQuery()
                             .FirstOrDefaultAsync(x => x.Id == id);
         }
 
-		protected virtual void SetCustomerDefaults(Customer customer) { }
+        protected virtual IQueryable<Customer> GetCustomerQuery()
+		{
+		    return DataContext.GetCustomerQuery();
+		}
 
+		protected virtual Task SetCustomerDefaults(Customer customer)
+        {
+            return Task.FromResult(default(object));
+        }
+
+        /// <summary>
+        /// Finds an ProductCategory by PrimaryKey value
+        /// </summary>
+        /// <param name="id">Represents PrimaryKey of ProductCategory.Id</param>
+        /// <returns></returns>
         protected virtual async Task<ProductCategory> FindAsyncProductCategory(int id)
         {
-            return await DataContext
-                            .GetProductCategoryQuery()
+            return await GetProductCategoryQuery()
                             .FirstOrDefaultAsync(x => x.Id == id);
         }
 
-		protected virtual void SetProductCategoryDefaults(ProductCategory productCategory) { }
+        protected virtual IQueryable<ProductCategory> GetProductCategoryQuery()
+		{
+		    return DataContext.GetProductCategoryQuery();
+		}
 
+		protected virtual Task SetProductCategoryDefaults(ProductCategory productCategory)
+        {
+            return Task.FromResult(default(object));
+        }
+
+        /// <summary>
+        /// Finds an Product by PrimaryKey value
+        /// </summary>
+        /// <param name="id">Represents PrimaryKey of Product.Id</param>
+        /// <returns></returns>
         protected virtual async Task<Product> FindAsyncProduct(int id)
         {
-            return await DataContext
-                            .GetProductQuery()
+            return await GetProductQuery()
                             .FirstOrDefaultAsync(x => x.Id == id);
         }
 
-		protected virtual void SetProductDefaults(Product product) { }
+        protected virtual IQueryable<Product> GetProductQuery()
+		{
+		    return DataContext.GetProductQuery();
+		}
 
+		protected virtual Task SetProductDefaults(Product product)
+        {
+            return Task.FromResult(default(object));
+        }
+
+        /// <summary>
+        /// Finds an PurchaseOrder by PrimaryKey value
+        /// </summary>
+        /// <param name="id">Represents PrimaryKey of PurchaseOrder.Id</param>
+        /// <returns></returns>
         protected virtual async Task<PurchaseOrder> FindAsyncPurchaseOrder(int id)
         {
-            return await DataContext
-                            .GetPurchaseOrderQuery()
+            return await GetPurchaseOrderQuery()
                             .FirstOrDefaultAsync(x => x.Id == id);
         }
 
-		protected virtual void SetPurchaseOrderDefaults(PurchaseOrder purchaseOrder) { }
+        protected virtual IQueryable<PurchaseOrder> GetPurchaseOrderQuery()
+		{
+		    return DataContext.GetPurchaseOrderQuery();
+		}
 
+		protected virtual Task SetPurchaseOrderDefaults(PurchaseOrder purchaseOrder)
+        {
+            return Task.FromResult(default(object));
+        }
+
+        /// <summary>
+        /// Finds an OrderItem by PrimaryKey value
+        /// </summary>
+        /// <param name="id">Represents PrimaryKey of OrderItem.Id</param>
+        /// <returns></returns>
         protected virtual async Task<OrderItem> FindAsyncOrderItem(int id)
         {
-            return await DataContext
-                            .GetOrderItemQuery()
+            return await GetOrderItemQuery()
                             .FirstOrDefaultAsync(x => x.Id == id);
         }
 
-		protected virtual void SetOrderItemDefaults(OrderItem orderItem) { }
+        protected virtual IQueryable<OrderItem> GetOrderItemQuery()
+		{
+		    return DataContext.GetOrderItemQuery();
+		}
 
+		protected virtual Task SetOrderItemDefaults(OrderItem orderItem)
+        {
+            return Task.FromResult(default(object));
+        }
+
+        /// <summary>
+        /// Finds an Process by PrimaryKey value
+        /// </summary>
+        /// <param name="id">Represents PrimaryKey of Process.Id</param>
+        /// <returns></returns>
         protected virtual async Task<Process> FindAsyncProcess(int id)
         {
-            return await DataContext
-                            .GetProcessQuery()
+            return await GetProcessQuery()
                             .FirstOrDefaultAsync(x => x.Id == id);
         }
 
-		protected virtual void SetProcessDefaults(Process process) { }
+        protected virtual IQueryable<Process> GetProcessQuery()
+		{
+		    return DataContext.GetProcessQuery();
+		}
 
+		protected virtual Task SetProcessDefaults(Process process)
+        {
+            return Task.FromResult(default(object));
+        }
+
+        /// <summary>
+        /// Finds an ProcessStep by PrimaryKey value
+        /// </summary>
+        /// <param name="id">Represents PrimaryKey of ProcessStep.Id</param>
+        /// <returns></returns>
         protected virtual async Task<ProcessStep> FindAsyncProcessStep(int id)
         {
-            return await DataContext
-                            .GetProcessStepQuery()
+            return await GetProcessStepQuery()
                             .FirstOrDefaultAsync(x => x.Id == id);
         }
 
-		protected virtual void SetProcessStepDefaults(ProcessStep processStep) { }
+        protected virtual IQueryable<ProcessStep> GetProcessStepQuery()
+		{
+		    return DataContext.GetProcessStepQuery();
+		}
 
+		protected virtual Task SetProcessStepDefaults(ProcessStep processStep)
+        {
+            return Task.FromResult(default(object));
+        }
+
+        /// <summary>
+        /// Finds an ProcessTemplate by PrimaryKey value
+        /// </summary>
+        /// <param name="id">Represents PrimaryKey of ProcessTemplate.Id</param>
+        /// <returns></returns>
         protected virtual async Task<ProcessTemplate> FindAsyncProcessTemplate(int id)
         {
-            return await DataContext
-                            .GetProcessTemplateQuery()
+            return await GetProcessTemplateQuery()
                             .FirstOrDefaultAsync(x => x.Id == id);
         }
 
-		protected virtual void SetProcessTemplateDefaults(ProcessTemplate processTemplate) { }
+        protected virtual IQueryable<ProcessTemplate> GetProcessTemplateQuery()
+		{
+		    return DataContext.GetProcessTemplateQuery();
+		}
 
+		protected virtual Task SetProcessTemplateDefaults(ProcessTemplate processTemplate)
+        {
+            return Task.FromResult(default(object));
+        }
+
+        /// <summary>
+        /// Finds an ProcessStepTemplate by PrimaryKey value
+        /// </summary>
+        /// <param name="id">Represents PrimaryKey of ProcessStepTemplate.Id</param>
+        /// <returns></returns>
         protected virtual async Task<ProcessStepTemplate> FindAsyncProcessStepTemplate(int id)
         {
-            return await DataContext
-                            .GetProcessStepTemplateQuery()
+            return await GetProcessStepTemplateQuery()
                             .FirstOrDefaultAsync(x => x.Id == id);
         }
 
-		protected virtual void SetProcessStepTemplateDefaults(ProcessStepTemplate processStepTemplate) { }
+        protected virtual IQueryable<ProcessStepTemplate> GetProcessStepTemplateQuery()
+		{
+		    return DataContext.GetProcessStepTemplateQuery();
+		}
+
+		protected virtual Task SetProcessStepTemplateDefaults(ProcessStepTemplate processStepTemplate)
+        {
+            return Task.FromResult(default(object));
+        }
         #endregion
         
         protected void AppendExceptionMsg(Exception ex, StringBuilder sb)

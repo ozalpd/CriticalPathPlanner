@@ -32,6 +32,7 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>false</GenerateController>
+      <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
       <GenerateCreateAction>true</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
@@ -43,6 +44,7 @@
       <EditView>false</EditView>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
+      <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -97,6 +99,7 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>false</GenerateController>
+      <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
       <GenerateCreateAction>true</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
@@ -108,6 +111,7 @@
       <EditView>false</EditView>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
+      <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -174,6 +178,7 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>false</GenerateController>
+      <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
       <GenerateCreateAction>true</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
@@ -185,6 +190,7 @@
       <EditView>false</EditView>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
+      <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -251,6 +257,7 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>false</GenerateController>
+      <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
       <GenerateCreateAction>true</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
@@ -262,6 +269,7 @@
       <EditView>false</EditView>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
+      <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -316,6 +324,7 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>false</GenerateController>
+      <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
       <GenerateCreateAction>true</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
@@ -327,6 +336,7 @@
       <EditView>false</EditView>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
+      <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -466,7 +476,8 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>true</GenerateController>
-      <GenerateIndexAction>false</GenerateIndexAction>
+      <GenerateGetQueryMethod>false</GenerateGetQueryMethod>
+      <GenerateIndexAction>true</GenerateIndexAction>
       <GenerateCreateAction>true</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
@@ -477,6 +488,7 @@
       <EditView>true</EditView>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
+      <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -639,6 +651,7 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>false</GenerateController>
+      <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
       <GenerateCreateAction>true</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
@@ -650,6 +663,7 @@
       <EditView>false</EditView>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
+      <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -680,6 +694,7 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>true</GenerateController>
+      <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
       <GenerateCreateAction>true</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
@@ -691,6 +706,7 @@
       <EditView>true</EditView>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
+      <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -733,6 +749,7 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>true</GenerateController>
+      <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
       <GenerateCreateAction>true</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
@@ -744,6 +761,7 @@
       <EditView>true</EditView>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
+      <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -810,6 +828,7 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>true</GenerateController>
+      <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
       <GenerateCreateAction>true</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
@@ -821,6 +840,7 @@
       <EditView>true</EditView>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
+      <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -875,8 +895,9 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>true</GenerateController>
+      <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
-      <GenerateCreateAction>false</GenerateCreateAction>
+      <GenerateCreateAction>true</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
@@ -886,6 +907,7 @@
       <EditView>false</EditView>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
+      <FillSelectListsMethod>await SetProductCategorySelectListAsync(product)</FillSelectListsMethod>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -1013,7 +1035,8 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>true</GenerateController>
-      <GenerateIndexAction>false</GenerateIndexAction>
+      <GenerateGetQueryMethod>false</GenerateGetQueryMethod>
+      <GenerateIndexAction>true</GenerateIndexAction>
       <GenerateCreateAction>true</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
@@ -1024,6 +1047,7 @@
       <EditView>true</EditView>
       <CreateRedirect>"Create", "OrderItems", new { purchaseOrderId = purchaseOrder.Id }</CreateRedirect>
       <EditRedirect>"Details", new { id = purchaseOrder.Id }</EditRedirect>
+      <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -1127,6 +1151,7 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>true</GenerateController>
+      <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
       <GenerateIndexAction>false</GenerateIndexAction>
       <GenerateCreateAction>true</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
@@ -1138,6 +1163,7 @@
       <EditView>true</EditView>
       <CreateRedirect>"Create", "Processes", new { orderItemId = orderItem.Id }</CreateRedirect>
       <EditRedirect>"Details", "PurchaseOrders", new { id = orderItem.PurchaseOrderId }</EditRedirect>
+      <FillSelectListsMethod>await SetProductSelectListAsync(orderItem.Product)</FillSelectListsMethod>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -1325,7 +1351,8 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>true</GenerateController>
-      <GenerateIndexAction>false</GenerateIndexAction>
+      <GenerateGetQueryMethod>false</GenerateGetQueryMethod>
+      <GenerateIndexAction>true</GenerateIndexAction>
       <GenerateCreateAction>true</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
@@ -1336,6 +1363,7 @@
       <EditView>true</EditView>
       <CreateRedirect>"Index", "ProcessSteps", new { processId = process.Id, pageSize = process.ProcessSteps.Count }</CreateRedirect>
       <EditRedirect>"Details", new { id = process.Id }</EditRedirect>
+      <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -1522,6 +1550,7 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>true</GenerateController>
+      <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
       <GenerateIndexAction>false</GenerateIndexAction>
       <GenerateCreateAction>false</GenerateCreateAction>
       <GenerateDeleteAction>false</GenerateDeleteAction>
@@ -1533,6 +1562,7 @@
       <EditView>true</EditView>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
+      <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -1588,6 +1618,7 @@
       <RolesCanEdit>admin</RolesCanEdit>
       <RolesCanDelete>admin</RolesCanDelete>
       <GenerateController>true</GenerateController>
+      <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
       <GenerateCreateAction>true</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
@@ -1599,6 +1630,7 @@
       <EditView>true</EditView>
       <CreateRedirect>"Create", "ProcessStepTemplates", new { processTemplateId = processTemplate.Id }</CreateRedirect>
       <EditRedirect>"Details", new { id = processTemplate.Id }</EditRedirect>
+      <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
@@ -1678,6 +1710,7 @@
       <RolesCanEdit>admin</RolesCanEdit>
       <RolesCanDelete>admin</RolesCanDelete>
       <GenerateController>true</GenerateController>
+      <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
       <GenerateCreateAction>true</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
@@ -1689,6 +1722,7 @@
       <EditView>true</EditView>
       <CreateRedirect>"Create", new { processTemplateId = processTemplateId }</CreateRedirect>
       <EditRedirect>"Index", new { processTemplateId = processStepTemplate.ProcessTemplateId }</EditRedirect>
+      <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
       <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
   </EntitySettings>

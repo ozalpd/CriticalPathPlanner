@@ -14,19 +14,15 @@ namespace CriticalPath.Web.Controllers
 {
     public partial class ProcessesController
     {
-        [Authorize]
-        public async Task<ActionResult> Index(QueryParameters qParams)
+        protected virtual IQueryable<Process> GetProcessQuery(QueryParameters qParams)
         {
-            var query = DataContext.GetProcessQuery();
+            var query = GetProcessQuery();
             if (!string.IsNullOrEmpty(qParams.SearchString))
             {
                 query = from a in query
                         where
                             a.Title.Contains(qParams.SearchString) |
-                            a.Description.Contains(qParams.SearchString) |
-                            a.OrderItem.Notes.Contains(qParams.SearchString) |
-                            a.OrderItem.Product.Title.Contains(qParams.SearchString) |
-                            a.OrderItem.Product.Code.Contains(qParams.SearchString)
+                            a.Description.Contains(qParams.SearchString)
                         select a;
             }
             if (qParams.ProcessTemplateId != null)
@@ -37,57 +33,9 @@ namespace CriticalPath.Web.Controllers
             {
                 query = query.Where(x => x.OrderItemId == qParams.OrderItemId);
             }
-            qParams.TotalCount = await query.CountAsync();
-            PutPagerInViewBag(qParams);
-            await PutCanUserInViewBag();
 
-            if (qParams.TotalCount > 0)
-            {
-                return View(await query.Skip(qParams.Skip).Take(qParams.PageSize).ToListAsync());
-            }
-            else
-            {
-                return View(new List<Process>());   //there isn't any record, so no need to run a query
-            }
+            return query;
         }
-
-        protected override async Task<bool> CanUserCreate()
-        {
-            if (!_canUserCreate.HasValue)
-            {
-                _canUserCreate = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync() ||
-                                    await IsUserClerkAsync());
-            }
-            return _canUserCreate.Value;
-        }
-        bool? _canUserCreate;
-
-        protected override async Task<bool> CanUserEdit()
-        {
-            if (!_canUserEdit.HasValue)
-            {
-                _canUserEdit = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync() ||
-                                    await IsUserClerkAsync());
-            }
-            return _canUserEdit.Value;
-        }
-        bool? _canUserEdit;
-
-        protected override async Task<bool> CanUserDelete()
-        {
-            if (!_canUserDelete.HasValue)
-            {
-                _canUserDelete = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync());
-            }
-            return _canUserDelete.Value;
-        }
-        bool? _canUserDelete;
 
         protected override async Task PutCanUserInViewBag()
         {
@@ -135,11 +83,6 @@ namespace CriticalPath.Web.Controllers
                                     .Where(t => t.IsApproved);
             int processTemplateId = process == null ? 0 : process.ProcessTemplateId;
             ViewBag.ProcessTemplateId = new SelectList(queryTemplateId, "Id", "TemplateName", processTemplateId);
-
-            //TODO: Optimize query
-            //var queryOrderItemId = DataContext.GetOrderItemDtoQuery();
-            //int orderItemId = process == null ? 0 : process.OrderItemId;
-            //ViewBag.OrderItemId = new SelectList(queryOrderItemId, "Id", "Product.Title", orderItemId);
         }
 
         partial void OnCreateSaving(Process process)
@@ -172,9 +115,10 @@ namespace CriticalPath.Web.Controllers
             }
         }
 
-        protected override void SetProcessDefaults(Process process)
+        protected override Task SetProcessDefaults(Process process)
         {
             process.TargetStartDate = DateTime.Today;
+            return Task.FromResult(default(object));
         }
     }
 }

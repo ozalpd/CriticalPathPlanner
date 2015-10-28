@@ -90,28 +90,15 @@ namespace CriticalPath.Web.Controllers
         }
         bool? _canUserDelete;
 
-
-        partial void SetSelectLists(OrderItem orderItem)
-        {
-            //var queryPuchaseOrderId = DataContext.GetPurchaseOrderDtoQuery();
-            //int puchaseOrderId = orderItem == null ? 0 : orderItem.PuchaseOrderId;
-            //ViewBag.PuchaseOrderId = new SelectList(queryPuchaseOrderId, "Id", "Title", puchaseOrderId);
-
-            //TODO: ProductCategory selectlist and its ParentCategory selectlist
-            var queryProductId = DataContext.GetProductDtoQuery();
-            int productId = orderItem == null ? 0 : orderItem.ProductId;
-            ViewBag.ProductId = new SelectList(queryProductId, "Id", "Title", productId);
-        }
-
-        protected override void SetOrderItemDefaults(OrderItem orderItem)
+        protected override async Task SetOrderItemDefaults(OrderItem orderItem)
         {
             int count = 0;
             if (orderItem.PurchaseOrderId > 0)
             {
-                count = DataContext
+                count = await DataContext
                         .OrderItems
                         .Where(o => o.PurchaseOrderId == orderItem.PurchaseOrderId)
-                        .Count();
+                        .CountAsync();
             }
             orderItem.DisplayOrder = 100 * (count + 1);
         }
