@@ -40,9 +40,9 @@ namespace CriticalPath.Data
         public virtual DbSet<ProcessStep> ProcessSteps { get; set; }
         public virtual DbSet<ProcessStepTemplate> ProcessStepTemplates { get; set; }
         public virtual DbSet<ProcessTemplate> ProcessTemplates { get; set; }
-        public virtual DbSet<SizeQuantity> SizeQuantities { get; set; }
-        public virtual DbSet<Size> Sizes { get; set; }
+        public virtual DbSet<QuantitySizeRate> QuantitySizeRates { get; set; }
         public virtual DbSet<SizeStandard> SizeStandards { get; set; }
+        public virtual DbSet<SizeCaption> SizeCaptions { get; set; }
     
         /// <summary>
         /// Default query for Companies
@@ -456,6 +456,7 @@ namespace CriticalPath.Data
                        Title = e.Title,
                        CustomerId = e.CustomerId,
                        ProductId = e.ProductId,
+                       SizeStandardId = e.SizeStandardId,
                        OrderDate = e.OrderDate,
                        DueDate = e.DueDate,
                        Code = e.Code,
@@ -470,75 +471,75 @@ namespace CriticalPath.Data
     
     
         /// <summary>
-        /// Default query for SizeQuantities
+        /// Default query for QuantitySizeRates
         /// </summary>
         /// <returns></returns>
-        public virtual IQueryable<SizeQuantity> GetSizeQuantityQuery()
+        public virtual IQueryable<QuantitySizeRate> GetQuantitySizeRateQuery()
         {
-            IQueryable<SizeQuantity> query = SizeQuantities.OrderBy(p => p.DisplayOrder);
+            IQueryable<QuantitySizeRate> query = QuantitySizeRates.OrderBy(p => p.DisplayOrder);
             return query;
         }
     
         /// <summary>
-        /// Gets a lighter data transfer object query from SizeQuantity query
+        /// Gets a lighter data transfer object query from QuantitySizeRate query
         /// </summary>
         /// <param name="query">query to be converted</param>
         /// <returns>Converted data transfer object query</returns>
-        public virtual IQueryable<SizeQuantityDTO> GetSizeQuantityDtoQuery()
+        public virtual IQueryable<QuantitySizeRateDTO> GetQuantitySizeRateDtoQuery()
         {
-            return GetSizeQuantityDtoQuery(GetSizeQuantityQuery());
+            return GetQuantitySizeRateDtoQuery(GetQuantitySizeRateQuery());
         }
     
         /// <summary>
-        /// Gets a lighter data transfer object query from SizeQuantity query
+        /// Gets a lighter data transfer object query from QuantitySizeRate query
         /// </summary>
         /// <returns>Converted data transfer object query</returns>
-        public virtual IQueryable<SizeQuantityDTO> GetSizeQuantityDtoQuery(IQueryable<SizeQuantity> query)
+        public virtual IQueryable<QuantitySizeRateDTO> GetQuantitySizeRateDtoQuery(IQueryable<QuantitySizeRate> query)
         {
             return from e in query
-                   select new SizeQuantityDTO
+                   select new QuantitySizeRateDTO
                    {
                        Id = e.Id,
                        DisplayOrder = e.DisplayOrder,
                        PurchaseOrderId = e.PurchaseOrderId,
-                       SizeId = e.SizeId,
-                       Quantity = e.Quantity,
+                       SizeCaptionId = e.SizeCaptionId,
+                       Rate = e.Rate,
                    };
         }
     
     
         /// <summary>
-        /// Default query for Sizes
+        /// Default query for SizeCaptions
         /// </summary>
         /// <returns></returns>
-        public virtual IQueryable<Size> GetSizeQuery()
+        public virtual IQueryable<SizeCaption> GetSizeCaptionQuery()
         {
-            IQueryable<Size> query = Sizes.OrderBy(p => p.DisplayOrder);
+            IQueryable<SizeCaption> query = SizeCaptions.OrderBy(p => p.DisplayOrder);
             return query;
         }
     
         /// <summary>
-        /// Gets a lighter data transfer object query from Size query
+        /// Gets a lighter data transfer object query from SizeCaption query
         /// </summary>
         /// <param name="query">query to be converted</param>
         /// <returns>Converted data transfer object query</returns>
-        public virtual IQueryable<SizeDTO> GetSizeDtoQuery()
+        public virtual IQueryable<SizeCaptionDTO> GetSizeCaptionDtoQuery()
         {
-            return GetSizeDtoQuery(GetSizeQuery());
+            return GetSizeCaptionDtoQuery(GetSizeCaptionQuery());
         }
     
         /// <summary>
-        /// Gets a lighter data transfer object query from Size query
+        /// Gets a lighter data transfer object query from SizeCaption query
         /// </summary>
         /// <returns>Converted data transfer object query</returns>
-        public virtual IQueryable<SizeDTO> GetSizeDtoQuery(IQueryable<Size> query)
+        public virtual IQueryable<SizeCaptionDTO> GetSizeCaptionDtoQuery(IQueryable<SizeCaption> query)
         {
             return from e in query
-                   select new SizeDTO
+                   select new SizeCaptionDTO
                    {
                        Id = e.Id,
                        DisplayOrder = e.DisplayOrder,
-                       Title = e.Title,
+                       Caption = e.Caption,
                        SizeStandardId = e.SizeStandardId,
                    };
         }

@@ -69,8 +69,16 @@
     <Translation>Add New Purchase Order</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddNewQuantitySizeRate</Name>
+    <Translation>Add New Quantity Size Rate</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddNewSize</Name>
     <Translation>Add New Size</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewSizeCaption</Name>
+    <Translation>Add New Size Caption</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNewSizeQuantity</Name>
@@ -117,6 +125,10 @@
     <Translation>Add Purchase Order</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddQuantitySizeRate</Name>
+    <Translation>Add Quantity Size Rate</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Address</Name>
     <Translation>Address</Translation>
   </Vocab>
@@ -131,6 +143,10 @@
   <Vocab>
     <Name>AddSize</Name>
     <Translation>Add Size</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddSizeCaption</Name>
+    <Translation>Add Size Caption</Translation>
   </Vocab>
   <Vocab>
     <Name>AddSizeQuantity</Name>
@@ -187,6 +203,10 @@
   <Vocab>
     <Name>CanNotDelete</Name>
     <Translation>Can not delete</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Caption</Name>
+    <Translation>Caption</Translation>
   </Vocab>
   <Vocab>
     <Name>Categories</Name>
@@ -341,8 +361,16 @@
     <Translation>Create Purchase Order</Translation>
   </Vocab>
   <Vocab>
+    <Name>CreateQuantitySizeRate</Name>
+    <Translation>Create Quantity Size Rate</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CreateSize</Name>
     <Translation>Create Size</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateSizeCaption</Name>
+    <Translation>Create Size Caption</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateSizeQuantity</Name>
@@ -445,8 +473,16 @@
     <Translation>Delete Purchase Order</Translation>
   </Vocab>
   <Vocab>
+    <Name>DeleteQuantitySizeRate</Name>
+    <Translation>Delete Quantity Size Rate</Translation>
+  </Vocab>
+  <Vocab>
     <Name>DeleteSize</Name>
     <Translation>Delete Size</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteSizeCaption</Name>
+    <Translation>Delete Size Caption</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteSizeQuantity</Name>
@@ -557,8 +593,16 @@
     <Translation>Edit Purchase Order</Translation>
   </Vocab>
   <Vocab>
+    <Name>EditQuantitySizeRate</Name>
+    <Translation>Edit Quantity Size Rate</Translation>
+  </Vocab>
+  <Vocab>
     <Name>EditSize</Name>
     <Translation>Edit Size</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditSizeCaption</Name>
+    <Translation>Edit Size Caption</Translation>
   </Vocab>
   <Vocab>
     <Name>EditSizeQuantity</Name>
@@ -985,8 +1029,24 @@
     <Translation>Quantity</Translation>
   </Vocab>
   <Vocab>
+    <Name>QuantitySizeRate</Name>
+    <Translation>Quantity Size Rate</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>QuantitySizeRates</Name>
+    <Translation>Quantity Size Rates</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>QuantitySizeRatesList</Name>
+    <Translation>Quantity Size Rates List</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Rarely</Name>
     <Translation>Rarely</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Rate</Name>
+    <Translation>Rate</Translation>
   </Vocab>
   <Vocab>
     <Name>RealizedDate</Name>
@@ -1047,6 +1107,22 @@
   <Vocab>
     <Name>Size</Name>
     <Translation>Size</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizeCaption</Name>
+    <Translation>Size Caption</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizeCaptionId</Name>
+    <Translation>Size Caption Id</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizeCaptions</Name>
+    <Translation>Size Captions</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizeCaptionsList</Name>
+    <Translation>Size Captions List</Translation>
   </Vocab>
   <Vocab>
     <Name>SizeId</Name>

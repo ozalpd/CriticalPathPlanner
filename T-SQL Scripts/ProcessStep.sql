@@ -40,5 +40,11 @@ Create Nonclustered Index [idx_ProcessSteps_DisplayOrder] On [dbo].[ProcessSteps
 Go
 Create Nonclustered Index [idx_ProcessSteps_ProcessId] On [dbo].[ProcessSteps]([ProcessId] Asc)
 Go
+Create Nonclustered Index [idx_ProcessSteps_TargetDate] On [dbo].[ProcessSteps]([TargetDate] Asc)
+Go
+Create Nonclustered Index [idx_ProcessSteps_ForecastDate] On [dbo].[ProcessSteps]([ForecastDate] Asc)
+Go
+Create Nonclustered Index [idx_ProcessSteps_RealizedDate] On [dbo].[ProcessSteps]([RealizedDate] Asc)
+Go
 Create Nonclustered Index [idx_ProcessSteps_ModifyDate] On [dbo].[ProcessSteps]([ModifyDate] Desc)
 Go

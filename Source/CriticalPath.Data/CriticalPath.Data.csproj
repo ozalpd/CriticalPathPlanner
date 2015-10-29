@@ -57,10 +57,10 @@
     <Compile Include="Contact.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Metadata\Size.meta.cs" />
-    <Compile Include="Metadata\SizeDTO.meta.cs" />
-    <Compile Include="Metadata\SizeQuantity.meta.cs" />
-    <Compile Include="Metadata\SizeQuantityDTO.meta.cs" />
+    <Compile Include="Metadata\QuantitySizeRate.meta.cs" />
+    <Compile Include="Metadata\QuantitySizeRateDTO.meta.cs" />
+    <Compile Include="Metadata\SizeCaption.meta.cs" />
+    <Compile Include="Metadata\SizeCaptionDTO.meta.cs" />
     <Compile Include="Metadata\SizeStandard.meta.cs" />
     <Compile Include="Metadata\SizeStandardDTO.meta.cs" />
     <Compile Include="Parts\Contact.part.cs" />
@@ -130,6 +130,9 @@
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Parts\PurchaseOrderDTO.part.cs" />
+    <Compile Include="QuantitySizeRate.cs">
+      <DependentUpon>CriticalPathModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Resources\ActionStrings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -180,10 +183,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MessageStrings.tr.resx</DependentUpon>
     </Compile>
-    <Compile Include="Size.cs">
-      <DependentUpon>CriticalPathModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SizeQuantity.cs">
+    <Compile Include="SizeCaption.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
     <Compile Include="SizeStandard.cs">

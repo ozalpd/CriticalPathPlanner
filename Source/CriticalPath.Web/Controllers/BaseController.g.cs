@@ -251,22 +251,22 @@ namespace CriticalPath.Web.Controllers
         }
 
         /// <summary>
-        /// Finds an SizeQuantity by PrimaryKey value
+        /// Finds an QuantitySizeRate by PrimaryKey value
         /// </summary>
-        /// <param name="id">Represents PrimaryKey of SizeQuantity.Id</param>
+        /// <param name="id">Represents PrimaryKey of QuantitySizeRate.Id</param>
         /// <returns></returns>
-        protected virtual async Task<SizeQuantity> FindAsyncSizeQuantity(int id)
+        protected virtual async Task<QuantitySizeRate> FindAsyncQuantitySizeRate(int id)
         {
-            return await GetSizeQuantityQuery()
+            return await GetQuantitySizeRateQuery()
                             .FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        protected virtual IQueryable<SizeQuantity> GetSizeQuantityQuery()
+        protected virtual IQueryable<QuantitySizeRate> GetQuantitySizeRateQuery()
 		{
-		    return DataContext.GetSizeQuantityQuery();
+		    return DataContext.GetQuantitySizeRateQuery();
 		}
 
-		protected virtual Task SetSizeQuantityDefaults(SizeQuantity sizeQuantity)
+		protected virtual Task SetQuantitySizeRateDefaults(QuantitySizeRate quantitySizeRate)
         {
             return Task.FromResult(default(object));
         }
@@ -293,22 +293,22 @@ namespace CriticalPath.Web.Controllers
         }
 
         /// <summary>
-        /// Finds an Size by PrimaryKey value
+        /// Finds an SizeCaption by PrimaryKey value
         /// </summary>
-        /// <param name="id">Represents PrimaryKey of Size.Id</param>
+        /// <param name="id">Represents PrimaryKey of SizeCaption.Id</param>
         /// <returns></returns>
-        protected virtual async Task<Size> FindAsyncSize(int id)
+        protected virtual async Task<SizeCaption> FindAsyncSizeCaption(int id)
         {
-            return await GetSizeQuery()
+            return await GetSizeCaptionQuery()
                             .FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        protected virtual IQueryable<Size> GetSizeQuery()
+        protected virtual IQueryable<SizeCaption> GetSizeCaptionQuery()
 		{
-		    return DataContext.GetSizeQuery();
+		    return DataContext.GetSizeCaptionQuery();
 		}
 
-		protected virtual Task SetSizeDefaults(Size size)
+		protected virtual Task SetSizeCaptionDefaults(SizeCaption sizeCaption)
         {
             return Task.FromResult(default(object));
         }

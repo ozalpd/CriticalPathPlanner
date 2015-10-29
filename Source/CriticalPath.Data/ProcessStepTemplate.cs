@@ -79,10 +79,10 @@ namespace CriticalPath.Data
             ProcessTemplateId = entity.ProcessTemplateId;
             RequiredWorkDays = entity.RequiredWorkDays;
         
-            Initilazing(entity);
+            Initiliazing(entity);
         }
     
-        partial void Initilazing(ProcessStepTemplate entity);
+        partial void Initiliazing(ProcessStepTemplate entity);
         
         public virtual ProcessStepTemplate ToProcessStepTemplate()
         {

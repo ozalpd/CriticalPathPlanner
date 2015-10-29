@@ -97,10 +97,10 @@ namespace CriticalPath.Data
             IsApproved = entity.IsApproved;
             ApproveDate = entity.ApproveDate;
         
-            Initilazing(entity);
+            Initiliazing(entity);
         }
     
-        partial void Initilazing(ProcessStep entity);
+        partial void Initiliazing(ProcessStep entity);
         
         public virtual ProcessStep ToProcessStep()
         {

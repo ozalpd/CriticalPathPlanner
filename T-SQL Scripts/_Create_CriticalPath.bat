@@ -36,23 +36,23 @@
 
 @echo .
 @echo .
-@echo 7 - Executing PurchaseOrder.sql...
-@sqlcmd -S .\SqlExpress -d CriticalPath -E -i PurchaseOrder.sql
-
-@echo .
-@echo .
-@echo 8 - Executing SizeStandard.sql...
+@echo 7 - Executing SizeStandard.sql...
 @sqlcmd -S .\SqlExpress -d CriticalPath -E -i SizeStandard.sql
 
 @echo .
 @echo .
-@echo 9 - Executing Size.sql...
-@sqlcmd -S .\SqlExpress -d CriticalPath -E -i Size.sql
+@echo 8 - Executing PurchaseOrder.sql...
+@sqlcmd -S .\SqlExpress -d CriticalPath -E -i PurchaseOrder.sql
 
 @echo .
 @echo .
-@echo 10 - Executing SizeQuantity.sql...
-@sqlcmd -S .\SqlExpress -d CriticalPath -E -i SizeQuantity.sql
+@echo 9 - Executing SizeCaption.sql...
+@sqlcmd -S .\SqlExpress -d CriticalPath -E -i SizeCaption.sql
+
+@echo .
+@echo .
+@echo 10 - Executing QuantitySizeRate.sql...
+@sqlcmd -S .\SqlExpress -d CriticalPath -E -i QuantitySizeRate.sql
 
 @echo .
 @echo .

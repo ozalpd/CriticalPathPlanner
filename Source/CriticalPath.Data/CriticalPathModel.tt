@@ -174,10 +174,10 @@ public partial class <#=code.Escape(entity)#>DTO
         <#= code.Escape(edmProperty) #> = entity.<#= code.Escape(edmProperty) #>;
 <#  }#>
     
-        Initilazing(entity);
+        Initiliazing(entity);
     }
 
-    partial void Initilazing(<#=code.Escape(entity)#> entity);
+    partial void Initiliazing(<#=code.Escape(entity)#> entity);
     
     public virtual <#=code.Escape(entity)#> To<#=code.Escape(entity)#>()
     {

@@ -18,13 +18,14 @@ namespace CriticalPath.Data
         public PurchaseOrder()
         {
             this.Processes = new HashSet<Process>();
-            this.SizeQuantities = new HashSet<SizeQuantity>();
+            this.QuantitySizeRates = new HashSet<QuantitySizeRate>();
         }
     
         public int Id { get; set; }
         public string Title { get; set; }
         public int CustomerId { get; set; }
         public int ProductId { get; set; }
+        public int SizeStandardId { get; set; }
         public System.DateTime OrderDate { get; set; }
         public Nullable<System.DateTime> DueDate { get; set; }
         public string Code { get; set; }
@@ -49,7 +50,8 @@ namespace CriticalPath.Data
         public virtual ICollection<Process> Processes { get; set; }
         public virtual Product Product { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SizeQuantity> SizeQuantities { get; set; }
+        public virtual ICollection<QuantitySizeRate> QuantitySizeRates { get; set; }
+        public virtual SizeStandard SizeStandard { get; set; }
     	/// <summary>
     	/// Clones all properties in a new PurchaseOrder instance,
     	/// except PrimaryKey(s)
@@ -61,6 +63,7 @@ namespace CriticalPath.Data
             clone.Title = Title;
             clone.CustomerId = CustomerId;
             clone.ProductId = ProductId;
+            clone.SizeStandardId = SizeStandardId;
             clone.OrderDate = OrderDate;
             clone.DueDate = DueDate;
             clone.Code = Code;
@@ -101,6 +104,7 @@ namespace CriticalPath.Data
             Title = entity.Title;
             CustomerId = entity.CustomerId;
             ProductId = entity.ProductId;
+            SizeStandardId = entity.SizeStandardId;
             OrderDate = entity.OrderDate;
             DueDate = entity.DueDate;
             Code = entity.Code;
@@ -111,10 +115,10 @@ namespace CriticalPath.Data
             IsApproved = entity.IsApproved;
             ApproveDate = entity.ApproveDate;
         
-            Initilazing(entity);
+            Initiliazing(entity);
         }
     
-        partial void Initilazing(PurchaseOrder entity);
+        partial void Initiliazing(PurchaseOrder entity);
         
         public virtual PurchaseOrder ToPurchaseOrder()
         {
@@ -123,6 +127,7 @@ namespace CriticalPath.Data
             entity.Title = Title;
             entity.CustomerId = CustomerId;
             entity.ProductId = ProductId;
+            entity.SizeStandardId = SizeStandardId;
             entity.OrderDate = OrderDate;
             entity.DueDate = DueDate;
             entity.Code = Code;
@@ -144,6 +149,7 @@ namespace CriticalPath.Data
         public string Title { get; set; }
         public int CustomerId { get; set; }
         public int ProductId { get; set; }
+        public int SizeStandardId { get; set; }
         public System.DateTime OrderDate { get; set; }
         public Nullable<System.DateTime> DueDate { get; set; }
         public string Code { get; set; }

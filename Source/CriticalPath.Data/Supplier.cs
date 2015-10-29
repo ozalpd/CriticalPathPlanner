@@ -74,10 +74,10 @@ namespace CriticalPath.Data
             Notes = entity.Notes;
             SupplierCode = entity.SupplierCode;
         
-            Initilazing(entity);
+            Initiliazing(entity);
         }
     
-        partial void Initilazing(Supplier entity);
+        partial void Initiliazing(Supplier entity);
         
         public virtual Supplier ToSupplier()
         {

@@ -13,26 +13,29 @@ using CriticalPath.Data.Resources;
 
 namespace CriticalPath.Data
 {
-    [MetadataTypeAttribute(typeof(SizeDTO.SizeMetadata))]
-    public partial class SizeDTO
+    [MetadataTypeAttribute(typeof(QuantitySizeRateDTO.QuantitySizeRateMetadata))]
+    public partial class QuantitySizeRateDTO
 	{
-        internal sealed partial class SizeMetadata
+        internal sealed partial class QuantitySizeRateMetadata
 		{
             // This metadata class is not intended to be instantiated.
-            private SizeMetadata() { }
+            private QuantitySizeRateMetadata() { }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Display(ResourceType = typeof(EntityStrings), Name = "DisplayOrder")]
             public int DisplayOrder { get; set; }
 
-            [StringLength(16, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "Title")]
-            public string Title { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "PurchaseOrderId")]
+            public int PurchaseOrderId { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "SizeStandardId")]
-            public int SizeStandardId { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "SizeCaptionId")]
+            public int SizeCaptionId { get; set; }
+
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "Rate")]
+            public int Rate { get; set; }
 
 		}
 	}

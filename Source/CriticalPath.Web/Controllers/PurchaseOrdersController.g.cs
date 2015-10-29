@@ -103,7 +103,7 @@ namespace CriticalPath.Web.Controllers
                 purchaseOrder.CustomerId = customer.Id;
             }
             await SetPurchaseOrderDefaults(purchaseOrder);
-            await SetProductSelectListAsync(null);
+            await SetProductSelectListAsync(purchaseOrder.Product);
             return View(purchaseOrder);
         }
 
@@ -122,10 +122,10 @@ namespace CriticalPath.Web.Controllers
                 DataContext.PurchaseOrders.Add(entity);
                 await DataContext.SaveChangesAsync(this);
                 OnCreateSaved(entity);
-                return RedirectToAction("Create", "OrderItems", new { purchaseOrderId = purchaseOrder.Id });
+                return RedirectToAction("Details", new { id = purchaseOrder.Id });
             }
 
-            await SetProductSelectListAsync(null);
+            await SetProductSelectListAsync(purchaseOrder.Product);
             return View(purchaseOrder);
         }
 
@@ -143,7 +143,7 @@ namespace CriticalPath.Web.Controllers
                 return HttpNotFound();
             }
 
-            await SetProductSelectListAsync(null);
+            await SetProductSelectListAsync(purchaseOrder.Product);
             return View(purchaseOrder);
         }
 
@@ -165,7 +165,7 @@ namespace CriticalPath.Web.Controllers
                 return RedirectToAction("Details", new { id = purchaseOrder.Id });
             }
 
-            await SetProductSelectListAsync(null);
+            await SetProductSelectListAsync(purchaseOrder.Product);
             return View(purchaseOrder);
         }
 
@@ -184,8 +184,8 @@ namespace CriticalPath.Web.Controllers
                 return HttpNotFound();
             }
 
-            int sizeQuantitiesCount = purchaseOrder.SizeQuantities.Count;
-            if ((sizeQuantitiesCount) > 0)
+            int quantitySizeRatesCount = purchaseOrder.QuantitySizeRates.Count;
+            if ((quantitySizeRatesCount) > 0)
             {
                 var sb = new StringBuilder();
 
@@ -194,9 +194,9 @@ namespace CriticalPath.Web.Controllers
                 sb.Append(purchaseOrder.Title);
                 sb.Append("</b>.<br/>");
 
-                if (sizeQuantitiesCount > 0)
+                if (quantitySizeRatesCount > 0)
                 {
-                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, sizeQuantitiesCount, EntityStrings.SizeQuantities));
+                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, quantitySizeRatesCount, EntityStrings.QuantitySizeRates));
                     sb.Append("<br/>");
                 }
 

@@ -32,12 +32,22 @@ namespace CriticalPath.Web.Controllers
 
         #region SetSelectList Helper Methods
 
+        protected async Task SetProductCategorySelectListAsync(ProductDTO product)
+        {
+            await SetProductCategorySelectListAsync(product);
+        }
+
         protected async Task SetProductCategorySelectListAsync(Product product)
         {
             var productCategory = product == null ? null : product.Category == null ? null : product.Category;
             if (productCategory == null && product != null && product.CategoryId > 0)
                 productCategory = await FindAsyncProductCategory(product.CategoryId);
 
+            await SetProductCategorySelectListAsync(productCategory);
+        }
+
+        protected async Task SetProductCategorySelectListAsync(ProductCategoryDTO productCategory)
+        {
             await SetProductCategorySelectListAsync(productCategory);
         }
 
@@ -64,6 +74,11 @@ namespace CriticalPath.Web.Controllers
                         select c;
             List<ProductCategoryDTO> parentCategoryList = await query.ToListAsync();
             ViewBag.ParentCategoryId = new SelectList(parentCategoryList, "Id", "Title", parentCategoryId);
+        }
+
+        protected async Task SetProductSelectListAsync(ProductDTO product)
+        {
+            await SetProductSelectListAsync(product.ToProduct());
         }
 
         protected async Task SetProductSelectListAsync(Product product)

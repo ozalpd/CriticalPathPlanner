@@ -67,6 +67,10 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "UnitPrice")]
             public decimal UnitPrice { get; set; }
 
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "SizeStandardId")]
+            public int SizeStandardId { get; set; }
+
             [StringLength(255, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [DataType(DataType.MultilineText)]
             [Display(ResourceType = typeof(EntityStrings), Name = "Notes")]

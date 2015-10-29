@@ -6,7 +6,7 @@ using System.Web;
 
 namespace CriticalPath.Web.Models
 {
-    public class PurchaseOrderCreateVM : PurchaseOrderDTO
+    public class PurchaseOrderCreateVM : PurchaseOrderVM
     {
 
     }

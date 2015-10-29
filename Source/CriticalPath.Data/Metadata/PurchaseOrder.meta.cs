@@ -65,9 +65,6 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "Product")]
             public Product Product { get; set; }
 
-            [Display(ResourceType = typeof(EntityStrings), Name = "SizeQuantities")]
-            public ICollection<SizeQuantity> SizeQuantities { get; set; }
-
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Display(ResourceType = typeof(EntityStrings), Name = "Quantity")]
             public int Quantity { get; set; }
@@ -75,6 +72,16 @@ namespace CriticalPath.Data
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Display(ResourceType = typeof(EntityStrings), Name = "UnitPrice")]
             public decimal UnitPrice { get; set; }
+
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "SizeStandardId")]
+            public int SizeStandardId { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "SizeStandard")]
+            public SizeStandard SizeStandard { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "QuantitySizeRates")]
+            public ICollection<QuantitySizeRate> QuantitySizeRates { get; set; }
 
             [StringLength(255, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [DataType(DataType.MultilineText)]

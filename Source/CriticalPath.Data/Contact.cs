@@ -86,10 +86,10 @@ namespace CriticalPath.Data
             Notes = entity.Notes;
             CompanyId = entity.CompanyId;
         
-            Initilazing(entity);
+            Initiliazing(entity);
         }
     
-        partial void Initilazing(Contact entity);
+        partial void Initiliazing(Contact entity);
         
         public virtual Contact ToContact()
         {

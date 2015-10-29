@@ -82,10 +82,10 @@ namespace CriticalPath.Data
             Description = entity.Description;
             ParentCategoryId = entity.ParentCategoryId;
         
-            Initilazing(entity);
+            Initiliazing(entity);
         }
     
-        partial void Initilazing(ProductCategory entity);
+        partial void Initiliazing(ProductCategory entity);
         
         public virtual ProductCategory ToProductCategory()
         {

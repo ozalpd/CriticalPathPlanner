@@ -13,13 +13,13 @@ using CriticalPath.Data.Resources;
 
 namespace CriticalPath.Data
 {
-    [MetadataTypeAttribute(typeof(SizeQuantity.SizeQuantityMetadata))]
-    public partial class SizeQuantity
+    [MetadataTypeAttribute(typeof(QuantitySizeRate.QuantitySizeRateMetadata))]
+    public partial class QuantitySizeRate
 	{
-        internal sealed partial class SizeQuantityMetadata
+        internal sealed partial class QuantitySizeRateMetadata
 		{
             // This metadata class is not intended to be instantiated.
-            private SizeQuantityMetadata() { }
+            private QuantitySizeRateMetadata() { }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Display(ResourceType = typeof(EntityStrings), Name = "DisplayOrder")]
@@ -29,19 +29,19 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "PurchaseOrderId")]
             public int PurchaseOrderId { get; set; }
 
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "SizeCaptionId")]
+            public int SizeCaptionId { get; set; }
+
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "Rate")]
+            public int Rate { get; set; }
+
             [Display(ResourceType = typeof(EntityStrings), Name = "PurchaseOrder")]
             public PurchaseOrder PurchaseOrder { get; set; }
 
-            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "SizeId")]
-            public int SizeId { get; set; }
-
-            [Display(ResourceType = typeof(EntityStrings), Name = "Size")]
-            public Size Size { get; set; }
-
-            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "Quantity")]
-            public int Quantity { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "SizeCaption")]
+            public SizeCaption SizeCaption { get; set; }
 
 		}
 	}

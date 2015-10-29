@@ -13,29 +13,29 @@ using CriticalPath.Data.Resources;
 
 namespace CriticalPath.Data
 {
-    [MetadataTypeAttribute(typeof(SizeQuantityDTO.SizeQuantityMetadata))]
-    public partial class SizeQuantityDTO
+    [MetadataTypeAttribute(typeof(SizeCaption.SizeCaptionMetadata))]
+    public partial class SizeCaption
 	{
-        internal sealed partial class SizeQuantityMetadata
+        internal sealed partial class SizeCaptionMetadata
 		{
             // This metadata class is not intended to be instantiated.
-            private SizeQuantityMetadata() { }
+            private SizeCaptionMetadata() { }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Display(ResourceType = typeof(EntityStrings), Name = "DisplayOrder")]
             public int DisplayOrder { get; set; }
 
+            [StringLength(16, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "PurchaseOrderId")]
-            public int PurchaseOrderId { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "Caption")]
+            public string Caption { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "SizeId")]
-            public int SizeId { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "SizeStandardId")]
+            public int SizeStandardId { get; set; }
 
-            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "Quantity")]
-            public int Quantity { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "SizeStandard")]
+            public SizeStandard SizeStandard { get; set; }
 
 		}
 	}

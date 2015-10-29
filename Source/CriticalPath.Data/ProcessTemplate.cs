@@ -85,10 +85,10 @@ namespace CriticalPath.Data
             IsApproved = entity.IsApproved;
             ApproveDate = entity.ApproveDate;
         
-            Initilazing(entity);
+            Initiliazing(entity);
         }
     
-        partial void Initilazing(ProcessTemplate entity);
+        partial void Initiliazing(ProcessTemplate entity);
         
         public virtual ProcessTemplate ToProcessTemplate()
         {

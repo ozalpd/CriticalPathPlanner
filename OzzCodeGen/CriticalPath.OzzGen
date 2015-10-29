@@ -22,7 +22,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>Id</Name>
           <Comment>PrimaryKey field</Comment>
-          <DisplayOrder>5301</DisplayOrder>
+          <DisplayOrder>6001</DisplayOrder>
           <DisplayName>Id</DisplayName>
           <Editable>false</Editable>
           <TypeName>int</TypeName>
@@ -50,7 +50,7 @@
       <Properties>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>CreateDate</Name>
-          <DisplayOrder>10095310</DisplayOrder>
+          <DisplayOrder>10096010</DisplayOrder>
           <DisplayName>Create Date</DisplayName>
           <Editable>false</Editable>
           <TypeName>DateTime</TypeName>
@@ -65,7 +65,7 @@
         <BaseProperty xsi:type="StringProperty">
           <Name>CreatorId</Name>
           <Comment>UserId of record's creator.</Comment>
-          <DisplayOrder>10095410</DisplayOrder>
+          <DisplayOrder>10096110</DisplayOrder>
           <DisplayName>Created User</DisplayName>
           <Editable>false</Editable>
           <TypeName>string</TypeName>
@@ -81,7 +81,7 @@
         <BaseProperty xsi:type="StringProperty">
           <Name>CreatorIp</Name>
           <Comment>IP Address of record's creator.</Comment>
-          <DisplayOrder>10095510</DisplayOrder>
+          <DisplayOrder>10096210</DisplayOrder>
           <DisplayName>Creator Ip</DisplayName>
           <Editable>false</Editable>
           <TypeName>string</TypeName>
@@ -111,7 +111,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>ModifyNr</Name>
           <Comment>Database record's modify number</Comment>
-          <DisplayOrder>10085310</DisplayOrder>
+          <DisplayOrder>10086010</DisplayOrder>
           <DisplayName>Modify Nr</DisplayName>
           <Editable>false</Editable>
           <TypeName>int</TypeName>
@@ -126,7 +126,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>ModifyDate</Name>
           <Comment>Date of last modification of the record.</Comment>
-          <DisplayOrder>10085410</DisplayOrder>
+          <DisplayOrder>10086110</DisplayOrder>
           <DisplayName>Modify Date</DisplayName>
           <Editable>false</Editable>
           <TypeName>DateTime</TypeName>
@@ -141,7 +141,7 @@
         <BaseProperty xsi:type="StringProperty">
           <Name>ModifierId</Name>
           <Comment>UserId of last modifier of the record.</Comment>
-          <DisplayOrder>10085510</DisplayOrder>
+          <DisplayOrder>10086210</DisplayOrder>
           <DisplayName>Modified User</DisplayName>
           <Editable>false</Editable>
           <TypeName>string</TypeName>
@@ -157,7 +157,7 @@
         <BaseProperty xsi:type="StringProperty">
           <Name>ModifierIp</Name>
           <Comment>IP Address of last modifier of the record.</Comment>
-          <DisplayOrder>10085610</DisplayOrder>
+          <DisplayOrder>10086310</DisplayOrder>
           <DisplayName>Modifier Ip</DisplayName>
           <Editable>false</Editable>
           <TypeName>string</TypeName>
@@ -185,7 +185,7 @@
       <Properties>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>IsApproved</Name>
-          <DisplayOrder>101900</DisplayOrder>
+          <DisplayOrder>102600</DisplayOrder>
           <DisplayName>Is Approved</DisplayName>
           <Editable>true</Editable>
           <TypeName>bool</TypeName>
@@ -199,7 +199,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>ApproveDate</Name>
-          <DisplayOrder>102000</DisplayOrder>
+          <DisplayOrder>102700</DisplayOrder>
           <DisplayName>Approve Date</DisplayName>
           <Editable>false</Editable>
           <TypeName>DateTime</TypeName>
@@ -214,7 +214,7 @@
         <BaseProperty xsi:type="StringProperty">
           <Name>ApprovedUserId</Name>
           <Comment>UserId of record's approver.</Comment>
-          <DisplayOrder>10066500</DisplayOrder>
+          <DisplayOrder>10067200</DisplayOrder>
           <DisplayName>Approved User</DisplayName>
           <Editable>false</Editable>
           <TypeName>string</TypeName>
@@ -230,7 +230,7 @@
         <BaseProperty xsi:type="StringProperty">
           <Name>ApprovedUserIp</Name>
           <Comment />
-          <DisplayOrder>10066600</DisplayOrder>
+          <DisplayOrder>10067300</DisplayOrder>
           <DisplayName>Creator Ip</DisplayName>
           <Editable>false</Editable>
           <TypeName>string</TypeName>
@@ -258,7 +258,7 @@
       <Properties>
         <BaseProperty xsi:type="StringProperty">
           <Name>Title</Name>
-          <DisplayOrder>15310</DisplayOrder>
+          <DisplayOrder>16010</DisplayOrder>
           <DisplayName>Title</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
@@ -273,7 +273,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>Code</Name>
-          <DisplayOrder>15410</DisplayOrder>
+          <DisplayOrder>16110</DisplayOrder>
           <DisplayName>Code</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
@@ -288,7 +288,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>Description</Name>
-          <DisplayOrder>15510</DisplayOrder>
+          <DisplayOrder>16210</DisplayOrder>
           <DisplayName>Description</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
@@ -316,7 +316,7 @@
       <Properties>
         <BaseProperty xsi:type="StringProperty">
           <Name>FirstName</Name>
-          <DisplayOrder>204900</DisplayOrder>
+          <DisplayOrder>205600</DisplayOrder>
           <DisplayName>First Name</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
@@ -331,7 +331,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>LastName</Name>
-          <DisplayOrder>205000</DisplayOrder>
+          <DisplayOrder>205700</DisplayOrder>
           <DisplayName>Last Name</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
@@ -346,7 +346,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="ComplexProperty">
           <Name>Company</Name>
-          <DisplayOrder>205200</DisplayOrder>
+          <DisplayOrder>205900</DisplayOrder>
           <DisplayName>Company</DisplayName>
           <Editable>false</Editable>
           <TypeName>Company</TypeName>
@@ -359,7 +359,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>CompanyId</Name>
-          <DisplayOrder>205300</DisplayOrder>
+          <DisplayOrder>206000</DisplayOrder>
           <DisplayName>Company Id</DisplayName>
           <Editable>false</Editable>
           <TypeName>int</TypeName>
@@ -373,7 +373,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>EmailWork</Name>
-          <DisplayOrder>206400</DisplayOrder>
+          <DisplayOrder>207100</DisplayOrder>
           <DisplayName>Email Work</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
@@ -388,7 +388,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>EmailHome</Name>
-          <DisplayOrder>206500</DisplayOrder>
+          <DisplayOrder>207200</DisplayOrder>
           <DisplayName>Email Home</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
@@ -403,7 +403,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>PhoneMobile</Name>
-          <DisplayOrder>207400</DisplayOrder>
+          <DisplayOrder>208100</DisplayOrder>
           <DisplayName>Mobile Phone</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
@@ -418,7 +418,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>PhoneWork1</Name>
-          <DisplayOrder>207500</DisplayOrder>
+          <DisplayOrder>208200</DisplayOrder>
           <DisplayName>Work Phone</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
@@ -433,7 +433,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>PhoneWork2</Name>
-          <DisplayOrder>207600</DisplayOrder>
+          <DisplayOrder>208300</DisplayOrder>
           <DisplayName>Work Phone</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
@@ -448,7 +448,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>Notes</Name>
-          <DisplayOrder>606400</DisplayOrder>
+          <DisplayOrder>607100</DisplayOrder>
           <DisplayName>Notes</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
@@ -476,7 +476,7 @@
       <Properties>
         <BaseProperty xsi:type="StringProperty">
           <Name>CompanyName</Name>
-          <DisplayOrder>105400</DisplayOrder>
+          <DisplayOrder>106100</DisplayOrder>
           <DisplayName>Company Name</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
@@ -491,7 +491,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>Phone1</Name>
-          <DisplayOrder>405400</DisplayOrder>
+          <DisplayOrder>406100</DisplayOrder>
           <DisplayName>Phone</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
@@ -506,7 +506,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>Phone2</Name>
-          <DisplayOrder>405500</DisplayOrder>
+          <DisplayOrder>406200</DisplayOrder>
           <DisplayName>Phone</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
@@ -521,7 +521,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>Phone3</Name>
-          <DisplayOrder>405600</DisplayOrder>
+          <DisplayOrder>406300</DisplayOrder>
           <DisplayName>Phone</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
@@ -537,7 +537,7 @@
         <BaseProperty xsi:type="StringProperty">
           <Name>Address1</Name>
           <Comment>Address Line 1</Comment>
-          <DisplayOrder>405800</DisplayOrder>
+          <DisplayOrder>406500</DisplayOrder>
           <DisplayName>Address1</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
@@ -553,7 +553,7 @@
         <BaseProperty xsi:type="StringProperty">
           <Name>Address2</Name>
           <Comment>Address Line 2</Comment>
-          <DisplayOrder>405900</DisplayOrder>
+          <DisplayOrder>406600</DisplayOrder>
           <DisplayName>Address2</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
@@ -568,7 +568,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>City</Name>
-          <DisplayOrder>406000</DisplayOrder>
+          <DisplayOrder>406700</DisplayOrder>
           <DisplayName>City</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
@@ -583,7 +583,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>State</Name>
-          <DisplayOrder>406100</DisplayOrder>
+          <DisplayOrder>406800</DisplayOrder>
           <DisplayName>State</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
@@ -598,7 +598,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>ZipCode</Name>
-          <DisplayOrder>406200</DisplayOrder>
+          <DisplayOrder>406900</DisplayOrder>
           <DisplayName>Zip Code</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
@@ -613,7 +613,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>Country</Name>
-          <DisplayOrder>406300</DisplayOrder>
+          <DisplayOrder>407000</DisplayOrder>
           <DisplayName>Country</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
@@ -628,7 +628,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>Notes</Name>
-          <DisplayOrder>506400</DisplayOrder>
+          <DisplayOrder>507100</DisplayOrder>
           <DisplayName>Notes</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
@@ -643,7 +643,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="CollectionProperty">
           <Name>Contacts</Name>
-          <DisplayOrder>605400</DisplayOrder>
+          <DisplayOrder>606100</DisplayOrder>
           <DisplayName>Contacts</DisplayName>
           <Editable>true</Editable>
           <TypeName>ICollection&lt;Contact&gt;</TypeName>
@@ -667,7 +667,7 @@
       <Properties>
         <BaseProperty xsi:type="StringProperty">
           <Name>SupplierCode</Name>
-          <DisplayOrder>305400</DisplayOrder>
+          <DisplayOrder>306100</DisplayOrder>
           <DisplayName>Supplier Code</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
@@ -695,7 +695,7 @@
       <Properties>
         <BaseProperty xsi:type="StringProperty">
           <Name>CustomerCode</Name>
-          <DisplayOrder>305400</DisplayOrder>
+          <DisplayOrder>306100</DisplayOrder>
           <DisplayName>Customer Code</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
@@ -710,7 +710,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="CollectionProperty">
           <Name>Orders</Name>
-          <DisplayOrder>806400</DisplayOrder>
+          <DisplayOrder>807100</DisplayOrder>
           <DisplayName>Orders</DisplayName>
           <Editable>true</Editable>
           <TypeName>ICollection&lt;PurchaseOrder&gt;</TypeName>
@@ -734,7 +734,7 @@
       <Properties>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>ParentCategoryId</Name>
-          <DisplayOrder>605400</DisplayOrder>
+          <DisplayOrder>606100</DisplayOrder>
           <DisplayName>Parent Category Id</DisplayName>
           <Editable>true</Editable>
           <TypeName>int</TypeName>
@@ -748,7 +748,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="ComplexProperty">
           <Name>ParentCategory</Name>
-          <DisplayOrder>605500</DisplayOrder>
+          <DisplayOrder>606200</DisplayOrder>
           <DisplayName>Parent Category</DisplayName>
           <Editable>true</Editable>
           <TypeName>ProductCategory</TypeName>
@@ -761,7 +761,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="CollectionProperty">
           <Name>SubCategories</Name>
-          <DisplayOrder>605700</DisplayOrder>
+          <DisplayOrder>606400</DisplayOrder>
           <DisplayName>Sub Categories</DisplayName>
           <Editable>true</Editable>
           <TypeName>ICollection&lt;ProductCategory&gt;</TypeName>
@@ -772,7 +772,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="CollectionProperty">
           <Name>Products</Name>
-          <DisplayOrder>605800</DisplayOrder>
+          <DisplayOrder>606500</DisplayOrder>
           <DisplayName>Products</DisplayName>
           <Editable>true</Editable>
           <TypeName>ICollection&lt;Product&gt;</TypeName>
@@ -796,7 +796,7 @@
       <Properties>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>CategoryId</Name>
-          <DisplayOrder>604800</DisplayOrder>
+          <DisplayOrder>605500</DisplayOrder>
           <DisplayName>Product Category Id</DisplayName>
           <Editable>true</Editable>
           <TypeName>int</TypeName>
@@ -810,7 +810,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="ComplexProperty">
           <Name>Category</Name>
-          <DisplayOrder>604900</DisplayOrder>
+          <DisplayOrder>605600</DisplayOrder>
           <DisplayName>Product Category</DisplayName>
           <Editable>true</Editable>
           <TypeName>ProductCategory</TypeName>
@@ -823,7 +823,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>ImageUrl</Name>
-          <DisplayOrder>605000</DisplayOrder>
+          <DisplayOrder>605700</DisplayOrder>
           <DisplayName>Image Url</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
@@ -838,7 +838,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="CollectionProperty">
           <Name>PurchaseOrders</Name>
-          <DisplayOrder>605100</DisplayOrder>
+          <DisplayOrder>605800</DisplayOrder>
           <DisplayName>Purchase Orders</DisplayName>
           <Editable>true</Editable>
           <TypeName>ICollection&lt;PurchaseOrder&gt;</TypeName>
@@ -862,7 +862,7 @@
       <Properties>
         <BaseProperty xsi:type="StringProperty">
           <Name>Title</Name>
-          <DisplayOrder>305310</DisplayOrder>
+          <DisplayOrder>305800</DisplayOrder>
           <DisplayName>Title</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
@@ -877,7 +877,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>CustomerId</Name>
-          <DisplayOrder>406400</DisplayOrder>
+          <DisplayOrder>305900</DisplayOrder>
           <DisplayName>Customer Id</DisplayName>
           <Editable>false</Editable>
           <TypeName>int</TypeName>
@@ -891,7 +891,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="ComplexProperty">
           <Name>Customer</Name>
-          <DisplayOrder>406500</DisplayOrder>
+          <DisplayOrder>306000</DisplayOrder>
           <DisplayName>Customer</DisplayName>
           <Editable>false</Editable>
           <TypeName>Customer</TypeName>
@@ -904,7 +904,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>OrderDate</Name>
-          <DisplayOrder>606400</DisplayOrder>
+          <DisplayOrder>407100</DisplayOrder>
           <DisplayName>Order Date</DisplayName>
           <Editable>true</Editable>
           <TypeName>DateTime</TypeName>
@@ -918,7 +918,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>DueDate</Name>
-          <DisplayOrder>606500</DisplayOrder>
+          <DisplayOrder>407200</DisplayOrder>
           <DisplayName>Due Date</DisplayName>
           <Editable>true</Editable>
           <TypeName>DateTime</TypeName>
@@ -932,7 +932,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>Code</Name>
-          <DisplayOrder>607300</DisplayOrder>
+          <DisplayOrder>607100</DisplayOrder>
           <DisplayName>Code</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
@@ -947,7 +947,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>Description</Name>
-          <DisplayOrder>608300</DisplayOrder>
+          <DisplayOrder>607200</DisplayOrder>
           <DisplayName>Description</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
@@ -962,7 +962,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>ProductId</Name>
-          <DisplayOrder>805900</DisplayOrder>
+          <DisplayOrder>607600</DisplayOrder>
           <DisplayName>Product Id</DisplayName>
           <Editable>false</Editable>
           <TypeName>int</TypeName>
@@ -976,7 +976,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="ComplexProperty">
           <Name>Product</Name>
-          <DisplayOrder>806000</DisplayOrder>
+          <DisplayOrder>607700</DisplayOrder>
           <DisplayName>Product</DisplayName>
           <Editable>false</Editable>
           <TypeName>Product</TypeName>
@@ -987,20 +987,9 @@
           <DependentPropertyName>ProductId</DependentPropertyName>
           <DependentPropertyType>int</DependentPropertyType>
         </BaseProperty>
-        <BaseProperty xsi:type="CollectionProperty">
-          <Name>SizeQuantities</Name>
-          <DisplayOrder>806200</DisplayOrder>
-          <DisplayName>Size Quantities</DisplayName>
-          <Editable>true</Editable>
-          <TypeName>ICollection&lt;SizeQuantity&gt;</TypeName>
-          <IsClientComputed>false</IsClientComputed>
-          <IsServerComputed>false</IsServerComputed>
-          <IsStoreGenerated>false</IsStoreGenerated>
-          <UiVisible>true</UiVisible>
-        </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>Quantity</Name>
-          <DisplayOrder>806500</DisplayOrder>
+          <DisplayOrder>806600</DisplayOrder>
           <DisplayName>Quantity</DisplayName>
           <Editable>true</Editable>
           <TypeName>int</TypeName>
@@ -1014,7 +1003,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>UnitPrice</Name>
-          <DisplayOrder>806600</DisplayOrder>
+          <DisplayOrder>806700</DisplayOrder>
           <DisplayName>Unit Price</DisplayName>
           <Editable>true</Editable>
           <TypeName>decimal</TypeName>
@@ -1026,9 +1015,47 @@
           <IsForeignKey>false</IsForeignKey>
           <IsNullable>false</IsNullable>
         </BaseProperty>
+        <BaseProperty xsi:type="SimpleProperty">
+          <Name>SizeStandardId</Name>
+          <DisplayOrder>806800</DisplayOrder>
+          <DisplayName>Size Standard Id</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>int</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <UiVisible>true</UiVisible>
+          <IsKey>false</IsKey>
+          <IsForeignKey>true</IsForeignKey>
+          <IsNullable>false</IsNullable>
+        </BaseProperty>
+        <BaseProperty xsi:type="ComplexProperty">
+          <Name>SizeStandard</Name>
+          <DisplayOrder>806900</DisplayOrder>
+          <DisplayName>Size Standard</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>SizeStandard</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <UiVisible>true</UiVisible>
+          <DependentPropertyName>SizeStandardId</DependentPropertyName>
+          <DependentPropertyType>int</DependentPropertyType>
+        </BaseProperty>
+        <BaseProperty xsi:type="CollectionProperty">
+          <Name>QuantitySizeRates</Name>
+          <DisplayOrder>807000</DisplayOrder>
+          <DisplayName>Size Quantities</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>ICollection&lt;QuantitySizeRate&gt;</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <UiVisible>true</UiVisible>
+        </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>Notes</Name>
-          <DisplayOrder>806700</DisplayOrder>
+          <DisplayOrder>807700</DisplayOrder>
           <DisplayName>Notes</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
@@ -1044,7 +1071,7 @@
       </Properties>
     </EntityDefinition>
     <EntityDefinition>
-      <Name>SizeQuantity</Name>
+      <Name>QuantitySizeRate</Name>
       <EntitySource />
       <NamespaceName>CriticalPath</NamespaceName>
       <DisplayOrder>13</DisplayOrder>
@@ -1056,7 +1083,7 @@
       <Properties>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>DisplayOrder</Name>
-          <DisplayOrder>304900</DisplayOrder>
+          <DisplayOrder>305300</DisplayOrder>
           <DisplayName>Display Order</DisplayName>
           <Editable>true</Editable>
           <TypeName>int</TypeName>
@@ -1070,7 +1097,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>PurchaseOrderId</Name>
-          <DisplayOrder>305000</DisplayOrder>
+          <DisplayOrder>305400</DisplayOrder>
           <DisplayName>Purchase Order Id</DisplayName>
           <Editable>false</Editable>
           <TypeName>int</TypeName>
@@ -1082,23 +1109,10 @@
           <IsForeignKey>true</IsForeignKey>
           <IsNullable>false</IsNullable>
         </BaseProperty>
-        <BaseProperty xsi:type="ComplexProperty">
-          <Name>PurchaseOrder</Name>
-          <DisplayOrder>305100</DisplayOrder>
-          <DisplayName>Order</DisplayName>
-          <Editable>false</Editable>
-          <TypeName>PurchaseOrder</TypeName>
-          <IsClientComputed>false</IsClientComputed>
-          <IsServerComputed>false</IsServerComputed>
-          <IsStoreGenerated>false</IsStoreGenerated>
-          <UiVisible>true</UiVisible>
-          <DependentPropertyName>PurchaseOrderId</DependentPropertyName>
-          <DependentPropertyType>int</DependentPropertyType>
-        </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
-          <Name>SizeId</Name>
-          <DisplayOrder>305400</DisplayOrder>
-          <DisplayName>Size Type Id</DisplayName>
+          <Name>SizeCaptionId</Name>
+          <DisplayOrder>305500</DisplayOrder>
+          <DisplayName>Size Caption Id</DisplayName>
           <Editable>true</Editable>
           <TypeName>int</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1109,23 +1123,10 @@
           <IsForeignKey>true</IsForeignKey>
           <IsNullable>false</IsNullable>
         </BaseProperty>
-        <BaseProperty xsi:type="ComplexProperty">
-          <Name>Size</Name>
-          <DisplayOrder>305500</DisplayOrder>
-          <DisplayName>Size Type</DisplayName>
-          <Editable>true</Editable>
-          <TypeName>Size</TypeName>
-          <IsClientComputed>false</IsClientComputed>
-          <IsServerComputed>false</IsServerComputed>
-          <IsStoreGenerated>false</IsStoreGenerated>
-          <UiVisible>true</UiVisible>
-          <DependentPropertyName>SizeId</DependentPropertyName>
-          <DependentPropertyType>int</DependentPropertyType>
-        </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
-          <Name>Quantity</Name>
+          <Name>Rate</Name>
           <DisplayOrder>305600</DisplayOrder>
-          <DisplayName>Quantity</DisplayName>
+          <DisplayName>Rate</DisplayName>
           <Editable>true</Editable>
           <TypeName>int</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1135,6 +1136,32 @@
           <IsKey>false</IsKey>
           <IsForeignKey>false</IsForeignKey>
           <IsNullable>false</IsNullable>
+        </BaseProperty>
+        <BaseProperty xsi:type="ComplexProperty">
+          <Name>PurchaseOrder</Name>
+          <DisplayOrder>305700</DisplayOrder>
+          <DisplayName>Order</DisplayName>
+          <Editable>false</Editable>
+          <TypeName>PurchaseOrder</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <UiVisible>true</UiVisible>
+          <DependentPropertyName>PurchaseOrderId</DependentPropertyName>
+          <DependentPropertyType>int</DependentPropertyType>
+        </BaseProperty>
+        <BaseProperty xsi:type="ComplexProperty">
+          <Name>SizeCaption</Name>
+          <DisplayOrder>305800</DisplayOrder>
+          <DisplayName>Size Caption</DisplayName>
+          <Editable>true</Editable>
+          <TypeName>SizeCaption</TypeName>
+          <IsClientComputed>false</IsClientComputed>
+          <IsServerComputed>false</IsServerComputed>
+          <IsStoreGenerated>false</IsStoreGenerated>
+          <UiVisible>true</UiVisible>
+          <DependentPropertyName>SizeCaptionId</DependentPropertyName>
+          <DependentPropertyType>int</DependentPropertyType>
         </BaseProperty>
       </Properties>
     </EntityDefinition>
@@ -1151,7 +1178,7 @@
       <Properties>
         <BaseProperty xsi:type="StringProperty">
           <Name>Title</Name>
-          <DisplayOrder>800</DisplayOrder>
+          <DisplayOrder>1500</DisplayOrder>
           <DisplayName>Title</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
@@ -1165,11 +1192,11 @@
           <MaxLenght>64</MaxLenght>
         </BaseProperty>
         <BaseProperty xsi:type="CollectionProperty">
-          <Name>Sizes</Name>
-          <DisplayOrder>900</DisplayOrder>
-          <DisplayName>Size Types</DisplayName>
+          <Name>SizeCaptions</Name>
+          <DisplayOrder>1600</DisplayOrder>
+          <DisplayName>Size Captions</DisplayName>
           <Editable>true</Editable>
-          <TypeName>ICollection&lt;Size&gt;</TypeName>
+          <TypeName>ICollection&lt;SizeCaption&gt;</TypeName>
           <IsClientComputed>false</IsClientComputed>
           <IsServerComputed>false</IsServerComputed>
           <IsStoreGenerated>false</IsStoreGenerated>
@@ -1178,19 +1205,19 @@
       </Properties>
     </EntityDefinition>
     <EntityDefinition>
-      <Name>Size</Name>
+      <Name>SizeCaption</Name>
       <EntitySource />
       <NamespaceName>CriticalPath</NamespaceName>
       <DisplayOrder>15</DisplayOrder>
       <Abstract>false</Abstract>
       <LetDownloadAll>false</LetDownloadAll>
-      <DisplayName>Size Type</DisplayName>
-      <DisplayMember>Title</DisplayMember>
+      <DisplayName>Size Caption</DisplayName>
+      <DisplayMember>Caption</DisplayMember>
       <BaseTypeName>IModified</BaseTypeName>
       <Properties>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>DisplayOrder</Name>
-          <DisplayOrder>200800</DisplayOrder>
+          <DisplayOrder>201500</DisplayOrder>
           <DisplayName>Display Order</DisplayName>
           <Editable>true</Editable>
           <TypeName>int</TypeName>
@@ -1203,9 +1230,9 @@
           <IsNullable>false</IsNullable>
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
-          <Name>Title</Name>
-          <DisplayOrder>200900</DisplayOrder>
-          <DisplayName>Title</DisplayName>
+          <Name>Caption</Name>
+          <DisplayOrder>201600</DisplayOrder>
+          <DisplayName>Caption</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
           <IsClientComputed>false</IsClientComputed>
@@ -1219,7 +1246,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>SizeStandardId</Name>
-          <DisplayOrder>201000</DisplayOrder>
+          <DisplayOrder>201700</DisplayOrder>
           <DisplayName>Size Type Set Id</DisplayName>
           <Editable>true</Editable>
           <TypeName>int</TypeName>
@@ -1233,7 +1260,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="ComplexProperty">
           <Name>SizeStandard</Name>
-          <DisplayOrder>201100</DisplayOrder>
+          <DisplayOrder>201800</DisplayOrder>
           <DisplayName>Size Type Set</DisplayName>
           <Editable>true</Editable>
           <TypeName>SizeStandard</TypeName>
@@ -1259,7 +1286,7 @@
       <Properties>
         <BaseProperty xsi:type="StringProperty">
           <Name>Title</Name>
-          <DisplayOrder>105400</DisplayOrder>
+          <DisplayOrder>106100</DisplayOrder>
           <DisplayName>Title</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
@@ -1274,7 +1301,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>Description</Name>
-          <DisplayOrder>105600</DisplayOrder>
+          <DisplayOrder>106300</DisplayOrder>
           <DisplayName>Description</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
@@ -1289,7 +1316,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>IsCompleted</Name>
-          <DisplayOrder>105700</DisplayOrder>
+          <DisplayOrder>106400</DisplayOrder>
           <DisplayName>Is Completed </DisplayName>
           <Editable>true</Editable>
           <TypeName>bool</TypeName>
@@ -1303,7 +1330,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="ComplexProperty">
           <Name>ProcessTemplate</Name>
-          <DisplayOrder>205400</DisplayOrder>
+          <DisplayOrder>206100</DisplayOrder>
           <DisplayName>Process Template</DisplayName>
           <Editable>false</Editable>
           <TypeName>ProcessTemplate</TypeName>
@@ -1316,7 +1343,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>ProcessTemplateId</Name>
-          <DisplayOrder>205500</DisplayOrder>
+          <DisplayOrder>206200</DisplayOrder>
           <DisplayName>Process Template Id</DisplayName>
           <Editable>false</Editable>
           <TypeName>int</TypeName>
@@ -1330,7 +1357,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>PurchaseOrderId</Name>
-          <DisplayOrder>405400</DisplayOrder>
+          <DisplayOrder>406100</DisplayOrder>
           <DisplayName>Purchase Order Id</DisplayName>
           <Editable>true</Editable>
           <TypeName>int</TypeName>
@@ -1344,7 +1371,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="ComplexProperty">
           <Name>PurchaseOrder</Name>
-          <DisplayOrder>405500</DisplayOrder>
+          <DisplayOrder>406200</DisplayOrder>
           <DisplayName>Purchase Order</DisplayName>
           <Editable>true</Editable>
           <TypeName>PurchaseOrder</TypeName>
@@ -1358,7 +1385,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>TargetDate</Name>
           <Comment>Target Accomplish Date</Comment>
-          <DisplayOrder>505300</DisplayOrder>
+          <DisplayOrder>506000</DisplayOrder>
           <DisplayName>Target End Date</DisplayName>
           <Editable>true</Editable>
           <TypeName>DateTime</TypeName>
@@ -1373,7 +1400,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>ForecastDate</Name>
           <Comment>Forecasted Accomplish Date</Comment>
-          <DisplayOrder>505600</DisplayOrder>
+          <DisplayOrder>506300</DisplayOrder>
           <DisplayName>Forecast End Date</DisplayName>
           <Editable>true</Editable>
           <TypeName>DateTime</TypeName>
@@ -1388,7 +1415,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>RealizedDate</Name>
           <Comment>Realized Accomplish Date</Comment>
-          <DisplayOrder>705500</DisplayOrder>
+          <DisplayOrder>706200</DisplayOrder>
           <DisplayName>Realized End Date</DisplayName>
           <Editable>true</Editable>
           <TypeName>DateTime</TypeName>
@@ -1402,7 +1429,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="CollectionProperty">
           <Name>ProcessSteps</Name>
-          <DisplayOrder>705600</DisplayOrder>
+          <DisplayOrder>706300</DisplayOrder>
           <DisplayName>Process Steps</DisplayName>
           <Editable>false</Editable>
           <TypeName>ICollection&lt;ProcessStep&gt;</TypeName>
@@ -1426,7 +1453,7 @@
       <Properties>
         <BaseProperty xsi:type="StringProperty">
           <Name>Title</Name>
-          <DisplayOrder>105400</DisplayOrder>
+          <DisplayOrder>106100</DisplayOrder>
           <DisplayName>Title</DisplayName>
           <Editable>false</Editable>
           <TypeName>string</TypeName>
@@ -1441,7 +1468,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>Description</Name>
-          <DisplayOrder>105600</DisplayOrder>
+          <DisplayOrder>106300</DisplayOrder>
           <DisplayName>Description</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
@@ -1456,7 +1483,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>IsCompleted</Name>
-          <DisplayOrder>105700</DisplayOrder>
+          <DisplayOrder>106400</DisplayOrder>
           <DisplayName>Is Completed </DisplayName>
           <Editable>true</Editable>
           <TypeName>bool</TypeName>
@@ -1470,7 +1497,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>DisplayOrder</Name>
-          <DisplayOrder>105800</DisplayOrder>
+          <DisplayOrder>106500</DisplayOrder>
           <DisplayName>Display Order</DisplayName>
           <Editable>false</Editable>
           <TypeName>int</TypeName>
@@ -1484,7 +1511,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>ProcessId</Name>
-          <DisplayOrder>305400</DisplayOrder>
+          <DisplayOrder>306100</DisplayOrder>
           <DisplayName>Process Id</DisplayName>
           <Editable>false</Editable>
           <TypeName>int</TypeName>
@@ -1498,7 +1525,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="ComplexProperty">
           <Name>Process</Name>
-          <DisplayOrder>305500</DisplayOrder>
+          <DisplayOrder>306200</DisplayOrder>
           <DisplayName>Process</DisplayName>
           <Editable>false</Editable>
           <TypeName>Process</TypeName>
@@ -1512,7 +1539,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>TargetDate</Name>
           <Comment>Target Accomplish Date</Comment>
-          <DisplayOrder>505000</DisplayOrder>
+          <DisplayOrder>505700</DisplayOrder>
           <DisplayName>Target End Date</DisplayName>
           <Editable>true</Editable>
           <TypeName>DateTime</TypeName>
@@ -1527,7 +1554,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>ForecastDate</Name>
           <Comment>Forecasted Accomplish Date</Comment>
-          <DisplayOrder>505300</DisplayOrder>
+          <DisplayOrder>506000</DisplayOrder>
           <DisplayName>Forecast End Date</DisplayName>
           <Editable>true</Editable>
           <TypeName>DateTime</TypeName>
@@ -1542,7 +1569,7 @@
         <BaseProperty xsi:type="SimpleProperty">
           <Name>RealizedDate</Name>
           <Comment>Realized Accomplish Date</Comment>
-          <DisplayOrder>505600</DisplayOrder>
+          <DisplayOrder>506300</DisplayOrder>
           <DisplayName>Realized End Date</DisplayName>
           <Editable>true</Editable>
           <TypeName>DateTime</TypeName>
@@ -1556,7 +1583,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>TemplateId</Name>
-          <DisplayOrder>505900</DisplayOrder>
+          <DisplayOrder>506600</DisplayOrder>
           <DisplayName>Template Id</DisplayName>
           <Editable>true</Editable>
           <TypeName>int</TypeName>
@@ -1570,7 +1597,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="ComplexProperty">
           <Name>Template</Name>
-          <DisplayOrder>506000</DisplayOrder>
+          <DisplayOrder>506700</DisplayOrder>
           <DisplayName>Template</DisplayName>
           <Editable>true</Editable>
           <TypeName>ProcessStepTemplate</TypeName>
@@ -1597,7 +1624,7 @@
       <Properties>
         <BaseProperty xsi:type="StringProperty">
           <Name>TemplateName</Name>
-          <DisplayOrder>105400</DisplayOrder>
+          <DisplayOrder>106100</DisplayOrder>
           <DisplayName>Template Name</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
@@ -1612,7 +1639,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="StringProperty">
           <Name>DefaultTitle</Name>
-          <DisplayOrder>105500</DisplayOrder>
+          <DisplayOrder>106200</DisplayOrder>
           <DisplayName>Default Title</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
@@ -1627,7 +1654,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="CollectionProperty">
           <Name>StepTemplates</Name>
-          <DisplayOrder>305400</DisplayOrder>
+          <DisplayOrder>306100</DisplayOrder>
           <DisplayName>Step Templates</DisplayName>
           <Editable>true</Editable>
           <TypeName>ICollection&lt;ProcessStepTemplate&gt;</TypeName>
@@ -1653,7 +1680,7 @@
         <BaseProperty xsi:type="StringProperty">
           <Name>Title</Name>
           <Comment>This fixed property ProcessStep. After a ProcessStep record created, that record cannot be not modified</Comment>
-          <DisplayOrder>505400</DisplayOrder>
+          <DisplayOrder>506100</DisplayOrder>
           <DisplayName>Title</DisplayName>
           <Editable>true</Editable>
           <TypeName>string</TypeName>
@@ -1668,7 +1695,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>DisplayOrder</Name>
-          <DisplayOrder>505500</DisplayOrder>
+          <DisplayOrder>506200</DisplayOrder>
           <DisplayName>Display Order</DisplayName>
           <Editable>true</Editable>
           <TypeName>int</TypeName>
@@ -1682,7 +1709,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>ProcessTemplateId</Name>
-          <DisplayOrder>805400</DisplayOrder>
+          <DisplayOrder>806100</DisplayOrder>
           <DisplayName>Process Template Id</DisplayName>
           <Editable>true</Editable>
           <TypeName>int</TypeName>
@@ -1696,7 +1723,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="ComplexProperty">
           <Name>ProcessTemplate</Name>
-          <DisplayOrder>805500</DisplayOrder>
+          <DisplayOrder>806200</DisplayOrder>
           <DisplayName>Process Template</DisplayName>
           <Editable>true</Editable>
           <TypeName>ProcessTemplate</TypeName>
@@ -1709,7 +1736,7 @@
         </BaseProperty>
         <BaseProperty xsi:type="SimpleProperty">
           <Name>RequiredWorkDays</Name>
-          <DisplayOrder>805600</DisplayOrder>
+          <DisplayOrder>806300</DisplayOrder>
           <DisplayName>Required Work Days</DisplayName>
           <Editable>true</Editable>
           <TypeName>int</TypeName>
@@ -1728,8 +1755,8 @@
   <SourceClassPrefix />
   <CodeEngineList>
     <string>AspNetMvc_Controller_View_Generator</string>
+    <string>Metadata_Class_Generator</string>
     <string>Localization_Resource_Generator</string>
     <string>T-Sql_Scripts_Generator</string>
-    <string>Metadata_Class_Generator</string>
   </CodeEngineList>
 </CodeGenProject>

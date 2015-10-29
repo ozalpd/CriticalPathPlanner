@@ -17,7 +17,8 @@ namespace CriticalPath.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SizeStandard()
         {
-            this.Sizes = new HashSet<Size>();
+            this.PurchaseOrders = new HashSet<PurchaseOrder>();
+            this.SizeCaptions = new HashSet<SizeCaption>();
         }
     
         public int Id { get; set; }
@@ -31,7 +32,9 @@ namespace CriticalPath.Data
         public string CreatorIp { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Size> Sizes { get; set; }
+        public virtual ICollection<PurchaseOrder> PurchaseOrders { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SizeCaption> SizeCaptions { get; set; }
     	/// <summary>
     	/// Clones all properties in a new SizeStandard instance,
     	/// except PrimaryKey(s)
@@ -69,10 +72,10 @@ namespace CriticalPath.Data
             Id = entity.Id;
             Title = entity.Title;
         
-            Initilazing(entity);
+            Initiliazing(entity);
         }
     
-        partial void Initilazing(SizeStandard entity);
+        partial void Initiliazing(SizeStandard entity);
         
         public virtual SizeStandard ToSizeStandard()
         {

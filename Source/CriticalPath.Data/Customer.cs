@@ -83,10 +83,10 @@ namespace CriticalPath.Data
             Notes = entity.Notes;
             CustomerCode = entity.CustomerCode;
         
-            Initilazing(entity);
+            Initiliazing(entity);
         }
     
-        partial void Initilazing(Customer entity);
+        partial void Initiliazing(Customer entity);
         
         public virtual Customer ToCustomer()
         {

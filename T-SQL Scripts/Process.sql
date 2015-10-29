@@ -37,5 +37,13 @@ Create Nonclustered Index [idx_Processes_IsCompleted] On [dbo].[Processes]([IsCo
 Go
 Create Nonclustered Index [idx_Processes_ProcessTemplateId] On [dbo].[Processes]([ProcessTemplateId] Asc)
 Go
+Create Nonclustered Index [idx_Processes_PurchaseOrderId] On [dbo].[Processes]([PurchaseOrderId] Asc)
+Go
+Create Nonclustered Index [idx_Processes_TargetDate] On [dbo].[Processes]([TargetDate] Asc)
+Go
+Create Nonclustered Index [idx_Processes_ForecastDate] On [dbo].[Processes]([ForecastDate] Asc)
+Go
+Create Nonclustered Index [idx_Processes_RealizedDate] On [dbo].[Processes]([RealizedDate] Asc)
+Go
 Create Nonclustered Index [idx_Processes_ModifyDate] On [dbo].[Processes]([ModifyDate] Desc)
 Go

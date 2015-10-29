@@ -201,6 +201,10 @@
     <Compile Include="Controllers\ProductsController.part.cs" />
     <Compile Include="Controllers\PurchaseOrdersController.g.cs" />
     <Compile Include="Controllers\PurchaseOrdersController.part.cs" />
+    <Compile Include="Controllers\SizeCaptionsController.g.cs" />
+    <Compile Include="Controllers\SizeCaptionsController.part.cs" />
+    <Compile Include="Controllers\SizeStandardsController.g.cs" />
+    <Compile Include="Controllers\SizeStandardsController.part.cs" />
     <Compile Include="Controllers\SuppliersController.g.cs" />
     <Compile Include="Controllers\SuppliersController.part.cs" />
     <Compile Include="Global.asax.cs">
@@ -208,6 +212,7 @@
     </Compile>
     <Compile Include="Models\AppSettings.cs" />
     <Compile Include="Models\PurchaseOrderCreateVM.cs" />
+    <Compile Include="Models\PurchaseOrderVM.cs" />
     <Compile Include="Models\SecurityRoles.g.cs" />
     <Compile Include="Models\SelectThemeVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -417,6 +422,14 @@
     <Content Include="Views\Shared\Approve.cshtml" />
     <Content Include="Views\Shared\_ProductCategorySelectPartial.cshtml" />
     <Content Include="Views\Shared\_ProductSelectPartial.cshtml" />
+    <Content Include="Views\SizeStandards\Create.cshtml" />
+    <Content Include="Views\SizeStandards\Details.cshtml" />
+    <Content Include="Views\SizeStandards\Edit.cshtml" />
+    <Content Include="Views\SizeStandards\Index.cshtml" />
+    <Content Include="Views\SizeCaptions\Create.cshtml" />
+    <Content Include="Views\SizeCaptions\Details.cshtml" />
+    <Content Include="Views\SizeCaptions\Edit.cshtml" />
+    <Content Include="Views\SizeCaptions\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

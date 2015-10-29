@@ -82,10 +82,10 @@ namespace CriticalPath.Data
             CategoryId = entity.CategoryId;
             ImageUrl = entity.ImageUrl;
         
-            Initilazing(entity);
+            Initiliazing(entity);
         }
     
-        partial void Initilazing(Product entity);
+        partial void Initiliazing(Product entity);
         
         public virtual Product ToProduct()
         {

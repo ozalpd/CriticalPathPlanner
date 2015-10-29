@@ -69,8 +69,16 @@
     <Translation>Yeni Sipariş Ekle</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddNewQuantitySizeRate</Name>
+    <Translation>Yeni Ölçü Miktar Oranı Ekle</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddNewSize</Name>
     <Translation>Yeni Ölçü Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewSizeCaption</Name>
+    <Translation>Add New Size Caption</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNewSizeQuantity</Name>
@@ -117,6 +125,10 @@
     <Translation>Sipariş Ekle</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddQuantitySizeRate</Name>
+    <Translation>Ölçü Miktar Oranı Ekle</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Address</Name>
     <Translation>Adres</Translation>
   </Vocab>
@@ -131,6 +143,10 @@
   <Vocab>
     <Name>AddSize</Name>
     <Translation>Ölçü Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddSizeCaption</Name>
+    <Translation>Add Size Caption</Translation>
   </Vocab>
   <Vocab>
     <Name>AddSizeQuantity</Name>
@@ -187,6 +203,10 @@
   <Vocab>
     <Name>CanNotDelete</Name>
     <Translation>Silinemiyor</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Caption</Name>
+    <Translation>Caption</Translation>
   </Vocab>
   <Vocab>
     <Name>Categories</Name>
@@ -341,8 +361,16 @@
     <Translation>Sipariş Oluştur</Translation>
   </Vocab>
   <Vocab>
+    <Name>CreateQuantitySizeRate</Name>
+    <Translation>Ölçü Miktar Oranı Oluştur</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CreateSize</Name>
     <Translation>Ölçü Oluştur</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateSizeCaption</Name>
+    <Translation>Create Size Caption</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateSizeQuantity</Name>
@@ -445,8 +473,16 @@
     <Translation>Siparişi Sil</Translation>
   </Vocab>
   <Vocab>
+    <Name>DeleteQuantitySizeRate</Name>
+    <Translation>Ölçü Miktar Oranı Sil</Translation>
+  </Vocab>
+  <Vocab>
     <Name>DeleteSize</Name>
     <Translation>Ölçü Sil</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteSizeCaption</Name>
+    <Translation>Delete Size Caption</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteSizeQuantity</Name>
@@ -557,8 +593,16 @@
     <Translation>Siparişi Düzenle</Translation>
   </Vocab>
   <Vocab>
+    <Name>EditQuantitySizeRate</Name>
+    <Translation>Ölçü Miktar Oranı Düzenle</Translation>
+  </Vocab>
+  <Vocab>
     <Name>EditSize</Name>
     <Translation>Ölçüyü Düzenle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditSizeCaption</Name>
+    <Translation>Edit Size Caption</Translation>
   </Vocab>
   <Vocab>
     <Name>EditSizeQuantity</Name>
@@ -985,8 +1029,24 @@
     <Translation>Miktar</Translation>
   </Vocab>
   <Vocab>
+    <Name>QuantitySizeRate</Name>
+    <Translation>Ölçü Miktar Oranı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>QuantitySizeRates</Name>
+    <Translation>Ölçü Miktar Oranları</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>QuantitySizeRatesList</Name>
+    <Translation>Ölçü Miktar Oran Listesi</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Rarely</Name>
     <Translation>Nadiren</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Rate</Name>
+    <Translation>Rate</Translation>
   </Vocab>
   <Vocab>
     <Name>RealizedDate</Name>
@@ -1047,6 +1107,22 @@
   <Vocab>
     <Name>Size</Name>
     <Translation>Ölçü</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizeCaption</Name>
+    <Translation>Size Caption</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizeCaptionId</Name>
+    <Translation>Size Caption Id</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizeCaptions</Name>
+    <Translation>Size Captions</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizeCaptionsList</Name>
+    <Translation>Size Captions List</Translation>
   </Vocab>
   <Vocab>
     <Name>SizeId</Name>
