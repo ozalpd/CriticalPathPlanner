@@ -36,13 +36,13 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="64" Nullable="false" />
           <Property Name="LastName" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="CompanyId" Type="int" Nullable="false" />
           <Property Name="EmailWork" Type="nvarchar" MaxLength="64" />
           <Property Name="EmailHome" Type="nvarchar" MaxLength="64" />
           <Property Name="PhoneMobile" Type="nvarchar" MaxLength="64" />
           <Property Name="PhoneWork1" Type="nvarchar" MaxLength="64" />
           <Property Name="PhoneWork2" Type="nvarchar" MaxLength="64" />
           <Property Name="Notes" Type="nvarchar" MaxLength="255" />
-          <Property Name="CompanyId" Type="int" Nullable="false" />
           <Property Name="ModifyNr" Type="int" Nullable="false" />
           <Property Name="ModifyDate" Type="datetime" Nullable="false" />
           <Property Name="ModifierId" Type="varchar" MaxLength="48" Nullable="false" />
@@ -58,42 +58,21 @@
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="CustomerCode" Type="nvarchar" MaxLength="128" Nullable="false" />
         </EntityType>
-        <EntityType Name="OrderItems">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DisplayOrder" Type="int" Nullable="false" />
-          <Property Name="PurchaseOrderId" Type="int" Nullable="false" />
-          <Property Name="ProductId" Type="int" Nullable="false" />
-          <Property Name="Quantity" Type="int" Nullable="false" />
-          <Property Name="Notes" Type="nvarchar" MaxLength="255" />
-          <Property Name="ModifyNr" Type="int" Nullable="false" />
-          <Property Name="ModifyDate" Type="datetime" Nullable="false" />
-          <Property Name="ModifierId" Type="varchar" MaxLength="48" Nullable="false" />
-          <Property Name="ModifierIp" Type="varchar" MaxLength="48" Nullable="false" />
-          <Property Name="CreateDate" Type="datetime" Nullable="false" />
-          <Property Name="CreatorId" Type="varchar" MaxLength="48" Nullable="false" />
-          <Property Name="CreatorIp" Type="varchar" MaxLength="48" Nullable="false" />
-        </EntityType>
         <EntityType Name="Processes">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IsApproved" Type="bit" Nullable="false" />
+          <Property Name="ApproveDate" Type="datetime" />
           <Property Name="Title" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="256" />
           <Property Name="IsCompleted" Type="bit" Nullable="false" />
           <Property Name="ProcessTemplateId" Type="int" Nullable="false" />
-          <Property Name="OrderItemId" Type="int" Nullable="false" />
-          <Property Name="TargetStartDate" Type="datetime" Nullable="false" />
-          <Property Name="TargetEndDate" Type="datetime" />
-          <Property Name="ForecastStartDate" Type="datetime" />
-          <Property Name="ForecastEndDate" Type="datetime" />
-          <Property Name="RealizedStartDate" Type="datetime" />
-          <Property Name="RealizedEndDate" Type="datetime" />
-          <Property Name="IsApproved" Type="bit" Nullable="false" />
-          <Property Name="ApproveDate" Type="datetime" />
+          <Property Name="PurchaseOrderId" Type="int" Nullable="false" />
+          <Property Name="TargetDate" Type="datetime" Nullable="false" />
+          <Property Name="ForecastDate" Type="datetime" />
+          <Property Name="RealizedDate" Type="datetime" />
           <Property Name="ApprovedUserId" Type="varchar" MaxLength="48" />
           <Property Name="ApprovedUserIp" Type="varchar" MaxLength="48" />
           <Property Name="ModifyNr" Type="int" Nullable="false" />
@@ -109,20 +88,17 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IsApproved" Type="bit" Nullable="false" />
+          <Property Name="ApproveDate" Type="datetime" />
           <Property Name="Title" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="256" />
           <Property Name="IsCompleted" Type="bit" Nullable="false" />
           <Property Name="DisplayOrder" Type="int" Nullable="false" />
           <Property Name="ProcessId" Type="int" Nullable="false" />
-          <Property Name="TargetStartDate" Type="datetime" Nullable="false" />
-          <Property Name="TargetEndDate" Type="datetime" />
-          <Property Name="ForecastStartDate" Type="datetime" />
-          <Property Name="ForecastEndDate" Type="datetime" />
-          <Property Name="RealizedStartDate" Type="datetime" />
-          <Property Name="RealizedEndDate" Type="datetime" />
+          <Property Name="TargetDate" Type="datetime" Nullable="false" />
+          <Property Name="ForecastDate" Type="datetime" />
+          <Property Name="RealizedDate" Type="datetime" />
           <Property Name="TemplateId" Type="int" Nullable="false" />
-          <Property Name="IsApproved" Type="bit" Nullable="false" />
-          <Property Name="ApproveDate" Type="datetime" />
           <Property Name="ApprovedUserId" Type="varchar" MaxLength="48" />
           <Property Name="ApprovedUserIp" Type="varchar" MaxLength="48" />
           <Property Name="ModifyNr" Type="int" Nullable="false" />
@@ -155,10 +131,10 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TemplateName" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="DefaultTitle" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="IsApproved" Type="bit" Nullable="false" />
           <Property Name="ApproveDate" Type="datetime" />
+          <Property Name="TemplateName" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="DefaultTitle" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="ApprovedUserId" Type="varchar" MaxLength="48" />
           <Property Name="ApprovedUserIp" Type="varchar" MaxLength="48" />
           <Property Name="ModifyNr" Type="int" Nullable="false" />
@@ -195,6 +171,7 @@
           <Property Name="Code" Type="nvarchar" MaxLength="48" />
           <Property Name="Description" Type="nvarchar" MaxLength="256" />
           <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="ImageUrl" Type="nvarchar" MaxLength="256" />
           <Property Name="ModifyNr" Type="int" Nullable="false" />
           <Property Name="ModifyDate" Type="datetime" Nullable="false" />
           <Property Name="ModifierId" Type="varchar" MaxLength="48" Nullable="false" />
@@ -208,17 +185,67 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IsApproved" Type="bit" Nullable="false" />
+          <Property Name="ApproveDate" Type="datetime" />
           <Property Name="Title" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="CustomerId" Type="int" Nullable="false" />
           <Property Name="OrderDate" Type="datetime" Nullable="false" />
           <Property Name="DueDate" Type="datetime" />
           <Property Name="Code" Type="nvarchar" MaxLength="48" />
           <Property Name="Description" Type="nvarchar" MaxLength="256" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="4" Nullable="false" />
           <Property Name="Notes" Type="nvarchar" MaxLength="255" />
-          <Property Name="IsApproved" Type="bit" Nullable="false" />
-          <Property Name="ApproveDate" Type="datetime" />
           <Property Name="ApprovedUserId" Type="varchar" MaxLength="48" />
           <Property Name="ApprovedUserIp" Type="varchar" MaxLength="48" />
+          <Property Name="ModifyNr" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifierId" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="ModifierIp" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatorId" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="CreatorIp" Type="varchar" MaxLength="48" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SizeQuantities">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DisplayOrder" Type="int" Nullable="false" />
+          <Property Name="PurchaseOrderId" Type="int" Nullable="false" />
+          <Property Name="SizeId" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="ModifyNr" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifierId" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="ModifierIp" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatorId" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="CreatorIp" Type="varchar" MaxLength="48" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sizes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DisplayOrder" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="16" Nullable="false" />
+          <Property Name="SizeStandardId" Type="int" Nullable="false" />
+          <Property Name="ModifyNr" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifierId" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="ModifierIp" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatorId" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="CreatorIp" Type="varchar" MaxLength="48" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SizeStandards">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="64" Nullable="false" />
           <Property Name="ModifyNr" Type="int" Nullable="false" />
           <Property Name="ModifyDate" Type="datetime" Nullable="false" />
           <Property Name="ModifierId" Type="varchar" MaxLength="48" Nullable="false" />
@@ -258,42 +285,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_OrderItem_ProductId">
-          <End Role="Products" Type="Self.Products" Multiplicity="1" />
-          <End Role="OrderItems" Type="Self.OrderItems" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Products">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="OrderItems">
-              <PropertyRef Name="ProductId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_OrderItem_PurchaseOrderId">
-          <End Role="PurchaseOrders" Type="Self.PurchaseOrders" Multiplicity="1" />
-          <End Role="OrderItems" Type="Self.OrderItems" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PurchaseOrders">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="OrderItems">
-              <PropertyRef Name="PurchaseOrderId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Process_OrderItemId">
-          <End Role="OrderItems" Type="Self.OrderItems" Multiplicity="1" />
-          <End Role="Processes" Type="Self.Processes" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="OrderItems">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Processes">
-              <PropertyRef Name="OrderItemId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Process_ProcessTemplateId">
           <End Role="ProcessTemplates" Type="Self.ProcessTemplates" Multiplicity="1" />
           <End Role="Processes" Type="Self.Processes" Multiplicity="*" />
@@ -303,6 +294,18 @@
             </Principal>
             <Dependent Role="Processes">
               <PropertyRef Name="ProcessTemplateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Process_PurchaseOrderId">
+          <End Role="PurchaseOrders" Type="Self.PurchaseOrders" Multiplicity="1" />
+          <End Role="Processes" Type="Self.Processes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PurchaseOrders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Processes">
+              <PropertyRef Name="PurchaseOrderId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -378,6 +381,54 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_PurchaseOrder_ProductId">
+          <End Role="Products" Type="Self.Products" Multiplicity="1" />
+          <End Role="PurchaseOrders" Type="Self.PurchaseOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PurchaseOrders">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Size_SizeStandardId">
+          <End Role="SizeStandards" Type="Self.SizeStandards" Multiplicity="1" />
+          <End Role="Sizes" Type="Self.Sizes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SizeStandards">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sizes">
+              <PropertyRef Name="SizeStandardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SizeQuantity_PurchaseOrderId">
+          <End Role="PurchaseOrders" Type="Self.PurchaseOrders" Multiplicity="1" />
+          <End Role="SizeQuantities" Type="Self.SizeQuantities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PurchaseOrders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SizeQuantities">
+              <PropertyRef Name="PurchaseOrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SizeQuantity_SizeId">
+          <End Role="Sizes" Type="Self.Sizes" Multiplicity="1" />
+          <End Role="SizeQuantities" Type="Self.SizeQuantities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sizes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SizeQuantities">
+              <PropertyRef Name="SizeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Supplier_Id">
           <End Role="Companies" Type="Self.Companies" Multiplicity="1" />
           <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="0..1" />
@@ -394,7 +445,6 @@
           <EntitySet Name="Companies" EntityType="Self.Companies" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Contacts" EntityType="Self.Contacts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="OrderItems" EntityType="Self.OrderItems" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Processes" EntityType="Self.Processes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProcessSteps" EntityType="Self.ProcessSteps" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProcessStepTemplates" EntityType="Self.ProcessStepTemplates" Schema="dbo" store:Type="Tables" />
@@ -402,6 +452,9 @@
           <EntitySet Name="ProductCategories" EntityType="Self.ProductCategories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PurchaseOrders" EntityType="Self.PurchaseOrders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SizeQuantities" EntityType="Self.SizeQuantities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sizes" EntityType="Self.Sizes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SizeStandards" EntityType="Self.SizeStandards" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Suppliers" EntityType="Self.Suppliers" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Contact_CompanyId" Association="Self.FK_Contact_CompanyId">
             <End Role="Companies" EntitySet="Companies" />
@@ -411,20 +464,12 @@
             <End Role="Companies" EntitySet="Companies" />
             <End Role="Customers" EntitySet="Customers" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrderItem_ProductId" Association="Self.FK_OrderItem_ProductId">
-            <End Role="Products" EntitySet="Products" />
-            <End Role="OrderItems" EntitySet="OrderItems" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OrderItem_PurchaseOrderId" Association="Self.FK_OrderItem_PurchaseOrderId">
-            <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
-            <End Role="OrderItems" EntitySet="OrderItems" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Process_OrderItemId" Association="Self.FK_Process_OrderItemId">
-            <End Role="OrderItems" EntitySet="OrderItems" />
-            <End Role="Processes" EntitySet="Processes" />
-          </AssociationSet>
           <AssociationSet Name="FK_Process_ProcessTemplateId" Association="Self.FK_Process_ProcessTemplateId">
             <End Role="ProcessTemplates" EntitySet="ProcessTemplates" />
+            <End Role="Processes" EntitySet="Processes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Process_PurchaseOrderId" Association="Self.FK_Process_PurchaseOrderId">
+            <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
             <End Role="Processes" EntitySet="Processes" />
           </AssociationSet>
           <AssociationSet Name="FK_ProcessStep_ProcessId" Association="Self.FK_ProcessStep_ProcessId">
@@ -450,6 +495,22 @@
           <AssociationSet Name="FK_PurchaseOrder_CustomerId" Association="Self.FK_PurchaseOrder_CustomerId">
             <End Role="Customers" EntitySet="Customers" />
             <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseOrder_ProductId" Association="Self.FK_PurchaseOrder_ProductId">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Size_SizeStandardId" Association="Self.FK_Size_SizeStandardId">
+            <End Role="SizeStandards" EntitySet="SizeStandards" />
+            <End Role="Sizes" EntitySet="Sizes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SizeQuantity_PurchaseOrderId" Association="Self.FK_SizeQuantity_PurchaseOrderId">
+            <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
+            <End Role="SizeQuantities" EntitySet="SizeQuantities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SizeQuantity_SizeId" Association="Self.FK_SizeQuantity_SizeId">
+            <End Role="Sizes" EntitySet="Sizes" />
+            <End Role="SizeQuantities" EntitySet="SizeQuantities" />
           </AssociationSet>
           <AssociationSet Name="FK_Supplier_Id" Association="Self.FK_Supplier_Id">
             <End Role="Companies" EntitySet="Companies" />
@@ -482,23 +543,10 @@
             <End Role="Customer" EntitySet="Companies" />
             <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
           </AssociationSet>
-          <EntitySet Name="OrderItems" EntityType="CriticalPathDataModel.OrderItem" />
-          <AssociationSet Name="FK_OrderItem_ProductId" Association="CriticalPathDataModel.FK_OrderItem_ProductId">
-            <End Role="Product" EntitySet="Products" />
-            <End Role="OrderItem" EntitySet="OrderItems" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OrderItem_PurchaseOrderId" Association="CriticalPathDataModel.FK_OrderItem_PurchaseOrderId">
-            <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
-            <End Role="OrderItem" EntitySet="OrderItems" />
-          </AssociationSet>
           <EntitySet Name="Processes" EntityType="CriticalPathDataModel.Process" />
           <EntitySet Name="ProcessSteps" EntityType="CriticalPathDataModel.ProcessStep" />
           <EntitySet Name="ProcessStepTemplates" EntityType="CriticalPathDataModel.ProcessStepTemplate" />
           <EntitySet Name="ProcessTemplates" EntityType="CriticalPathDataModel.ProcessTemplate" />
-          <AssociationSet Name="FK_Process_OrderItemId" Association="CriticalPathDataModel.FK_Process_OrderItemId">
-            <End Role="OrderItem" EntitySet="OrderItems" />
-            <End Role="Process" EntitySet="Processes" />
-          </AssociationSet>
           <AssociationSet Name="FK_Process_ProcessTemplateId" Association="CriticalPathDataModel.FK_Process_ProcessTemplateId">
             <End Role="ProcessTemplate" EntitySet="ProcessTemplates" />
             <End Role="Process" EntitySet="Processes" />
@@ -514,6 +562,29 @@
           <AssociationSet Name="FK_ProcessStep_TemplateId" Association="CriticalPathDataModel.FK_ProcessStep_TemplateId">
             <End Role="ProcessStepTemplate" EntitySet="ProcessStepTemplates" />
             <End Role="ProcessStep" EntitySet="ProcessSteps" />
+          </AssociationSet>
+          <EntitySet Name="SizeQuantities" EntityType="CriticalPathDataModel.SizeQuantity" />
+          <AssociationSet Name="FK_Process_PurchaseOrderId" Association="CriticalPathDataModel.FK_Process_PurchaseOrderId">
+            <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+            <End Role="Process" EntitySet="Processes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseOrder_ProductId" Association="CriticalPathDataModel.FK_PurchaseOrder_ProductId">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SizeQuantity_PurchaseOrderId" Association="CriticalPathDataModel.FK_SizeQuantity_PurchaseOrderId">
+            <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+            <End Role="SizeQuantity" EntitySet="SizeQuantities" />
+          </AssociationSet>
+          <EntitySet Name="Sizes" EntityType="CriticalPathDataModel.Size" />
+          <EntitySet Name="SizeStandards" EntityType="CriticalPathDataModel.SizeStandard" />
+          <AssociationSet Name="FK_SizeQuantity_SizeId" Association="CriticalPathDataModel.FK_SizeQuantity_SizeId">
+            <End Role="Size" EntitySet="Sizes" />
+            <End Role="SizeQuantity" EntitySet="SizeQuantities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Size_SizeStandardId" Association="CriticalPathDataModel.FK_Size_SizeStandardId">
+            <End Role="SizeStandard" EntitySet="SizeStandards" />
+            <End Role="Size" EntitySet="Sizes" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Company" Abstract="true">
@@ -624,6 +695,7 @@
           <Property Name="Code" Type="String" MaxLength="48" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Name="ImageUrl" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="ModifyNr" Type="Int32" Nullable="false" />
           <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
@@ -632,7 +704,7 @@
           <Property Name="CreatorId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
           <Property Name="CreatorIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Category" Relationship="CriticalPathDataModel.FK_Product_CategoryId" FromRole="Product" ToRole="ProductCategory" />
-          <NavigationProperty Name="OrderItems" Relationship="CriticalPathDataModel.FK_OrderItem_ProductId" FromRole="Product" ToRole="OrderItem" />
+          <NavigationProperty Name="PurchaseOrders" Relationship="CriticalPathDataModel.FK_PurchaseOrder_ProductId" FromRole="Product" ToRole="PurchaseOrder" />
         </EntityType>
         <Association Name="FK_Product_CategoryId">
           <End Type="CriticalPathDataModel.ProductCategory" Role="ProductCategory" Multiplicity="1" />
@@ -653,10 +725,13 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
           <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="DueDate" Type="DateTime" Precision="3" />
           <Property Name="Code" Type="String" MaxLength="48" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="UnitPrice" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
           <Property Name="Notes" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="IsApproved" Type="Boolean" Nullable="false" />
           <Property Name="ApproveDate" Type="DateTime" Precision="3" />
@@ -670,7 +745,9 @@
           <Property Name="CreatorId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
           <Property Name="CreatorIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Customer" Relationship="CriticalPathDataModel.FK_PurchaseOrder_CustomerId" FromRole="PurchaseOrder" ToRole="Customer" />
-          <NavigationProperty Name="OrderItems" Relationship="CriticalPathDataModel.FK_OrderItem_PurchaseOrderId" FromRole="PurchaseOrder" ToRole="OrderItem" />
+          <NavigationProperty Name="Processes" Relationship="CriticalPathDataModel.FK_Process_PurchaseOrderId" FromRole="PurchaseOrder" ToRole="Process" />
+          <NavigationProperty Name="Product" Relationship="CriticalPathDataModel.FK_PurchaseOrder_ProductId" FromRole="PurchaseOrder" ToRole="Product" />
+          <NavigationProperty Name="SizeQuantities" Relationship="CriticalPathDataModel.FK_SizeQuantity_PurchaseOrderId" FromRole="PurchaseOrder" ToRole="SizeQuantity" />
         </EntityType>
         <Association Name="FK_PurchaseOrder_CustomerId">
           <End Type="CriticalPathDataModel.Customer" Role="Customer" Multiplicity="1" />
@@ -684,51 +761,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="OrderItem">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PurchaseOrderId" Type="Int32" Nullable="false" />
-          <Property Name="ProductId" Type="Int32" Nullable="false" />
-          <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
-          <Property Name="Quantity" Type="Int32" Nullable="false" />
-          <Property Name="Notes" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="ModifyNr" Type="Int32" Nullable="false" />
-          <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ModifierId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
-          <Property Name="ModifierIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
-          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CreatorId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
-          <Property Name="CreatorIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Product" Relationship="CriticalPathDataModel.FK_OrderItem_ProductId" FromRole="OrderItem" ToRole="Product" />
-          <NavigationProperty Name="PurchaseOrder" Relationship="CriticalPathDataModel.FK_OrderItem_PurchaseOrderId" FromRole="OrderItem" ToRole="PurchaseOrder" />
-          <NavigationProperty Name="Processes" Relationship="CriticalPathDataModel.FK_Process_OrderItemId" FromRole="OrderItem" ToRole="Process" />
-        </EntityType>
-        <Association Name="FK_OrderItem_ProductId">
-          <End Type="CriticalPathDataModel.Product" Role="Product" Multiplicity="1" />
-          <End Type="CriticalPathDataModel.OrderItem" Role="OrderItem" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="OrderItem">
-              <PropertyRef Name="ProductId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_OrderItem_PurchaseOrderId">
-          <End Type="CriticalPathDataModel.PurchaseOrder" Role="PurchaseOrder" Multiplicity="1" />
-          <End Type="CriticalPathDataModel.OrderItem" Role="OrderItem" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PurchaseOrder">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="OrderItem">
-              <PropertyRef Name="PurchaseOrderId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Process">
           <Key>
             <PropertyRef Name="Id" />
@@ -738,13 +770,10 @@
           <Property Name="IsCompleted" Type="Boolean" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="ProcessTemplateId" Type="Int32" Nullable="false" />
-          <Property Name="OrderItemId" Type="Int32" Nullable="false" />
-          <Property Name="TargetStartDate" Type="DateTime" Precision="3" Nullable="false" />
-          <Property Name="TargetEndDate" Type="DateTime" Precision="3" />
-          <Property Name="ForecastStartDate" Type="DateTime" Precision="3" />
-          <Property Name="ForecastEndDate" Type="DateTime" Precision="3" />
-          <Property Name="RealizedStartDate" Type="DateTime" Precision="3" />
-          <Property Name="RealizedEndDate" Type="DateTime" Precision="3" />
+          <Property Name="PurchaseOrderId" Type="Int32" Nullable="false" />
+          <Property Name="TargetDate" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="ForecastDate" Type="DateTime" Precision="3" />
+          <Property Name="RealizedDate" Type="DateTime" Precision="3" />
           <Property Name="IsApproved" Type="Boolean" Nullable="false" />
           <Property Name="ApproveDate" Type="DateTime" Precision="3" />
           <Property Name="ApprovedUserId" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
@@ -756,9 +785,9 @@
           <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CreatorId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
           <Property Name="CreatorIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="OrderItem" Relationship="CriticalPathDataModel.FK_Process_OrderItemId" FromRole="Process" ToRole="OrderItem" />
           <NavigationProperty Name="ProcessTemplate" Relationship="CriticalPathDataModel.FK_Process_ProcessTemplateId" FromRole="Process" ToRole="ProcessTemplate" />
           <NavigationProperty Name="ProcessSteps" Relationship="CriticalPathDataModel.FK_ProcessStep_ProcessId" FromRole="Process" ToRole="ProcessStep" />
+          <NavigationProperty Name="PurchaseOrder" Relationship="CriticalPathDataModel.FK_Process_PurchaseOrderId" FromRole="Process" ToRole="PurchaseOrder" />
         </EntityType>
         <EntityType Name="ProcessStep">
           <Key>
@@ -771,12 +800,9 @@
           <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
           <Property Name="ProcessId" Type="Int32" Nullable="false" />
           <Property Name="TemplateId" Type="Int32" Nullable="false" />
-          <Property Name="TargetStartDate" Type="DateTime" Precision="3" Nullable="false" />
-          <Property Name="TargetEndDate" Type="DateTime" Precision="3" />
-          <Property Name="ForecastStartDate" Type="DateTime" Precision="3" />
-          <Property Name="ForecastEndDate" Type="DateTime" Precision="3" />
-          <Property Name="RealizedStartDate" Type="DateTime" Precision="3" />
-          <Property Name="RealizedEndDate" Type="DateTime" Precision="3" />
+          <Property Name="TargetDate" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="ForecastDate" Type="DateTime" Precision="3" />
+          <Property Name="RealizedDate" Type="DateTime" Precision="3" />
           <Property Name="IsApproved" Type="Boolean" Nullable="false" />
           <Property Name="ApproveDate" Type="DateTime" Precision="3" />
           <Property Name="ApprovedUserId" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
@@ -831,18 +857,6 @@
           <NavigationProperty Name="Processes" Relationship="CriticalPathDataModel.FK_Process_ProcessTemplateId" FromRole="ProcessTemplate" ToRole="Process" />
           <NavigationProperty Name="StepTemplates" Relationship="CriticalPathDataModel.FK_ProcessStepTemplate_ProcessTemplateId" FromRole="ProcessTemplate" ToRole="ProcessStepTemplate" />
         </EntityType>
-        <Association Name="FK_Process_OrderItemId">
-          <End Type="CriticalPathDataModel.OrderItem" Role="OrderItem" Multiplicity="1" />
-          <End Type="CriticalPathDataModel.Process" Role="Process" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="OrderItem">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Process">
-              <PropertyRef Name="OrderItemId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Process_ProcessTemplateId">
           <End Type="CriticalPathDataModel.ProcessTemplate" Role="ProcessTemplate" Multiplicity="1" />
           <End Type="CriticalPathDataModel.Process" Role="Process" Multiplicity="*" />
@@ -888,6 +902,118 @@
             </Principal>
             <Dependent Role="ProcessStep">
               <PropertyRef Name="TemplateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SizeQuantity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+          <Property Name="PurchaseOrderId" Type="Int32" Nullable="false" />
+          <Property Name="SizeId" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="ModifyNr" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifierId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="ModifierIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatorId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="CreatorIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PurchaseOrder" Relationship="CriticalPathDataModel.FK_SizeQuantity_PurchaseOrderId" FromRole="SizeQuantity" ToRole="PurchaseOrder" />
+          <NavigationProperty Name="Size" Relationship="CriticalPathDataModel.FK_SizeQuantity_SizeId" FromRole="SizeQuantity" ToRole="Size" />
+        </EntityType>
+        <Association Name="FK_Process_PurchaseOrderId">
+          <End Type="CriticalPathDataModel.PurchaseOrder" Role="PurchaseOrder" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.Process" Role="Process" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PurchaseOrder">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Process">
+              <PropertyRef Name="PurchaseOrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseOrder_ProductId">
+          <End Type="CriticalPathDataModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.PurchaseOrder" Role="PurchaseOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PurchaseOrder">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SizeQuantity_PurchaseOrderId">
+          <End Type="CriticalPathDataModel.PurchaseOrder" Role="PurchaseOrder" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.SizeQuantity" Role="SizeQuantity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PurchaseOrder">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SizeQuantity">
+              <PropertyRef Name="PurchaseOrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Size">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="SizeStandardId" Type="Int32" Nullable="false" />
+          <Property Name="ModifyNr" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifierId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="ModifierIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatorId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="CreatorIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SizeQuantities" Relationship="CriticalPathDataModel.FK_SizeQuantity_SizeId" FromRole="Size" ToRole="SizeQuantity" />
+          <NavigationProperty Name="SizeStandard" Relationship="CriticalPathDataModel.FK_Size_SizeStandardId" FromRole="Size" ToRole="SizeStandard" />
+        </EntityType>
+        <EntityType Name="SizeStandard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="ModifyNr" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifierId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="ModifierIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatorId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="CreatorIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Sizes" Relationship="CriticalPathDataModel.FK_Size_SizeStandardId" FromRole="SizeStandard" ToRole="Size" />
+        </EntityType>
+        <Association Name="FK_SizeQuantity_SizeId">
+          <End Type="CriticalPathDataModel.Size" Role="Size" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.SizeQuantity" Role="SizeQuantity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Size">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SizeQuantity">
+              <PropertyRef Name="SizeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Size_SizeStandardId">
+          <End Type="CriticalPathDataModel.SizeStandard" Role="SizeStandard" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.Size" Role="Size" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SizeStandard">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Size">
+              <PropertyRef Name="SizeStandardId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -978,6 +1104,7 @@
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="CriticalPathDataModel.Product">
               <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
                 <ScalarProperty Name="CreatorIp" ColumnName="CreatorIp" />
                 <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
                 <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
@@ -996,6 +1123,9 @@
           <EntitySetMapping Name="PurchaseOrders">
             <EntityTypeMapping TypeName="CriticalPathDataModel.PurchaseOrder">
               <MappingFragment StoreEntitySet="PurchaseOrders">
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
                 <ScalarProperty Name="CreatorIp" ColumnName="CreatorIp" />
                 <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
                 <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
@@ -1018,34 +1148,13 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="OrderItems">
-            <EntityTypeMapping TypeName="CriticalPathDataModel.OrderItem">
-              <MappingFragment StoreEntitySet="OrderItems">
-                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="CreatorIp" ColumnName="CreatorIp" />
-                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="ModifierIp" ColumnName="ModifierIp" />
-                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
-                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
-                <ScalarProperty Name="ModifyNr" ColumnName="ModifyNr" />
-                <ScalarProperty Name="Notes" ColumnName="Notes" />
-                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-                <ScalarProperty Name="PurchaseOrderId" ColumnName="PurchaseOrderId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Processes">
             <EntityTypeMapping TypeName="CriticalPathDataModel.Process">
               <MappingFragment StoreEntitySet="Processes">
-                <ScalarProperty Name="RealizedEndDate" ColumnName="RealizedEndDate" />
-                <ScalarProperty Name="RealizedStartDate" ColumnName="RealizedStartDate" />
-                <ScalarProperty Name="ForecastEndDate" ColumnName="ForecastEndDate" />
-                <ScalarProperty Name="ForecastStartDate" ColumnName="ForecastStartDate" />
-                <ScalarProperty Name="TargetEndDate" ColumnName="TargetEndDate" />
-                <ScalarProperty Name="TargetStartDate" ColumnName="TargetStartDate" />
+                <ScalarProperty Name="PurchaseOrderId" ColumnName="PurchaseOrderId" />
+                <ScalarProperty Name="RealizedDate" ColumnName="RealizedDate" />
+                <ScalarProperty Name="ForecastDate" ColumnName="ForecastDate" />
+                <ScalarProperty Name="TargetDate" ColumnName="TargetDate" />
                 <ScalarProperty Name="CreatorIp" ColumnName="CreatorIp" />
                 <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
                 <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
@@ -1057,7 +1166,6 @@
                 <ScalarProperty Name="ApprovedUserId" ColumnName="ApprovedUserId" />
                 <ScalarProperty Name="ApproveDate" ColumnName="ApproveDate" />
                 <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
-                <ScalarProperty Name="OrderItemId" ColumnName="OrderItemId" />
                 <ScalarProperty Name="ProcessTemplateId" ColumnName="ProcessTemplateId" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="IsCompleted" ColumnName="IsCompleted" />
@@ -1069,9 +1177,6 @@
           <EntitySetMapping Name="ProcessSteps">
             <EntityTypeMapping TypeName="CriticalPathDataModel.ProcessStep">
               <MappingFragment StoreEntitySet="ProcessSteps">
-                <ScalarProperty Name="RealizedStartDate" ColumnName="RealizedStartDate" />
-                <ScalarProperty Name="ForecastStartDate" ColumnName="ForecastStartDate" />
-                <ScalarProperty Name="TargetStartDate" ColumnName="TargetStartDate" />
                 <ScalarProperty Name="TemplateId" ColumnName="TemplateId" />
                 <ScalarProperty Name="IsCompleted" ColumnName="IsCompleted" />
                 <ScalarProperty Name="CreatorIp" ColumnName="CreatorIp" />
@@ -1085,9 +1190,9 @@
                 <ScalarProperty Name="ApprovedUserId" ColumnName="ApprovedUserId" />
                 <ScalarProperty Name="ApproveDate" ColumnName="ApproveDate" />
                 <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
-                <ScalarProperty Name="RealizedEndDate" ColumnName="RealizedEndDate" />
-                <ScalarProperty Name="ForecastEndDate" ColumnName="ForecastEndDate" />
-                <ScalarProperty Name="TargetEndDate" ColumnName="TargetEndDate" />
+                <ScalarProperty Name="RealizedDate" ColumnName="RealizedDate" />
+                <ScalarProperty Name="ForecastDate" ColumnName="ForecastDate" />
+                <ScalarProperty Name="TargetDate" ColumnName="TargetDate" />
                 <ScalarProperty Name="ProcessId" ColumnName="ProcessId" />
                 <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
@@ -1130,6 +1235,56 @@
                 <ScalarProperty Name="ModifyNr" ColumnName="ModifyNr" />
                 <ScalarProperty Name="DefaultTitle" ColumnName="DefaultTitle" />
                 <ScalarProperty Name="TemplateName" ColumnName="TemplateName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SizeQuantities">
+            <EntityTypeMapping TypeName="CriticalPathDataModel.SizeQuantity">
+              <MappingFragment StoreEntitySet="SizeQuantities">
+                <ScalarProperty Name="CreatorIp" ColumnName="CreatorIp" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifierIp" ColumnName="ModifierIp" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="ModifyNr" ColumnName="ModifyNr" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="SizeId" ColumnName="SizeId" />
+                <ScalarProperty Name="PurchaseOrderId" ColumnName="PurchaseOrderId" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sizes">
+            <EntityTypeMapping TypeName="CriticalPathDataModel.Size">
+              <MappingFragment StoreEntitySet="Sizes">
+                <ScalarProperty Name="CreatorIp" ColumnName="CreatorIp" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifierIp" ColumnName="ModifierIp" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="ModifyNr" ColumnName="ModifyNr" />
+                <ScalarProperty Name="SizeStandardId" ColumnName="SizeStandardId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SizeStandards">
+            <EntityTypeMapping TypeName="CriticalPathDataModel.SizeStandard">
+              <MappingFragment StoreEntitySet="SizeStandards">
+                <ScalarProperty Name="CreatorIp" ColumnName="CreatorIp" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifierIp" ColumnName="ModifierIp" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="ModifyNr" ColumnName="ModifyNr" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

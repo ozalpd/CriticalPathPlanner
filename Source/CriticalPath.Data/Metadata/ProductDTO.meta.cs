@@ -39,6 +39,11 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "CategoryId")]
             public int CategoryId { get; set; }
 
+            [StringLength(256, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
+            [DataType(DataType.ImageUrl)]
+            [Display(ResourceType = typeof(EntityStrings), Name = "ImageUrl")]
+            public string ImageUrl { get; set; }
+
 		}
 	}
 }

@@ -21,6 +21,13 @@ namespace CriticalPath.Data
             // This metadata class is not intended to be instantiated.
             private PurchaseOrderMetadata() { }
 
+            [Display(ResourceType = typeof(EntityStrings), Name = "IsApproved")]
+            public bool IsApproved { get; set; }
+
+            [DataType(DataType.Date)]
+            [Display(ResourceType = typeof(EntityStrings), Name = "ApproveDate")]
+            public DateTime ApproveDate { get; set; }
+
             [StringLength(128, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Display(ResourceType = typeof(EntityStrings), Name = "Title")]
@@ -48,17 +55,22 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "Description")]
             public string Description { get; set; }
 
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "ProductId")]
+            public int ProductId { get; set; }
+
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "Quantity")]
+            public int Quantity { get; set; }
+
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "UnitPrice")]
+            public decimal UnitPrice { get; set; }
+
             [StringLength(255, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [DataType(DataType.MultilineText)]
             [Display(ResourceType = typeof(EntityStrings), Name = "Notes")]
             public string Notes { get; set; }
-
-            [Display(ResourceType = typeof(EntityStrings), Name = "IsApproved")]
-            public bool IsApproved { get; set; }
-
-            [DataType(DataType.Date)]
-            [Display(ResourceType = typeof(EntityStrings), Name = "ApproveDate")]
-            public DateTime ApproveDate { get; set; }
 
 		}
 	}

@@ -26,8 +26,8 @@ namespace CriticalPath.Web.Controllers
                         where
                             a.Process.Title.Contains(qParams.SearchString) |
                             a.Process.Description.Contains(qParams.SearchString) |
-                            a.Process.OrderItem.Product.Title.Contains(qParams.SearchString) |
-                            a.Process.OrderItem.Product.Code.Contains(qParams.SearchString) |
+                            a.Process.PurchaseOrder.Product.Title.Contains(qParams.SearchString) |
+                            a.Process.PurchaseOrder.Product.Code.Contains(qParams.SearchString) |
                             a.Title.Contains(qParams.SearchString) |
                             a.Description.Contains(qParams.SearchString)
                         select a;

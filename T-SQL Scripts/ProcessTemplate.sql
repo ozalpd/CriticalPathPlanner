@@ -4,10 +4,10 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[ProcessTemplates](
     [Id] [int] Identity(1,1) Not Null,
-    [TemplateName] [nVarChar](128) Not Null,
-    [DefaultTitle] [nVarChar](128) Not Null,
     [IsApproved] [bit] Not Null,
     [ApproveDate] [DateTime] Null,
+    [TemplateName] [nVarChar](128) Not Null,
+    [DefaultTitle] [nVarChar](128) Not Null,
     [ApprovedUserId] [VarChar](48) Null,
     [ApprovedUserIp] [VarChar](48) Null,
     [ModifyNr] [int] Not Null Default 1,
@@ -25,9 +25,9 @@ CREATE TABLE [dbo].[ProcessTemplates](
     ALLOW_PAGE_LOCKS  = ON)
   ON [PRIMARY]) ON [PRIMARY]
 Go
-Create Nonclustered Index [idx_ProcessTemplates_TemplateName] On [dbo].[ProcessTemplates]([TemplateName] Asc)
-Go
 Create Nonclustered Index [idx_ProcessTemplates_IsApproved] On [dbo].[ProcessTemplates]([IsApproved] Asc)
+Go
+Create Nonclustered Index [idx_ProcessTemplates_TemplateName] On [dbo].[ProcessTemplates]([TemplateName] Asc)
 Go
 Create Nonclustered Index [idx_ProcessTemplates_ModifyDate] On [dbo].[ProcessTemplates]([ModifyDate] Desc)
 Go

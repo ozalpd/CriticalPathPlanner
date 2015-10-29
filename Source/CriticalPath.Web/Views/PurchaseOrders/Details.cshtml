@@ -10,6 +10,22 @@
 
 <div class="row">
     <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.IsApproved)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.IsApproved)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.ApproveDate)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.ApproveDate)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
         @Html.DisplayNameFor(model => model.Title)
     </label>
     <div class="col-md-10 col-sm-9">
@@ -58,34 +74,42 @@
 </div>
 <div class="row">
     <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.Product)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.Product)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.SizeQuantities)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.SizeQuantities)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.Quantity)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.Quantity)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.UnitPrice)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.UnitPrice)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
         @Html.DisplayNameFor(model => model.Notes)
     </label>
     <div class="col-md-10 col-sm-9">
         @Html.DisplayFor(m => m.Notes)
-    </div>
-</div>
-<div class="row">
-    <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.OrderItems)
-    </label>
-    <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.OrderItems)
-    </div>
-</div>
-<div class="row">
-    <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.IsApproved)
-    </label>
-    <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.IsApproved)
-    </div>
-</div>
-<div class="row">
-    <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.ApproveDate)
-    </label>
-    <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.ApproveDate)
     </div>
 </div>
 @Html.Partial("_DetailFormButtonsPartial")

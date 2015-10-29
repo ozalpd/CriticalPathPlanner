@@ -21,6 +21,13 @@ namespace CriticalPath.Data
             // This metadata class is not intended to be instantiated.
             private ProcessStepMetadata() { }
 
+            [Display(ResourceType = typeof(EntityStrings), Name = "IsApproved")]
+            public bool IsApproved { get; set; }
+
+            [DataType(DataType.Date)]
+            [Display(ResourceType = typeof(EntityStrings), Name = "ApproveDate")]
+            public DateTime ApproveDate { get; set; }
+
             [StringLength(128, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Display(ResourceType = typeof(EntityStrings), Name = "Title")]
@@ -47,28 +54,16 @@ namespace CriticalPath.Data
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [DataType(DataType.Date)]
-            [Display(ResourceType = typeof(EntityStrings), Name = "TargetStartDate")]
-            public DateTime TargetStartDate { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "TargetDate")]
+            public DateTime TargetDate { get; set; }
 
             [DataType(DataType.Date)]
-            [Display(ResourceType = typeof(EntityStrings), Name = "TargetEndDate")]
-            public DateTime TargetEndDate { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "ForecastDate")]
+            public DateTime ForecastDate { get; set; }
 
             [DataType(DataType.Date)]
-            [Display(ResourceType = typeof(EntityStrings), Name = "ForecastStartDate")]
-            public DateTime ForecastStartDate { get; set; }
-
-            [DataType(DataType.Date)]
-            [Display(ResourceType = typeof(EntityStrings), Name = "ForecastEndDate")]
-            public DateTime ForecastEndDate { get; set; }
-
-            [DataType(DataType.Date)]
-            [Display(ResourceType = typeof(EntityStrings), Name = "RealizedStartDate")]
-            public DateTime RealizedStartDate { get; set; }
-
-            [DataType(DataType.Date)]
-            [Display(ResourceType = typeof(EntityStrings), Name = "RealizedEndDate")]
-            public DateTime RealizedEndDate { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "RealizedDate")]
+            public DateTime RealizedDate { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Display(ResourceType = typeof(EntityStrings), Name = "TemplateId")]
@@ -76,13 +71,6 @@ namespace CriticalPath.Data
 
             [Display(ResourceType = typeof(EntityStrings), Name = "Template")]
             public ProcessStepTemplate Template { get; set; }
-
-            [Display(ResourceType = typeof(EntityStrings), Name = "IsApproved")]
-            public bool IsApproved { get; set; }
-
-            [DataType(DataType.Date)]
-            [Display(ResourceType = typeof(EntityStrings), Name = "ApproveDate")]
-            public DateTime ApproveDate { get; set; }
 
 		}
 	}

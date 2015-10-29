@@ -68,5 +68,10 @@ namespace CriticalPath.Data
         string ApprovedUserId { get; set; }
         string ApprovedUserIp { get; set; }
     }
+    
+    public interface IHasProduct
+    {
+        int ProductId { get; set; }
+    }
     #endregion
 }

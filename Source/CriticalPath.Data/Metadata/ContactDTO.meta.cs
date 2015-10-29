@@ -31,6 +31,10 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "LastName")]
             public string LastName { get; set; }
 
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "CompanyId")]
+            public int CompanyId { get; set; }
+
             [StringLength(64, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [EmailAddress]
             [Display(ResourceType = typeof(EntityStrings), Name = "EmailWork")]
@@ -60,10 +64,6 @@ namespace CriticalPath.Data
             [DataType(DataType.MultilineText)]
             [Display(ResourceType = typeof(EntityStrings), Name = "Notes")]
             public string Notes { get; set; }
-
-            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "CompanyId")]
-            public int CompanyId { get; set; }
 
 		}
 	}

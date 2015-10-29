@@ -57,7 +57,13 @@
     <Compile Include="Contact.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Partials\Contact.part.cs" />
+    <Compile Include="Metadata\Size.meta.cs" />
+    <Compile Include="Metadata\SizeDTO.meta.cs" />
+    <Compile Include="Metadata\SizeQuantity.meta.cs" />
+    <Compile Include="Metadata\SizeQuantityDTO.meta.cs" />
+    <Compile Include="Metadata\SizeStandard.meta.cs" />
+    <Compile Include="Metadata\SizeStandardDTO.meta.cs" />
+    <Compile Include="Parts\Contact.part.cs" />
     <Compile Include="CriticalPathContext.cust.cs" />
     <Compile Include="CriticalPathContext.save.cs" />
     <Compile Include="CriticalPathModel.Context.cs">
@@ -82,8 +88,6 @@
     <Compile Include="Metadata\ContactDTO.meta.cs" />
     <Compile Include="Metadata\Customer.meta.cs" />
     <Compile Include="Metadata\CustomerDTO.meta.cs" />
-    <Compile Include="Metadata\OrderItem.meta.cs" />
-    <Compile Include="Metadata\OrderItemDTO.meta.cs" />
     <Compile Include="Metadata\Process.meta.cs" />
     <Compile Include="Metadata\ProcessDTO.meta.cs" />
     <Compile Include="Metadata\ProcessStep.meta.cs" />
@@ -100,24 +104,21 @@
     <Compile Include="Metadata\PurchaseOrderDTO.meta.cs" />
     <Compile Include="Metadata\Supplier.meta.cs" />
     <Compile Include="Metadata\SupplierDTO.meta.cs" />
-    <Compile Include="OrderItem.cs">
-      <DependentUpon>CriticalPathModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Process.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Partials\ProcessDTO.part.cs" />
+    <Compile Include="Parts\ProcessDTO.part.cs" />
     <Compile Include="ProcessStep.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Partials\ProcessStepDTO.part.cs" />
+    <Compile Include="Parts\ProcessStepDTO.part.cs" />
     <Compile Include="ProcessStepTemplate.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ProcessTemplate.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Partials\ProcessTemplateDTO.part.cs" />
+    <Compile Include="Parts\ProcessTemplateDTO.part.cs" />
     <Compile Include="Product.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
@@ -128,7 +129,7 @@
     <Compile Include="PurchaseOrder.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Partials\PurchaseOrderDTO.part.cs" />
+    <Compile Include="Parts\PurchaseOrderDTO.part.cs" />
     <Compile Include="Resources\ActionStrings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -178,6 +179,15 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MessageStrings.tr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Size.cs">
+      <DependentUpon>CriticalPathModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SizeQuantity.cs">
+      <DependentUpon>CriticalPathModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SizeStandard.cs">
+      <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Supplier.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>

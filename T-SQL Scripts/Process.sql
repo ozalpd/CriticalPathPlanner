@@ -4,19 +4,16 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Processes](
     [Id] [int] Identity(1,1) Not Null,
+    [IsApproved] [bit] Not Null,
+    [ApproveDate] [DateTime] Null,
     [Title] [nVarChar](128) Not Null,
     [Description] [nVarChar](256) Null,
     [IsCompleted] [bit] Not Null,
     [ProcessTemplateId] [int] Not Null Constraint FK_Process_ProcessTemplateId Foreign Key References [dbo].[ProcessTemplates]([Id]),
-    [OrderItemId] [int] Not Null Constraint FK_Process_OrderItemId Foreign Key References [dbo].[OrderItems]([Id]),
-    [TargetStartDate] [DateTime] Not Null,
-    [TargetEndDate] [DateTime] Null,
-    [ForecastStartDate] [DateTime] Null,
-    [ForecastEndDate] [DateTime] Null,
-    [RealizedStartDate] [DateTime] Null,
-    [RealizedEndDate] [DateTime] Null,
-    [IsApproved] [bit] Not Null,
-    [ApproveDate] [DateTime] Null,
+    [PurchaseOrderId] [int] Not Null Constraint FK_Process_PurchaseOrderId Foreign Key References [dbo].[PurchaseOrders]([Id]),
+    [TargetDate] [DateTime] Not Null,
+    [ForecastDate] [DateTime] Null,
+    [RealizedDate] [DateTime] Null,
     [ApprovedUserId] [VarChar](48) Null,
     [ApprovedUserIp] [VarChar](48) Null,
     [ModifyNr] [int] Not Null Default 1,
@@ -34,11 +31,11 @@ CREATE TABLE [dbo].[Processes](
     ALLOW_PAGE_LOCKS  = ON)
   ON [PRIMARY]) ON [PRIMARY]
 Go
+Create Nonclustered Index [idx_Processes_IsApproved] On [dbo].[Processes]([IsApproved] Asc)
+Go
 Create Nonclustered Index [idx_Processes_IsCompleted] On [dbo].[Processes]([IsCompleted] Asc)
 Go
 Create Nonclustered Index [idx_Processes_ProcessTemplateId] On [dbo].[Processes]([ProcessTemplateId] Asc)
-Go
-Create Nonclustered Index [idx_Processes_IsApproved] On [dbo].[Processes]([IsApproved] Asc)
 Go
 Create Nonclustered Index [idx_Processes_ModifyDate] On [dbo].[Processes]([ModifyDate] Desc)
 Go

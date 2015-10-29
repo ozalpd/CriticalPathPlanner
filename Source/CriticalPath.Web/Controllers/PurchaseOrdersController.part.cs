@@ -59,6 +59,12 @@ namespace CriticalPath.Web.Controllers
             if(purchaseOrder.IsApproved)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
+            if (purchaseOrder.DueDate == null)
+            {
+                //TODO:get 42 days from an AppSetting
+                purchaseOrder.DueDate = DateTime.Today.AddDays(42);
+            }
+
             return View(purchaseOrder);
         }
 
@@ -73,26 +79,21 @@ namespace CriticalPath.Web.Controllers
                 await ApproveSaveAsync(purchaseOrder);
                 return RedirectToAction("Details", new { id = purchaseOrder.Id });
             }
-            if (purchaseOrder.DueDate == null)
-            {
-                //TODO:get 42 days from an AppSetting
-                purchaseOrder.DueDate = DateTime.Today.AddDays(42);
-            }
 
             return View(purchaseOrder);
         }
 
-        protected override Task SetPurchaseOrderDefaults(PurchaseOrder purchaseOrder)
+        protected override Task SetPurchaseOrderDefaults(PurchaseOrderCreateVM purchaseOrder)
         {
             purchaseOrder.OrderDate = DateTime.Today;
             return Task.FromResult(default(object));
         }
 
-        partial void SetSelectLists(PurchaseOrder purchaseOrder)
-        {
-            var queryCustomerId = DataContext.GetCustomerDtoQuery();
-            int customerId = purchaseOrder == null ? 0 : purchaseOrder.CustomerId;
-            ViewBag.CustomerId = new SelectList(queryCustomerId, "Id", "CompanyName", customerId);
-        }
+        //partial void SetSelectLists(PurchaseOrder purchaseOrder)
+        //{
+        //    var queryCustomerId = DataContext.GetCustomerDtoQuery();
+        //    int customerId = purchaseOrder == null ? 0 : purchaseOrder.CustomerId;
+        //    ViewBag.CustomerId = new SelectList(queryCustomerId, "Id", "CompanyName", customerId);
+        //}
     }
 }

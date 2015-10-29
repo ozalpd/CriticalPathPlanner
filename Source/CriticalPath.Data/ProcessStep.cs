@@ -21,12 +21,9 @@ namespace CriticalPath.Data
         public int DisplayOrder { get; set; }
         public int ProcessId { get; set; }
         public int TemplateId { get; set; }
-        public System.DateTime TargetStartDate { get; set; }
-        public Nullable<System.DateTime> TargetEndDate { get; set; }
-        public Nullable<System.DateTime> ForecastStartDate { get; set; }
-        public Nullable<System.DateTime> ForecastEndDate { get; set; }
-        public Nullable<System.DateTime> RealizedStartDate { get; set; }
-        public Nullable<System.DateTime> RealizedEndDate { get; set; }
+        public System.DateTime TargetDate { get; set; }
+        public Nullable<System.DateTime> ForecastDate { get; set; }
+        public Nullable<System.DateTime> RealizedDate { get; set; }
         public bool IsApproved { get; set; }
         public Nullable<System.DateTime> ApproveDate { get; set; }
         public string ApprovedUserId { get; set; }
@@ -55,12 +52,9 @@ namespace CriticalPath.Data
             clone.DisplayOrder = DisplayOrder;
             clone.ProcessId = ProcessId;
             clone.TemplateId = TemplateId;
-            clone.TargetStartDate = TargetStartDate;
-            clone.TargetEndDate = TargetEndDate;
-            clone.ForecastStartDate = ForecastStartDate;
-            clone.ForecastEndDate = ForecastEndDate;
-            clone.RealizedStartDate = RealizedStartDate;
-            clone.RealizedEndDate = RealizedEndDate;
+            clone.TargetDate = TargetDate;
+            clone.ForecastDate = ForecastDate;
+            clone.RealizedDate = RealizedDate;
             clone.IsApproved = IsApproved;
             clone.ApproveDate = ApproveDate;
             clone.ApprovedUserId = ApprovedUserId;
@@ -97,12 +91,9 @@ namespace CriticalPath.Data
             DisplayOrder = entity.DisplayOrder;
             ProcessId = entity.ProcessId;
             TemplateId = entity.TemplateId;
-            TargetStartDate = entity.TargetStartDate;
-            TargetEndDate = entity.TargetEndDate;
-            ForecastStartDate = entity.ForecastStartDate;
-            ForecastEndDate = entity.ForecastEndDate;
-            RealizedStartDate = entity.RealizedStartDate;
-            RealizedEndDate = entity.RealizedEndDate;
+            TargetDate = entity.TargetDate;
+            ForecastDate = entity.ForecastDate;
+            RealizedDate = entity.RealizedDate;
             IsApproved = entity.IsApproved;
             ApproveDate = entity.ApproveDate;
         
@@ -121,12 +112,9 @@ namespace CriticalPath.Data
             entity.DisplayOrder = DisplayOrder;
             entity.ProcessId = ProcessId;
             entity.TemplateId = TemplateId;
-            entity.TargetStartDate = TargetStartDate;
-            entity.TargetEndDate = TargetEndDate;
-            entity.ForecastStartDate = ForecastStartDate;
-            entity.ForecastEndDate = ForecastEndDate;
-            entity.RealizedStartDate = RealizedStartDate;
-            entity.RealizedEndDate = RealizedEndDate;
+            entity.TargetDate = TargetDate;
+            entity.ForecastDate = ForecastDate;
+            entity.RealizedDate = RealizedDate;
             entity.IsApproved = IsApproved;
             entity.ApproveDate = ApproveDate;
     
@@ -144,12 +132,9 @@ namespace CriticalPath.Data
         public int DisplayOrder { get; set; }
         public int ProcessId { get; set; }
         public int TemplateId { get; set; }
-        public System.DateTime TargetStartDate { get; set; }
-        public Nullable<System.DateTime> TargetEndDate { get; set; }
-        public Nullable<System.DateTime> ForecastStartDate { get; set; }
-        public Nullable<System.DateTime> ForecastEndDate { get; set; }
-        public Nullable<System.DateTime> RealizedStartDate { get; set; }
-        public Nullable<System.DateTime> RealizedEndDate { get; set; }
+        public System.DateTime TargetDate { get; set; }
+        public Nullable<System.DateTime> ForecastDate { get; set; }
+        public Nullable<System.DateTime> RealizedDate { get; set; }
         public bool IsApproved { get; set; }
         public Nullable<System.DateTime> ApproveDate { get; set; }
     }

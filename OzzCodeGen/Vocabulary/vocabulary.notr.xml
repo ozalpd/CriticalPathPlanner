@@ -69,6 +69,18 @@
     <Translation>Add New Purchase Order</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddNewSize</Name>
+    <Translation>Add New Size</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewSizeQuantity</Name>
+    <Translation>Add New Size Quantity</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewSizeStandard</Name>
+    <Translation>Add New Size Standard</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddNewSupplier</Name>
     <Translation>Add New Supplier</Translation>
   </Vocab>
@@ -115,6 +127,18 @@
   <Vocab>
     <Name>Address2</Name>
     <Translation>Address Line 2</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddSize</Name>
+    <Translation>Add Size</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddSizeQuantity</Name>
+    <Translation>Add Size Quantity</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddSizeStandard</Name>
+    <Translation>Add Size Standard</Translation>
   </Vocab>
   <Vocab>
     <Name>AddSupplier</Name>
@@ -317,6 +341,18 @@
     <Translation>Create Purchase Order</Translation>
   </Vocab>
   <Vocab>
+    <Name>CreateSize</Name>
+    <Translation>Create Size</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateSizeQuantity</Name>
+    <Translation>Create Size Quantity</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateSizeStandard</Name>
+    <Translation>Create Size Standard</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CreateSupplier</Name>
     <Translation>Create Supplier</Translation>
   </Vocab>
@@ -407,6 +443,18 @@
   <Vocab>
     <Name>DeletePurchaseOrder</Name>
     <Translation>Delete Purchase Order</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteSize</Name>
+    <Translation>Delete Size</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteSizeQuantity</Name>
+    <Translation>Delete Size Quantity</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteSizeStandard</Name>
+    <Translation>Delete Size Standard</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteSupplier</Name>
@@ -509,6 +557,18 @@
     <Translation>Edit Purchase Order</Translation>
   </Vocab>
   <Vocab>
+    <Name>EditSize</Name>
+    <Translation>Edit Size</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditSizeQuantity</Name>
+    <Translation>Edit Size Quantity</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditSizeStandard</Name>
+    <Translation>Edit Size Standard</Translation>
+  </Vocab>
+  <Vocab>
     <Name>EditSupplier</Name>
     <Translation>Edit Supplier</Translation>
   </Vocab>
@@ -591,6 +651,10 @@
   <Vocab>
     <Name>ImageFiles</Name>
     <Translation>Image Files</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ImageUrl</Name>
+    <Translation>Image Url</Translation>
   </Vocab>
   <Vocab>
     <Name>Index</Name>
@@ -985,6 +1049,46 @@
     <Translation>Size</Translation>
   </Vocab>
   <Vocab>
+    <Name>SizeId</Name>
+    <Translation>Size Id</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizeQuantities</Name>
+    <Translation>Size Quantities</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizeQuantitiesList</Name>
+    <Translation>Size Quantities List</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizeQuantity</Name>
+    <Translation>Size Quantity</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Sizes</Name>
+    <Translation>Sizes</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizesList</Name>
+    <Translation>Sizes List</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizeStandard</Name>
+    <Translation>Size Standard</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizeStandardId</Name>
+    <Translation>Size Standard Id</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizeStandards</Name>
+    <Translation>Size Standards</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizeStandardsList</Name>
+    <Translation>Size Standards List</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Slow</Name>
     <Translation>Slow</Translation>
   </Vocab>
@@ -1087,6 +1191,10 @@
   <Vocab>
     <Name>Unit</Name>
     <Translation>Unit</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>UnitPrice</Name>
+    <Translation>Unit Price</Translation>
   </Vocab>
   <Vocab>
     <Name>Update</Name>

@@ -69,6 +69,18 @@
     <Translation>Yeni Sipariş Ekle</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddNewSize</Name>
+    <Translation>Yeni Ölçü Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewSizeQuantity</Name>
+    <Translation>Yeni Ölçü Miktarı Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewSizeStandard</Name>
+    <Translation>Yeni Ölçü Standartı Ekle</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddNewSupplier</Name>
     <Translation>Yeni Tedarikçi Ekle</Translation>
   </Vocab>
@@ -115,6 +127,18 @@
   <Vocab>
     <Name>Address2</Name>
     <Translation>Adres Satır 2</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddSize</Name>
+    <Translation>Ölçü Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddSizeQuantity</Name>
+    <Translation>Ölçü Miktarı Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddSizeStandard</Name>
+    <Translation>Ölçü Standartı Ekle</Translation>
   </Vocab>
   <Vocab>
     <Name>AddSupplier</Name>
@@ -317,6 +341,18 @@
     <Translation>Sipariş Oluştur</Translation>
   </Vocab>
   <Vocab>
+    <Name>CreateSize</Name>
+    <Translation>Ölçü Oluştur</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateSizeQuantity</Name>
+    <Translation>Ölçü Miktarı Oluştur</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateSizeStandard</Name>
+    <Translation>Ölçü Standartı Oluştur</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CreateSupplier</Name>
     <Translation>Tedarikçi Oluştur</Translation>
   </Vocab>
@@ -407,6 +443,18 @@
   <Vocab>
     <Name>DeletePurchaseOrder</Name>
     <Translation>Siparişi Sil</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteSize</Name>
+    <Translation>Ölçü Sil</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteSizeQuantity</Name>
+    <Translation>Ölçü Miktarını Sil</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteSizeStandard</Name>
+    <Translation>Ölçü Standartını Sil</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteSupplier</Name>
@@ -509,6 +557,18 @@
     <Translation>Siparişi Düzenle</Translation>
   </Vocab>
   <Vocab>
+    <Name>EditSize</Name>
+    <Translation>Ölçüyü Düzenle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditSizeQuantity</Name>
+    <Translation>Ölçü Miktarını Düzenle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditSizeStandard</Name>
+    <Translation>Ölçü Standartını Düzenle</Translation>
+  </Vocab>
+  <Vocab>
     <Name>EditSupplier</Name>
     <Translation>Tedarikçiyi Düzenle</Translation>
   </Vocab>
@@ -591,6 +651,10 @@
   <Vocab>
     <Name>ImageFiles</Name>
     <Translation>Resim Dosyaları</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ImageUrl</Name>
+    <Translation>Resim Yolu</Translation>
   </Vocab>
   <Vocab>
     <Name>Index</Name>
@@ -985,6 +1049,46 @@
     <Translation>Ölçü</Translation>
   </Vocab>
   <Vocab>
+    <Name>SizeId</Name>
+    <Translation>Ölçü</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizeQuantities</Name>
+    <Translation>Ölçü Miktarları</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizeQuantitiesList</Name>
+    <Translation>Ölçü Miktar Listesi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizeQuantity</Name>
+    <Translation>Ölçü Miktarı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Sizes</Name>
+    <Translation>Ölçüler</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizesList</Name>
+    <Translation>Ölçü Listesi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizeStandard</Name>
+    <Translation>Ölçü Standartı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizeStandardId</Name>
+    <Translation>Ölçü Standartı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizeStandards</Name>
+    <Translation>Ölçü Standartları</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizeStandardsList</Name>
+    <Translation>Ölçü Standartlar Listesi</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Slow</Name>
     <Translation>Yavaş</Translation>
   </Vocab>
@@ -1087,6 +1191,10 @@
   <Vocab>
     <Name>Unit</Name>
     <Translation>Birim</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>UnitPrice</Name>
+    <Translation>Birim Fiyat</Translation>
   </Vocab>
   <Vocab>
     <Name>Update</Name>

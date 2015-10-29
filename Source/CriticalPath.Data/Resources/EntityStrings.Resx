@@ -83,10 +83,6 @@
 		<value>Add New Customer</value>
 	</data>
 
-	<data name="AddNewOrderItem" xml:space="preserve">
-		<value>Add New Order Item</value>
-	</data>
-
 	<data name="AddNewProcess" xml:space="preserve">
 		<value>Add New Process</value>
 	</data>
@@ -115,12 +111,20 @@
 		<value>Add New Purchase Order</value>
 	</data>
 
-	<data name="AddNewSupplier" xml:space="preserve">
-		<value>Add New Supplier</value>
+	<data name="AddNewSize" xml:space="preserve">
+		<value>Add New Size</value>
 	</data>
 
-	<data name="AddOrderItem" xml:space="preserve">
-		<value>Add Order Item</value>
+	<data name="AddNewSizeQuantity" xml:space="preserve">
+		<value>Add New Size Quantity</value>
+	</data>
+
+	<data name="AddNewSizeStandard" xml:space="preserve">
+		<value>Add New Size Standard</value>
+	</data>
+
+	<data name="AddNewSupplier" xml:space="preserve">
+		<value>Add New Supplier</value>
 	</data>
 
 	<data name="AddProcess" xml:space="preserve">
@@ -157,6 +161,18 @@
 
 	<data name="Address2" xml:space="preserve">
 		<value>Address Line 2</value>
+	</data>
+
+	<data name="AddSize" xml:space="preserve">
+		<value>Add Size</value>
+	</data>
+
+	<data name="AddSizeQuantity" xml:space="preserve">
+		<value>Add Size Quantity</value>
+	</data>
+
+	<data name="AddSizeStandard" xml:space="preserve">
+		<value>Add Size Standard</value>
 	</data>
 
 	<data name="AddSupplier" xml:space="preserve">
@@ -243,10 +259,6 @@
 		<value>Create Date</value>
 	</data>
 
-	<data name="CreateOrderItem" xml:space="preserve">
-		<value>Create Order Item</value>
-	</data>
-
 	<data name="CreateProcess" xml:space="preserve">
 		<value>Create Process</value>
 	</data>
@@ -273,6 +285,18 @@
 
 	<data name="CreatePurchaseOrder" xml:space="preserve">
 		<value>Create Purchase Order</value>
+	</data>
+
+	<data name="CreateSize" xml:space="preserve">
+		<value>Create Size</value>
+	</data>
+
+	<data name="CreateSizeQuantity" xml:space="preserve">
+		<value>Create Size Quantity</value>
+	</data>
+
+	<data name="CreateSizeStandard" xml:space="preserve">
+		<value>Create Size Standard</value>
 	</data>
 
 	<data name="CreateSupplier" xml:space="preserve">
@@ -323,10 +347,6 @@
 		<value>Delete Customer</value>
 	</data>
 
-	<data name="DeleteOrderItem" xml:space="preserve">
-		<value>Delete Order Item</value>
-	</data>
-
 	<data name="DeleteProcess" xml:space="preserve">
 		<value>Delete Process</value>
 	</data>
@@ -353,6 +373,18 @@
 
 	<data name="DeletePurchaseOrder" xml:space="preserve">
 		<value>Delete Purchase Order</value>
+	</data>
+
+	<data name="DeleteSize" xml:space="preserve">
+		<value>Delete Size</value>
+	</data>
+
+	<data name="DeleteSizeQuantity" xml:space="preserve">
+		<value>Delete Size Quantity</value>
+	</data>
+
+	<data name="DeleteSizeStandard" xml:space="preserve">
+		<value>Delete Size Standard</value>
 	</data>
 
 	<data name="DeleteSupplier" xml:space="preserve">
@@ -383,10 +415,6 @@
 		<value>Edit Customer</value>
 	</data>
 
-	<data name="EditOrderItem" xml:space="preserve">
-		<value>Edit Order Item</value>
-	</data>
-
 	<data name="EditProcess" xml:space="preserve">
 		<value>Edit Process</value>
 	</data>
@@ -415,6 +443,18 @@
 		<value>Edit Purchase Order</value>
 	</data>
 
+	<data name="EditSize" xml:space="preserve">
+		<value>Edit Size</value>
+	</data>
+
+	<data name="EditSizeQuantity" xml:space="preserve">
+		<value>Edit Size Quantity</value>
+	</data>
+
+	<data name="EditSizeStandard" xml:space="preserve">
+		<value>Edit Size Standard</value>
+	</data>
+
 	<data name="EditSupplier" xml:space="preserve">
 		<value>Edit Supplier</value>
 	</data>
@@ -431,16 +471,16 @@
 		<value>First Name</value>
 	</data>
 
-	<data name="ForecastEndDate" xml:space="preserve">
-		<value>Forecast End Date</value>
-	</data>
-
-	<data name="ForecastStartDate" xml:space="preserve">
-		<value>Forecast Start Date</value>
+	<data name="ForecastDate" xml:space="preserve">
+		<value>Forecast Date</value>
 	</data>
 
 	<data name="Id" xml:space="preserve">
 		<value>Record Nr</value>
+	</data>
+
+	<data name="ImageUrl" xml:space="preserve">
+		<value>Image Url</value>
 	</data>
 
 	<data name="IsApproved" xml:space="preserve">
@@ -477,22 +517,6 @@
 
 	<data name="OrderDate" xml:space="preserve">
 		<value>Order Date</value>
-	</data>
-
-	<data name="OrderItem" xml:space="preserve">
-		<value>Order Item</value>
-	</data>
-
-	<data name="OrderItemId" xml:space="preserve">
-		<value>Order Item</value>
-	</data>
-
-	<data name="OrderItems" xml:space="preserve">
-		<value>Order Items</value>
-	</data>
-
-	<data name="OrderItemsList" xml:space="preserve">
-		<value>Order Items List</value>
 	</data>
 
 	<data name="Orders" xml:space="preserve">
@@ -635,16 +659,56 @@
 		<value>Quantity</value>
 	</data>
 
-	<data name="RealizedEndDate" xml:space="preserve">
-		<value>Realized End Date</value>
-	</data>
-
-	<data name="RealizedStartDate" xml:space="preserve">
-		<value>Realized Start Date</value>
+	<data name="RealizedDate" xml:space="preserve">
+		<value>Realized Date</value>
 	</data>
 
 	<data name="RequiredWorkDays" xml:space="preserve">
 		<value>Required Work Days</value>
+	</data>
+
+	<data name="Size" xml:space="preserve">
+		<value>Size</value>
+	</data>
+
+	<data name="SizeId" xml:space="preserve">
+		<value>Size Id</value>
+	</data>
+
+	<data name="SizeQuantities" xml:space="preserve">
+		<value>Size Quantities</value>
+	</data>
+
+	<data name="SizeQuantitiesList" xml:space="preserve">
+		<value>Size Quantities List</value>
+	</data>
+
+	<data name="SizeQuantity" xml:space="preserve">
+		<value>Size Quantity</value>
+	</data>
+
+	<data name="Sizes" xml:space="preserve">
+		<value>Sizes</value>
+	</data>
+
+	<data name="SizesList" xml:space="preserve">
+		<value>Sizes List</value>
+	</data>
+
+	<data name="SizeStandard" xml:space="preserve">
+		<value>Size Standard</value>
+	</data>
+
+	<data name="SizeStandardId" xml:space="preserve">
+		<value>Size Standard Id</value>
+	</data>
+
+	<data name="SizeStandards" xml:space="preserve">
+		<value>Size Standards</value>
+	</data>
+
+	<data name="SizeStandardsList" xml:space="preserve">
+		<value>Size Standards List</value>
 	</data>
 
 	<data name="State" xml:space="preserve">
@@ -675,12 +739,8 @@
 		<value>Suppliers List</value>
 	</data>
 
-	<data name="TargetEndDate" xml:space="preserve">
-		<value>Target End Date</value>
-	</data>
-
-	<data name="TargetStartDate" xml:space="preserve">
-		<value>Target Start Date</value>
+	<data name="TargetDate" xml:space="preserve">
+		<value>Target Date</value>
 	</data>
 
 	<data name="Template" xml:space="preserve">
@@ -697,6 +757,10 @@
 
 	<data name="Title" xml:space="preserve">
 		<value>Title</value>
+	</data>
+
+	<data name="UnitPrice" xml:space="preserve">
+		<value>Unit Price</value>
 	</data>
 
 	<data name="ZipCode" xml:space="preserve">

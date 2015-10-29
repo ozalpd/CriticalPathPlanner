@@ -4,15 +4,18 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[PurchaseOrders](
     [Id] [int] Identity(1,1) Not Null,
+    [IsApproved] [bit] Not Null,
+    [ApproveDate] [DateTime] Null,
     [Title] [nVarChar](128) Not Null,
     [CustomerId] [int] Not Null Constraint FK_PurchaseOrder_CustomerId Foreign Key References [dbo].[Customers]([Id]),
     [OrderDate] [DateTime] Not Null,
     [DueDate] [DateTime] Null,
     [Code] [nVarChar](48) Null,
     [Description] [nVarChar](256) Null,
+    [ProductId] [int] Not Null Constraint FK_PurchaseOrder_ProductId Foreign Key References [dbo].[Products]([Id]),
+    [Quantity] [int] Not Null,
+    [UnitPrice] [decimal](18, 4) Not Null,
     [Notes] [nVarChar](255) Null,
-    [IsApproved] [bit] Not Null,
-    [ApproveDate] [DateTime] Null,
     [ApprovedUserId] [VarChar](48) Null,
     [ApprovedUserIp] [VarChar](48) Null,
     [ModifyNr] [int] Not Null Default 1,
@@ -30,13 +33,13 @@ CREATE TABLE [dbo].[PurchaseOrders](
     ALLOW_PAGE_LOCKS  = ON)
   ON [PRIMARY]) ON [PRIMARY]
 Go
+Create Nonclustered Index [idx_PurchaseOrders_IsApproved] On [dbo].[PurchaseOrders]([IsApproved] Asc)
+Go
 Create Nonclustered Index [idx_PurchaseOrders_CustomerId] On [dbo].[PurchaseOrders]([CustomerId] Asc)
 Go
 Create Nonclustered Index [idx_PurchaseOrders_OrderDate] On [dbo].[PurchaseOrders]([OrderDate] Asc)
 Go
 Create Nonclustered Index [idx_PurchaseOrders_DueDate] On [dbo].[PurchaseOrders]([DueDate] Asc)
-Go
-Create Nonclustered Index [idx_PurchaseOrders_IsApproved] On [dbo].[PurchaseOrders]([IsApproved] Asc)
 Go
 Create Nonclustered Index [idx_PurchaseOrders_ModifyDate] On [dbo].[PurchaseOrders]([ModifyDate] Desc)
 Go

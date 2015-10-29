@@ -16,6 +16,29 @@ namespace CriticalPath.Web.Controllers
 {
     public partial class ProcessesController : BaseController 
     {
+        protected virtual IQueryable<Process> GetProcessQuery(QueryParameters qParams)
+        {
+            var query = GetProcessQuery();
+            if (!string.IsNullOrEmpty(qParams.SearchString))
+            {
+                query = from a in query
+                        where
+                            a.Title.Contains(qParams.SearchString) | 
+                            a.Description.Contains(qParams.SearchString) 
+                        select a;
+            }
+            if (qParams.ProcessTemplateId != null)
+            {
+                query = query.Where(x => x.ProcessTemplateId == qParams.ProcessTemplateId);
+            }
+            if (qParams.PurchaseOrderId != null)
+            {
+                query = query.Where(x => x.PurchaseOrderId == qParams.PurchaseOrderId);
+            }
+
+            return query;
+        }
+
         [Authorize]
         public async Task<ActionResult> Index(QueryParameters qParams)
         {
@@ -91,16 +114,16 @@ namespace CriticalPath.Web.Controllers
 
         [HttpGet]
         [Authorize(Roles = "admin, supervisor, clerk")]
-        [Route("Processes/Create/{orderItemId:int?}")]
-        public async Task<ActionResult> Create(int? orderItemId)  //GET: /Processes/Create
+        [Route("Processes/Create/{purchaseOrderId:int?}")]
+        public async Task<ActionResult> Create(int? purchaseOrderId)  //GET: /Processes/Create
         {
             var process = new Process();
-            if (orderItemId != null)
+            if (purchaseOrderId != null)
             {
-                var orderItem = await FindAsyncOrderItem(orderItemId.Value);
-                if (orderItem == null)
+                var purchaseOrder = await FindAsyncPurchaseOrder(purchaseOrderId.Value);
+                if (purchaseOrder == null)
                     return HttpNotFound();
-                process.OrderItem = orderItem;
+                process.PurchaseOrder = purchaseOrder;
             }
             await SetProcessDefaults(process);
             SetSelectLists(process);
@@ -110,8 +133,8 @@ namespace CriticalPath.Web.Controllers
         [HttpPost]
         [Authorize(Roles = "admin, supervisor, clerk")]
         [ValidateAntiForgeryToken]
-        [Route("Processes/Create/{orderItemId:int?}")]
-        public async Task<ActionResult> Create(int? orderItemId, Process process)  //POST: /Processes/Create
+        [Route("Processes/Create/{purchaseOrderId:int?}")]
+        public async Task<ActionResult> Create(int? purchaseOrderId, Process process)  //POST: /Processes/Create
         {
             DataContext.SetInsertDefaults(process, this);
 
@@ -226,7 +249,7 @@ namespace CriticalPath.Web.Controllers
         public new partial class QueryParameters : BaseController.QueryParameters
         {
             public int? ProcessTemplateId { get; set; }
-            public int? OrderItemId { get; set; }
+            public int? PurchaseOrderId { get; set; }
         }
 
 

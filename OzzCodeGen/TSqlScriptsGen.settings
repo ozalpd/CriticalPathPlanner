@@ -551,6 +551,16 @@
           <Nullable>false</Nullable>
           <ForeignKeyTable>ProductCategories</ForeignKeyTable>
         </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>ImageUrl</Name>
+          <Exclude>false</Exclude>
+          <DataType>nVarChar</DataType>
+          <Lenght>256</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
@@ -627,6 +637,37 @@
           <Nullable>true</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
+          <Name>ProductId</Name>
+          <Exclude>false</Exclude>
+          <DataType>int</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+          <ForeignKeyTable>Products</ForeignKeyTable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>Quantity</Name>
+          <Exclude>false</Exclude>
+          <DataType>int</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>UnitPrice</Name>
+          <Exclude>false</Exclude>
+          <DataType>[decimal](18, 4)</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
           <Name>Notes</Name>
           <Exclude>false</Exclude>
           <DataType>nVarChar</DataType>
@@ -639,13 +680,13 @@
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
-      <Name>OrderItem</Name>
+      <Name>SizeQuantity</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
       <InheritedEntity>IModified</InheritedEntity>
       <UseInheritance>false</UseInheritance>
       <SchemaName>dbo</SchemaName>
-      <TableName>OrderItems</TableName>
+      <TableName>SizeQuantities</TableName>
       <ModifyTrack>false</ModifyTrack>
       <StoredProcs>false</StoredProcs>
       <CustomStoredProcs>false</CustomStoredProcs>
@@ -666,21 +707,21 @@
           <DataType>int</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
+          <Indexed>false</Indexed>
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
           <ForeignKeyTable>PurchaseOrders</ForeignKeyTable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>ProductId</Name>
+          <Name>SizeId</Name>
           <Exclude>false</Exclude>
           <DataType>int</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
+          <Indexed>false</Indexed>
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
-          <ForeignKeyTable>Products</ForeignKeyTable>
+          <ForeignKeyTable>Sizes</ForeignKeyTable>
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>Quantity</Name>
@@ -692,15 +733,74 @@
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
         </StorageColumnSetting>
+      </Properties>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="StorageEntitySetting">
+      <Name>SizeStandard</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <InheritedEntity>IModified</InheritedEntity>
+      <UseInheritance>false</UseInheritance>
+      <SchemaName>dbo</SchemaName>
+      <TableName>SizeStandards</TableName>
+      <ModifyTrack>false</ModifyTrack>
+      <StoredProcs>false</StoredProcs>
+      <CustomStoredProcs>false</CustomStoredProcs>
+      <Properties>
         <StorageColumnSetting>
-          <Name>Notes</Name>
+          <Name>Title</Name>
           <Exclude>false</Exclude>
           <DataType>nVarChar</DataType>
-          <Lenght>255</Lenght>
+          <Lenght>64</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
           <SortDesc>false</SortDesc>
-          <Nullable>true</Nullable>
+          <Nullable>false</Nullable>
+        </StorageColumnSetting>
+      </Properties>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="StorageEntitySetting">
+      <Name>Size</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <InheritedEntity>IModified</InheritedEntity>
+      <UseInheritance>false</UseInheritance>
+      <SchemaName>dbo</SchemaName>
+      <TableName>Sizes</TableName>
+      <ModifyTrack>false</ModifyTrack>
+      <StoredProcs>false</StoredProcs>
+      <CustomStoredProcs>false</CustomStoredProcs>
+      <Properties>
+        <StorageColumnSetting>
+          <Name>DisplayOrder</Name>
+          <Exclude>false</Exclude>
+          <DataType>int</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>Title</Name>
+          <Exclude>false</Exclude>
+          <DataType>nVarChar</DataType>
+          <Lenght>16</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>SizeStandardId</Name>
+          <Exclude>false</Exclude>
+          <DataType>int</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+          <ForeignKeyTable>SizeStandards</ForeignKeyTable>
         </StorageColumnSetting>
       </Properties>
     </BaseEntitySetting>
@@ -758,7 +858,7 @@
           <ForeignKeyTable>ProcessTemplates</ForeignKeyTable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>OrderItemId</Name>
+          <Name>PurchaseOrderId</Name>
           <Exclude>false</Exclude>
           <DataType>int</DataType>
           <Lenght>0</Lenght>
@@ -766,10 +866,10 @@
           <Indexed>false</Indexed>
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
-          <ForeignKeyTable>OrderItems</ForeignKeyTable>
+          <ForeignKeyTable>PurchaseOrders</ForeignKeyTable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>TargetStartDate</Name>
+          <Name>TargetDate</Name>
           <Exclude>false</Exclude>
           <DataType>DateTime</DataType>
           <Lenght>0</Lenght>
@@ -779,7 +879,7 @@
           <Nullable>false</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>TargetEndDate</Name>
+          <Name>ForecastDate</Name>
           <Exclude>false</Exclude>
           <DataType>DateTime</DataType>
           <Lenght>0</Lenght>
@@ -789,37 +889,7 @@
           <Nullable>true</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>ForecastStartDate</Name>
-          <Exclude>false</Exclude>
-          <DataType>DateTime</DataType>
-          <Lenght>0</Lenght>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>false</Indexed>
-          <SortDesc>false</SortDesc>
-          <Nullable>true</Nullable>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
-          <Name>ForecastEndDate</Name>
-          <Exclude>false</Exclude>
-          <DataType>DateTime</DataType>
-          <Lenght>0</Lenght>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>false</Indexed>
-          <SortDesc>false</SortDesc>
-          <Nullable>true</Nullable>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
-          <Name>RealizedStartDate</Name>
-          <Exclude>false</Exclude>
-          <DataType>DateTime</DataType>
-          <Lenght>0</Lenght>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>false</Indexed>
-          <SortDesc>false</SortDesc>
-          <Nullable>true</Nullable>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
-          <Name>RealizedEndDate</Name>
+          <Name>RealizedDate</Name>
           <Exclude>false</Exclude>
           <DataType>DateTime</DataType>
           <Lenght>0</Lenght>
@@ -894,7 +964,7 @@
           <ForeignKeyTable>Processes</ForeignKeyTable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>TargetStartDate</Name>
+          <Name>TargetDate</Name>
           <Exclude>false</Exclude>
           <DataType>DateTime</DataType>
           <Lenght>0</Lenght>
@@ -904,7 +974,7 @@
           <Nullable>false</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>TargetEndDate</Name>
+          <Name>ForecastDate</Name>
           <Exclude>false</Exclude>
           <DataType>DateTime</DataType>
           <Lenght>0</Lenght>
@@ -914,37 +984,7 @@
           <Nullable>true</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>ForecastStartDate</Name>
-          <Exclude>false</Exclude>
-          <DataType>DateTime</DataType>
-          <Lenght>0</Lenght>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>false</Indexed>
-          <SortDesc>false</SortDesc>
-          <Nullable>true</Nullable>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
-          <Name>ForecastEndDate</Name>
-          <Exclude>false</Exclude>
-          <DataType>DateTime</DataType>
-          <Lenght>0</Lenght>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>false</Indexed>
-          <SortDesc>false</SortDesc>
-          <Nullable>true</Nullable>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
-          <Name>RealizedStartDate</Name>
-          <Exclude>false</Exclude>
-          <DataType>DateTime</DataType>
-          <Lenght>0</Lenght>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>false</Indexed>
-          <SortDesc>false</SortDesc>
-          <Nullable>true</Nullable>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
-          <Name>RealizedEndDate</Name>
+          <Name>RealizedDate</Name>
           <Exclude>false</Exclude>
           <DataType>DateTime</DataType>
           <Lenght>0</Lenght>

@@ -13,13 +13,13 @@ using CriticalPath.Data.Resources;
 
 namespace CriticalPath.Data
 {
-    [MetadataTypeAttribute(typeof(OrderItemDTO.OrderItemMetadata))]
-    public partial class OrderItemDTO
+    [MetadataTypeAttribute(typeof(SizeQuantityDTO.SizeQuantityMetadata))]
+    public partial class SizeQuantityDTO
 	{
-        internal sealed partial class OrderItemMetadata
+        internal sealed partial class SizeQuantityMetadata
 		{
             // This metadata class is not intended to be instantiated.
-            private OrderItemMetadata() { }
+            private SizeQuantityMetadata() { }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Display(ResourceType = typeof(EntityStrings), Name = "DisplayOrder")]
@@ -30,18 +30,12 @@ namespace CriticalPath.Data
             public int PurchaseOrderId { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "ProductId")]
-            public int ProductId { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "SizeId")]
+            public int SizeId { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Range(1,2000000000)]
             [Display(ResourceType = typeof(EntityStrings), Name = "Quantity")]
             public int Quantity { get; set; }
-
-            [StringLength(255, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
-            [DataType(DataType.MultilineText)]
-            [Display(ResourceType = typeof(EntityStrings), Name = "Notes")]
-            public string Notes { get; set; }
 
 		}
 	}

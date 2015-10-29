@@ -25,13 +25,10 @@ namespace CriticalPath.Data
         public bool IsCompleted { get; set; }
         public string Description { get; set; }
         public int ProcessTemplateId { get; set; }
-        public int OrderItemId { get; set; }
-        public System.DateTime TargetStartDate { get; set; }
-        public Nullable<System.DateTime> TargetEndDate { get; set; }
-        public Nullable<System.DateTime> ForecastStartDate { get; set; }
-        public Nullable<System.DateTime> ForecastEndDate { get; set; }
-        public Nullable<System.DateTime> RealizedStartDate { get; set; }
-        public Nullable<System.DateTime> RealizedEndDate { get; set; }
+        public int PurchaseOrderId { get; set; }
+        public System.DateTime TargetDate { get; set; }
+        public Nullable<System.DateTime> ForecastDate { get; set; }
+        public Nullable<System.DateTime> RealizedDate { get; set; }
         public bool IsApproved { get; set; }
         public Nullable<System.DateTime> ApproveDate { get; set; }
         public string ApprovedUserId { get; set; }
@@ -44,10 +41,10 @@ namespace CriticalPath.Data
         public string CreatorId { get; set; }
         public string CreatorIp { get; set; }
     
-        public virtual OrderItem OrderItem { get; set; }
         public virtual ProcessTemplate ProcessTemplate { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProcessStep> ProcessSteps { get; set; }
+        public virtual PurchaseOrder PurchaseOrder { get; set; }
     	/// <summary>
     	/// Clones all properties in a new Process instance,
     	/// except PrimaryKey(s)
@@ -60,13 +57,10 @@ namespace CriticalPath.Data
             clone.IsCompleted = IsCompleted;
             clone.Description = Description;
             clone.ProcessTemplateId = ProcessTemplateId;
-            clone.OrderItemId = OrderItemId;
-            clone.TargetStartDate = TargetStartDate;
-            clone.TargetEndDate = TargetEndDate;
-            clone.ForecastStartDate = ForecastStartDate;
-            clone.ForecastEndDate = ForecastEndDate;
-            clone.RealizedStartDate = RealizedStartDate;
-            clone.RealizedEndDate = RealizedEndDate;
+            clone.PurchaseOrderId = PurchaseOrderId;
+            clone.TargetDate = TargetDate;
+            clone.ForecastDate = ForecastDate;
+            clone.RealizedDate = RealizedDate;
             clone.IsApproved = IsApproved;
             clone.ApproveDate = ApproveDate;
             clone.ApprovedUserId = ApprovedUserId;
@@ -101,13 +95,10 @@ namespace CriticalPath.Data
             IsCompleted = entity.IsCompleted;
             Description = entity.Description;
             ProcessTemplateId = entity.ProcessTemplateId;
-            OrderItemId = entity.OrderItemId;
-            TargetStartDate = entity.TargetStartDate;
-            TargetEndDate = entity.TargetEndDate;
-            ForecastStartDate = entity.ForecastStartDate;
-            ForecastEndDate = entity.ForecastEndDate;
-            RealizedStartDate = entity.RealizedStartDate;
-            RealizedEndDate = entity.RealizedEndDate;
+            PurchaseOrderId = entity.PurchaseOrderId;
+            TargetDate = entity.TargetDate;
+            ForecastDate = entity.ForecastDate;
+            RealizedDate = entity.RealizedDate;
             IsApproved = entity.IsApproved;
             ApproveDate = entity.ApproveDate;
         
@@ -124,13 +115,10 @@ namespace CriticalPath.Data
             entity.IsCompleted = IsCompleted;
             entity.Description = Description;
             entity.ProcessTemplateId = ProcessTemplateId;
-            entity.OrderItemId = OrderItemId;
-            entity.TargetStartDate = TargetStartDate;
-            entity.TargetEndDate = TargetEndDate;
-            entity.ForecastStartDate = ForecastStartDate;
-            entity.ForecastEndDate = ForecastEndDate;
-            entity.RealizedStartDate = RealizedStartDate;
-            entity.RealizedEndDate = RealizedEndDate;
+            entity.PurchaseOrderId = PurchaseOrderId;
+            entity.TargetDate = TargetDate;
+            entity.ForecastDate = ForecastDate;
+            entity.RealizedDate = RealizedDate;
             entity.IsApproved = IsApproved;
             entity.ApproveDate = ApproveDate;
     
@@ -146,13 +134,10 @@ namespace CriticalPath.Data
         public bool IsCompleted { get; set; }
         public string Description { get; set; }
         public int ProcessTemplateId { get; set; }
-        public int OrderItemId { get; set; }
-        public System.DateTime TargetStartDate { get; set; }
-        public Nullable<System.DateTime> TargetEndDate { get; set; }
-        public Nullable<System.DateTime> ForecastStartDate { get; set; }
-        public Nullable<System.DateTime> ForecastEndDate { get; set; }
-        public Nullable<System.DateTime> RealizedStartDate { get; set; }
-        public Nullable<System.DateTime> RealizedEndDate { get; set; }
+        public int PurchaseOrderId { get; set; }
+        public System.DateTime TargetDate { get; set; }
+        public Nullable<System.DateTime> ForecastDate { get; set; }
+        public Nullable<System.DateTime> RealizedDate { get; set; }
         public bool IsApproved { get; set; }
         public Nullable<System.DateTime> ApproveDate { get; set; }
     }

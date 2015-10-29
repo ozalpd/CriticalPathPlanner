@@ -12,20 +12,18 @@ namespace CriticalPath.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class OrderItem : IDisplayOrder, ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate
+    public partial class Size : IDisplayOrder, ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public OrderItem()
+        public Size()
         {
-            this.Processes = new HashSet<Process>();
+            this.SizeQuantities = new HashSet<SizeQuantity>();
         }
     
         public int Id { get; set; }
-        public int PurchaseOrderId { get; set; }
-        public int ProductId { get; set; }
         public int DisplayOrder { get; set; }
-        public int Quantity { get; set; }
-        public string Notes { get; set; }
+        public string Title { get; set; }
+        public int SizeStandardId { get; set; }
         public int ModifyNr { get; set; }
         public System.DateTime ModifyDate { get; set; }
         public string ModifierId { get; set; }
@@ -34,23 +32,20 @@ namespace CriticalPath.Data
         public string CreatorId { get; set; }
         public string CreatorIp { get; set; }
     
-        public virtual Product Product { get; set; }
-        public virtual PurchaseOrder PurchaseOrder { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Process> Processes { get; set; }
+        public virtual ICollection<SizeQuantity> SizeQuantities { get; set; }
+        public virtual SizeStandard SizeStandard { get; set; }
     	/// <summary>
-    	/// Clones all properties in a new OrderItem instance,
+    	/// Clones all properties in a new Size instance,
     	/// except PrimaryKey(s)
     	/// </summary>
-    	/// <returns>New OrderItem instance</returns>
-        public OrderItem Clone()
+    	/// <returns>New Size instance</returns>
+        public Size Clone()
         {
-            var clone = new OrderItem();
-            clone.PurchaseOrderId = PurchaseOrderId;
-            clone.ProductId = ProductId;
+            var clone = new Size();
             clone.DisplayOrder = DisplayOrder;
-            clone.Quantity = Quantity;
-            clone.Notes = Notes;
+            clone.Title = Title;
+            clone.SizeStandardId = SizeStandardId;
             clone.ModifyNr = ModifyNr;
             clone.ModifyDate = ModifyDate;
             clone.ModifierId = ModifierId;
@@ -64,52 +59,46 @@ namespace CriticalPath.Data
             return clone;
         }
     
-    	// Use below function in a partial class file (eg. OrderItem.part.cs)
+    	// Use below function in a partial class file (eg. Size.part.cs)
     	// to add more complexity to clone
-        partial void Cloning(OrderItem clone);
+        partial void Cloning(Size clone);
     }
     
-    //Data Transfer Object type for OrderItem
-    public partial class OrderItemDTO
+    //Data Transfer Object type for Size
+    public partial class SizeDTO
     {
-        public OrderItemDTO() { }
+        public SizeDTO() { }
     
-        public OrderItemDTO(OrderItem entity)
+        public SizeDTO(Size entity)
         {
             Id = entity.Id;
-            PurchaseOrderId = entity.PurchaseOrderId;
-            ProductId = entity.ProductId;
             DisplayOrder = entity.DisplayOrder;
-            Quantity = entity.Quantity;
-            Notes = entity.Notes;
+            Title = entity.Title;
+            SizeStandardId = entity.SizeStandardId;
         
             Initilazing(entity);
         }
     
-        partial void Initilazing(OrderItem entity);
+        partial void Initilazing(Size entity);
         
-        public virtual OrderItem ToOrderItem()
+        public virtual Size ToSize()
         {
-            var entity = new OrderItem();
+            var entity = new Size();
             entity.Id = Id;
-            entity.PurchaseOrderId = PurchaseOrderId;
-            entity.ProductId = ProductId;
             entity.DisplayOrder = DisplayOrder;
-            entity.Quantity = Quantity;
-            entity.Notes = Notes;
+            entity.Title = Title;
+            entity.SizeStandardId = SizeStandardId;
     
             Converting(entity);
     
             return entity;
         }
     
-        partial void Converting(OrderItem entity);
+        partial void Converting(Size entity);
       
         public int Id { get; set; }
-        public int PurchaseOrderId { get; set; }
-        public int ProductId { get; set; }
         public int DisplayOrder { get; set; }
-        public int Quantity { get; set; }
-        public string Notes { get; set; }
+        public string Title { get; set; }
+        public int SizeStandardId { get; set; }
     }
 }

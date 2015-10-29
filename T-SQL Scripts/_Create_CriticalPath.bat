@@ -41,38 +41,48 @@
 
 @echo .
 @echo .
-@echo 8 - Executing OrderItem.sql...
-@sqlcmd -S .\SqlExpress -d CriticalPath -E -i OrderItem.sql
+@echo 8 - Executing SizeStandard.sql...
+@sqlcmd -S .\SqlExpress -d CriticalPath -E -i SizeStandard.sql
 
 @echo .
 @echo .
-@echo 9 - Executing ProcessTemplate.sql...
+@echo 9 - Executing Size.sql...
+@sqlcmd -S .\SqlExpress -d CriticalPath -E -i Size.sql
+
+@echo .
+@echo .
+@echo 10 - Executing SizeQuantity.sql...
+@sqlcmd -S .\SqlExpress -d CriticalPath -E -i SizeQuantity.sql
+
+@echo .
+@echo .
+@echo 11 - Executing ProcessTemplate.sql...
 @sqlcmd -S .\SqlExpress -d CriticalPath -E -i ProcessTemplate.sql
 
 @echo .
 @echo .
-@echo 10 - Executing Process.sql...
+@echo 12 - Executing Process.sql...
 @sqlcmd -S .\SqlExpress -d CriticalPath -E -i Process.sql
 
 @echo .
 @echo .
-@echo 11 - Executing ProcessStepTemplate.sql...
+@echo 13 - Executing ProcessStepTemplate.sql...
 @sqlcmd -S .\SqlExpress -d CriticalPath -E -i ProcessStepTemplate.sql
 @sqlcmd -S .\SqlExpress -d CriticalPath -E -i ProcessTemplate-Data.sql
 
 @echo .
 @echo .
-@echo 12 - Executing ProcessStep.sql...
+@echo 14 - Executing ProcessStep.sql...
 @sqlcmd -S .\SqlExpress -d CriticalPath -E -i ProcessStep.sql
 
 @echo .
 @echo .
-@echo 13 - Executing _FinishingSetup.sql...
+@echo 15 - Executing _FinishingSetup.sql...
 @sqlcmd -S .\SqlExpress -d CriticalPath -E -i _FinishingSetup.sql
 
 @echo .
 @echo .
-@echo 14 - Executing _IdentityDB.sql...
+@echo 16 - Executing _IdentityDB.sql...
 @sqlcmd -S .\SqlExpress -d CriticalPath -E -i _IdentityDB.sql
 
 @echo .

@@ -115,15 +115,6 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add New Order Item.
-        /// </summary>
-        public static string AddNewOrderItem {
-            get {
-                return ResourceManager.GetString("AddNewOrderItem", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Add New Process.
         /// </summary>
         public static string AddNewProcess {
@@ -187,20 +178,38 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add New Size.
+        /// </summary>
+        public static string AddNewSize {
+            get {
+                return ResourceManager.GetString("AddNewSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add New Size Quantity.
+        /// </summary>
+        public static string AddNewSizeQuantity {
+            get {
+                return ResourceManager.GetString("AddNewSizeQuantity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add New Size Standard.
+        /// </summary>
+        public static string AddNewSizeStandard {
+            get {
+                return ResourceManager.GetString("AddNewSizeStandard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add New Supplier.
         /// </summary>
         public static string AddNewSupplier {
             get {
                 return ResourceManager.GetString("AddNewSupplier", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Add Order Item.
-        /// </summary>
-        public static string AddOrderItem {
-            get {
-                return ResourceManager.GetString("AddOrderItem", resourceCulture);
             }
         }
         
@@ -282,6 +291,33 @@ namespace CriticalPath.Data.Resources {
         public static string Address2 {
             get {
                 return ResourceManager.GetString("Address2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Size.
+        /// </summary>
+        public static string AddSize {
+            get {
+                return ResourceManager.GetString("AddSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Size Quantity.
+        /// </summary>
+        public static string AddSizeQuantity {
+            get {
+                return ResourceManager.GetString("AddSizeQuantity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Size Standard.
+        /// </summary>
+        public static string AddSizeStandard {
+            get {
+                return ResourceManager.GetString("AddSizeStandard", resourceCulture);
             }
         }
         
@@ -475,15 +511,6 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Create Order Item.
-        /// </summary>
-        public static string CreateOrderItem {
-            get {
-                return ResourceManager.GetString("CreateOrderItem", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Create Process.
         /// </summary>
         public static string CreateProcess {
@@ -543,6 +570,33 @@ namespace CriticalPath.Data.Resources {
         public static string CreatePurchaseOrder {
             get {
                 return ResourceManager.GetString("CreatePurchaseOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create Size.
+        /// </summary>
+        public static string CreateSize {
+            get {
+                return ResourceManager.GetString("CreateSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create Size Quantity.
+        /// </summary>
+        public static string CreateSizeQuantity {
+            get {
+                return ResourceManager.GetString("CreateSizeQuantity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create Size Standard.
+        /// </summary>
+        public static string CreateSizeStandard {
+            get {
+                return ResourceManager.GetString("CreateSizeStandard", resourceCulture);
             }
         }
         
@@ -655,15 +709,6 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Delete Order Item.
-        /// </summary>
-        public static string DeleteOrderItem {
-            get {
-                return ResourceManager.GetString("DeleteOrderItem", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Delete Process.
         /// </summary>
         public static string DeleteProcess {
@@ -723,6 +768,33 @@ namespace CriticalPath.Data.Resources {
         public static string DeletePurchaseOrder {
             get {
                 return ResourceManager.GetString("DeletePurchaseOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete Size.
+        /// </summary>
+        public static string DeleteSize {
+            get {
+                return ResourceManager.GetString("DeleteSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete Size Quantity.
+        /// </summary>
+        public static string DeleteSizeQuantity {
+            get {
+                return ResourceManager.GetString("DeleteSizeQuantity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete Size Standard.
+        /// </summary>
+        public static string DeleteSizeStandard {
+            get {
+                return ResourceManager.GetString("DeleteSizeStandard", resourceCulture);
             }
         }
         
@@ -790,15 +862,6 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit Order Item.
-        /// </summary>
-        public static string EditOrderItem {
-            get {
-                return ResourceManager.GetString("EditOrderItem", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Edit Process.
         /// </summary>
         public static string EditProcess {
@@ -862,6 +925,33 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit Size.
+        /// </summary>
+        public static string EditSize {
+            get {
+                return ResourceManager.GetString("EditSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Size Quantity.
+        /// </summary>
+        public static string EditSizeQuantity {
+            get {
+                return ResourceManager.GetString("EditSizeQuantity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Size Standard.
+        /// </summary>
+        public static string EditSizeStandard {
+            get {
+                return ResourceManager.GetString("EditSizeStandard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit Supplier.
         /// </summary>
         public static string EditSupplier {
@@ -898,20 +988,11 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Forecast End Date.
+        ///   Looks up a localized string similar to Forecast Date.
         /// </summary>
-        public static string ForecastEndDate {
+        public static string ForecastDate {
             get {
-                return ResourceManager.GetString("ForecastEndDate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Forecast Start Date.
-        /// </summary>
-        public static string ForecastStartDate {
-            get {
-                return ResourceManager.GetString("ForecastStartDate", resourceCulture);
+                return ResourceManager.GetString("ForecastDate", resourceCulture);
             }
         }
         
@@ -925,7 +1006,16 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Is Approved.
+        ///   Looks up a localized string similar to Image Url.
+        /// </summary>
+        public static string ImageUrl {
+            get {
+                return ResourceManager.GetString("ImageUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Approved.
         /// </summary>
         public static string IsApproved {
             get {
@@ -934,7 +1024,7 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Is Completed.
+        ///   Looks up a localized string similar to Completed.
         /// </summary>
         public static string IsCompleted {
             get {
@@ -1002,42 +1092,6 @@ namespace CriticalPath.Data.Resources {
         public static string OrderDate {
             get {
                 return ResourceManager.GetString("OrderDate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Order Item.
-        /// </summary>
-        public static string OrderItem {
-            get {
-                return ResourceManager.GetString("OrderItem", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Order Item.
-        /// </summary>
-        public static string OrderItemId {
-            get {
-                return ResourceManager.GetString("OrderItemId", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Order Items.
-        /// </summary>
-        public static string OrderItems {
-            get {
-                return ResourceManager.GetString("OrderItems", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Order Items List.
-        /// </summary>
-        public static string OrderItemsList {
-            get {
-                return ResourceManager.GetString("OrderItemsList", resourceCulture);
             }
         }
         
@@ -1357,20 +1411,11 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Realized End Date.
+        ///   Looks up a localized string similar to Realized Date.
         /// </summary>
-        public static string RealizedEndDate {
+        public static string RealizedDate {
             get {
-                return ResourceManager.GetString("RealizedEndDate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Realized Start Date.
-        /// </summary>
-        public static string RealizedStartDate {
-            get {
-                return ResourceManager.GetString("RealizedStartDate", resourceCulture);
+                return ResourceManager.GetString("RealizedDate", resourceCulture);
             }
         }
         
@@ -1380,6 +1425,105 @@ namespace CriticalPath.Data.Resources {
         public static string RequiredWorkDays {
             get {
                 return ResourceManager.GetString("RequiredWorkDays", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Size.
+        /// </summary>
+        public static string Size {
+            get {
+                return ResourceManager.GetString("Size", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Size.
+        /// </summary>
+        public static string SizeId {
+            get {
+                return ResourceManager.GetString("SizeId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Size Quantities.
+        /// </summary>
+        public static string SizeQuantities {
+            get {
+                return ResourceManager.GetString("SizeQuantities", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Size Quantities List.
+        /// </summary>
+        public static string SizeQuantitiesList {
+            get {
+                return ResourceManager.GetString("SizeQuantitiesList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Size Quantity.
+        /// </summary>
+        public static string SizeQuantity {
+            get {
+                return ResourceManager.GetString("SizeQuantity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sizes.
+        /// </summary>
+        public static string Sizes {
+            get {
+                return ResourceManager.GetString("Sizes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sizes List.
+        /// </summary>
+        public static string SizesList {
+            get {
+                return ResourceManager.GetString("SizesList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Size Standard.
+        /// </summary>
+        public static string SizeStandard {
+            get {
+                return ResourceManager.GetString("SizeStandard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Size Standard Id.
+        /// </summary>
+        public static string SizeStandardId {
+            get {
+                return ResourceManager.GetString("SizeStandardId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Size Standards.
+        /// </summary>
+        public static string SizeStandards {
+            get {
+                return ResourceManager.GetString("SizeStandards", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Size Standards List.
+        /// </summary>
+        public static string SizeStandardsList {
+            get {
+                return ResourceManager.GetString("SizeStandardsList", resourceCulture);
             }
         }
         
@@ -1447,20 +1591,11 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Target End Date.
+        ///   Looks up a localized string similar to Target Date.
         /// </summary>
-        public static string TargetEndDate {
+        public static string TargetDate {
             get {
-                return ResourceManager.GetString("TargetEndDate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Target Start Date.
-        /// </summary>
-        public static string TargetStartDate {
-            get {
-                return ResourceManager.GetString("TargetStartDate", resourceCulture);
+                return ResourceManager.GetString("TargetDate", resourceCulture);
             }
         }
         
@@ -1497,6 +1632,15 @@ namespace CriticalPath.Data.Resources {
         public static string Title {
             get {
                 return ResourceManager.GetString("Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unit Price.
+        /// </summary>
+        public static string UnitPrice {
+            get {
+                return ResourceManager.GetString("UnitPrice", resourceCulture);
             }
         }
         

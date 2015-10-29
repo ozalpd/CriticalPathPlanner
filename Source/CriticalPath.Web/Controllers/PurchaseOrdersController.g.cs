@@ -94,16 +94,16 @@ namespace CriticalPath.Web.Controllers
         [Route("PurchaseOrders/Create/{customerId:int?}")]
         public async Task<ActionResult> Create(int? customerId)  //GET: /PurchaseOrders/Create
         {
-            var purchaseOrder = new PurchaseOrder();
+            var purchaseOrder = new PurchaseOrderCreateVM();
             if (customerId != null)
             {
                 var customer = await FindAsyncCustomer(customerId.Value);
                 if (customer == null)
                     return HttpNotFound();
-                purchaseOrder.Customer = customer;
+                purchaseOrder.CustomerId = customer.Id;
             }
             await SetPurchaseOrderDefaults(purchaseOrder);
-            SetSelectLists(purchaseOrder);
+            await SetProductSelectListAsync(null);
             return View(purchaseOrder);
         }
 
@@ -111,22 +111,21 @@ namespace CriticalPath.Web.Controllers
         [Authorize(Roles = "admin, supervisor, clerk")]
         [ValidateAntiForgeryToken]
         [Route("PurchaseOrders/Create/{customerId:int?}")]
-        public async Task<ActionResult> Create(int? customerId, PurchaseOrder purchaseOrder)  //POST: /PurchaseOrders/Create
+        public async Task<ActionResult> Create(int? customerId, PurchaseOrderCreateVM purchaseOrder)  //POST: /PurchaseOrders/Create
         {
             DataContext.SetInsertDefaults(purchaseOrder, this);
 
             if (ModelState.IsValid)
             {
                 OnCreateSaving(purchaseOrder);
- 
-                DataContext.PurchaseOrders.Add(purchaseOrder);
+                var entity = purchaseOrder.ToPurchaseOrder();
+                DataContext.PurchaseOrders.Add(entity);
                 await DataContext.SaveChangesAsync(this);
- 
-                OnCreateSaved(purchaseOrder);
+                OnCreateSaved(entity);
                 return RedirectToAction("Create", "OrderItems", new { purchaseOrderId = purchaseOrder.Id });
             }
 
-            SetSelectLists(purchaseOrder);
+            await SetProductSelectListAsync(null);
             return View(purchaseOrder);
         }
 
@@ -144,7 +143,7 @@ namespace CriticalPath.Web.Controllers
                 return HttpNotFound();
             }
 
-            SetSelectLists(purchaseOrder);
+            await SetProductSelectListAsync(null);
             return View(purchaseOrder);
         }
 
@@ -166,7 +165,7 @@ namespace CriticalPath.Web.Controllers
                 return RedirectToAction("Details", new { id = purchaseOrder.Id });
             }
 
-            SetSelectLists(purchaseOrder);
+            await SetProductSelectListAsync(null);
             return View(purchaseOrder);
         }
 
@@ -185,8 +184,8 @@ namespace CriticalPath.Web.Controllers
                 return HttpNotFound();
             }
 
-            int orderItemsCount = purchaseOrder.OrderItems.Count;
-            if ((orderItemsCount) > 0)
+            int sizeQuantitiesCount = purchaseOrder.SizeQuantities.Count;
+            if ((sizeQuantitiesCount) > 0)
             {
                 var sb = new StringBuilder();
 
@@ -195,9 +194,9 @@ namespace CriticalPath.Web.Controllers
                 sb.Append(purchaseOrder.Title);
                 sb.Append("</b>.<br/>");
 
-                if (orderItemsCount > 0)
+                if (sizeQuantitiesCount > 0)
                 {
-                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, orderItemsCount, EntityStrings.OrderItems));
+                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, sizeQuantitiesCount, EntityStrings.SizeQuantities));
                     sb.Append("<br/>");
                 }
 
@@ -226,14 +225,14 @@ namespace CriticalPath.Web.Controllers
         public new partial class QueryParameters : BaseController.QueryParameters
         {
             public int? CustomerId { get; set; }
+            public int? ProductId { get; set; }
         }
 
 
         //Partial methods
-        partial void OnCreateSaving(PurchaseOrder purchaseOrder);
+        partial void OnCreateSaving(PurchaseOrderCreateVM purchaseOrder);
         partial void OnCreateSaved(PurchaseOrder purchaseOrder);
         partial void OnEditSaving(PurchaseOrder purchaseOrder);
         partial void OnEditSaved(PurchaseOrder purchaseOrder);
-        partial void SetSelectLists(PurchaseOrder purchaseOrder);
     }
 }

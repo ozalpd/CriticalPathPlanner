@@ -86,6 +86,10 @@ approval.Properties.Add(approveFlag);
 approval.Properties.Add(new InterfaceProperty() { TypeName = "string", Name = "ApprovedUserId" });
 approval.Properties.Add(new InterfaceProperty() { TypeName = "string", Name = "ApprovedUserIp" });
 
+InterfaceDefinition hasProduct = new InterfaceDefinition() { Name = "IHasProduct" };
+AutoGenInterfaces.Add(hasProduct);
+hasProduct.Properties.Add(new InterfaceProperty() { TypeName = "int", Name = "ProductId" });
+
 //Ends Here - Interface Definition List
 
  #>

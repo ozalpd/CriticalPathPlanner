@@ -8,6 +8,7 @@ CREATE TABLE [dbo].[Products](
     [Code] [nVarChar](48) Null,
     [Description] [nVarChar](256) Null,
     [CategoryId] [int] Not Null Constraint FK_Product_CategoryId Foreign Key References [dbo].[ProductCategories]([Id]),
+    [ImageUrl] [nVarChar](256) Null,
     [ModifyNr] [int] Not Null Default 1,
     [ModifyDate] [DateTime] Not Null Default GetDate(),
     [ModifierId] [VarChar](48) Not Null,

@@ -16,22 +16,30 @@ namespace CriticalPath.Web.Controllers
 {
     public partial class ProductsController : BaseController 
     {
-        
-        public async Task<ActionResult> Index(QueryParameters qParams)
+        protected virtual IQueryable<Product> GetProductQuery(QueryParameters qParams)
         {
-            var query = DataContext.GetProductQuery();
+            var query = GetProductQuery();
             if (!string.IsNullOrEmpty(qParams.SearchString))
             {
                 query = from a in query
                         where
                             a.Title.Contains(qParams.SearchString) | 
-                            a.Code.Contains(qParams.SearchString) 
+                            a.Code.Contains(qParams.SearchString) | 
+                            a.ImageUrl.Contains(qParams.SearchString) 
                         select a;
             }
             if (qParams.CategoryId != null)
             {
                 query = query.Where(x => x.CategoryId == qParams.CategoryId);
             }
+
+            return query;
+        }
+
+        
+        public async Task<ActionResult> Index(QueryParameters qParams)
+        {
+            var query = GetProductQuery(qParams);
             qParams.TotalCount = await query.CountAsync();
             PutPagerInViewBag(qParams);
             await PutCanUserInViewBag();
@@ -188,8 +196,8 @@ namespace CriticalPath.Web.Controllers
                 return HttpNotFound();
             }
 
-            int orderItemsCount = product.OrderItems.Count;
-            if ((orderItemsCount) > 0)
+            int purchaseOrdersCount = product.PurchaseOrders.Count;
+            if ((purchaseOrdersCount) > 0)
             {
                 var sb = new StringBuilder();
 
@@ -198,9 +206,9 @@ namespace CriticalPath.Web.Controllers
                 sb.Append(product.Title);
                 sb.Append("</b>.<br/>");
 
-                if (orderItemsCount > 0)
+                if (purchaseOrdersCount > 0)
                 {
-                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, orderItemsCount, EntityStrings.OrderItems));
+                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, purchaseOrdersCount, EntityStrings.PurchaseOrders));
                     sb.Append("<br/>");
                 }
 

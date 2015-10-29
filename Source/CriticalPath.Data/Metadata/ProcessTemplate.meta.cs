@@ -21,6 +21,13 @@ namespace CriticalPath.Data
             // This metadata class is not intended to be instantiated.
             private ProcessTemplateMetadata() { }
 
+            [Display(ResourceType = typeof(EntityStrings), Name = "IsApproved")]
+            public bool IsApproved { get; set; }
+
+            [DataType(DataType.Date)]
+            [Display(ResourceType = typeof(EntityStrings), Name = "ApproveDate")]
+            public DateTime ApproveDate { get; set; }
+
             [StringLength(128, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Display(ResourceType = typeof(EntityStrings), Name = "TemplateName")]
@@ -33,13 +40,6 @@ namespace CriticalPath.Data
 
             [Display(ResourceType = typeof(EntityStrings), Name = "StepTemplates")]
             public ICollection<ProcessStepTemplate> StepTemplates { get; set; }
-
-            [Display(ResourceType = typeof(EntityStrings), Name = "IsApproved")]
-            public bool IsApproved { get; set; }
-
-            [DataType(DataType.Date)]
-            [Display(ResourceType = typeof(EntityStrings), Name = "ApproveDate")]
-            public DateTime ApproveDate { get; set; }
 
 		}
 	}

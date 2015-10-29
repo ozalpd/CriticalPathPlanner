@@ -245,28 +245,70 @@ namespace CriticalPath.Web.Controllers
 		    return DataContext.GetPurchaseOrderQuery();
 		}
 
-		protected virtual Task SetPurchaseOrderDefaults(PurchaseOrder purchaseOrder)
+		protected virtual Task SetPurchaseOrderDefaults(PurchaseOrderCreateVM purchaseOrder)
         {
             return Task.FromResult(default(object));
         }
 
         /// <summary>
-        /// Finds an OrderItem by PrimaryKey value
+        /// Finds an SizeQuantity by PrimaryKey value
         /// </summary>
-        /// <param name="id">Represents PrimaryKey of OrderItem.Id</param>
+        /// <param name="id">Represents PrimaryKey of SizeQuantity.Id</param>
         /// <returns></returns>
-        protected virtual async Task<OrderItem> FindAsyncOrderItem(int id)
+        protected virtual async Task<SizeQuantity> FindAsyncSizeQuantity(int id)
         {
-            return await GetOrderItemQuery()
+            return await GetSizeQuantityQuery()
                             .FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        protected virtual IQueryable<OrderItem> GetOrderItemQuery()
+        protected virtual IQueryable<SizeQuantity> GetSizeQuantityQuery()
 		{
-		    return DataContext.GetOrderItemQuery();
+		    return DataContext.GetSizeQuantityQuery();
 		}
 
-		protected virtual Task SetOrderItemDefaults(OrderItem orderItem)
+		protected virtual Task SetSizeQuantityDefaults(SizeQuantity sizeQuantity)
+        {
+            return Task.FromResult(default(object));
+        }
+
+        /// <summary>
+        /// Finds an SizeStandard by PrimaryKey value
+        /// </summary>
+        /// <param name="id">Represents PrimaryKey of SizeStandard.Id</param>
+        /// <returns></returns>
+        protected virtual async Task<SizeStandard> FindAsyncSizeStandard(int id)
+        {
+            return await GetSizeStandardQuery()
+                            .FirstOrDefaultAsync(x => x.Id == id);
+        }
+
+        protected virtual IQueryable<SizeStandard> GetSizeStandardQuery()
+		{
+		    return DataContext.GetSizeStandardQuery();
+		}
+
+		protected virtual Task SetSizeStandardDefaults(SizeStandard sizeStandard)
+        {
+            return Task.FromResult(default(object));
+        }
+
+        /// <summary>
+        /// Finds an Size by PrimaryKey value
+        /// </summary>
+        /// <param name="id">Represents PrimaryKey of Size.Id</param>
+        /// <returns></returns>
+        protected virtual async Task<Size> FindAsyncSize(int id)
+        {
+            return await GetSizeQuery()
+                            .FirstOrDefaultAsync(x => x.Id == id);
+        }
+
+        protected virtual IQueryable<Size> GetSizeQuery()
+		{
+		    return DataContext.GetSizeQuery();
+		}
+
+		protected virtual Task SetSizeDefaults(Size size)
         {
             return Task.FromResult(default(object));
         }

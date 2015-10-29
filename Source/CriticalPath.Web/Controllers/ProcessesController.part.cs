@@ -14,29 +14,7 @@ namespace CriticalPath.Web.Controllers
 {
     public partial class ProcessesController
     {
-        protected virtual IQueryable<Process> GetProcessQuery(QueryParameters qParams)
-        {
-            var query = GetProcessQuery();
-            if (!string.IsNullOrEmpty(qParams.SearchString))
-            {
-                query = from a in query
-                        where
-                            a.Title.Contains(qParams.SearchString) |
-                            a.Description.Contains(qParams.SearchString)
-                        select a;
-            }
-            if (qParams.ProcessTemplateId != null)
-            {
-                query = query.Where(x => x.ProcessTemplateId == qParams.ProcessTemplateId);
-            }
-            if (qParams.OrderItemId != null)
-            {
-                query = query.Where(x => x.OrderItemId == qParams.OrderItemId);
-            }
-
-            return query;
-        }
-
+ 
         protected override async Task PutCanUserInViewBag()
         {
             ViewBag.canUserApprove = await CanUserApprove();
@@ -87,10 +65,10 @@ namespace CriticalPath.Web.Controllers
 
         partial void OnCreateSaving(Process process)
         {
-            var queryTemplate = DataContext.GetProcessStepTemplateQuery();
-            DateTime targetDate = process.TargetStartDate;
-            DateTime forecastDate = process.ForecastStartDate.HasValue ?
-                                    process.ForecastStartDate.Value : DateTime.MinValue;
+            var queryTemplate = GetProcessStepTemplateQuery();
+            DateTime targetDate = process.TargetDate;
+            DateTime forecastDate = process.ForecastDate.HasValue ?
+                                    process.ForecastDate.Value : DateTime.MinValue;
 
             foreach (var template in queryTemplate)
             {
@@ -99,17 +77,12 @@ namespace CriticalPath.Web.Controllers
                     Title = template.Title,
                     DisplayOrder = template.DisplayOrder,
                     TemplateId = template.Id,
-                    TargetStartDate = targetDate
+                    TargetDate = targetDate
                 };
                 targetDate =  targetDate.AddDays(template.RequiredWorkDays);
-                step.TargetEndDate = targetDate;
-                targetDate = targetDate.AddDays(1);
-                if (process.ForecastStartDate.HasValue)
+                if (process.ForecastDate.HasValue)
                 {
-                    step.ForecastStartDate = forecastDate;
-                    forecastDate = forecastDate.AddDays(template.RequiredWorkDays);
-                    step.ForecastEndDate = forecastDate;
-                    forecastDate = forecastDate.AddDays(1);
+                    step.ForecastDate = forecastDate;
                 }
                 process.ProcessSteps.Add(step);
             }
@@ -117,7 +90,7 @@ namespace CriticalPath.Web.Controllers
 
         protected override Task SetProcessDefaults(Process process)
         {
-            process.TargetStartDate = DateTime.Today;
+            process.TargetDate = DateTime.Today;
             return Task.FromResult(default(object));
         }
     }

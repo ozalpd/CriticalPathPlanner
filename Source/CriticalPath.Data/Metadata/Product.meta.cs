@@ -42,8 +42,13 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "Category")]
             public ProductCategory Category { get; set; }
 
-            [Display(ResourceType = typeof(EntityStrings), Name = "OrderItems")]
-            public ICollection<OrderItem> OrderItems { get; set; }
+            [StringLength(256, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
+            [DataType(DataType.ImageUrl)]
+            [Display(ResourceType = typeof(EntityStrings), Name = "ImageUrl")]
+            public string ImageUrl { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "PurchaseOrders")]
+            public ICollection<PurchaseOrder> PurchaseOrders { get; set; }
 
 		}
 	}

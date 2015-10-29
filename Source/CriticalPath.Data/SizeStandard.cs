@@ -12,20 +12,16 @@ namespace CriticalPath.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Product : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate
+    public partial class SizeStandard : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Product()
+        public SizeStandard()
         {
-            this.PurchaseOrders = new HashSet<PurchaseOrder>();
+            this.Sizes = new HashSet<Size>();
         }
     
         public int Id { get; set; }
         public string Title { get; set; }
-        public string Code { get; set; }
-        public string Description { get; set; }
-        public int CategoryId { get; set; }
-        public string ImageUrl { get; set; }
         public int ModifyNr { get; set; }
         public System.DateTime ModifyDate { get; set; }
         public string ModifierId { get; set; }
@@ -34,22 +30,17 @@ namespace CriticalPath.Data
         public string CreatorId { get; set; }
         public string CreatorIp { get; set; }
     
-        public virtual ProductCategory Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PurchaseOrder> PurchaseOrders { get; set; }
+        public virtual ICollection<Size> Sizes { get; set; }
     	/// <summary>
-    	/// Clones all properties in a new Product instance,
+    	/// Clones all properties in a new SizeStandard instance,
     	/// except PrimaryKey(s)
     	/// </summary>
-    	/// <returns>New Product instance</returns>
-        public Product Clone()
+    	/// <returns>New SizeStandard instance</returns>
+        public SizeStandard Clone()
         {
-            var clone = new Product();
+            var clone = new SizeStandard();
             clone.Title = Title;
-            clone.Code = Code;
-            clone.Description = Description;
-            clone.CategoryId = CategoryId;
-            clone.ImageUrl = ImageUrl;
             clone.ModifyNr = ModifyNr;
             clone.ModifyDate = ModifyDate;
             clone.ModifierId = ModifierId;
@@ -63,52 +54,40 @@ namespace CriticalPath.Data
             return clone;
         }
     
-    	// Use below function in a partial class file (eg. Product.part.cs)
+    	// Use below function in a partial class file (eg. SizeStandard.part.cs)
     	// to add more complexity to clone
-        partial void Cloning(Product clone);
+        partial void Cloning(SizeStandard clone);
     }
     
-    //Data Transfer Object type for Product
-    public partial class ProductDTO
+    //Data Transfer Object type for SizeStandard
+    public partial class SizeStandardDTO
     {
-        public ProductDTO() { }
+        public SizeStandardDTO() { }
     
-        public ProductDTO(Product entity)
+        public SizeStandardDTO(SizeStandard entity)
         {
             Id = entity.Id;
             Title = entity.Title;
-            Code = entity.Code;
-            Description = entity.Description;
-            CategoryId = entity.CategoryId;
-            ImageUrl = entity.ImageUrl;
         
             Initilazing(entity);
         }
     
-        partial void Initilazing(Product entity);
+        partial void Initilazing(SizeStandard entity);
         
-        public virtual Product ToProduct()
+        public virtual SizeStandard ToSizeStandard()
         {
-            var entity = new Product();
+            var entity = new SizeStandard();
             entity.Id = Id;
             entity.Title = Title;
-            entity.Code = Code;
-            entity.Description = Description;
-            entity.CategoryId = CategoryId;
-            entity.ImageUrl = ImageUrl;
     
             Converting(entity);
     
             return entity;
         }
     
-        partial void Converting(Product entity);
+        partial void Converting(SizeStandard entity);
       
         public int Id { get; set; }
         public string Title { get; set; }
-        public string Code { get; set; }
-        public string Description { get; set; }
-        public int CategoryId { get; set; }
-        public string ImageUrl { get; set; }
     }
 }

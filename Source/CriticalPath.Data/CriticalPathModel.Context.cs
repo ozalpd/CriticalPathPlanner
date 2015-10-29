@@ -36,11 +36,13 @@ namespace CriticalPath.Data
         public virtual DbSet<ProductCategory> ProductCategories { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<PurchaseOrder> PurchaseOrders { get; set; }
-        public virtual DbSet<OrderItem> OrderItems { get; set; }
         public virtual DbSet<Process> Processes { get; set; }
         public virtual DbSet<ProcessStep> ProcessSteps { get; set; }
         public virtual DbSet<ProcessStepTemplate> ProcessStepTemplates { get; set; }
         public virtual DbSet<ProcessTemplate> ProcessTemplates { get; set; }
+        public virtual DbSet<SizeQuantity> SizeQuantities { get; set; }
+        public virtual DbSet<Size> Sizes { get; set; }
+        public virtual DbSet<SizeStandard> SizeStandards { get; set; }
     
         /// <summary>
         /// Default query for Companies
@@ -180,45 +182,6 @@ namespace CriticalPath.Data
     
     
         /// <summary>
-        /// Default query for OrderItems
-        /// </summary>
-        /// <returns></returns>
-        public virtual IQueryable<OrderItem> GetOrderItemQuery()
-        {
-            IQueryable<OrderItem> query = OrderItems.OrderBy(p => p.DisplayOrder);
-            return query;
-        }
-    
-        /// <summary>
-        /// Gets a lighter data transfer object query from OrderItem query
-        /// </summary>
-        /// <param name="query">query to be converted</param>
-        /// <returns>Converted data transfer object query</returns>
-        public virtual IQueryable<OrderItemDTO> GetOrderItemDtoQuery()
-        {
-            return GetOrderItemDtoQuery(GetOrderItemQuery());
-        }
-    
-        /// <summary>
-        /// Gets a lighter data transfer object query from OrderItem query
-        /// </summary>
-        /// <returns>Converted data transfer object query</returns>
-        public virtual IQueryable<OrderItemDTO> GetOrderItemDtoQuery(IQueryable<OrderItem> query)
-        {
-            return from e in query
-                   select new OrderItemDTO
-                   {
-                       Id = e.Id,
-                       PurchaseOrderId = e.PurchaseOrderId,
-                       ProductId = e.ProductId,
-                       DisplayOrder = e.DisplayOrder,
-                       Quantity = e.Quantity,
-                       Notes = e.Notes,
-                   };
-        }
-    
-    
-        /// <summary>
         /// Default query for Processes
         /// </summary>
         /// <returns></returns>
@@ -252,13 +215,10 @@ namespace CriticalPath.Data
                        IsCompleted = e.IsCompleted,
                        Description = e.Description,
                        ProcessTemplateId = e.ProcessTemplateId,
-                       OrderItemId = e.OrderItemId,
-                       TargetStartDate = e.TargetStartDate,
-                       TargetEndDate = e.TargetEndDate,
-                       ForecastStartDate = e.ForecastStartDate,
-                       ForecastEndDate = e.ForecastEndDate,
-                       RealizedStartDate = e.RealizedStartDate,
-                       RealizedEndDate = e.RealizedEndDate,
+                       PurchaseOrderId = e.PurchaseOrderId,
+                       TargetDate = e.TargetDate,
+                       ForecastDate = e.ForecastDate,
+                       RealizedDate = e.RealizedDate,
                        IsApproved = e.IsApproved,
                        ApproveDate = e.ApproveDate,
                    };
@@ -301,12 +261,9 @@ namespace CriticalPath.Data
                        DisplayOrder = e.DisplayOrder,
                        ProcessId = e.ProcessId,
                        TemplateId = e.TemplateId,
-                       TargetStartDate = e.TargetStartDate,
-                       TargetEndDate = e.TargetEndDate,
-                       ForecastStartDate = e.ForecastStartDate,
-                       ForecastEndDate = e.ForecastEndDate,
-                       RealizedStartDate = e.RealizedStartDate,
-                       RealizedEndDate = e.RealizedEndDate,
+                       TargetDate = e.TargetDate,
+                       ForecastDate = e.ForecastDate,
+                       RealizedDate = e.RealizedDate,
                        IsApproved = e.IsApproved,
                        ApproveDate = e.ApproveDate,
                    };
@@ -461,6 +418,7 @@ namespace CriticalPath.Data
                        Code = e.Code,
                        Description = e.Description,
                        CategoryId = e.CategoryId,
+                       ImageUrl = e.ImageUrl,
                    };
         }
     
@@ -497,13 +455,126 @@ namespace CriticalPath.Data
                        Id = e.Id,
                        Title = e.Title,
                        CustomerId = e.CustomerId,
+                       ProductId = e.ProductId,
                        OrderDate = e.OrderDate,
                        DueDate = e.DueDate,
                        Code = e.Code,
                        Description = e.Description,
+                       Quantity = e.Quantity,
+                       UnitPrice = e.UnitPrice,
                        Notes = e.Notes,
                        IsApproved = e.IsApproved,
                        ApproveDate = e.ApproveDate,
+                   };
+        }
+    
+    
+        /// <summary>
+        /// Default query for SizeQuantities
+        /// </summary>
+        /// <returns></returns>
+        public virtual IQueryable<SizeQuantity> GetSizeQuantityQuery()
+        {
+            IQueryable<SizeQuantity> query = SizeQuantities.OrderBy(p => p.DisplayOrder);
+            return query;
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from SizeQuantity query
+        /// </summary>
+        /// <param name="query">query to be converted</param>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<SizeQuantityDTO> GetSizeQuantityDtoQuery()
+        {
+            return GetSizeQuantityDtoQuery(GetSizeQuantityQuery());
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from SizeQuantity query
+        /// </summary>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<SizeQuantityDTO> GetSizeQuantityDtoQuery(IQueryable<SizeQuantity> query)
+        {
+            return from e in query
+                   select new SizeQuantityDTO
+                   {
+                       Id = e.Id,
+                       DisplayOrder = e.DisplayOrder,
+                       PurchaseOrderId = e.PurchaseOrderId,
+                       SizeId = e.SizeId,
+                       Quantity = e.Quantity,
+                   };
+        }
+    
+    
+        /// <summary>
+        /// Default query for Sizes
+        /// </summary>
+        /// <returns></returns>
+        public virtual IQueryable<Size> GetSizeQuery()
+        {
+            IQueryable<Size> query = Sizes.OrderBy(p => p.DisplayOrder);
+            return query;
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from Size query
+        /// </summary>
+        /// <param name="query">query to be converted</param>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<SizeDTO> GetSizeDtoQuery()
+        {
+            return GetSizeDtoQuery(GetSizeQuery());
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from Size query
+        /// </summary>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<SizeDTO> GetSizeDtoQuery(IQueryable<Size> query)
+        {
+            return from e in query
+                   select new SizeDTO
+                   {
+                       Id = e.Id,
+                       DisplayOrder = e.DisplayOrder,
+                       Title = e.Title,
+                       SizeStandardId = e.SizeStandardId,
+                   };
+        }
+    
+    
+        /// <summary>
+        /// Default query for SizeStandards
+        /// </summary>
+        /// <returns></returns>
+        public virtual IQueryable<SizeStandard> GetSizeStandardQuery()
+        {
+            IQueryable<SizeStandard> query = SizeStandards.OrderBy(p => p.Title);
+            return query;
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from SizeStandard query
+        /// </summary>
+        /// <param name="query">query to be converted</param>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<SizeStandardDTO> GetSizeStandardDtoQuery()
+        {
+            return GetSizeStandardDtoQuery(GetSizeStandardQuery());
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from SizeStandard query
+        /// </summary>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<SizeStandardDTO> GetSizeStandardDtoQuery(IQueryable<SizeStandard> query)
+        {
+            return from e in query
+                   select new SizeStandardDTO
+                   {
+                       Id = e.Id,
+                       Title = e.Title,
                    };
         }
     
