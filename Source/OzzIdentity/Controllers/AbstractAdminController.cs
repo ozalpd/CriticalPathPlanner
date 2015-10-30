@@ -13,14 +13,12 @@ namespace OzzIdentity.Controllers
         protected abstract string[] GetApplicationRoles();
         protected abstract string AdminRole { get; }
 
-        public virtual ActionResult Index()
-        {
-            return Content("Admin Panel");
-        }
-
         [Authorize]
         public virtual async Task<ActionResult> SeedRoles()
         {
+            if (!User.Identity.IsAuthenticated)
+                return Content("You need to login first!");
+
             StringBuilder sb = new StringBuilder();
             bool hasAdminRole = await RoleManager.RoleExistsAsync(AdminRole);
             sb.Append(AdminRole);

@@ -1866,6 +1866,7 @@
     <string>clerk</string>
     <string>observer</string>
     <string>supervisor</string>
+    <string>supplier</string>
   </SecurityRoles>
   <AdminRole>admin</AdminRole>
   <TargetViewsFolder>Views</TargetViewsFolder>

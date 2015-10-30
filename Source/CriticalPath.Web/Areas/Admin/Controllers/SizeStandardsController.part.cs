@@ -12,7 +12,7 @@ using CriticalPath.Data;
 using CriticalPath.Web.Models;
 using CriticalPath.Data.Resources;
 
-namespace CriticalPath.Web.Controllers
+namespace CriticalPath.Web.Areas.Admin.Controllers
 {
     public partial class SizeStandardsController 
     {

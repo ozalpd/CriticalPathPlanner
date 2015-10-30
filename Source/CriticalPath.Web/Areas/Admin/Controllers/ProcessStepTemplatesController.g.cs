@@ -11,8 +11,9 @@ using System.Threading.Tasks;
 using CriticalPath.Data;
 using CriticalPath.Web.Models;
 using CriticalPath.Data.Resources;
+using CriticalPath.Web.Controllers;
 
-namespace CriticalPath.Web.Controllers
+namespace CriticalPath.Web.Areas.Admin.Controllers
 {
     public partial class ProcessStepTemplatesController : BaseController 
     {

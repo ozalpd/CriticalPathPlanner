@@ -3,7 +3,7 @@ using System.Web.Mvc;
 using System.Threading.Tasks;
 using CriticalPath.Data;
 
-namespace CriticalPath.Web.Controllers
+namespace CriticalPath.Web.Areas.Admin.Controllers
 {
     public partial class ProcessTemplatesController
     {

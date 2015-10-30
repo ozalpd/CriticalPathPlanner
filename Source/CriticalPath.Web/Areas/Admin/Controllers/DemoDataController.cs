@@ -1,24 +1,30 @@
 ﻿using CriticalPath.Data;
+using CriticalPath.Web.Controllers;
 using CriticalPath.Web.Models;
-using OzzIdentity.Controllers;
 using OzzUtils;
 using System;
-using System.Text;
-using System.Collections;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
-using System.Web.Mvc;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
-using OzzIdentity;
-using OzzIdentity.Models;
+using System.Web;
+using System.Web.Mvc;
 
-namespace CriticalPath.Web.Controllers
+namespace CriticalPath.Web.Areas.Admin.Controllers
 {
-    public partial class AdmPanelController : AbstractAdminController
+    [Authorize(Roles = SecurityRoles.Admin)]
+    public class DemoDataController : BaseController
     {
-        [Authorize]
-        public async Task<ActionResult> SeedData()
+        // GET: Admin/DemoData
+        public async Task<ActionResult> Index()
+        {
+            ViewBag.status = await GetRecordCounts();
+            return View();
+        }
+
+        // GET: Admin/DemoData/Seed
+        public async Task<ActionResult> Seed()
         {
             var sb = new StringBuilder();
 
@@ -27,13 +33,15 @@ namespace CriticalPath.Web.Controllers
             await SeedContacts(sb);
             await DataContext.SaveChangesAsync(this);
 
-            return Content(sb.ToString());
+            ViewBag.status = sb.ToString();
+
+            return View();
         }
 
         private async Task SeedContacts(StringBuilder sb)
         {
-            var query = await DataContext.Contacts.CountAsync();
-            if (query > 0)
+            var contactsCount = await DataContext.Contacts.CountAsync();
+            if (contactsCount > 0)
             {
                 sb.Append("Database has customer records already!<br>");
                 return;
@@ -236,10 +244,10 @@ namespace CriticalPath.Web.Controllers
 
         private async Task SeedProducts(StringBuilder sb)
         {
-            var query = await DataContext.ProductCategories.CountAsync();
-            if (query > 0)
+            var categoryCount = await DataContext.ProductCategories.CountAsync();
+            if (categoryCount > 0)
             {
-                sb.Append("Database has Product records already!<br>");
+                sb.Append("Database has ProductCategory records already!<br>");
                 return;
             }
 
@@ -343,90 +351,38 @@ namespace CriticalPath.Web.Controllers
             return countCatg;
         }
 
-
-        protected CriticalPathContext DataContext
+        private async Task<string> GetRecordCounts()
         {
-            get
-            {
-                if (_dataContext == null)
-                {
-                    _dataContext = new CriticalPathContext();
-                }
-                return _dataContext;
-            }
+            var sb = new StringBuilder();
+
+            int count = 0;
+
+            count = await DataContext.GetCustomerQuery().CountAsync();
+            sb.Append("Database has ");
+            sb.Append(count);
+            sb.Append(" Customer records.<br>");
+
+            count = await DataContext.GetSupplierQuery().CountAsync();
+            sb.Append("Database has ");
+            sb.Append(count);
+            sb.Append(" Supplier records.<br>");
+
+            count = await DataContext.Contacts.CountAsync();
+            sb.Append("Database has ");
+            sb.Append(count);
+            sb.Append(" Contact records.<br>");
+
+            count = await DataContext.ProductCategories.CountAsync();
+            sb.Append("Database has ");
+            sb.Append(count);
+            sb.Append(" ProductCategory records.<br>");
+
+            count = await DataContext.Products.CountAsync();
+            sb.Append("Database has ");
+            sb.Append(count);
+            sb.Append(" Product records.<br>");
+
+            return sb.ToString();
         }
-        private CriticalPathContext _dataContext;
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                if (_dataContext != null)
-                {
-                    _dataContext.Dispose();
-                    _dataContext = null;
-                }
-            }
-            base.Dispose(disposing);
-        }
-
-
-        //
-
-        //public override async Task<ActionResult> SeedRoles()
-        //{
-        //    var result = await base.SeedRoles();
-
-        //    StringBuilder sb = new StringBuilder();
-
-        //    var supervisor = new OzzIdentity.Models.OzzUser()
-        //    {
-        //        FirstName = "Super",
-        //        LastName = "Doe",
-        //        Email = "super1@mail.xy",
-        //        UserName = "super1@mail.xy"
-        //    };
-        //    var clerk = new OzzIdentity.Models.OzzUser()
-        //    {
-        //        FirstName = "Clerk",
-        //        LastName = "Doe",
-        //        Email = SecurityRoles.Clerk + "@mail.xy",
-        //        UserName = SecurityRoles.Clerk + "@mail.xy"
-        //    };
-        //    var observer = new OzzIdentity.Models.OzzUser()
-        //    {
-        //        FirstName = "Observer",
-        //        LastName = "Doe",
-        //        Email = SecurityRoles.Observer + "@mail.xy",
-        //        UserName = SecurityRoles.Observer + "@mail.xy"
-        //    };
-
-        //    var superResult = await UserManager.CreateAsync(supervisor, "Dnm!2345");
-        //    if (superResult.Succeeded)
-        //    {
-        //        await UserManager.AddToRoleAsync(supervisor.Id, SecurityRoles.Supervisor);
-        //    }
-
-        //    var clerkResult = await UserManager.CreateAsync(clerk, "Dnm!2345");
-        //    if (clerkResult.Succeeded)
-        //    {
-        //        await UserManager.AddToRoleAsync(clerk.Id, SecurityRoles.Clerk);
-        //    }
-
-        //    var obsResult = await UserManager.CreateAsync(observer, "Dnm!2345");
-        //    if (obsResult.Succeeded)
-        //    {
-        //        await UserManager.AddToRoleAsync(observer.Id, SecurityRoles.Observer);
-        //    }
-        //    await UserManager.CreateAsync(new OzzIdentity.Models.OzzUser()
-        //    {
-        //        FirstName = "User",
-        //        LastName = "Doe",
-        //        Email = "user@mail.xy",
-        //        UserName = "user1"
-        //    }, "Dnm!2345");
-
-        //    return result;
-        //}
     }
 }

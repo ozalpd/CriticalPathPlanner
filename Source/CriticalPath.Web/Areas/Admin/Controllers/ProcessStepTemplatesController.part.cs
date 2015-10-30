@@ -4,7 +4,7 @@ using CriticalPath.Data;
 using System.Threading.Tasks;
 using System.Data.Entity;
 
-namespace CriticalPath.Web.Controllers
+namespace CriticalPath.Web.Areas.Admin.Controllers
 {
     public partial class ProcessStepTemplatesController
     {

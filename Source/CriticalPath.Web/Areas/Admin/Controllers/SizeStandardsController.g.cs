@@ -11,20 +11,20 @@ using System.Threading.Tasks;
 using CriticalPath.Data;
 using CriticalPath.Web.Models;
 using CriticalPath.Data.Resources;
+using CriticalPath.Web.Controllers;
 
-namespace CriticalPath.Web.Controllers
+namespace CriticalPath.Web.Areas.Admin.Controllers
 {
-    public partial class ProcessTemplatesController : BaseController 
+    public partial class SizeStandardsController : BaseController 
     {
-        protected virtual IQueryable<ProcessTemplate> GetProcessTemplateQuery(QueryParameters qParams)
+        protected virtual IQueryable<SizeStandard> GetSizeStandardQuery(QueryParameters qParams)
         {
-            var query = GetProcessTemplateQuery();
+            var query = GetSizeStandardQuery();
             if (!string.IsNullOrEmpty(qParams.SearchString))
             {
                 query = from a in query
                         where
-                            a.TemplateName.Contains(qParams.SearchString) | 
-                            a.DefaultTitle.Contains(qParams.SearchString) 
+                            a.Title.Contains(qParams.SearchString) 
                         select a;
             }
 
@@ -34,7 +34,7 @@ namespace CriticalPath.Web.Controllers
         [Authorize]
         public async Task<ActionResult> Index(QueryParameters qParams)
         {
-            var query = GetProcessTemplateQuery(qParams);
+            var query = GetSizeStandardQuery(qParams);
             qParams.TotalCount = await query.CountAsync();
             PutPagerInViewBag(qParams);
             await PutCanUserInViewBag();
@@ -45,7 +45,7 @@ namespace CriticalPath.Web.Controllers
             }
             else
             {
-                return View(new List<ProcessTemplate>());   //there isn't any record, so no need to run a query
+                return View(new List<SizeStandard>());   //there isn't any record, so no need to run a query
             }
         }
         
@@ -83,129 +83,129 @@ namespace CriticalPath.Web.Controllers
         bool? _canUserDelete;
 
         [Authorize]
-        public async Task<ActionResult> Details(int? id)  //GET: /ProcessTemplates/Details/5
+        public async Task<ActionResult> Details(int? id)  //GET: /SizeStandards/Details/5
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ProcessTemplate processTemplate = await FindAsyncProcessTemplate(id.Value);
+            SizeStandard sizeStandard = await FindAsyncSizeStandard(id.Value);
 
-            if (processTemplate == null)
+            if (sizeStandard == null)
             {
                 return HttpNotFound();
             }
 
-            return View(processTemplate);
+            return View(sizeStandard);
         }
 
         [HttpGet]
         [Authorize(Roles = "admin")]
-        public async Task<ActionResult> Create()  //GET: /ProcessTemplates/Create
+        public async Task<ActionResult> Create()  //GET: /SizeStandards/Create
         {
-            var processTemplate = new ProcessTemplate();
-            await SetProcessTemplateDefaults(processTemplate);
-            SetSelectLists(processTemplate);
-            return View(processTemplate);
+            var sizeStandard = new SizeStandard();
+            await SetSizeStandardDefaults(sizeStandard);
+            SetSelectLists(sizeStandard);
+            return View(sizeStandard);
         }
 
         [HttpPost]
         [Authorize(Roles = "admin")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(ProcessTemplate processTemplate)  //POST: /ProcessTemplates/Create
+        public async Task<ActionResult> Create(SizeStandard sizeStandard)  //POST: /SizeStandards/Create
         {
-            DataContext.SetInsertDefaults(processTemplate, this);
+            DataContext.SetInsertDefaults(sizeStandard, this);
 
             if (ModelState.IsValid)
             {
-                OnCreateSaving(processTemplate);
+                OnCreateSaving(sizeStandard);
  
-                DataContext.ProcessTemplates.Add(processTemplate);
+                DataContext.SizeStandards.Add(sizeStandard);
                 await DataContext.SaveChangesAsync(this);
  
-                OnCreateSaved(processTemplate);
-                return RedirectToAction("Create", "ProcessStepTemplates", new { processTemplateId = processTemplate.Id });
+                OnCreateSaved(sizeStandard);
+                return RedirectToAction("Index");
             }
 
-            SetSelectLists(processTemplate);
-            return View(processTemplate);
+            SetSelectLists(sizeStandard);
+            return View(sizeStandard);
         }
 
         [Authorize(Roles = "admin")]
-        public async Task<ActionResult> Edit(int? id)  //GET: /ProcessTemplates/Edit/5
+        public async Task<ActionResult> Edit(int? id)  //GET: /SizeStandards/Edit/5
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ProcessTemplate processTemplate = await FindAsyncProcessTemplate(id.Value);
+            SizeStandard sizeStandard = await FindAsyncSizeStandard(id.Value);
 
-            if (processTemplate == null)
+            if (sizeStandard == null)
             {
                 return HttpNotFound();
             }
 
-            SetSelectLists(processTemplate);
-            return View(processTemplate);
+            SetSelectLists(sizeStandard);
+            return View(sizeStandard);
         }
 
         [Authorize(Roles = "admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(ProcessTemplate processTemplate)  //POST: /ProcessTemplates/Edit/5
+        public async Task<ActionResult> Edit(SizeStandard sizeStandard)  //POST: /SizeStandards/Edit/5
         {
-            DataContext.SetInsertDefaults(processTemplate, this);
+            DataContext.SetInsertDefaults(sizeStandard, this);
 
             if (ModelState.IsValid)
             {
-                OnEditSaving(processTemplate);
+                OnEditSaving(sizeStandard);
  
-                DataContext.Entry(processTemplate).State = EntityState.Modified;
+                DataContext.Entry(sizeStandard).State = EntityState.Modified;
                 await DataContext.SaveChangesAsync(this);
  
-                OnEditSaved(processTemplate);
-                return RedirectToAction("Details", new { id = processTemplate.Id });
+                OnEditSaved(sizeStandard);
+                return RedirectToAction("Index");
             }
 
-            SetSelectLists(processTemplate);
-            return View(processTemplate);
+            SetSelectLists(sizeStandard);
+            return View(sizeStandard);
         }
 
 
         [Authorize(Roles = "admin")]
-        public async Task<ActionResult> Delete(int? id)  //GET: /ProcessTemplates/Delete/5
+        public async Task<ActionResult> Delete(int? id)  //GET: /SizeStandards/Delete/5
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ProcessTemplate processTemplate = await FindAsyncProcessTemplate(id.Value);
+            SizeStandard sizeStandard = await FindAsyncSizeStandard(id.Value);
 
-            if (processTemplate == null)
+            if (sizeStandard == null)
             {
                 return HttpNotFound();
             }
 
-            int stepTemplatesCount = processTemplate.StepTemplates.Count;
-            if ((stepTemplatesCount) > 0)
+            int sizeCaptionsCount = sizeStandard.SizeCaptions.Count;
+            if ((sizeCaptionsCount) > 0)
             {
                 var sb = new StringBuilder();
 
                 sb.Append(MessageStrings.CanNotDelete);
                 sb.Append(" <b>");
-                sb.Append(processTemplate.TemplateName);
+                sb.Append(sizeStandard.Title);
                 sb.Append("</b>.<br/>");
 
-                if (stepTemplatesCount > 0)
+                if (sizeCaptionsCount > 0)
                 {
-                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, stepTemplatesCount, EntityStrings.StepTemplates));
+                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, sizeCaptionsCount, EntityStrings.SizeCaptions));
                     sb.Append("<br/>");
                 }
 
                 return GetErrorResult(sb, HttpStatusCode.BadRequest);
             }
 
-            DataContext.ProcessTemplates.Remove(processTemplate);
+            DataContext.SizeStandards.Remove(sizeStandard);
             try
             {
                 await DataContext.SaveChangesAsync(this);
@@ -214,7 +214,7 @@ namespace CriticalPath.Web.Controllers
             {
                 var sb = new StringBuilder();
                 sb.Append(MessageStrings.CanNotDelete);
-                sb.Append(processTemplate.TemplateName);
+                sb.Append(sizeStandard.Title);
                 sb.Append("<br/>");
                 AppendExceptionMsg(ex, sb);
 
@@ -226,10 +226,10 @@ namespace CriticalPath.Web.Controllers
 
 
         //Partial methods
-        partial void OnCreateSaving(ProcessTemplate processTemplate);
-        partial void OnCreateSaved(ProcessTemplate processTemplate);
-        partial void OnEditSaving(ProcessTemplate processTemplate);
-        partial void OnEditSaved(ProcessTemplate processTemplate);
-        partial void SetSelectLists(ProcessTemplate processTemplate);
+        partial void OnCreateSaving(SizeStandard sizeStandard);
+        partial void OnCreateSaved(SizeStandard sizeStandard);
+        partial void OnEditSaving(SizeStandard sizeStandard);
+        partial void OnEditSaved(SizeStandard sizeStandard);
+        partial void SetSelectLists(SizeStandard sizeStandard);
     }
 }
