@@ -57,6 +57,9 @@
     <Compile Include="Contact.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Customer.cs">
+      <DependentUpon>CriticalPathModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Metadata\QuantitySizeRate.meta.cs" />
     <Compile Include="Metadata\QuantitySizeRateDTO.meta.cs" />
     <Compile Include="Metadata\SizeCaption.meta.cs" />
@@ -81,9 +84,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CriticalPathModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Customer.cs">
-      <DependentUpon>CriticalPathModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Metadata\Contact.meta.cs" />
     <Compile Include="Metadata\ContactDTO.meta.cs" />
     <Compile Include="Metadata\Customer.meta.cs" />
@@ -104,21 +104,21 @@
     <Compile Include="Metadata\PurchaseOrderDTO.meta.cs" />
     <Compile Include="Metadata\Supplier.meta.cs" />
     <Compile Include="Metadata\SupplierDTO.meta.cs" />
+    <Compile Include="Parts\ProcessDTO.part.cs" />
+    <Compile Include="Parts\ProcessStepDTO.part.cs" />
+    <Compile Include="Parts\ProcessTemplateDTO.part.cs" />
     <Compile Include="Process.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Parts\ProcessDTO.part.cs" />
     <Compile Include="ProcessStep.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Parts\ProcessStepDTO.part.cs" />
     <Compile Include="ProcessStepTemplate.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ProcessTemplate.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Parts\ProcessTemplateDTO.part.cs" />
     <Compile Include="Product.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
@@ -126,10 +126,10 @@
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Parts\PurchaseOrderDTO.part.cs" />
     <Compile Include="PurchaseOrder.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Parts\PurchaseOrderDTO.part.cs" />
     <Compile Include="QuantitySizeRate.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>

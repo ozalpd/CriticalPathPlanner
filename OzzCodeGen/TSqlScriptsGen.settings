@@ -713,26 +713,14 @@
           <Nullable>false</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>PurchaseOrderId</Name>
+          <Name>Caption</Name>
           <Exclude>false</Exclude>
-          <DataType>int</DataType>
-          <Lenght>0</Lenght>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
-          <SortDesc>false</SortDesc>
-          <Nullable>false</Nullable>
-          <ForeignKeyTable>PurchaseOrders</ForeignKeyTable>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
-          <Name>SizeCaptionId</Name>
-          <Exclude>false</Exclude>
-          <DataType>int</DataType>
-          <Lenght>0</Lenght>
+          <DataType>nVarChar</DataType>
+          <Lenght>16</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
-          <ForeignKeyTable>SizeCaptions</ForeignKeyTable>
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>Rate</Name>
@@ -743,6 +731,17 @@
           <Indexed>false</Indexed>
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>PurchaseOrderId</Name>
+          <Exclude>false</Exclude>
+          <DataType>int</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>true</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+          <ForeignKeyTable>PurchaseOrders</ForeignKeyTable>
         </StorageColumnSetting>
       </Properties>
     </BaseEntitySetting>

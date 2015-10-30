@@ -1447,6 +1447,15 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Rate.
+        /// </summary>
+        public static string Rate {
+            get {
+                return ResourceManager.GetString("Rate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Realized Date.
         /// </summary>
         public static string RealizedDate {
@@ -1461,15 +1470,6 @@ namespace CriticalPath.Data.Resources {
         public static string RequiredWorkDays {
             get {
                 return ResourceManager.GetString("RequiredWorkDays", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Size.
-        /// </summary>
-        public static string Size {
-            get {
-                return ResourceManager.GetString("Size", resourceCulture);
             }
         }
         
@@ -1497,15 +1497,6 @@ namespace CriticalPath.Data.Resources {
         public static string SizeCaptionsList {
             get {
                 return ResourceManager.GetString("SizeCaptionsList", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Size Id.
-        /// </summary>
-        public static string SizeId {
-            get {
-                return ResourceManager.GetString("SizeId", resourceCulture);
             }
         }
         

@@ -25,17 +25,18 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "DisplayOrder")]
             public int DisplayOrder { get; set; }
 
+            [StringLength(16, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "PurchaseOrderId")]
-            public int PurchaseOrderId { get; set; }
-
-            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "SizeCaptionId")]
-            public int SizeCaptionId { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "Caption")]
+            public string Caption { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Display(ResourceType = typeof(EntityStrings), Name = "Rate")]
             public int Rate { get; set; }
+
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "PurchaseOrderId")]
+            public int PurchaseOrderId { get; set; }
 
 		}
 	}

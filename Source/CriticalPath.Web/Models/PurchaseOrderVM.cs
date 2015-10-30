@@ -49,42 +49,42 @@ namespace CriticalPath.Web.Models
             {
                 case 1:
                     QuantitySize1Rate = rate.Rate;
-                    Size1Caption = rate.SizeCaption?.Caption;
+                    Size1Caption = rate.Caption;
                     break;
 
                 case 2:
                     QuantitySize2Rate = rate.Rate;
-                    Size2Caption = rate.SizeCaption?.Caption;
+                    Size2Caption = rate.Caption;
                     break;
 
                 case 3:
                     QuantitySize3Rate = rate.Rate;
-                    Size3Caption = rate.SizeCaption?.Caption;
+                    Size3Caption = rate.Caption;
                     break;
 
                 case 4:
                     QuantitySize4Rate = rate.Rate;
-                    Size4Caption = rate.SizeCaption?.Caption;
+                    Size4Caption = rate.Caption;
                     break;
 
                 case 5:
                     QuantitySize5Rate = rate.Rate;
-                    Size5Caption = rate.SizeCaption?.Caption;
+                    Size5Caption = rate.Caption;
                     break;
 
                 case 6:
                     QuantitySize6Rate = rate.Rate;
-                    Size6Caption = rate.SizeCaption?.Caption;
+                    Size6Caption = rate.Caption;
                     break;
 
                 case 7:
                     QuantitySize7Rate = rate.Rate;
-                    Size7Caption = rate.SizeCaption?.Caption;
+                    Size7Caption = rate.Caption;
                     break;
 
                 case 8:
                     QuantitySize8Rate = rate.Rate;
-                    Size8Caption = rate.SizeCaption?.Caption;
+                    Size8Caption = rate.Caption;
                     break;
 
                 default:

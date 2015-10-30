@@ -501,9 +501,9 @@ namespace CriticalPath.Data
                    {
                        Id = e.Id,
                        DisplayOrder = e.DisplayOrder,
-                       PurchaseOrderId = e.PurchaseOrderId,
-                       SizeCaptionId = e.SizeCaptionId,
+                       Caption = e.Caption,
                        Rate = e.Rate,
+                       PurchaseOrderId = e.PurchaseOrderId,
                    };
         }
     

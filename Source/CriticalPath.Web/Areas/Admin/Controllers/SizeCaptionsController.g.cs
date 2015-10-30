@@ -105,7 +105,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
 
         [HttpGet]
         [Authorize(Roles = "admin")]
-        [Route("SizeCaptions/Create/{sizeStandardId:int?}")]
         public async Task<ActionResult> Create(int? sizeStandardId)  //GET: /SizeCaptions/Create
         {
             var sizeCaption = new SizeCaption();
@@ -124,7 +123,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
         [HttpPost]
         [Authorize(Roles = "admin")]
         [ValidateAntiForgeryToken]
-        [Route("SizeCaptions/Create/{sizeStandardId:int?}")]
         public async Task<ActionResult> Create(int? sizeStandardId, SizeCaption sizeCaption)  //POST: /SizeCaptions/Create
         {
             DataContext.SetInsertDefaults(sizeCaption, this);
@@ -137,7 +135,7 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 await DataContext.SaveChangesAsync(this);
  
                 OnCreateSaved(sizeCaption);
-                return RedirectToAction("Index");
+                return RedirectToAction("Create", "SizeCaptions", new { sizeStandardId = sizeStandardId });
             }
 
             SetSelectLists(sizeCaption);

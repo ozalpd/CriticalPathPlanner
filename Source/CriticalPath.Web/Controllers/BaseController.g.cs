@@ -122,6 +122,18 @@ namespace CriticalPath.Web.Controllers
         }
         bool? _isUserSupervisor;
 
+
+        protected virtual async Task<bool> IsUserSupplierAsync()
+        {
+            if (!_isUserSupplier.HasValue)
+            {
+                _isUserSupplier = Request.IsAuthenticated && 
+                                    await UserManager.IsInRoleAsync(UserID, SecurityRoles.Supplier);
+            }
+            return _isUserSupplier.Value;
+        }
+        bool? _isUserSupplier;
+
         #region Query Methods for Entity Types
 
         /// <summary>

@@ -42,10 +42,10 @@
       <DetailsView>false</DetailsView>
       <CreateView>false</CreateView>
       <EditView>false</EditView>
+      <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
       <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
-      <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>ICreated</Name>
@@ -109,10 +109,10 @@
       <DetailsView>false</DetailsView>
       <CreateView>false</CreateView>
       <EditView>false</EditView>
+      <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
       <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
-      <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>IModified</Name>
@@ -188,10 +188,10 @@
       <DetailsView>false</DetailsView>
       <CreateView>false</CreateView>
       <EditView>false</EditView>
+      <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
       <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
-      <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>IApproval</Name>
@@ -267,10 +267,10 @@
       <DetailsView>false</DetailsView>
       <CreateView>false</CreateView>
       <EditView>false</EditView>
+      <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
       <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
-      <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>IDescription</Name>
@@ -334,10 +334,10 @@
       <DetailsView>false</DetailsView>
       <CreateView>false</CreateView>
       <EditView>false</EditView>
+      <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
       <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
-      <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>Contact</Name>
@@ -486,10 +486,10 @@
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
+      <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
       <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
-      <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>Company</Name>
@@ -661,10 +661,10 @@
       <DetailsView>false</DetailsView>
       <CreateView>false</CreateView>
       <EditView>false</EditView>
+      <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
       <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
-      <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>Supplier</Name>
@@ -704,10 +704,10 @@
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
+      <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
       <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
-      <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>Customer</Name>
@@ -759,10 +759,10 @@
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
+      <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
       <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
-      <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>ProductCategory</Name>
@@ -838,10 +838,10 @@
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
+      <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
       <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
-      <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>Product</Name>
@@ -917,10 +917,10 @@
       <DetailsView>true</DetailsView>
       <CreateView>false</CreateView>
       <EditView>false</EditView>
+      <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
       <FillSelectListsMethod>await SetProductCategorySelectListAsync(product)</FillSelectListsMethod>
-      <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>PurchaseOrder</Name>
@@ -1129,10 +1129,10 @@
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
+      <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Details", new { id = purchaseOrder.Id }</CreateRedirect>
       <EditRedirect>"Details", new { id = purchaseOrder.Id }</EditRedirect>
       <FillSelectListsMethod>await SetProductSelectListAsync(purchaseOrder.Product)</FillSelectListsMethod>
-      <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>QuantitySizeRate</Name>
@@ -1141,6 +1141,30 @@
       <Properties>
         <AspNetMvcPropertySetting>
           <Name>DisplayOrder</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>Caption</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>Rate</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>
@@ -1164,43 +1188,7 @@
           <UseForEdit>DropDownList</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>SizeCaptionId</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
-          <InIndexView>false</InIndexView>
-          <InDetailsView>false</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForCreate>DropDownList</UseForCreate>
-          <UseForEdit>DropDownList</UseForEdit>
-        </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
-          <Name>Rate</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
-          <InIndexView>true</InIndexView>
-          <InDetailsView>true</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForCreate>Standart</UseForCreate>
-          <UseForEdit>Standart</UseForEdit>
-        </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
           <Name>PurchaseOrder</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
-          <InIndexView>true</InIndexView>
-          <InDetailsView>true</InDetailsView>
-          <InCreateView>false</InCreateView>
-          <InEditView>false</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForCreate>Standart</UseForCreate>
-          <UseForEdit>Standart</UseForEdit>
-        </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
-          <Name>SizeCaption</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>
@@ -1221,26 +1209,26 @@
       <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
-      <GenerateController>true</GenerateController>
+      <GenerateController>false</GenerateController>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
       <GenerateCreateAction>true</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
-      <IndexView>true</IndexView>
-      <DetailsView>true</DetailsView>
-      <CreateView>true</CreateView>
-      <EditView>true</EditView>
+      <IndexView>false</IndexView>
+      <DetailsView>false</DetailsView>
+      <CreateView>false</CreateView>
+      <EditView>false</EditView>
+      <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
       <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
-      <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>SizeStandard</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
+      <OverwriteExisting>true</OverwriteExisting>
       <Properties>
         <AspNetMvcPropertySetting>
           <Name>Title</Name>
@@ -1283,14 +1271,15 @@
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
-      <IndexView>true</IndexView>
-      <DetailsView>true</DetailsView>
-      <CreateView>true</CreateView>
-      <EditView>true</EditView>
-      <CreateRedirect>"Index"</CreateRedirect>
+      <IndexView>false</IndexView>
+      <DetailsView>false</DetailsView>
+      <CreateView>false</CreateView>
+      <EditView>false</EditView>
+      <BaseControllerName>BaseController</BaseControllerName>
+      <Area>Admin</Area>
+      <CreateRedirect>"Create", "SizeCaptions", new { sizeStandardId = sizeStandard.Id }</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
       <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
-      <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>SizeCaption</Name>
@@ -1330,8 +1319,8 @@
           <InCreateView>true</InCreateView>
           <InEditView>true</InEditView>
           <HasValidation>true</HasValidation>
-          <UseForCreate>DropDownList</UseForCreate>
-          <UseForEdit>DropDownList</UseForEdit>
+          <UseForCreate>HiddenInput</UseForCreate>
+          <UseForEdit>HiddenInput</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
           <Name>SizeStandard</Name>
@@ -1363,14 +1352,15 @@
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
-      <IndexView>true</IndexView>
-      <DetailsView>true</DetailsView>
-      <CreateView>true</CreateView>
-      <EditView>true</EditView>
-      <CreateRedirect>"Index"</CreateRedirect>
+      <IndexView>false</IndexView>
+      <DetailsView>false</DetailsView>
+      <CreateView>false</CreateView>
+      <EditView>false</EditView>
+      <BaseControllerName>BaseController</BaseControllerName>
+      <Area>Admin</Area>
+      <CreateRedirect>"Create", "SizeCaptions", new { sizeStandardId = sizeStandardId }</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
       <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
-      <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>Process</Name>
@@ -1531,10 +1521,10 @@
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
+      <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index", "ProcessSteps", new { processId = process.Id, pageSize = process.ProcessSteps.Count }</CreateRedirect>
       <EditRedirect>"Details", new { id = process.Id }</EditRedirect>
       <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
-      <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>ProcessStep</Name>
@@ -1694,10 +1684,10 @@
       <DetailsView>true</DetailsView>
       <CreateView>false</CreateView>
       <EditView>true</EditView>
+      <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
       <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
-      <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>ProcessTemplate</Name>
@@ -1762,10 +1752,11 @@
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
+      <BaseControllerName>BaseController</BaseControllerName>
+      <Area>Admin</Area>
       <CreateRedirect>"Create", "ProcessStepTemplates", new { processTemplateId = processTemplate.Id }</CreateRedirect>
       <EditRedirect>"Details", new { id = processTemplate.Id }</EditRedirect>
       <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
-      <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>ProcessStepTemplate</Name>
@@ -1854,10 +1845,11 @@
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
+      <BaseControllerName>BaseController</BaseControllerName>
+      <Area>Admin</Area>
       <CreateRedirect>"Create", new { processTemplateId = processTemplateId }</CreateRedirect>
       <EditRedirect>"Index", new { processTemplateId = processStepTemplate.ProcessTemplateId }</EditRedirect>
       <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
-      <BaseControllerName>BaseController</BaseControllerName>
     </BaseEntitySetting>
   </EntitySettings>
   <RenderAllEntities>false</RenderAllEntities>

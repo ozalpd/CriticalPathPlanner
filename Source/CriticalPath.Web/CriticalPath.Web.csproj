@@ -327,6 +327,14 @@
     <Content Include="Areas\Admin\Views\AdminHome\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Users\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AppSettings\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_DetailFormButtonsPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_IndexScriptsPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_MessageBoxPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_PagerPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_SaveButtonsPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_SearchBoxPartial.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\SizeCaption.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\SizeStandard.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -415,8 +423,8 @@
     <Content Include="Views\Shared\DisplayTemplates\OrderItem.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Process.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\ProcessStep.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\ProcessStepTemplate.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\ProcessTemplate.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\ProcessStepTemplate.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\ProcessTemplate.cshtml" />
     <Content Include="Areas\Admin\Views\ProcessTemplates\Create.cshtml" />
     <Content Include="Areas\Admin\Views\ProcessTemplates\Details.cshtml" />
     <Content Include="Areas\Admin\Views\ProcessTemplates\Edit.cshtml" />
@@ -450,6 +458,8 @@
     <Content Include="Areas\Admin\Views\SizeCaptions\Details.cshtml" />
     <Content Include="Areas\Admin\Views\SizeCaptions\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\SizeCaptions\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SizeCaption.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SizeStandard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

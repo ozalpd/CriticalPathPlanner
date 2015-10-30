@@ -46,13 +46,13 @@
 
 @echo .
 @echo .
-@echo 9 - Executing SizeCaption.sql...
-@sqlcmd -S .\SqlExpress -d CriticalPath -E -i SizeCaption.sql
+@echo 9 - Executing QuantitySizeRate.sql...
+@sqlcmd -S .\SqlExpress -d CriticalPath -E -i QuantitySizeRate.sql
 
 @echo .
 @echo .
-@echo 10 - Executing QuantitySizeRate.sql...
-@sqlcmd -S .\SqlExpress -d CriticalPath -E -i QuantitySizeRate.sql
+@echo 10 - Executing SizeCaption.sql...
+@sqlcmd -S .\SqlExpress -d CriticalPath -E -i SizeCaption.sql
 
 @echo .
 @echo .

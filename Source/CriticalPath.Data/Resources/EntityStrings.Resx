@@ -691,10 +691,6 @@
 		<value>Size Caption</value>
 	</data>
 
-	<data name="SizeCaptionId" xml:space="preserve">
-		<value>Size Caption Id</value>
-	</data>
-
 	<data name="SizeCaptions" xml:space="preserve">
 		<value>Size Captions</value>
 	</data>

@@ -14,12 +14,6 @@ namespace CriticalPath.Data
     
     public partial class SizeCaption : IDisplayOrder, ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public SizeCaption()
-        {
-            this.QuantitySizeRates = new HashSet<QuantitySizeRate>();
-        }
-    
         public int Id { get; set; }
         public int DisplayOrder { get; set; }
         public string Caption { get; set; }
@@ -33,8 +27,6 @@ namespace CriticalPath.Data
         public string CreatorIp { get; set; }
     
         public virtual SizeStandard SizeStandard { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<QuantitySizeRate> QuantitySizeRates { get; set; }
     	/// <summary>
     	/// Clones all properties in a new SizeCaption instance,
     	/// except PrimaryKey(s)

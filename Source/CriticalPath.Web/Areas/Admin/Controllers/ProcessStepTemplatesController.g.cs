@@ -105,7 +105,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
 
         [HttpGet]
         [Authorize(Roles = "admin")]
-        [Route("ProcessStepTemplates/Create/{processTemplateId:int?}")]
         public async Task<ActionResult> Create(int? processTemplateId)  //GET: /ProcessStepTemplates/Create
         {
             var processStepTemplate = new ProcessStepTemplate();
@@ -114,7 +113,7 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 var processTemplate = await FindAsyncProcessTemplate(processTemplateId.Value);
                 if (processTemplate == null)
                     return HttpNotFound();
-                processStepTemplate.ProcessTemplate = processTemplate;
+                processStepTemplate.ProcessTemplateId = processTemplate.Id;
             }
             await SetProcessStepTemplateDefaults(processStepTemplate);
             SetSelectLists(processStepTemplate);

@@ -14,7 +14,7 @@
         <InheritanceConnector EntityType="CriticalPathDataModel.Supplier" />
         <EntityTypeShape EntityType="CriticalPathDataModel.ProductCategory" Width="1.625" PointX="6" PointY="9.25" />
         <AssociationConnector Association="CriticalPathDataModel.FK_ProductCategory_ParentCategoryId" />
-        <EntityTypeShape EntityType="CriticalPathDataModel.Product" Width="1.5" PointX="6" PointY="4.375" />
+        <EntityTypeShape EntityType="CriticalPathDataModel.Product" Width="1.5" PointX="6" PointY="4" />
         <AssociationConnector Association="CriticalPathDataModel.FK_Product_CategoryId" />
         <EntityTypeShape EntityType="CriticalPathDataModel.PuchaseOrder" Width="1.5" PointX="8.125" PointY="0.5" />
         <AssociationConnector Association="CriticalPathDataModel.FK_PuchaseOrder_CustomerId" />
@@ -35,10 +35,10 @@
         <AssociationConnector Association="CriticalPathDataModel.FK_SizeQuantity_PurchaseOrderId" />
         <EntityTypeShape EntityType="CriticalPathDataModel.SizeStandard" Width="1.5" PointX="8.375" PointY="8" />
         <AssociationConnector Association="CriticalPathDataModel.FK_SizeQuantity_SizeId" />
-        <EntityTypeShape EntityType="CriticalPathDataModel.SizeCaption" Width="1.5" PointX="10.5" PointY="5.875" />
+        <EntityTypeShape EntityType="CriticalPathDataModel.SizeCaption" Width="1.5" PointX="10.5" PointY="5.625" />
         <AssociationConnector Association="CriticalPathDataModel.FK_PurchaseOrder_SizeStandardId" />
         <AssociationConnector Association="CriticalPathDataModel.FK_SizeCaption_SizeStandardId" />
-        <EntityTypeShape EntityType="CriticalPathDataModel.QuantitySizeRate" Width="1.625" PointX="10.5" PointY="1.375" />
+        <EntityTypeShape EntityType="CriticalPathDataModel.QuantitySizeRate" Width="1.625" PointX="10.5" PointY="1.25" />
         <AssociationConnector Association="CriticalPathDataModel.FK_QuantitySizeRate_PurchaseOrderId" />
         <AssociationConnector Association="CriticalPathDataModel.FK_QuantitySizeRate_SizeCaptionId" />
       </Diagram>

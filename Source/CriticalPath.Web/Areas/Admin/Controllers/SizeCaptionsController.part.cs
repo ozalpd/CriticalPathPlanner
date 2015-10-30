@@ -16,16 +16,19 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
 {
     public partial class SizeCaptionsController 
     {
-        partial void SetSelectLists(SizeCaption sizeCaption)
+        protected override async Task SetSizeCaptionDefaults(SizeCaption sizeCaption)
         {
-            //TODO: Optimize query
-            var querySizeStandardId = DataContext.SizeStandards;
-            int sizeStandardId = sizeCaption == null ? 0 : sizeCaption.SizeStandardId;
-            ViewBag.SizeStandardId = new SelectList(querySizeStandardId, "Id", "Title", sizeStandardId);
+            int sizeStandardId = sizeCaption.SizeStandard != null ?
+                                    sizeCaption.SizeStandard.Id :
+                                    sizeCaption.SizeStandardId;
+            int count = 0;
+            if (sizeStandardId > 0)
+            {
+                count = await GetSizeCaptionQuery()
+                        .Where(s => s.SizeStandardId == sizeStandardId)
+                        .CountAsync();
+            }
+            sizeCaption.DisplayOrder = (count + 1) * 10000;
         }
-
-
-        //Purpose: To set default property values for newly created SizeCaption entity
-        //protected override async Task SetSizeCaptionDefaults(SizeCaption sizeCaption) { }
     }
 }

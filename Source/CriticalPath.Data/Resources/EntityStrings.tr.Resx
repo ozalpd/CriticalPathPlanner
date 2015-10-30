@@ -116,7 +116,7 @@
 	</data>
 
 	<data name="AddNewSizeCaption" xml:space="preserve">
-		<value>Add New Size Caption</value>
+		<value>Yeni Ölçü Etiketi Ekle</value>
 	</data>
 
 	<data name="AddNewSizeStandard" xml:space="preserve">
@@ -168,7 +168,7 @@
 	</data>
 
 	<data name="AddSizeCaption" xml:space="preserve">
-		<value>Add Size Caption</value>
+		<value>Ölçü Etiketi Ekle</value>
 	</data>
 
 	<data name="AddSizeStandard" xml:space="preserve">
@@ -192,7 +192,7 @@
 	</data>
 
 	<data name="Caption" xml:space="preserve">
-		<value>Caption</value>
+		<value>Etiket</value>
 	</data>
 
 	<data name="Category" xml:space="preserve">
@@ -296,7 +296,7 @@
 	</data>
 
 	<data name="CreateSizeCaption" xml:space="preserve">
-		<value>Create Size Caption</value>
+		<value>Ölçü Etiketi Oluştur</value>
 	</data>
 
 	<data name="CreateSizeStandard" xml:space="preserve">
@@ -384,7 +384,7 @@
 	</data>
 
 	<data name="DeleteSizeCaption" xml:space="preserve">
-		<value>Delete Size Caption</value>
+		<value>Ölçü Etiketini Sil</value>
 	</data>
 
 	<data name="DeleteSizeStandard" xml:space="preserve">
@@ -452,7 +452,7 @@
 	</data>
 
 	<data name="EditSizeCaption" xml:space="preserve">
-		<value>Edit Size Caption</value>
+		<value>Ölçü Etiketini Düzenle</value>
 	</data>
 
 	<data name="EditSizeStandard" xml:space="preserve">
@@ -676,7 +676,7 @@
 	</data>
 
 	<data name="Rate" xml:space="preserve">
-		<value>Rate</value>
+		<value>Oran</value>
 	</data>
 
 	<data name="RealizedDate" xml:space="preserve">
@@ -688,19 +688,15 @@
 	</data>
 
 	<data name="SizeCaption" xml:space="preserve">
-		<value>Size Caption</value>
-	</data>
-
-	<data name="SizeCaptionId" xml:space="preserve">
-		<value>Size Caption Id</value>
+		<value>Ölçü Etiketi</value>
 	</data>
 
 	<data name="SizeCaptions" xml:space="preserve">
-		<value>Size Captions</value>
+		<value>Ölçü Etiketleri</value>
 	</data>
 
 	<data name="SizeCaptionsList" xml:space="preserve">
-		<value>Size Captions List</value>
+		<value>Ölçü Etiket Listesi</value>
 	</data>
 
 	<data name="SizeStandard" xml:space="preserve">

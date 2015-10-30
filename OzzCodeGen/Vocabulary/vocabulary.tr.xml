@@ -78,7 +78,7 @@
   </Vocab>
   <Vocab>
     <Name>AddNewSizeCaption</Name>
-    <Translation>Add New Size Caption</Translation>
+    <Translation>Yeni Ölçü Etiketi Ekle</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNewSizeQuantity</Name>
@@ -146,7 +146,7 @@
   </Vocab>
   <Vocab>
     <Name>AddSizeCaption</Name>
-    <Translation>Add Size Caption</Translation>
+    <Translation>Ölçü Etiketi Ekle</Translation>
   </Vocab>
   <Vocab>
     <Name>AddSizeQuantity</Name>
@@ -206,7 +206,7 @@
   </Vocab>
   <Vocab>
     <Name>Caption</Name>
-    <Translation>Caption</Translation>
+    <Translation>Etiket</Translation>
   </Vocab>
   <Vocab>
     <Name>Categories</Name>
@@ -370,7 +370,7 @@
   </Vocab>
   <Vocab>
     <Name>CreateSizeCaption</Name>
-    <Translation>Create Size Caption</Translation>
+    <Translation>Ölçü Etiketi Oluştur</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateSizeQuantity</Name>
@@ -482,7 +482,7 @@
   </Vocab>
   <Vocab>
     <Name>DeleteSizeCaption</Name>
-    <Translation>Delete Size Caption</Translation>
+    <Translation>Ölçü Etiketini Sil</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteSizeQuantity</Name>
@@ -602,7 +602,7 @@
   </Vocab>
   <Vocab>
     <Name>EditSizeCaption</Name>
-    <Translation>Edit Size Caption</Translation>
+    <Translation>Ölçü Etiketini Düzenle</Translation>
   </Vocab>
   <Vocab>
     <Name>EditSizeQuantity</Name>
@@ -1046,7 +1046,7 @@
   </Vocab>
   <Vocab>
     <Name>Rate</Name>
-    <Translation>Rate</Translation>
+    <Translation>Oran</Translation>
   </Vocab>
   <Vocab>
     <Name>RealizedDate</Name>
@@ -1110,19 +1110,19 @@
   </Vocab>
   <Vocab>
     <Name>SizeCaption</Name>
-    <Translation>Size Caption</Translation>
+    <Translation>Ölçü Etiketi</Translation>
   </Vocab>
   <Vocab>
     <Name>SizeCaptionId</Name>
-    <Translation>Size Caption Id</Translation>
+    <Translation>Ölçü Etiketi</Translation>
   </Vocab>
   <Vocab>
     <Name>SizeCaptions</Name>
-    <Translation>Size Captions</Translation>
+    <Translation>Ölçü Etiketleri</Translation>
   </Vocab>
   <Vocab>
     <Name>SizeCaptionsList</Name>
-    <Translation>Size Captions List</Translation>
+    <Translation>Ölçü Etiket Listesi</Translation>
   </Vocab>
   <Vocab>
     <Name>SizeId</Name>

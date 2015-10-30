@@ -16,9 +16,9 @@ namespace CriticalPath.Data
     {
         public int Id { get; set; }
         public int DisplayOrder { get; set; }
-        public int PurchaseOrderId { get; set; }
-        public int SizeCaptionId { get; set; }
+        public string Caption { get; set; }
         public int Rate { get; set; }
+        public int PurchaseOrderId { get; set; }
         public int ModifyNr { get; set; }
         public System.DateTime ModifyDate { get; set; }
         public string ModifierId { get; set; }
@@ -28,7 +28,6 @@ namespace CriticalPath.Data
         public string CreatorIp { get; set; }
     
         public virtual PurchaseOrder PurchaseOrder { get; set; }
-        public virtual SizeCaption SizeCaption { get; set; }
     	/// <summary>
     	/// Clones all properties in a new QuantitySizeRate instance,
     	/// except PrimaryKey(s)
@@ -38,9 +37,9 @@ namespace CriticalPath.Data
         {
             var clone = new QuantitySizeRate();
             clone.DisplayOrder = DisplayOrder;
-            clone.PurchaseOrderId = PurchaseOrderId;
-            clone.SizeCaptionId = SizeCaptionId;
+            clone.Caption = Caption;
             clone.Rate = Rate;
+            clone.PurchaseOrderId = PurchaseOrderId;
             clone.ModifyNr = ModifyNr;
             clone.ModifyDate = ModifyDate;
             clone.ModifierId = ModifierId;
@@ -68,9 +67,9 @@ namespace CriticalPath.Data
         {
             Id = entity.Id;
             DisplayOrder = entity.DisplayOrder;
-            PurchaseOrderId = entity.PurchaseOrderId;
-            SizeCaptionId = entity.SizeCaptionId;
+            Caption = entity.Caption;
             Rate = entity.Rate;
+            PurchaseOrderId = entity.PurchaseOrderId;
         
             Initiliazing(entity);
         }
@@ -82,9 +81,9 @@ namespace CriticalPath.Data
             var entity = new QuantitySizeRate();
             entity.Id = Id;
             entity.DisplayOrder = DisplayOrder;
-            entity.PurchaseOrderId = PurchaseOrderId;
-            entity.SizeCaptionId = SizeCaptionId;
+            entity.Caption = Caption;
             entity.Rate = Rate;
+            entity.PurchaseOrderId = PurchaseOrderId;
     
             Converting(entity);
     
@@ -95,8 +94,8 @@ namespace CriticalPath.Data
       
         public int Id { get; set; }
         public int DisplayOrder { get; set; }
-        public int PurchaseOrderId { get; set; }
-        public int SizeCaptionId { get; set; }
+        public string Caption { get; set; }
         public int Rate { get; set; }
+        public int PurchaseOrderId { get; set; }
     }
 }

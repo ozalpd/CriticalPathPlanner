@@ -1,11 +1,11 @@
 @using CriticalPath.Web.Models
 @using CriticalPath.Data
 @using CriticalPath.Data.Resources
-@model SizeCaption
+@model SizeStandard
 @{
     Layout = null;
 }
 @if (Model != null)
 {
-    <div class="col-xs-1 sizeCaption-Caption">@Model.Caption</div>
+    <div><a href='/SizeStandards/Details/@Model.Id'>@Model.Title</a></div>
 }

@@ -5,9 +5,9 @@ GO
 CREATE TABLE [dbo].[QuantitySizeRates](
     [Id] [int] Identity(1,1) Not Null,
     [DisplayOrder] [int] Not Null,
-    [PurchaseOrderId] [int] Not Null Constraint FK_QuantitySizeRate_PurchaseOrderId Foreign Key References [dbo].[PurchaseOrders]([Id]),
-    [SizeCaptionId] [int] Not Null Constraint FK_QuantitySizeRate_SizeCaptionId Foreign Key References [dbo].[SizeCaptions]([Id]),
+    [Caption] [nVarChar](16) Not Null,
     [Rate] [int] Not Null,
+    [PurchaseOrderId] [int] Not Null Constraint FK_QuantitySizeRate_PurchaseOrderId Foreign Key References [dbo].[PurchaseOrders]([Id]),
     [ModifyNr] [int] Not Null Default 1,
     [ModifyDate] [DateTime] Not Null Default GetDate(),
     [ModifierId] [VarChar](48) Not Null,

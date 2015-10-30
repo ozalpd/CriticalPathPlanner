@@ -16,6 +16,29 @@ namespace CriticalPath.Web.Controllers
 {
     public partial class ProcessStepsController : BaseController 
     {
+        protected virtual IQueryable<ProcessStep> GetProcessStepQuery(QueryParameters qParams)
+        {
+            var query = GetProcessStepQuery();
+            if (!string.IsNullOrEmpty(qParams.SearchString))
+            {
+                query = from a in query
+                        where
+                            a.Title.Contains(qParams.SearchString) | 
+                            a.Description.Contains(qParams.SearchString) 
+                        select a;
+            }
+            if (qParams.ProcessId != null)
+            {
+                query = query.Where(x => x.ProcessId == qParams.ProcessId);
+            }
+            if (qParams.TemplateId != null)
+            {
+                query = query.Where(x => x.TemplateId == qParams.TemplateId);
+            }
+
+            return query;
+        }
+
         [Authorize]
         public async Task<ActionResult> Details(int? id)  //GET: /ProcessSteps/Details/5
         {

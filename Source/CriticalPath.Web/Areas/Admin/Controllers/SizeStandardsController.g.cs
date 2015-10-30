@@ -124,7 +124,7 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 await DataContext.SaveChangesAsync(this);
  
                 OnCreateSaved(sizeStandard);
-                return RedirectToAction("Index");
+                return RedirectToAction("Create", "SizeCaptions", new { sizeStandardId = sizeStandard.Id });
             }
 
             SetSelectLists(sizeStandard);
