@@ -29,18 +29,15 @@
         <AssociationConnector Association="CriticalPathDataModel.FK_ProcessStep_TemplateId" />
         <EntityTypeShape EntityType="CriticalPathDataModel.PurchaseOrder" Width="1.5" PointX="8.375" PointY="0.5" />
         <AssociationConnector Association="CriticalPathDataModel.FK_PurchaseOrder_CustomerId" />
-        <EntityTypeShape EntityType="CriticalPathDataModel.SizeQuantity" Width="1.5" PointX="10.75" PointY="5.875" />
         <AssociationConnector Association="CriticalPathDataModel.FK_Process_PurchaseOrderId" />
         <AssociationConnector Association="CriticalPathDataModel.FK_PurchaseOrder_ProductId" />
-        <AssociationConnector Association="CriticalPathDataModel.FK_SizeQuantity_PurchaseOrderId" />
-        <EntityTypeShape EntityType="CriticalPathDataModel.SizeStandard" Width="1.5" PointX="8.375" PointY="8" />
-        <AssociationConnector Association="CriticalPathDataModel.FK_SizeQuantity_SizeId" />
-        <EntityTypeShape EntityType="CriticalPathDataModel.SizeCaption" Width="1.5" PointX="10.5" PointY="5.625" />
-        <AssociationConnector Association="CriticalPathDataModel.FK_PurchaseOrder_SizeStandardId" />
-        <AssociationConnector Association="CriticalPathDataModel.FK_SizeCaption_SizeStandardId" />
-        <EntityTypeShape EntityType="CriticalPathDataModel.QuantitySizeRate" Width="1.625" PointX="10.5" PointY="1.25" />
-        <AssociationConnector Association="CriticalPathDataModel.FK_QuantitySizeRate_PurchaseOrderId" />
-        <AssociationConnector Association="CriticalPathDataModel.FK_QuantitySizeRate_SizeCaptionId" />
+        <EntityTypeShape EntityType="CriticalPathDataModel.SizingStandard" Width="1.625" PointX="8.375" PointY="7.375" />
+        <EntityTypeShape EntityType="CriticalPathDataModel.Sizing" Width="1.5" PointX="10.75" PointY="7.375" />
+        <AssociationConnector Association="CriticalPathDataModel.FK_PurchaseOrder_SizingStandardId" />
+        <AssociationConnector Association="CriticalPathDataModel.FK_Sizing_SizingStandardId" />
+        <EntityTypeShape EntityType="CriticalPathDataModel.SizeRate" Width="1.625" PointX="10.5" PointY="1.875" />
+        <AssociationConnector Association="CriticalPathDataModel.FK_SizeRate_PurchaseOrderId" />
+        <AssociationConnector Association="CriticalPathDataModel.FK_SizeRate_SizingId" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

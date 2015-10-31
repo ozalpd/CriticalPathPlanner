@@ -64,9 +64,9 @@
                                     </a>
                                 </li>
                             }
-                            <li class="divider"></li>
                             @if (!item.IsApproved && canUserApprove)
                             {
+                                <li class="divider"></li>
                                 <li>@Html.ActionLink(ActionStrings.Approve, "Approve", new { id = item.Id })</li>
                             }
                         </ul>

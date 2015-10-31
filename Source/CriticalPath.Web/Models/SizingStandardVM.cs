@@ -7,78 +7,78 @@ using System.Threading.Tasks;
 
 namespace CriticalPath.Web.Models
 {
-    public class SizeStandardVM : SizeStandardDTO
+    public class SizingStandardVM : SizingStandardDTO
     {
-        public SizeStandardVM() { }
-        public SizeStandardVM(SizeStandard entity):base(entity) { }
+        public SizingStandardVM() { }
+        public SizingStandardVM(SizingStandard entity):base(entity) { }
 
-        protected override void Constructing(SizeStandard entity)
+        protected override void Constructing(SizingStandard entity)
         {
             base.Constructing(entity);
             int i = 0;
-            foreach (var item in SizeCaptions)
+            foreach (var item in Sizings)
             {
                 i++;
-                SetCaption(item, i);
+                SetSizing(item, i);
             }
         }
 
-        public override SizeStandard ToSizeStandard()
+        public override SizingStandard ToSizingStandard()
         {
             for (int i = 1; i < 9; i++)
             {
-                var sizeCaption = GetCaption(i);
-                if (sizeCaption != null)
-                    SizeCaptions.Add(sizeCaption);
+                var sizing = GetCaption(i);
+                if (sizing != null)
+                    Sizings.Add(sizing);
             }
-            return base.ToSizeStandard();
+            return base.ToSizingStandard();
         }
 
         #region Long Helper Methods SetCaption GetCaption
-        protected void SetCaption(SizeCaptionDTO sizeCaption, int captionNr)
+        protected void SetSizing(SizingDTO sizing, int captionNr)
         {
-            if (string.IsNullOrEmpty(sizeCaption?.Caption))
+            if (string.IsNullOrEmpty(sizing?.Caption))
                 return;
             switch (captionNr)
             {
                 case 1:
-                    Size1Caption = sizeCaption.Caption;
-                    Size1CaptionId = sizeCaption.Id;
+                    Size1Caption = sizing.Caption;
+                    Size1CaptionId = sizing.Id;
                     break;
 
                 case 2:
-                    Size2Caption = sizeCaption.Caption;
-                    Size2CaptionId = sizeCaption.Id;
+                    Size2Caption = sizing.Caption;
+                    Size2CaptionId = sizing.Id;
                     break;
 
                 case 3:
-                    Size3Caption = sizeCaption.Caption;
-                    Size3CaptionId = sizeCaption.Id;
+                    Size3Caption = sizing.Caption;
+                    Size3CaptionId = sizing.Id;
                     break;
 
                 case 4:
-                    Size4Caption = sizeCaption.Caption;
-                    Size4CaptionId = sizeCaption.Id;
+                    Size4Caption = sizing.Caption;
+                    Size4CaptionId = sizing.Id;
                     break;
 
                 case 5:
-                    Size5Caption = sizeCaption.Caption;
-                    Size5CaptionId = sizeCaption.Id;
+                    Size5Caption = sizing.Caption;
+                    Size5CaptionId = sizing.Id;
                     break;
 
                 case 6:
-                    Size6Caption = sizeCaption.Caption;
-                    Size6CaptionId = sizeCaption.Id;
+                    Size6Caption = sizing.Caption;
+                    Size6CaptionId = sizing.Id;
                     break;
 
                 case 7:
-                    Size7Caption = sizeCaption.Caption;
-                    Size7CaptionId = sizeCaption.Id;
+                    Size7Caption = sizing.Caption;
+                    Size7CaptionId = sizing.Id;
                     break;
 
                 case 8:
-                    Size8Caption = sizeCaption.Caption;
-                    Size8CaptionId = sizeCaption.Id;
+                    Size8Caption = sizing.Caption;
+                    Size8CaptionId = sizing.Id;
                     break;
 
                 default:
@@ -86,7 +86,7 @@ namespace CriticalPath.Web.Models
             }
         }
 
-        protected SizeCaptionDTO GetCaption(int captionNr)
+        protected SizingDTO GetCaption(int captionNr)
         {
             int captionId = 0;
             string caption = string.Empty;
@@ -142,12 +142,12 @@ namespace CriticalPath.Web.Models
             }
             else
             {
-                return new SizeCaptionDTO()
+                return new SizingDTO()
                 {
                     Id = captionId,
                     Caption = caption,
                     DisplayOrder = captionNr * 1000,
-                    SizeStandardId = Id
+                    SizingStandardId = Id
                 };
             }
         }

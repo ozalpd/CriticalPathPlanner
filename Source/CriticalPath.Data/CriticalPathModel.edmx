@@ -196,7 +196,8 @@
           <Property Name="ProductId" Type="int" Nullable="false" />
           <Property Name="Quantity" Type="int" Nullable="false" />
           <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="4" Nullable="false" />
-          <Property Name="SizeStandardId" Type="int" Nullable="false" />
+          <Property Name="SizingStandardId" Type="int" Nullable="false" />
+          <Property Name="SizeRateDivisor" Type="int" Nullable="false" />
           <Property Name="Notes" Type="nvarchar" MaxLength="255" />
           <Property Name="ApprovedUserId" Type="varchar" MaxLength="48" />
           <Property Name="ApprovedUserIp" Type="varchar" MaxLength="48" />
@@ -208,7 +209,7 @@
           <Property Name="CreatorId" Type="varchar" MaxLength="48" Nullable="false" />
           <Property Name="CreatorIp" Type="varchar" MaxLength="48" Nullable="false" />
         </EntityType>
-        <EntityType Name="QuantitySizeRates">
+        <EntityType Name="SizeRates">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -225,14 +226,14 @@
           <Property Name="CreatorId" Type="varchar" MaxLength="48" Nullable="false" />
           <Property Name="CreatorIp" Type="varchar" MaxLength="48" Nullable="false" />
         </EntityType>
-        <EntityType Name="SizeCaptions">
+        <EntityType Name="Sizings">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DisplayOrder" Type="int" Nullable="false" />
           <Property Name="Caption" Type="nvarchar" MaxLength="16" Nullable="false" />
-          <Property Name="SizeStandardId" Type="int" Nullable="false" />
+          <Property Name="SizingStandardId" Type="int" Nullable="false" />
           <Property Name="ModifyNr" Type="int" Nullable="false" />
           <Property Name="ModifyDate" Type="datetime" Nullable="false" />
           <Property Name="ModifierId" Type="varchar" MaxLength="48" Nullable="false" />
@@ -241,7 +242,7 @@
           <Property Name="CreatorId" Type="varchar" MaxLength="48" Nullable="false" />
           <Property Name="CreatorIp" Type="varchar" MaxLength="48" Nullable="false" />
         </EntityType>
-        <EntityType Name="SizeStandards">
+        <EntityType Name="SizingStandards">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -394,39 +395,39 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PurchaseOrder_SizeStandardId">
-          <End Role="SizeStandards" Type="Self.SizeStandards" Multiplicity="1" />
+        <Association Name="FK_PurchaseOrder_SizingStandardId">
+          <End Role="SizingStandards" Type="Self.SizingStandards" Multiplicity="1" />
           <End Role="PurchaseOrders" Type="Self.PurchaseOrders" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="SizeStandards">
+            <Principal Role="SizingStandards">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="PurchaseOrders">
-              <PropertyRef Name="SizeStandardId" />
+              <PropertyRef Name="SizingStandardId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_QuantitySizeRate_PurchaseOrderId">
+        <Association Name="FK_SizeRate_PurchaseOrderId">
           <End Role="PurchaseOrders" Type="Self.PurchaseOrders" Multiplicity="1" />
-          <End Role="QuantitySizeRates" Type="Self.QuantitySizeRates" Multiplicity="*" />
+          <End Role="SizeRates" Type="Self.SizeRates" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PurchaseOrders">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="QuantitySizeRates">
+            <Dependent Role="SizeRates">
               <PropertyRef Name="PurchaseOrderId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_SizeCaption_SizeStandardId">
-          <End Role="SizeStandards" Type="Self.SizeStandards" Multiplicity="1" />
-          <End Role="SizeCaptions" Type="Self.SizeCaptions" Multiplicity="*" />
+        <Association Name="FK_Sizing_SizingStandardId">
+          <End Role="SizingStandards" Type="Self.SizingStandards" Multiplicity="1" />
+          <End Role="Sizings" Type="Self.Sizings" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="SizeStandards">
+            <Principal Role="SizingStandards">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="SizeCaptions">
-              <PropertyRef Name="SizeStandardId" />
+            <Dependent Role="Sizings">
+              <PropertyRef Name="SizingStandardId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -453,9 +454,9 @@
           <EntitySet Name="ProductCategories" EntityType="Self.ProductCategories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PurchaseOrders" EntityType="Self.PurchaseOrders" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="QuantitySizeRates" EntityType="Self.QuantitySizeRates" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SizeCaptions" EntityType="Self.SizeCaptions" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SizeStandards" EntityType="Self.SizeStandards" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SizeRates" EntityType="Self.SizeRates" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sizings" EntityType="Self.Sizings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SizingStandards" EntityType="Self.SizingStandards" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Suppliers" EntityType="Self.Suppliers" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Contact_CompanyId" Association="Self.FK_Contact_CompanyId">
             <End Role="Companies" EntitySet="Companies" />
@@ -501,17 +502,17 @@
             <End Role="Products" EntitySet="Products" />
             <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
           </AssociationSet>
-          <AssociationSet Name="FK_PurchaseOrder_SizeStandardId" Association="Self.FK_PurchaseOrder_SizeStandardId">
-            <End Role="SizeStandards" EntitySet="SizeStandards" />
+          <AssociationSet Name="FK_PurchaseOrder_SizingStandardId" Association="Self.FK_PurchaseOrder_SizingStandardId">
+            <End Role="SizingStandards" EntitySet="SizingStandards" />
             <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
           </AssociationSet>
-          <AssociationSet Name="FK_QuantitySizeRate_PurchaseOrderId" Association="Self.FK_QuantitySizeRate_PurchaseOrderId">
+          <AssociationSet Name="FK_SizeRate_PurchaseOrderId" Association="Self.FK_SizeRate_PurchaseOrderId">
             <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
-            <End Role="QuantitySizeRates" EntitySet="QuantitySizeRates" />
+            <End Role="SizeRates" EntitySet="SizeRates" />
           </AssociationSet>
-          <AssociationSet Name="FK_SizeCaption_SizeStandardId" Association="Self.FK_SizeCaption_SizeStandardId">
-            <End Role="SizeStandards" EntitySet="SizeStandards" />
-            <End Role="SizeCaptions" EntitySet="SizeCaptions" />
+          <AssociationSet Name="FK_Sizing_SizingStandardId" Association="Self.FK_Sizing_SizingStandardId">
+            <End Role="SizingStandards" EntitySet="SizingStandards" />
+            <End Role="Sizings" EntitySet="Sizings" />
           </AssociationSet>
           <AssociationSet Name="FK_Supplier_Id" Association="Self.FK_Supplier_Id">
             <End Role="Companies" EntitySet="Companies" />
@@ -564,7 +565,7 @@
             <End Role="ProcessStepTemplate" EntitySet="ProcessStepTemplates" />
             <End Role="ProcessStep" EntitySet="ProcessSteps" />
           </AssociationSet>
-          <EntitySet Name="QuantitySizeRates" EntityType="CriticalPathDataModel.QuantitySizeRate" />
+          <EntitySet Name="SizeRates" EntityType="CriticalPathDataModel.SizeRate" />
           <AssociationSet Name="FK_Process_PurchaseOrderId" Association="CriticalPathDataModel.FK_Process_PurchaseOrderId">
             <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
             <End Role="Process" EntitySet="Processes" />
@@ -573,19 +574,19 @@
             <End Role="Product" EntitySet="Products" />
             <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
           </AssociationSet>
-          <AssociationSet Name="FK_QuantitySizeRate_PurchaseOrderId" Association="CriticalPathDataModel.FK_QuantitySizeRate_PurchaseOrderId">
+          <AssociationSet Name="FK_SizeRate_PurchaseOrderId" Association="CriticalPathDataModel.FK_SizeRate_PurchaseOrderId">
             <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
-            <End Role="QuantitySizeRate" EntitySet="QuantitySizeRates" />
+            <End Role="SizeRate" EntitySet="SizeRates" />
           </AssociationSet>
-          <EntitySet Name="SizeStandards" EntityType="CriticalPathDataModel.SizeStandard" />
-          <EntitySet Name="SizeCaptions" EntityType="CriticalPathDataModel.SizeCaption" />
-          <AssociationSet Name="FK_PurchaseOrder_SizeStandardId" Association="CriticalPathDataModel.FK_PurchaseOrder_SizeStandardId">
-            <End Role="SizeStandard" EntitySet="SizeStandards" />
+          <EntitySet Name="SizingStandards" EntityType="CriticalPathDataModel.SizingStandard" />
+          <EntitySet Name="Sizings" EntityType="CriticalPathDataModel.Sizing" />
+          <AssociationSet Name="FK_PurchaseOrder_SizingStandardId" Association="CriticalPathDataModel.FK_PurchaseOrder_SizingStandardId">
+            <End Role="SizingStandard" EntitySet="SizingStandards" />
             <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
           </AssociationSet>
-          <AssociationSet Name="FK_SizeCaption_SizeStandardId" Association="CriticalPathDataModel.FK_SizeCaption_SizeStandardId">
-            <End Role="SizeStandard" EntitySet="SizeStandards" />
-            <End Role="SizeCaption" EntitySet="SizeCaptions" />
+          <AssociationSet Name="FK_Sizing_SizingStandardId" Association="CriticalPathDataModel.FK_Sizing_SizingStandardId">
+            <End Role="SizingStandard" EntitySet="SizingStandards" />
+            <End Role="Sizing" EntitySet="Sizings" />
           </AssociationSet>
           
         </EntityContainer>
@@ -728,13 +729,14 @@
           <Property Name="Title" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="CustomerId" Type="Int32" Nullable="false" />
           <Property Name="ProductId" Type="Int32" Nullable="false" />
-          <Property Name="SizeStandardId" Type="Int32" Nullable="false" />
+          <Property Name="SizingStandardId" Type="Int32" Nullable="false" />
           <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="DueDate" Type="DateTime" Precision="3" />
           <Property Name="Code" Type="String" MaxLength="48" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="Quantity" Type="Int32" Nullable="false" />
           <Property Name="UnitPrice" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+          <Property Name="SizeRateDivisor" Type="Int32" Nullable="false" />
           <Property Name="Notes" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="IsApproved" Type="Boolean" Nullable="false" />
           <Property Name="ApproveDate" Type="DateTime" Precision="3" />
@@ -750,8 +752,8 @@
           <NavigationProperty Name="Customer" Relationship="CriticalPathDataModel.FK_PurchaseOrder_CustomerId" FromRole="PurchaseOrder" ToRole="Customer" />
           <NavigationProperty Name="Processes" Relationship="CriticalPathDataModel.FK_Process_PurchaseOrderId" FromRole="PurchaseOrder" ToRole="Process" />
           <NavigationProperty Name="Product" Relationship="CriticalPathDataModel.FK_PurchaseOrder_ProductId" FromRole="PurchaseOrder" ToRole="Product" />
-          <NavigationProperty Name="QuantitySizeRates" Relationship="CriticalPathDataModel.FK_QuantitySizeRate_PurchaseOrderId" FromRole="PurchaseOrder" ToRole="QuantitySizeRate" />
-          <NavigationProperty Name="SizeStandard" Relationship="CriticalPathDataModel.FK_PurchaseOrder_SizeStandardId" FromRole="PurchaseOrder" ToRole="SizeStandard" />
+          <NavigationProperty Name="SizeRates" Relationship="CriticalPathDataModel.FK_SizeRate_PurchaseOrderId" FromRole="PurchaseOrder" ToRole="SizeRate" />
+          <NavigationProperty Name="SizingStandard" Relationship="CriticalPathDataModel.FK_PurchaseOrder_SizingStandardId" FromRole="PurchaseOrder" ToRole="SizingStandard" />
         </EntityType>
         <Association Name="FK_PurchaseOrder_CustomerId">
           <End Type="CriticalPathDataModel.Customer" Role="Customer" Multiplicity="1" />
@@ -909,7 +911,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="QuantitySizeRate">
+        <EntityType Name="SizeRate">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -925,7 +927,7 @@
           <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CreatorId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
           <Property Name="CreatorIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="PurchaseOrder" Relationship="CriticalPathDataModel.FK_QuantitySizeRate_PurchaseOrderId" FromRole="QuantitySizeRate" ToRole="PurchaseOrder" />
+          <NavigationProperty Name="PurchaseOrder" Relationship="CriticalPathDataModel.FK_SizeRate_PurchaseOrderId" FromRole="SizeRate" ToRole="PurchaseOrder" />
         </EntityType>
         <Association Name="FK_Process_PurchaseOrderId">
           <End Type="CriticalPathDataModel.PurchaseOrder" Role="PurchaseOrder" Multiplicity="1" />
@@ -951,19 +953,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_QuantitySizeRate_PurchaseOrderId">
+        <Association Name="FK_SizeRate_PurchaseOrderId">
           <End Type="CriticalPathDataModel.PurchaseOrder" Role="PurchaseOrder" Multiplicity="1" />
-          <End Type="CriticalPathDataModel.QuantitySizeRate" Role="QuantitySizeRate" Multiplicity="*" />
+          <End Type="CriticalPathDataModel.SizeRate" Role="SizeRate" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PurchaseOrder">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="QuantitySizeRate">
+            <Dependent Role="SizeRate">
               <PropertyRef Name="PurchaseOrderId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="SizeStandard">
+        <EntityType Name="SizingStandard">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -976,17 +978,17 @@
           <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CreatorId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
           <Property Name="CreatorIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="PurchaseOrders" Relationship="CriticalPathDataModel.FK_PurchaseOrder_SizeStandardId" FromRole="SizeStandard" ToRole="PurchaseOrder" />
-          <NavigationProperty Name="SizeCaptions" Relationship="CriticalPathDataModel.FK_SizeCaption_SizeStandardId" FromRole="SizeStandard" ToRole="SizeCaption" />
+          <NavigationProperty Name="PurchaseOrders" Relationship="CriticalPathDataModel.FK_PurchaseOrder_SizingStandardId" FromRole="SizingStandard" ToRole="PurchaseOrder" />
+          <NavigationProperty Name="Sizings" Relationship="CriticalPathDataModel.FK_Sizing_SizingStandardId" FromRole="SizingStandard" ToRole="Sizing" />
         </EntityType>
-        <EntityType Name="SizeCaption">
+        <EntityType Name="Sizing">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
           <Property Name="Caption" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
-          <Property Name="SizeStandardId" Type="Int32" Nullable="false" />
+          <Property Name="SizingStandardId" Type="Int32" Nullable="false" />
           <Property Name="ModifyNr" Type="Int32" Nullable="false" />
           <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
@@ -994,29 +996,29 @@
           <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CreatorId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
           <Property Name="CreatorIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="SizeStandard" Relationship="CriticalPathDataModel.FK_SizeCaption_SizeStandardId" FromRole="SizeCaption" ToRole="SizeStandard" />
+          <NavigationProperty Name="SizingStandard" Relationship="CriticalPathDataModel.FK_Sizing_SizingStandardId" FromRole="Sizing" ToRole="SizingStandard" />
         </EntityType>
-        <Association Name="FK_PurchaseOrder_SizeStandardId">
-          <End Type="CriticalPathDataModel.SizeStandard" Role="SizeStandard" Multiplicity="1" />
+        <Association Name="FK_PurchaseOrder_SizingStandardId">
+          <End Type="CriticalPathDataModel.SizingStandard" Role="SizingStandard" Multiplicity="1" />
           <End Type="CriticalPathDataModel.PurchaseOrder" Role="PurchaseOrder" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="SizeStandard">
+            <Principal Role="SizingStandard">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="PurchaseOrder">
-              <PropertyRef Name="SizeStandardId" />
+              <PropertyRef Name="SizingStandardId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_SizeCaption_SizeStandardId">
-          <End Type="CriticalPathDataModel.SizeStandard" Role="SizeStandard" Multiplicity="1" />
-          <End Type="CriticalPathDataModel.SizeCaption" Role="SizeCaption" Multiplicity="*" />
+        <Association Name="FK_Sizing_SizingStandardId">
+          <End Type="CriticalPathDataModel.SizingStandard" Role="SizingStandard" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.Sizing" Role="Sizing" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="SizeStandard">
+            <Principal Role="SizingStandard">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="SizeCaption">
-              <PropertyRef Name="SizeStandardId" />
+            <Dependent Role="Sizing">
+              <PropertyRef Name="SizingStandardId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1126,7 +1128,8 @@
           <EntitySetMapping Name="PurchaseOrders">
             <EntityTypeMapping TypeName="CriticalPathDataModel.PurchaseOrder">
               <MappingFragment StoreEntitySet="PurchaseOrders">
-                <ScalarProperty Name="SizeStandardId" ColumnName="SizeStandardId" />
+                <ScalarProperty Name="SizeRateDivisor" ColumnName="SizeRateDivisor" />
+                <ScalarProperty Name="SizingStandardId" ColumnName="SizingStandardId" />
                 <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
@@ -1243,9 +1246,9 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="QuantitySizeRates">
-            <EntityTypeMapping TypeName="CriticalPathDataModel.QuantitySizeRate">
-              <MappingFragment StoreEntitySet="QuantitySizeRates">
+          <EntitySetMapping Name="SizeRates">
+            <EntityTypeMapping TypeName="CriticalPathDataModel.SizeRate">
+              <MappingFragment StoreEntitySet="SizeRates">
                 <ScalarProperty Name="Caption" ColumnName="Caption" />
                 <ScalarProperty Name="Rate" ColumnName="Rate" />
                 <ScalarProperty Name="CreatorIp" ColumnName="CreatorIp" />
@@ -1261,9 +1264,9 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SizeStandards">
-            <EntityTypeMapping TypeName="CriticalPathDataModel.SizeStandard">
-              <MappingFragment StoreEntitySet="SizeStandards">
+          <EntitySetMapping Name="SizingStandards">
+            <EntityTypeMapping TypeName="CriticalPathDataModel.SizingStandard">
+              <MappingFragment StoreEntitySet="SizingStandards">
                 <ScalarProperty Name="CreatorIp" ColumnName="CreatorIp" />
                 <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
                 <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
@@ -1276,9 +1279,9 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SizeCaptions">
-            <EntityTypeMapping TypeName="CriticalPathDataModel.SizeCaption">
-              <MappingFragment StoreEntitySet="SizeCaptions">
+          <EntitySetMapping Name="Sizings">
+            <EntityTypeMapping TypeName="CriticalPathDataModel.Sizing">
+              <MappingFragment StoreEntitySet="Sizings">
                 <ScalarProperty Name="CreatorIp" ColumnName="CreatorIp" />
                 <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
                 <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
@@ -1286,7 +1289,7 @@
                 <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
                 <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
                 <ScalarProperty Name="ModifyNr" ColumnName="ModifyNr" />
-                <ScalarProperty Name="SizeStandardId" ColumnName="SizeStandardId" />
+                <ScalarProperty Name="SizingStandardId" ColumnName="SizingStandardId" />
                 <ScalarProperty Name="Caption" ColumnName="Caption" />
                 <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
                 <ScalarProperty Name="Id" ColumnName="Id" />

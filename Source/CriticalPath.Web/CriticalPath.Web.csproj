@@ -206,21 +206,18 @@
     <Compile Include="Controllers\ProductsController.part.cs" />
     <Compile Include="Controllers\PurchaseOrdersController.g.cs" />
     <Compile Include="Controllers\PurchaseOrdersController.part.cs" />
-    <Compile Include="Areas\Admin\Controllers\SizeCaptionsController.g.cs" />
-    <Compile Include="Areas\Admin\Controllers\SizeCaptionsController.part.cs" />
-    <Compile Include="Areas\Admin\Controllers\SizeStandardsController.g.cs" />
-    <Compile Include="Areas\Admin\Controllers\SizeStandardsController.part.cs" />
+    <Compile Include="Areas\Admin\Controllers\SizingStandardsController.g.cs" />
+    <Compile Include="Areas\Admin\Controllers\SizingStandardsController.part.cs" />
     <Compile Include="Controllers\SuppliersController.g.cs" />
     <Compile Include="Controllers\SuppliersController.part.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AppSettings.cs" />
-    <Compile Include="Models\PurchaseOrderCreateVM.cs" />
     <Compile Include="Models\PurchaseOrderVM.cs" />
     <Compile Include="Models\SecurityRoles.g.cs" />
     <Compile Include="Models\SelectThemeVM.cs" />
-    <Compile Include="Models\SizeStandardVM.cs" />
+    <Compile Include="Models\SizingStandardVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -334,9 +331,9 @@
     <Content Include="Areas\Admin\Views\Shared\_PagerPartial.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_SaveButtonsPartial.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_SearchBoxPartial.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\SizeCaption.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\SizeStandard.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_EditSizeCaptions.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Sizing.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\SizingStandard.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_EditSizings.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -452,16 +449,12 @@
     <Content Include="Views\Shared\Approve.cshtml" />
     <Content Include="Views\Shared\_ProductCategorySelectPartial.cshtml" />
     <Content Include="Views\Shared\_ProductSelectPartial.cshtml" />
-    <Content Include="Areas\Admin\Views\SizeStandards\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\SizeStandards\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\SizeStandards\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\SizeStandards\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\SizeCaptions\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\SizeCaptions\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\SizeCaptions\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\SizeCaptions\Index.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\SizeCaption.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\SizeStandard.cshtml" />
+    <Content Include="Areas\Admin\Views\SizingStandards\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\SizingStandards\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\SizingStandards\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\SizingStandards\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Sizing.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SizingStandard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

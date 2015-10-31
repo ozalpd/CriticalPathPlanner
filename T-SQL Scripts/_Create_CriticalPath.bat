@@ -36,8 +36,8 @@
 
 @echo .
 @echo .
-@echo 7 - Executing SizeStandard.sql...
-@sqlcmd -S .\SqlExpress -d CriticalPath -E -i SizeStandard.sql
+@echo 7 - Executing SizingStandard.sql...
+@sqlcmd -S .\SqlExpress -d CriticalPath -E -i SizingStandard.sql
 
 @echo .
 @echo .
@@ -46,13 +46,13 @@
 
 @echo .
 @echo .
-@echo 9 - Executing QuantitySizeRate.sql...
-@sqlcmd -S .\SqlExpress -d CriticalPath -E -i QuantitySizeRate.sql
+@echo 9 - Executing SizeRate.sql...
+@sqlcmd -S .\SqlExpress -d CriticalPath -E -i SizeRate.sql
 
 @echo .
 @echo .
-@echo 10 - Executing SizeCaption.sql...
-@sqlcmd -S .\SqlExpress -d CriticalPath -E -i SizeCaption.sql
+@echo 10 - Executing Sizing.sql...
+@sqlcmd -S .\SqlExpress -d CriticalPath -E -i Sizing.sql
 
 @echo .
 @echo .

@@ -1,0 +1,88 @@
+using System;
+using System.Linq;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text;
+using System.Net;
+using System.Web.Mvc;
+using System.Data;
+using System.Data.Entity;
+using System.Threading.Tasks;
+using CriticalPath.Data;
+using CriticalPath.Web.Models;
+using CriticalPath.Data.Resources;
+
+namespace CriticalPath.Web.Areas.Admin.Controllers
+{
+    public partial class SizingStandardsController
+    {
+
+        [Authorize(Roles = "admin")]
+        public async Task<ActionResult> Edit(int? id)  //GET: /SizingStandards/Edit/5
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            SizingStandard sizingStandard = await FindAsyncSizingStandard(id.Value);
+
+            if (sizingStandard == null)
+            {
+                return HttpNotFound();
+            }
+
+            var sizingStandardVM = new SizingStandardVM(sizingStandard);
+            SetSelectLists(sizingStandard);
+            return View(sizingStandardVM);
+        }
+
+        [Authorize(Roles = "admin")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Edit(SizingStandardVM sizingStandardVM)  //POST: /SizingStandards/Edit/5
+        {
+            if (ModelState.IsValid)
+            {
+                var entity = sizingStandardVM.ToSizingStandard();
+                DataContext.Entry(entity).State = EntityState.Modified;
+
+                var deletingCaptions = new List<Sizing>();
+                foreach (var sizing in entity.Sizings)
+                {
+                    if (sizing.Id > 0)
+                    {
+                        if (string.IsNullOrEmpty(sizing.Caption))
+                        {
+                            deletingCaptions.Add(sizing);
+                        }
+                        else
+                        {
+                            DataContext.Entry(sizing).State = EntityState.Modified;
+                        }
+                    }
+                    else
+                    {
+                        sizing.SizingStandardId = entity.Id;
+                        DataContext.Sizings.Add(sizing);
+                    }
+                }
+
+                foreach (var item in deletingCaptions)
+                {
+                    var sizing = await FindAsyncSizing(item.Id);
+                    DataContext.Sizings.Remove(sizing);
+                }
+
+                await DataContext.SaveChangesAsync(this);
+                OnEditSaved(entity);
+                return RedirectToAction("Index");
+            }
+
+            SetSelectLists(sizingStandardVM.ToSizingStandard());
+            return View(sizingStandardVM);
+        }
+
+        //Purpose: To set default property values for newly created SizingStandard entity
+        //protected override async Task SetSizingStandardDefaults(SizingStandard sizingStandard) { }
+    }
+}

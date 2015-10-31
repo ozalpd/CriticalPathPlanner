@@ -12,13 +12,13 @@ namespace CriticalPath.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class SizeStandard : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate
+    public partial class SizingStandard : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public SizeStandard()
+        public SizingStandard()
         {
             this.PurchaseOrders = new HashSet<PurchaseOrder>();
-            this.SizeCaptions = new HashSet<SizeCaption>();
+            this.Sizings = new HashSet<Sizing>();
         }
     
         public int Id { get; set; }
@@ -34,15 +34,15 @@ namespace CriticalPath.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PurchaseOrder> PurchaseOrders { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SizeCaption> SizeCaptions { get; set; }
+        public virtual ICollection<Sizing> Sizings { get; set; }
     	/// <summary>
-    	/// Clones all properties in a new SizeStandard instance,
+    	/// Clones all properties in a new SizingStandard instance,
     	/// except PrimaryKey(s)
     	/// </summary>
-    	/// <returns>New SizeStandard instance</returns>
-        public SizeStandard Clone()
+    	/// <returns>New SizingStandard instance</returns>
+        public SizingStandard Clone()
         {
-            var clone = new SizeStandard();
+            var clone = new SizingStandard();
             clone.Title = Title;
             clone.ModifyNr = ModifyNr;
             clone.ModifyDate = ModifyDate;
@@ -57,17 +57,17 @@ namespace CriticalPath.Data
             return clone;
         }
     
-    	// Use below function in a partial class file (eg. SizeStandard.part.cs)
+    	// Use below function in a partial class file (eg. SizingStandard.part.cs)
     	// to add more complexity to clone
-        partial void Cloning(SizeStandard clone);
+        partial void Cloning(SizingStandard clone);
     }
     
-    //Data Transfer Object type for SizeStandard
-    public partial class SizeStandardDTO
+    //Data Transfer Object type for SizingStandard
+    public partial class SizingStandardDTO
     {
-        public SizeStandardDTO() { }
+        public SizingStandardDTO() { }
     
-        public SizeStandardDTO(SizeStandard entity)
+        public SizingStandardDTO(SizingStandard entity)
         {
             Id = entity.Id;
             Title = entity.Title;
@@ -75,11 +75,11 @@ namespace CriticalPath.Data
             Initiliazing(entity);
         }
     
-        partial void Initiliazing(SizeStandard entity);
+        partial void Initiliazing(SizingStandard entity);
         
-        public virtual SizeStandard ToSizeStandard()
+        public virtual SizingStandard ToSizingStandard()
         {
-            var entity = new SizeStandard();
+            var entity = new SizingStandard();
             entity.Id = Id;
             entity.Title = Title;
     
@@ -88,7 +88,7 @@ namespace CriticalPath.Data
             return entity;
         }
     
-        partial void Converting(SizeStandard entity);
+        partial void Converting(SizingStandard entity);
       
         public int Id { get; set; }
         public string Title { get; set; }

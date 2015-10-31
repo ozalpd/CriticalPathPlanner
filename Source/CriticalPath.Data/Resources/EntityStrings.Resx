@@ -111,16 +111,16 @@
 		<value>Add New Purchase Order</value>
 	</data>
 
-	<data name="AddNewQuantitySizeRate" xml:space="preserve">
-		<value>Add New Quantity Size Rate</value>
+	<data name="AddNewSizeRate" xml:space="preserve">
+		<value>Add New Size Rate</value>
 	</data>
 
-	<data name="AddNewSizeCaption" xml:space="preserve">
-		<value>Add New Size Caption</value>
+	<data name="AddNewSizing" xml:space="preserve">
+		<value>Add New Sizing</value>
 	</data>
 
-	<data name="AddNewSizeStandard" xml:space="preserve">
-		<value>Add New Size Standard</value>
+	<data name="AddNewSizingStandard" xml:space="preserve">
+		<value>Add New Sizing Standard</value>
 	</data>
 
 	<data name="AddNewSupplier" xml:space="preserve">
@@ -155,10 +155,6 @@
 		<value>Add Purchase Order</value>
 	</data>
 
-	<data name="AddQuantitySizeRate" xml:space="preserve">
-		<value>Add Quantity Size Rate</value>
-	</data>
-
 	<data name="Address1" xml:space="preserve">
 		<value>Address Line 1</value>
 	</data>
@@ -167,12 +163,16 @@
 		<value>Address Line 2</value>
 	</data>
 
-	<data name="AddSizeCaption" xml:space="preserve">
-		<value>Add Size Caption</value>
+	<data name="AddSizeRate" xml:space="preserve">
+		<value>Add Size Rate</value>
 	</data>
 
-	<data name="AddSizeStandard" xml:space="preserve">
-		<value>Add Size Standard</value>
+	<data name="AddSizing" xml:space="preserve">
+		<value>Add Sizing</value>
+	</data>
+
+	<data name="AddSizingStandard" xml:space="preserve">
+		<value>Add Sizing Standard</value>
 	</data>
 
 	<data name="AddSupplier" xml:space="preserve">
@@ -291,16 +291,16 @@
 		<value>Create Purchase Order</value>
 	</data>
 
-	<data name="CreateQuantitySizeRate" xml:space="preserve">
-		<value>Create Quantity Size Rate</value>
+	<data name="CreateSizeRate" xml:space="preserve">
+		<value>Create Size Rate</value>
 	</data>
 
-	<data name="CreateSizeCaption" xml:space="preserve">
-		<value>Create Size Caption</value>
+	<data name="CreateSizing" xml:space="preserve">
+		<value>Create Sizing</value>
 	</data>
 
-	<data name="CreateSizeStandard" xml:space="preserve">
-		<value>Create Size Standard</value>
+	<data name="CreateSizingStandard" xml:space="preserve">
+		<value>Create Sizing Standard</value>
 	</data>
 
 	<data name="CreateSupplier" xml:space="preserve">
@@ -379,16 +379,16 @@
 		<value>Delete Purchase Order</value>
 	</data>
 
-	<data name="DeleteQuantitySizeRate" xml:space="preserve">
-		<value>Delete Quantity Size Rate</value>
+	<data name="DeleteSizeRate" xml:space="preserve">
+		<value>Delete Size Rate</value>
 	</data>
 
-	<data name="DeleteSizeCaption" xml:space="preserve">
-		<value>Delete Size Caption</value>
+	<data name="DeleteSizing" xml:space="preserve">
+		<value>Delete Sizing</value>
 	</data>
 
-	<data name="DeleteSizeStandard" xml:space="preserve">
-		<value>Delete Size Standard</value>
+	<data name="DeleteSizingStandard" xml:space="preserve">
+		<value>Delete Sizing Standard</value>
 	</data>
 
 	<data name="DeleteSupplier" xml:space="preserve">
@@ -447,16 +447,16 @@
 		<value>Edit Purchase Order</value>
 	</data>
 
-	<data name="EditQuantitySizeRate" xml:space="preserve">
-		<value>Edit Quantity Size Rate</value>
+	<data name="EditSizeRate" xml:space="preserve">
+		<value>Edit Size Rate</value>
 	</data>
 
-	<data name="EditSizeCaption" xml:space="preserve">
-		<value>Edit Size Caption</value>
+	<data name="EditSizing" xml:space="preserve">
+		<value>Edit Sizing</value>
 	</data>
 
-	<data name="EditSizeStandard" xml:space="preserve">
-		<value>Edit Size Standard</value>
+	<data name="EditSizingStandard" xml:space="preserve">
+		<value>Edit Sizing Standard</value>
 	</data>
 
 	<data name="EditSupplier" xml:space="preserve">
@@ -663,18 +663,6 @@
 		<value>Quantity</value>
 	</data>
 
-	<data name="QuantitySizeRate" xml:space="preserve">
-		<value>Quantity Size Rate</value>
-	</data>
-
-	<data name="QuantitySizeRates" xml:space="preserve">
-		<value>Quantity Size Rates</value>
-	</data>
-
-	<data name="QuantitySizeRatesList" xml:space="preserve">
-		<value>Quantity Size Rates List</value>
-	</data>
-
 	<data name="Rate" xml:space="preserve">
 		<value>Rate</value>
 	</data>
@@ -687,32 +675,48 @@
 		<value>Required Work Days</value>
 	</data>
 
-	<data name="SizeCaption" xml:space="preserve">
-		<value>Size Caption</value>
+	<data name="SizeRate" xml:space="preserve">
+		<value>Size Rate</value>
 	</data>
 
-	<data name="SizeCaptions" xml:space="preserve">
-		<value>Size Captions</value>
+	<data name="SizeRateDivisor" xml:space="preserve">
+		<value>Size Rate Divisor</value>
 	</data>
 
-	<data name="SizeCaptionsList" xml:space="preserve">
-		<value>Size Captions List</value>
+	<data name="SizeRates" xml:space="preserve">
+		<value>Size Rates</value>
 	</data>
 
-	<data name="SizeStandard" xml:space="preserve">
-		<value>Size Standard</value>
+	<data name="SizeRatesList" xml:space="preserve">
+		<value>Size Rates List</value>
 	</data>
 
-	<data name="SizeStandardId" xml:space="preserve">
-		<value>Size Standard Id</value>
+	<data name="Sizing" xml:space="preserve">
+		<value>Sizing</value>
 	</data>
 
-	<data name="SizeStandards" xml:space="preserve">
-		<value>Size Standards</value>
+	<data name="Sizings" xml:space="preserve">
+		<value>Sizings</value>
 	</data>
 
-	<data name="SizeStandardsList" xml:space="preserve">
-		<value>Size Standards List</value>
+	<data name="SizingsList" xml:space="preserve">
+		<value>Sizings List</value>
+	</data>
+
+	<data name="SizingStandard" xml:space="preserve">
+		<value>Sizing Standard</value>
+	</data>
+
+	<data name="SizingStandardId" xml:space="preserve">
+		<value>Sizing Standard Id</value>
+	</data>
+
+	<data name="SizingStandards" xml:space="preserve">
+		<value>Sizing Standards</value>
+	</data>
+
+	<data name="SizingStandardsList" xml:space="preserve">
+		<value>Sizing Standards List</value>
 	</data>
 
 	<data name="State" xml:space="preserve">

@@ -178,29 +178,29 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add New Quantity Size Rate.
+        ///   Looks up a localized string similar to Add New Size Rate.
         /// </summary>
-        public static string AddNewQuantitySizeRate {
+        public static string AddNewSizeRate {
             get {
-                return ResourceManager.GetString("AddNewQuantitySizeRate", resourceCulture);
+                return ResourceManager.GetString("AddNewSizeRate", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add New Size Caption.
+        ///   Looks up a localized string similar to Add New Sizing.
         /// </summary>
-        public static string AddNewSizeCaption {
+        public static string AddNewSizing {
             get {
-                return ResourceManager.GetString("AddNewSizeCaption", resourceCulture);
+                return ResourceManager.GetString("AddNewSizing", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add New Size Standard.
+        ///   Looks up a localized string similar to Add New Sizing Standard.
         /// </summary>
-        public static string AddNewSizeStandard {
+        public static string AddNewSizingStandard {
             get {
-                return ResourceManager.GetString("AddNewSizeStandard", resourceCulture);
+                return ResourceManager.GetString("AddNewSizingStandard", resourceCulture);
             }
         }
         
@@ -277,15 +277,6 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add Quantity Size Rate.
-        /// </summary>
-        public static string AddQuantitySizeRate {
-            get {
-                return ResourceManager.GetString("AddQuantitySizeRate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Address Line 1.
         /// </summary>
         public static string Address1 {
@@ -304,20 +295,29 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add Size Caption.
+        ///   Looks up a localized string similar to Add Size Rate.
         /// </summary>
-        public static string AddSizeCaption {
+        public static string AddSizeRate {
             get {
-                return ResourceManager.GetString("AddSizeCaption", resourceCulture);
+                return ResourceManager.GetString("AddSizeRate", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add Size Standard.
+        ///   Looks up a localized string similar to Add Sizing.
         /// </summary>
-        public static string AddSizeStandard {
+        public static string AddSizing {
             get {
-                return ResourceManager.GetString("AddSizeStandard", resourceCulture);
+                return ResourceManager.GetString("AddSizing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Sizing Standard.
+        /// </summary>
+        public static string AddSizingStandard {
+            get {
+                return ResourceManager.GetString("AddSizingStandard", resourceCulture);
             }
         }
         
@@ -583,29 +583,29 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Create Quantity Size Rate.
+        ///   Looks up a localized string similar to Create Size Rate.
         /// </summary>
-        public static string CreateQuantitySizeRate {
+        public static string CreateSizeRate {
             get {
-                return ResourceManager.GetString("CreateQuantitySizeRate", resourceCulture);
+                return ResourceManager.GetString("CreateSizeRate", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Create Size Caption.
+        ///   Looks up a localized string similar to Create Sizing.
         /// </summary>
-        public static string CreateSizeCaption {
+        public static string CreateSizing {
             get {
-                return ResourceManager.GetString("CreateSizeCaption", resourceCulture);
+                return ResourceManager.GetString("CreateSizing", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Create Size Standard.
+        ///   Looks up a localized string similar to Create Sizing Standard.
         /// </summary>
-        public static string CreateSizeStandard {
+        public static string CreateSizingStandard {
             get {
-                return ResourceManager.GetString("CreateSizeStandard", resourceCulture);
+                return ResourceManager.GetString("CreateSizingStandard", resourceCulture);
             }
         }
         
@@ -781,29 +781,29 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Delete Quantity Size Rate.
+        ///   Looks up a localized string similar to Delete Size Rate.
         /// </summary>
-        public static string DeleteQuantitySizeRate {
+        public static string DeleteSizeRate {
             get {
-                return ResourceManager.GetString("DeleteQuantitySizeRate", resourceCulture);
+                return ResourceManager.GetString("DeleteSizeRate", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Delete Size Caption.
+        ///   Looks up a localized string similar to Delete Sizing.
         /// </summary>
-        public static string DeleteSizeCaption {
+        public static string DeleteSizing {
             get {
-                return ResourceManager.GetString("DeleteSizeCaption", resourceCulture);
+                return ResourceManager.GetString("DeleteSizing", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Delete Size Standard.
+        ///   Looks up a localized string similar to Delete Sizing Standard.
         /// </summary>
-        public static string DeleteSizeStandard {
+        public static string DeleteSizingStandard {
             get {
-                return ResourceManager.GetString("DeleteSizeStandard", resourceCulture);
+                return ResourceManager.GetString("DeleteSizingStandard", resourceCulture);
             }
         }
         
@@ -934,29 +934,29 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit Quantity Size Rate.
+        ///   Looks up a localized string similar to Edit Size Rate.
         /// </summary>
-        public static string EditQuantitySizeRate {
+        public static string EditSizeRate {
             get {
-                return ResourceManager.GetString("EditQuantitySizeRate", resourceCulture);
+                return ResourceManager.GetString("EditSizeRate", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit Size Caption.
+        ///   Looks up a localized string similar to Edit Sizing.
         /// </summary>
-        public static string EditSizeCaption {
+        public static string EditSizing {
             get {
-                return ResourceManager.GetString("EditSizeCaption", resourceCulture);
+                return ResourceManager.GetString("EditSizing", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit Size Standard.
+        ///   Looks up a localized string similar to Edit Sizing Standard.
         /// </summary>
-        public static string EditSizeStandard {
+        public static string EditSizingStandard {
             get {
-                return ResourceManager.GetString("EditSizeStandard", resourceCulture);
+                return ResourceManager.GetString("EditSizingStandard", resourceCulture);
             }
         }
         
@@ -1420,33 +1420,6 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Quantity Size Rate.
-        /// </summary>
-        public static string QuantitySizeRate {
-            get {
-                return ResourceManager.GetString("QuantitySizeRate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Quantity Size Rates.
-        /// </summary>
-        public static string QuantitySizeRates {
-            get {
-                return ResourceManager.GetString("QuantitySizeRates", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Quantity Size Rates List.
-        /// </summary>
-        public static string QuantitySizeRatesList {
-            get {
-                return ResourceManager.GetString("QuantitySizeRatesList", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Rate.
         /// </summary>
         public static string Rate {
@@ -1474,65 +1447,101 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Size Caption.
+        ///   Looks up a localized string similar to Size Rate.
         /// </summary>
-        public static string SizeCaption {
+        public static string SizeRate {
             get {
-                return ResourceManager.GetString("SizeCaption", resourceCulture);
+                return ResourceManager.GetString("SizeRate", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Size Captions.
+        ///   Looks up a localized string similar to Size Rate Divisor.
         /// </summary>
-        public static string SizeCaptions {
+        public static string SizeRateDivisor {
             get {
-                return ResourceManager.GetString("SizeCaptions", resourceCulture);
+                return ResourceManager.GetString("SizeRateDivisor", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Size Captions List.
+        ///   Looks up a localized string similar to Size Rates.
         /// </summary>
-        public static string SizeCaptionsList {
+        public static string SizeRates {
             get {
-                return ResourceManager.GetString("SizeCaptionsList", resourceCulture);
+                return ResourceManager.GetString("SizeRates", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Size Standard.
+        ///   Looks up a localized string similar to Size Rates List.
         /// </summary>
-        public static string SizeStandard {
+        public static string SizeRatesList {
             get {
-                return ResourceManager.GetString("SizeStandard", resourceCulture);
+                return ResourceManager.GetString("SizeRatesList", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Size Standard Id.
+        ///   Looks up a localized string similar to Sizing.
         /// </summary>
-        public static string SizeStandardId {
+        public static string Sizing {
             get {
-                return ResourceManager.GetString("SizeStandardId", resourceCulture);
+                return ResourceManager.GetString("Sizing", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Size Standards.
+        ///   Looks up a localized string similar to Sizings.
         /// </summary>
-        public static string SizeStandards {
+        public static string Sizings {
             get {
-                return ResourceManager.GetString("SizeStandards", resourceCulture);
+                return ResourceManager.GetString("Sizings", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Size Standards List.
+        ///   Looks up a localized string similar to Sizings List.
         /// </summary>
-        public static string SizeStandardsList {
+        public static string SizingsList {
             get {
-                return ResourceManager.GetString("SizeStandardsList", resourceCulture);
+                return ResourceManager.GetString("SizingsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sizing Standard.
+        /// </summary>
+        public static string SizingStandard {
+            get {
+                return ResourceManager.GetString("SizingStandard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sizing Standard Id.
+        /// </summary>
+        public static string SizingStandardId {
+            get {
+                return ResourceManager.GetString("SizingStandardId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sizing Standards.
+        /// </summary>
+        public static string SizingStandards {
+            get {
+                return ResourceManager.GetString("SizingStandards", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sizing Standards List.
+        /// </summary>
+        public static string SizingStandardsList {
+            get {
+                return ResourceManager.GetString("SizingStandardsList", resourceCulture);
             }
         }
         

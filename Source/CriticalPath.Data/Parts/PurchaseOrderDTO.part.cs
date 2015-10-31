@@ -25,6 +25,10 @@ namespace CriticalPath.Data
             {
                 Product = new ProductDTO(entity.Product);
             }
+            foreach (var rate in entity.SizeRates)
+            {
+                SizeRates.Add(new SizeRateDTO(rate));
+            }
         }
 
         partial void Converting(PurchaseOrder entity)
@@ -33,6 +37,24 @@ namespace CriticalPath.Data
             {
                 entity.Product = Product.ToProduct();
             }
+            foreach (var rate in SizeRates)
+            {
+                entity.SizeRates.Add(rate.ToSizeRate());
+            }
         }
+
+
+        public ICollection<SizeRateDTO> SizeRates
+        {
+            set { _sizeRates = value; }
+            get
+            {
+                if (_sizeRates == null)
+                    _sizeRates = new List<SizeRateDTO>();
+                return _sizeRates;
+            }
+        }
+        private ICollection<SizeRateDTO> _sizeRates;
+
     }
 }

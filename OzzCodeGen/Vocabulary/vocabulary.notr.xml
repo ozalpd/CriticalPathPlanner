@@ -69,10 +69,6 @@
     <Translation>Add New Purchase Order</Translation>
   </Vocab>
   <Vocab>
-    <Name>AddNewQuantitySizeRate</Name>
-    <Translation>Add New Quantity Size Rate</Translation>
-  </Vocab>
-  <Vocab>
     <Name>AddNewSize</Name>
     <Translation>Add New Size</Translation>
   </Vocab>
@@ -85,8 +81,16 @@
     <Translation>Add New Size Quantity</Translation>
   </Vocab>
   <Vocab>
-    <Name>AddNewSizeStandard</Name>
-    <Translation>Add New Size Standard</Translation>
+    <Name>AddNewSizeRate</Name>
+    <Translation>Add New Size Rate</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewSizing</Name>
+    <Translation>Add New Sizing</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewSizingStandard</Name>
+    <Translation>Add New Sizing Standard</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNewSupplier</Name>
@@ -125,10 +129,6 @@
     <Translation>Add Purchase Order</Translation>
   </Vocab>
   <Vocab>
-    <Name>AddQuantitySizeRate</Name>
-    <Translation>Add Quantity Size Rate</Translation>
-  </Vocab>
-  <Vocab>
     <Name>Address</Name>
     <Translation>Address</Translation>
   </Vocab>
@@ -153,8 +153,16 @@
     <Translation>Add Size Quantity</Translation>
   </Vocab>
   <Vocab>
-    <Name>AddSizeStandard</Name>
-    <Translation>Add Size Standard</Translation>
+    <Name>AddSizeRate</Name>
+    <Translation>Add Size Rate</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddSizing</Name>
+    <Translation>Add Sizing</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddSizingStandard</Name>
+    <Translation>Add Sizing Standard</Translation>
   </Vocab>
   <Vocab>
     <Name>AddSupplier</Name>
@@ -361,10 +369,6 @@
     <Translation>Create Purchase Order</Translation>
   </Vocab>
   <Vocab>
-    <Name>CreateQuantitySizeRate</Name>
-    <Translation>Create Quantity Size Rate</Translation>
-  </Vocab>
-  <Vocab>
     <Name>CreateSize</Name>
     <Translation>Create Size</Translation>
   </Vocab>
@@ -377,8 +381,16 @@
     <Translation>Create Size Quantity</Translation>
   </Vocab>
   <Vocab>
-    <Name>CreateSizeStandard</Name>
-    <Translation>Create Size Standard</Translation>
+    <Name>CreateSizeRate</Name>
+    <Translation>Create Size Rate</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateSizing</Name>
+    <Translation>Create Sizing</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateSizingStandard</Name>
+    <Translation>Create Sizing Standard</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateSupplier</Name>
@@ -473,10 +485,6 @@
     <Translation>Delete Purchase Order</Translation>
   </Vocab>
   <Vocab>
-    <Name>DeleteQuantitySizeRate</Name>
-    <Translation>Delete Quantity Size Rate</Translation>
-  </Vocab>
-  <Vocab>
     <Name>DeleteSize</Name>
     <Translation>Delete Size</Translation>
   </Vocab>
@@ -489,8 +497,16 @@
     <Translation>Delete Size Quantity</Translation>
   </Vocab>
   <Vocab>
-    <Name>DeleteSizeStandard</Name>
-    <Translation>Delete Size Standard</Translation>
+    <Name>DeleteSizeRate</Name>
+    <Translation>Delete Size Rate</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteSizing</Name>
+    <Translation>Delete Sizing</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteSizingStandard</Name>
+    <Translation>Delete Sizing Standard</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteSupplier</Name>
@@ -593,10 +609,6 @@
     <Translation>Edit Purchase Order</Translation>
   </Vocab>
   <Vocab>
-    <Name>EditQuantitySizeRate</Name>
-    <Translation>Edit Quantity Size Rate</Translation>
-  </Vocab>
-  <Vocab>
     <Name>EditSize</Name>
     <Translation>Edit Size</Translation>
   </Vocab>
@@ -609,8 +621,16 @@
     <Translation>Edit Size Quantity</Translation>
   </Vocab>
   <Vocab>
-    <Name>EditSizeStandard</Name>
-    <Translation>Edit Size Standard</Translation>
+    <Name>EditSizeRate</Name>
+    <Translation>Edit Size Rate</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditSizing</Name>
+    <Translation>Edit Sizing</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditSizingStandard</Name>
+    <Translation>Edit Sizing Standard</Translation>
   </Vocab>
   <Vocab>
     <Name>EditSupplier</Name>
@@ -1029,18 +1049,6 @@
     <Translation>Quantity</Translation>
   </Vocab>
   <Vocab>
-    <Name>QuantitySizeRate</Name>
-    <Translation>Quantity Size Rate</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>QuantitySizeRates</Name>
-    <Translation>Quantity Size Rates</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>QuantitySizeRatesList</Name>
-    <Translation>Quantity Size Rates List</Translation>
-  </Vocab>
-  <Vocab>
     <Name>Rarely</Name>
     <Translation>Rarely</Translation>
   </Vocab>
@@ -1141,6 +1149,22 @@
     <Translation>Size Quantity</Translation>
   </Vocab>
   <Vocab>
+    <Name>SizeRate</Name>
+    <Translation>Size Rate</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizeRateDivisor</Name>
+    <Translation>Size Rate Divisor</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizeRates</Name>
+    <Translation>Size Rates</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizeRatesList</Name>
+    <Translation>Size Rates List</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Sizes</Name>
     <Translation>Sizes</Translation>
   </Vocab>
@@ -1149,20 +1173,32 @@
     <Translation>Sizes List</Translation>
   </Vocab>
   <Vocab>
-    <Name>SizeStandard</Name>
-    <Translation>Size Standard</Translation>
+    <Name>Sizing</Name>
+    <Translation>Sizing</Translation>
   </Vocab>
   <Vocab>
-    <Name>SizeStandardId</Name>
-    <Translation>Size Standard Id</Translation>
+    <Name>Sizings</Name>
+    <Translation>Sizings</Translation>
   </Vocab>
   <Vocab>
-    <Name>SizeStandards</Name>
-    <Translation>Size Standards</Translation>
+    <Name>SizingsList</Name>
+    <Translation>Sizings List</Translation>
   </Vocab>
   <Vocab>
-    <Name>SizeStandardsList</Name>
-    <Translation>Size Standards List</Translation>
+    <Name>SizingStandard</Name>
+    <Translation>Sizing Standard</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizingStandardId</Name>
+    <Translation>Sizing Standard Id</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizingStandards</Name>
+    <Translation>Sizing Standards</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizingStandardsList</Name>
+    <Translation>Sizing Standards List</Translation>
   </Vocab>
   <Vocab>
     <Name>Slow</Name>

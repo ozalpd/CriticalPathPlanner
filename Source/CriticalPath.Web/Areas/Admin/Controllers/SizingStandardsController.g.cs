@@ -15,11 +15,11 @@ using CriticalPath.Web.Controllers;
 
 namespace CriticalPath.Web.Areas.Admin.Controllers
 {
-    public partial class SizeStandardsController : BaseController 
+    public partial class SizingStandardsController : BaseController 
     {
-        protected virtual IQueryable<SizeStandard> GetSizeStandardQuery(QueryParameters qParams)
+        protected virtual IQueryable<SizingStandard> GetSizingStandardQuery(QueryParameters qParams)
         {
-            var query = GetSizeStandardQuery();
+            var query = GetSizingStandardQuery();
             if (!string.IsNullOrEmpty(qParams.SearchString))
             {
                 query = from a in query
@@ -34,7 +34,7 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
         [Authorize]
         public async Task<ActionResult> Index(QueryParameters qParams)
         {
-            var query = GetSizeStandardQuery(qParams);
+            var query = GetSizingStandardQuery(qParams);
             qParams.TotalCount = await query.CountAsync();
             PutPagerInViewBag(qParams);
             await PutCanUserInViewBag();
@@ -45,7 +45,7 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             }
             else
             {
-                return View(new List<SizeStandard>());   //there isn't any record, so no need to run a query
+                return View(new List<SizingStandard>());   //there isn't any record, so no need to run a query
             }
         }
         
@@ -83,83 +83,83 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
         bool? _canUserDelete;
 
         [Authorize]
-        public async Task<ActionResult> Details(int? id)  //GET: /SizeStandards/Details/5
+        public async Task<ActionResult> Details(int? id)  //GET: /SizingStandards/Details/5
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SizeStandard sizeStandard = await FindAsyncSizeStandard(id.Value);
+            SizingStandard sizingStandard = await FindAsyncSizingStandard(id.Value);
 
-            if (sizeStandard == null)
+            if (sizingStandard == null)
             {
                 return HttpNotFound();
             }
 
-            return View(sizeStandard);
+            return View(sizingStandard);
         }
 
         [HttpGet]
         [Authorize(Roles = "admin")]
-        public async Task<ActionResult> Create()  //GET: /SizeStandards/Create
+        public async Task<ActionResult> Create()  //GET: /SizingStandards/Create
         {
-            var sizeStandardVM = new SizeStandardVM();
-            await SetSizeStandardDefaults(sizeStandardVM);
-            SetSelectLists(sizeStandardVM.ToSizeStandard());
-            return View(sizeStandardVM);
+            var sizingStandardVM = new SizingStandardVM();
+            await SetSizingStandardDefaults(sizingStandardVM);
+            SetSelectLists(sizingStandardVM.ToSizingStandard());
+            return View(sizingStandardVM);
         }
 
         [HttpPost]
         [Authorize(Roles = "admin")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(SizeStandardVM sizeStandardVM)  //POST: /SizeStandards/Create
+        public async Task<ActionResult> Create(SizingStandardVM sizingStandardVM)  //POST: /SizingStandards/Create
         {
-            DataContext.SetInsertDefaults(sizeStandardVM, this);
+            DataContext.SetInsertDefaults(sizingStandardVM, this);
 
             if (ModelState.IsValid)
             {
-                OnCreateSaving(sizeStandardVM);
-                var entity = sizeStandardVM.ToSizeStandard();
-                DataContext.SizeStandards.Add(entity);
+                OnCreateSaving(sizingStandardVM);
+                var entity = sizingStandardVM.ToSizingStandard();
+                DataContext.SizingStandards.Add(entity);
                 await DataContext.SaveChangesAsync(this);
                 OnCreateSaved(entity);
                 return RedirectToAction("Index");
             }
 
-            SetSelectLists(sizeStandardVM.ToSizeStandard());
-            return View(sizeStandardVM);
+            SetSelectLists(sizingStandardVM.ToSizingStandard());
+            return View(sizingStandardVM);
         }
 
 
 
         [Authorize(Roles = "admin")]
-        public async Task<ActionResult> Delete(int? id)  //GET: /SizeStandards/Delete/5
+        public async Task<ActionResult> Delete(int? id)  //GET: /SizingStandards/Delete/5
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SizeStandard sizeStandard = await FindAsyncSizeStandard(id.Value);
+            SizingStandard sizingStandard = await FindAsyncSizingStandard(id.Value);
 
-            if (sizeStandard == null)
+            if (sizingStandard == null)
             {
                 return HttpNotFound();
             }
 
-            int sizeCaptionsCount = sizeStandard.SizeCaptions.Count;
-            int purchaseOrdersCount = sizeStandard.PurchaseOrders.Count;
-            if ((sizeCaptionsCount + purchaseOrdersCount) > 0)
+            int sizingsCount = sizingStandard.Sizings.Count;
+            int purchaseOrdersCount = sizingStandard.PurchaseOrders.Count;
+            if ((sizingsCount + purchaseOrdersCount) > 0)
             {
                 var sb = new StringBuilder();
 
                 sb.Append(MessageStrings.CanNotDelete);
                 sb.Append(" <b>");
-                sb.Append(sizeStandard.Title);
+                sb.Append(sizingStandard.Title);
                 sb.Append("</b>.<br/>");
 
-                if (sizeCaptionsCount > 0)
+                if (sizingsCount > 0)
                 {
-                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, sizeCaptionsCount, EntityStrings.SizeCaptions));
+                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, sizingsCount, EntityStrings.Sizings));
                     sb.Append("<br/>");
                 }
 
@@ -172,7 +172,7 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 return GetErrorResult(sb, HttpStatusCode.BadRequest);
             }
 
-            DataContext.SizeStandards.Remove(sizeStandard);
+            DataContext.SizingStandards.Remove(sizingStandard);
             try
             {
                 await DataContext.SaveChangesAsync(this);
@@ -181,7 +181,7 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             {
                 var sb = new StringBuilder();
                 sb.Append(MessageStrings.CanNotDelete);
-                sb.Append(sizeStandard.Title);
+                sb.Append(sizingStandard.Title);
                 sb.Append("<br/>");
                 AppendExceptionMsg(ex, sb);
 
@@ -193,10 +193,10 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
 
 
         //Partial methods
-        partial void OnCreateSaving(SizeStandardVM sizeStandard);
-        partial void OnCreateSaved(SizeStandard sizeStandard);
-        partial void OnEditSaving(SizeStandardVM sizeStandard);
-        partial void OnEditSaved(SizeStandard sizeStandard);
-        partial void SetSelectLists(SizeStandard sizeStandard);
+        partial void OnCreateSaving(SizingStandardVM sizingStandard);
+        partial void OnCreateSaved(SizingStandard sizingStandard);
+        partial void OnEditSaving(SizingStandardVM sizingStandard);
+        partial void OnEditSaved(SizingStandard sizingStandard);
+        partial void SetSelectLists(SizingStandard sizingStandard);
     }
 }

@@ -69,10 +69,6 @@
     <Translation>Yeni Sipariş Ekle</Translation>
   </Vocab>
   <Vocab>
-    <Name>AddNewQuantitySizeRate</Name>
-    <Translation>Yeni Ölçü Miktar Oranı Ekle</Translation>
-  </Vocab>
-  <Vocab>
     <Name>AddNewSize</Name>
     <Translation>Yeni Ölçü Ekle</Translation>
   </Vocab>
@@ -85,7 +81,15 @@
     <Translation>Yeni Ölçü Miktarı Ekle</Translation>
   </Vocab>
   <Vocab>
-    <Name>AddNewSizeStandard</Name>
+    <Name>AddNewSizeRate</Name>
+    <Translation>Yeni Ölçü Oranı Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewSizing</Name>
+    <Translation>Yeni Ölçülendirme Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewSizingStandard</Name>
     <Translation>Yeni Ölçü Standartı Ekle</Translation>
   </Vocab>
   <Vocab>
@@ -125,10 +129,6 @@
     <Translation>Sipariş Ekle</Translation>
   </Vocab>
   <Vocab>
-    <Name>AddQuantitySizeRate</Name>
-    <Translation>Ölçü Miktar Oranı Ekle</Translation>
-  </Vocab>
-  <Vocab>
     <Name>Address</Name>
     <Translation>Adres</Translation>
   </Vocab>
@@ -153,7 +153,15 @@
     <Translation>Ölçü Miktarı Ekle</Translation>
   </Vocab>
   <Vocab>
-    <Name>AddSizeStandard</Name>
+    <Name>AddSizeRate</Name>
+    <Translation>Ölçü Oranı Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddSizing</Name>
+    <Translation>Ölçülendirme Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddSizingStandard</Name>
     <Translation>Ölçü Standartı Ekle</Translation>
   </Vocab>
   <Vocab>
@@ -361,10 +369,6 @@
     <Translation>Sipariş Oluştur</Translation>
   </Vocab>
   <Vocab>
-    <Name>CreateQuantitySizeRate</Name>
-    <Translation>Ölçü Miktar Oranı Oluştur</Translation>
-  </Vocab>
-  <Vocab>
     <Name>CreateSize</Name>
     <Translation>Ölçü Oluştur</Translation>
   </Vocab>
@@ -377,7 +381,15 @@
     <Translation>Ölçü Miktarı Oluştur</Translation>
   </Vocab>
   <Vocab>
-    <Name>CreateSizeStandard</Name>
+    <Name>CreateSizeRate</Name>
+    <Translation>Ölçü Oranı Oluştur</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateSizing</Name>
+    <Translation>Ölçülendirme Oluştur</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateSizingStandard</Name>
     <Translation>Ölçü Standartı Oluştur</Translation>
   </Vocab>
   <Vocab>
@@ -473,10 +485,6 @@
     <Translation>Siparişi Sil</Translation>
   </Vocab>
   <Vocab>
-    <Name>DeleteQuantitySizeRate</Name>
-    <Translation>Ölçü Miktar Oranı Sil</Translation>
-  </Vocab>
-  <Vocab>
     <Name>DeleteSize</Name>
     <Translation>Ölçü Sil</Translation>
   </Vocab>
@@ -489,7 +497,15 @@
     <Translation>Ölçü Miktarını Sil</Translation>
   </Vocab>
   <Vocab>
-    <Name>DeleteSizeStandard</Name>
+    <Name>DeleteSizeRate</Name>
+    <Translation>Ölçü Oranı Sil</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteSizing</Name>
+    <Translation>Ölçülendirmeyi Sil</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteSizingStandard</Name>
     <Translation>Ölçü Standartını Sil</Translation>
   </Vocab>
   <Vocab>
@@ -593,10 +609,6 @@
     <Translation>Siparişi Düzenle</Translation>
   </Vocab>
   <Vocab>
-    <Name>EditQuantitySizeRate</Name>
-    <Translation>Ölçü Miktar Oranı Düzenle</Translation>
-  </Vocab>
-  <Vocab>
     <Name>EditSize</Name>
     <Translation>Ölçüyü Düzenle</Translation>
   </Vocab>
@@ -609,7 +621,15 @@
     <Translation>Ölçü Miktarını Düzenle</Translation>
   </Vocab>
   <Vocab>
-    <Name>EditSizeStandard</Name>
+    <Name>EditSizeRate</Name>
+    <Translation>Ölçü Oranı Düzenle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditSizing</Name>
+    <Translation>Ölçülendirmeyi Düzenle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditSizingStandard</Name>
     <Translation>Ölçü Standartını Düzenle</Translation>
   </Vocab>
   <Vocab>
@@ -1029,18 +1049,6 @@
     <Translation>Miktar</Translation>
   </Vocab>
   <Vocab>
-    <Name>QuantitySizeRate</Name>
-    <Translation>Ölçü Miktar Oranı</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>QuantitySizeRates</Name>
-    <Translation>Ölçü Miktar Oranları</Translation>
-  </Vocab>
-  <Vocab>
-    <Name>QuantitySizeRatesList</Name>
-    <Translation>Ölçü Miktar Oran Listesi</Translation>
-  </Vocab>
-  <Vocab>
     <Name>Rarely</Name>
     <Translation>Nadiren</Translation>
   </Vocab>
@@ -1141,6 +1149,22 @@
     <Translation>Ölçü Miktarı</Translation>
   </Vocab>
   <Vocab>
+    <Name>SizeRate</Name>
+    <Translation>Ölçü Oranı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizeRateDivisor</Name>
+    <Translation>Ölçü Oran Paydası</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizeRates</Name>
+    <Translation>Ölçü Oranları</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizeRatesList</Name>
+    <Translation>Ölçü Oran Listesi</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Sizes</Name>
     <Translation>Ölçüler</Translation>
   </Vocab>
@@ -1149,19 +1173,31 @@
     <Translation>Ölçü Listesi</Translation>
   </Vocab>
   <Vocab>
-    <Name>SizeStandard</Name>
+    <Name>Sizing</Name>
+    <Translation>Ölçülendirme</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Sizings</Name>
+    <Translation>Ölçülendirmeler</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizingsList</Name>
+    <Translation>Ölçülendirme Listesi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizingStandard</Name>
     <Translation>Ölçü Standartı</Translation>
   </Vocab>
   <Vocab>
-    <Name>SizeStandardId</Name>
+    <Name>SizingStandardId</Name>
     <Translation>Ölçü Standartı</Translation>
   </Vocab>
   <Vocab>
-    <Name>SizeStandards</Name>
+    <Name>SizingStandards</Name>
     <Translation>Ölçü Standartları</Translation>
   </Vocab>
   <Vocab>
-    <Name>SizeStandardsList</Name>
+    <Name>SizingStandardsList</Name>
     <Translation>Ölçü Standartlar Listesi</Translation>
   </Vocab>
   <Vocab>

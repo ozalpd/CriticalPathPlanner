@@ -76,6 +76,7 @@ namespace CriticalPath.Web.Controllers
             var purchaseOrder = await FindAsyncPurchaseOrder(vm.Id);
             if (vm.IsApproved && purchaseOrder != null)
             {
+                purchaseOrder.DueDate = vm.DueDate;
                 await ApproveSaveAsync(purchaseOrder);
                 return RedirectToAction("Details", new { id = purchaseOrder.Id });
             }
@@ -83,7 +84,7 @@ namespace CriticalPath.Web.Controllers
             return View(purchaseOrder);
         }
 
-        protected override Task SetPurchaseOrderDefaults(PurchaseOrderCreateVM purchaseOrder)
+        protected override Task SetPurchaseOrderDefaults(PurchaseOrderVM purchaseOrder)
         {
             purchaseOrder.OrderDate = DateTime.Today;
             return Task.FromResult(default(object));

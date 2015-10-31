@@ -40,9 +40,9 @@ namespace CriticalPath.Data
         public virtual DbSet<ProcessStep> ProcessSteps { get; set; }
         public virtual DbSet<ProcessStepTemplate> ProcessStepTemplates { get; set; }
         public virtual DbSet<ProcessTemplate> ProcessTemplates { get; set; }
-        public virtual DbSet<QuantitySizeRate> QuantitySizeRates { get; set; }
-        public virtual DbSet<SizeStandard> SizeStandards { get; set; }
-        public virtual DbSet<SizeCaption> SizeCaptions { get; set; }
+        public virtual DbSet<SizeRate> SizeRates { get; set; }
+        public virtual DbSet<SizingStandard> SizingStandards { get; set; }
+        public virtual DbSet<Sizing> Sizings { get; set; }
     
         /// <summary>
         /// Default query for Companies
@@ -456,13 +456,14 @@ namespace CriticalPath.Data
                        Title = e.Title,
                        CustomerId = e.CustomerId,
                        ProductId = e.ProductId,
-                       SizeStandardId = e.SizeStandardId,
+                       SizingStandardId = e.SizingStandardId,
                        OrderDate = e.OrderDate,
                        DueDate = e.DueDate,
                        Code = e.Code,
                        Description = e.Description,
                        Quantity = e.Quantity,
                        UnitPrice = e.UnitPrice,
+                       SizeRateDivisor = e.SizeRateDivisor,
                        Notes = e.Notes,
                        IsApproved = e.IsApproved,
                        ApproveDate = e.ApproveDate,
@@ -471,33 +472,33 @@ namespace CriticalPath.Data
     
     
         /// <summary>
-        /// Default query for QuantitySizeRates
+        /// Default query for SizeRates
         /// </summary>
         /// <returns></returns>
-        public virtual IQueryable<QuantitySizeRate> GetQuantitySizeRateQuery()
+        public virtual IQueryable<SizeRate> GetSizeRateQuery()
         {
-            IQueryable<QuantitySizeRate> query = QuantitySizeRates.OrderBy(p => p.DisplayOrder);
+            IQueryable<SizeRate> query = SizeRates.OrderBy(p => p.DisplayOrder);
             return query;
         }
     
         /// <summary>
-        /// Gets a lighter data transfer object query from QuantitySizeRate query
+        /// Gets a lighter data transfer object query from SizeRate query
         /// </summary>
         /// <param name="query">query to be converted</param>
         /// <returns>Converted data transfer object query</returns>
-        public virtual IQueryable<QuantitySizeRateDTO> GetQuantitySizeRateDtoQuery()
+        public virtual IQueryable<SizeRateDTO> GetSizeRateDtoQuery()
         {
-            return GetQuantitySizeRateDtoQuery(GetQuantitySizeRateQuery());
+            return GetSizeRateDtoQuery(GetSizeRateQuery());
         }
     
         /// <summary>
-        /// Gets a lighter data transfer object query from QuantitySizeRate query
+        /// Gets a lighter data transfer object query from SizeRate query
         /// </summary>
         /// <returns>Converted data transfer object query</returns>
-        public virtual IQueryable<QuantitySizeRateDTO> GetQuantitySizeRateDtoQuery(IQueryable<QuantitySizeRate> query)
+        public virtual IQueryable<SizeRateDTO> GetSizeRateDtoQuery(IQueryable<SizeRate> query)
         {
             return from e in query
-                   select new QuantitySizeRateDTO
+                   select new SizeRateDTO
                    {
                        Id = e.Id,
                        DisplayOrder = e.DisplayOrder,
@@ -509,70 +510,70 @@ namespace CriticalPath.Data
     
     
         /// <summary>
-        /// Default query for SizeCaptions
+        /// Default query for Sizings
         /// </summary>
         /// <returns></returns>
-        public virtual IQueryable<SizeCaption> GetSizeCaptionQuery()
+        public virtual IQueryable<Sizing> GetSizingQuery()
         {
-            IQueryable<SizeCaption> query = SizeCaptions.OrderBy(p => p.DisplayOrder);
+            IQueryable<Sizing> query = Sizings.OrderBy(p => p.DisplayOrder);
             return query;
         }
     
         /// <summary>
-        /// Gets a lighter data transfer object query from SizeCaption query
+        /// Gets a lighter data transfer object query from Sizing query
         /// </summary>
         /// <param name="query">query to be converted</param>
         /// <returns>Converted data transfer object query</returns>
-        public virtual IQueryable<SizeCaptionDTO> GetSizeCaptionDtoQuery()
+        public virtual IQueryable<SizingDTO> GetSizingDtoQuery()
         {
-            return GetSizeCaptionDtoQuery(GetSizeCaptionQuery());
+            return GetSizingDtoQuery(GetSizingQuery());
         }
     
         /// <summary>
-        /// Gets a lighter data transfer object query from SizeCaption query
+        /// Gets a lighter data transfer object query from Sizing query
         /// </summary>
         /// <returns>Converted data transfer object query</returns>
-        public virtual IQueryable<SizeCaptionDTO> GetSizeCaptionDtoQuery(IQueryable<SizeCaption> query)
+        public virtual IQueryable<SizingDTO> GetSizingDtoQuery(IQueryable<Sizing> query)
         {
             return from e in query
-                   select new SizeCaptionDTO
+                   select new SizingDTO
                    {
                        Id = e.Id,
                        DisplayOrder = e.DisplayOrder,
                        Caption = e.Caption,
-                       SizeStandardId = e.SizeStandardId,
+                       SizingStandardId = e.SizingStandardId,
                    };
         }
     
     
         /// <summary>
-        /// Default query for SizeStandards
+        /// Default query for SizingStandards
         /// </summary>
         /// <returns></returns>
-        public virtual IQueryable<SizeStandard> GetSizeStandardQuery()
+        public virtual IQueryable<SizingStandard> GetSizingStandardQuery()
         {
-            IQueryable<SizeStandard> query = SizeStandards.OrderBy(p => p.Title);
+            IQueryable<SizingStandard> query = SizingStandards.OrderBy(p => p.Title);
             return query;
         }
     
         /// <summary>
-        /// Gets a lighter data transfer object query from SizeStandard query
+        /// Gets a lighter data transfer object query from SizingStandard query
         /// </summary>
         /// <param name="query">query to be converted</param>
         /// <returns>Converted data transfer object query</returns>
-        public virtual IQueryable<SizeStandardDTO> GetSizeStandardDtoQuery()
+        public virtual IQueryable<SizingStandardDTO> GetSizingStandardDtoQuery()
         {
-            return GetSizeStandardDtoQuery(GetSizeStandardQuery());
+            return GetSizingStandardDtoQuery(GetSizingStandardQuery());
         }
     
         /// <summary>
-        /// Gets a lighter data transfer object query from SizeStandard query
+        /// Gets a lighter data transfer object query from SizingStandard query
         /// </summary>
         /// <returns>Converted data transfer object query</returns>
-        public virtual IQueryable<SizeStandardDTO> GetSizeStandardDtoQuery(IQueryable<SizeStandard> query)
+        public virtual IQueryable<SizingStandardDTO> GetSizingStandardDtoQuery(IQueryable<SizingStandard> query)
         {
             return from e in query
-                   select new SizeStandardDTO
+                   select new SizingStandardDTO
                    {
                        Id = e.Id,
                        Title = e.Title,

@@ -9,11 +9,14 @@ namespace CriticalPath.Web.Models
 {
     public class PurchaseOrderVM : PurchaseOrderDTO
     {
+        public PurchaseOrderVM(PurchaseOrder entity) : base(entity) { }
+        public PurchaseOrderVM() { }
+
         protected override void Constructing(PurchaseOrder entity)
         {
             base.Constructing(entity);
             int i = 0;
-            var rates = entity.QuantitySizeRates.OrderBy(r => r.DisplayOrder);
+            var rates = entity.SizeRates.OrderBy(r => r.DisplayOrder);
             foreach (var rate in rates)
             {
                 i++;
@@ -39,11 +42,7 @@ namespace CriticalPath.Web.Models
         public string Size7Caption { get; set; }
         public string Size8Caption { get; set; }
 
-        public int QuantitySizeRateTotal { get; set; }
-
-
-
-        protected void PutSizeRate(int rateNr, QuantitySizeRate rate)
+        protected void PutSizeRate(int rateNr, SizeRate rate)
         {
             switch (rateNr)
             {

@@ -257,70 +257,70 @@ namespace CriticalPath.Web.Controllers
 		    return DataContext.GetPurchaseOrderQuery();
 		}
 
-		protected virtual Task SetPurchaseOrderDefaults(PurchaseOrderCreateVM purchaseOrder)
+		protected virtual Task SetPurchaseOrderDefaults(PurchaseOrderVM purchaseOrder)
         {
             return Task.FromResult(default(object));
         }
 
         /// <summary>
-        /// Finds an QuantitySizeRate by PrimaryKey value
+        /// Finds an SizeRate by PrimaryKey value
         /// </summary>
-        /// <param name="id">Represents PrimaryKey of QuantitySizeRate.Id</param>
+        /// <param name="id">Represents PrimaryKey of SizeRate.Id</param>
         /// <returns></returns>
-        protected virtual async Task<QuantitySizeRate> FindAsyncQuantitySizeRate(int id)
+        protected virtual async Task<SizeRate> FindAsyncSizeRate(int id)
         {
-            return await GetQuantitySizeRateQuery()
+            return await GetSizeRateQuery()
                             .FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        protected virtual IQueryable<QuantitySizeRate> GetQuantitySizeRateQuery()
+        protected virtual IQueryable<SizeRate> GetSizeRateQuery()
 		{
-		    return DataContext.GetQuantitySizeRateQuery();
+		    return DataContext.GetSizeRateQuery();
 		}
 
-		protected virtual Task SetQuantitySizeRateDefaults(QuantitySizeRate quantitySizeRate)
+		protected virtual Task SetSizeRateDefaults(SizeRate sizeRate)
         {
             return Task.FromResult(default(object));
         }
 
         /// <summary>
-        /// Finds an SizeStandard by PrimaryKey value
+        /// Finds an SizingStandard by PrimaryKey value
         /// </summary>
-        /// <param name="id">Represents PrimaryKey of SizeStandard.Id</param>
+        /// <param name="id">Represents PrimaryKey of SizingStandard.Id</param>
         /// <returns></returns>
-        protected virtual async Task<SizeStandard> FindAsyncSizeStandard(int id)
+        protected virtual async Task<SizingStandard> FindAsyncSizingStandard(int id)
         {
-            return await GetSizeStandardQuery()
+            return await GetSizingStandardQuery()
                             .FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        protected virtual IQueryable<SizeStandard> GetSizeStandardQuery()
+        protected virtual IQueryable<SizingStandard> GetSizingStandardQuery()
 		{
-		    return DataContext.GetSizeStandardQuery();
+		    return DataContext.GetSizingStandardQuery();
 		}
 
-		protected virtual Task SetSizeStandardDefaults(SizeStandardVM sizeStandard)
+		protected virtual Task SetSizingStandardDefaults(SizingStandardVM sizingStandard)
         {
             return Task.FromResult(default(object));
         }
 
         /// <summary>
-        /// Finds an SizeCaption by PrimaryKey value
+        /// Finds an Sizing by PrimaryKey value
         /// </summary>
-        /// <param name="id">Represents PrimaryKey of SizeCaption.Id</param>
+        /// <param name="id">Represents PrimaryKey of Sizing.Id</param>
         /// <returns></returns>
-        protected virtual async Task<SizeCaption> FindAsyncSizeCaption(int id)
+        protected virtual async Task<Sizing> FindAsyncSizing(int id)
         {
-            return await GetSizeCaptionQuery()
+            return await GetSizingQuery()
                             .FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        protected virtual IQueryable<SizeCaption> GetSizeCaptionQuery()
+        protected virtual IQueryable<Sizing> GetSizingQuery()
 		{
-		    return DataContext.GetSizeCaptionQuery();
+		    return DataContext.GetSizingQuery();
 		}
 
-		protected virtual Task SetSizeCaptionDefaults(SizeCaption sizeCaption)
+		protected virtual Task SetSizingDefaults(Sizing sizing)
         {
             return Task.FromResult(default(object));
         }

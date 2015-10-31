@@ -68,8 +68,12 @@ namespace CriticalPath.Data
             public decimal UnitPrice { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "SizeStandardId")]
-            public int SizeStandardId { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "SizingStandardId")]
+            public int SizingStandardId { get; set; }
+
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "SizeRateDivisor")]
+            public int SizeRateDivisor { get; set; }
 
             [StringLength(255, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [DataType(DataType.MultilineText)]

@@ -13,13 +13,13 @@ using CriticalPath.Data.Resources;
 
 namespace CriticalPath.Data
 {
-    [MetadataTypeAttribute(typeof(SizeCaptionDTO.SizeCaptionMetadata))]
-    public partial class SizeCaptionDTO
+    [MetadataTypeAttribute(typeof(Sizing.SizingMetadata))]
+    public partial class Sizing
 	{
-        internal sealed partial class SizeCaptionMetadata
+        internal sealed partial class SizingMetadata
 		{
             // This metadata class is not intended to be instantiated.
-            private SizeCaptionMetadata() { }
+            private SizingMetadata() { }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Display(ResourceType = typeof(EntityStrings), Name = "DisplayOrder")]
@@ -31,8 +31,11 @@ namespace CriticalPath.Data
             public string Caption { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "SizeStandardId")]
-            public int SizeStandardId { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "SizingStandardId")]
+            public int SizingStandardId { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "SizingStandard")]
+            public SizingStandard SizingStandard { get; set; }
 
 		}
 	}

@@ -668,7 +668,7 @@
           <Nullable>false</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>SizeStandardId</Name>
+          <Name>SizingStandardId</Name>
           <Exclude>false</Exclude>
           <DataType>int</DataType>
           <Lenght>0</Lenght>
@@ -676,7 +676,17 @@
           <Indexed>false</Indexed>
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
-          <ForeignKeyTable>SizeStandards</ForeignKeyTable>
+          <ForeignKeyTable>SizingStandards</ForeignKeyTable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>SizeRateDivisor</Name>
+          <Exclude>false</Exclude>
+          <DataType>int</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>Notes</Name>
@@ -691,13 +701,13 @@
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
-      <Name>QuantitySizeRate</Name>
+      <Name>SizeRate</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
       <InheritedEntity>IModified</InheritedEntity>
       <UseInheritance>false</UseInheritance>
       <SchemaName>dbo</SchemaName>
-      <TableName>QuantitySizeRates</TableName>
+      <TableName>SizeRates</TableName>
       <ModifyTrack>false</ModifyTrack>
       <StoredProcs>false</StoredProcs>
       <CustomStoredProcs>false</CustomStoredProcs>
@@ -746,13 +756,13 @@
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
-      <Name>SizeStandard</Name>
+      <Name>SizingStandard</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
       <InheritedEntity>IModified</InheritedEntity>
       <UseInheritance>false</UseInheritance>
       <SchemaName>dbo</SchemaName>
-      <TableName>SizeStandards</TableName>
+      <TableName>SizingStandards</TableName>
       <ModifyTrack>false</ModifyTrack>
       <StoredProcs>false</StoredProcs>
       <CustomStoredProcs>false</CustomStoredProcs>
@@ -770,13 +780,13 @@
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
-      <Name>SizeCaption</Name>
+      <Name>Sizing</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
       <InheritedEntity>IModified</InheritedEntity>
       <UseInheritance>false</UseInheritance>
       <SchemaName>dbo</SchemaName>
-      <TableName>SizeCaptions</TableName>
+      <TableName>Sizings</TableName>
       <ModifyTrack>false</ModifyTrack>
       <StoredProcs>false</StoredProcs>
       <CustomStoredProcs>false</CustomStoredProcs>
@@ -802,7 +812,7 @@
           <Nullable>false</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>SizeStandardId</Name>
+          <Name>SizingStandardId</Name>
           <Exclude>false</Exclude>
           <DataType>int</DataType>
           <Lenght>0</Lenght>
@@ -810,7 +820,7 @@
           <Indexed>true</Indexed>
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
-          <ForeignKeyTable>SizeStandards</ForeignKeyTable>
+          <ForeignKeyTable>SizingStandards</ForeignKeyTable>
         </StorageColumnSetting>
       </Properties>
     </BaseEntitySetting>

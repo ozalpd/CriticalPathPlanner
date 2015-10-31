@@ -1,9 +1,9 @@
 @using CriticalPath.Web.Models
 @using CriticalPath.Data
 @using CriticalPath.Data.Resources
-@model IEnumerable<SizeStandard>
+@model IEnumerable<SizingStandard>
 @{
-    ViewBag.Title = @EntityStrings.SizeStandards;
+    ViewBag.Title = @EntityStrings.SizingStandards;
 
     //Authorization Flags
     bool canUserEdit = ViewBag.canUserEdit;
@@ -16,7 +16,7 @@
     int pageSize = ViewBag.pageSize;
     int pageCount = ViewBag.pageCount;
 
-	var title = EntityStrings.SizeStandards;
+	var title = EntityStrings.SizingStandards;
 }
 <div class="row well">
     <div class="col-md-8 col-sm-7">
@@ -37,7 +37,7 @@
         <tr>
             <th>@ActionStrings.Action</th>
             <th>@Html.DisplayNameFor(model => model.Title)</th>
-            <th>@Html.DisplayNameFor(model => model.SizeCaptions)</th>
+            <th>@Html.DisplayNameFor(model => model.Sizings)</th>
         </tr>
     @foreach (var item in Model)
     {
@@ -61,14 +61,11 @@
                                     </a>
                                 </li>
                             }
-                            <li class="divider"></li>
-                                <li>@Html.ActionLink(EntityStrings.AddSizeCaption, "Create", "SizeCaptions", new { sizeStandardId = item.Id }, null)</li>
-                                <li>@Html.ActionLink(EntityStrings.SizeCaptions, "Index", "SizeCaptions", new { sizeStandardId = item.Id }, null)</li>
                         </ul>
                     </div>
                 </td>
                 <td>@Html.DisplayFor(modelItem => item.Title)</td>
-                <td>@Html.DisplayFor(modelItem => item.SizeCaptions)</td>
+                <td>@Html.DisplayFor(modelItem => item.Sizings)</td>
             </tr>
     }
     </table>
@@ -83,5 +80,5 @@ else
     <h4>@MessageStrings.NoResults!</h4>
 }
 @section scripts{
-    @Html.Partial("_IndexScriptsPartial", "SizeStandards")
+    @Html.Partial("_IndexScriptsPartial", "SizingStandards")
 }

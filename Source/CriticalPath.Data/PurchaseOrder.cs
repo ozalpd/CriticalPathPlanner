@@ -18,20 +18,21 @@ namespace CriticalPath.Data
         public PurchaseOrder()
         {
             this.Processes = new HashSet<Process>();
-            this.QuantitySizeRates = new HashSet<QuantitySizeRate>();
+            this.SizeRates = new HashSet<SizeRate>();
         }
     
         public int Id { get; set; }
         public string Title { get; set; }
         public int CustomerId { get; set; }
         public int ProductId { get; set; }
-        public int SizeStandardId { get; set; }
+        public int SizingStandardId { get; set; }
         public System.DateTime OrderDate { get; set; }
         public Nullable<System.DateTime> DueDate { get; set; }
         public string Code { get; set; }
         public string Description { get; set; }
         public int Quantity { get; set; }
         public decimal UnitPrice { get; set; }
+        public int SizeRateDivisor { get; set; }
         public string Notes { get; set; }
         public bool IsApproved { get; set; }
         public Nullable<System.DateTime> ApproveDate { get; set; }
@@ -50,8 +51,8 @@ namespace CriticalPath.Data
         public virtual ICollection<Process> Processes { get; set; }
         public virtual Product Product { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<QuantitySizeRate> QuantitySizeRates { get; set; }
-        public virtual SizeStandard SizeStandard { get; set; }
+        public virtual ICollection<SizeRate> SizeRates { get; set; }
+        public virtual SizingStandard SizingStandard { get; set; }
     	/// <summary>
     	/// Clones all properties in a new PurchaseOrder instance,
     	/// except PrimaryKey(s)
@@ -63,13 +64,14 @@ namespace CriticalPath.Data
             clone.Title = Title;
             clone.CustomerId = CustomerId;
             clone.ProductId = ProductId;
-            clone.SizeStandardId = SizeStandardId;
+            clone.SizingStandardId = SizingStandardId;
             clone.OrderDate = OrderDate;
             clone.DueDate = DueDate;
             clone.Code = Code;
             clone.Description = Description;
             clone.Quantity = Quantity;
             clone.UnitPrice = UnitPrice;
+            clone.SizeRateDivisor = SizeRateDivisor;
             clone.Notes = Notes;
             clone.IsApproved = IsApproved;
             clone.ApproveDate = ApproveDate;
@@ -104,13 +106,14 @@ namespace CriticalPath.Data
             Title = entity.Title;
             CustomerId = entity.CustomerId;
             ProductId = entity.ProductId;
-            SizeStandardId = entity.SizeStandardId;
+            SizingStandardId = entity.SizingStandardId;
             OrderDate = entity.OrderDate;
             DueDate = entity.DueDate;
             Code = entity.Code;
             Description = entity.Description;
             Quantity = entity.Quantity;
             UnitPrice = entity.UnitPrice;
+            SizeRateDivisor = entity.SizeRateDivisor;
             Notes = entity.Notes;
             IsApproved = entity.IsApproved;
             ApproveDate = entity.ApproveDate;
@@ -127,13 +130,14 @@ namespace CriticalPath.Data
             entity.Title = Title;
             entity.CustomerId = CustomerId;
             entity.ProductId = ProductId;
-            entity.SizeStandardId = SizeStandardId;
+            entity.SizingStandardId = SizingStandardId;
             entity.OrderDate = OrderDate;
             entity.DueDate = DueDate;
             entity.Code = Code;
             entity.Description = Description;
             entity.Quantity = Quantity;
             entity.UnitPrice = UnitPrice;
+            entity.SizeRateDivisor = SizeRateDivisor;
             entity.Notes = Notes;
             entity.IsApproved = IsApproved;
             entity.ApproveDate = ApproveDate;
@@ -149,13 +153,14 @@ namespace CriticalPath.Data
         public string Title { get; set; }
         public int CustomerId { get; set; }
         public int ProductId { get; set; }
-        public int SizeStandardId { get; set; }
+        public int SizingStandardId { get; set; }
         public System.DateTime OrderDate { get; set; }
         public Nullable<System.DateTime> DueDate { get; set; }
         public string Code { get; set; }
         public string Description { get; set; }
         public int Quantity { get; set; }
         public decimal UnitPrice { get; set; }
+        public int SizeRateDivisor { get; set; }
         public string Notes { get; set; }
         public bool IsApproved { get; set; }
         public Nullable<System.DateTime> ApproveDate { get; set; }

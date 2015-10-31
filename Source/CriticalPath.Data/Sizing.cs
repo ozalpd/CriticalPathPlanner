@@ -12,12 +12,12 @@ namespace CriticalPath.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class SizeCaption : IDisplayOrder, ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate
+    public partial class Sizing : IDisplayOrder, ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate
     {
         public int Id { get; set; }
         public int DisplayOrder { get; set; }
         public string Caption { get; set; }
-        public int SizeStandardId { get; set; }
+        public int SizingStandardId { get; set; }
         public int ModifyNr { get; set; }
         public System.DateTime ModifyDate { get; set; }
         public string ModifierId { get; set; }
@@ -26,18 +26,18 @@ namespace CriticalPath.Data
         public string CreatorId { get; set; }
         public string CreatorIp { get; set; }
     
-        public virtual SizeStandard SizeStandard { get; set; }
+        public virtual SizingStandard SizingStandard { get; set; }
     	/// <summary>
-    	/// Clones all properties in a new SizeCaption instance,
+    	/// Clones all properties in a new Sizing instance,
     	/// except PrimaryKey(s)
     	/// </summary>
-    	/// <returns>New SizeCaption instance</returns>
-        public SizeCaption Clone()
+    	/// <returns>New Sizing instance</returns>
+        public Sizing Clone()
         {
-            var clone = new SizeCaption();
+            var clone = new Sizing();
             clone.DisplayOrder = DisplayOrder;
             clone.Caption = Caption;
-            clone.SizeStandardId = SizeStandardId;
+            clone.SizingStandardId = SizingStandardId;
             clone.ModifyNr = ModifyNr;
             clone.ModifyDate = ModifyDate;
             clone.ModifierId = ModifierId;
@@ -51,46 +51,46 @@ namespace CriticalPath.Data
             return clone;
         }
     
-    	// Use below function in a partial class file (eg. SizeCaption.part.cs)
+    	// Use below function in a partial class file (eg. Sizing.part.cs)
     	// to add more complexity to clone
-        partial void Cloning(SizeCaption clone);
+        partial void Cloning(Sizing clone);
     }
     
-    //Data Transfer Object type for SizeCaption
-    public partial class SizeCaptionDTO
+    //Data Transfer Object type for Sizing
+    public partial class SizingDTO
     {
-        public SizeCaptionDTO() { }
+        public SizingDTO() { }
     
-        public SizeCaptionDTO(SizeCaption entity)
+        public SizingDTO(Sizing entity)
         {
             Id = entity.Id;
             DisplayOrder = entity.DisplayOrder;
             Caption = entity.Caption;
-            SizeStandardId = entity.SizeStandardId;
+            SizingStandardId = entity.SizingStandardId;
         
             Initiliazing(entity);
         }
     
-        partial void Initiliazing(SizeCaption entity);
+        partial void Initiliazing(Sizing entity);
         
-        public virtual SizeCaption ToSizeCaption()
+        public virtual Sizing ToSizing()
         {
-            var entity = new SizeCaption();
+            var entity = new Sizing();
             entity.Id = Id;
             entity.DisplayOrder = DisplayOrder;
             entity.Caption = Caption;
-            entity.SizeStandardId = SizeStandardId;
+            entity.SizingStandardId = SizingStandardId;
     
             Converting(entity);
     
             return entity;
         }
     
-        partial void Converting(SizeCaption entity);
+        partial void Converting(Sizing entity);
       
         public int Id { get; set; }
         public int DisplayOrder { get; set; }
         public string Caption { get; set; }
-        public int SizeStandardId { get; set; }
+        public int SizingStandardId { get; set; }
     }
 }

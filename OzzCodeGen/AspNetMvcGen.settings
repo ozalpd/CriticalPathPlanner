@@ -1060,7 +1060,7 @@
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>SizeStandardId</Name>
+          <Name>SizingStandardId</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>false</InIndexView>
@@ -1072,7 +1072,7 @@
           <UseForEdit>DropDownList</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>SizeStandard</Name>
+          <Name>SizingStandard</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>
@@ -1084,7 +1084,19 @@
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>QuantitySizeRates</Name>
+          <Name>SizeRateDivisor</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>SizeRates</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>
@@ -1104,16 +1116,16 @@
           <InCreateView>true</InCreateView>
           <InEditView>true</InEditView>
           <HasValidation>true</HasValidation>
-          <UseForCreate>TextBox</UseForCreate>
-          <UseForEdit>Standart</UseForEdit>
+          <UseForCreate>TextArea</UseForCreate>
+          <UseForEdit>TextArea</UseForEdit>
         </AspNetMvcPropertySetting>
       </Properties>
       <ControllerName>PurchaseOrders</ControllerName>
       <DataSetName>PurchaseOrders</DataSetName>
       <StrongDependedForeignKey>CustomerId</StrongDependedForeignKey>
       <SaveParameter>this</SaveParameter>
-      <ModelForCreate>PurchaseOrderCreateVM</ModelForCreate>
-      <ModelForEdit>PurchaseOrder</ModelForEdit>
+      <ModelForCreate>PurchaseOrderVM</ModelForCreate>
+      <ModelForEdit>PurchaseOrderVM</ModelForEdit>
       <RolesCanView>users</RolesCanView>
       <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
@@ -1127,15 +1139,15 @@
       <GenerateDetailsAction>true</GenerateDetailsAction>
       <IndexView>false</IndexView>
       <DetailsView>true</DetailsView>
-      <CreateView>true</CreateView>
+      <CreateView>false</CreateView>
       <EditView>true</EditView>
       <BaseControllerName>BaseController</BaseControllerName>
-      <CreateRedirect>"Details", new { id = purchaseOrder.Id }</CreateRedirect>
-      <EditRedirect>"Details", new { id = purchaseOrder.Id }</EditRedirect>
-      <FillSelectListsMethod>await SetProductSelectListAsync(purchaseOrder.Product)</FillSelectListsMethod>
+      <CreateRedirect>"Details", new { id = entity.Id }</CreateRedirect>
+      <EditRedirect>"Details", new { id = entity.Id }</EditRedirect>
+      <FillSelectListsMethod>await SetProductSelectListAsync(purchaseOrderVM.Product);await SetSizingStandardSelectListAsync(purchaseOrderVM);await SetCustomerSelectListAsync(purchaseOrderVM)</FillSelectListsMethod>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
-      <Name>QuantitySizeRate</Name>
+      <Name>SizeRate</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
       <Properties>
@@ -1200,11 +1212,11 @@
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
       </Properties>
-      <ControllerName>QuantitySizeRates</ControllerName>
-      <DataSetName>QuantitySizeRates</DataSetName>
+      <ControllerName>SizeRates</ControllerName>
+      <DataSetName>SizeRates</DataSetName>
       <SaveParameter>this</SaveParameter>
-      <ModelForCreate>QuantitySizeRate</ModelForCreate>
-      <ModelForEdit>QuantitySizeRate</ModelForEdit>
+      <ModelForCreate>SizeRate</ModelForCreate>
+      <ModelForEdit>SizeRate</ModelForEdit>
       <RolesCanView>users</RolesCanView>
       <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
@@ -1226,7 +1238,7 @@
       <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
-      <Name>SizeStandard</Name>
+      <Name>SizingStandard</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>true</OverwriteExisting>
       <Properties>
@@ -1243,7 +1255,7 @@
           <UseForEdit>TextBox</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>SizeCaptions</Name>
+          <Name>Sizings</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>
@@ -1267,11 +1279,11 @@
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
       </Properties>
-      <ControllerName>SizeStandards</ControllerName>
-      <DataSetName>SizeStandards</DataSetName>
+      <ControllerName>SizingStandards</ControllerName>
+      <DataSetName>SizingStandards</DataSetName>
       <SaveParameter>this</SaveParameter>
-      <ModelForCreate>SizeStandardVM</ModelForCreate>
-      <ModelForEdit>SizeStandardVM</ModelForEdit>
+      <ModelForCreate>SizingStandardVM</ModelForCreate>
+      <ModelForEdit>SizingStandardVM</ModelForEdit>
       <RolesCanView>users</RolesCanView>
       <RolesCanCreate>admin</RolesCanCreate>
       <RolesCanEdit>admin</RolesCanEdit>
@@ -1294,7 +1306,7 @@
       <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
-      <Name>SizeCaption</Name>
+      <Name>Sizing</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>true</OverwriteExisting>
       <Properties>
@@ -1323,7 +1335,7 @@
           <UseForEdit>TextBox</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>SizeStandardId</Name>
+          <Name>SizingStandardId</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>false</InIndexView>
@@ -1335,7 +1347,7 @@
           <UseForEdit>HiddenInput</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>SizeStandard</Name>
+          <Name>SizingStandard</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>
@@ -1347,12 +1359,12 @@
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
       </Properties>
-      <ControllerName>SizeCaptions</ControllerName>
-      <DataSetName>SizeCaptions</DataSetName>
-      <StrongDependedForeignKey>SizeStandardId</StrongDependedForeignKey>
+      <ControllerName>Sizings</ControllerName>
+      <DataSetName>Sizings</DataSetName>
+      <StrongDependedForeignKey>SizingStandardId</StrongDependedForeignKey>
       <SaveParameter>this</SaveParameter>
-      <ModelForCreate>SizeCaption</ModelForCreate>
-      <ModelForEdit>SizeCaption</ModelForEdit>
+      <ModelForCreate>Sizing</ModelForCreate>
+      <ModelForEdit>Sizing</ModelForEdit>
       <RolesCanView>users</RolesCanView>
       <RolesCanCreate>admin</RolesCanCreate>
       <RolesCanEdit>admin</RolesCanEdit>
@@ -1370,7 +1382,7 @@
       <EditView>false</EditView>
       <BaseControllerName>BaseController</BaseControllerName>
       <Area>Admin</Area>
-      <CreateRedirect>"Create", "SizeCaptions", new { sizeStandardId = sizeStandardId }</CreateRedirect>
+      <CreateRedirect>"Create", "Sizings", new { SizingStandardId = SizingStandardId }</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
       <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
     </BaseEntitySetting>

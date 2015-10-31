@@ -78,7 +78,7 @@ namespace CriticalPath.Web.Controllers
 
         protected async Task SetProductSelectListAsync(ProductDTO product)
         {
-            await SetProductSelectListAsync(product.ToProduct());
+            await SetProductSelectListAsync(product?.ToProduct());
         }
 
         protected async Task SetProductSelectListAsync(Product product)
@@ -101,6 +101,43 @@ namespace CriticalPath.Web.Controllers
             await SetProductCategorySelectListAsync(product);
         }
 
+        protected async Task SetCustomerSelectListAsync(PurchaseOrderDTO po)
+        {
+            int customerId = po == null ? 0 : po.CustomerId;
+            await SetCustomerSelectListAsync(customerId);
+        }
+
+        protected async Task SetCustomerSelectListAsync(PurchaseOrder po)
+        {
+            int customerId = po == null ? 0 : po.Customer != null ? po.Customer.Id : po.CustomerId;
+            await SetCustomerSelectListAsync(customerId);
+        }
+
+        protected async Task SetCustomerSelectListAsync(int customerId)
+        {
+            var query = DataContext.GetCustomerDtoQuery();
+            var customerList = await query.ToListAsync();
+            ViewBag.CustomerId = new SelectList(customerList, "Id", "CompanyName", customerId);
+        }
+
+        protected async Task SetSizingStandardSelectListAsync(PurchaseOrderDTO po)
+        {
+            int standardId = po == null ? 0 : po.SizingStandardId;
+            await SetSizingStandardSelectListAsync(standardId);
+        }
+
+        protected async Task SetSizingStandardSelectListAsync(PurchaseOrder po)
+        {
+            int standardId = po == null ? 0 : po.SizingStandard != null ? po.SizingStandard.Id : po.SizingStandardId;
+            await SetSizingStandardSelectListAsync(standardId);
+        }
+
+        protected async Task SetSizingStandardSelectListAsync(int sizingStandardId)
+        {
+            var query = DataContext.GetSizingStandardDtoQuery();
+            var standardList = await query.ToListAsync();
+            ViewBag.SizingStandardId = new SelectList(standardList, "Id", "Title", sizingStandardId);
+        }
         #endregion
 
         #region CanUserAdd Authorization Methods

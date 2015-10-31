@@ -60,12 +60,12 @@
     <Compile Include="Customer.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Metadata\QuantitySizeRate.meta.cs" />
-    <Compile Include="Metadata\QuantitySizeRateDTO.meta.cs" />
-    <Compile Include="Metadata\SizeCaption.meta.cs" />
-    <Compile Include="Metadata\SizeCaptionDTO.meta.cs" />
-    <Compile Include="Metadata\SizeStandard.meta.cs" />
-    <Compile Include="Metadata\SizeStandardDTO.meta.cs" />
+    <Compile Include="Metadata\SizeRate.meta.cs" />
+    <Compile Include="Metadata\SizeRateDTO.meta.cs" />
+    <Compile Include="Metadata\Sizing.meta.cs" />
+    <Compile Include="Metadata\SizingDTO.meta.cs" />
+    <Compile Include="Metadata\SizingStandard.meta.cs" />
+    <Compile Include="Metadata\SizingStandardDTO.meta.cs" />
     <Compile Include="Parts\Contact.part.cs" />
     <Compile Include="CriticalPathContext.cust.cs" />
     <Compile Include="CriticalPathContext.save.cs" />
@@ -130,9 +130,6 @@
     <Compile Include="PurchaseOrder.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="QuantitySizeRate.cs">
-      <DependentUpon>CriticalPathModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Resources\ActionStrings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -183,13 +180,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MessageStrings.tr.resx</DependentUpon>
     </Compile>
-    <Compile Include="SizeCaption.cs">
+    <Compile Include="Parts\SizingStandardDTO.part.cs" />
+    <Compile Include="SizeRate.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="SizeStandard.cs">
+    <Compile Include="Sizing.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Parts\SizeStandardDTO.part.cs" />
+    <Compile Include="SizingStandard.cs">
+      <DependentUpon>CriticalPathModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Supplier.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
@@ -202,6 +202,7 @@
     </EntityDeploy>
     <None Include="CriticalPathModel.edmx.diagram">
       <DependentUpon>CriticalPathModel.edmx</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
     <None Include="CriticalPathModel.Settings.ttinclude" />
     <None Include="packages.config" />
@@ -248,6 +249,7 @@
     <EmbeddedResource Include="Resources\EntityStrings.Resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>EntityStrings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\EntityStrings.tr.Resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

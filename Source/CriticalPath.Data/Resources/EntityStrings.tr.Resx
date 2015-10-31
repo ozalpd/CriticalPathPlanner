@@ -111,15 +111,15 @@
 		<value>Yeni Sipariş Ekle</value>
 	</data>
 
-	<data name="AddNewQuantitySizeRate" xml:space="preserve">
-		<value>Yeni Ölçü Miktar Oranı Ekle</value>
+	<data name="AddNewSizeRate" xml:space="preserve">
+		<value>Yeni Ölçü Oranı Ekle</value>
 	</data>
 
-	<data name="AddNewSizeCaption" xml:space="preserve">
-		<value>Yeni Ölçü Etiketi Ekle</value>
+	<data name="AddNewSizing" xml:space="preserve">
+		<value>Yeni Ölçülendirme Ekle</value>
 	</data>
 
-	<data name="AddNewSizeStandard" xml:space="preserve">
+	<data name="AddNewSizingStandard" xml:space="preserve">
 		<value>Yeni Ölçü Standartı Ekle</value>
 	</data>
 
@@ -155,10 +155,6 @@
 		<value>Sipariş Ekle</value>
 	</data>
 
-	<data name="AddQuantitySizeRate" xml:space="preserve">
-		<value>Ölçü Miktar Oranı Ekle</value>
-	</data>
-
 	<data name="Address1" xml:space="preserve">
 		<value>Adres Satır 1</value>
 	</data>
@@ -167,11 +163,15 @@
 		<value>Adres Satır 2</value>
 	</data>
 
-	<data name="AddSizeCaption" xml:space="preserve">
-		<value>Ölçü Etiketi Ekle</value>
+	<data name="AddSizeRate" xml:space="preserve">
+		<value>Ölçü Oranı Ekle</value>
 	</data>
 
-	<data name="AddSizeStandard" xml:space="preserve">
+	<data name="AddSizing" xml:space="preserve">
+		<value>Ölçülendirme Ekle</value>
+	</data>
+
+	<data name="AddSizingStandard" xml:space="preserve">
 		<value>Ölçü Standartı Ekle</value>
 	</data>
 
@@ -291,15 +291,15 @@
 		<value>Sipariş Oluştur</value>
 	</data>
 
-	<data name="CreateQuantitySizeRate" xml:space="preserve">
-		<value>Ölçü Miktar Oranı Oluştur</value>
+	<data name="CreateSizeRate" xml:space="preserve">
+		<value>Ölçü Oranı Oluştur</value>
 	</data>
 
-	<data name="CreateSizeCaption" xml:space="preserve">
-		<value>Ölçü Etiketi Oluştur</value>
+	<data name="CreateSizing" xml:space="preserve">
+		<value>Ölçülendirme Oluştur</value>
 	</data>
 
-	<data name="CreateSizeStandard" xml:space="preserve">
+	<data name="CreateSizingStandard" xml:space="preserve">
 		<value>Ölçü Standartı Oluştur</value>
 	</data>
 
@@ -379,15 +379,15 @@
 		<value>Siparişi Sil</value>
 	</data>
 
-	<data name="DeleteQuantitySizeRate" xml:space="preserve">
-		<value>Ölçü Miktar Oranı Sil</value>
+	<data name="DeleteSizeRate" xml:space="preserve">
+		<value>Ölçü Oranı Sil</value>
 	</data>
 
-	<data name="DeleteSizeCaption" xml:space="preserve">
-		<value>Ölçü Etiketini Sil</value>
+	<data name="DeleteSizing" xml:space="preserve">
+		<value>Ölçülendirmeyi Sil</value>
 	</data>
 
-	<data name="DeleteSizeStandard" xml:space="preserve">
+	<data name="DeleteSizingStandard" xml:space="preserve">
 		<value>Ölçü Standartını Sil</value>
 	</data>
 
@@ -447,15 +447,15 @@
 		<value>Siparişi Düzenle</value>
 	</data>
 
-	<data name="EditQuantitySizeRate" xml:space="preserve">
-		<value>Ölçü Miktar Oranı Düzenle</value>
+	<data name="EditSizeRate" xml:space="preserve">
+		<value>Ölçü Oranı Düzenle</value>
 	</data>
 
-	<data name="EditSizeCaption" xml:space="preserve">
-		<value>Ölçü Etiketini Düzenle</value>
+	<data name="EditSizing" xml:space="preserve">
+		<value>Ölçülendirmeyi Düzenle</value>
 	</data>
 
-	<data name="EditSizeStandard" xml:space="preserve">
+	<data name="EditSizingStandard" xml:space="preserve">
 		<value>Ölçü Standartını Düzenle</value>
 	</data>
 
@@ -663,18 +663,6 @@
 		<value>Miktar</value>
 	</data>
 
-	<data name="QuantitySizeRate" xml:space="preserve">
-		<value>Ölçü Miktar Oranı</value>
-	</data>
-
-	<data name="QuantitySizeRates" xml:space="preserve">
-		<value>Ölçü Miktar Oranları</value>
-	</data>
-
-	<data name="QuantitySizeRatesList" xml:space="preserve">
-		<value>Ölçü Miktar Oran Listesi</value>
-	</data>
-
 	<data name="Rate" xml:space="preserve">
 		<value>Oran</value>
 	</data>
@@ -687,31 +675,47 @@
 		<value>Gereken İş Günü</value>
 	</data>
 
-	<data name="SizeCaption" xml:space="preserve">
-		<value>Ölçü Etiketi</value>
+	<data name="SizeRate" xml:space="preserve">
+		<value>Ölçü Oranı</value>
 	</data>
 
-	<data name="SizeCaptions" xml:space="preserve">
-		<value>Ölçü Etiketleri</value>
+	<data name="SizeRateDivisor" xml:space="preserve">
+		<value>Ölçü Oran Paydası</value>
 	</data>
 
-	<data name="SizeCaptionsList" xml:space="preserve">
-		<value>Ölçü Etiket Listesi</value>
+	<data name="SizeRates" xml:space="preserve">
+		<value>Ölçü Oranları</value>
 	</data>
 
-	<data name="SizeStandard" xml:space="preserve">
+	<data name="SizeRatesList" xml:space="preserve">
+		<value>Ölçü Oran Listesi</value>
+	</data>
+
+	<data name="Sizing" xml:space="preserve">
+		<value>Ölçülendirme</value>
+	</data>
+
+	<data name="Sizings" xml:space="preserve">
+		<value>Ölçülendirmeler</value>
+	</data>
+
+	<data name="SizingsList" xml:space="preserve">
+		<value>Ölçülendirme Listesi</value>
+	</data>
+
+	<data name="SizingStandard" xml:space="preserve">
 		<value>Ölçü Standartı</value>
 	</data>
 
-	<data name="SizeStandardId" xml:space="preserve">
+	<data name="SizingStandardId" xml:space="preserve">
 		<value>Ölçü Standartı</value>
 	</data>
 
-	<data name="SizeStandards" xml:space="preserve">
+	<data name="SizingStandards" xml:space="preserve">
 		<value>Ölçü Standartları</value>
 	</data>
 
-	<data name="SizeStandardsList" xml:space="preserve">
+	<data name="SizingStandardsList" xml:space="preserve">
 		<value>Ölçü Standartlar Listesi</value>
 	</data>
 

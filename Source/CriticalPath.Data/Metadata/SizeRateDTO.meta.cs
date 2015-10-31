@@ -13,13 +13,13 @@ using CriticalPath.Data.Resources;
 
 namespace CriticalPath.Data
 {
-    [MetadataTypeAttribute(typeof(QuantitySizeRateDTO.QuantitySizeRateMetadata))]
-    public partial class QuantitySizeRateDTO
+    [MetadataTypeAttribute(typeof(SizeRateDTO.SizeRateMetadata))]
+    public partial class SizeRateDTO
 	{
-        internal sealed partial class QuantitySizeRateMetadata
+        internal sealed partial class SizeRateMetadata
 		{
             // This metadata class is not intended to be instantiated.
-            private QuantitySizeRateMetadata() { }
+            private SizeRateMetadata() { }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Display(ResourceType = typeof(EntityStrings), Name = "DisplayOrder")]

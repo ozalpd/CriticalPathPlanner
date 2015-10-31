@@ -1,42 +1,42 @@
 ﻿@using CriticalPath.Web.Models
 @using CriticalPath.Data
 @using CriticalPath.Data.Resources
-@model SizeStandardVM
+@model SizingStandardVM
 @{
     string captionDivClass = "col-lg-3 col-md-3 col-sm-3 mb10";
 }
-@Html.LabelFor(model => model.SizeCaptions, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+@Html.LabelFor(model => model.Sizings, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
 <div class="col-lg-8 col-md-9 col-sm-9">
     <div class='@captionDivClass' style="margin-left:-15px;">
-        @Html.EditorFor(m => m.Size1Caption, new { htmlAttributes = new { @class = "form-control", placeholder = "Size 1 Caption" } })
+        @Html.EditorFor(m => m.Size1Caption, new { htmlAttributes = new { @class = "form-control", autocomplete = "off", placeholder = "Size 1 Caption" } })
         @Html.ValidationMessageFor(m => m.Size1Caption, "", new { @class = "text-danger" })
     </div>
     <div class='@captionDivClass' style="margin-left:-15px;">
-        @Html.EditorFor(m => m.Size2Caption, new { htmlAttributes = new { @class = "form-control", placeholder = "Size 2 Caption" } })
+        @Html.EditorFor(m => m.Size2Caption, new { htmlAttributes = new { @class = "form-control", autocomplete = "off", placeholder = "Size 2 Caption" } })
         @Html.ValidationMessageFor(m => m.Size2Caption, "", new { @class = "text-danger" })
     </div>
     <div class='@captionDivClass' style="margin-left:-15px;">
-        @Html.EditorFor(m => m.Size3Caption, new { htmlAttributes = new { @class = "form-control", placeholder = "Size 3 Caption" } })
+        @Html.EditorFor(m => m.Size3Caption, new { htmlAttributes = new { @class = "form-control", autocomplete = "off", placeholder = "Size 3 Caption" } })
         @Html.ValidationMessageFor(m => m.Size3Caption, "", new { @class = "text-danger" })
     </div>
     <div class='@captionDivClass' style="margin-left:-15px;">
-        @Html.EditorFor(m => m.Size4Caption, new { htmlAttributes = new { @class = "form-control", placeholder = "Size 4 Caption" } })
+        @Html.EditorFor(m => m.Size4Caption, new { htmlAttributes = new { @class = "form-control", autocomplete = "off", placeholder = "Size 4 Caption" } })
         @Html.ValidationMessageFor(m => m.Size4Caption, "", new { @class = "text-danger" })
     </div>
     <div class='@captionDivClass' style="margin-left:-15px;">
-        @Html.EditorFor(m => m.Size5Caption, new { htmlAttributes = new { @class = "form-control", placeholder = "Size 5 Caption" } })
+        @Html.EditorFor(m => m.Size5Caption, new { htmlAttributes = new { @class = "form-control", autocomplete = "off", placeholder = "Size 5 Caption" } })
         @Html.ValidationMessageFor(m => m.Size5Caption, "", new { @class = "text-danger" })
     </div>
     <div class='@captionDivClass' style="margin-left:-15px;">
-        @Html.EditorFor(m => m.Size6Caption, new { htmlAttributes = new { @class = "form-control", placeholder = "Size 6 Caption" } })
+        @Html.EditorFor(m => m.Size6Caption, new { htmlAttributes = new { @class = "form-control", autocomplete = "off", placeholder = "Size 6 Caption" } })
         @Html.ValidationMessageFor(m => m.Size6Caption, "", new { @class = "text-danger" })
     </div>
     <div class='@captionDivClass' style="margin-left:-15px;">
-        @Html.EditorFor(m => m.Size7Caption, new { htmlAttributes = new { @class = "form-control", placeholder = "Size 7 Caption" } })
+        @Html.EditorFor(m => m.Size7Caption, new { htmlAttributes = new { @class = "form-control", autocomplete = "off", placeholder = "Size 7 Caption" } })
         @Html.ValidationMessageFor(m => m.Size7Caption, "", new { @class = "text-danger" })
     </div>
     <div class='@captionDivClass' style="margin-left:-15px;">
-        @Html.EditorFor(m => m.Size8Caption, new { htmlAttributes = new { @class = "form-control", placeholder = "Size 8 Caption" } })
+        @Html.EditorFor(m => m.Size8Caption, new { htmlAttributes = new { @class = "form-control", autocomplete = "off", placeholder = "Size 8 Caption" } })
         @Html.ValidationMessageFor(m => m.Size8Caption, "", new { @class = "text-danger" })
     </div>
 </div>
@@ -48,4 +48,3 @@
 @Html.HiddenFor(model => model.Size6CaptionId)
 @Html.HiddenFor(model => model.Size7CaptionId)
 @Html.HiddenFor(model => model.Size8CaptionId)
-

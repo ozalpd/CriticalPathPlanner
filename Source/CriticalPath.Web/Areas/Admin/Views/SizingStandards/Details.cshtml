@@ -1,12 +1,12 @@
 @using CriticalPath.Web.Models
 @using CriticalPath.Data
 @using CriticalPath.Data.Resources
-@model SizeStandard
+@model SizingStandard
 @{
-    ViewBag.Title = EntityStrings.SizeStandard;
+    ViewBag.Title = EntityStrings.SizingStandard;
 }
 
-<h2>@EntityStrings.SizeStandard @ActionStrings.Details</h2>
+<h2>@EntityStrings.SizingStandard @ActionStrings.Details</h2>
 
 <div class="row">
     <label class="control-label col-md-2 col-sm-3">
@@ -18,10 +18,10 @@
 </div>
 <div class="row">
     <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.SizeCaptions)
+        @Html.DisplayNameFor(model => model.Sizings)
     </label>
     <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.SizeCaptions)
+        @Html.DisplayFor(m => m.Sizings)
     </div>
 </div>
 @Html.Partial("_DetailFormButtonsPartial")

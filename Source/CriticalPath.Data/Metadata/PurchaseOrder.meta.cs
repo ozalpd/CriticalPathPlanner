@@ -74,14 +74,18 @@ namespace CriticalPath.Data
             public decimal UnitPrice { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "SizeStandardId")]
-            public int SizeStandardId { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "SizingStandardId")]
+            public int SizingStandardId { get; set; }
 
-            [Display(ResourceType = typeof(EntityStrings), Name = "SizeStandard")]
-            public SizeStandard SizeStandard { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "SizingStandard")]
+            public SizingStandard SizingStandard { get; set; }
 
-            [Display(ResourceType = typeof(EntityStrings), Name = "QuantitySizeRates")]
-            public ICollection<QuantitySizeRate> QuantitySizeRates { get; set; }
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "SizeRateDivisor")]
+            public int SizeRateDivisor { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "SizeRates")]
+            public ICollection<SizeRate> SizeRates { get; set; }
 
             [StringLength(255, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [DataType(DataType.MultilineText)]
