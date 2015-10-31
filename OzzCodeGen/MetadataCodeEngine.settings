@@ -506,6 +506,11 @@
           <Exclude>false</Exclude>
           <Required />
         </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>PurchaseOrders</Name>
+          <Exclude>false</Exclude>
+          <Required />
+        </MetadataPropertySetting>
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="MetadataEntitySetting">

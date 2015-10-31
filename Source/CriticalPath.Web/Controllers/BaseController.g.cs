@@ -299,7 +299,7 @@ namespace CriticalPath.Web.Controllers
 		    return DataContext.GetSizeStandardQuery();
 		}
 
-		protected virtual Task SetSizeStandardDefaults(SizeStandard sizeStandard)
+		protected virtual Task SetSizeStandardDefaults(SizeStandardVM sizeStandard)
         {
             return Task.FromResult(default(object));
         }

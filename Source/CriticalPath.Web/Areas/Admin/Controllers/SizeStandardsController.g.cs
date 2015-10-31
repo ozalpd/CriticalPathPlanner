@@ -103,73 +103,33 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
         [Authorize(Roles = "admin")]
         public async Task<ActionResult> Create()  //GET: /SizeStandards/Create
         {
-            var sizeStandard = new SizeStandard();
-            await SetSizeStandardDefaults(sizeStandard);
-            SetSelectLists(sizeStandard);
-            return View(sizeStandard);
+            var sizeStandardVM = new SizeStandardVM();
+            await SetSizeStandardDefaults(sizeStandardVM);
+            SetSelectLists(sizeStandardVM.ToSizeStandard());
+            return View(sizeStandardVM);
         }
 
         [HttpPost]
         [Authorize(Roles = "admin")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(SizeStandard sizeStandard)  //POST: /SizeStandards/Create
+        public async Task<ActionResult> Create(SizeStandardVM sizeStandardVM)  //POST: /SizeStandards/Create
         {
-            DataContext.SetInsertDefaults(sizeStandard, this);
+            DataContext.SetInsertDefaults(sizeStandardVM, this);
 
             if (ModelState.IsValid)
             {
-                OnCreateSaving(sizeStandard);
- 
-                DataContext.SizeStandards.Add(sizeStandard);
+                OnCreateSaving(sizeStandardVM);
+                var entity = sizeStandardVM.ToSizeStandard();
+                DataContext.SizeStandards.Add(entity);
                 await DataContext.SaveChangesAsync(this);
- 
-                OnCreateSaved(sizeStandard);
-                return RedirectToAction("Create", "SizeCaptions", new { sizeStandardId = sizeStandard.Id });
-            }
-
-            SetSelectLists(sizeStandard);
-            return View(sizeStandard);
-        }
-
-        [Authorize(Roles = "admin")]
-        public async Task<ActionResult> Edit(int? id)  //GET: /SizeStandards/Edit/5
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            SizeStandard sizeStandard = await FindAsyncSizeStandard(id.Value);
-
-            if (sizeStandard == null)
-            {
-                return HttpNotFound();
-            }
-
-            SetSelectLists(sizeStandard);
-            return View(sizeStandard);
-        }
-
-        [Authorize(Roles = "admin")]
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(SizeStandard sizeStandard)  //POST: /SizeStandards/Edit/5
-        {
-            DataContext.SetInsertDefaults(sizeStandard, this);
-
-            if (ModelState.IsValid)
-            {
-                OnEditSaving(sizeStandard);
- 
-                DataContext.Entry(sizeStandard).State = EntityState.Modified;
-                await DataContext.SaveChangesAsync(this);
- 
-                OnEditSaved(sizeStandard);
+                OnCreateSaved(entity);
                 return RedirectToAction("Index");
             }
 
-            SetSelectLists(sizeStandard);
-            return View(sizeStandard);
+            SetSelectLists(sizeStandardVM.ToSizeStandard());
+            return View(sizeStandardVM);
         }
+
 
 
         [Authorize(Roles = "admin")]
@@ -187,7 +147,8 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             }
 
             int sizeCaptionsCount = sizeStandard.SizeCaptions.Count;
-            if ((sizeCaptionsCount) > 0)
+            int purchaseOrdersCount = sizeStandard.PurchaseOrders.Count;
+            if ((sizeCaptionsCount + purchaseOrdersCount) > 0)
             {
                 var sb = new StringBuilder();
 
@@ -199,6 +160,12 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 if (sizeCaptionsCount > 0)
                 {
                     sb.Append(string.Format(MessageStrings.RelatedRecordsExist, sizeCaptionsCount, EntityStrings.SizeCaptions));
+                    sb.Append("<br/>");
+                }
+
+                if (purchaseOrdersCount > 0)
+                {
+                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, purchaseOrdersCount, EntityStrings.PurchaseOrders));
                     sb.Append("<br/>");
                 }
 
@@ -226,9 +193,9 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
 
 
         //Partial methods
-        partial void OnCreateSaving(SizeStandard sizeStandard);
+        partial void OnCreateSaving(SizeStandardVM sizeStandard);
         partial void OnCreateSaved(SizeStandard sizeStandard);
-        partial void OnEditSaving(SizeStandard sizeStandard);
+        partial void OnEditSaving(SizeStandardVM sizeStandard);
         partial void OnEditSaved(SizeStandard sizeStandard);
         partial void SetSelectLists(SizeStandard sizeStandard);
     }

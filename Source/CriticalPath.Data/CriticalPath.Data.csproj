@@ -189,6 +189,7 @@
     <Compile Include="SizeStandard.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Parts\SizeStandardDTO.part.cs" />
     <Compile Include="Supplier.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
