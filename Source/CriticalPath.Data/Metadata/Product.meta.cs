@@ -35,6 +35,11 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "Description")]
             public string Description { get; set; }
 
+            [StringLength(256, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
+            [DataType(DataType.ImageUrl)]
+            [Display(ResourceType = typeof(EntityStrings), Name = "ImageUrl")]
+            public string ImageUrl { get; set; }
+
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Display(ResourceType = typeof(EntityStrings), Name = "CategoryId")]
             public int CategoryId { get; set; }
@@ -42,10 +47,12 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "Category")]
             public ProductCategory Category { get; set; }
 
-            [StringLength(256, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
-            [DataType(DataType.ImageUrl)]
-            [Display(ResourceType = typeof(EntityStrings), Name = "ImageUrl")]
-            public string ImageUrl { get; set; }
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "SizingStandardId")]
+            public int SizingStandardId { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "SizingStandard")]
+            public SizingStandard SizingStandard { get; set; }
 
             [Display(ResourceType = typeof(EntityStrings), Name = "PurchaseOrders")]
             public ICollection<PurchaseOrder> PurchaseOrders { get; set; }

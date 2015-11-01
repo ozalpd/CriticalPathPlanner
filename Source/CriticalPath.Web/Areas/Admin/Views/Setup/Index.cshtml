@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Setup Critical Path Application";
+}
+
+<h2>@ViewBag.Title</h2>
+<div class="row mb10 mt10">
+    <div class="col-sm-12">
+        @Html.ActionLink("Setup Default Data", "SetDefaultData", null, new { @class = "btn btn-info mr5" })
+        @Html.ActionLink("Seed Demo Data", "SeedDemoData", null, new { @class = "btn btn-default mr5" })
+    </div>
+</div>
+<div class="well">
+    @Html.Raw(ViewBag.status)
+</div>

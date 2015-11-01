@@ -22,6 +22,7 @@
     text-align: center;
     padding: 4px;
     margin-right: 4px !important;
+    margin-bottom: 1px !important;
     font-size: 80%;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
     background-image: -webkit-linear-gradient(#484e55, #3a3f44 60%, #313539);

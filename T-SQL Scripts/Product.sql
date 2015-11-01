@@ -7,8 +7,9 @@ CREATE TABLE [dbo].[Products](
     [Title] [nVarChar](128) Not Null,
     [Code] [nVarChar](48) Null,
     [Description] [nVarChar](256) Null,
-    [CategoryId] [int] Not Null Constraint FK_Product_CategoryId Foreign Key References [dbo].[ProductCategories]([Id]),
     [ImageUrl] [nVarChar](256) Null,
+    [CategoryId] [int] Not Null Constraint FK_Product_CategoryId Foreign Key References [dbo].[ProductCategories]([Id]),
+    [SizingStandardId] [int] Not Null Constraint FK_Product_SizingStandardId Foreign Key References [dbo].[SizingStandards]([Id]),
     [ModifyNr] [int] Not Null Default 1,
     [ModifyDate] [DateTime] Not Null Default GetDate(),
     [ModifierId] [VarChar](48) Not Null,
@@ -27,6 +28,8 @@ Go
 Create Nonclustered Index [idx_Products_Title] On [dbo].[Products]([Title] Asc)
 Go
 Create Nonclustered Index [idx_Products_CategoryId] On [dbo].[Products]([CategoryId] Asc)
+Go
+Create Nonclustered Index [idx_Products_SizingStandardId] On [dbo].[Products]([SizingStandardId] Asc)
 Go
 Create Nonclustered Index [idx_Products_ModifyDate] On [dbo].[Products]([ModifyDate] Desc)
 Go

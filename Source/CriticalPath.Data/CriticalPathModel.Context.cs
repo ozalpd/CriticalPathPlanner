@@ -418,6 +418,7 @@ namespace CriticalPath.Data
                        Code = e.Code,
                        Description = e.Description,
                        CategoryId = e.CategoryId,
+                       SizingStandardId = e.SizingStandardId,
                        ImageUrl = e.ImageUrl,
                    };
         }

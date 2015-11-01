@@ -14,19 +14,15 @@ using System.Web.Mvc;
 namespace CriticalPath.Web.Areas.Admin.Controllers
 {
     [Authorize(Roles = SecurityRoles.Admin)]
-    public class DemoDataController : BaseController
+    public partial class SetupController : BaseController
     {
-        // GET: Admin/DemoData
-        public async Task<ActionResult> Index()
-        {
-            ViewBag.status = await GetRecordCounts();
-            return View();
-        }
-
         // GET: Admin/DemoData/Seed
-        public async Task<ActionResult> Seed()
+        public async Task<ActionResult> SeedDemoData()
         {
             var sb = new StringBuilder();
+
+            await SeedSizingStandards(sb);
+            await DataContext.SaveChangesAsync(this);
 
             await SeedProducts(sb);
             await DataContext.SaveChangesAsync(this);
@@ -35,7 +31,7 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
 
             ViewBag.status = sb.ToString();
 
-            return View();
+            return View("Index");
         }
 
         private async Task SeedContacts(StringBuilder sb)
@@ -47,104 +43,20 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 return;
             }
 
-            Customer[] customers = {new Customer {
-                    CompanyName = "Nurplex",
-                    City = "Norfolk",
-                    CustomerCode = "Nurplex",
-                    Address1 = "389 Cleveland Street",
-                    Notes = "In aliqua fugiat magna adipisicing magna cillum enim exercitation ullamco cillum ullamco.",
-                    Phone1 = "(944) 444-2599",
-                    Phone2 = "(877) 466-3224"
-            }, new Customer {
-                    CompanyName = "Wazzu",
-                    CustomerCode = "1234",
-                    City = "Homestead",
-                    Address1 = "118 Applegate Court",
-                    Phone1 = "+1 (888) 435-3835",
-                    Phone2 = "+1 (898) 597-3808",
-                    Notes = "Laborum aliquip pariatur aliqua dolor voluptate cillum proident officia in.",
-            }, new Customer {
-                    CompanyName = "Qiao Corp.",
-                    CustomerCode = "Qiao",
-                    City = "Hartsville/Hartley",
-                    Address1 = "253 Reeve Place",
-                    Phone1 = "+1 (880) 473-3081",
-                    Phone2 = "+1 (972) 568-2580",
-                    Notes = "Mollit Lorem cupidatat voluptate occaecat sunt sunt eu in dolore ad eiusmod.",
-            }, new Customer {
-                    CompanyName = "Solaren",
-                    CustomerCode = "555",
-                    City = "Olney",
-                    Address1 = "694 Ashford Street",
-                    Phone1 = "+1 (983) 445-2431",
-                    Phone2 = "+1 (931) 552-3165",
-                    Notes = "Ea ea amet consectetur excepteur velit reprehenderit tempor dolor eiusmod laborum voluptate aute.",
-            }, new Customer {
-                    CompanyName = "Cowtown Incorporated",
-                    CustomerCode = "Cowtown",
-                    City = "Edgewater",
-                    Address1 = "397 Vandam Street",
-                    Phone1 = "+1 (999) 498-3117",
-                    Phone2 = "+1 (876) 457-3103",
-                    Notes = "Do ex magna mollit excepteur eu fugiat sit minim ullamco est est.",
-            }, new Customer {
-                    CompanyName = "Loreanna Textile Corp",
-                    City = "Norfolk",
-                    CustomerCode = "Loreanna",
-                    Address1 = "389 Cleveland Street",
-                    Notes = "In aliqua fugiat magna adipisicing magna cillum enim exercitation ullamco cillum ullamco.",
-                    Phone1 = "(944) 444-2599",
-                    Phone2 = "(877) 466-3224"
-            }, new Customer {
-                    CompanyName = "Zelda Inc.",
-                    CustomerCode = "Zelda",
-                    City = "Homestead",
-                    Address1 = "118 Applegate Court",
-                    Phone1 = "+1 (888) 435-3835",
-                    Phone2 = "+1 (898) 597-3808",
-                    Notes = "Laborum aliquip pariatur aliqua dolor voluptate cillum proident officia in.",
-            }, new Customer {
-                    CompanyName = "Textile Corp.",
-                    CustomerCode = "TextileCorp",
-                    City = "Hartsville/Hartley",
-                    Address1 = "253 Reeve Place",
-                    Phone1 = "+1 (880) 473-3081",
-                    Phone2 = "+1 (972) 568-2580",
-                    Notes = "Mollit Lorem cupidatat voluptate occaecat sunt sunt eu in dolore ad eiusmod.",
-            }, new Customer {
-                    CompanyName = "Kaliburn LLC",
-                    CustomerCode = "Kaliburn",
-                    City = "Kaliburn",
-                    Address1 = "694 Ashford Street",
-                    Phone1 = "+1 (983) 445-2431",
-                    Phone2 = "+1 (931) 552-3165",
-                    Notes = "Ea ea amet consectetur excepteur velit reprehenderit tempor dolor eiusmod laborum voluptate aute.",
-            }, new Customer {
-                    CompanyName = "Medow Incorporated",
-                    CustomerCode = "MedowInc",
-                    City = "Edgewater",
-                    Address1 = "397 Vandam Street",
-                    Phone1 = "+1 (999) 498-3117",
-                    Phone2 = "+1 (876) 457-3103",
-                    Notes = "Do ex magna mollit excepteur eu fugiat sit minim ullamco est est.",
-            }, new Customer {
-                    CompanyName = "Genesynk Associates",
-                    CustomerCode = "Genesynk",
-                    City = "Tedrow",
-                    Address1 = "415 Newport Street",
-                    Phone1 = "+1 (984) 410-2831",
-                    Phone2 = "+1 (873) 545-2215",
-                    Notes = "Ullamco reprehenderit esse id qui voluptate ipsum veniam.",
-            }, new Customer {
-                    CompanyName = "Zilch Industries",
-                    CustomerCode = "Zilch",
-                    City = "Katonah",
-                    Address1 = "594 Eckford Street",
-                    Phone1 = "+1 (835) 416-2323",
-                    Phone2 = "+1 (845) 440-2230",
-                    Notes = "Mollit minim cillum ex reprehenderit nisi proident nulla.",
-            } };
+            Customer[] customers = GetCustomers();
+            AddContactsToCustomers(customers);
 
+            foreach (var item in customers)
+            {
+                DataContext.Companies.Add(item);
+                sb.Append("Customer: ");
+                sb.Append(item.CompanyName);
+                sb.Append(" added<br>");
+            }
+        }
+
+        private static void AddContactsToCustomers(Customer[] customers)
+        {
             int i = 0;
             var c = customers[i];
             c.Contacts.Add(new Contact
@@ -232,14 +144,134 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 LastName = "Çakaler",
                 EmailWork = "selahattin.c@" + c.CompanyName.ToLowerInvariant().Replace(".", "").Replace(" ", "") + ".tv"
             });
-            foreach (var item in customers)
-            {
-                DataContext.Companies.Add(item);
-                sb.Append("Customer: ");
-                sb.Append(item.CompanyName);
-                sb.Append(" added<br>");
-            }
+        }
 
+        private Customer[] GetCustomers()
+        {
+            Customer[] customers =  {
+                    new Customer
+                    {
+                        CompanyName = "Nurplex",
+                        City = "Norfolk",
+                        CustomerCode = "Nurplex",
+                        Address1 = "389 Cleveland Street",
+                        Notes = "In aliqua fugiat magna adipisicing magna cillum enim exercitation ullamco cillum ullamco.",
+                        Phone1 = "(944) 444-2599",
+                        Phone2 = "(877) 466-3224"
+                    },
+                    new Customer
+                    {
+                        CompanyName = "Wazzu",
+                        CustomerCode = "1234",
+                        City = "Homestead",
+                        Address1 = "118 Applegate Court",
+                        Phone1 = "+1 (888) 435-3835",
+                        Phone2 = "+1 (898) 597-3808",
+                        Notes = "Laborum aliquip pariatur aliqua dolor voluptate cillum proident officia in.",
+                    },
+                    new Customer
+                    {
+                        CompanyName = "Qiao Corp.",
+                        CustomerCode = "Qiao",
+                        City = "Hartsville/Hartley",
+                        Address1 = "253 Reeve Place",
+                        Phone1 = "+1 (880) 473-3081",
+                        Phone2 = "+1 (972) 568-2580",
+                        Notes = "Mollit Lorem cupidatat voluptate occaecat sunt sunt eu in dolore ad eiusmod.",
+                    },
+                    new Customer
+                    {
+                        CompanyName = "Solaren",
+                        CustomerCode = "555",
+                        City = "Olney",
+                        Address1 = "694 Ashford Street",
+                        Phone1 = "+1 (983) 445-2431",
+                        Phone2 = "+1 (931) 552-3165",
+                        Notes = "Ea ea amet consectetur excepteur velit reprehenderit tempor dolor eiusmod laborum voluptate aute.",
+                    },
+                    new Customer
+                    {
+                        CompanyName = "Cowtown Incorporated",
+                        CustomerCode = "Cowtown",
+                        City = "Edgewater",
+                        Address1 = "397 Vandam Street",
+                        Phone1 = "+1 (999) 498-3117",
+                        Phone2 = "+1 (876) 457-3103",
+                        Notes = "Do ex magna mollit excepteur eu fugiat sit minim ullamco est est.",
+                    },
+                    new Customer
+                    {
+                        CompanyName = "Loreanna Textile Corp",
+                        City = "Norfolk",
+                        CustomerCode = "Loreanna",
+                        Address1 = "389 Cleveland Street",
+                        Notes = "In aliqua fugiat magna adipisicing magna cillum enim exercitation ullamco cillum ullamco.",
+                        Phone1 = "(944) 444-2599",
+                        Phone2 = "(877) 466-3224"
+                    },
+                    new Customer
+                    {
+                        CompanyName = "Zelda Inc.",
+                        CustomerCode = "Zelda",
+                        City = "Homestead",
+                        Address1 = "118 Applegate Court",
+                        Phone1 = "+1 (888) 435-3835",
+                        Phone2 = "+1 (898) 597-3808",
+                        Notes = "Laborum aliquip pariatur aliqua dolor voluptate cillum proident officia in.",
+                    },
+                    new Customer
+                    {
+                        CompanyName = "Textile Corp.",
+                        CustomerCode = "TextileCorp",
+                        City = "Hartsville/Hartley",
+                        Address1 = "253 Reeve Place",
+                        Phone1 = "+1 (880) 473-3081",
+                        Phone2 = "+1 (972) 568-2580",
+                        Notes = "Mollit Lorem cupidatat voluptate occaecat sunt sunt eu in dolore ad eiusmod.",
+                    },
+                    new Customer
+                    {
+                        CompanyName = "Kaliburn LLC",
+                        CustomerCode = "Kaliburn",
+                        City = "Kaliburn",
+                        Address1 = "694 Ashford Street",
+                        Phone1 = "+1 (983) 445-2431",
+                        Phone2 = "+1 (931) 552-3165",
+                        Notes = "Ea ea amet consectetur excepteur velit reprehenderit tempor dolor eiusmod laborum voluptate aute.",
+                    },
+                    new Customer
+                    {
+                        CompanyName = "Medow Incorporated",
+                        CustomerCode = "MedowInc",
+                        City = "Edgewater",
+                        Address1 = "397 Vandam Street",
+                        Phone1 = "+1 (999) 498-3117",
+                        Phone2 = "+1 (876) 457-3103",
+                        Notes = "Do ex magna mollit excepteur eu fugiat sit minim ullamco est est.",
+                    },
+                    new Customer
+                    {
+                        CompanyName = "Genesynk Associates",
+                        CustomerCode = "Genesynk",
+                        City = "Tedrow",
+                        Address1 = "415 Newport Street",
+                        Phone1 = "+1 (984) 410-2831",
+                        Phone2 = "+1 (873) 545-2215",
+                        Notes = "Ullamco reprehenderit esse id qui voluptate ipsum veniam.",
+                    },
+                    new Customer
+                    {
+                        CompanyName = "Zilch Industries",
+                        CustomerCode = "Zilch",
+                        City = "Katonah",
+                        Address1 = "594 Eckford Street",
+                        Phone1 = "+1 (835) 416-2323",
+                        Phone2 = "+1 (845) 440-2230",
+                        Notes = "Mollit minim cillum ex reprehenderit nisi proident nulla.",
+                    }
+                };
+
+            return customers;
         }
 
         private async Task SeedProducts(StringBuilder sb)
@@ -248,6 +280,13 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             if (categoryCount > 0)
             {
                 sb.Append("Database has ProductCategory records already!<br>");
+                return;
+            }
+
+            var sizing = await DataContext.SizingStandards.FirstOrDefaultAsync();
+            if (sizing == null)
+            {
+                sb.Append("Database has no SizingStandard records! Product records cannot be created without SizingStandard!<br>");
                 return;
             }
 
@@ -298,18 +337,21 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
 
             int countCatg = 0;
             ProductCategory catg1 = new ProductCategory() { Title = "Kadın Giyim" };
-            countCatg = AddCategory(catg1, catgKadin, sb, countCatg);
+            countCatg = AddCategory(catg1, catgKadin, sb, sizing, countCatg);
 
             ProductCategory catg2 = new ProductCategory() { Title = "Erkek Giyim" };
             DataContext.ProductCategories.Add(catg2);
-            countCatg = AddCategory(catg2, catgErkek, sb, countCatg);
+            countCatg = AddCategory(catg2, catgErkek, sb, sizing, countCatg);
 
+            var sizingChildren = await DataContext.SizingStandards.FirstOrDefaultAsync(s => s.Title.Contains("child"));
+            if (sizingChildren == null)
+                sizingChildren = sizing;
             ProductCategory catg3 = new ProductCategory() { Title = "Çocuk Giyim" };
             DataContext.ProductCategories.Add(catg3);
-            countCatg = AddCategory(catg3, catgCocuk, sb, countCatg);
+            countCatg = AddCategory(catg3, catgCocuk, sb, sizingChildren, countCatg);
         }
 
-        private int AddCategory(ProductCategory parentCatg, string[] subCategories, StringBuilder sb, int countCatg)
+        private int AddCategory(ProductCategory parentCatg, string[] subCategories, StringBuilder sb, SizingStandard sizing, int countCatg)
         {
             DataContext.ProductCategories.Add(parentCatg);
             sb.Append("Category ");
@@ -343,6 +385,7 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                             prod.Title = prod.Title + " " + lips[rnd.Next(0, lips.Length - 1)].ToSentenceCase();
                         }
                     }
+                    prod.SizingStandard = sizing;
                     DataContext.Products.Add(prod);
                 }
             }
@@ -351,38 +394,5 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             return countCatg;
         }
 
-        private async Task<string> GetRecordCounts()
-        {
-            var sb = new StringBuilder();
-
-            int count = 0;
-
-            count = await DataContext.GetCustomerQuery().CountAsync();
-            sb.Append("Database has ");
-            sb.Append(count);
-            sb.Append(" Customer records.<br>");
-
-            count = await DataContext.GetSupplierQuery().CountAsync();
-            sb.Append("Database has ");
-            sb.Append(count);
-            sb.Append(" Supplier records.<br>");
-
-            count = await DataContext.Contacts.CountAsync();
-            sb.Append("Database has ");
-            sb.Append(count);
-            sb.Append(" Contact records.<br>");
-
-            count = await DataContext.ProductCategories.CountAsync();
-            sb.Append("Database has ");
-            sb.Append(count);
-            sb.Append(" ProductCategory records.<br>");
-
-            count = await DataContext.Products.CountAsync();
-            sb.Append("Database has ");
-            sb.Append(count);
-            sb.Append(" Product records.<br>");
-
-            return sb.ToString();
-        }
     }
 }

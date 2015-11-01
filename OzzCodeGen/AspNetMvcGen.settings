@@ -849,6 +849,18 @@
       <OverwriteExisting>true</OverwriteExisting>
       <Properties>
         <AspNetMvcPropertySetting>
+          <Name>ImageUrl</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>ImageUpload</UseForCreate>
+          <UseForEdit>ImageUpload</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
           <Name>CategoryId</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
@@ -873,16 +885,28 @@
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>ImageUrl</Name>
+          <Name>SizingStandardId</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>true</UseInSearch>
-          <InIndexView>true</InIndexView>
-          <InDetailsView>true</InDetailsView>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>false</InDetailsView>
           <InCreateView>true</InCreateView>
           <InEditView>true</InEditView>
           <HasValidation>true</HasValidation>
-          <UseForCreate>ImageUpload</UseForCreate>
-          <UseForEdit>ImageUpload</UseForEdit>
+          <UseForCreate>DropDownList</UseForCreate>
+          <UseForEdit>DropDownList</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>SizingStandard</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
           <Name>PurchaseOrders</Name>
@@ -890,8 +914,8 @@
           <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
           <HasValidation>true</HasValidation>
           <UseForCreate>Standart</UseForCreate>
           <UseForEdit>Standart</UseForEdit>
@@ -920,7 +944,7 @@
       <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
-      <FillSelectListsMethod>await SetProductCategorySelectListAsync(product)</FillSelectListsMethod>
+      <FillSelectListsMethod>await SetProductCategorySelectListAsync(product);await SetSizingStandardSelectListAsync(product.SizingStandardId);</FillSelectListsMethod>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>PurchaseOrder</Name>
@@ -1256,6 +1280,18 @@
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
           <Name>Sizings</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>Products</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>

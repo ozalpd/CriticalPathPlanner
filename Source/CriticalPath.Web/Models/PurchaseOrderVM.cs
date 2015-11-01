@@ -24,14 +24,14 @@ namespace CriticalPath.Web.Models
             }
         }
 
-        public int QuantitySize1Rate { get; set; }
-        public int QuantitySize2Rate { get; set; }
-        public int QuantitySize3Rate { get; set; }
-        public int QuantitySize4Rate { get; set; }
-        public int QuantitySize5Rate { get; set; }
-        public int QuantitySize6Rate { get; set; }
-        public int QuantitySize7Rate { get; set; }
-        public int QuantitySize8Rate { get; set; }
+        public int Size1Rate { get; set; }
+        public int Size2Rate { get; set; }
+        public int Size3Rate { get; set; }
+        public int Size4Rate { get; set; }
+        public int Size5Rate { get; set; }
+        public int Size6Rate { get; set; }
+        public int Size7Rate { get; set; }
+        public int Size8Rate { get; set; }
 
         public string Size1Caption { get; set; }
         public string Size2Caption { get; set; }
@@ -47,42 +47,42 @@ namespace CriticalPath.Web.Models
             switch (rateNr)
             {
                 case 1:
-                    QuantitySize1Rate = rate.Rate;
+                    Size1Rate = rate.Rate;
                     Size1Caption = rate.Caption;
                     break;
 
                 case 2:
-                    QuantitySize2Rate = rate.Rate;
+                    Size2Rate = rate.Rate;
                     Size2Caption = rate.Caption;
                     break;
 
                 case 3:
-                    QuantitySize3Rate = rate.Rate;
+                    Size3Rate = rate.Rate;
                     Size3Caption = rate.Caption;
                     break;
 
                 case 4:
-                    QuantitySize4Rate = rate.Rate;
+                    Size4Rate = rate.Rate;
                     Size4Caption = rate.Caption;
                     break;
 
                 case 5:
-                    QuantitySize5Rate = rate.Rate;
+                    Size5Rate = rate.Rate;
                     Size5Caption = rate.Caption;
                     break;
 
                 case 6:
-                    QuantitySize6Rate = rate.Rate;
+                    Size6Rate = rate.Rate;
                     Size6Caption = rate.Caption;
                     break;
 
                 case 7:
-                    QuantitySize7Rate = rate.Rate;
+                    Size7Rate = rate.Rate;
                     Size7Caption = rate.Caption;
                     break;
 
                 case 8:
-                    QuantitySize8Rate = rate.Rate;
+                    Size8Rate = rate.Rate;
                     Size8Caption = rate.Caption;
                     break;
 

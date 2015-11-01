@@ -179,8 +179,9 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\AppSettingsController.cs" />
-    <Compile Include="Areas\Admin\Controllers\SeedDataController.cs" />
-    <Compile Include="Areas\Admin\Controllers\DemoDataController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SetupController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SetupController.defaults.cs" />
+    <Compile Include="Areas\Admin\Controllers\SetupController.demoData.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Areas\Admin\Models\AppSettingVM.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -316,7 +317,7 @@
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Admin\Views\SeedData\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Setup\Index.cshtml" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />

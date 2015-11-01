@@ -541,6 +541,16 @@
       <CustomStoredProcs>false</CustomStoredProcs>
       <Properties>
         <StorageColumnSetting>
+          <Name>ImageUrl</Name>
+          <Exclude>false</Exclude>
+          <DataType>nVarChar</DataType>
+          <Lenght>256</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
           <Name>CategoryId</Name>
           <Exclude>false</Exclude>
           <DataType>int</DataType>
@@ -552,14 +562,15 @@
           <ForeignKeyTable>ProductCategories</ForeignKeyTable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>ImageUrl</Name>
+          <Name>SizingStandardId</Name>
           <Exclude>false</Exclude>
-          <DataType>nVarChar</DataType>
-          <Lenght>256</Lenght>
+          <DataType>int</DataType>
+          <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
-          <Indexed>false</Indexed>
+          <Indexed>true</Indexed>
           <SortDesc>false</SortDesc>
-          <Nullable>true</Nullable>
+          <Nullable>false</Nullable>
+          <ForeignKeyTable>SizingStandards</ForeignKeyTable>
         </StorageColumnSetting>
       </Properties>
     </BaseEntitySetting>

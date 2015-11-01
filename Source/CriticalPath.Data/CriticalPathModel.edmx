@@ -170,8 +170,9 @@
           <Property Name="Title" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="Code" Type="nvarchar" MaxLength="48" />
           <Property Name="Description" Type="nvarchar" MaxLength="256" />
-          <Property Name="CategoryId" Type="int" Nullable="false" />
           <Property Name="ImageUrl" Type="nvarchar" MaxLength="256" />
+          <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="SizingStandardId" Type="int" Nullable="false" />
           <Property Name="ModifyNr" Type="int" Nullable="false" />
           <Property Name="ModifyDate" Type="datetime" Nullable="false" />
           <Property Name="ModifierId" Type="varchar" MaxLength="48" Nullable="false" />
@@ -359,6 +360,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Product_SizingStandardId">
+          <End Role="SizingStandards" Type="Self.SizingStandards" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SizingStandards">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="SizingStandardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ProductCategory_ParentCategoryId">
           <End Role="ProductCategories" Type="Self.ProductCategories" Multiplicity="0..1" />
           <End Role="ProductCategories1" Type="Self.ProductCategories" Multiplicity="*" />
@@ -490,6 +503,10 @@
             <End Role="ProductCategories" EntitySet="ProductCategories" />
             <End Role="Products" EntitySet="Products" />
           </AssociationSet>
+          <AssociationSet Name="FK_Product_SizingStandardId" Association="Self.FK_Product_SizingStandardId">
+            <End Role="SizingStandards" EntitySet="SizingStandards" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
           <AssociationSet Name="FK_ProductCategory_ParentCategoryId" Association="Self.FK_ProductCategory_ParentCategoryId">
             <End Role="ProductCategories" EntitySet="ProductCategories" />
             <End Role="ProductCategories1" EntitySet="ProductCategories" />
@@ -587,6 +604,10 @@
           <AssociationSet Name="FK_Sizing_SizingStandardId" Association="CriticalPathDataModel.FK_Sizing_SizingStandardId">
             <End Role="SizingStandard" EntitySet="SizingStandards" />
             <End Role="Sizing" EntitySet="Sizings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_SizingStandardId" Association="CriticalPathDataModel.FK_Product_SizingStandardId">
+            <End Role="SizingStandard" EntitySet="SizingStandards" />
+            <End Role="Product" EntitySet="Products" />
           </AssociationSet>
           
         </EntityContainer>
@@ -698,6 +719,7 @@
           <Property Name="Code" Type="String" MaxLength="48" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Name="SizingStandardId" Type="Int32" Nullable="false" />
           <Property Name="ImageUrl" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="ModifyNr" Type="Int32" Nullable="false" />
           <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
@@ -708,6 +730,7 @@
           <Property Name="CreatorIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Category" Relationship="CriticalPathDataModel.FK_Product_CategoryId" FromRole="Product" ToRole="ProductCategory" />
           <NavigationProperty Name="PurchaseOrders" Relationship="CriticalPathDataModel.FK_PurchaseOrder_ProductId" FromRole="Product" ToRole="PurchaseOrder" />
+          <NavigationProperty Name="SizingStandard" Relationship="CriticalPathDataModel.FK_Product_SizingStandardId" FromRole="Product" ToRole="SizingStandard" />
         </EntityType>
         <Association Name="FK_Product_CategoryId">
           <End Type="CriticalPathDataModel.ProductCategory" Role="ProductCategory" Multiplicity="1" />
@@ -980,6 +1003,7 @@
           <Property Name="CreatorIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="PurchaseOrders" Relationship="CriticalPathDataModel.FK_PurchaseOrder_SizingStandardId" FromRole="SizingStandard" ToRole="PurchaseOrder" />
           <NavigationProperty Name="Sizings" Relationship="CriticalPathDataModel.FK_Sizing_SizingStandardId" FromRole="SizingStandard" ToRole="Sizing" />
+          <NavigationProperty Name="Products" Relationship="CriticalPathDataModel.FK_Product_SizingStandardId" FromRole="SizingStandard" ToRole="Product" />
         </EntityType>
         <EntityType Name="Sizing">
           <Key>
@@ -1018,6 +1042,18 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Sizing">
+              <PropertyRef Name="SizingStandardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_SizingStandardId">
+          <End Type="CriticalPathDataModel.SizingStandard" Role="SizingStandard" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SizingStandard">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
               <PropertyRef Name="SizingStandardId" />
             </Dependent>
           </ReferentialConstraint>
@@ -1109,6 +1145,7 @@
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="CriticalPathDataModel.Product">
               <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="SizingStandardId" ColumnName="SizingStandardId" />
                 <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
                 <ScalarProperty Name="CreatorIp" ColumnName="CreatorIp" />
                 <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />

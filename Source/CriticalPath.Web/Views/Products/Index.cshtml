@@ -36,6 +36,7 @@
             <th>@Html.DisplayNameFor(model => model.Title)</th>
             <th>@Html.DisplayNameFor(model => model.Code)</th>
             <th>@Html.DisplayNameFor(model => model.Category)</th>
+            <th>@Html.DisplayNameFor(model => model.SizingStandard)</th>
         </tr>
     @foreach (var item in Model)
     {
@@ -65,6 +66,7 @@
                 <td>@Html.DisplayFor(modelItem => item.Title)</td>
                 <td>@Html.DisplayFor(modelItem => item.Code)</td>
                 <td>@Html.DisplayFor(modelItem => item.Category)</td>
+                <td class="pl0 pb0">@Html.DisplayFor(modelItem => item.SizingStandard)</td>
             </tr>
     }
     </table>

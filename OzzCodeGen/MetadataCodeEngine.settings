@@ -338,6 +338,12 @@
       <OverwriteExisting>false</OverwriteExisting>
       <Properties>
         <MetadataPropertySetting>
+          <Name>ImageUrl</Name>
+          <Exclude>false</Exclude>
+          <DataType>ImageUrl</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
           <Name>CategoryId</Name>
           <Exclude>false</Exclude>
           <DataType />
@@ -349,9 +355,14 @@
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>ImageUrl</Name>
+          <Name>SizingStandardId</Name>
           <Exclude>false</Exclude>
-          <DataType>ImageUrl</DataType>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>SizingStandard</Name>
+          <Exclude>false</Exclude>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
@@ -509,6 +520,11 @@
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>Sizings</Name>
+          <Exclude>false</Exclude>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Products</Name>
           <Exclude>false</Exclude>
           <Required />
         </MetadataPropertySetting>

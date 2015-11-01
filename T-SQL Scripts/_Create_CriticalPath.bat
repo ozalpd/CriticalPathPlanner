@@ -31,13 +31,13 @@
 
 @echo .
 @echo .
-@echo 6 - Executing Product.sql...
-@sqlcmd -S .\SqlExpress -d CriticalPath -E -i Product.sql
+@echo 6 - Executing SizingStandard.sql...
+@sqlcmd -S .\SqlExpress -d CriticalPath -E -i SizingStandard.sql
 
 @echo .
 @echo .
-@echo 7 - Executing SizingStandard.sql...
-@sqlcmd -S .\SqlExpress -d CriticalPath -E -i SizingStandard.sql
+@echo 7 - Executing Product.sql...
+@sqlcmd -S .\SqlExpress -d CriticalPath -E -i Product.sql
 
 @echo .
 @echo .

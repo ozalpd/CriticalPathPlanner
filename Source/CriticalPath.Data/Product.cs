@@ -25,6 +25,7 @@ namespace CriticalPath.Data
         public string Code { get; set; }
         public string Description { get; set; }
         public int CategoryId { get; set; }
+        public int SizingStandardId { get; set; }
         public string ImageUrl { get; set; }
         public int ModifyNr { get; set; }
         public System.DateTime ModifyDate { get; set; }
@@ -37,6 +38,7 @@ namespace CriticalPath.Data
         public virtual ProductCategory Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PurchaseOrder> PurchaseOrders { get; set; }
+        public virtual SizingStandard SizingStandard { get; set; }
     	/// <summary>
     	/// Clones all properties in a new Product instance,
     	/// except PrimaryKey(s)
@@ -49,6 +51,7 @@ namespace CriticalPath.Data
             clone.Code = Code;
             clone.Description = Description;
             clone.CategoryId = CategoryId;
+            clone.SizingStandardId = SizingStandardId;
             clone.ImageUrl = ImageUrl;
             clone.ModifyNr = ModifyNr;
             clone.ModifyDate = ModifyDate;
@@ -80,6 +83,7 @@ namespace CriticalPath.Data
             Code = entity.Code;
             Description = entity.Description;
             CategoryId = entity.CategoryId;
+            SizingStandardId = entity.SizingStandardId;
             ImageUrl = entity.ImageUrl;
         
             Initiliazing(entity);
@@ -95,6 +99,7 @@ namespace CriticalPath.Data
             entity.Code = Code;
             entity.Description = Description;
             entity.CategoryId = CategoryId;
+            entity.SizingStandardId = SizingStandardId;
             entity.ImageUrl = ImageUrl;
     
             Converting(entity);
@@ -109,6 +114,7 @@ namespace CriticalPath.Data
         public string Code { get; set; }
         public string Description { get; set; }
         public int CategoryId { get; set; }
+        public int SizingStandardId { get; set; }
         public string ImageUrl { get; set; }
     }
 }
