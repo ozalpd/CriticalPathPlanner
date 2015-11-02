@@ -332,6 +332,7 @@
     <Content Include="Areas\Admin\Views\Shared\_PagerPartial.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_SaveButtonsPartial.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_SearchBoxPartial.cshtml" />
+    <Content Include="Scripts\utilities.jq.js" />
     <Content Include="Views\Shared\EditorTemplates\Sizing.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\SizingStandard.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_EditSizings.cshtml" />
@@ -456,6 +457,7 @@
     <Content Include="Areas\Admin\Views\SizingStandards\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Sizing.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\SizingStandard.cshtml" />
+    <Content Include="Views\Shared\_ProductSizingPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -15,20 +15,18 @@
     </div>
 </div>
 <div class="form-group">
-    @Html.LabelFor(model => model.ProductId, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+    @Html.Label(EntityStrings.Product, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
     <div class="col-lg-5 col-md-6 col-sm-7">
         @Html.DropDownList("ProductId", null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.ProductId, "", new { @class = "text-danger" })
     </div>
 </div>
-
 <script type="text/javascript">
-    var productSelect = $('#ProductId');
-
-    function appendPleaseToSelect(targetSelect) {
+    function resetSelect(targetSelect) {
+        targetSelect.empty();
         targetSelect.append($('<option/>', {
             value: '',
-            text: '@ActionStrings.SelectPlease'
+            text: '@Html.Raw(ActionStrings.SelectPlease)'
         }));
     }
     $('#ParentCategoryId').change(function () {
@@ -36,10 +34,8 @@
         if (selectedId != null && selectedId != '') {
             $.getJSON('/ProductCategories/SubCategories', { parentCategoryId: selectedId }, function (subCategories) {
                 var targetSelect = $('#CategoryId');
-                targetSelect.empty();
-                productSelect.empty();
-                appendPleaseToSelect(targetSelect);
-                appendPleaseToSelect(productSelect);
+                resetSelect(targetSelect);
+                resetSelect(productSelect);
                 $.each(subCategories, function (index, subCategory) {
                     targetSelect.append($('<option/>', {
                         value: subCategory.Id,
@@ -53,8 +49,8 @@
         var selectedId = $(this).val();
         if (selectedId != null && selectedId != '') {
             $.getJSON('/Products/Products', { categoryId: selectedId }, function (products) {
-                productSelect.empty();
-                appendPleaseToSelect(productSelect);
+                resetSelect(productSelect);
+                productList = products;
                 $.each(products, function (index, product) {
                     productSelect.append($('<option/>', {
                         value: product.Id,
