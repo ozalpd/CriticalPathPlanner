@@ -5,30 +5,30 @@
 @{
     ViewBag.Title = ActionStrings.Approve;
 }
-<h2>@ViewBag.Title</h2>
+<h2 class="mb20">@ViewBag.Title</h2>
 
 <div class="row">
     <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.Title)
+        @Html.DisplayNameFor(model => model.OrderDate)
     </label>
-    <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.Title)
+    <div class="col-md-10 col-sm-9 fontSize125pc">
+        @Html.DisplayFor(m => m.OrderDate)
     </div>
 </div>
 <div class="row">
     <label class="control-label col-md-2 col-sm-3">
         @Html.DisplayNameFor(model => model.Customer)
     </label>
-    <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.Customer)
+    <div class="col-md-10 col-sm-9 fontSize150pc">
+        @Html.DisplayFor(m => m.Customer.CompanyName)
     </div>
 </div>
 <div class="row">
     <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.OrderDate)
+        @Html.DisplayNameFor(model => model.Product.Title)
     </label>
     <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.OrderDate)
+        @Html.DisplayFor(m => m.Product.Title)
     </div>
 </div>
 <div class="row">

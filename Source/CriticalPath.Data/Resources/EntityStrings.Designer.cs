@@ -484,6 +484,15 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancellation Date.
+        /// </summary>
+        public static string CancellationDate {
+            get {
+                return ResourceManager.GetString("CancellationDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Caption.
         /// </summary>
         public static string Caption {
@@ -1146,6 +1155,15 @@ namespace CriticalPath.Data.Resources {
         public static string ImageUrl {
             get {
                 return ResourceManager.GetString("ImageUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Active.
+        /// </summary>
+        public static string IsActive {
+            get {
+                return ResourceManager.GetString("IsActive", resourceCulture);
             }
         }
         

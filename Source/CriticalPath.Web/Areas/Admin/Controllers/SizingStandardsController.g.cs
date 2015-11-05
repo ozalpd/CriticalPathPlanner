@@ -99,37 +99,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             return View(sizingStandard);
         }
 
-        [HttpGet]
-        [Authorize(Roles = "admin")]
-        public async Task<ActionResult> Create()  //GET: /SizingStandards/Create
-        {
-            var sizingStandardVM = new SizingStandardVM();
-            await SetSizingStandardDefaults(sizingStandardVM);
-            SetSelectLists(sizingStandardVM.ToSizingStandard());
-            return View(sizingStandardVM);
-        }
-
-        [HttpPost]
-        [Authorize(Roles = "admin")]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(SizingStandardVM sizingStandardVM)  //POST: /SizingStandards/Create
-        {
-            DataContext.SetInsertDefaults(sizingStandardVM, this);
-
-            if (ModelState.IsValid)
-            {
-                OnCreateSaving(sizingStandardVM);
-                var entity = sizingStandardVM.ToSizingStandard();
-                DataContext.SizingStandards.Add(entity);
-                await DataContext.SaveChangesAsync(this);
-                OnCreateSaved(entity);
-                return RedirectToAction("Index");
-            }
-
-            SetSelectLists(sizingStandardVM.ToSizingStandard());
-            return View(sizingStandardVM);
-        }
-
 
 
         [Authorize(Roles = "admin")]
@@ -147,8 +116,9 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             }
 
             int sizingsCount = sizingStandard.Sizings.Count;
+            int productsCount = sizingStandard.Products.Count;
             int purchaseOrdersCount = sizingStandard.PurchaseOrders.Count;
-            if ((sizingsCount + purchaseOrdersCount) > 0)
+            if ((sizingsCount + productsCount + purchaseOrdersCount) > 0)
             {
                 var sb = new StringBuilder();
 
@@ -160,6 +130,12 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 if (sizingsCount > 0)
                 {
                     sb.Append(string.Format(MessageStrings.RelatedRecordsExist, sizingsCount, EntityStrings.Sizings));
+                    sb.Append("<br/>");
+                }
+
+                if (productsCount > 0)
+                {
+                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, productsCount, EntityStrings.Products));
                     sb.Append("<br/>");
                 }
 
@@ -193,10 +169,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
 
 
         //Partial methods
-        partial void OnCreateSaving(SizingStandardVM sizingStandard);
-        partial void OnCreateSaved(SizingStandard sizingStandard);
-        partial void OnEditSaving(SizingStandardVM sizingStandard);
-        partial void OnEditSaved(SizingStandard sizingStandard);
         partial void SetSelectLists(SizingStandard sizingStandard);
     }
 }

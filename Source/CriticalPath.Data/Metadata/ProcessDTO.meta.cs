@@ -62,6 +62,13 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "RealizedDate")]
             public DateTime RealizedDate { get; set; }
 
+            [DataType(DataType.Date)]
+            [Display(ResourceType = typeof(EntityStrings), Name = "CancellationDate")]
+            public DateTime CancellationDate { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "IsActive")]
+            public bool IsActive { get; set; }
+
 		}
 	}
 }

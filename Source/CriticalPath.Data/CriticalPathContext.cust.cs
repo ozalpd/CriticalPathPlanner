@@ -11,6 +11,13 @@ namespace CriticalPath.Data
 {
     public partial class CriticalPathContext
     {
+        public override IQueryable<PurchaseOrder> GetPurchaseOrderQuery()
+        {
+            return base.GetPurchaseOrderQuery()
+                    .OrderByDescending(po => po.OrderDate)
+                    .ThenByDescending(po => po.ApproveDate);
+        }
+
         public override IQueryable<Contact> GetContactQuery()
         {
             return base.GetContactQuery()
@@ -38,5 +45,16 @@ namespace CriticalPath.Data
             return _sizingStandardDtos;
         }
         static List<SizingStandardDTO> _sizingStandardDtos;
+
+        public async Task RefreshSizingStandardDtoList()
+        {
+            var list = await GetSizingStandardQuery().ToListAsync();
+            var sizingStandards = new List<SizingStandardDTO>();
+            foreach (var item in list)
+            {
+                sizingStandards.Add(new SizingStandardDTO(item));
+            }
+            _sizingStandardDtos = sizingStandards;
+        }
     }
 }

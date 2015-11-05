@@ -15,7 +15,11 @@
 .dl-horizontal dt {
     white-space: normal;
 }
-
+.approveText{
+    line-height:25px;
+    vertical-align:bottom;
+    margin-right:2px;
+}
 .shadedCaption {
     color: #DDD;
     background-color: #3a3f44;

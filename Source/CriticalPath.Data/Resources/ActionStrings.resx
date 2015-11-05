@@ -87,6 +87,10 @@
 		<value>Cancel</value>
 	</data>
 
+	<data name="CancelPO" xml:space="preserve">
+		<value>Cancel P.O.</value>
+	</data>
+
 	<data name="Choose" xml:space="preserve">
 		<value>Choose</value>
 	</data>

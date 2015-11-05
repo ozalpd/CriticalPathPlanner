@@ -952,6 +952,30 @@
       <OverwriteExisting>true</OverwriteExisting>
       <Properties>
         <AspNetMvcPropertySetting>
+          <Name>IsActive</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>CancellationDate</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
           <Name>OrderDate</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
@@ -1136,8 +1160,8 @@
       <DataSetName>PurchaseOrders</DataSetName>
       <StrongDependedForeignKey>CustomerId</StrongDependedForeignKey>
       <SaveParameter>this</SaveParameter>
-      <ModelForCreate>PurchaseOrderVM</ModelForCreate>
-      <ModelForEdit>PurchaseOrderVM</ModelForEdit>
+      <ModelForCreate>PurchaseOrderDTO</ModelForCreate>
+      <ModelForEdit>PurchaseOrderDTO</ModelForEdit>
       <RolesCanView>users</RolesCanView>
       <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
@@ -1145,14 +1169,14 @@
       <GenerateController>true</GenerateController>
       <GenerateGetQueryMethod>false</GenerateGetQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
-      <GenerateCreateAction>true</GenerateCreateAction>
-      <GenerateDeleteAction>true</GenerateDeleteAction>
-      <GenerateEditAction>true</GenerateEditAction>
+      <GenerateCreateAction>false</GenerateCreateAction>
+      <GenerateDeleteAction>false</GenerateDeleteAction>
+      <GenerateEditAction>false</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
       <IndexView>false</IndexView>
-      <DetailsView>true</DetailsView>
+      <DetailsView>false</DetailsView>
       <CreateView>false</CreateView>
-      <EditView>true</EditView>
+      <EditView>false</EditView>
       <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Details", new { id = entity.Id }</CreateRedirect>
       <EditRedirect>"Details", new { id = entity.Id }</EditRedirect>
@@ -1315,7 +1339,7 @@
       <GenerateController>true</GenerateController>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
-      <GenerateCreateAction>true</GenerateCreateAction>
+      <GenerateCreateAction>false</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>false</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
@@ -1415,6 +1439,30 @@
       <Exclude>false</Exclude>
       <OverwriteExisting>true</OverwriteExisting>
       <Properties>
+        <AspNetMvcPropertySetting>
+          <Name>IsActive</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>CancellationDate</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
           <Name>Title</Name>
           <Exclude>false</Exclude>

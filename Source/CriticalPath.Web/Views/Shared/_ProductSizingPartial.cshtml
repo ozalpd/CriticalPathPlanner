@@ -1,8 +1,16 @@
 ﻿@using CriticalPath.Web.Models
 @using CriticalPath.Data
 @using CriticalPath.Data.Resources
-@model PurchaseOrderVM
+@model PurchaseOrderCreateVM
 
+@Html.HiddenFor(m => m.SizeRate1Id)
+@Html.HiddenFor(m => m.SizeRate2Id)
+@Html.HiddenFor(m => m.SizeRate3Id)
+@Html.HiddenFor(m => m.SizeRate4Id)
+@Html.HiddenFor(m => m.SizeRate5Id)
+@Html.HiddenFor(m => m.SizeRate6Id)
+@Html.HiddenFor(m => m.SizeRate7Id)
+@Html.HiddenFor(m => m.SizeRate8Id)
 @Html.Partial("_ProductSelectPartial")
 <div class="form-group">
     @Html.LabelFor(model => model.SizingStandardId, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })

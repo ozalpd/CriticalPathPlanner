@@ -247,6 +247,10 @@
 		<value>Approved User IP</value>
 	</data>
 
+	<data name="CancellationDate" xml:space="preserve">
+		<value>Cancellation Date</value>
+	</data>
+
 	<data name="Caption" xml:space="preserve">
 		<value>Caption</value>
 	</data>
@@ -541,6 +545,10 @@
 
 	<data name="ImageUrl" xml:space="preserve">
 		<value>Image Url</value>
+	</data>
+
+	<data name="IsActive" xml:space="preserve">
+		<value>Active</value>
 	</data>
 
 	<data name="IsApproved" xml:space="preserve">

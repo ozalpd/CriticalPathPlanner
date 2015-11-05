@@ -587,6 +587,26 @@
       <CustomStoredProcs>false</CustomStoredProcs>
       <Properties>
         <StorageColumnSetting>
+          <Name>IsActive</Name>
+          <Exclude>false</Exclude>
+          <DataType>bit</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>CancellationDate</Name>
+          <Exclude>false</Exclude>
+          <DataType>DateTime</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
           <Name>OrderDate</Name>
           <Exclude>false</Exclude>
           <DataType>DateTime</DataType>
@@ -837,6 +857,26 @@
       <StoredProcs>false</StoredProcs>
       <CustomStoredProcs>false</CustomStoredProcs>
       <Properties>
+        <StorageColumnSetting>
+          <Name>IsActive</Name>
+          <Exclude>false</Exclude>
+          <DataType>bit</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>CancellationDate</Name>
+          <Exclude>false</Exclude>
+          <DataType>DateTime</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>Title</Name>
           <Exclude>false</Exclude>

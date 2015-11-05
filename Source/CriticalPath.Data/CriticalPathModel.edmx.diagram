@@ -31,11 +31,11 @@
         <AssociationConnector Association="CriticalPathDataModel.FK_PurchaseOrder_CustomerId" />
         <AssociationConnector Association="CriticalPathDataModel.FK_Process_PurchaseOrderId" />
         <AssociationConnector Association="CriticalPathDataModel.FK_PurchaseOrder_ProductId" />
-        <EntityTypeShape EntityType="CriticalPathDataModel.SizingStandard" Width="1.625" PointX="8.375" PointY="7.625" />
-        <EntityTypeShape EntityType="CriticalPathDataModel.Sizing" Width="1.5" PointX="10.75" PointY="7.375" />
+        <EntityTypeShape EntityType="CriticalPathDataModel.SizingStandard" Width="1.625" PointX="10.5" PointY="5.875" />
+        <EntityTypeShape EntityType="CriticalPathDataModel.Sizing" Width="1.5" PointX="12.625" PointY="5.875" />
         <AssociationConnector Association="CriticalPathDataModel.FK_PurchaseOrder_SizingStandardId" />
         <AssociationConnector Association="CriticalPathDataModel.FK_Sizing_SizingStandardId" />
-        <EntityTypeShape EntityType="CriticalPathDataModel.SizeRate" Width="1.625" PointX="10.5" PointY="1.875" />
+        <EntityTypeShape EntityType="CriticalPathDataModel.SizeRate" Width="1.625" PointX="10.5" PointY="1.625" />
         <AssociationConnector Association="CriticalPathDataModel.FK_SizeRate_PurchaseOrderId" />
         <AssociationConnector Association="CriticalPathDataModel.FK_SizeRate_SizingId" />
         <AssociationConnector Association="CriticalPathDataModel.FK_Product_SizingStandardId" />

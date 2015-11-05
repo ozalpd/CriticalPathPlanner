@@ -87,6 +87,10 @@
 		<value>Vazgeç</value>
 	</data>
 
+	<data name="CancelPO" xml:space="preserve">
+		<value>Siparişi İptal Et</value>
+	</data>
+
 	<data name="Choose" xml:space="preserve">
 		<value>Seç</value>
 	</data>

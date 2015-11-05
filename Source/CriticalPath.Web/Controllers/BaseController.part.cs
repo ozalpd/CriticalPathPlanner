@@ -181,6 +181,18 @@ namespace CriticalPath.Web.Controllers
         }
         bool? _canUserApprove;
 
+        protected virtual async Task<bool> CanUserCancelPO()
+        {
+            if (!_canUserCancelPO.HasValue)
+            {
+                _canUserCancelPO = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync());
+            }
+            return _canUserCancelPO.Value;
+        }
+        bool? _canUserCancelPO;
+
         #endregion
     }
 }

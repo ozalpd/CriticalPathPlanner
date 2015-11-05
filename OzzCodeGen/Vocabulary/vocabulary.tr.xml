@@ -269,6 +269,14 @@
     <Translation>Vazgeç</Translation>
   </Vocab>
   <Vocab>
+    <Name>CancellationDate</Name>
+    <Translation>İptal Tarihi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CancelPO</Name>
+    <Translation>Siparişi İptal Et</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CanNotDelete</Name>
     <Translation>Silinemiyor</Translation>
   </Vocab>
@@ -783,6 +791,10 @@
   <Vocab>
     <Name>Index</Name>
     <Translation>Indeks</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>IsActive</Name>
+    <Translation>Aktif</Translation>
   </Vocab>
   <Vocab>
     <Name>IsApproved</Name>

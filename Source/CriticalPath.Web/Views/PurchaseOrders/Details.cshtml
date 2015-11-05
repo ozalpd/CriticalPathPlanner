@@ -4,34 +4,17 @@
 @model PurchaseOrder
 @{
     ViewBag.Title = EntityStrings.PurchaseOrder;
+
+    //Authorization Flags
+    bool canUserEdit = ViewBag.canUserEdit;
+    bool canUserCreate = ViewBag.canUserCreate;
+    bool canUserDelete = ViewBag.canUserDelete;
+    bool canUserApprove = ViewBag.canUserApprove;
+    bool canUserCancelPO = ViewBag.canUserCancelPO;
 }
 
 <h2>@EntityStrings.PurchaseOrder @ActionStrings.Details</h2>
 
-<div class="row">
-    <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.IsApproved)
-    </label>
-    <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.IsApproved)
-    </div>
-</div>
-<div class="row">
-    <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.ApproveDate)
-    </label>
-    <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.ApproveDate)
-    </div>
-</div>
-<div class="row">
-    <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.Customer)
-    </label>
-    <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.Customer)
-    </div>
-</div>
 <div class="row">
     <label class="control-label col-md-2 col-sm-3">
         @Html.DisplayNameFor(model => model.OrderDate)
@@ -42,10 +25,35 @@
 </div>
 <div class="row">
     <label class="control-label col-md-2 col-sm-3">
+        <span class="approveText">@Html.DisplayNameFor(model => model.IsApproved)</span>
+        @Html.DisplayFor(m => m.IsApproved)
+    </label>
+    <div class="col-sm-6">
+        @Html.DisplayFor(m => m.ApproveDate)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
         @Html.DisplayNameFor(model => model.DueDate)
     </label>
     <div class="col-md-10 col-sm-9">
         @Html.DisplayFor(m => m.DueDate)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.Customer)
+    </label>
+    <div class="col-md-10 col-sm-9 fontSize150pc">
+        @Html.DisplayFor(m => m.Customer)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.Product)
+    </label>
+    <div class="col-md-10 col-sm-9 fontSize150pc">
+        @Html.DisplayFor(m => m.Product)
     </div>
 </div>
 <div class="row">
@@ -66,14 +74,6 @@
 </div>
 <div class="row">
     <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.Product)
-    </label>
-    <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.Product)
-    </div>
-</div>
-<div class="row">
-    <label class="control-label col-md-2 col-sm-3">
         @Html.DisplayNameFor(model => model.Quantity)
     </label>
     <div class="col-md-10 col-sm-9">
@@ -88,31 +88,35 @@
         @Html.DisplayFor(m => m.UnitPrice)
     </div>
 </div>
-<div class="row">
+<div class="row mt15">
     <label class="control-label col-md-2 col-sm-3">
         @Html.DisplayNameFor(model => model.SizingStandard)
     </label>
-    <div class="col-md-10 col-sm-9 pl0">
-        @Html.DisplayFor(m => m.SizingStandard)
-    </div>
-</div>
-<div class="row">
-    <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.SizeRateDivisor)
-    </label>
     <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.SizeRateDivisor)
+        @Html.DisplayFor(m => m.SizingStandard.Title)
+    </div>
+    <div class="col-lg-6 col-md-7 col-sm-8">
+        @foreach (var sizing in Model.SizingStandard.Sizings)
+        { <div class="col-xs-2 shadedCaption">@sizing.Caption</div>
+        }
     </div>
 </div>
-<div class="row">
+<div class="row mt15">
     <label class="control-label col-md-2 col-sm-3">
         @Html.DisplayNameFor(model => model.SizeRates)
     </label>
-    <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.SizeRates)
+    <div class="col-lg-6 col-md-7 col-sm-8">
+        @foreach (var rate in Model.SizeRates)
+        {
+            <div class="col-xs-2 shadedCaption">@rate.Caption: @rate.Rate</div>
+        }
+        <div class="col-xs-1 mr4">&nbsp;</div>
+        <div class="col-xs-3 shadedCaption fontSize125pc">
+            @Html.DisplayFor(m => m.SizeRateDivisor)
+        </div>
     </div>
 </div>
-<div class="row">
+<div class="row mt15">
     <label class="control-label col-md-2 col-sm-3">
         @Html.DisplayNameFor(model => model.Notes)
     </label>
@@ -120,4 +124,20 @@
         @Html.DisplayFor(m => m.Notes)
     </div>
 </div>
-@Html.Partial("_DetailFormButtonsPartial")
+<div class="row">
+    <div class="col-sm-6 col-md-offset-2 col-sm-offset-3">
+        @Html.ActionLink(@ActionStrings.BackToIndex, "Index", null, new { @class = "btn btn-default" })
+        @if (canUserEdit)
+        {
+            @Html.ActionLink(@ActionStrings.Edit, "Edit", null, new { id = Model.Id }, new { @class = "btn btn-default" })
+        }
+        @if (canUserCancelPO)
+        {
+            @Html.ActionLink(@ActionStrings.CancelPO, "CancelPO", null, new { id = Model.Id }, new { @class = "btn btn-danger" })
+        }
+        @if (!Model.IsApproved && canUserApprove)
+        {
+            @Html.ActionLink(@ActionStrings.Approve, "Approve", null, new { id = Model.Id }, new { @class = "btn btn-success" })
+        }
+    </div>
+</div>

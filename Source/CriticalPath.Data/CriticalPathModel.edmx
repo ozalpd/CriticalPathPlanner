@@ -73,6 +73,8 @@
           <Property Name="TargetDate" Type="datetime" Nullable="false" />
           <Property Name="ForecastDate" Type="datetime" />
           <Property Name="RealizedDate" Type="datetime" />
+          <Property Name="CancellationDate" Type="datetime" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="ApprovedUserId" Type="varchar" MaxLength="48" />
           <Property Name="ApprovedUserIp" Type="varchar" MaxLength="48" />
           <Property Name="ModifyNr" Type="int" Nullable="false" />
@@ -199,6 +201,8 @@
           <Property Name="SizingStandardId" Type="int" Nullable="false" />
           <Property Name="SizeRateDivisor" Type="int" Nullable="false" />
           <Property Name="Notes" Type="nvarchar" MaxLength="255" />
+          <Property Name="CancellationDate" Type="datetime" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="ApprovedUserId" Type="varchar" MaxLength="48" />
           <Property Name="ApprovedUserIp" Type="varchar" MaxLength="48" />
           <Property Name="ModifyNr" Type="int" Nullable="false" />
@@ -759,6 +763,8 @@
           <Property Name="UnitPrice" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
           <Property Name="SizeRateDivisor" Type="Int32" Nullable="false" />
           <Property Name="Notes" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CancellationDate" Type="DateTime" Precision="3" />
           <Property Name="IsApproved" Type="Boolean" Nullable="false" />
           <Property Name="ApproveDate" Type="DateTime" Precision="3" />
           <Property Name="ApprovedUserId" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
@@ -801,6 +807,8 @@
           <Property Name="TargetDate" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="ForecastDate" Type="DateTime" Precision="3" />
           <Property Name="RealizedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CancellationDate" Type="DateTime" Precision="3" />
           <Property Name="IsApproved" Type="Boolean" Nullable="false" />
           <Property Name="ApproveDate" Type="DateTime" Precision="3" />
           <Property Name="ApprovedUserId" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
@@ -1163,6 +1171,8 @@
           <EntitySetMapping Name="PurchaseOrders">
             <EntityTypeMapping TypeName="CriticalPathDataModel.PurchaseOrder">
               <MappingFragment StoreEntitySet="PurchaseOrders">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CancellationDate" ColumnName="CancellationDate" />
                 <ScalarProperty Name="SizeRateDivisor" ColumnName="SizeRateDivisor" />
                 <ScalarProperty Name="SizingStandardId" ColumnName="SizingStandardId" />
                 <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
@@ -1192,6 +1202,8 @@
           <EntitySetMapping Name="Processes">
             <EntityTypeMapping TypeName="CriticalPathDataModel.Process">
               <MappingFragment StoreEntitySet="Processes">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CancellationDate" ColumnName="CancellationDate" />
                 <ScalarProperty Name="PurchaseOrderId" ColumnName="PurchaseOrderId" />
                 <ScalarProperty Name="RealizedDate" ColumnName="RealizedDate" />
                 <ScalarProperty Name="ForecastDate" ColumnName="ForecastDate" />

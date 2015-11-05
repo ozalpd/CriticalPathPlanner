@@ -399,6 +399,18 @@
       <LocalizeEntityName>true</LocalizeEntityName>
       <Properties>
         <LocalizationPropertySetting>
+          <Name>IsActive</Name>
+          <Exclude>false</Exclude>
+          <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
+          <LocalizeValidationMsg>false</LocalizeValidationMsg>
+        </LocalizationPropertySetting>
+        <LocalizationPropertySetting>
+          <Name>CancellationDate</Name>
+          <Exclude>false</Exclude>
+          <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
+          <LocalizeValidationMsg>false</LocalizeValidationMsg>
+        </LocalizationPropertySetting>
+        <LocalizationPropertySetting>
           <Name>OrderDate</Name>
           <Exclude>false</Exclude>
           <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
@@ -598,6 +610,18 @@
       <OverwriteExisting>false</OverwriteExisting>
       <LocalizeEntityName>true</LocalizeEntityName>
       <Properties>
+        <LocalizationPropertySetting>
+          <Name>IsActive</Name>
+          <Exclude>false</Exclude>
+          <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
+          <LocalizeValidationMsg>false</LocalizeValidationMsg>
+        </LocalizationPropertySetting>
+        <LocalizationPropertySetting>
+          <Name>CancellationDate</Name>
+          <Exclude>false</Exclude>
+          <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
+          <LocalizeValidationMsg>false</LocalizeValidationMsg>
+        </LocalizationPropertySetting>
         <LocalizationPropertySetting>
           <Name>Title</Name>
           <Exclude>false</Exclude>
@@ -855,6 +879,12 @@
         </LocalizationPropertySetting>
         <LocalizationPropertySetting>
           <Name>Cancel</Name>
+          <Exclude>false</Exclude>
+          <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
+          <LocalizeValidationMsg>false</LocalizeValidationMsg>
+        </LocalizationPropertySetting>
+        <LocalizationPropertySetting>
+          <Name>CancelPO</Name>
           <Exclude>false</Exclude>
           <LocalizeRequiredMsg>false</LocalizeRequiredMsg>
           <LocalizeValidationMsg>false</LocalizeValidationMsg>

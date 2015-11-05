@@ -1,97 +1,76 @@
 ﻿@using CriticalPath.Data.Resources
 @using CriticalPath.Web.Models
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Critical Path Application</title>
-
-    @Styles.Render(AppSettings.SelectedTheme)
-
-    @*
-    @Styles.Render("~/Content/Slate")
-
-    @Styles.Render("~/Content/css")
-    @Styles.Render("~/Content/themes")
-    *@
-    @Scripts.Render("~/bundles/modernizr")
-
-</head>
-<body>
-    <div class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Critical Path", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    @*<li>@Html.ActionLink(CommonStrings.Home, "Index", "Home")</li>*@
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            @EntityStrings.Products<b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink(@EntityStrings.Products, "Index", "Products")</li>
-                            <li>@Html.ActionLink(@EntityStrings.CreateProduct, "Create", "Products")</li>
-                            <li class="divider"></li>
-                            <li>@Html.ActionLink(@EntityStrings.ProductCategories, "Index", "ProductCategories")</li>
-                            <li>@Html.ActionLink(@EntityStrings.CreateProductCategory, "Create", "ProductCategories")</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            @EntityStrings.PurchaseOrders<b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink(@EntityStrings.PurchaseOrders, "Index", "PurchaseOrders")</li>
-                            <li>@Html.ActionLink(@EntityStrings.CreatePurchaseOrder, "Create", "PurchaseOrders")</li>
-                            <li class="divider"></li>
-                            <li>@Html.ActionLink(@EntityStrings.Suppliers, "Index", "Suppliers")</li>
-                            <li>@Html.ActionLink(@EntityStrings.CreateSupplier, "Create", "Suppliers")</li>
-                            <li class="divider"></li>
-                            <li>@Html.ActionLink(@EntityStrings.Processes, "Index", "Processes")</li>
-                            <li>@Html.ActionLink(@EntityStrings.ProcessSteps, "Index", "ProcessSteps")</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            @EntityStrings.Companies<b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink(@EntityStrings.Customers, "Index", "Customers")</li>
-                            <li>@Html.ActionLink(@EntityStrings.CreateCustomer, "Create", "Customers")</li>
-                            <li class="divider"></li>
-                            <li>@Html.ActionLink(@EntityStrings.Suppliers, "Index", "Suppliers")</li>
-                            <li>@Html.ActionLink(@EntityStrings.CreateSupplier, "Create", "Suppliers")</li>
-                            <li class="divider"></li>
-                            <li>@Html.ActionLink(@EntityStrings.Contacts, "Index", "Contacts")</li>
-                        </ul>
-                    </li>
-                    @if (User.IsInRole(SecurityRoles.Admin))
+@{
+    Layout = "~/Views/Shared/_BaseLayout.cshtml";
+}
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("Critical Path", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                @*<li>@Html.ActionLink(CommonStrings.Home, "Index", "Home")</li>*@
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        @EntityStrings.Products<b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink(@EntityStrings.Products, "Index", "Products")</li>
+                        <li>@Html.ActionLink(@EntityStrings.CreateProduct, "Create", "Products")</li>
+                        <li class="divider"></li>
+                        <li>@Html.ActionLink(@EntityStrings.ProductCategories, "Index", "ProductCategories")</li>
+                        <li>@Html.ActionLink(@EntityStrings.CreateProductCategory, "Create", "ProductCategories")</li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        @EntityStrings.PurchaseOrders<b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink(@EntityStrings.PurchaseOrders, "Index", "PurchaseOrders")</li>
+                        <li>@Html.ActionLink(@EntityStrings.CreatePurchaseOrder, "Create", "PurchaseOrders")</li>
+                        <li class="divider"></li>
+                        <li>@Html.ActionLink(@EntityStrings.Suppliers, "Index", "Suppliers")</li>
+                        <li>@Html.ActionLink(@EntityStrings.CreateSupplier, "Create", "Suppliers")</li>
+                        <li class="divider"></li>
+                        <li>@Html.ActionLink(@EntityStrings.Processes, "Index", "Processes")</li>
+                        <li>@Html.ActionLink(@EntityStrings.ProcessSteps, "Index", "ProcessSteps")</li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        @EntityStrings.Companies<b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink(@EntityStrings.Customers, "Index", "Customers")</li>
+                        <li>@Html.ActionLink(@EntityStrings.CreateCustomer, "Create", "Customers")</li>
+                        <li class="divider"></li>
+                        <li>@Html.ActionLink(@EntityStrings.Suppliers, "Index", "Suppliers")</li>
+                        <li>@Html.ActionLink(@EntityStrings.CreateSupplier, "Create", "Suppliers")</li>
+                        <li class="divider"></li>
+                        <li>@Html.ActionLink(@EntityStrings.Contacts, "Index", "Contacts")</li>
+                    </ul>
+                </li>
+                @if (User.IsInRole(SecurityRoles.Admin))
                     {
-                        <li>@Html.ActionLink(CommonStrings.Admin, "Index", "Admin")</li>
+                    <li>@Html.ActionLink(CommonStrings.Admin, "Index", "Admin")</li>
                     }
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
+            </ul>
+            @Html.Partial("_LoginPartial")
         </div>
     </div>
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Critical Path Application</p>
-        </footer>
-    </div>
-</body>
-</html>
+</div>
+<div class="container body-content">
+    @RenderBody()
+    <hr />
+    <footer>
+        <p>&copy; @DateTime.Now.Year - Critical Path Application</p>
+    </footer>
+</div>
+@RenderSection("scripts", required: false)

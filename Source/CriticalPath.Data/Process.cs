@@ -40,6 +40,8 @@ namespace CriticalPath.Data
         public System.DateTime CreateDate { get; set; }
         public string CreatorId { get; set; }
         public string CreatorIp { get; set; }
+        public Nullable<System.DateTime> CancellationDate { get; set; }
+        public bool IsActive { get; set; }
     
         public virtual ProcessTemplate ProcessTemplate { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -72,6 +74,8 @@ namespace CriticalPath.Data
             clone.CreateDate = CreateDate;
             clone.CreatorId = CreatorId;
             clone.CreatorIp = CreatorIp;
+            clone.CancellationDate = CancellationDate;
+            clone.IsActive = IsActive;
     
             Cloning(clone);
     
@@ -101,6 +105,8 @@ namespace CriticalPath.Data
             RealizedDate = entity.RealizedDate;
             IsApproved = entity.IsApproved;
             ApproveDate = entity.ApproveDate;
+            CancellationDate = entity.CancellationDate;
+            IsActive = entity.IsActive;
         
             Initiliazing(entity);
         }
@@ -121,6 +127,8 @@ namespace CriticalPath.Data
             entity.RealizedDate = RealizedDate;
             entity.IsApproved = IsApproved;
             entity.ApproveDate = ApproveDate;
+            entity.CancellationDate = CancellationDate;
+            entity.IsActive = IsActive;
     
             Converting(entity);
     
@@ -140,5 +148,7 @@ namespace CriticalPath.Data
         public Nullable<System.DateTime> RealizedDate { get; set; }
         public bool IsApproved { get; set; }
         public Nullable<System.DateTime> ApproveDate { get; set; }
+        public Nullable<System.DateTime> CancellationDate { get; set; }
+        public bool IsActive { get; set; }
     }
 }

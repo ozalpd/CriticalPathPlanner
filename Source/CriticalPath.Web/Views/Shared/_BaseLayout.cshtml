@@ -1,0 +1,30 @@
+﻿@using CriticalPath.Data.Resources
+@using CriticalPath.Web.Models
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Critical Path Application" />
+    <title>@ViewBag.Title - Critical Path Application</title>
+
+    @Styles.Render(AppSettings.SelectedTheme)
+
+    @*
+        @Styles.Render("~/Content/Slate")
+
+        @Styles.Render("~/Content/css")
+        @Styles.Render("~/Content/themes")
+    *@
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    @RenderBody()
+</body>
+</html>

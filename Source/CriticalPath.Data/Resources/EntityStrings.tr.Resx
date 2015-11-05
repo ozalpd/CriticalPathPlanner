@@ -247,6 +247,10 @@
 		<value>Onaylayanın IP</value>
 	</data>
 
+	<data name="CancellationDate" xml:space="preserve">
+		<value>İptal Tarihi</value>
+	</data>
+
 	<data name="Caption" xml:space="preserve">
 		<value>Etiket</value>
 	</data>
@@ -541,6 +545,10 @@
 
 	<data name="ImageUrl" xml:space="preserve">
 		<value>Resim Yolu</value>
+	</data>
+
+	<data name="IsActive" xml:space="preserve">
+		<value>Aktif</value>
 	</data>
 
 	<data name="IsApproved" xml:space="preserve">

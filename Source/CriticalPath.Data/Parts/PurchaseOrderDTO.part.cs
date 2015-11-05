@@ -50,11 +50,15 @@ namespace CriticalPath.Data
             get
             {
                 if (_sizeRates == null)
-                    _sizeRates = new List<SizeRateDTO>();
+                    InitSizeRates();
                 return _sizeRates;
             }
         }
         private ICollection<SizeRateDTO> _sizeRates;
 
+        protected virtual void InitSizeRates()
+        {
+            _sizeRates = new List<SizeRateDTO>();
+        }
     }
 }

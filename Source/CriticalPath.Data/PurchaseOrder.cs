@@ -33,6 +33,8 @@ namespace CriticalPath.Data
         public decimal UnitPrice { get; set; }
         public int SizeRateDivisor { get; set; }
         public string Notes { get; set; }
+        public bool IsActive { get; set; }
+        public Nullable<System.DateTime> CancellationDate { get; set; }
         public bool IsApproved { get; set; }
         public Nullable<System.DateTime> ApproveDate { get; set; }
         public string ApprovedUserId { get; set; }
@@ -71,6 +73,8 @@ namespace CriticalPath.Data
             clone.UnitPrice = UnitPrice;
             clone.SizeRateDivisor = SizeRateDivisor;
             clone.Notes = Notes;
+            clone.IsActive = IsActive;
+            clone.CancellationDate = CancellationDate;
             clone.IsApproved = IsApproved;
             clone.ApproveDate = ApproveDate;
             clone.ApprovedUserId = ApprovedUserId;
@@ -112,6 +116,8 @@ namespace CriticalPath.Data
             UnitPrice = entity.UnitPrice;
             SizeRateDivisor = entity.SizeRateDivisor;
             Notes = entity.Notes;
+            IsActive = entity.IsActive;
+            CancellationDate = entity.CancellationDate;
             IsApproved = entity.IsApproved;
             ApproveDate = entity.ApproveDate;
         
@@ -135,6 +141,8 @@ namespace CriticalPath.Data
             entity.UnitPrice = UnitPrice;
             entity.SizeRateDivisor = SizeRateDivisor;
             entity.Notes = Notes;
+            entity.IsActive = IsActive;
+            entity.CancellationDate = CancellationDate;
             entity.IsApproved = IsApproved;
             entity.ApproveDate = ApproveDate;
     
@@ -157,6 +165,8 @@ namespace CriticalPath.Data
         public decimal UnitPrice { get; set; }
         public int SizeRateDivisor { get; set; }
         public string Notes { get; set; }
+        public bool IsActive { get; set; }
+        public Nullable<System.DateTime> CancellationDate { get; set; }
         public bool IsApproved { get; set; }
         public Nullable<System.DateTime> ApproveDate { get; set; }
     }

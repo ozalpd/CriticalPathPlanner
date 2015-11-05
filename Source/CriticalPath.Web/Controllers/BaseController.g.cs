@@ -257,7 +257,7 @@ namespace CriticalPath.Web.Controllers
 		    return DataContext.GetPurchaseOrderQuery();
 		}
 
-		protected virtual Task SetPurchaseOrderDefaults(PurchaseOrderVM purchaseOrder)
+		protected virtual Task SetPurchaseOrderDefaults(PurchaseOrderDTO purchaseOrder)
         {
             return Task.FromResult(default(object));
         }

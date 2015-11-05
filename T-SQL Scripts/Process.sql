@@ -14,6 +14,8 @@ CREATE TABLE [dbo].[Processes](
     [TargetDate] [DateTime] Not Null,
     [ForecastDate] [DateTime] Null,
     [RealizedDate] [DateTime] Null,
+    [CancellationDate] [DateTime] Null,
+    [IsActive] [bit] Not Null,
     [ApprovedUserId] [VarChar](48) Null,
     [ApprovedUserIp] [VarChar](48) Null,
     [ModifyNr] [int] Not Null Default 1,

@@ -215,7 +215,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AppSettings.cs" />
-    <Compile Include="Models\PurchaseOrderVM.cs" />
+    <Compile Include="Models\PurchaseOrderCreateVM.cs" />
+    <Compile Include="Models\PurchaseOrderEditVM.cs" />
     <Compile Include="Models\SecurityRoles.g.cs" />
     <Compile Include="Models\SelectThemeVM.cs" />
     <Compile Include="Models\SizingStandardVM.cs" />
@@ -458,6 +459,7 @@
     <Content Include="Views\Shared\DisplayTemplates\Sizing.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\SizingStandard.cshtml" />
     <Content Include="Views\Shared\_ProductSizingPartial.cshtml" />
+    <Content Include="Views\Shared\_BaseLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

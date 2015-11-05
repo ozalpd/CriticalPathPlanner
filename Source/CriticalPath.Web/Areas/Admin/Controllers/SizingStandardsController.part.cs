@@ -16,6 +16,33 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
 {
     public partial class SizingStandardsController
     {
+        [HttpGet]
+        [Authorize(Roles = "admin")]
+        public async Task<ActionResult> Create()  //GET: /SizingStandards/Create
+        {
+            var sizingStandardVM = new SizingStandardVM();
+            await SetSizingStandardDefaults(sizingStandardVM);
+            return View(sizingStandardVM);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "admin")]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Create(SizingStandardVM sizingStandardVM)  //POST: /SizingStandards/Create
+        {
+            DataContext.SetInsertDefaults(sizingStandardVM, this);
+
+            if (ModelState.IsValid)
+            {
+                var entity = sizingStandardVM.ToSizingStandard();
+                DataContext.SizingStandards.Add(entity);
+                await DataContext.SaveChangesAsync(this);
+                await DataContext.RefreshSizingStandardDtoList();
+                return RedirectToAction("Index");
+            }
+
+            return View(sizingStandardVM);
+        }
 
         [Authorize(Roles = "admin")]
         public async Task<ActionResult> Edit(int? id)  //GET: /SizingStandards/Edit/5
@@ -32,7 +59,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             }
 
             var sizingStandardVM = new SizingStandardVM(sizingStandard);
-            SetSelectLists(sizingStandard);
             return View(sizingStandardVM);
         }
 
@@ -74,15 +100,11 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 }
 
                 await DataContext.SaveChangesAsync(this);
-                OnEditSaved(entity);
+                await DataContext.RefreshSizingStandardDtoList();
                 return RedirectToAction("Index");
             }
 
-            SetSelectLists(sizingStandardVM.ToSizingStandard());
             return View(sizingStandardVM);
         }
-
-        //Purpose: To set default property values for newly created SizingStandard entity
-        //protected override async Task SetSizingStandardDefaults(SizingStandard sizingStandard) { }
     }
 }

@@ -38,10 +38,11 @@ namespace CriticalPath.Web.Controllers
             return query;
         }
 
-        //TODO:Put Sizes; XS S M L XL XXL 3XL 4XL TOTAL
         protected override async Task PutCanUserInViewBag()
         {
             ViewBag.canUserApprove = await CanUserApprove();
+            ViewBag.canUserCancelPO = await CanUserCancelPO();
+
             await base.PutCanUserInViewBag();
         }
 
@@ -84,17 +85,159 @@ namespace CriticalPath.Web.Controllers
             return View(purchaseOrder);
         }
 
-        protected override Task SetPurchaseOrderDefaults(PurchaseOrderVM purchaseOrder)
+        [HttpGet]
+        [Authorize(Roles = "admin, supervisor, clerk")]
+        [Route("PurchaseOrders/Create/{customerId:int?}")]
+        public async Task<ActionResult> Create(int? customerId)
+        {
+            var purchaseOrderVM = new PurchaseOrderCreateVM();
+            if (customerId != null)
+            {
+                var customer = await FindAsyncCustomer(customerId.Value);
+                if (customer == null)
+                    return HttpNotFound();
+                purchaseOrderVM.CustomerId = customer.Id;
+            }
+            await SetPurchaseOrderDefaults(purchaseOrderVM);
+            await SetProductSelectListAsync(purchaseOrderVM.Product);
+            await SetSizingStandardSelectListAsync(purchaseOrderVM);
+            await SetCustomerSelectListAsync(purchaseOrderVM);
+            return View(purchaseOrderVM);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "admin, supervisor, clerk")]
+        [ValidateAntiForgeryToken]
+        [Route("PurchaseOrders/Create/{customerId:int?}")]
+        public async Task<ActionResult> Create(int? customerId, PurchaseOrderCreateVM purchaseOrderVM)
+        {
+            DataContext.SetInsertDefaults(purchaseOrderVM, this);
+
+            if (ModelState.IsValid)
+            {
+                var entity = purchaseOrderVM.ToPurchaseOrder();
+                DataContext.PurchaseOrders.Add(entity);
+                await DataContext.SaveChangesAsync(this);
+                return RedirectToAction("Details", new { id = entity.Id });
+            }
+
+            await SetProductSelectListAsync(purchaseOrderVM.Product);
+            await SetSizingStandardSelectListAsync(purchaseOrderVM);
+            await SetCustomerSelectListAsync(purchaseOrderVM);
+            return View(purchaseOrderVM);
+        }
+
+        [Authorize(Roles = "admin, supervisor, clerk")]
+        public async Task<ActionResult> Edit(int? id)  //GET: /PurchaseOrders/Edit/5
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            PurchaseOrder purchaseOrder = await FindAsyncPurchaseOrder(id.Value);
+
+            if (purchaseOrder == null)
+            {
+                return HttpNotFound();
+            }
+
+            var purchaseOrderVM = new PurchaseOrderEditVM(purchaseOrder);
+            await SetProductSelectListAsync(purchaseOrderVM.Product);
+            await SetSizingStandardSelectListAsync(purchaseOrderVM);
+            await SetCustomerSelectListAsync(purchaseOrderVM);
+            return View(purchaseOrderVM);
+        }
+
+        [Authorize(Roles = "admin, supervisor, clerk")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Edit(PurchaseOrderEditVM vm)  //POST: /PurchaseOrders/Edit/5
+        {
+            PurchaseOrder purchaseOrder = await FindAsyncPurchaseOrder(vm.Id);
+            purchaseOrder.Notes = vm.Notes;
+            purchaseOrder.Code = vm.Code;
+            purchaseOrder.Description = vm.Description;
+            if (!purchaseOrder.IsApproved)
+            {
+                purchaseOrder.CustomerId = vm.CustomerId > 0 ? vm.CustomerId : purchaseOrder.CustomerId;
+                purchaseOrder.Quantity = vm.Quantity > 0 ? vm.Quantity : purchaseOrder.Quantity;
+                purchaseOrder.UnitPrice = vm.UnitPrice;
+            }
+            await DataContext.SaveChangesAsync(this);
+            return RedirectToAction("Details", new { id = vm.Id });
+        }
+
+        [Authorize(Roles = "admin, supervisor")]
+        public async Task<ActionResult> Delete(int? id)  //GET: /PurchaseOrders/Delete/5
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            PurchaseOrder purchaseOrder = await FindAsyncPurchaseOrder(id.Value);
+
+            if (purchaseOrder == null)
+            {
+                return HttpNotFound();
+            }
+
+            if (purchaseOrder.IsApproved)
+            {
+                var sb = new StringBuilder();
+                sb.Append(MessageStrings.CanNotDelete);
+
+                return GetErrorResult(sb, HttpStatusCode.BadRequest);
+            }
+
+            int sizeRatesCount = purchaseOrder.SizeRates.Count;
+            if ((sizeRatesCount) > 0)
+            {
+                var sb = new StringBuilder();
+
+                sb.Append(MessageStrings.CanNotDelete);
+                sb.Append(" <b>");
+                sb.Append(purchaseOrder.Product.Title);
+                sb.Append("</b>.<br/>");
+
+                if (sizeRatesCount > 0)
+                {
+                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, sizeRatesCount, EntityStrings.SizeRates));
+                    sb.Append("<br/>");
+                }
+
+                return GetErrorResult(sb, HttpStatusCode.BadRequest);
+            }
+
+            DataContext.PurchaseOrders.Remove(purchaseOrder);
+            try
+            {
+                await DataContext.SaveChangesAsync(this);
+            }
+            catch (Exception ex)
+            {
+                var sb = new StringBuilder();
+                sb.Append(MessageStrings.CanNotDelete);
+                sb.Append(purchaseOrder.Product.Title);
+                sb.Append("<br/>");
+                AppendExceptionMsg(ex, sb);
+
+                return GetErrorResult(sb, HttpStatusCode.InternalServerError);
+            }
+
+            return new HttpStatusCodeResult(HttpStatusCode.OK);
+        }
+
+        protected override Task SetPurchaseOrderDefaults(PurchaseOrderDTO purchaseOrder)
         {
             purchaseOrder.OrderDate = DateTime.Today;
+            purchaseOrder.IsActive = true;
             return Task.FromResult(default(object));
         }
 
-        //partial void SetSelectLists(PurchaseOrder purchaseOrder)
-        //{
-        //    var queryCustomerId = DataContext.GetCustomerDtoQuery();
-        //    int customerId = purchaseOrder == null ? 0 : purchaseOrder.CustomerId;
-        //    ViewBag.CustomerId = new SelectList(queryCustomerId, "Id", "CompanyName", customerId);
-        //}
+        public new partial class QueryParameters : BaseController.QueryParameters
+        {
+            public bool? IsActive { get; set; }
+            public bool? IsApproved { get; set; }
+        }
     }
 }

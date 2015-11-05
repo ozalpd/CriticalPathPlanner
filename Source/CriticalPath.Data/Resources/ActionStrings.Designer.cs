@@ -124,6 +124,15 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel P.O..
+        /// </summary>
+        public static string CancelPO {
+            get {
+                return ResourceManager.GetString("CancelPO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Choose.
         /// </summary>
         public static string Choose {

@@ -17,6 +17,8 @@ CREATE TABLE [dbo].[PurchaseOrders](
     [SizingStandardId] [int] Not Null Constraint FK_PurchaseOrder_SizingStandardId Foreign Key References [dbo].[SizingStandards]([Id]),
     [SizeRateDivisor] [int] Not Null,
     [Notes] [nVarChar](255) Null,
+    [CancellationDate] [DateTime] Null,
+    [IsActive] [bit] Not Null,
     [ApprovedUserId] [VarChar](48) Null,
     [ApprovedUserIp] [VarChar](48) Null,
     [ModifyNr] [int] Not Null Default 1,

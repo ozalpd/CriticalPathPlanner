@@ -86,149 +86,10 @@ namespace CriticalPath.Web.Controllers
                 return HttpNotFound();
             }
 
+            await PutCanUserInViewBag();
             return View(purchaseOrder);
         }
 
-        [HttpGet]
-        [Authorize(Roles = "admin, supervisor, clerk")]
-        [Route("PurchaseOrders/Create/{customerId:int?}")]
-        public async Task<ActionResult> Create(int? customerId)  //GET: /PurchaseOrders/Create
-        {
-            var purchaseOrderVM = new PurchaseOrderVM();
-            if (customerId != null)
-            {
-                var customer = await FindAsyncCustomer(customerId.Value);
-                if (customer == null)
-                    return HttpNotFound();
-                purchaseOrderVM.CustomerId = customer.Id;
-            }
-            await SetPurchaseOrderDefaults(purchaseOrderVM);
-            await SetProductSelectListAsync(purchaseOrderVM.Product);
-            await SetSizingStandardSelectListAsync(purchaseOrderVM);
-            await SetCustomerSelectListAsync(purchaseOrderVM);
-            return View(purchaseOrderVM);
-        }
-
-        [HttpPost]
-        [Authorize(Roles = "admin, supervisor, clerk")]
-        [ValidateAntiForgeryToken]
-        [Route("PurchaseOrders/Create/{customerId:int?}")]
-        public async Task<ActionResult> Create(int? customerId, PurchaseOrderVM purchaseOrderVM)  //POST: /PurchaseOrders/Create
-        {
-            DataContext.SetInsertDefaults(purchaseOrderVM, this);
-
-            if (ModelState.IsValid)
-            {
-                OnCreateSaving(purchaseOrderVM);
-                var entity = purchaseOrderVM.ToPurchaseOrder();
-                DataContext.PurchaseOrders.Add(entity);
-                await DataContext.SaveChangesAsync(this);
-                OnCreateSaved(entity);
-                return RedirectToAction("Details", new { id = entity.Id });
-            }
-
-            await SetProductSelectListAsync(purchaseOrderVM.Product);
-            await SetSizingStandardSelectListAsync(purchaseOrderVM);
-            await SetCustomerSelectListAsync(purchaseOrderVM);
-            return View(purchaseOrderVM);
-        }
-
-        [Authorize(Roles = "admin, supervisor, clerk")]
-        public async Task<ActionResult> Edit(int? id)  //GET: /PurchaseOrders/Edit/5
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            PurchaseOrder purchaseOrder = await FindAsyncPurchaseOrder(id.Value);
-
-            if (purchaseOrder == null)
-            {
-                return HttpNotFound();
-            }
-
-            var purchaseOrderVM = new PurchaseOrderVM(purchaseOrder);
-            await SetProductSelectListAsync(purchaseOrderVM.Product);
-            await SetSizingStandardSelectListAsync(purchaseOrderVM);
-            await SetCustomerSelectListAsync(purchaseOrderVM);
-            return View(purchaseOrderVM);
-        }
-
-        [Authorize(Roles = "admin, supervisor, clerk")]
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(PurchaseOrderVM purchaseOrderVM)  //POST: /PurchaseOrders/Edit/5
-        {
-            DataContext.SetInsertDefaults(purchaseOrderVM, this);
-
-            if (ModelState.IsValid)
-            {
-                OnEditSaving(purchaseOrderVM);
-                var entity = purchaseOrderVM.ToPurchaseOrder();
-                DataContext.Entry(entity).State = EntityState.Modified;
-                await DataContext.SaveChangesAsync(this);
-                OnEditSaved(entity);
-                return RedirectToAction("Details", new { id = entity.Id });
-            }
-
-            await SetProductSelectListAsync(purchaseOrderVM.Product);
-            await SetSizingStandardSelectListAsync(purchaseOrderVM);
-            await SetCustomerSelectListAsync(purchaseOrderVM);
-            return View(purchaseOrderVM);
-        }
-
-
-        [Authorize(Roles = "admin, supervisor")]
-        public async Task<ActionResult> Delete(int? id)  //GET: /PurchaseOrders/Delete/5
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            PurchaseOrder purchaseOrder = await FindAsyncPurchaseOrder(id.Value);
-
-            if (purchaseOrder == null)
-            {
-                return HttpNotFound();
-            }
-
-            int sizeRatesCount = purchaseOrder.SizeRates.Count;
-            if ((sizeRatesCount) > 0)
-            {
-                var sb = new StringBuilder();
-
-                sb.Append(MessageStrings.CanNotDelete);
-                sb.Append(" <b>");
-                sb.Append(purchaseOrder.Product.Title);
-                sb.Append("</b>.<br/>");
-
-                if (sizeRatesCount > 0)
-                {
-                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, sizeRatesCount, EntityStrings.SizeRates));
-                    sb.Append("<br/>");
-                }
-
-                return GetErrorResult(sb, HttpStatusCode.BadRequest);
-            }
-
-            DataContext.PurchaseOrders.Remove(purchaseOrder);
-            try
-            {
-                await DataContext.SaveChangesAsync(this);
-            }
-            catch (Exception ex)
-            {
-                var sb = new StringBuilder();
-                sb.Append(MessageStrings.CanNotDelete);
-                sb.Append(purchaseOrder.Product.Title);
-                sb.Append("<br/>");
-                AppendExceptionMsg(ex, sb);
-
-                return GetErrorResult(sb, HttpStatusCode.InternalServerError);
-            }
-
-            return new HttpStatusCodeResult(HttpStatusCode.OK);
-        }
 
         public new partial class QueryParameters : BaseController.QueryParameters
         {
@@ -237,11 +98,5 @@ namespace CriticalPath.Web.Controllers
             public int? SizingStandardId { get; set; }
         }
 
-
-        //Partial methods
-        partial void OnCreateSaving(PurchaseOrderVM purchaseOrder);
-        partial void OnCreateSaved(PurchaseOrder purchaseOrder);
-        partial void OnEditSaving(PurchaseOrderVM purchaseOrder);
-        partial void OnEditSaved(PurchaseOrder purchaseOrder);
     }
 }

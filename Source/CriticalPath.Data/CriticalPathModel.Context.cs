@@ -221,6 +221,8 @@ namespace CriticalPath.Data
                        RealizedDate = e.RealizedDate,
                        IsApproved = e.IsApproved,
                        ApproveDate = e.ApproveDate,
+                       CancellationDate = e.CancellationDate,
+                       IsActive = e.IsActive,
                    };
         }
     
@@ -465,6 +467,8 @@ namespace CriticalPath.Data
                        UnitPrice = e.UnitPrice,
                        SizeRateDivisor = e.SizeRateDivisor,
                        Notes = e.Notes,
+                       IsActive = e.IsActive,
+                       CancellationDate = e.CancellationDate,
                        IsApproved = e.IsApproved,
                        ApproveDate = e.ApproveDate,
                    };

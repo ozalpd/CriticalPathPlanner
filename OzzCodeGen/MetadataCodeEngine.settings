@@ -378,6 +378,18 @@
       <OverwriteExisting>false</OverwriteExisting>
       <Properties>
         <MetadataPropertySetting>
+          <Name>IsActive</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>CancellationDate</Name>
+          <Exclude>false</Exclude>
+          <DataType>Date</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
           <Name>OrderDate</Name>
           <Exclude>false</Exclude>
           <DataType>Date</DataType>
@@ -565,6 +577,18 @@
       <Exclude>false</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
       <Properties>
+        <MetadataPropertySetting>
+          <Name>IsActive</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>CancellationDate</Name>
+          <Exclude>false</Exclude>
+          <DataType>Date</DataType>
+          <Required />
+        </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>Title</Name>
           <Exclude>false</Exclude>
