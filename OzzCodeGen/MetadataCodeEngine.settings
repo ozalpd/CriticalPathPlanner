@@ -378,10 +378,16 @@
       <OverwriteExisting>false</OverwriteExisting>
       <Properties>
         <MetadataPropertySetting>
-          <Name>Title</Name>
+          <Name>OrderDate</Name>
           <Exclude>false</Exclude>
-          <DataType />
+          <DataType>Date</DataType>
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>DueDate</Name>
+          <Exclude>false</Exclude>
+          <DataType>Date</DataType>
+          <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>CustomerId</Name>
@@ -395,16 +401,15 @@
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>OrderDate</Name>
+          <Name>Product</Name>
           <Exclude>false</Exclude>
-          <DataType>Date</DataType>
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+          <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>DueDate</Name>
+          <Name>ProductId</Name>
           <Exclude>false</Exclude>
-          <DataType>Date</DataType>
-          <Required />
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>Code</Name>
@@ -416,17 +421,6 @@
           <Name>Description</Name>
           <Exclude>false</Exclude>
           <DataType>MultilineText</DataType>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>ProductId</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>Product</Name>
-          <Exclude>false</Exclude>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
@@ -456,6 +450,7 @@
           <Name>SizeRateDivisor</Name>
           <Exclude>false</Exclude>
           <DataType />
+          <Range>10,100</Range>
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>

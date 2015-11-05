@@ -155,6 +155,62 @@
 		<value>Add Purchase Order</value>
 	</data>
 
+	<data name="AddRemoveCompany" xml:space="preserve">
+		<value>Add/Remove Company</value>
+	</data>
+
+	<data name="AddRemoveContact" xml:space="preserve">
+		<value>Add/Remove Contact</value>
+	</data>
+
+	<data name="AddRemoveCustomer" xml:space="preserve">
+		<value>Add/Remove Customer</value>
+	</data>
+
+	<data name="AddRemoveProcess" xml:space="preserve">
+		<value>Add/Remove Process</value>
+	</data>
+
+	<data name="AddRemoveProcessStep" xml:space="preserve">
+		<value>Add/Remove Process Step</value>
+	</data>
+
+	<data name="AddRemoveProcessStepTemplate" xml:space="preserve">
+		<value>Add/Remove Process Step Template</value>
+	</data>
+
+	<data name="AddRemoveProcessTemplate" xml:space="preserve">
+		<value>Add/Remove Process Template</value>
+	</data>
+
+	<data name="AddRemoveProduct" xml:space="preserve">
+		<value>Add/Remove Product</value>
+	</data>
+
+	<data name="AddRemoveProductCategory" xml:space="preserve">
+		<value>Add/Remove Product Category</value>
+	</data>
+
+	<data name="AddRemovePurchaseOrder" xml:space="preserve">
+		<value>Add/Remove Purchase Order</value>
+	</data>
+
+	<data name="AddRemoveSizeRate" xml:space="preserve">
+		<value>Add/Remove Size Rate</value>
+	</data>
+
+	<data name="AddRemoveSizing" xml:space="preserve">
+		<value>Add/Remove Sizing</value>
+	</data>
+
+	<data name="AddRemoveSizingStandard" xml:space="preserve">
+		<value>Add/Remove Sizing Standard</value>
+	</data>
+
+	<data name="AddRemoveSupplier" xml:space="preserve">
+		<value>Add/Remove Supplier</value>
+	</data>
+
 	<data name="Address1" xml:space="preserve">
 		<value>Address Line 1</value>
 	</data>
@@ -669,6 +725,62 @@
 
 	<data name="RealizedDate" xml:space="preserve">
 		<value>Realized Date</value>
+	</data>
+
+	<data name="RemoveCompany" xml:space="preserve">
+		<value>Remove Company</value>
+	</data>
+
+	<data name="RemoveContact" xml:space="preserve">
+		<value>Remove Contact</value>
+	</data>
+
+	<data name="RemoveCustomer" xml:space="preserve">
+		<value>Remove Customer</value>
+	</data>
+
+	<data name="RemoveProcess" xml:space="preserve">
+		<value>Remove Process</value>
+	</data>
+
+	<data name="RemoveProcessStep" xml:space="preserve">
+		<value>Remove Process Step</value>
+	</data>
+
+	<data name="RemoveProcessStepTemplate" xml:space="preserve">
+		<value>Remove Process Step Template</value>
+	</data>
+
+	<data name="RemoveProcessTemplate" xml:space="preserve">
+		<value>Remove Process Template</value>
+	</data>
+
+	<data name="RemoveProduct" xml:space="preserve">
+		<value>Remove Product</value>
+	</data>
+
+	<data name="RemoveProductCategory" xml:space="preserve">
+		<value>Remove Product Category</value>
+	</data>
+
+	<data name="RemovePurchaseOrder" xml:space="preserve">
+		<value>Remove Purchase Order</value>
+	</data>
+
+	<data name="RemoveSizeRate" xml:space="preserve">
+		<value>Remove Size Rate</value>
+	</data>
+
+	<data name="RemoveSizing" xml:space="preserve">
+		<value>Remove Sizing</value>
+	</data>
+
+	<data name="RemoveSizingStandard" xml:space="preserve">
+		<value>Remove Sizing Standard</value>
+	</data>
+
+	<data name="RemoveSupplier" xml:space="preserve">
+		<value>Remove Supplier</value>
 	</data>
 
 	<data name="RequiredWorkDays" xml:space="preserve">

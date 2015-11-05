@@ -28,15 +28,6 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "ApproveDate")]
             public DateTime ApproveDate { get; set; }
 
-            [StringLength(128, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
-            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "Title")]
-            public string Title { get; set; }
-
-            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "CustomerId")]
-            public int CustomerId { get; set; }
-
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [DataType(DataType.Date)]
             [Display(ResourceType = typeof(EntityStrings), Name = "OrderDate")]
@@ -46,6 +37,14 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "DueDate")]
             public DateTime DueDate { get; set; }
 
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "CustomerId")]
+            public int CustomerId { get; set; }
+
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "ProductId")]
+            public int ProductId { get; set; }
+
             [StringLength(48, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [Display(ResourceType = typeof(EntityStrings), Name = "Code")]
             public string Code { get; set; }
@@ -54,10 +53,6 @@ namespace CriticalPath.Data
             [DataType(DataType.MultilineText)]
             [Display(ResourceType = typeof(EntityStrings), Name = "Description")]
             public string Description { get; set; }
-
-            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "ProductId")]
-            public int ProductId { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Display(ResourceType = typeof(EntityStrings), Name = "Quantity")]
@@ -72,6 +67,7 @@ namespace CriticalPath.Data
             public int SizingStandardId { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Range(10,100)]
             [Display(ResourceType = typeof(EntityStrings), Name = "SizeRateDivisor")]
             public int SizeRateDivisor { get; set; }
 

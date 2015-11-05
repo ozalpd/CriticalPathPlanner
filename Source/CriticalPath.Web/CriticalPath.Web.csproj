@@ -467,6 +467,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\CommonLibraries\OzzUtils.Web.Mvc\OzzUtils.Web.Mvc.csproj">
+      <Project>{c237c7f8-91f6-4840-82b7-e55976c359d8}</Project>
+      <Name>OzzUtils.Web.Mvc</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\CommonLibraries\OzzUtils\OzzUtils.csproj">
       <Project>{d417166b-12eb-43b5-af18-d634ae620f0b}</Project>
       <Name>OzzUtils</Name>

@@ -12,74 +12,77 @@
     </div>
 </div>
 <div class="form-group">
-    @Html.LabelFor(model => model.SizeRates, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
-    <div class="col-lg-8 col-md-9 col-sm-9">
-        <div class="col-xs-3 col-sm-2 col-md-1 pl0 mb5">
+    <label class="control-label col-lg-2 col-md-3 col-sm-3">@EntityStrings.SizeRates</label>
+    <div class="col-lg-7 col-md-8 col-sm-9">
+        <div class="col-xs-2 pl0 mb5">
             @Html.EditorFor(m => m.Size1Caption, new { htmlAttributes = new { @class = "form-control", autocomplete = "off", disabled = "true" } })
         </div>
-        <div class="col-xs-3 col-sm-2 col-md-1 pl0 mb5">
+        <div class="col-xs-2 pl0 mb5">
             @Html.EditorFor(m => m.Size1Rate, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
         </div>
-        <div class="col-xs-3 col-sm-2 col-md-1 pl0 mb5">
+        <div class="col-xs-2 pl0 mb5">
             @Html.EditorFor(m => m.Size2Caption, new { htmlAttributes = new { @class = "form-control", autocomplete = "off", disabled = "true" } })
         </div>
-        <div class="col-xs-3 col-sm-2 col-md-1 pl0 mb5">
+        <div class="col-xs-2 pl0 mb5">
             @Html.EditorFor(m => m.Size2Rate, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
         </div>
-        <div class="col-xs-3 col-sm-2 col-md-1 pl0 mb5">
+        <div class="col-xs-2 pl0 mb5">
             @Html.EditorFor(m => m.Size3Caption, new { htmlAttributes = new { @class = "form-control", autocomplete = "off", disabled = "true" } })
         </div>
-        <div class="col-xs-3 col-sm-2 col-md-1 pl0 mb5">
+        <div class="col-xs-2 pl0 mb5">
             @Html.EditorFor(m => m.Size3Rate, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
         </div>
-        <div class="col-xs-3 col-sm-2 col-md-1 pl0 mb5">
+        <div class="col-xs-2 pl0 mb5">
             @Html.EditorFor(m => m.Size4Caption, new { htmlAttributes = new { @class = "form-control", autocomplete = "off", disabled = "true" } })
         </div>
-        <div class="col-xs-3 col-sm-2 col-md-1 pl0 mb5">
+        <div class="col-xs-2 pl0 mb5">
             @Html.EditorFor(m => m.Size4Rate, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
         </div>
-        <div class="col-md-4 mt30 visible-lg visible-md">&nbsp;</div>
-        <div class="col-xs-3 col-sm-2 col-md-1 pl0 mb5">
+        <div class="col-xs-2 pl0 mb5">
             @Html.EditorFor(m => m.Size5Caption, new { htmlAttributes = new { @class = "form-control", autocomplete = "off", disabled = "true" } })
         </div>
-        <div class="col-xs-3 col-sm-2 col-md-1 pl0 mb5">
+        <div class="col-xs-2 pl0 mb5">
             @Html.EditorFor(m => m.Size5Rate, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
         </div>
-        <div class="col-xs-3 col-sm-2 col-md-1 pl0 mb5">
+        <div class="col-xs-2 pl0 mb5">
             @Html.EditorFor(m => m.Size6Caption, new { htmlAttributes = new { @class = "form-control", autocomplete = "off", disabled = "true" } })
         </div>
-        <div class="col-xs-3 col-sm-2 col-md-1 pl0 mb5">
+        <div class="col-xs-2 pl0 mb5">
             @Html.EditorFor(m => m.Size6Rate, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
         </div>
-        <div class="col-xs-3 col-sm-2 col-md-1 pl0 mb5">
+        <div class="col-xs-2 pl0 mb5">
             @Html.EditorFor(m => m.Size7Caption, new { htmlAttributes = new { @class = "form-control", autocomplete = "off", disabled = "true" } })
         </div>
-        <div class="col-xs-3 col-sm-2 col-md-1 pl0 mb5">
+        <div class="col-xs-2 pl0 mb5">
             @Html.EditorFor(m => m.Size7Rate, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
         </div>
-        <div class="col-xs-3 col-sm-2 col-md-1 pl0 mb5">
+        <div class="col-xs-2 pl0 mb5">
             @Html.EditorFor(m => m.Size8Caption, new { htmlAttributes = new { @class = "form-control", autocomplete = "off", disabled = "true" } })
         </div>
-        <div class="col-xs-3 col-sm-2 col-md-1 pl0 mb5">
+        <div class="col-xs-2 pl0 mb5">
             @Html.EditorFor(m => m.Size8Rate, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
         </div>
-    </div>
-</div>
-<div class="form-group">
-    @Html.LabelFor(model => model.SizeRateDivisor, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
-    <div class="col-lg-5 col-md-6 col-sm-7">
-        <div class="col-md-2 col-sm-3 pl0">
-            @Html.EditorFor(m => m.SizeRateDivisor, new { htmlAttributes = new { @class = "form-control", autocomplete = "off", disabled = "true" } })
+        <div class="col-xs-4 pl0">
+            <input id="SizeRateDivisorDisplay" type="text" class = "form-control" disabled="disabled" autocomplete = "off" value="0"/>
+            @Html.HiddenFor(m => m.SizeRateDivisor)
+            @Html.ValidationMessageFor(m => m.SizeRateDivisor, "", new { @class = "text-danger" })
         </div>
-        @Html.ValidationMessageFor(m => m.SizeRateDivisor, "", new { @class = "text-danger" })
     </div>
 </div>
 <script type="text/javascript">
     var productSelect = $('#ProductId');
+    var sizingSelect = $('#SizingStandardId');
+    var sizingCaptions = [$('#Size1Caption'),$('#Size2Caption'),$('#Size3Caption'),$('#Size4Caption'),$('#Size5Caption'),$('#Size6Caption'),$('#Size7Caption'),$('#Size8Caption')];
+    var sizingRates = [$('#Size1Rate'),$('#Size2Rate'),$('#Size3Rate'),$('#Size4Rate'),$('#Size5Rate'),$('#Size6Rate'),$('#Size7Rate'),$('#Size8Rate')];
     var productList = [];
+    var sizingStandards = @Html.Raw(ViewBag.sizingStandards);
 
+    function enableCaptions() {
+        $.each(sizingCaptions, function(index, caption){
+            caption.prop('disabled', false);
+        });
+    }
     function setSizingStandard(standardId) {
-        var sizingSelect = $('#SizingStandardId');
         if (sizingSelect != null) {
             $("#SizingStandardId > option").each(function () {
                 if (this.value == standardId) {
@@ -97,38 +100,65 @@
             $.each(productList, function (index, product) {
                 if (selectedId == product.Id) {
                     setSizingStandard(product.SizingStandardId);
+                    setSizingCaptions();
                 }
             });
         }
     });
+    function setSizingCaptions() {
+        var selectedId = $(sizingSelect).val();
+        $.each(sizingCaptions, function (index, caption) {
+            caption.val('');
+        });
+        $.each(sizingRates, function(index, rate){
+            rate.prop('disabled', true);
+        });
+        if (selectedId != null && selectedId != '') {
+            $.each(sizingStandards, function (index, standard) {
+                if (selectedId == standard.Id) {
+                    $.each(standard.Sizings, function(index, sizing){
+                        sizingCaptions[index].val(sizing.Caption);
+                        sizingRates[index].prop('disabled', false);
+                    });
+                }
+            });
+        }
+        $.each(sizingRates, function(index, rate){
+            if(rate.prop('disabled')){
+                rate.val('');
+            }
+        });
+        calculateDivisor();
+    }
+    sizingSelect.change(setSizingCaptions);
 
-    function calculateDivisor() {
-        var divisor = parseInt($('#Size1Rate').val()) +
-                        parseInt($('#Size2Rate').val()) +
-                        parseInt($('#Size3Rate').val()) +
-                        parseInt($('#Size4Rate').val()) +
-                        parseInt($('#Size5Rate').val()) +
-                        parseInt($('#Size6Rate').val()) +
-                        parseInt($('#Size7Rate').val()) +
-                        parseInt($('#Size8Rate').val());
+    function calculateDivisor(evt) {
+        if(evt!=null && evt.keyCode==9){//Tab
+            return;
+        }
+        var divisor = 0;
+        
+        $.each(sizingRates, function(index, rate){
+            rateVal = rate.val();
+            if(rateVal!=null && rateVal!=''){
+                var rateInt = parseInt(rateVal);
+                divisor = divisor + rateInt;
+                if(rateInt>0){
+                    rate.val(rateInt);
+                }
+            }
+        });
 
         $('#SizeRateDivisor').val(divisor);
+        $('#SizeRateDivisorDisplay').val(divisor);
     }
-    $('#Size1Rate').on('keydown', numbersOnly);
-    $('#Size2Rate').on('keydown', numbersOnly);
-    $('#Size3Rate').on('keydown', numbersOnly);
-    $('#Size4Rate').on('keydown', numbersOnly);
-    $('#Size5Rate').on('keydown', numbersOnly);
-    $('#Size6Rate').on('keydown', numbersOnly);
-    $('#Size7Rate').on('keydown', numbersOnly);
-    $('#Size8Rate').on('keydown', numbersOnly);
-
-    $('#Size1Rate').on('keyup', calculateDivisor);
-    $('#Size2Rate').on('keyup', calculateDivisor);
-    $('#Size3Rate').on('keyup', calculateDivisor);
-    $('#Size4Rate').on('keyup', calculateDivisor);
-    $('#Size5Rate').on('keyup', calculateDivisor);
-    $('#Size6Rate').on('keyup', calculateDivisor);
-    $('#Size7Rate').on('keyup', calculateDivisor);
-    $('#Size8Rate').on('keyup', calculateDivisor);
+    $(document).ready(function () {
+        $.each(sizingRates, function(index, rate){
+            rate.on('keydown', numbersOnly);
+            rate.on('keyup', calculateDivisor);
+            setSizingCaptions();
+            $('#UnitPrice').on('keydown', decNumbersOnly);
+            $('#Quantity').on('keydown', numbersOnly);
+        });
+    });
 </script>

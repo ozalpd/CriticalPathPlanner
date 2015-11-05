@@ -199,7 +199,7 @@ namespace CriticalPath.Web.Controllers
 
                 sb.Append(MessageStrings.CanNotDelete);
                 sb.Append(" <b>");
-                sb.Append(purchaseOrder.Title);
+                sb.Append(purchaseOrder.Product.Title);
                 sb.Append("</b>.<br/>");
 
                 if (sizeRatesCount > 0)
@@ -220,7 +220,7 @@ namespace CriticalPath.Web.Controllers
             {
                 var sb = new StringBuilder();
                 sb.Append(MessageStrings.CanNotDelete);
-                sb.Append(purchaseOrder.Title);
+                sb.Append(purchaseOrder.Product.Title);
                 sb.Append("<br/>");
                 AppendExceptionMsg(ex, sb);
 

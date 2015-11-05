@@ -71,6 +71,10 @@
 		<value>Yeni Ekle</value>
 	</data>
 
+	<data name="AddRemove" xml:space="preserve">
+		<value>Ekle/Çıkar</value>
+	</data>
+
 	<data name="Approve" xml:space="preserve">
 		<value>Onayla</value>
 	</data>

@@ -88,6 +88,15 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add/Remove.
+        /// </summary>
+        public static string AddRemove {
+            get {
+                return ResourceManager.GetString("AddRemove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Approve.
         /// </summary>
         public static string Approve {

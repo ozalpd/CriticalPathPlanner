@@ -15,13 +15,6 @@
         @Html.HiddenFor(model => model.Id)
         
         <div class="form-group">
-            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
-            <div class="col-lg-5 col-md-6 col-sm-7">
-                @Html.TextBoxFor(m => m.Title, new { @class = "form-control", autocomplete = "off" })
-                @Html.ValidationMessageFor(m => m.Title, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
             @Html.LabelFor(model => model.CustomerId, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
             <div class="col-lg-5 col-md-6 col-sm-7">
                 @Html.DropDownList("CustomerId", null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control" })

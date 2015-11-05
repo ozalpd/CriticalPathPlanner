@@ -129,6 +129,66 @@
     <Translation>Add Purchase Order</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddRemove</Name>
+    <Translation>Add/Remove</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveCompany</Name>
+    <Translation>Add/Remove Company</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveContact</Name>
+    <Translation>Add/Remove Contact</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveCustomer</Name>
+    <Translation>Add/Remove Customer</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveProcess</Name>
+    <Translation>Add/Remove Process</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveProcessStep</Name>
+    <Translation>Add/Remove Process Step</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveProcessStepTemplate</Name>
+    <Translation>Add/Remove Process Step Template</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveProcessTemplate</Name>
+    <Translation>Add/Remove Process Template</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveProduct</Name>
+    <Translation>Add/Remove Product</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveProductCategory</Name>
+    <Translation>Add/Remove Product Category</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemovePurchaseOrder</Name>
+    <Translation>Add/Remove Purchase Order</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveSizeRate</Name>
+    <Translation>Add/Remove Size Rate</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveSizing</Name>
+    <Translation>Add/Remove Sizing</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveSizingStandard</Name>
+    <Translation>Add/Remove Sizing Standard</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveSupplier</Name>
+    <Translation>Add/Remove Supplier</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Address</Name>
     <Translation>Address</Translation>
   </Vocab>
@@ -1083,6 +1143,62 @@
   <Vocab>
     <Name>Remove</Name>
     <Translation>Remove</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveCompany</Name>
+    <Translation>Remove Company</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveContact</Name>
+    <Translation>Remove Contact</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveCustomer</Name>
+    <Translation>Remove Customer</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveProcess</Name>
+    <Translation>Remove Process</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveProcessStep</Name>
+    <Translation>Remove Process Step</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveProcessStepTemplate</Name>
+    <Translation>Remove Process Step Template</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveProcessTemplate</Name>
+    <Translation>Remove Process Template</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveProduct</Name>
+    <Translation>Remove Product</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveProductCategory</Name>
+    <Translation>Remove Product Category</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemovePurchaseOrder</Name>
+    <Translation>Remove Purchase Order</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveSizeRate</Name>
+    <Translation>Remove Size Rate</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveSizing</Name>
+    <Translation>Remove Sizing</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveSizingStandard</Name>
+    <Translation>Remove Sizing Standard</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveSupplier</Name>
+    <Translation>Remove Supplier</Translation>
   </Vocab>
   <Vocab>
     <Name>RequiredWorkDays</Name>

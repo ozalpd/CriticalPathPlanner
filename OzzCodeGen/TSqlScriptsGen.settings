@@ -578,7 +578,7 @@
       <Name>PurchaseOrder</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
-      <InheritedEntity>IDescription</InheritedEntity>
+      <InheritedEntity>IApproval</InheritedEntity>
       <UseInheritance>false</UseInheritance>
       <SchemaName>dbo</SchemaName>
       <TableName>PurchaseOrders</TableName>
@@ -586,27 +586,6 @@
       <StoredProcs>false</StoredProcs>
       <CustomStoredProcs>false</CustomStoredProcs>
       <Properties>
-        <StorageColumnSetting>
-          <Name>Title</Name>
-          <Exclude>false</Exclude>
-          <DataType>nVarChar</DataType>
-          <Lenght>128</Lenght>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>false</Indexed>
-          <SortDesc>false</SortDesc>
-          <Nullable>false</Nullable>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
-          <Name>CustomerId</Name>
-          <Exclude>false</Exclude>
-          <DataType>int</DataType>
-          <Lenght>0</Lenght>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
-          <SortDesc>false</SortDesc>
-          <Nullable>false</Nullable>
-          <ForeignKeyTable>Customers</ForeignKeyTable>
-        </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>OrderDate</Name>
           <Exclude>false</Exclude>
@@ -628,6 +607,28 @@
           <Nullable>true</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
+          <Name>CustomerId</Name>
+          <Exclude>false</Exclude>
+          <DataType>int</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>true</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+          <ForeignKeyTable>Customers</ForeignKeyTable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>ProductId</Name>
+          <Exclude>false</Exclude>
+          <DataType>int</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>true</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+          <ForeignKeyTable>Products</ForeignKeyTable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
           <Name>Code</Name>
           <Exclude>false</Exclude>
           <DataType>nVarChar</DataType>
@@ -646,17 +647,6 @@
           <Indexed>false</Indexed>
           <SortDesc>false</SortDesc>
           <Nullable>true</Nullable>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
-          <Name>ProductId</Name>
-          <Exclude>false</Exclude>
-          <DataType>int</DataType>
-          <Lenght>0</Lenght>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
-          <SortDesc>false</SortDesc>
-          <Nullable>false</Nullable>
-          <ForeignKeyTable>Products</ForeignKeyTable>
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>Quantity</Name>
@@ -1041,7 +1031,7 @@
       <Name>ProcessTemplate</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
-      <InheritedEntity>IModified</InheritedEntity>
+      <InheritedEntity>IApproval</InheritedEntity>
       <UseInheritance>false</UseInheritance>
       <SchemaName>dbo</SchemaName>
       <TableName>ProcessTemplates</TableName>

@@ -6,13 +6,12 @@ CREATE TABLE [dbo].[PurchaseOrders](
     [Id] [int] Identity(1,1) Not Null,
     [IsApproved] [bit] Not Null,
     [ApproveDate] [DateTime] Null,
-    [Title] [nVarChar](128) Not Null,
-    [CustomerId] [int] Not Null Constraint FK_PurchaseOrder_CustomerId Foreign Key References [dbo].[Customers]([Id]),
     [OrderDate] [DateTime] Not Null,
     [DueDate] [DateTime] Null,
+    [CustomerId] [int] Not Null Constraint FK_PurchaseOrder_CustomerId Foreign Key References [dbo].[Customers]([Id]),
+    [ProductId] [int] Not Null Constraint FK_PurchaseOrder_ProductId Foreign Key References [dbo].[Products]([Id]),
     [Code] [nVarChar](48) Null,
     [Description] [nVarChar](256) Null,
-    [ProductId] [int] Not Null Constraint FK_PurchaseOrder_ProductId Foreign Key References [dbo].[Products]([Id]),
     [Quantity] [int] Not Null,
     [UnitPrice] [decimal](18, 4) Not Null,
     [SizingStandardId] [int] Not Null Constraint FK_PurchaseOrder_SizingStandardId Foreign Key References [dbo].[SizingStandards]([Id]),
@@ -37,11 +36,11 @@ CREATE TABLE [dbo].[PurchaseOrders](
 Go
 Create Nonclustered Index [idx_PurchaseOrders_IsApproved] On [dbo].[PurchaseOrders]([IsApproved] Asc)
 Go
-Create Nonclustered Index [idx_PurchaseOrders_CustomerId] On [dbo].[PurchaseOrders]([CustomerId] Asc)
-Go
 Create Nonclustered Index [idx_PurchaseOrders_OrderDate] On [dbo].[PurchaseOrders]([OrderDate] Asc)
 Go
 Create Nonclustered Index [idx_PurchaseOrders_DueDate] On [dbo].[PurchaseOrders]([DueDate] Asc)
+Go
+Create Nonclustered Index [idx_PurchaseOrders_CustomerId] On [dbo].[PurchaseOrders]([CustomerId] Asc)
 Go
 Create Nonclustered Index [idx_PurchaseOrders_ProductId] On [dbo].[PurchaseOrders]([ProductId] Asc)
 Go

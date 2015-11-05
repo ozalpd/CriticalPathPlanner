@@ -22,5 +22,21 @@ namespace CriticalPath.Data
         {
             return await GetProductCategoryQuery().FirstOrDefaultAsync(p => p.Id == id);
         }
+
+        public async Task<List<SizingStandardDTO>> GetSizingStandardDtoList()
+        {
+            if (_sizingStandardDtos == null)
+            {
+                var list = await GetSizingStandardQuery().ToListAsync();
+                _sizingStandardDtos = new List<SizingStandardDTO>();
+                foreach (var item in list)
+                {
+                    _sizingStandardDtos.Add(new SizingStandardDTO(item));
+                }
+            }
+
+            return _sizingStandardDtos;
+        }
+        static List<SizingStandardDTO> _sizingStandardDtos;
     }
 }

@@ -23,7 +23,7 @@ namespace CriticalPath.Web.Controllers
             {
                 query = from a in query
                         where
-                           a.Title.Contains(qParams.SearchString) |
+                           a.Product.Title.Contains(qParams.SearchString) |
                            a.Code.Contains(qParams.SearchString) |
                            a.Description.Contains(qParams.SearchString) |
                            a.Customer.CompanyName.Contains(qParams.SearchString) |

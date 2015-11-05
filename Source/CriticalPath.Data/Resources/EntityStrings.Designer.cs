@@ -277,6 +277,132 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add/Remove Company.
+        /// </summary>
+        public static string AddRemoveCompany {
+            get {
+                return ResourceManager.GetString("AddRemoveCompany", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add/Remove Contact.
+        /// </summary>
+        public static string AddRemoveContact {
+            get {
+                return ResourceManager.GetString("AddRemoveContact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add/Remove Customer.
+        /// </summary>
+        public static string AddRemoveCustomer {
+            get {
+                return ResourceManager.GetString("AddRemoveCustomer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add/Remove Process.
+        /// </summary>
+        public static string AddRemoveProcess {
+            get {
+                return ResourceManager.GetString("AddRemoveProcess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add/Remove Process Step.
+        /// </summary>
+        public static string AddRemoveProcessStep {
+            get {
+                return ResourceManager.GetString("AddRemoveProcessStep", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add/Remove Process Step Template.
+        /// </summary>
+        public static string AddRemoveProcessStepTemplate {
+            get {
+                return ResourceManager.GetString("AddRemoveProcessStepTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add/Remove Process Template.
+        /// </summary>
+        public static string AddRemoveProcessTemplate {
+            get {
+                return ResourceManager.GetString("AddRemoveProcessTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add/Remove Product.
+        /// </summary>
+        public static string AddRemoveProduct {
+            get {
+                return ResourceManager.GetString("AddRemoveProduct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add/Remove Product Category.
+        /// </summary>
+        public static string AddRemoveProductCategory {
+            get {
+                return ResourceManager.GetString("AddRemoveProductCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add/Remove Purchase Order.
+        /// </summary>
+        public static string AddRemovePurchaseOrder {
+            get {
+                return ResourceManager.GetString("AddRemovePurchaseOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add/Remove Size Rate.
+        /// </summary>
+        public static string AddRemoveSizeRate {
+            get {
+                return ResourceManager.GetString("AddRemoveSizeRate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add/Remove Sizing.
+        /// </summary>
+        public static string AddRemoveSizing {
+            get {
+                return ResourceManager.GetString("AddRemoveSizing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add/Remove Sizing Standard.
+        /// </summary>
+        public static string AddRemoveSizingStandard {
+            get {
+                return ResourceManager.GetString("AddRemoveSizingStandard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add/Remove Supplier.
+        /// </summary>
+        public static string AddRemoveSupplier {
+            get {
+                return ResourceManager.GetString("AddRemoveSupplier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Address Line 1.
         /// </summary>
         public static string Address1 {
@@ -1434,6 +1560,132 @@ namespace CriticalPath.Data.Resources {
         public static string RealizedDate {
             get {
                 return ResourceManager.GetString("RealizedDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove Company.
+        /// </summary>
+        public static string RemoveCompany {
+            get {
+                return ResourceManager.GetString("RemoveCompany", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove Contact.
+        /// </summary>
+        public static string RemoveContact {
+            get {
+                return ResourceManager.GetString("RemoveContact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove Customer.
+        /// </summary>
+        public static string RemoveCustomer {
+            get {
+                return ResourceManager.GetString("RemoveCustomer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove Process.
+        /// </summary>
+        public static string RemoveProcess {
+            get {
+                return ResourceManager.GetString("RemoveProcess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove Process Step.
+        /// </summary>
+        public static string RemoveProcessStep {
+            get {
+                return ResourceManager.GetString("RemoveProcessStep", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove Process Step Template.
+        /// </summary>
+        public static string RemoveProcessStepTemplate {
+            get {
+                return ResourceManager.GetString("RemoveProcessStepTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove Process Template.
+        /// </summary>
+        public static string RemoveProcessTemplate {
+            get {
+                return ResourceManager.GetString("RemoveProcessTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove Product.
+        /// </summary>
+        public static string RemoveProduct {
+            get {
+                return ResourceManager.GetString("RemoveProduct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove Product Category.
+        /// </summary>
+        public static string RemoveProductCategory {
+            get {
+                return ResourceManager.GetString("RemoveProductCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove Purchase Order.
+        /// </summary>
+        public static string RemovePurchaseOrder {
+            get {
+                return ResourceManager.GetString("RemovePurchaseOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove Size Rate.
+        /// </summary>
+        public static string RemoveSizeRate {
+            get {
+                return ResourceManager.GetString("RemoveSizeRate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove Sizing.
+        /// </summary>
+        public static string RemoveSizing {
+            get {
+                return ResourceManager.GetString("RemoveSizing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove Sizing Standard.
+        /// </summary>
+        public static string RemoveSizingStandard {
+            get {
+                return ResourceManager.GetString("RemoveSizingStandard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove Supplier.
+        /// </summary>
+        public static string RemoveSupplier {
+            get {
+                return ResourceManager.GetString("RemoveSupplier", resourceCulture);
             }
         }
         

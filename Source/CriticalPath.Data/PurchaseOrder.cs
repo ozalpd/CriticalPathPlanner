@@ -22,7 +22,6 @@ namespace CriticalPath.Data
         }
     
         public int Id { get; set; }
-        public string Title { get; set; }
         public int CustomerId { get; set; }
         public int ProductId { get; set; }
         public int SizingStandardId { get; set; }
@@ -61,7 +60,6 @@ namespace CriticalPath.Data
         public PurchaseOrder Clone()
         {
             var clone = new PurchaseOrder();
-            clone.Title = Title;
             clone.CustomerId = CustomerId;
             clone.ProductId = ProductId;
             clone.SizingStandardId = SizingStandardId;
@@ -103,7 +101,6 @@ namespace CriticalPath.Data
         public PurchaseOrderDTO(PurchaseOrder entity)
         {
             Id = entity.Id;
-            Title = entity.Title;
             CustomerId = entity.CustomerId;
             ProductId = entity.ProductId;
             SizingStandardId = entity.SizingStandardId;
@@ -127,7 +124,6 @@ namespace CriticalPath.Data
         {
             var entity = new PurchaseOrder();
             entity.Id = Id;
-            entity.Title = Title;
             entity.CustomerId = CustomerId;
             entity.ProductId = ProductId;
             entity.SizingStandardId = SizingStandardId;
@@ -150,7 +146,6 @@ namespace CriticalPath.Data
         partial void Converting(PurchaseOrder entity);
       
         public int Id { get; set; }
-        public string Title { get; set; }
         public int CustomerId { get; set; }
         public int ProductId { get; set; }
         public int SizingStandardId { get; set; }

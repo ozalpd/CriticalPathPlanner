@@ -952,16 +952,28 @@
       <OverwriteExisting>true</OverwriteExisting>
       <Properties>
         <AspNetMvcPropertySetting>
-          <Name>Title</Name>
+          <Name>OrderDate</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>true</UseInSearch>
+          <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
           <InEditView>true</InEditView>
           <HasValidation>true</HasValidation>
-          <UseForCreate>TextBox</UseForCreate>
-          <UseForEdit>TextBox</UseForEdit>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>DueDate</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
           <Name>CustomerId</Name>
@@ -988,28 +1000,28 @@
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>OrderDate</Name>
+          <Name>Product</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
           <HasValidation>true</HasValidation>
           <UseForCreate>Standart</UseForCreate>
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>DueDate</Name>
+          <Name>ProductId</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
-          <InIndexView>true</InIndexView>
-          <InDetailsView>true</InDetailsView>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>false</InDetailsView>
           <InCreateView>true</InCreateView>
           <InEditView>true</InEditView>
           <HasValidation>true</HasValidation>
-          <UseForCreate>Standart</UseForCreate>
-          <UseForEdit>Standart</UseForEdit>
+          <UseForCreate>DropDownList</UseForCreate>
+          <UseForEdit>DropDownList</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
           <Name>Code</Name>
@@ -1034,30 +1046,6 @@
           <HasValidation>true</HasValidation>
           <UseForCreate>TextBox</UseForCreate>
           <UseForEdit>TextBox</UseForEdit>
-        </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
-          <Name>ProductId</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
-          <InIndexView>false</InIndexView>
-          <InDetailsView>false</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForCreate>DropDownList</UseForCreate>
-          <UseForEdit>DropDownList</UseForEdit>
-        </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
-          <Name>Product</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
-          <InIndexView>true</InIndexView>
-          <InDetailsView>true</InDetailsView>
-          <InCreateView>false</InCreateView>
-          <InEditView>false</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForCreate>Standart</UseForCreate>
-          <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
           <Name>Quantity</Name>

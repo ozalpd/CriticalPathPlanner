@@ -24,14 +24,14 @@ namespace CriticalPath.Web.Models
             }
         }
 
-        public int Size1Rate { get; set; }
-        public int Size2Rate { get; set; }
-        public int Size3Rate { get; set; }
-        public int Size4Rate { get; set; }
-        public int Size5Rate { get; set; }
-        public int Size6Rate { get; set; }
-        public int Size7Rate { get; set; }
-        public int Size8Rate { get; set; }
+        public int? Size1Rate { get; set; }
+        public int? Size2Rate { get; set; }
+        public int? Size3Rate { get; set; }
+        public int? Size4Rate { get; set; }
+        public int? Size5Rate { get; set; }
+        public int? Size6Rate { get; set; }
+        public int? Size7Rate { get; set; }
+        public int? Size8Rate { get; set; }
 
         public string Size1Caption { get; set; }
         public string Size2Caption { get; set; }

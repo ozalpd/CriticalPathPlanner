@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OzzIdentity", "OzzIdentity\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OzzUtils", "..\..\CommonLibraries\OzzUtils\OzzUtils.csproj", "{D417166B-12EB-43B5-AF18-D634AE620F0B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OzzUtils.Web.Mvc", "..\..\CommonLibraries\OzzUtils.Web.Mvc\OzzUtils.Web.Mvc.csproj", "{C237C7F8-91F6-4840-82B7-E55976C359D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{D417166B-12EB-43B5-AF18-D634AE620F0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D417166B-12EB-43B5-AF18-D634AE620F0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D417166B-12EB-43B5-AF18-D634AE620F0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C237C7F8-91F6-4840-82B7-E55976C359D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C237C7F8-91F6-4840-82B7-E55976C359D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C237C7F8-91F6-4840-82B7-E55976C359D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C237C7F8-91F6-4840-82B7-E55976C359D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

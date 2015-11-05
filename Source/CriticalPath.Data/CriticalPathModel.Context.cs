@@ -430,7 +430,7 @@ namespace CriticalPath.Data
         /// <returns></returns>
         public virtual IQueryable<PurchaseOrder> GetPurchaseOrderQuery()
         {
-            IQueryable<PurchaseOrder> query = PurchaseOrders.OrderBy(p => p.Title);
+            IQueryable<PurchaseOrder> query = PurchaseOrders;
             return query;
         }
     
@@ -454,7 +454,6 @@ namespace CriticalPath.Data
                    select new PurchaseOrderDTO
                    {
                        Id = e.Id,
-                       Title = e.Title,
                        CustomerId = e.CustomerId,
                        ProductId = e.ProductId,
                        SizingStandardId = e.SizingStandardId,

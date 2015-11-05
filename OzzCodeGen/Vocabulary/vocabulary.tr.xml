@@ -129,6 +129,66 @@
     <Translation>Sipariş Ekle</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddRemove</Name>
+    <Translation>Ekle/Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveCompany</Name>
+    <Translation>Şirket Ekle/Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveContact</Name>
+    <Translation>Kişi Ekle/Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveCustomer</Name>
+    <Translation>Müşteri Ekle/Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveProcess</Name>
+    <Translation>Süreç Ekle/Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveProcessStep</Name>
+    <Translation>Süreç Adımı Ekle/Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveProcessStepTemplate</Name>
+    <Translation>Süreç Adım Şablonu Ekle/Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveProcessTemplate</Name>
+    <Translation>Süreç Şablonu Ekle/Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveProduct</Name>
+    <Translation>Ürün Ekle/Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveProductCategory</Name>
+    <Translation>Ürün Kategorisi Ekle/Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemovePurchaseOrder</Name>
+    <Translation>Sipariş Ekle/Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveSizeRate</Name>
+    <Translation>Ölçü Oranı Ekle/Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveSizing</Name>
+    <Translation>Ölçülendirme Ekle/Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveSizingStandard</Name>
+    <Translation>Ölçü Standartı Ekle/Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveSupplier</Name>
+    <Translation>Tedarikçi Ekle/Çıkar</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Address</Name>
     <Translation>Adres</Translation>
   </Vocab>
@@ -1010,7 +1070,7 @@
   </Vocab>
   <Vocab>
     <Name>ProductCategoryId</Name>
-    <Translation>Ürün Kategori</Translation>
+    <Translation>Ürün Kategorisi</Translation>
   </Vocab>
   <Vocab>
     <Name>ProductId</Name>
@@ -1083,6 +1143,62 @@
   <Vocab>
     <Name>Remove</Name>
     <Translation>Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveCompany</Name>
+    <Translation>Şirketi Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveContact</Name>
+    <Translation>Kişiyi Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveCustomer</Name>
+    <Translation>Müşteriyi Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveProcess</Name>
+    <Translation>Süreci Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveProcessStep</Name>
+    <Translation>Süreç Adımını Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveProcessStepTemplate</Name>
+    <Translation>Süreç Adım Şablonunu Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveProcessTemplate</Name>
+    <Translation>Süreç Şablonunu Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveProduct</Name>
+    <Translation>Ürünü Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveProductCategory</Name>
+    <Translation>Ürün Kategorisini Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemovePurchaseOrder</Name>
+    <Translation>Siparişi Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveSizeRate</Name>
+    <Translation>Ölçü Oranını Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveSizing</Name>
+    <Translation>Ölçülendirmeyi Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveSizingStandard</Name>
+    <Translation>Ölçü Standartını Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveSupplier</Name>
+    <Translation>Tedarikçiyi Çıkar</Translation>
   </Vocab>
   <Vocab>
     <Name>RequiredWorkDays</Name>

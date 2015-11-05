@@ -155,6 +155,62 @@
 		<value>Sipariş Ekle</value>
 	</data>
 
+	<data name="AddRemoveCompany" xml:space="preserve">
+		<value>Şirket Ekle/Çıkar</value>
+	</data>
+
+	<data name="AddRemoveContact" xml:space="preserve">
+		<value>Kişi Ekle/Çıkar</value>
+	</data>
+
+	<data name="AddRemoveCustomer" xml:space="preserve">
+		<value>Müşteri Ekle/Çıkar</value>
+	</data>
+
+	<data name="AddRemoveProcess" xml:space="preserve">
+		<value>Süreç Ekle/Çıkar</value>
+	</data>
+
+	<data name="AddRemoveProcessStep" xml:space="preserve">
+		<value>Süreç Adımı Ekle/Çıkar</value>
+	</data>
+
+	<data name="AddRemoveProcessStepTemplate" xml:space="preserve">
+		<value>Süreç Adım Şablonu Ekle/Çıkar</value>
+	</data>
+
+	<data name="AddRemoveProcessTemplate" xml:space="preserve">
+		<value>Süreç Şablonu Ekle/Çıkar</value>
+	</data>
+
+	<data name="AddRemoveProduct" xml:space="preserve">
+		<value>Ürün Ekle/Çıkar</value>
+	</data>
+
+	<data name="AddRemoveProductCategory" xml:space="preserve">
+		<value>Ürün Kategorisi Ekle/Çıkar</value>
+	</data>
+
+	<data name="AddRemovePurchaseOrder" xml:space="preserve">
+		<value>Sipariş Ekle/Çıkar</value>
+	</data>
+
+	<data name="AddRemoveSizeRate" xml:space="preserve">
+		<value>Ölçü Oranı Ekle/Çıkar</value>
+	</data>
+
+	<data name="AddRemoveSizing" xml:space="preserve">
+		<value>Ölçülendirme Ekle/Çıkar</value>
+	</data>
+
+	<data name="AddRemoveSizingStandard" xml:space="preserve">
+		<value>Ölçü Standartı Ekle/Çıkar</value>
+	</data>
+
+	<data name="AddRemoveSupplier" xml:space="preserve">
+		<value>Tedarikçi Ekle/Çıkar</value>
+	</data>
+
 	<data name="Address1" xml:space="preserve">
 		<value>Adres Satır 1</value>
 	</data>
@@ -669,6 +725,62 @@
 
 	<data name="RealizedDate" xml:space="preserve">
 		<value>Gerçekleşme Tarihi</value>
+	</data>
+
+	<data name="RemoveCompany" xml:space="preserve">
+		<value>Şirketi Çıkar</value>
+	</data>
+
+	<data name="RemoveContact" xml:space="preserve">
+		<value>Kişiyi Çıkar</value>
+	</data>
+
+	<data name="RemoveCustomer" xml:space="preserve">
+		<value>Müşteriyi Çıkar</value>
+	</data>
+
+	<data name="RemoveProcess" xml:space="preserve">
+		<value>Süreci Çıkar</value>
+	</data>
+
+	<data name="RemoveProcessStep" xml:space="preserve">
+		<value>Süreç Adımını Çıkar</value>
+	</data>
+
+	<data name="RemoveProcessStepTemplate" xml:space="preserve">
+		<value>Süreç Adım Şablonunu Çıkar</value>
+	</data>
+
+	<data name="RemoveProcessTemplate" xml:space="preserve">
+		<value>Süreç Şablonunu Çıkar</value>
+	</data>
+
+	<data name="RemoveProduct" xml:space="preserve">
+		<value>Ürünü Çıkar</value>
+	</data>
+
+	<data name="RemoveProductCategory" xml:space="preserve">
+		<value>Ürün Kategorisini Çıkar</value>
+	</data>
+
+	<data name="RemovePurchaseOrder" xml:space="preserve">
+		<value>Siparişi Çıkar</value>
+	</data>
+
+	<data name="RemoveSizeRate" xml:space="preserve">
+		<value>Ölçü Oranını Çıkar</value>
+	</data>
+
+	<data name="RemoveSizing" xml:space="preserve">
+		<value>Ölçülendirmeyi Çıkar</value>
+	</data>
+
+	<data name="RemoveSizingStandard" xml:space="preserve">
+		<value>Ölçü Standartını Çıkar</value>
+	</data>
+
+	<data name="RemoveSupplier" xml:space="preserve">
+		<value>Tedarikçiyi Çıkar</value>
 	</data>
 
 	<data name="RequiredWorkDays" xml:space="preserve">

@@ -1,4 +1,5 @@
 ﻿using CriticalPath.Data;
+using OzzUtils.Web.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -132,11 +133,11 @@ namespace CriticalPath.Web.Controllers
             await SetSizingStandardSelectListAsync(standardId);
         }
 
-        protected async Task SetSizingStandardSelectListAsync(int sizingStandardId)
+        protected virtual async Task SetSizingStandardSelectListAsync(int sizingStandardId)
         {
-            var query = DataContext.GetSizingStandardDtoQuery();
-            var standardList = await query.ToListAsync();
+            var standardList = await DataContext.GetSizingStandardDtoList();
             ViewBag.SizingStandardId = new SelectList(standardList, "Id", "Title", sizingStandardId);
+            ViewBag.sizingStandards = standardList.ToJson();
         }
         #endregion
 
