@@ -72,24 +72,6 @@ namespace CriticalPath.Web.Controllers
         }
         bool? _canUserDelete;
 
-        [Authorize]
-        public async Task<ActionResult> Details(int? id)  //GET: /PurchaseOrders/Details/5
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            PurchaseOrder purchaseOrder = await FindAsyncPurchaseOrder(id.Value);
-
-            if (purchaseOrder == null)
-            {
-                return HttpNotFound();
-            }
-
-            await PutCanUserInViewBag();
-            return View(purchaseOrder);
-        }
-
 
         public new partial class QueryParameters : BaseController.QueryParameters
         {

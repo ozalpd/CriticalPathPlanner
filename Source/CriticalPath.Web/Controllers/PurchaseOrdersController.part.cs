@@ -46,6 +46,24 @@ namespace CriticalPath.Web.Controllers
             await base.PutCanUserInViewBag();
         }
 
+        [Authorize]
+        public async Task<ActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            PurchaseOrder purchaseOrder = await FindAsyncPurchaseOrder(id.Value);
+
+            if (purchaseOrder == null)
+            {
+                return HttpNotFound();
+            }
+
+            await PutCanUserInViewBag();
+            return View(new PurchaseOrderVM(purchaseOrder));
+        }
+
         [Authorize(Roles = "admin, supervisor")]
         public async Task<ActionResult> Approve(int? id)  //GET: /PurchaseOrders/Edit/5
         {
@@ -141,7 +159,7 @@ namespace CriticalPath.Web.Controllers
                 return HttpNotFound();
             }
 
-            var purchaseOrderVM = new PurchaseOrderEditVM(purchaseOrder);
+            var purchaseOrderVM = new PurchaseOrderVM(purchaseOrder);
             await SetProductSelectListAsync(purchaseOrderVM.Product);
             await SetSizingStandardSelectListAsync(purchaseOrderVM);
             await SetCustomerSelectListAsync(purchaseOrderVM);
@@ -151,7 +169,7 @@ namespace CriticalPath.Web.Controllers
         [Authorize(Roles = "admin, supervisor, clerk")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(PurchaseOrderEditVM vm)  //POST: /PurchaseOrders/Edit/5
+        public async Task<ActionResult> Edit(PurchaseOrderVM vm)  //POST: /PurchaseOrders/Edit/5
         {
             PurchaseOrder purchaseOrder = await FindAsyncPurchaseOrder(vm.Id);
             purchaseOrder.Notes = vm.Notes;

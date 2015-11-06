@@ -1172,7 +1172,7 @@
       <GenerateCreateAction>false</GenerateCreateAction>
       <GenerateDeleteAction>false</GenerateDeleteAction>
       <GenerateEditAction>false</GenerateEditAction>
-      <GenerateDetailsAction>true</GenerateDetailsAction>
+      <GenerateDetailsAction>false</GenerateDetailsAction>
       <IndexView>false</IndexView>
       <DetailsView>false</DetailsView>
       <CreateView>false</CreateView>

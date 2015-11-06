@@ -1,7 +1,7 @@
 @using CriticalPath.Web.Models
 @using CriticalPath.Data
 @using CriticalPath.Data.Resources
-@model PurchaseOrder
+@model PurchaseOrderVM
 @{
     ViewBag.Title = EntityStrings.PurchaseOrder;
 
@@ -88,34 +88,7 @@
         @Html.DisplayFor(m => m.UnitPrice)
     </div>
 </div>
-<div class="row mt15">
-    <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.SizingStandard)
-    </label>
-    <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.SizingStandard.Title)
-    </div>
-    <div class="col-lg-6 col-md-7 col-sm-8">
-        @foreach (var sizing in Model.SizingStandard.Sizings)
-        { <div class="col-xs-2 shadedCaption">@sizing.Caption</div>
-        }
-    </div>
-</div>
-<div class="row mt15">
-    <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.SizeRates)
-    </label>
-    <div class="col-lg-6 col-md-7 col-sm-8">
-        @foreach (var rate in Model.SizeRates)
-        {
-            <div class="col-xs-2 shadedCaption">@rate.Caption: @rate.Rate</div>
-        }
-        <div class="col-xs-1 mr4">&nbsp;</div>
-        <div class="col-xs-3 shadedCaption fontSize125pc">
-            @Html.DisplayFor(m => m.SizeRateDivisor)
-        </div>
-    </div>
-</div>
+@Html.Partial("_PoSizeRates")
 <div class="row mt15">
     <label class="control-label col-md-2 col-sm-3">
         @Html.DisplayNameFor(model => model.Notes)

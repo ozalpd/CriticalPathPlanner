@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace CriticalPath.Web.Models
 {
-    public partial class PurchaseOrderEditVM : PurchaseOrderDTO
+    public partial class PurchaseOrderVM : PurchaseOrderDTO
     {
-        public PurchaseOrderEditVM(PurchaseOrder entity) : base(entity) { }
-        public PurchaseOrderEditVM() { }
+        public PurchaseOrderVM(PurchaseOrder entity) : base(entity) { }
+        public PurchaseOrderVM() { }
 
         protected override void Constructing(PurchaseOrder entity)
         {
