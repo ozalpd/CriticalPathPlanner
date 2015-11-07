@@ -1,6 +1,7 @@
 ﻿@using OzzIdentity.Models
 @using CriticalPath.Data.Resources
-@model IEnumerable<OzzUser>
+@using CriticalPath.Web.Areas.Admin.Models
+@model IEnumerable<UserEditVM>
 @{
     ViewBag.Title = "Users";
     //Records & Pager
@@ -27,8 +28,13 @@
     <tr>
         <th>@ActionStrings.Action</th>
         <th>@Html.DisplayNameFor(model => model.UserName)</th>
-        <th>@Html.DisplayNameFor(model => model.FirstName)</th>
-        <th>@Html.DisplayNameFor(model => model.LastName)</th>
+        <th>@EntityStrings.FirstName</th>
+        <th>@Html.DisplayNameFor(model => model.Email)</th>
+        <th>@Html.DisplayNameFor(model => model.IsUserAdmin)</th>
+        <th>@Html.DisplayNameFor(model => model.IsUserSupervisor)</th>
+        <th>@Html.DisplayNameFor(model => model.IsUserClerk)</th>
+        <th>@Html.DisplayNameFor(model => model.IsUserObserver)</th>
+        <th>@Html.DisplayNameFor(model => model.IsUserSupplier)</th>
     </tr>
     @foreach (var item in Model)
     {
@@ -45,8 +51,13 @@
                 </div>
             </td>
             <td>@Html.DisplayFor(modelItem => item.UserName)</td>
-            <td>@Html.DisplayFor(modelItem => item.FirstName)</td>
-            <td>@Html.DisplayFor(modelItem => item.LastName)</td>
+            <td>@Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.LastName)</td>
+            <td>@Html.DisplayFor(modelItem => item.Email)</td>
+            <td>@Html.DisplayFor(modelItem => item.IsUserAdmin)</td>
+            <td>@Html.DisplayFor(modelItem => item.IsUserSupervisor)</td>
+            <td>@Html.DisplayFor(modelItem => item.IsUserClerk)</td>
+            <td>@Html.DisplayFor(modelItem => item.IsUserObserver)</td>
+            <td>@Html.DisplayFor(modelItem => item.IsUserSupplier)</td>
         </tr>
     }
 </table>

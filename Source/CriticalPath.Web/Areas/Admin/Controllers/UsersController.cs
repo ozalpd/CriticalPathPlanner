@@ -1,23 +1,21 @@
-﻿using CriticalPath.Web.Models;
-using OzzIdentity.Controllers;
+﻿using CriticalPath.Web.Areas.Admin.Models;
+using CriticalPath.Web.Controllers;
+using CriticalPath.Web.Models;
 using OzzIdentity.Models;
-using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 
 namespace CriticalPath.Web.Areas.Admin.Controllers
 {
     [Authorize(Roles = SecurityRoles.Admin)]
-    public class UsersController : AbstractAdminController
+    public class UsersController : BaseController
     {
         // GET: Admin/Users
-        public async Task<ActionResult> Index(CriticalPath.Web.Controllers.BaseController.QueryParameters qParams)
+        public async Task<ActionResult> Index(QueryParameters qParams)
         {
             using (var idContext = new OzzIdentityDbContext())
             {
@@ -39,35 +37,76 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 ViewBag.pageCount = qParams.PageCount;
 
                 var users = qParams.TotalCount > 0 ? await query.ToListAsync() : new List<OzzUser>();
-                return View(users);
+                var usersVM = new List<UserEditVM>();
+                foreach (var user in users)
+                {
+                    var userVM = new UserEditVM(user);
+                    await SetViewModelRoles(userVM);
+                    usersVM.Add(userVM);
+                }
+                return View(usersVM);
             }
         }
 
 
-
-        // GET: Admin/SeedRoles
-        // This action is for one time use only.
-        // If we need to use this action, there may not be any admin role yet.
-        [AllowAnonymous]
-        public override async Task<ActionResult> SeedRoles()
+        public async Task<ActionResult> Edit(string id)
         {
-            return await base.SeedRoles();
+            if (string.IsNullOrEmpty(id))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            UserEditVM userVM = null;
+            using (var idContext = new OzzIdentityDbContext())
+            {
+                var user = await idContext.Users.FirstOrDefaultAsync(u => u.Id.Equals(id));
+                if (user == null)
+                {
+                    return HttpNotFound();
+                }
+                userVM = new UserEditVM(user);
+            }
+
+            await SetViewModelRoles(userVM);
+
+            return View(userVM);
         }
 
-        protected override string AdminRole
+        private async Task SetViewModelRoles(UserEditVM userVM)
         {
-            get { return SecurityRoles.Admin; }
+            var roles = SecurityRoles.ApplicationRoles;
+            foreach (var role in roles)
+            {
+                bool isInRole = await UserManager.IsInRoleAsync(userVM.Id, role);
+                userVM.SetIsUserInRole(role, isInRole);
+            }
         }
 
-        //will be used in SeedRoles action
-        protected override string[] GetApplicationRoles()
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Edit(UserEditVM userVM)
         {
-            return new string[] {
-                SecurityRoles.Admin,
-                SecurityRoles.Supervisor,
-                SecurityRoles.Clerk,
-                SecurityRoles.Observer
-            };
+            if (ModelState.IsValid)
+            {
+                var roles = SecurityRoles.ApplicationRoles;
+                foreach (var item in roles)
+                {
+                    bool isInRole = await UserManager.IsInRoleAsync(userVM.Id, item);
+                    bool isSetToRole = userVM.IsUserInRole(item);
+                    //if(isInRole && isSetToRole) //Do Nothing
+                    //if(!isInRole && !isSetToRole) //Do Nothing
+                    if (!isInRole && isSetToRole)
+                        await UserManager.AddToRoleAsync(userVM.Id, item);
+                    if (isInRole && !isSetToRole)
+                        await UserManager.RemoveFromRoleAsync(userVM.Id, item);
+                }
+
+                var user = await UserManager.Users.FirstOrDefaultAsync(u => u.Id == userVM.Id);
+                userVM.UpdateUser(user);
+                await UserManager.UpdateAsync(user);
+                return RedirectToAction("Index");
+            }
+
+            return View(userVM);
         }
     }
 }

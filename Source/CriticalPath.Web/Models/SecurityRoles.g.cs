@@ -7,5 +7,19 @@ namespace CriticalPath.Web.Models
         public const string Observer = "observer";
         public const string Supervisor = "supervisor";
         public const string Supplier = "supplier";
+
+        public static string[] ApplicationRoles
+        {
+            get
+            {
+                return new string[] {
+                    Admin,
+                    Clerk,
+                    Observer,
+                    Supervisor,
+                    Supplier,
+                };
+            }
+        }
     }
 }

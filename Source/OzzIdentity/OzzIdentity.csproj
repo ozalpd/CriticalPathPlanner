@@ -143,6 +143,7 @@
     <Compile Include="Models\AccountViewModels\VerifyCodeViewModel.cs" />
     <Compile Include="Models\ManageViewModels\SetPasswordViewModel.cs" />
     <Compile Include="Models\ManageViewModels\VerifyPhoneNumberViewModel.cs" />
+    <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="OzzRoleManager.cs" />
     <Compile Include="OzzSignInManager.cs" />
     <Compile Include="OzzUserManager.cs" />
