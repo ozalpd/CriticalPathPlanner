@@ -12,7 +12,7 @@ namespace CriticalPath.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Process : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate, IIsApproved, IApproval
+    public partial class Process : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate, IIsApproved, IApproval, IIsActive
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Process()
@@ -29,6 +29,8 @@ namespace CriticalPath.Data
         public System.DateTime TargetDate { get; set; }
         public Nullable<System.DateTime> ForecastDate { get; set; }
         public Nullable<System.DateTime> RealizedDate { get; set; }
+        public bool IsActive { get; set; }
+        public Nullable<System.DateTime> CancellationDate { get; set; }
         public bool IsApproved { get; set; }
         public Nullable<System.DateTime> ApproveDate { get; set; }
         public string ApprovedUserId { get; set; }
@@ -40,8 +42,6 @@ namespace CriticalPath.Data
         public System.DateTime CreateDate { get; set; }
         public string CreatorId { get; set; }
         public string CreatorIp { get; set; }
-        public Nullable<System.DateTime> CancellationDate { get; set; }
-        public bool IsActive { get; set; }
     
         public virtual ProcessTemplate ProcessTemplate { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -63,6 +63,8 @@ namespace CriticalPath.Data
             clone.TargetDate = TargetDate;
             clone.ForecastDate = ForecastDate;
             clone.RealizedDate = RealizedDate;
+            clone.IsActive = IsActive;
+            clone.CancellationDate = CancellationDate;
             clone.IsApproved = IsApproved;
             clone.ApproveDate = ApproveDate;
             clone.ApprovedUserId = ApprovedUserId;
@@ -74,8 +76,6 @@ namespace CriticalPath.Data
             clone.CreateDate = CreateDate;
             clone.CreatorId = CreatorId;
             clone.CreatorIp = CreatorIp;
-            clone.CancellationDate = CancellationDate;
-            clone.IsActive = IsActive;
     
             Cloning(clone);
     
@@ -103,10 +103,10 @@ namespace CriticalPath.Data
             TargetDate = entity.TargetDate;
             ForecastDate = entity.ForecastDate;
             RealizedDate = entity.RealizedDate;
+            IsActive = entity.IsActive;
+            CancellationDate = entity.CancellationDate;
             IsApproved = entity.IsApproved;
             ApproveDate = entity.ApproveDate;
-            CancellationDate = entity.CancellationDate;
-            IsActive = entity.IsActive;
         
             Initiliazing(entity);
         }
@@ -125,10 +125,10 @@ namespace CriticalPath.Data
             entity.TargetDate = TargetDate;
             entity.ForecastDate = ForecastDate;
             entity.RealizedDate = RealizedDate;
+            entity.IsActive = IsActive;
+            entity.CancellationDate = CancellationDate;
             entity.IsApproved = IsApproved;
             entity.ApproveDate = ApproveDate;
-            entity.CancellationDate = CancellationDate;
-            entity.IsActive = IsActive;
     
             Converting(entity);
     
@@ -146,9 +146,9 @@ namespace CriticalPath.Data
         public System.DateTime TargetDate { get; set; }
         public Nullable<System.DateTime> ForecastDate { get; set; }
         public Nullable<System.DateTime> RealizedDate { get; set; }
+        public bool IsActive { get; set; }
+        public Nullable<System.DateTime> CancellationDate { get; set; }
         public bool IsApproved { get; set; }
         public Nullable<System.DateTime> ApproveDate { get; set; }
-        public Nullable<System.DateTime> CancellationDate { get; set; }
-        public bool IsActive { get; set; }
     }
 }

@@ -69,6 +69,7 @@ namespace CriticalPath.Web.Controllers
             DateTime targetDate = process.TargetDate;
             DateTime forecastDate = process.ForecastDate.HasValue ?
                                     process.ForecastDate.Value : DateTime.MinValue;
+            process.IsActive = true;
 
             foreach (var template in queryTemplate)
             {
@@ -91,6 +92,7 @@ namespace CriticalPath.Web.Controllers
         protected override Task SetProcessDefaults(Process process)
         {
             process.TargetDate = DateTime.Today;
+            process.IsActive = true;
             return Task.FromResult(default(object));
         }
     }

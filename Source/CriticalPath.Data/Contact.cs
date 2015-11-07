@@ -12,9 +12,10 @@ namespace CriticalPath.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Contact : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate
+    public partial class Contact : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate, IIsActive
     {
         public int Id { get; set; }
+        public int CompanyId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string EmailWork { get; set; }
@@ -22,8 +23,9 @@ namespace CriticalPath.Data
         public string PhoneMobile { get; set; }
         public string PhoneWork1 { get; set; }
         public string PhoneWork2 { get; set; }
+        public bool IsActive { get; set; }
+        public Nullable<System.DateTime> InactivateDate { get; set; }
         public string Notes { get; set; }
-        public int CompanyId { get; set; }
         public int ModifyNr { get; set; }
         public System.DateTime ModifyDate { get; set; }
         public string ModifierId { get; set; }
@@ -41,6 +43,7 @@ namespace CriticalPath.Data
         public Contact Clone()
         {
             var clone = new Contact();
+            clone.CompanyId = CompanyId;
             clone.FirstName = FirstName;
             clone.LastName = LastName;
             clone.EmailWork = EmailWork;
@@ -48,8 +51,9 @@ namespace CriticalPath.Data
             clone.PhoneMobile = PhoneMobile;
             clone.PhoneWork1 = PhoneWork1;
             clone.PhoneWork2 = PhoneWork2;
+            clone.IsActive = IsActive;
+            clone.InactivateDate = InactivateDate;
             clone.Notes = Notes;
-            clone.CompanyId = CompanyId;
             clone.ModifyNr = ModifyNr;
             clone.ModifyDate = ModifyDate;
             clone.ModifierId = ModifierId;
@@ -76,6 +80,7 @@ namespace CriticalPath.Data
         public ContactDTO(Contact entity)
         {
             Id = entity.Id;
+            CompanyId = entity.CompanyId;
             FirstName = entity.FirstName;
             LastName = entity.LastName;
             EmailWork = entity.EmailWork;
@@ -83,8 +88,9 @@ namespace CriticalPath.Data
             PhoneMobile = entity.PhoneMobile;
             PhoneWork1 = entity.PhoneWork1;
             PhoneWork2 = entity.PhoneWork2;
+            IsActive = entity.IsActive;
+            InactivateDate = entity.InactivateDate;
             Notes = entity.Notes;
-            CompanyId = entity.CompanyId;
         
             Initiliazing(entity);
         }
@@ -95,6 +101,7 @@ namespace CriticalPath.Data
         {
             var entity = new Contact();
             entity.Id = Id;
+            entity.CompanyId = CompanyId;
             entity.FirstName = FirstName;
             entity.LastName = LastName;
             entity.EmailWork = EmailWork;
@@ -102,8 +109,9 @@ namespace CriticalPath.Data
             entity.PhoneMobile = PhoneMobile;
             entity.PhoneWork1 = PhoneWork1;
             entity.PhoneWork2 = PhoneWork2;
+            entity.IsActive = IsActive;
+            entity.InactivateDate = InactivateDate;
             entity.Notes = Notes;
-            entity.CompanyId = CompanyId;
     
             Converting(entity);
     
@@ -113,6 +121,7 @@ namespace CriticalPath.Data
         partial void Converting(Contact entity);
       
         public int Id { get; set; }
+        public int CompanyId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string EmailWork { get; set; }
@@ -120,7 +129,8 @@ namespace CriticalPath.Data
         public string PhoneMobile { get; set; }
         public string PhoneWork1 { get; set; }
         public string PhoneWork2 { get; set; }
+        public bool IsActive { get; set; }
+        public Nullable<System.DateTime> InactivateDate { get; set; }
         public string Notes { get; set; }
-        public int CompanyId { get; set; }
     }
 }

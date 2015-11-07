@@ -14,7 +14,9 @@ CREATE TABLE [dbo].[Companies](
     [State] [nVarChar](32) Null,
     [ZipCode] [nVarChar](32) Null,
     [Country] [nVarChar](32) Null,
-    [Notes] [nVarChar](255) Null,
+    [IsActive] [bit] Not Null,
+    [InactivateDate] [DateTime] Null,
+    [Notes] [nVarChar](2048) Null,
     [ModifyNr] [int] Not Null Default 1,
     [ModifyDate] [DateTime] Not Null Default GetDate(),
     [ModifierId] [VarChar](48) Not Null,
@@ -33,6 +35,8 @@ Go
 Create Nonclustered Index [idx_Companies_CompanyName] On [dbo].[Companies]([CompanyName] Asc)
 Go
 Create Nonclustered Index [idx_Companies_City] On [dbo].[Companies]([City] Asc)
+Go
+Create Nonclustered Index [idx_Companies_IsActive] On [dbo].[Companies]([IsActive] Asc)
 Go
 Create Nonclustered Index [idx_Companies_ModifyDate] On [dbo].[Companies]([ModifyDate] Desc)
 Go

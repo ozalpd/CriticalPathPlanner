@@ -12,7 +12,9 @@ CREATE TABLE [dbo].[Contacts](
     [PhoneMobile] [nVarChar](64) Null,
     [PhoneWork1] [nVarChar](64) Null,
     [PhoneWork2] [nVarChar](64) Null,
-    [Notes] [nVarChar](255) Null,
+    [IsActive] [bit] Not Null,
+    [InactivateDate] [DateTime] Null,
+    [Notes] [nVarChar](2048) Null,
     [ModifyNr] [int] Not Null Default 1,
     [ModifyDate] [DateTime] Not Null Default GetDate(),
     [ModifierId] [VarChar](48) Not Null,
@@ -33,6 +35,8 @@ Go
 Create Nonclustered Index [idx_Contacts_LastName] On [dbo].[Contacts]([LastName] Asc)
 Go
 Create Nonclustered Index [idx_Contacts_CompanyId] On [dbo].[Contacts]([CompanyId] Asc)
+Go
+Create Nonclustered Index [idx_Contacts_IsActive] On [dbo].[Contacts]([IsActive] Asc)
 Go
 Create Nonclustered Index [idx_Contacts_ModifyDate] On [dbo].[Contacts]([ModifyDate] Desc)
 Go

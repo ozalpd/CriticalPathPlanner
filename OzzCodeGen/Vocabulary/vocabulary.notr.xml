@@ -789,6 +789,10 @@
     <Translation>Image Url</Translation>
   </Vocab>
   <Vocab>
+    <Name>InactivateDate</Name>
+    <Translation>Inactivate Date</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Index</Name>
     <Translation>Index</Translation>
   </Vocab>

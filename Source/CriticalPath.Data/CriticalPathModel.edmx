@@ -20,7 +20,9 @@
           <Property Name="State" Type="nvarchar" MaxLength="32" />
           <Property Name="ZipCode" Type="nvarchar" MaxLength="32" />
           <Property Name="Country" Type="nvarchar" MaxLength="32" />
-          <Property Name="Notes" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="InactivateDate" Type="datetime" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="2048" />
           <Property Name="ModifyNr" Type="int" Nullable="false" />
           <Property Name="ModifyDate" Type="datetime" Nullable="false" />
           <Property Name="ModifierId" Type="varchar" MaxLength="48" Nullable="false" />
@@ -42,7 +44,9 @@
           <Property Name="PhoneMobile" Type="nvarchar" MaxLength="64" />
           <Property Name="PhoneWork1" Type="nvarchar" MaxLength="64" />
           <Property Name="PhoneWork2" Type="nvarchar" MaxLength="64" />
-          <Property Name="Notes" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="InactivateDate" Type="datetime" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="2048" />
           <Property Name="ModifyNr" Type="int" Nullable="false" />
           <Property Name="ModifyDate" Type="datetime" Nullable="false" />
           <Property Name="ModifierId" Type="varchar" MaxLength="48" Nullable="false" />
@@ -65,6 +69,8 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IsApproved" Type="bit" Nullable="false" />
           <Property Name="ApproveDate" Type="datetime" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CancellationDate" Type="datetime" />
           <Property Name="Title" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="256" />
           <Property Name="IsCompleted" Type="bit" Nullable="false" />
@@ -73,8 +79,6 @@
           <Property Name="TargetDate" Type="datetime" Nullable="false" />
           <Property Name="ForecastDate" Type="datetime" />
           <Property Name="RealizedDate" Type="datetime" />
-          <Property Name="CancellationDate" Type="datetime" />
-          <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="ApprovedUserId" Type="varchar" MaxLength="48" />
           <Property Name="ApprovedUserIp" Type="varchar" MaxLength="48" />
           <Property Name="ModifyNr" Type="int" Nullable="false" />
@@ -175,6 +179,8 @@
           <Property Name="ImageUrl" Type="nvarchar" MaxLength="256" />
           <Property Name="CategoryId" Type="int" Nullable="false" />
           <Property Name="SizingStandardId" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="InactivateDate" Type="datetime" />
           <Property Name="ModifyNr" Type="int" Nullable="false" />
           <Property Name="ModifyDate" Type="datetime" Nullable="false" />
           <Property Name="ModifierId" Type="varchar" MaxLength="48" Nullable="false" />
@@ -190,6 +196,8 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IsApproved" Type="bit" Nullable="false" />
           <Property Name="ApproveDate" Type="datetime" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CancellationDate" Type="datetime" />
           <Property Name="OrderDate" Type="datetime" Nullable="false" />
           <Property Name="DueDate" Type="datetime" />
           <Property Name="CustomerId" Type="int" Nullable="false" />
@@ -200,9 +208,7 @@
           <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="4" Nullable="false" />
           <Property Name="SizingStandardId" Type="int" Nullable="false" />
           <Property Name="SizeRateDivisor" Type="int" Nullable="false" />
-          <Property Name="Notes" Type="nvarchar" MaxLength="255" />
-          <Property Name="CancellationDate" Type="datetime" />
-          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="2048" />
           <Property Name="ApprovedUserId" Type="varchar" MaxLength="48" />
           <Property Name="ApprovedUserIp" Type="varchar" MaxLength="48" />
           <Property Name="ModifyNr" Type="int" Nullable="false" />
@@ -629,7 +635,9 @@
           <Property Name="State" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
           <Property Name="ZipCode" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
           <Property Name="Country" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
-          <Property Name="Notes" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="InactivateDate" Type="DateTime" Precision="3" />
+          <Property Name="Notes" Type="String" MaxLength="2048" FixedLength="false" Unicode="true" />
           <Property Name="ModifyNr" Type="Int32" Nullable="false" />
           <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
@@ -644,6 +652,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
           <Property Name="FirstName" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
           <Property Name="LastName" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
           <Property Name="EmailWork" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
@@ -651,8 +660,9 @@
           <Property Name="PhoneMobile" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
           <Property Name="PhoneWork1" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
           <Property Name="PhoneWork2" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
-          <Property Name="Notes" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="InactivateDate" Type="DateTime" Precision="3" />
+          <Property Name="Notes" Type="String" MaxLength="2048" FixedLength="false" Unicode="true" />
           <Property Name="ModifyNr" Type="Int32" Nullable="false" />
           <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
@@ -724,6 +734,8 @@
           <Property Name="CategoryId" Type="Int32" Nullable="false" />
           <Property Name="SizingStandardId" Type="Int32" Nullable="false" />
           <Property Name="ImageUrl" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="InactivateDate" Type="DateTime" Precision="3" />
           <Property Name="ModifyNr" Type="Int32" Nullable="false" />
           <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
@@ -762,7 +774,7 @@
           <Property Name="Quantity" Type="Int32" Nullable="false" />
           <Property Name="UnitPrice" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
           <Property Name="SizeRateDivisor" Type="Int32" Nullable="false" />
-          <Property Name="Notes" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" MaxLength="2048" FixedLength="false" Unicode="true" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="CancellationDate" Type="DateTime" Precision="3" />
           <Property Name="IsApproved" Type="Boolean" Nullable="false" />
@@ -1073,6 +1085,8 @@
           <EntitySetMapping Name="Companies">
             <EntityTypeMapping TypeName="IsTypeOf(CriticalPathDataModel.Company)">
               <MappingFragment StoreEntitySet="Companies">
+                <ScalarProperty Name="InactivateDate" ColumnName="InactivateDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="CreatorIp" ColumnName="CreatorIp" />
                 <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
@@ -1110,6 +1124,8 @@
           <EntitySetMapping Name="Contacts">
             <EntityTypeMapping TypeName="CriticalPathDataModel.Contact">
               <MappingFragment StoreEntitySet="Contacts">
+                <ScalarProperty Name="InactivateDate" ColumnName="InactivateDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="CreatorIp" ColumnName="CreatorIp" />
                 <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
                 <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
@@ -1151,6 +1167,8 @@
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="CriticalPathDataModel.Product">
               <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="InactivateDate" ColumnName="InactivateDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="SizingStandardId" ColumnName="SizingStandardId" />
                 <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
                 <ScalarProperty Name="CreatorIp" ColumnName="CreatorIp" />

@@ -57,6 +57,13 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "PurchaseOrders")]
             public ICollection<PurchaseOrder> PurchaseOrders { get; set; }
 
+            [Display(ResourceType = typeof(EntityStrings), Name = "IsActive")]
+            public bool IsActive { get; set; }
+
+            [DataType(DataType.Date)]
+            [Display(ResourceType = typeof(EntityStrings), Name = "InactivateDate")]
+            public DateTime InactivateDate { get; set; }
+
 		}
 	}
 }

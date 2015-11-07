@@ -138,7 +138,7 @@
           <Name>FirstName</Name>
           <Exclude>false</Exclude>
           <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+          <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>LastName</Name>
@@ -185,6 +185,18 @@
           <Name>PhoneWork2</Name>
           <Exclude>false</Exclude>
           <DataType>PhoneNumber</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>IsActive</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>InactivateDate</Name>
+          <Exclude>false</Exclude>
+          <DataType>Date</DataType>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
@@ -258,6 +270,18 @@
           <Name>Country</Name>
           <Exclude>false</Exclude>
           <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>IsActive</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>InactivateDate</Name>
+          <Exclude>false</Exclude>
+          <DataType>Date</DataType>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
@@ -368,6 +392,18 @@
         <MetadataPropertySetting>
           <Name>PurchaseOrders</Name>
           <Exclude>false</Exclude>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>IsActive</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>InactivateDate</Name>
+          <Exclude>false</Exclude>
+          <DataType>Date</DataType>
           <Required />
         </MetadataPropertySetting>
       </Properties>

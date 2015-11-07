@@ -12,7 +12,7 @@ namespace CriticalPath.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Product : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate
+    public partial class Product : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate, IIsActive
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
@@ -27,6 +27,8 @@ namespace CriticalPath.Data
         public int CategoryId { get; set; }
         public int SizingStandardId { get; set; }
         public string ImageUrl { get; set; }
+        public bool IsActive { get; set; }
+        public Nullable<System.DateTime> InactivateDate { get; set; }
         public int ModifyNr { get; set; }
         public System.DateTime ModifyDate { get; set; }
         public string ModifierId { get; set; }
@@ -53,6 +55,8 @@ namespace CriticalPath.Data
             clone.CategoryId = CategoryId;
             clone.SizingStandardId = SizingStandardId;
             clone.ImageUrl = ImageUrl;
+            clone.IsActive = IsActive;
+            clone.InactivateDate = InactivateDate;
             clone.ModifyNr = ModifyNr;
             clone.ModifyDate = ModifyDate;
             clone.ModifierId = ModifierId;
@@ -85,6 +89,8 @@ namespace CriticalPath.Data
             CategoryId = entity.CategoryId;
             SizingStandardId = entity.SizingStandardId;
             ImageUrl = entity.ImageUrl;
+            IsActive = entity.IsActive;
+            InactivateDate = entity.InactivateDate;
         
             Initiliazing(entity);
         }
@@ -101,6 +107,8 @@ namespace CriticalPath.Data
             entity.CategoryId = CategoryId;
             entity.SizingStandardId = SizingStandardId;
             entity.ImageUrl = ImageUrl;
+            entity.IsActive = IsActive;
+            entity.InactivateDate = InactivateDate;
     
             Converting(entity);
     
@@ -116,5 +124,7 @@ namespace CriticalPath.Data
         public int CategoryId { get; set; }
         public int SizingStandardId { get; set; }
         public string ImageUrl { get; set; }
+        public bool IsActive { get; set; }
+        public Nullable<System.DateTime> InactivateDate { get; set; }
     }
 }

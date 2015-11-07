@@ -26,10 +26,6 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "CompanyName")]
             public string CompanyName { get; set; }
 
-            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "SupplierCode")]
-            public string SupplierCode { get; set; }
-
             [StringLength(128, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [DataType(DataType.PhoneNumber)]
             [Display(ResourceType = typeof(EntityStrings), Name = "Phone1")]
@@ -44,6 +40,10 @@ namespace CriticalPath.Data
             [DataType(DataType.PhoneNumber)]
             [Display(ResourceType = typeof(EntityStrings), Name = "Phone3")]
             public string Phone3 { get; set; }
+
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "SupplierCode")]
+            public string SupplierCode { get; set; }
 
             [StringLength(128, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
@@ -72,7 +72,14 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "Country")]
             public string Country { get; set; }
 
-            [StringLength(255, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "IsActive")]
+            public bool IsActive { get; set; }
+
+            [DataType(DataType.Date)]
+            [Display(ResourceType = typeof(EntityStrings), Name = "InactivateDate")]
+            public DateTime InactivateDate { get; set; }
+
+            [StringLength(2048, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [DataType(DataType.MultilineText)]
             [Display(ResourceType = typeof(EntityStrings), Name = "Notes")]
             public string Notes { get; set; }

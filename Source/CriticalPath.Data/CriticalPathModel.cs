@@ -73,5 +73,10 @@ namespace CriticalPath.Data
     {
         int ProductId { get; set; }
     }
+    
+    public interface IIsActive
+    {
+        bool IsActive { get; set; }
+    }
     #endregion
 }

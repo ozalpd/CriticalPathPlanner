@@ -789,6 +789,10 @@
     <Translation>Resim Yolu</Translation>
   </Vocab>
   <Vocab>
+    <Name>InactivateDate</Name>
+    <Translation>Inactivate Date</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Index</Name>
     <Translation>Indeks</Translation>
   </Vocab>

@@ -37,5 +37,16 @@ namespace CriticalPath.Web.Controllers
 
             return query;
         }
+
+        partial void OnCreateSaving(Contact contact)
+        {
+            contact.IsActive = true;
+        }
+
+        protected override Task SetContactDefaults(Contact contact)
+        {
+            contact.IsActive = true;
+            return base.SetContactDefaults(contact);
+        }
     }
 }

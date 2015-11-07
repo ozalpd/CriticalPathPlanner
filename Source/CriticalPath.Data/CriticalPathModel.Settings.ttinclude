@@ -90,6 +90,10 @@ InterfaceDefinition hasProduct = new InterfaceDefinition() { Name = "IHasProduct
 AutoGenInterfaces.Add(hasProduct);
 hasProduct.Properties.Add(new InterfaceProperty() { TypeName = "int", Name = "ProductId" });
 
+InterfaceDefinition isActive = new InterfaceDefinition() { Name = "IIsActive" };
+AutoGenInterfaces.Add(isActive);
+isActive.Properties.Add(new InterfaceProperty() { TypeName = "bool", Name = "IsActive" });
+
 //Ends Here - Interface Definition List
 
  #>

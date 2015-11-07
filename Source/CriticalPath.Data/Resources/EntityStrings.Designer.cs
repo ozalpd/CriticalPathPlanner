@@ -1159,6 +1159,15 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Inactivate Date.
+        /// </summary>
+        public static string InactivateDate {
+            get {
+                return ResourceManager.GetString("InactivateDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Active.
         /// </summary>
         public static string IsActive {

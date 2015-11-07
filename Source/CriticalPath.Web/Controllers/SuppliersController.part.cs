@@ -17,7 +17,10 @@ namespace CriticalPath.Web.Controllers
     public partial class SuppliersController 
     {
 
-        //Purpose: To set default property values for newly created Supplier entity
-        //protected override void SetSupplierDefaults(Supplier supplier) { }
+        protected override Task SetSupplierDefaults(Supplier supplier)
+        {
+            supplier.IsActive = true;
+            return base.SetSupplierDefaults(supplier);
+        }
     }
 }

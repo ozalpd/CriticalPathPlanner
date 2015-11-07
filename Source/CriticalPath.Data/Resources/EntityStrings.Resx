@@ -547,6 +547,10 @@
 		<value>Image Url</value>
 	</data>
 
+	<data name="InactivateDate" xml:space="preserve">
+		<value>Inactivate Date</value>
+	</data>
+
 	<data name="IsActive" xml:space="preserve">
 		<value>Active</value>
 	</data>

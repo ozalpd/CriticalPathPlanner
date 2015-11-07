@@ -12,7 +12,7 @@ namespace CriticalPath.Data
     using System;
     using System.Collections.Generic;
     
-    public abstract partial class Company : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate
+    public abstract partial class Company : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate, IIsActive
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Company()
@@ -31,6 +31,8 @@ namespace CriticalPath.Data
         public string State { get; set; }
         public string ZipCode { get; set; }
         public string Country { get; set; }
+        public bool IsActive { get; set; }
+        public Nullable<System.DateTime> InactivateDate { get; set; }
         public string Notes { get; set; }
         public int ModifyNr { get; set; }
         public System.DateTime ModifyDate { get; set; }

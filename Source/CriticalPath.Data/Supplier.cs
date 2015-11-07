@@ -33,6 +33,8 @@ namespace CriticalPath.Data
             clone.State = State;
             clone.ZipCode = ZipCode;
             clone.Country = Country;
+            clone.IsActive = IsActive;
+            clone.InactivateDate = InactivateDate;
             clone.Notes = Notes;
             clone.ModifyNr = ModifyNr;
             clone.ModifyDate = ModifyDate;
@@ -71,6 +73,8 @@ namespace CriticalPath.Data
             State = entity.State;
             ZipCode = entity.ZipCode;
             Country = entity.Country;
+            IsActive = entity.IsActive;
+            InactivateDate = entity.InactivateDate;
             Notes = entity.Notes;
             SupplierCode = entity.SupplierCode;
         
@@ -93,6 +97,8 @@ namespace CriticalPath.Data
             entity.State = State;
             entity.ZipCode = ZipCode;
             entity.Country = Country;
+            entity.IsActive = IsActive;
+            entity.InactivateDate = InactivateDate;
             entity.Notes = Notes;
             entity.SupplierCode = SupplierCode;
     
@@ -114,6 +120,8 @@ namespace CriticalPath.Data
         public string State { get; set; }
         public string ZipCode { get; set; }
         public string Country { get; set; }
+        public bool IsActive { get; set; }
+        public Nullable<System.DateTime> InactivateDate { get; set; }
         public string Notes { get; set; }
         public string SupplierCode { get; set; }
     }

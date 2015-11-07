@@ -24,15 +24,15 @@ namespace CriticalPath.Web.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
-        //partial void SetSelectLists(Product product)
-        //{
-        //    var queryCategoryId = DataContext
-        //                            .GetProductCategoryQuery()
-        //                            .Where(c => c.SubCategories.Count == 0);
-        //    int categoryId = product == null ? 0 : product.CategoryId;
-        //    ViewBag.CategoryId = new SelectList(queryCategoryId, "Id", "Title", categoryId);
+        partial void OnCreateSaving(Product product)
+        {
+            product.IsActive = true;
+        }
 
-        //    ViewBag.ParentCategoryId = new SelectList(queryCategoryId, "Id", "Title", categoryId);
-        //}
+        protected override Task SetProductDefaults(Product product)
+        {
+            product.IsActive = true;
+            return base.SetProductDefaults(product);
+        }
     }
 }

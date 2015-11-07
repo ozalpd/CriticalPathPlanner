@@ -85,6 +85,8 @@ namespace CriticalPath.Data
                        State = e.State,
                        ZipCode = e.ZipCode,
                        Country = e.Country,
+                       IsActive = e.IsActive,
+                       InactivateDate = e.InactivateDate,
                        Notes = e.Notes,
                        CustomerCode = e.CustomerCode,
                    };
@@ -132,6 +134,8 @@ namespace CriticalPath.Data
                        State = e.State,
                        ZipCode = e.ZipCode,
                        Country = e.Country,
+                       IsActive = e.IsActive,
+                       InactivateDate = e.InactivateDate,
                        Notes = e.Notes,
                        SupplierCode = e.SupplierCode,
                    };
@@ -168,6 +172,7 @@ namespace CriticalPath.Data
                    select new ContactDTO
                    {
                        Id = e.Id,
+                       CompanyId = e.CompanyId,
                        FirstName = e.FirstName,
                        LastName = e.LastName,
                        EmailWork = e.EmailWork,
@@ -175,8 +180,9 @@ namespace CriticalPath.Data
                        PhoneMobile = e.PhoneMobile,
                        PhoneWork1 = e.PhoneWork1,
                        PhoneWork2 = e.PhoneWork2,
+                       IsActive = e.IsActive,
+                       InactivateDate = e.InactivateDate,
                        Notes = e.Notes,
-                       CompanyId = e.CompanyId,
                    };
         }
     
@@ -219,10 +225,10 @@ namespace CriticalPath.Data
                        TargetDate = e.TargetDate,
                        ForecastDate = e.ForecastDate,
                        RealizedDate = e.RealizedDate,
+                       IsActive = e.IsActive,
+                       CancellationDate = e.CancellationDate,
                        IsApproved = e.IsApproved,
                        ApproveDate = e.ApproveDate,
-                       CancellationDate = e.CancellationDate,
-                       IsActive = e.IsActive,
                    };
         }
     
@@ -422,6 +428,8 @@ namespace CriticalPath.Data
                        CategoryId = e.CategoryId,
                        SizingStandardId = e.SizingStandardId,
                        ImageUrl = e.ImageUrl,
+                       IsActive = e.IsActive,
+                       InactivateDate = e.InactivateDate,
                    };
         }
     

@@ -6,6 +6,8 @@ CREATE TABLE [dbo].[PurchaseOrders](
     [Id] [int] Identity(1,1) Not Null,
     [IsApproved] [bit] Not Null,
     [ApproveDate] [DateTime] Null,
+    [IsActive] [bit] Not Null,
+    [CancellationDate] [DateTime] Null,
     [OrderDate] [DateTime] Not Null,
     [DueDate] [DateTime] Null,
     [CustomerId] [int] Not Null Constraint FK_PurchaseOrder_CustomerId Foreign Key References [dbo].[Customers]([Id]),
@@ -16,9 +18,7 @@ CREATE TABLE [dbo].[PurchaseOrders](
     [UnitPrice] [decimal](18, 4) Not Null,
     [SizingStandardId] [int] Not Null Constraint FK_PurchaseOrder_SizingStandardId Foreign Key References [dbo].[SizingStandards]([Id]),
     [SizeRateDivisor] [int] Not Null,
-    [Notes] [nVarChar](255) Null,
-    [CancellationDate] [DateTime] Null,
-    [IsActive] [bit] Not Null,
+    [Notes] [nVarChar](2048) Null,
     [ApprovedUserId] [VarChar](48) Null,
     [ApprovedUserIp] [VarChar](48) Null,
     [ModifyNr] [int] Not Null Default 1,
@@ -37,6 +37,8 @@ CREATE TABLE [dbo].[PurchaseOrders](
   ON [PRIMARY]) ON [PRIMARY]
 Go
 Create Nonclustered Index [idx_PurchaseOrders_IsApproved] On [dbo].[PurchaseOrders]([IsApproved] Asc)
+Go
+Create Nonclustered Index [idx_PurchaseOrders_IsActive] On [dbo].[PurchaseOrders]([IsActive] Asc)
 Go
 Create Nonclustered Index [idx_PurchaseOrders_OrderDate] On [dbo].[PurchaseOrders]([OrderDate] Asc)
 Go

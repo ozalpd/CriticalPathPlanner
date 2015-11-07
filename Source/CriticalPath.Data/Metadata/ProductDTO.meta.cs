@@ -48,6 +48,13 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "SizingStandardId")]
             public int SizingStandardId { get; set; }
 
+            [Display(ResourceType = typeof(EntityStrings), Name = "IsActive")]
+            public bool IsActive { get; set; }
+
+            [DataType(DataType.Date)]
+            [Display(ResourceType = typeof(EntityStrings), Name = "InactivateDate")]
+            public DateTime InactivateDate { get; set; }
+
 		}
 	}
 }
