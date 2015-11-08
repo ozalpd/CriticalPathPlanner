@@ -33,7 +33,7 @@ string[] dtoExclusions = {
         };
 string[] requiredNamespaces = {
             "CriticalPath.Data",
-            "CriticalPath.Data.Resources",
+            "CP.i8n",
             "CriticalPath.Web.Models"
         };
  #>

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CriticalPath.Data.Resources {
+namespace CP.i8n {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace CriticalPath.Data.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class ErrorStrings {
+    public class MessageStrings {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal ErrorStrings() {
+        internal MessageStrings() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace CriticalPath.Data.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CriticalPath.Data.Resources.ErrorStrings", typeof(ErrorStrings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CP.i8n.MessageStrings", typeof(MessageStrings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,65 +61,101 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The new password and confirmation password do not match..
+        ///   Looks up a localized string similar to Are you sure.
         /// </summary>
-        public static string ConfirmNewPassword {
+        public static string AreYouSure {
             get {
-                return ResourceManager.GetString("ConfirmNewPassword", resourceCulture);
+                return ResourceManager.GetString("AreYouSure", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The password and confirmation password do not match..
+        ///   Looks up a localized string similar to This record has some relations..
         /// </summary>
-        public static string ConfirmPassword {
+        public static string BecauseOfRelatedRecords {
             get {
-                return ResourceManager.GetString("ConfirmPassword", resourceCulture);
+                return ResourceManager.GetString("BecauseOfRelatedRecords", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The {0} field maximum length is {1}..
+        ///   Looks up a localized string similar to Can not delete.
         /// </summary>
-        public static string MaxLeght {
+        public static string CanNotDelete {
             get {
-                return ResourceManager.GetString("MaxLeght", resourceCulture);
+                return ResourceManager.GetString("CanNotDelete", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The {0} must be at least {2} characters long..
+        ///   Looks up a localized string similar to Deleting.
         /// </summary>
-        public static string MinLeght {
+        public static string Deleting {
             get {
-                return ResourceManager.GetString("MinLeght", resourceCulture);
+                return ResourceManager.GetString("Deleting", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The {0} field is required..
+        ///   Looks up a localized string similar to Enter keyword here.
         /// </summary>
-        public static string Required {
+        public static string EnterKeywordHere {
             get {
-                return ResourceManager.GetString("Required", resourceCulture);
+                return ResourceManager.GetString("EnterKeywordHere", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please enter your email to {0} field..
+        ///   Looks up a localized string similar to There is no results to display.
         /// </summary>
-        public static string RequiredEmail {
+        public static string NoResults {
             get {
-                return ResourceManager.GetString("RequiredEmail", resourceCulture);
+                return ResourceManager.GetString("NoResults", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please enter your password to {0} field..
+        ///   Looks up a localized string similar to Please Wait.
         /// </summary>
-        public static string RequiredPassword {
+        public static string PleaseWait {
             get {
-                return ResourceManager.GetString("RequiredPassword", resourceCulture);
+                return ResourceManager.GetString("PleaseWait", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This record has {0} related {1}..
+        /// </summary>
+        public static string RelatedRecordsExist {
+            get {
+                return ResourceManager.GetString("RelatedRecordsExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to Delete.
+        /// </summary>
+        public static string UnableToDelete {
+            get {
+                return ResourceManager.GetString("UnableToDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unexpected Error.
+        /// </summary>
+        public static string UnexpectedError {
+            get {
+                return ResourceManager.GetString("UnexpectedError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You are about to delete the record.
+        /// </summary>
+        public static string YouAreAboutToDelete {
+            get {
+                return ResourceManager.GetString("YouAreAboutToDelete", resourceCulture);
             }
         }
     }

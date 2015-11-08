@@ -12,7 +12,7 @@ namespace CriticalPath.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Product : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate, IIsActive
+    public partial class Product : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate, IIsActive, IInactivation
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
@@ -29,6 +29,7 @@ namespace CriticalPath.Data
         public string ImageUrl { get; set; }
         public bool IsActive { get; set; }
         public Nullable<System.DateTime> InactivateDate { get; set; }
+        public string InactivateNotes { get; set; }
         public int ModifyNr { get; set; }
         public System.DateTime ModifyDate { get; set; }
         public string ModifierId { get; set; }
@@ -57,6 +58,7 @@ namespace CriticalPath.Data
             clone.ImageUrl = ImageUrl;
             clone.IsActive = IsActive;
             clone.InactivateDate = InactivateDate;
+            clone.InactivateNotes = InactivateNotes;
             clone.ModifyNr = ModifyNr;
             clone.ModifyDate = ModifyDate;
             clone.ModifierId = ModifierId;
@@ -91,6 +93,7 @@ namespace CriticalPath.Data
             ImageUrl = entity.ImageUrl;
             IsActive = entity.IsActive;
             InactivateDate = entity.InactivateDate;
+            InactivateNotes = entity.InactivateNotes;
         
             Initiliazing(entity);
         }
@@ -109,6 +112,7 @@ namespace CriticalPath.Data
             entity.ImageUrl = ImageUrl;
             entity.IsActive = IsActive;
             entity.InactivateDate = InactivateDate;
+            entity.InactivateNotes = InactivateNotes;
     
             Converting(entity);
     
@@ -126,5 +130,6 @@ namespace CriticalPath.Data
         public string ImageUrl { get; set; }
         public bool IsActive { get; set; }
         public Nullable<System.DateTime> InactivateDate { get; set; }
+        public string InactivateNotes { get; set; }
     }
 }

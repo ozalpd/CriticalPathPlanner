@@ -479,6 +479,10 @@
       <Project>{d417166b-12eb-43b5-af18-d634ae620f0b}</Project>
       <Name>OzzUtils</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CP.i8n\CP.i8n.csproj">
+      <Project>{08c5a2da-fe18-4320-8b21-9923b16cba0e}</Project>
+      <Name>CP.i8n</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CriticalPath.Data\CriticalPath.Data.csproj">
       <Project>{5c01d422-7433-4fdc-947d-07d7c5d0788e}</Project>
       <Name>CriticalPath.Data</Name>

@@ -59,15 +59,63 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 
+	<data name="About" xml:space="preserve">
+		<value>About</value>
+	</data>
+
+	<data name="AboutUs" xml:space="preserve">
+		<value>About Us</value>
+	</data>
+
 	<data name="Admin" xml:space="preserve">
 		<value>Admin</value>
 	</data>
 
+	<data name="ApplicationBriefName" xml:space="preserve">
+		<value>CP</value>
+	</data>
+
+	<data name="ApplicationLongName" xml:space="preserve">
+		<value>Critical Path</value>
+	</data>
+
+	<data name="ApplicationName" xml:space="preserve">
+		<value>Critical Path</value>
+	</data>
+
+	<data name="ApplicationSettings" xml:space="preserve">
+		<value>Application Settings</value>
+	</data>
+
+	<data name="ContactUs" xml:space="preserve">
+		<value>Contact Us</value>
+	</data>
+
 	<data name="Home" xml:space="preserve">
-		<value>Ana Sayfa</value>
+		<value>Home</value>
 	</data>
 
 	<data name="Record" xml:space="preserve">
-		<value>Kayıt</value>
+		<value>Record</value>
+	</data>
+
+	<data name="Settings" xml:space="preserve">
+		<value>Settings</value>
+	</data>
+
+	<data name="Setup" xml:space="preserve">
+		<value>Setup</value>
+	</data>
+
+	<data name="User" xml:space="preserve">
+		<value>User</value>
+	</data>
+
+	<data name="UserName" xml:space="preserve">
+		<value>UserName</value>
+	</data>
+
+	<data name="Users" xml:space="preserve">
+		<value>Users</value>
 	</data>
 </root>

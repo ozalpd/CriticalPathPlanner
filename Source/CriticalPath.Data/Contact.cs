@@ -12,7 +12,7 @@ namespace CriticalPath.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Contact : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate, IIsActive
+    public partial class Contact : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate, IIsActive, IInactivation
     {
         public int Id { get; set; }
         public int CompanyId { get; set; }
@@ -25,6 +25,7 @@ namespace CriticalPath.Data
         public string PhoneWork2 { get; set; }
         public bool IsActive { get; set; }
         public Nullable<System.DateTime> InactivateDate { get; set; }
+        public string InactivateNotes { get; set; }
         public string Notes { get; set; }
         public int ModifyNr { get; set; }
         public System.DateTime ModifyDate { get; set; }
@@ -53,6 +54,7 @@ namespace CriticalPath.Data
             clone.PhoneWork2 = PhoneWork2;
             clone.IsActive = IsActive;
             clone.InactivateDate = InactivateDate;
+            clone.InactivateNotes = InactivateNotes;
             clone.Notes = Notes;
             clone.ModifyNr = ModifyNr;
             clone.ModifyDate = ModifyDate;
@@ -90,6 +92,7 @@ namespace CriticalPath.Data
             PhoneWork2 = entity.PhoneWork2;
             IsActive = entity.IsActive;
             InactivateDate = entity.InactivateDate;
+            InactivateNotes = entity.InactivateNotes;
             Notes = entity.Notes;
         
             Initiliazing(entity);
@@ -111,6 +114,7 @@ namespace CriticalPath.Data
             entity.PhoneWork2 = PhoneWork2;
             entity.IsActive = IsActive;
             entity.InactivateDate = InactivateDate;
+            entity.InactivateNotes = InactivateNotes;
             entity.Notes = Notes;
     
             Converting(entity);
@@ -131,6 +135,7 @@ namespace CriticalPath.Data
         public string PhoneWork2 { get; set; }
         public bool IsActive { get; set; }
         public Nullable<System.DateTime> InactivateDate { get; set; }
+        public string InactivateNotes { get; set; }
         public string Notes { get; set; }
     }
 }

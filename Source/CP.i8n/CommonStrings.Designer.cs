@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CriticalPath.Data.Resources {
+namespace CP.i8n {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace CriticalPath.Data.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class MessageStrings {
+    public class CommonStrings {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal MessageStrings() {
+        internal CommonStrings() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace CriticalPath.Data.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CriticalPath.Data.Resources.MessageStrings", typeof(MessageStrings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CP.i8n.CommonStrings", typeof(CommonStrings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,101 +61,137 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Are you sure.
+        ///   Looks up a localized string similar to About.
         /// </summary>
-        public static string AreYouSure {
+        public static string About {
             get {
-                return ResourceManager.GetString("AreYouSure", resourceCulture);
+                return ResourceManager.GetString("About", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Because of related records.
+        ///   Looks up a localized string similar to About Us.
         /// </summary>
-        public static string BecauseOfRelatedRecords {
+        public static string AboutUs {
             get {
-                return ResourceManager.GetString("BecauseOfRelatedRecords", resourceCulture);
+                return ResourceManager.GetString("AboutUs", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Can not delete.
+        ///   Looks up a localized string similar to Admin.
         /// </summary>
-        public static string CanNotDelete {
+        public static string Admin {
             get {
-                return ResourceManager.GetString("CanNotDelete", resourceCulture);
+                return ResourceManager.GetString("Admin", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Deleting.
+        ///   Looks up a localized string similar to CP.
         /// </summary>
-        public static string Deleting {
+        public static string ApplicationBriefName {
             get {
-                return ResourceManager.GetString("Deleting", resourceCulture);
+                return ResourceManager.GetString("ApplicationBriefName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter keyword here.
+        ///   Looks up a localized string similar to Critical Path.
         /// </summary>
-        public static string EnterKeywordHere {
+        public static string ApplicationLongName {
             get {
-                return ResourceManager.GetString("EnterKeywordHere", resourceCulture);
+                return ResourceManager.GetString("ApplicationLongName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to There is no results to display.
+        ///   Looks up a localized string similar to Critical Path.
         /// </summary>
-        public static string NoResults {
+        public static string ApplicationName {
             get {
-                return ResourceManager.GetString("NoResults", resourceCulture);
+                return ResourceManager.GetString("ApplicationName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please Wait.
+        ///   Looks up a localized string similar to Application Settings.
         /// </summary>
-        public static string PleaseWait {
+        public static string ApplicationSettings {
             get {
-                return ResourceManager.GetString("PleaseWait", resourceCulture);
+                return ResourceManager.GetString("ApplicationSettings", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Related {0} {1} records exist..
+        ///   Looks up a localized string similar to Contact Us.
         /// </summary>
-        public static string RelatedRecordsExist {
+        public static string ContactUs {
             get {
-                return ResourceManager.GetString("RelatedRecordsExist", resourceCulture);
+                return ResourceManager.GetString("ContactUs", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unable to Delete.
+        ///   Looks up a localized string similar to Home.
         /// </summary>
-        public static string UnableToDelete {
+        public static string Home {
             get {
-                return ResourceManager.GetString("UnableToDelete", resourceCulture);
+                return ResourceManager.GetString("Home", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unexpected Error.
+        ///   Looks up a localized string similar to Record.
         /// </summary>
-        public static string UnexpectedError {
+        public static string Record {
             get {
-                return ResourceManager.GetString("UnexpectedError", resourceCulture);
+                return ResourceManager.GetString("Record", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You are about to delete the record.
+        ///   Looks up a localized string similar to Settings.
         /// </summary>
-        public static string YouAreAboutToDelete {
+        public static string Settings {
             get {
-                return ResourceManager.GetString("YouAreAboutToDelete", resourceCulture);
+                return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Setup.
+        /// </summary>
+        public static string Setup {
+            get {
+                return ResourceManager.GetString("Setup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User.
+        /// </summary>
+        public static string User {
+            get {
+                return ResourceManager.GetString("User", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UserName.
+        /// </summary>
+        public static string UserName {
+            get {
+                return ResourceManager.GetString("UserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Users.
+        /// </summary>
+        public static string Users {
+            get {
+                return ResourceManager.GetString("Users", resourceCulture);
             }
         }
     }

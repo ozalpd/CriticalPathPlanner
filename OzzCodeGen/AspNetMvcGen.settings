@@ -453,6 +453,18 @@
           <UseForEdit>TextBox</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
+          <Name>Notes</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
           <Name>IsActive</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
@@ -477,10 +489,10 @@
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>Notes</Name>
+          <Name>InactivateNotes</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
-          <InIndexView>false</InIndexView>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
           <InEditView>true</InEditView>
@@ -641,6 +653,30 @@
           <UseForEdit>TextBox</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
+          <Name>Notes</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextArea</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>Contacts</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>false</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
+          <HasValidation>false</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
           <Name>IsActive</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
@@ -665,28 +701,16 @@
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>Notes</Name>
+          <Name>InactivateNotes</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
-          <InIndexView>false</InIndexView>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
           <InEditView>true</InEditView>
           <HasValidation>true</HasValidation>
           <UseForCreate>TextBox</UseForCreate>
-          <UseForEdit>TextArea</UseForEdit>
-        </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
-          <Name>Contacts</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
-          <InIndexView>true</InIndexView>
-          <InDetailsView>false</InDetailsView>
-          <InCreateView>false</InCreateView>
-          <InEditView>false</InEditView>
-          <HasValidation>false</HasValidation>
-          <UseForCreate>Standart</UseForCreate>
-          <UseForEdit>Standart</UseForEdit>
+          <UseForEdit>TextBox</UseForEdit>
         </AspNetMvcPropertySetting>
       </Properties>
       <ControllerName>Companies</ControllerName>
@@ -992,6 +1016,18 @@
           <UseForCreate>Standart</UseForCreate>
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>InactivateNotes</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
       </Properties>
       <ControllerName>Products</ControllerName>
       <DataSetName>Products</DataSetName>
@@ -1025,18 +1061,6 @@
       <Properties>
         <AspNetMvcPropertySetting>
           <Name>IsActive</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
-          <InIndexView>true</InIndexView>
-          <InDetailsView>true</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForCreate>Standart</UseForCreate>
-          <UseForEdit>Standart</UseForEdit>
-        </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
-          <Name>CancellationDate</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>
@@ -1226,6 +1250,30 @@
           <HasValidation>true</HasValidation>
           <UseForCreate>TextArea</UseForCreate>
           <UseForEdit>TextArea</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>CancellationDate</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>CancellationNotes</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
         </AspNetMvcPropertySetting>
       </Properties>
       <ControllerName>PurchaseOrders</ControllerName>
@@ -1524,18 +1572,6 @@
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>CancellationDate</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
-          <InIndexView>true</InIndexView>
-          <InDetailsView>true</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForCreate>Standart</UseForCreate>
-          <UseForEdit>Standart</UseForEdit>
-        </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
           <Name>Title</Name>
           <Exclude>false</Exclude>
           <UseInSearch>true</UseInSearch>
@@ -1666,6 +1702,30 @@
           <HasValidation>false</HasValidation>
           <UseForCreate>Standart</UseForCreate>
           <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>CancellationDate</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>CancellationNotes</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
         </AspNetMvcPropertySetting>
       </Properties>
       <ControllerName>Processes</ControllerName>

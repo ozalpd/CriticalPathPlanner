@@ -1,4 +1,4 @@
-﻿@using CriticalPath.Data.Resources
+﻿@using CP.i8n
 @using CriticalPath.Web.Models
 <!DOCTYPE html>
 <html>
@@ -24,31 +24,21 @@
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            @EntityStrings.SizingStandards<b class="caret"></b>
+                            @CommonStrings.Settings<b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
                             <li>@Html.ActionLink(@EntityStrings.SizingStandards, "Index", "SizingStandards")</li>
                             <li>@Html.ActionLink(@EntityStrings.CreateSizingStandard, "Create", "SizingStandards")</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            @EntityStrings.ProcessTemplates<b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
+                            <li class="divider"></li>
                             <li>@Html.ActionLink(@EntityStrings.ProcessTemplates, "Index", "ProcessTemplates")</li>
                             <li>@Html.ActionLink(@EntityStrings.CreateProcessTemplate, "Create", "ProcessTemplates")</li>
+                            <li class="divider"></li>
+                            <li><a href="#">@CommonStrings.ApplicationSettings</a></li>
+                            <li>@Html.ActionLink(CommonStrings.Setup, "Index", "Setup")</li>
+                            <li>@Html.ActionLink("Application Theme", "SelectTheme", "AppSettings")</li>
                         </ul>
                     </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            Settings<b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Application Settins</a></li>
-                            <li>@Html.ActionLink("Set Application Theme", "SelectTheme", "AppSettings")</li>
-                        </ul>
-                    </li>
+                    <li>@Html.ActionLink(CommonStrings.Users, "Index", "Users")</li>
                 </ul>
             </div>
         </div>

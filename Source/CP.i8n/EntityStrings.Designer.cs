@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CriticalPath.Data.Resources {
+namespace CP.i8n {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace CriticalPath.Data.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CriticalPath.Data.Resources.EntityStrings", typeof(EntityStrings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CP.i8n.EntityStrings", typeof(EntityStrings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -1164,6 +1164,15 @@ namespace CriticalPath.Data.Resources {
         public static string InactivateDate {
             get {
                 return ResourceManager.GetString("InactivateDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inactivate Notes.
+        /// </summary>
+        public static string InactivateNotes {
+            get {
+                return ResourceManager.GetString("InactivateNotes", resourceCulture);
             }
         }
         

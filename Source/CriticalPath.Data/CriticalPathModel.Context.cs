@@ -87,6 +87,7 @@ namespace CriticalPath.Data
                        Country = e.Country,
                        IsActive = e.IsActive,
                        InactivateDate = e.InactivateDate,
+                       InactivateNotes = e.InactivateNotes,
                        Notes = e.Notes,
                        CustomerCode = e.CustomerCode,
                    };
@@ -136,6 +137,7 @@ namespace CriticalPath.Data
                        Country = e.Country,
                        IsActive = e.IsActive,
                        InactivateDate = e.InactivateDate,
+                       InactivateNotes = e.InactivateNotes,
                        Notes = e.Notes,
                        SupplierCode = e.SupplierCode,
                    };
@@ -182,6 +184,7 @@ namespace CriticalPath.Data
                        PhoneWork2 = e.PhoneWork2,
                        IsActive = e.IsActive,
                        InactivateDate = e.InactivateDate,
+                       InactivateNotes = e.InactivateNotes,
                        Notes = e.Notes,
                    };
         }
@@ -227,6 +230,7 @@ namespace CriticalPath.Data
                        RealizedDate = e.RealizedDate,
                        IsActive = e.IsActive,
                        CancellationDate = e.CancellationDate,
+                       CancellationNotes = e.CancellationNotes,
                        IsApproved = e.IsApproved,
                        ApproveDate = e.ApproveDate,
                    };
@@ -430,6 +434,7 @@ namespace CriticalPath.Data
                        ImageUrl = e.ImageUrl,
                        IsActive = e.IsActive,
                        InactivateDate = e.InactivateDate,
+                       InactivateNotes = e.InactivateNotes,
                    };
         }
     
@@ -477,6 +482,7 @@ namespace CriticalPath.Data
                        Notes = e.Notes,
                        IsActive = e.IsActive,
                        CancellationDate = e.CancellationDate,
+                       CancellationNotes = e.CancellationNotes,
                        IsApproved = e.IsApproved,
                        ApproveDate = e.ApproveDate,
                    };

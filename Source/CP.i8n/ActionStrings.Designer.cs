@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CriticalPath.Data.Resources {
+namespace CP.i8n {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace CriticalPath.Data.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CriticalPath.Data.Resources.ActionStrings", typeof(ActionStrings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CP.i8n.ActionStrings", typeof(ActionStrings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

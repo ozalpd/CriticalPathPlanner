@@ -94,6 +94,18 @@ InterfaceDefinition isActive = new InterfaceDefinition() { Name = "IIsActive" };
 AutoGenInterfaces.Add(isActive);
 isActive.Properties.Add(new InterfaceProperty() { TypeName = "bool", Name = "IsActive" });
 
+InterfaceDefinition cancellation = new InterfaceDefinition() { Name = "ICancellation" };
+AutoGenInterfaces.Add(cancellation);
+cancellation.Properties.Add(new InterfaceProperty() { TypeName = "bool", Name = "IsActive" });
+cancellation.Properties.Add(new InterfaceProperty() { TypeName = "Nullable<System.DateTime>", Name = "CancellationDate" });
+cancellation.Properties.Add(new InterfaceProperty() { TypeName = "string", Name = "CancellationNotes" });
+
+InterfaceDefinition inactivation = new InterfaceDefinition() { Name = "IInactivation" };
+AutoGenInterfaces.Add(inactivation);
+inactivation.Properties.Add(new InterfaceProperty() { TypeName = "bool", Name = "IsActive" });
+inactivation.Properties.Add(new InterfaceProperty() { TypeName = "Nullable<System.DateTime>", Name = "InactivateDate" });
+inactivation.Properties.Add(new InterfaceProperty() { TypeName = "string", Name = "InactivateNotes" });
+
 //Ends Here - Interface Definition List
 
  #>

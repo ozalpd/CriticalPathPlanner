@@ -10,7 +10,7 @@ using System.Data.Entity;
 using System.Threading.Tasks;
 using CriticalPath.Data;
 using CriticalPath.Web.Models;
-using CriticalPath.Data.Resources;
+using CP.i8n;
 using CriticalPath.Web.Controllers;
 
 namespace CriticalPath.Web.Areas.Admin.Controllers

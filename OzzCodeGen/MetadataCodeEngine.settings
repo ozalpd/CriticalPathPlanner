@@ -188,6 +188,12 @@
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
+          <Name>Notes</Name>
+          <Exclude>false</Exclude>
+          <DataType>MultilineText</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
           <Name>IsActive</Name>
           <Exclude>false</Exclude>
           <DataType />
@@ -200,7 +206,7 @@
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>Notes</Name>
+          <Name>InactivateNotes</Name>
           <Exclude>false</Exclude>
           <DataType>MultilineText</DataType>
           <Required />
@@ -273,6 +279,17 @@
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
+          <Name>Notes</Name>
+          <Exclude>false</Exclude>
+          <DataType>MultilineText</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Contacts</Name>
+          <Exclude>false</Exclude>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
           <Name>IsActive</Name>
           <Exclude>false</Exclude>
           <DataType />
@@ -285,14 +302,9 @@
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>Notes</Name>
+          <Name>InactivateNotes</Name>
           <Exclude>false</Exclude>
           <DataType>MultilineText</DataType>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>Contacts</Name>
-          <Exclude>false</Exclude>
           <Required />
         </MetadataPropertySetting>
       </Properties>
@@ -406,6 +418,12 @@
           <DataType>Date</DataType>
           <Required />
         </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>InactivateNotes</Name>
+          <Exclude>false</Exclude>
+          <DataType>MultilineText</DataType>
+          <Required />
+        </MetadataPropertySetting>
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="MetadataEntitySetting">
@@ -417,12 +435,6 @@
           <Name>IsActive</Name>
           <Exclude>false</Exclude>
           <DataType />
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>CancellationDate</Name>
-          <Exclude>false</Exclude>
-          <DataType>Date</DataType>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
@@ -508,6 +520,18 @@
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>Notes</Name>
+          <Exclude>false</Exclude>
+          <DataType>MultilineText</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>CancellationDate</Name>
+          <Exclude>false</Exclude>
+          <DataType>Date</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>CancellationNotes</Name>
           <Exclude>false</Exclude>
           <DataType>MultilineText</DataType>
           <Required />
@@ -620,12 +644,6 @@
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>CancellationDate</Name>
-          <Exclude>false</Exclude>
-          <DataType>Date</DataType>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
           <Name>Title</Name>
           <Exclude>false</Exclude>
           <DataType />
@@ -686,6 +704,18 @@
         <MetadataPropertySetting>
           <Name>ProcessSteps</Name>
           <Exclude>false</Exclude>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>CancellationDate</Name>
+          <Exclude>false</Exclude>
+          <DataType>Date</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>CancellationNotes</Name>
+          <Exclude>false</Exclude>
+          <DataType>MultilineText</DataType>
           <Required />
         </MetadataPropertySetting>
       </Properties>

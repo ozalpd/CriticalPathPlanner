@@ -12,6 +12,7 @@ CREATE TABLE [dbo].[Products](
     [SizingStandardId] [int] Not Null Constraint FK_Product_SizingStandardId Foreign Key References [dbo].[SizingStandards]([Id]),
     [IsActive] [bit] Not Null,
     [InactivateDate] [DateTime] Null,
+    [InactivateNotes] [nVarChar](max) Null,
     [ModifyNr] [int] Not Null Default 1,
     [ModifyDate] [DateTime] Not Null Default GetDate(),
     [ModifierId] [VarChar](48) Not Null,

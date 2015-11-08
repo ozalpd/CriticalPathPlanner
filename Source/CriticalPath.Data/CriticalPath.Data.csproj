@@ -64,6 +64,7 @@
     <Compile Include="Customer.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Parts\CustomerDTO.part.cs" />
     <Compile Include="Metadata\SizeRate.meta.cs" />
     <Compile Include="Metadata\SizeRateDTO.meta.cs" />
     <Compile Include="Metadata\Sizing.meta.cs" />
@@ -129,60 +130,11 @@
     <Compile Include="ProductCategory.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Parts\ProductDTO.part.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Parts\PurchaseOrderDTO.part.cs" />
     <Compile Include="PurchaseOrder.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\ActionStrings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ActionStrings.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\ActionStrings.tr.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ActionStrings.tr.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\CommonStrings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CommonStrings.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\CommonStrings.tr.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CommonStrings.tr.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\EntityStrings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EntityStrings.Resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\EntityStrings.tr.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EntityStrings.tr.Resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\ErrorStrings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ErrorStrings.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\ErrorStrings.tr.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ErrorStrings.tr.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\MessageStrings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MessageStrings.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\MessageStrings.tr.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MessageStrings.tr.resx</DependentUpon>
     </Compile>
     <Compile Include="Parts\SizingStandardDTO.part.cs" />
     <Compile Include="SizeRate.cs">
@@ -197,6 +149,7 @@
     <Compile Include="Supplier.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Parts\SupplierDTO.part.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -212,6 +165,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CP.i8n\CP.i8n.csproj">
+      <Project>{08c5a2da-fe18-4320-8b21-9923b16cba0e}</Project>
+      <Name>CP.i8n</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OzzIdentity\OzzIdentity.csproj">
       <Project>{5c618f83-e9cc-4ce6-b692-bfb279960824}</Project>
       <Name>OzzIdentity</Name>
@@ -233,49 +190,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\ActionStrings.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>ActionStrings.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\ActionStrings.tr.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>ActionStrings.tr.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\CommonStrings.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>CommonStrings.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\CommonStrings.tr.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>CommonStrings.tr.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\EntityStrings.Resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>EntityStrings.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\EntityStrings.tr.Resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>EntityStrings.tr.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\ErrorStrings.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>ErrorStrings.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\ErrorStrings.tr.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>ErrorStrings.tr.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\MessageStrings.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>MessageStrings.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\MessageStrings.tr.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>MessageStrings.tr.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -78,5 +78,19 @@ namespace CriticalPath.Data
     {
         bool IsActive { get; set; }
     }
+    
+    public interface ICancellation
+    {
+        bool IsActive { get; set; }
+        Nullable<System.DateTime> CancellationDate { get; set; }
+        string CancellationNotes { get; set; }
+    }
+    
+    public interface IInactivation
+    {
+        bool IsActive { get; set; }
+        Nullable<System.DateTime> InactivateDate { get; set; }
+        string InactivateNotes { get; set; }
+    }
     #endregion
 }

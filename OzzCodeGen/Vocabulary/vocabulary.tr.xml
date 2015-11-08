@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfVocab xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Vocab>
+    <Name>About</Name>
+    <Translation>Hakkında</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AboutUs</Name>
+    <Translation>Hakkımızda</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Action</Name>
     <Translation>Eylem</Translation>
   </Vocab>
@@ -237,6 +245,22 @@
     <Translation>Her zaman</Translation>
   </Vocab>
   <Vocab>
+    <Name>ApplicationBriefName</Name>
+    <Translation>CP</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ApplicationLongName</Name>
+    <Translation>Critical Path</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ApplicationName</Name>
+    <Translation>Critical Path</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ApplicationSettings</Name>
+    <Translation>Uygulama Ayarları</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Approve</Name>
     <Translation>Onayla</Translation>
   </Vocab>
@@ -271,6 +295,10 @@
   <Vocab>
     <Name>CancellationDate</Name>
     <Translation>İptal Tarihi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CancellationNotes</Name>
+    <Translation>İptal Notu</Translation>
   </Vocab>
   <Vocab>
     <Name>CancelPO</Name>
@@ -367,6 +395,10 @@
   <Vocab>
     <Name>ContactsList</Name>
     <Translation>Kişi Listesi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ContactUs</Name>
+    <Translation>Bize Ulaşın</Translation>
   </Vocab>
   <Vocab>
     <Name>Country</Name>
@@ -791,6 +823,10 @@
   <Vocab>
     <Name>InactivateDate</Name>
     <Translation>İnaktif Tarihi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>InactivateNotes</Name>
+    <Translation>İnaktifleşme Notu</Translation>
   </Vocab>
   <Vocab>
     <Name>Index</Name>
@@ -1241,6 +1277,14 @@
     <Translation>Lütfen Seçiniz</Translation>
   </Vocab>
   <Vocab>
+    <Name>Settings</Name>
+    <Translation>Ayarlar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Setup</Name>
+    <Translation>Kurulum</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Show</Name>
     <Translation>Göster</Translation>
   </Vocab>
@@ -1445,12 +1489,16 @@
     <Translation>Güncelle</Translation>
   </Vocab>
   <Vocab>
-    <Name>UserName</Name>
-    <Translation>Kullanıcı Adı</Translation>
+    <Name>User</Name>
+    <Translation>Kullanıcı</Translation>
   </Vocab>
   <Vocab>
     <Name>UserName</Name>
     <Translation>Kullanıcı Adı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Users</Name>
+    <Translation>Kullanıcılar</Translation>
   </Vocab>
   <Vocab>
     <Name>Width</Name>

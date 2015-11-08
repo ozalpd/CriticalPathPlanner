@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfVocab xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Vocab>
+    <Name>About</Name>
+    <Translation>About</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AboutUs</Name>
+    <Translation>About Us</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Action</Name>
     <Translation>Action</Translation>
   </Vocab>
@@ -237,6 +245,22 @@
     <Translation>Always</Translation>
   </Vocab>
   <Vocab>
+    <Name>ApplicationBriefName</Name>
+    <Translation>CP</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ApplicationLongName</Name>
+    <Translation>Critical Path</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ApplicationName</Name>
+    <Translation>Critical Path</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ApplicationSettings</Name>
+    <Translation>Application Settings</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Approve</Name>
     <Translation>Approve</Translation>
   </Vocab>
@@ -271,6 +295,10 @@
   <Vocab>
     <Name>CancellationDate</Name>
     <Translation>Cancellation Date</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CancellationNotes</Name>
+    <Translation>Cancellation Notes</Translation>
   </Vocab>
   <Vocab>
     <Name>CancelPO</Name>
@@ -367,6 +395,10 @@
   <Vocab>
     <Name>ContactsList</Name>
     <Translation>Contacts List</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ContactUs</Name>
+    <Translation>Contact Us</Translation>
   </Vocab>
   <Vocab>
     <Name>Country</Name>
@@ -791,6 +823,10 @@
   <Vocab>
     <Name>InactivateDate</Name>
     <Translation>Inactivate Date</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>InactivateNotes</Name>
+    <Translation>Inactivate Notes</Translation>
   </Vocab>
   <Vocab>
     <Name>Index</Name>
@@ -1241,6 +1277,14 @@
     <Translation>Please Select</Translation>
   </Vocab>
   <Vocab>
+    <Name>Settings</Name>
+    <Translation>Settings</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Setup</Name>
+    <Translation>Setup</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Show</Name>
     <Translation>Show</Translation>
   </Vocab>
@@ -1445,8 +1489,16 @@
     <Translation>Update</Translation>
   </Vocab>
   <Vocab>
+    <Name>User</Name>
+    <Translation>User</Translation>
+  </Vocab>
+  <Vocab>
     <Name>UserName</Name>
     <Translation>UserName</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Users</Name>
+    <Translation>Users</Translation>
   </Vocab>
   <Vocab>
     <Name>Width</Name>

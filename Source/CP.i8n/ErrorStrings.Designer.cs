@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CriticalPath.Data.Resources {
+namespace CP.i8n {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace CriticalPath.Data.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class CommonStrings {
+    public class ErrorStrings {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal CommonStrings() {
+        internal ErrorStrings() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace CriticalPath.Data.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CriticalPath.Data.Resources.CommonStrings", typeof(CommonStrings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CP.i8n.ErrorStrings", typeof(ErrorStrings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,29 +61,65 @@ namespace CriticalPath.Data.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Admin.
+        ///   Looks up a localized string similar to The new password and confirmation password do not match..
         /// </summary>
-        public static string Admin {
+        public static string ConfirmNewPassword {
             get {
-                return ResourceManager.GetString("Admin", resourceCulture);
+                return ResourceManager.GetString("ConfirmNewPassword", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Home.
+        ///   Looks up a localized string similar to The password and confirmation password do not match..
         /// </summary>
-        public static string Home {
+        public static string ConfirmPassword {
             get {
-                return ResourceManager.GetString("Home", resourceCulture);
+                return ResourceManager.GetString("ConfirmPassword", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Record.
+        ///   Looks up a localized string similar to The {0} field maximum length is {1}..
         /// </summary>
-        public static string Record {
+        public static string MaxLeght {
             get {
-                return ResourceManager.GetString("Record", resourceCulture);
+                return ResourceManager.GetString("MaxLeght", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The {0} must be at least {2} characters long..
+        /// </summary>
+        public static string MinLeght {
+            get {
+                return ResourceManager.GetString("MinLeght", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The {0} field is required..
+        /// </summary>
+        public static string Required {
+            get {
+                return ResourceManager.GetString("Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter your email to {0} field..
+        /// </summary>
+        public static string RequiredEmail {
+            get {
+                return ResourceManager.GetString("RequiredEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter your password to {0} field..
+        /// </summary>
+        public static string RequiredPassword {
+            get {
+                return ResourceManager.GetString("RequiredPassword", resourceCulture);
             }
         }
     }

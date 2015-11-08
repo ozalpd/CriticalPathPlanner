@@ -12,7 +12,7 @@ namespace CriticalPath.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Process : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate, IIsApproved, IApproval, IIsActive
+    public partial class Process : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate, IIsApproved, IApproval, IIsActive, ICancellation
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Process()
@@ -31,6 +31,7 @@ namespace CriticalPath.Data
         public Nullable<System.DateTime> RealizedDate { get; set; }
         public bool IsActive { get; set; }
         public Nullable<System.DateTime> CancellationDate { get; set; }
+        public string CancellationNotes { get; set; }
         public bool IsApproved { get; set; }
         public Nullable<System.DateTime> ApproveDate { get; set; }
         public string ApprovedUserId { get; set; }
@@ -65,6 +66,7 @@ namespace CriticalPath.Data
             clone.RealizedDate = RealizedDate;
             clone.IsActive = IsActive;
             clone.CancellationDate = CancellationDate;
+            clone.CancellationNotes = CancellationNotes;
             clone.IsApproved = IsApproved;
             clone.ApproveDate = ApproveDate;
             clone.ApprovedUserId = ApprovedUserId;
@@ -105,6 +107,7 @@ namespace CriticalPath.Data
             RealizedDate = entity.RealizedDate;
             IsActive = entity.IsActive;
             CancellationDate = entity.CancellationDate;
+            CancellationNotes = entity.CancellationNotes;
             IsApproved = entity.IsApproved;
             ApproveDate = entity.ApproveDate;
         
@@ -127,6 +130,7 @@ namespace CriticalPath.Data
             entity.RealizedDate = RealizedDate;
             entity.IsActive = IsActive;
             entity.CancellationDate = CancellationDate;
+            entity.CancellationNotes = CancellationNotes;
             entity.IsApproved = IsApproved;
             entity.ApproveDate = ApproveDate;
     
@@ -148,6 +152,7 @@ namespace CriticalPath.Data
         public Nullable<System.DateTime> RealizedDate { get; set; }
         public bool IsActive { get; set; }
         public Nullable<System.DateTime> CancellationDate { get; set; }
+        public string CancellationNotes { get; set; }
         public bool IsApproved { get; set; }
         public Nullable<System.DateTime> ApproveDate { get; set; }
     }

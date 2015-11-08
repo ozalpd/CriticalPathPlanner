@@ -3,7 +3,7 @@ using System.Data;
 using System.Web.Mvc;
 using System.Threading.Tasks;
 using CriticalPath.Data;
-using CriticalPath.Data.Resources;
+using CP.i8n;
 using System.Net;
 using System;
 using System.Text;

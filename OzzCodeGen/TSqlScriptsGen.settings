@@ -320,6 +320,16 @@
           <Nullable>true</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
+          <Name>Notes</Name>
+          <Exclude>false</Exclude>
+          <DataType>nVarChar</DataType>
+          <Lenght>2048</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
           <Name>IsActive</Name>
           <Exclude>false</Exclude>
           <DataType>bit</DataType>
@@ -340,10 +350,10 @@
           <Nullable>true</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>Notes</Name>
+          <Name>InactivateNotes</Name>
           <Exclude>false</Exclude>
           <DataType>nVarChar</DataType>
-          <Lenght>2048</Lenght>
+          <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
           <SortDesc>false</SortDesc>
@@ -464,6 +474,16 @@
           <Nullable>true</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
+          <Name>Notes</Name>
+          <Exclude>false</Exclude>
+          <DataType>nVarChar</DataType>
+          <Lenght>2048</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
           <Name>IsActive</Name>
           <Exclude>false</Exclude>
           <DataType>bit</DataType>
@@ -484,10 +504,10 @@
           <Nullable>true</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>Notes</Name>
+          <Name>InactivateNotes</Name>
           <Exclude>false</Exclude>
           <DataType>nVarChar</DataType>
-          <Lenght>2048</Lenght>
+          <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
           <SortDesc>false</SortDesc>
@@ -632,6 +652,16 @@
           <SortDesc>false</SortDesc>
           <Nullable>true</Nullable>
         </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>InactivateNotes</Name>
+          <Exclude>false</Exclude>
+          <DataType>nVarChar</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
@@ -655,16 +685,6 @@
           <Indexed>true</Indexed>
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
-          <Name>CancellationDate</Name>
-          <Exclude>false</Exclude>
-          <DataType>DateTime</DataType>
-          <Lenght>0</Lenght>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>false</Indexed>
-          <SortDesc>false</SortDesc>
-          <Nullable>true</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>OrderDate</Name>
@@ -774,6 +794,26 @@
           <Exclude>false</Exclude>
           <DataType>nVarChar</DataType>
           <Lenght>2048</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>CancellationDate</Name>
+          <Exclude>false</Exclude>
+          <DataType>DateTime</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>CancellationNotes</Name>
+          <Exclude>false</Exclude>
+          <DataType>nVarChar</DataType>
+          <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
           <SortDesc>false</SortDesc>
@@ -928,16 +968,6 @@
           <Nullable>false</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>CancellationDate</Name>
-          <Exclude>false</Exclude>
-          <DataType>DateTime</DataType>
-          <Lenght>0</Lenght>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>false</Indexed>
-          <SortDesc>false</SortDesc>
-          <Nullable>true</Nullable>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
           <Name>Title</Name>
           <Exclude>false</Exclude>
           <DataType>nVarChar</DataType>
@@ -1016,6 +1046,26 @@
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>true</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>CancellationDate</Name>
+          <Exclude>false</Exclude>
+          <DataType>DateTime</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>CancellationNotes</Name>
+          <Exclude>false</Exclude>
+          <DataType>nVarChar</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
           <SortDesc>false</SortDesc>
           <Nullable>true</Nullable>
         </StorageColumnSetting>
