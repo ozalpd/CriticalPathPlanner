@@ -109,15 +109,15 @@ foreach (PropertyMetadata property in ModelMetadata.Properties.Where(p => !dtoEx
 <#
         if (property.IsForeignKey) {
 #>
-            @Html.LabelFor(model => model.<#= property.PropertyName #>, "<#= GetAssociationName(property) #>", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.<#= property.PropertyName #>, "<#= GetAssociationName(property) #>", htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
 <#
         } else {
 #>
-            @Html.LabelFor(model => model.<#= property.PropertyName #>, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.<#= property.PropertyName #>, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
 <#
         }
 #>
-            <div class="col-md-10">
+            <div class="col-lg-5 col-md-6 col-sm-7">
 <#
         bool isCheckbox = property.TypeName.Equals(boolType);
         if (property.IsForeignKey) {
@@ -184,17 +184,9 @@ foreach (PropertyMetadata property in ModelMetadata.Properties.Where(p => !dtoEx
     }
 }
 #>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value='@ActionStrings.Add' class="btn btn-default" />
-            </div>
-        </div>
+        @Html.Partial("_SaveButtonsPartial")
     </div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default btn-sm" })
-</div>
 <#
 if(IsLayoutPageSelected && ReferenceScriptLibraries && IsBundleConfigPresent) {
 #>

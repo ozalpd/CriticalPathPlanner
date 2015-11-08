@@ -30,17 +30,13 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                             select a;
                 }
                 qParams.TotalCount = await query.CountAsync();
-
-                ViewBag.page = qParams.Page;
-                ViewBag.totalCount = qParams.TotalCount;
-                ViewBag.pageSize = qParams.PageSize;
-                ViewBag.pageCount = qParams.PageCount;
+                PutPagerInViewBag(qParams);
 
                 var users = qParams.TotalCount > 0 ? await query.ToListAsync() : new List<OzzUser>();
-                var usersVM = new List<UserEditVM>();
+                var usersVM = new List<UserAdminVM>();
                 foreach (var user in users)
                 {
-                    var userVM = new UserEditVM(user);
+                    var userVM = new UserAdminVM(user);
                     await SetViewModelRoles(userVM);
                     usersVM.Add(userVM);
                 }
@@ -48,6 +44,18 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             }
         }
 
+        public async Task<ActionResult> Details(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            UserAdminVM userVM = await GetUserVM(id);
+            if (userVM == null)
+                return HttpNotFound();
+
+            return View(userVM);
+        }
 
         public async Task<ActionResult> Edit(string id)
         {
@@ -55,35 +63,16 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            UserEditVM userVM = null;
-            using (var idContext = new OzzIdentityDbContext())
-            {
-                var user = await idContext.Users.FirstOrDefaultAsync(u => u.Id.Equals(id));
-                if (user == null)
-                {
-                    return HttpNotFound();
-                }
-                userVM = new UserEditVM(user);
-            }
-
-            await SetViewModelRoles(userVM);
+            UserAdminVM userVM = await GetUserVM(id);
+            if (userVM == null)
+                return HttpNotFound();
 
             return View(userVM);
         }
 
-        private async Task SetViewModelRoles(UserEditVM userVM)
-        {
-            var roles = SecurityRoles.ApplicationRoles;
-            foreach (var role in roles)
-            {
-                bool isInRole = await UserManager.IsInRoleAsync(userVM.Id, role);
-                userVM.SetIsUserInRole(role, isInRole);
-            }
-        }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(UserEditVM userVM)
+        public async Task<ActionResult> Edit(UserAdminVM userVM)
         {
             if (ModelState.IsValid)
             {
@@ -107,6 +96,36 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             }
 
             return View(userVM);
+        }
+
+
+
+
+        private async Task<UserAdminVM> GetUserVM(string id)
+        {
+            UserAdminVM userVM = null;
+            using (var idContext = new OzzIdentityDbContext())
+            {
+                var user = await idContext.Users.FirstOrDefaultAsync(u => u.Id.Equals(id));
+                if (user == null)
+                {
+                    return null;
+                }
+                userVM = new UserAdminVM(user);
+            }
+            await SetViewModelRoles(userVM);
+
+            return userVM;
+        }
+
+        private async Task SetViewModelRoles(UserAdminVM userVM)
+        {
+            var roles = SecurityRoles.ApplicationRoles;
+            foreach (var role in roles)
+            {
+                bool isInRole = await UserManager.IsInRoleAsync(userVM.Id, role);
+                userVM.SetIsUserInRole(role, isInRole);
+            }
         }
     }
 }

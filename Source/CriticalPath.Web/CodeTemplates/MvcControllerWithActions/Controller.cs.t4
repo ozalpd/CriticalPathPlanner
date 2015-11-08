@@ -24,7 +24,7 @@ using System.Web.Mvc;
 
 namespace <#= Namespace #>
 {
-    public class <#= ControllerName #> : Controller
+    public class <#= ControllerName #> : BaseController
     {
         public <#= ControllerName #>()
 		{

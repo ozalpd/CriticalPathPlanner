@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace CriticalPath.Web.Areas.Admin.Models
 {
-    public partial class UserEditVM : UserViewModel
+    public partial class UserAdminVM : UserViewModel
     {
-        public UserEditVM() { }
-        public UserEditVM(OzzUser user) : base(user)
+        public UserAdminVM() { }
+        public UserAdminVM(OzzUser user) : base(user)
         {
             Id = user.Id;
             UserName = user.UserName;

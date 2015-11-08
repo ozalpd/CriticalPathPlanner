@@ -23,7 +23,7 @@ using System.Web.Mvc;
 
 namespace <#= Namespace #>
 {
-    public class <#= ControllerName #> : Controller //AbstractController
+    public class <#= ControllerName #> : BaseController
     {
         // GET: <#= routePrefix #>
         public ActionResult Index()

@@ -184,7 +184,7 @@
     <Compile Include="Areas\Admin\Controllers\SetupController.demoData.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Areas\Admin\Models\AppSettingVM.cs" />
-    <Compile Include="Areas\Admin\Models\UserEditVM.cs" />
+    <Compile Include="Areas\Admin\Models\UserAdminVM.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.g.cs" />
     <Compile Include="Controllers\BaseController.part.cs" />
@@ -337,6 +337,7 @@
     <Content Include="Views\Shared\EditorTemplates\SizingStandard.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_EditSizings.cshtml" />
     <Content Include="Areas\Admin\Views\Users\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Details.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
