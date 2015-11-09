@@ -1,0 +1,13 @@
+﻿@using CriticalPath.Web.Models
+@using CriticalPath.Data
+@using CP.i8n
+@model ProductDTO
+@{
+    Layout = null;
+}
+@if (Model != null)
+{
+    <div>
+        <a href='/Products/Details/@Model.Id'>@Model.Title</a>
+    </div>
+}

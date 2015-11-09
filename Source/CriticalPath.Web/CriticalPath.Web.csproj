@@ -462,6 +462,12 @@
     <Content Include="Views\Shared\_ProductSizingPartial.cshtml" />
     <Content Include="Views\Shared\_BaseLayout.cshtml" />
     <Content Include="Views\PurchaseOrders\_PoSizeRates.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ContactDTO.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\CustomerDTO.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ProductCategoryDTO.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ProductDTO.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\PurchaseOrderDTO.cshtml" />
+    <Content Include="Views\PurchaseOrders\_PoPartialEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

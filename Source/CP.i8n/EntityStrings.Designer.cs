@@ -493,6 +493,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancellation Notes.
+        /// </summary>
+        public static string CancellationNotes {
+            get {
+                return ResourceManager.GetString("CancellationNotes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Caption.
         /// </summary>
         public static string Caption {

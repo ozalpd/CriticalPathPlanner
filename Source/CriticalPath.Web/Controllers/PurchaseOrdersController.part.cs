@@ -83,24 +83,48 @@ namespace CriticalPath.Web.Controllers
                 //TODO:get 42 days from an AppSetting
                 purchaseOrder.DueDate = DateTime.Today.AddDays(42);
             }
-
-            return View(purchaseOrder);
+            var purchaseOrderVM = new PurchaseOrderVM(purchaseOrder);
+            await SetCustomerSelectListAsync(purchaseOrderVM);
+            return View(purchaseOrderVM);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "admin, supervisor")]
-        public async Task<ActionResult> Approve(PurchaseOrderDTO vm)
+        public async Task<ActionResult> Approve(PurchaseOrderVM vm)
         {
             var purchaseOrder = await FindAsyncPurchaseOrder(vm.Id);
-            if (vm.IsApproved && purchaseOrder != null)
+            if (purchaseOrder == null)
+                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+
+            PutVmToPO(vm, purchaseOrder, true);
+
+            if (vm.IsApproved)
+            {
+                await ApproveSaveAsync(purchaseOrder);
+                return RedirectToAction("Create", "Processes", new { purchaseOrderId = purchaseOrder.Id });
+            }
+            var poVM = new PurchaseOrderVM(purchaseOrder);
+            await SetCustomerSelectListAsync(vm);
+            return View(poVM);
+        }
+
+        private static void PutVmToPO(PurchaseOrderVM vm, PurchaseOrder purchaseOrder, bool isApproving)
+        {
+            purchaseOrder.Code = vm.Code;
+            purchaseOrder.Description = vm.Description;
+            purchaseOrder.Notes = vm.Notes;
+
+            if (isApproving)
             {
                 purchaseOrder.DueDate = vm.DueDate;
-                await ApproveSaveAsync(purchaseOrder);
-                return RedirectToAction("Details", new { id = purchaseOrder.Id });
             }
-
-            return View(purchaseOrder);
+            if (!purchaseOrder.IsApproved || isApproving)
+            {
+                purchaseOrder.CustomerId = vm.CustomerId > 0 ? vm.CustomerId : purchaseOrder.CustomerId;
+                purchaseOrder.Quantity = vm.Quantity > 0 ? vm.Quantity : purchaseOrder.Quantity;
+                purchaseOrder.UnitPrice = vm.UnitPrice;
+            }
         }
 
         [HttpGet]
@@ -172,15 +196,7 @@ namespace CriticalPath.Web.Controllers
         public async Task<ActionResult> Edit(PurchaseOrderVM vm)  //POST: /PurchaseOrders/Edit/5
         {
             PurchaseOrder purchaseOrder = await FindAsyncPurchaseOrder(vm.Id);
-            purchaseOrder.Notes = vm.Notes;
-            purchaseOrder.Code = vm.Code;
-            purchaseOrder.Description = vm.Description;
-            if (!purchaseOrder.IsApproved)
-            {
-                purchaseOrder.CustomerId = vm.CustomerId > 0 ? vm.CustomerId : purchaseOrder.CustomerId;
-                purchaseOrder.Quantity = vm.Quantity > 0 ? vm.Quantity : purchaseOrder.Quantity;
-                purchaseOrder.UnitPrice = vm.UnitPrice;
-            }
+            PutVmToPO(vm, purchaseOrder, false);
             await DataContext.SaveChangesAsync(this);
             return RedirectToAction("Details", new { id = vm.Id });
         }
