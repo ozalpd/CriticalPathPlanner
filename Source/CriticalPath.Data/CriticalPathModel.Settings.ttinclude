@@ -34,6 +34,7 @@ defaultQuerySettings.DtoExclusions
             "ExpireDate",
 			"ApprovedUserId",
 			"ApprovedUserIp",
+			"InactivateUserId",
             defaultQuerySettings.PublishPropertyName
         });
 

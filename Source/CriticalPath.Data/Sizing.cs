@@ -27,6 +27,8 @@ namespace CriticalPath.Data
         public string CreatorIp { get; set; }
     
         public virtual SizingStandard SizingStandard { get; set; }
+        public virtual AspNetUser CreatedUser { get; set; }
+        public virtual AspNetUser ModifiedUser { get; set; }
     	/// <summary>
     	/// Clones all properties in a new Sizing instance,
     	/// except PrimaryKey(s)

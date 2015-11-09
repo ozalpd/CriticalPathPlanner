@@ -55,6 +55,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AspNetUser.cs">
+      <DependentUpon>CriticalPathModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Company.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>

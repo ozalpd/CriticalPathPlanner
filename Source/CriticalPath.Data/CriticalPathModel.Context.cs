@@ -43,6 +43,54 @@ namespace CriticalPath.Data
         public virtual DbSet<SizeRate> SizeRates { get; set; }
         public virtual DbSet<SizingStandard> SizingStandards { get; set; }
         public virtual DbSet<Sizing> Sizings { get; set; }
+        public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
+    
+        /// <summary>
+        /// Default query for AspNetUsers
+        /// </summary>
+        /// <returns></returns>
+        public virtual IQueryable<AspNetUser> GetAspNetUserQuery()
+        {
+            IQueryable<AspNetUser> query = AspNetUsers.OrderBy(p => p.LastName);
+            return query;
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from AspNetUser query
+        /// </summary>
+        /// <param name="query">query to be converted</param>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<AspNetUserDTO> GetAspNetUserDtoQuery()
+        {
+            return GetAspNetUserDtoQuery(GetAspNetUserQuery());
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from AspNetUser query
+        /// </summary>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<AspNetUserDTO> GetAspNetUserDtoQuery(IQueryable<AspNetUser> query)
+        {
+            return from e in query
+                   select new AspNetUserDTO
+                   {
+                       Id = e.Id,
+                       FirstName = e.FirstName,
+                       LastName = e.LastName,
+                       Email = e.Email,
+                       EmailConfirmed = e.EmailConfirmed,
+                       PasswordHash = e.PasswordHash,
+                       SecurityStamp = e.SecurityStamp,
+                       PhoneNumber = e.PhoneNumber,
+                       PhoneNumberConfirmed = e.PhoneNumberConfirmed,
+                       TwoFactorEnabled = e.TwoFactorEnabled,
+                       LockoutEndDateUtc = e.LockoutEndDateUtc,
+                       LockoutEnabled = e.LockoutEnabled,
+                       AccessFailedCount = e.AccessFailedCount,
+                       UserName = e.UserName,
+                   };
+        }
+    
     
         /// <summary>
         /// Default query for Companies

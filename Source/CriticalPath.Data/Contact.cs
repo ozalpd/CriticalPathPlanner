@@ -34,8 +34,12 @@ namespace CriticalPath.Data
         public System.DateTime CreateDate { get; set; }
         public string CreatorId { get; set; }
         public string CreatorIp { get; set; }
+        public string InactivateUserId { get; set; }
     
         public virtual Company Company { get; set; }
+        public virtual AspNetUser CreatedUser { get; set; }
+        public virtual AspNetUser InactivateUser { get; set; }
+        public virtual AspNetUser ModifiedUser { get; set; }
     	/// <summary>
     	/// Clones all properties in a new Contact instance,
     	/// except PrimaryKey(s)
@@ -63,6 +67,7 @@ namespace CriticalPath.Data
             clone.CreateDate = CreateDate;
             clone.CreatorId = CreatorId;
             clone.CreatorIp = CreatorIp;
+            clone.InactivateUserId = InactivateUserId;
     
             Cloning(clone);
     

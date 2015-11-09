@@ -5,6 +5,25 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="CriticalPathDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar(max)" />
+          <Property Name="LastName" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
         <EntityType Name="Companies">
           <Key>
             <PropertyRef Name="Id" />
@@ -24,6 +43,7 @@
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="InactivateDate" Type="datetime" />
           <Property Name="InactivateNotes" Type="nvarchar(max)" />
+          <Property Name="InactivateUserId" Type="varchar" MaxLength="48" />
           <Property Name="ModifyNr" Type="int" Nullable="false" />
           <Property Name="ModifyDate" Type="datetime" Nullable="false" />
           <Property Name="ModifierId" Type="varchar" MaxLength="48" Nullable="false" />
@@ -49,6 +69,7 @@
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="InactivateDate" Type="datetime" />
           <Property Name="InactivateNotes" Type="nvarchar(max)" />
+          <Property Name="InactivateUserId" Type="varchar" MaxLength="48" />
           <Property Name="ModifyNr" Type="int" Nullable="false" />
           <Property Name="ModifyDate" Type="datetime" Nullable="false" />
           <Property Name="ModifierId" Type="varchar" MaxLength="48" Nullable="false" />
@@ -82,6 +103,7 @@
           <Property Name="RealizedDate" Type="datetime" />
           <Property Name="CancellationDate" Type="datetime" />
           <Property Name="CancellationNotes" Type="nvarchar(max)" />
+          <Property Name="InactivateUserId" Type="varchar" MaxLength="48" />
           <Property Name="ApprovedUserId" Type="varchar" MaxLength="48" />
           <Property Name="ApprovedUserIp" Type="varchar" MaxLength="48" />
           <Property Name="ModifyNr" Type="int" Nullable="false" />
@@ -185,6 +207,7 @@
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="InactivateDate" Type="datetime" />
           <Property Name="InactivateNotes" Type="nvarchar(max)" />
+          <Property Name="InactivateUserId" Type="varchar" MaxLength="48" />
           <Property Name="ModifyNr" Type="int" Nullable="false" />
           <Property Name="ModifyDate" Type="datetime" Nullable="false" />
           <Property Name="ModifierId" Type="varchar" MaxLength="48" Nullable="false" />
@@ -214,6 +237,7 @@
           <Property Name="Notes" Type="nvarchar" MaxLength="2048" />
           <Property Name="CancellationDate" Type="datetime" />
           <Property Name="CancellationNotes" Type="nvarchar(max)" />
+          <Property Name="InactivateUserId" Type="varchar" MaxLength="48" />
           <Property Name="ApprovedUserId" Type="varchar" MaxLength="48" />
           <Property Name="ApprovedUserIp" Type="varchar" MaxLength="48" />
           <Property Name="ModifyNr" Type="int" Nullable="false" />
@@ -278,6 +302,42 @@
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="SupplierCode" Type="nvarchar" MaxLength="255" Nullable="false" />
         </EntityType>
+        <Association Name="FK_Company_CreatorId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Companies" Type="Self.Companies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Companies">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Company_InactivateUserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Companies" Type="Self.Companies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Companies">
+              <PropertyRef Name="InactivateUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Company_ModifierId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Companies" Type="Self.Companies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Companies">
+              <PropertyRef Name="ModifierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Contact_CompanyId">
           <End Role="Companies" Type="Self.Companies" Multiplicity="1" />
           <End Role="Contacts" Type="Self.Contacts" Multiplicity="*" />
@@ -290,6 +350,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Contact_CreatorId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Contacts" Type="Self.Contacts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contacts">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contact_InactivateUserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Contacts" Type="Self.Contacts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contacts">
+              <PropertyRef Name="InactivateUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contact_ModifierId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Contacts" Type="Self.Contacts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contacts">
+              <PropertyRef Name="ModifierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Customer_Id">
           <End Role="Companies" Type="Self.Companies" Multiplicity="1" />
           <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
@@ -299,6 +395,54 @@
             </Principal>
             <Dependent Role="Customers">
               <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Process_ApprovedUserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Processes" Type="Self.Processes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Processes">
+              <PropertyRef Name="ApprovedUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Process_CreatorId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Processes" Type="Self.Processes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Processes">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Process_InactivateUserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Processes" Type="Self.Processes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Processes">
+              <PropertyRef Name="InactivateUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Process_ModifierId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Processes" Type="Self.Processes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Processes">
+              <PropertyRef Name="ModifierId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -326,6 +470,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ProcessStep_ApprovedUserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="ProcessSteps" Type="Self.ProcessSteps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProcessSteps">
+              <PropertyRef Name="ApprovedUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProcessStep_CreatorId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="ProcessSteps" Type="Self.ProcessSteps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProcessSteps">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProcessStep_ModifierId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="ProcessSteps" Type="Self.ProcessSteps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProcessSteps">
+              <PropertyRef Name="ModifierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ProcessStep_ProcessId">
           <End Role="Processes" Type="Self.Processes" Multiplicity="1" />
           <End Role="ProcessSteps" Type="Self.ProcessSteps" Multiplicity="*" />
@@ -350,6 +530,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ProcessStepTemplate_CreatorId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="ProcessStepTemplates" Type="Self.ProcessStepTemplates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProcessStepTemplates">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProcessStepTemplate_ModifierId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="ProcessStepTemplates" Type="Self.ProcessStepTemplates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProcessStepTemplates">
+              <PropertyRef Name="ModifierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ProcessStepTemplate_ProcessTemplateId">
           <End Role="ProcessTemplates" Type="Self.ProcessTemplates" Multiplicity="1" />
           <End Role="ProcessStepTemplates" Type="Self.ProcessStepTemplates" Multiplicity="*" />
@@ -359,6 +563,42 @@
             </Principal>
             <Dependent Role="ProcessStepTemplates">
               <PropertyRef Name="ProcessTemplateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProcessTemplate_ApprovedUserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="ProcessTemplates" Type="Self.ProcessTemplates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProcessTemplates">
+              <PropertyRef Name="ApprovedUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProcessTemplate_CreatorId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="ProcessTemplates" Type="Self.ProcessTemplates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProcessTemplates">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProcessTemplate_ModifierId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="ProcessTemplates" Type="Self.ProcessTemplates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProcessTemplates">
+              <PropertyRef Name="ModifierId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -374,6 +614,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Product_CreatorId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_InactivateUserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="InactivateUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_ModifierId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="ModifierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Product_SizingStandardId">
           <End Role="SizingStandards" Type="Self.SizingStandards" Multiplicity="1" />
           <End Role="Products" Type="Self.Products" Multiplicity="*" />
@@ -383,6 +659,30 @@
             </Principal>
             <Dependent Role="Products">
               <PropertyRef Name="SizingStandardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductCategory_CreatorId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="ProductCategories" Type="Self.ProductCategories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductCategories">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductCategory_ModifierId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="ProductCategories" Type="Self.ProductCategories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductCategories">
+              <PropertyRef Name="ModifierId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -398,6 +698,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_PurchaseOrder_ApprovedUserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="PurchaseOrders" Type="Self.PurchaseOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PurchaseOrders">
+              <PropertyRef Name="ApprovedUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseOrder_CreatorId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="PurchaseOrders" Type="Self.PurchaseOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PurchaseOrders">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_PurchaseOrder_CustomerId">
           <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
           <End Role="PurchaseOrders" Type="Self.PurchaseOrders" Multiplicity="*" />
@@ -407,6 +731,30 @@
             </Principal>
             <Dependent Role="PurchaseOrders">
               <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseOrder_InactivateUserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="PurchaseOrders" Type="Self.PurchaseOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PurchaseOrders">
+              <PropertyRef Name="InactivateUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseOrder_ModifierId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="PurchaseOrders" Type="Self.PurchaseOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PurchaseOrders">
+              <PropertyRef Name="ModifierId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -434,6 +782,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_SizeRate_CreatorId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="SizeRates" Type="Self.SizeRates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SizeRates">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SizeRate_ModifierId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="SizeRates" Type="Self.SizeRates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SizeRates">
+              <PropertyRef Name="ModifierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_SizeRate_PurchaseOrderId">
           <End Role="PurchaseOrders" Type="Self.PurchaseOrders" Multiplicity="1" />
           <End Role="SizeRates" Type="Self.SizeRates" Multiplicity="*" />
@@ -446,6 +818,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Sizing_CreatorId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Sizings" Type="Self.Sizings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sizings">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sizing_ModifierId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Sizings" Type="Self.Sizings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sizings">
+              <PropertyRef Name="ModifierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Sizing_SizingStandardId">
           <End Role="SizingStandards" Type="Self.SizingStandards" Multiplicity="1" />
           <End Role="Sizings" Type="Self.Sizings" Multiplicity="*" />
@@ -455,6 +851,30 @@
             </Principal>
             <Dependent Role="Sizings">
               <PropertyRef Name="SizingStandardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SizingStandard_CreatorId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="SizingStandards" Type="Self.SizingStandards" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SizingStandards">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SizingStandard_ModifierId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="SizingStandards" Type="Self.SizingStandards" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SizingStandards">
+              <PropertyRef Name="ModifierId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -471,6 +891,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="CriticalPathDataModelStoreContainer">
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Companies" EntityType="Self.Companies" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Contacts" EntityType="Self.Contacts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
@@ -485,13 +906,53 @@
           <EntitySet Name="Sizings" EntityType="Self.Sizings" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SizingStandards" EntityType="Self.SizingStandards" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Suppliers" EntityType="Self.Suppliers" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Company_CreatorId" Association="Self.FK_Company_CreatorId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Companies" EntitySet="Companies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Company_InactivateUserId" Association="Self.FK_Company_InactivateUserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Companies" EntitySet="Companies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Company_ModifierId" Association="Self.FK_Company_ModifierId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Companies" EntitySet="Companies" />
+          </AssociationSet>
           <AssociationSet Name="FK_Contact_CompanyId" Association="Self.FK_Contact_CompanyId">
             <End Role="Companies" EntitySet="Companies" />
+            <End Role="Contacts" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contact_CreatorId" Association="Self.FK_Contact_CreatorId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Contacts" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contact_InactivateUserId" Association="Self.FK_Contact_InactivateUserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Contacts" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contact_ModifierId" Association="Self.FK_Contact_ModifierId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Contacts" EntitySet="Contacts" />
           </AssociationSet>
           <AssociationSet Name="FK_Customer_Id" Association="Self.FK_Customer_Id">
             <End Role="Companies" EntitySet="Companies" />
             <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Process_ApprovedUserId" Association="Self.FK_Process_ApprovedUserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Processes" EntitySet="Processes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Process_CreatorId" Association="Self.FK_Process_CreatorId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Processes" EntitySet="Processes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Process_InactivateUserId" Association="Self.FK_Process_InactivateUserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Processes" EntitySet="Processes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Process_ModifierId" Association="Self.FK_Process_ModifierId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Processes" EntitySet="Processes" />
           </AssociationSet>
           <AssociationSet Name="FK_Process_ProcessTemplateId" Association="Self.FK_Process_ProcessTemplateId">
             <End Role="ProcessTemplates" EntitySet="ProcessTemplates" />
@@ -501,6 +962,18 @@
             <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
             <End Role="Processes" EntitySet="Processes" />
           </AssociationSet>
+          <AssociationSet Name="FK_ProcessStep_ApprovedUserId" Association="Self.FK_ProcessStep_ApprovedUserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="ProcessSteps" EntitySet="ProcessSteps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProcessStep_CreatorId" Association="Self.FK_ProcessStep_CreatorId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="ProcessSteps" EntitySet="ProcessSteps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProcessStep_ModifierId" Association="Self.FK_ProcessStep_ModifierId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="ProcessSteps" EntitySet="ProcessSteps" />
+          </AssociationSet>
           <AssociationSet Name="FK_ProcessStep_ProcessId" Association="Self.FK_ProcessStep_ProcessId">
             <End Role="Processes" EntitySet="Processes" />
             <End Role="ProcessSteps" EntitySet="ProcessSteps" />
@@ -509,24 +982,80 @@
             <End Role="ProcessStepTemplates" EntitySet="ProcessStepTemplates" />
             <End Role="ProcessSteps" EntitySet="ProcessSteps" />
           </AssociationSet>
+          <AssociationSet Name="FK_ProcessStepTemplate_CreatorId" Association="Self.FK_ProcessStepTemplate_CreatorId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="ProcessStepTemplates" EntitySet="ProcessStepTemplates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProcessStepTemplate_ModifierId" Association="Self.FK_ProcessStepTemplate_ModifierId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="ProcessStepTemplates" EntitySet="ProcessStepTemplates" />
+          </AssociationSet>
           <AssociationSet Name="FK_ProcessStepTemplate_ProcessTemplateId" Association="Self.FK_ProcessStepTemplate_ProcessTemplateId">
             <End Role="ProcessTemplates" EntitySet="ProcessTemplates" />
             <End Role="ProcessStepTemplates" EntitySet="ProcessStepTemplates" />
           </AssociationSet>
+          <AssociationSet Name="FK_ProcessTemplate_ApprovedUserId" Association="Self.FK_ProcessTemplate_ApprovedUserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="ProcessTemplates" EntitySet="ProcessTemplates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProcessTemplate_CreatorId" Association="Self.FK_ProcessTemplate_CreatorId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="ProcessTemplates" EntitySet="ProcessTemplates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProcessTemplate_ModifierId" Association="Self.FK_ProcessTemplate_ModifierId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="ProcessTemplates" EntitySet="ProcessTemplates" />
+          </AssociationSet>
           <AssociationSet Name="FK_Product_CategoryId" Association="Self.FK_Product_CategoryId">
             <End Role="ProductCategories" EntitySet="ProductCategories" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_CreatorId" Association="Self.FK_Product_CreatorId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_InactivateUserId" Association="Self.FK_Product_InactivateUserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_ModifierId" Association="Self.FK_Product_ModifierId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Products" EntitySet="Products" />
           </AssociationSet>
           <AssociationSet Name="FK_Product_SizingStandardId" Association="Self.FK_Product_SizingStandardId">
             <End Role="SizingStandards" EntitySet="SizingStandards" />
             <End Role="Products" EntitySet="Products" />
           </AssociationSet>
+          <AssociationSet Name="FK_ProductCategory_CreatorId" Association="Self.FK_ProductCategory_CreatorId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="ProductCategories" EntitySet="ProductCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductCategory_ModifierId" Association="Self.FK_ProductCategory_ModifierId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="ProductCategories" EntitySet="ProductCategories" />
+          </AssociationSet>
           <AssociationSet Name="FK_ProductCategory_ParentCategoryId" Association="Self.FK_ProductCategory_ParentCategoryId">
             <End Role="ProductCategories" EntitySet="ProductCategories" />
             <End Role="ProductCategories1" EntitySet="ProductCategories" />
           </AssociationSet>
+          <AssociationSet Name="FK_PurchaseOrder_ApprovedUserId" Association="Self.FK_PurchaseOrder_ApprovedUserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseOrder_CreatorId" Association="Self.FK_PurchaseOrder_CreatorId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
+          </AssociationSet>
           <AssociationSet Name="FK_PurchaseOrder_CustomerId" Association="Self.FK_PurchaseOrder_CustomerId">
             <End Role="Customers" EntitySet="Customers" />
+            <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseOrder_InactivateUserId" Association="Self.FK_PurchaseOrder_InactivateUserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseOrder_ModifierId" Association="Self.FK_PurchaseOrder_ModifierId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
           </AssociationSet>
           <AssociationSet Name="FK_PurchaseOrder_ProductId" Association="Self.FK_PurchaseOrder_ProductId">
@@ -537,13 +1066,37 @@
             <End Role="SizingStandards" EntitySet="SizingStandards" />
             <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
           </AssociationSet>
+          <AssociationSet Name="FK_SizeRate_CreatorId" Association="Self.FK_SizeRate_CreatorId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="SizeRates" EntitySet="SizeRates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SizeRate_ModifierId" Association="Self.FK_SizeRate_ModifierId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="SizeRates" EntitySet="SizeRates" />
+          </AssociationSet>
           <AssociationSet Name="FK_SizeRate_PurchaseOrderId" Association="Self.FK_SizeRate_PurchaseOrderId">
             <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
             <End Role="SizeRates" EntitySet="SizeRates" />
           </AssociationSet>
+          <AssociationSet Name="FK_Sizing_CreatorId" Association="Self.FK_Sizing_CreatorId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Sizings" EntitySet="Sizings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sizing_ModifierId" Association="Self.FK_Sizing_ModifierId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Sizings" EntitySet="Sizings" />
+          </AssociationSet>
           <AssociationSet Name="FK_Sizing_SizingStandardId" Association="Self.FK_Sizing_SizingStandardId">
             <End Role="SizingStandards" EntitySet="SizingStandards" />
             <End Role="Sizings" EntitySet="Sizings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SizingStandard_CreatorId" Association="Self.FK_SizingStandard_CreatorId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="SizingStandards" EntitySet="SizingStandards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SizingStandard_ModifierId" Association="Self.FK_SizingStandard_ModifierId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="SizingStandards" EntitySet="SizingStandards" />
           </AssociationSet>
           <AssociationSet Name="FK_Supplier_Id" Association="Self.FK_Supplier_Id">
             <End Role="Companies" EntitySet="Companies" />
@@ -623,6 +1176,139 @@
             <End Role="SizingStandard" EntitySet="SizingStandards" />
             <End Role="Product" EntitySet="Products" />
           </AssociationSet>
+          <EntitySet Name="AspNetUsers" EntityType="CriticalPathDataModel.AspNetUser" />
+          <AssociationSet Name="FK_Company_CreatorId" Association="CriticalPathDataModel.FK_Company_CreatorId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Company" EntitySet="Companies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Company_InactivateUserId" Association="CriticalPathDataModel.FK_Company_InactivateUserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Company" EntitySet="Companies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Company_ModifierId" Association="CriticalPathDataModel.FK_Company_ModifierId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Company" EntitySet="Companies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contact_CreatorId" Association="CriticalPathDataModel.FK_Contact_CreatorId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Contact" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contact_InactivateUserId" Association="CriticalPathDataModel.FK_Contact_InactivateUserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Contact" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contact_ModifierId" Association="CriticalPathDataModel.FK_Contact_ModifierId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Contact" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Process_ApprovedUserId" Association="CriticalPathDataModel.FK_Process_ApprovedUserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Process" EntitySet="Processes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Process_CreatorId" Association="CriticalPathDataModel.FK_Process_CreatorId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Process" EntitySet="Processes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Process_InactivateUserId" Association="CriticalPathDataModel.FK_Process_InactivateUserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Process" EntitySet="Processes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Process_ModifierId" Association="CriticalPathDataModel.FK_Process_ModifierId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Process" EntitySet="Processes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProcessStep_ApprovedUserId" Association="CriticalPathDataModel.FK_ProcessStep_ApprovedUserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="ProcessStep" EntitySet="ProcessSteps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProcessStep_CreatorId" Association="CriticalPathDataModel.FK_ProcessStep_CreatorId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="ProcessStep" EntitySet="ProcessSteps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProcessStep_ModifierId" Association="CriticalPathDataModel.FK_ProcessStep_ModifierId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="ProcessStep" EntitySet="ProcessSteps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProcessStepTemplate_CreatorId" Association="CriticalPathDataModel.FK_ProcessStepTemplate_CreatorId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="ProcessStepTemplate" EntitySet="ProcessStepTemplates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProcessStepTemplate_ModifierId" Association="CriticalPathDataModel.FK_ProcessStepTemplate_ModifierId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="ProcessStepTemplate" EntitySet="ProcessStepTemplates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProcessTemplate_ApprovedUserId" Association="CriticalPathDataModel.FK_ProcessTemplate_ApprovedUserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="ProcessTemplate" EntitySet="ProcessTemplates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProcessTemplate_CreatorId" Association="CriticalPathDataModel.FK_ProcessTemplate_CreatorId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="ProcessTemplate" EntitySet="ProcessTemplates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProcessTemplate_ModifierId" Association="CriticalPathDataModel.FK_ProcessTemplate_ModifierId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="ProcessTemplate" EntitySet="ProcessTemplates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_CreatorId" Association="CriticalPathDataModel.FK_Product_CreatorId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_InactivateUserId" Association="CriticalPathDataModel.FK_Product_InactivateUserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_ModifierId" Association="CriticalPathDataModel.FK_Product_ModifierId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductCategory_CreatorId" Association="CriticalPathDataModel.FK_ProductCategory_CreatorId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="ProductCategory" EntitySet="ProductCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductCategory_ModifierId" Association="CriticalPathDataModel.FK_ProductCategory_ModifierId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="ProductCategory" EntitySet="ProductCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseOrder_ApprovedUserId" Association="CriticalPathDataModel.FK_PurchaseOrder_ApprovedUserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseOrder_CreatorId" Association="CriticalPathDataModel.FK_PurchaseOrder_CreatorId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseOrder_InactivateUserId" Association="CriticalPathDataModel.FK_PurchaseOrder_InactivateUserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseOrder_ModifierId" Association="CriticalPathDataModel.FK_PurchaseOrder_ModifierId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SizeRate_CreatorId" Association="CriticalPathDataModel.FK_SizeRate_CreatorId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="SizeRate" EntitySet="SizeRates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SizeRate_ModifierId" Association="CriticalPathDataModel.FK_SizeRate_ModifierId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="SizeRate" EntitySet="SizeRates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sizing_CreatorId" Association="CriticalPathDataModel.FK_Sizing_CreatorId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Sizing" EntitySet="Sizings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sizing_ModifierId" Association="CriticalPathDataModel.FK_Sizing_ModifierId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Sizing" EntitySet="Sizings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SizingStandard_CreatorId" Association="CriticalPathDataModel.FK_SizingStandard_CreatorId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="SizingStandard" EntitySet="SizingStandards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SizingStandard_ModifierId" Association="CriticalPathDataModel.FK_SizingStandard_ModifierId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="SizingStandard" EntitySet="SizingStandards" />
+          </AssociationSet>
           
         </EntityContainer>
         <EntityType Name="Company" Abstract="true">
@@ -652,6 +1338,10 @@
           <Property Name="CreatorId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
           <Property Name="CreatorIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Contacts" Relationship="CriticalPathDataModel.FK_Contact_CompanyId" FromRole="Company" ToRole="Contact" />
+          <Property Name="InactivateUserId" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CreatedUser" Relationship="CriticalPathDataModel.FK_Company_CreatorId" FromRole="Company" ToRole="AspNetUser" />
+          <NavigationProperty Name="InactivateUser" Relationship="CriticalPathDataModel.FK_Company_InactivateUserId" FromRole="Company" ToRole="AspNetUser" />
+          <NavigationProperty Name="ModifiedUser" Relationship="CriticalPathDataModel.FK_Company_ModifierId" FromRole="Company" ToRole="AspNetUser" />
         </EntityType>
         <EntityType Name="Contact">
           <Key>
@@ -678,6 +1368,10 @@
           <Property Name="CreatorId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
           <Property Name="CreatorIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Company" Relationship="CriticalPathDataModel.FK_Contact_CompanyId" FromRole="Contact" ToRole="Company" />
+          <Property Name="InactivateUserId" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CreatedUser" Relationship="CriticalPathDataModel.FK_Contact_CreatorId" FromRole="Contact" ToRole="AspNetUser" />
+          <NavigationProperty Name="InactivateUser" Relationship="CriticalPathDataModel.FK_Contact_InactivateUserId" FromRole="Contact" ToRole="AspNetUser" />
+          <NavigationProperty Name="ModifiedUser" Relationship="CriticalPathDataModel.FK_Contact_ModifierId" FromRole="Contact" ToRole="AspNetUser" />
         </EntityType>
         <EntityType Name="Customer" BaseType="CriticalPathDataModel.Company">
           <Property Name="CustomerCode" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
@@ -717,6 +1411,8 @@
           <NavigationProperty Name="SubCategories" Relationship="CriticalPathDataModel.FK_ProductCategory_ParentCategoryId" FromRole="ProductCategory" ToRole="ProductCategory1" />
           <NavigationProperty Name="ParentCategory" Relationship="CriticalPathDataModel.FK_ProductCategory_ParentCategoryId" FromRole="ProductCategory1" ToRole="ProductCategory" />
           <NavigationProperty Name="Products" Relationship="CriticalPathDataModel.FK_Product_CategoryId" FromRole="ProductCategory" ToRole="Product" />
+          <NavigationProperty Name="CreatedUser" Relationship="CriticalPathDataModel.FK_ProductCategory_CreatorId" FromRole="ProductCategory" ToRole="AspNetUser" />
+          <NavigationProperty Name="ModifiedUser" Relationship="CriticalPathDataModel.FK_ProductCategory_ModifierId" FromRole="ProductCategory" ToRole="AspNetUser" />
         </EntityType>
         <Association Name="FK_ProductCategory_ParentCategoryId">
           <End Type="CriticalPathDataModel.ProductCategory" Role="ProductCategory" Multiplicity="0..1" />
@@ -754,6 +1450,10 @@
           <NavigationProperty Name="Category" Relationship="CriticalPathDataModel.FK_Product_CategoryId" FromRole="Product" ToRole="ProductCategory" />
           <NavigationProperty Name="PurchaseOrders" Relationship="CriticalPathDataModel.FK_PurchaseOrder_ProductId" FromRole="Product" ToRole="PurchaseOrder" />
           <NavigationProperty Name="SizingStandard" Relationship="CriticalPathDataModel.FK_Product_SizingStandardId" FromRole="Product" ToRole="SizingStandard" />
+          <Property Name="InactivateUserId" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CreatedUser" Relationship="CriticalPathDataModel.FK_Product_CreatorId" FromRole="Product" ToRole="AspNetUser" />
+          <NavigationProperty Name="InactivateUser" Relationship="CriticalPathDataModel.FK_Product_InactivateUserId" FromRole="Product" ToRole="AspNetUser" />
+          <NavigationProperty Name="ModifiedUser" Relationship="CriticalPathDataModel.FK_Product_ModifierId" FromRole="Product" ToRole="AspNetUser" />
         </EntityType>
         <Association Name="FK_Product_CategoryId">
           <End Type="CriticalPathDataModel.ProductCategory" Role="ProductCategory" Multiplicity="1" />
@@ -802,6 +1502,11 @@
           <NavigationProperty Name="Product" Relationship="CriticalPathDataModel.FK_PurchaseOrder_ProductId" FromRole="PurchaseOrder" ToRole="Product" />
           <NavigationProperty Name="SizeRates" Relationship="CriticalPathDataModel.FK_SizeRate_PurchaseOrderId" FromRole="PurchaseOrder" ToRole="SizeRate" />
           <NavigationProperty Name="SizingStandard" Relationship="CriticalPathDataModel.FK_PurchaseOrder_SizingStandardId" FromRole="PurchaseOrder" ToRole="SizingStandard" />
+          <Property Name="InactivateUserId" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ApprovedUser" Relationship="CriticalPathDataModel.FK_PurchaseOrder_ApprovedUserId" FromRole="PurchaseOrder" ToRole="AspNetUser" />
+          <NavigationProperty Name="CreatedUser" Relationship="CriticalPathDataModel.FK_PurchaseOrder_CreatorId" FromRole="PurchaseOrder" ToRole="AspNetUser" />
+          <NavigationProperty Name="InactivateUser" Relationship="CriticalPathDataModel.FK_PurchaseOrder_InactivateUserId" FromRole="PurchaseOrder" ToRole="AspNetUser" />
+          <NavigationProperty Name="ModifiedUser" Relationship="CriticalPathDataModel.FK_PurchaseOrder_ModifierId" FromRole="PurchaseOrder" ToRole="AspNetUser" />
         </EntityType>
         <Association Name="FK_PurchaseOrder_CustomerId">
           <End Type="CriticalPathDataModel.Customer" Role="Customer" Multiplicity="1" />
@@ -845,6 +1550,11 @@
           <NavigationProperty Name="ProcessTemplate" Relationship="CriticalPathDataModel.FK_Process_ProcessTemplateId" FromRole="Process" ToRole="ProcessTemplate" />
           <NavigationProperty Name="ProcessSteps" Relationship="CriticalPathDataModel.FK_ProcessStep_ProcessId" FromRole="Process" ToRole="ProcessStep" />
           <NavigationProperty Name="PurchaseOrder" Relationship="CriticalPathDataModel.FK_Process_PurchaseOrderId" FromRole="Process" ToRole="PurchaseOrder" />
+          <Property Name="InactivateUserId" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ApprovedUser" Relationship="CriticalPathDataModel.FK_Process_ApprovedUserId" FromRole="Process" ToRole="AspNetUser" />
+          <NavigationProperty Name="CreatedUser" Relationship="CriticalPathDataModel.FK_Process_CreatorId" FromRole="Process" ToRole="AspNetUser" />
+          <NavigationProperty Name="InactivateUser" Relationship="CriticalPathDataModel.FK_Process_InactivateUserId" FromRole="Process" ToRole="AspNetUser" />
+          <NavigationProperty Name="ModifiedUser" Relationship="CriticalPathDataModel.FK_Process_ModifierId" FromRole="Process" ToRole="AspNetUser" />
         </EntityType>
         <EntityType Name="ProcessStep">
           <Key>
@@ -873,6 +1583,9 @@
           <Property Name="CreatorIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Process" Relationship="CriticalPathDataModel.FK_ProcessStep_ProcessId" FromRole="ProcessStep" ToRole="Process" />
           <NavigationProperty Name="Template" Relationship="CriticalPathDataModel.FK_ProcessStep_TemplateId" FromRole="ProcessStep" ToRole="ProcessStepTemplate" />
+          <NavigationProperty Name="ApprovedUser" Relationship="CriticalPathDataModel.FK_ProcessStep_ApprovedUserId" FromRole="ProcessStep" ToRole="AspNetUser" />
+          <NavigationProperty Name="CreatedUser" Relationship="CriticalPathDataModel.FK_ProcessStep_CreatorId" FromRole="ProcessStep" ToRole="AspNetUser" />
+          <NavigationProperty Name="ModifiedUser" Relationship="CriticalPathDataModel.FK_ProcessStep_ModifierId" FromRole="ProcessStep" ToRole="AspNetUser" />
         </EntityType>
         <EntityType Name="ProcessStepTemplate">
           <Key>
@@ -892,6 +1605,8 @@
           <Property Name="CreatorIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="ProcessTemplate" Relationship="CriticalPathDataModel.FK_ProcessStepTemplate_ProcessTemplateId" FromRole="ProcessStepTemplate" ToRole="ProcessTemplate" />
           <NavigationProperty Name="ProcessSteps" Relationship="CriticalPathDataModel.FK_ProcessStep_TemplateId" FromRole="ProcessStepTemplate" ToRole="ProcessStep" />
+          <NavigationProperty Name="CreatedUser" Relationship="CriticalPathDataModel.FK_ProcessStepTemplate_CreatorId" FromRole="ProcessStepTemplate" ToRole="AspNetUser" />
+          <NavigationProperty Name="ModifiedUser" Relationship="CriticalPathDataModel.FK_ProcessStepTemplate_ModifierId" FromRole="ProcessStepTemplate" ToRole="AspNetUser" />
         </EntityType>
         <EntityType Name="ProcessTemplate">
           <Key>
@@ -913,6 +1628,9 @@
           <Property Name="CreatorIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Processes" Relationship="CriticalPathDataModel.FK_Process_ProcessTemplateId" FromRole="ProcessTemplate" ToRole="Process" />
           <NavigationProperty Name="StepTemplates" Relationship="CriticalPathDataModel.FK_ProcessStepTemplate_ProcessTemplateId" FromRole="ProcessTemplate" ToRole="ProcessStepTemplate" />
+          <NavigationProperty Name="ApprovedUser" Relationship="CriticalPathDataModel.FK_ProcessTemplate_ApprovedUserId" FromRole="ProcessTemplate" ToRole="AspNetUser" />
+          <NavigationProperty Name="CreatedUser" Relationship="CriticalPathDataModel.FK_ProcessTemplate_CreatorId" FromRole="ProcessTemplate" ToRole="AspNetUser" />
+          <NavigationProperty Name="ModifiedUser" Relationship="CriticalPathDataModel.FK_ProcessTemplate_ModifierId" FromRole="ProcessTemplate" ToRole="AspNetUser" />
         </EntityType>
         <Association Name="FK_Process_ProcessTemplateId">
           <End Type="CriticalPathDataModel.ProcessTemplate" Role="ProcessTemplate" Multiplicity="1" />
@@ -979,6 +1697,8 @@
           <Property Name="CreatorId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
           <Property Name="CreatorIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="PurchaseOrder" Relationship="CriticalPathDataModel.FK_SizeRate_PurchaseOrderId" FromRole="SizeRate" ToRole="PurchaseOrder" />
+          <NavigationProperty Name="CreatedUser" Relationship="CriticalPathDataModel.FK_SizeRate_CreatorId" FromRole="SizeRate" ToRole="AspNetUser" />
+          <NavigationProperty Name="ModifiedUser" Relationship="CriticalPathDataModel.FK_SizeRate_ModifierId" FromRole="SizeRate" ToRole="AspNetUser" />
         </EntityType>
         <Association Name="FK_Process_PurchaseOrderId">
           <End Type="CriticalPathDataModel.PurchaseOrder" Role="PurchaseOrder" Multiplicity="1" />
@@ -1032,6 +1752,8 @@
           <NavigationProperty Name="PurchaseOrders" Relationship="CriticalPathDataModel.FK_PurchaseOrder_SizingStandardId" FromRole="SizingStandard" ToRole="PurchaseOrder" />
           <NavigationProperty Name="Sizings" Relationship="CriticalPathDataModel.FK_Sizing_SizingStandardId" FromRole="SizingStandard" ToRole="Sizing" />
           <NavigationProperty Name="Products" Relationship="CriticalPathDataModel.FK_Product_SizingStandardId" FromRole="SizingStandard" ToRole="Product" />
+          <NavigationProperty Name="CreatedUser" Relationship="CriticalPathDataModel.FK_SizingStandard_CreatorId" FromRole="SizingStandard" ToRole="AspNetUser" />
+          <NavigationProperty Name="ModifiedUser" Relationship="CriticalPathDataModel.FK_SizingStandard_ModifierId" FromRole="SizingStandard" ToRole="AspNetUser" />
         </EntityType>
         <EntityType Name="Sizing">
           <Key>
@@ -1049,6 +1771,8 @@
           <Property Name="CreatorId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
           <Property Name="CreatorIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="SizingStandard" Relationship="CriticalPathDataModel.FK_Sizing_SizingStandardId" FromRole="Sizing" ToRole="SizingStandard" />
+          <NavigationProperty Name="CreatedUser" Relationship="CriticalPathDataModel.FK_Sizing_CreatorId" FromRole="Sizing" ToRole="AspNetUser" />
+          <NavigationProperty Name="ModifiedUser" Relationship="CriticalPathDataModel.FK_Sizing_ModifierId" FromRole="Sizing" ToRole="AspNetUser" />
         </EntityType>
         <Association Name="FK_PurchaseOrder_SizingStandardId">
           <End Type="CriticalPathDataModel.SizingStandard" Role="SizingStandard" Multiplicity="1" />
@@ -1086,6 +1810,430 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="InactivateCompanies" Relationship="CriticalPathDataModel.FK_Company_InactivateUserId" FromRole="AspNetUser" ToRole="Company" />
+          <NavigationProperty Name="InactivateContacts" Relationship="CriticalPathDataModel.FK_Contact_InactivateUserId" FromRole="AspNetUser" ToRole="Contact" />
+          <NavigationProperty Name="ApprovedProcesses" Relationship="CriticalPathDataModel.FK_Process_ApprovedUserId" FromRole="AspNetUser" ToRole="Process" />
+          <NavigationProperty Name="InactivateProcesses" Relationship="CriticalPathDataModel.FK_Process_InactivateUserId" FromRole="AspNetUser" ToRole="Process" />
+          <NavigationProperty Name="ApprovedProcessSteps" Relationship="CriticalPathDataModel.FK_ProcessStep_ApprovedUserId" FromRole="AspNetUser" ToRole="ProcessStep" />
+          <NavigationProperty Name="ApprovedProcessTemplates" Relationship="CriticalPathDataModel.FK_ProcessTemplate_ApprovedUserId" FromRole="AspNetUser" ToRole="ProcessTemplate" />
+          <NavigationProperty Name="InactivateProducts" Relationship="CriticalPathDataModel.FK_Product_InactivateUserId" FromRole="AspNetUser" ToRole="Product" />
+          <NavigationProperty Name="ApprovedPurchaseOrders" Relationship="CriticalPathDataModel.FK_PurchaseOrder_ApprovedUserId" FromRole="AspNetUser" ToRole="PurchaseOrder" />
+          <NavigationProperty Name="InactivatePurchaseOrders" Relationship="CriticalPathDataModel.FK_PurchaseOrder_InactivateUserId" FromRole="AspNetUser" ToRole="PurchaseOrder" />
+        </EntityType>
+        <Association Name="FK_Company_CreatorId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.Company" Role="Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Company_InactivateUserId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+          <End Type="CriticalPathDataModel.Company" Role="Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="InactivateUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Company_ModifierId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.Company" Role="Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="ModifierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contact_CreatorId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.Contact" Role="Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contact_InactivateUserId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+          <End Type="CriticalPathDataModel.Contact" Role="Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="InactivateUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contact_ModifierId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.Contact" Role="Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Contact">
+              <PropertyRef Name="ModifierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Process_ApprovedUserId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+          <End Type="CriticalPathDataModel.Process" Role="Process" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Process">
+              <PropertyRef Name="ApprovedUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Process_CreatorId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.Process" Role="Process" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Process">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Process_InactivateUserId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+          <End Type="CriticalPathDataModel.Process" Role="Process" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Process">
+              <PropertyRef Name="InactivateUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Process_ModifierId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.Process" Role="Process" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Process">
+              <PropertyRef Name="ModifierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProcessStep_ApprovedUserId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+          <End Type="CriticalPathDataModel.ProcessStep" Role="ProcessStep" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProcessStep">
+              <PropertyRef Name="ApprovedUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProcessStep_CreatorId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.ProcessStep" Role="ProcessStep" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProcessStep">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProcessStep_ModifierId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.ProcessStep" Role="ProcessStep" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProcessStep">
+              <PropertyRef Name="ModifierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProcessStepTemplate_CreatorId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.ProcessStepTemplate" Role="ProcessStepTemplate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProcessStepTemplate">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProcessStepTemplate_ModifierId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.ProcessStepTemplate" Role="ProcessStepTemplate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProcessStepTemplate">
+              <PropertyRef Name="ModifierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProcessTemplate_ApprovedUserId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+          <End Type="CriticalPathDataModel.ProcessTemplate" Role="ProcessTemplate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProcessTemplate">
+              <PropertyRef Name="ApprovedUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProcessTemplate_CreatorId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.ProcessTemplate" Role="ProcessTemplate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProcessTemplate">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProcessTemplate_ModifierId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.ProcessTemplate" Role="ProcessTemplate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProcessTemplate">
+              <PropertyRef Name="ModifierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_CreatorId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_InactivateUserId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+          <End Type="CriticalPathDataModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="InactivateUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_ModifierId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ModifierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductCategory_CreatorId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.ProductCategory" Role="ProductCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductCategory">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductCategory_ModifierId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.ProductCategory" Role="ProductCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductCategory">
+              <PropertyRef Name="ModifierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseOrder_ApprovedUserId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+          <End Type="CriticalPathDataModel.PurchaseOrder" Role="PurchaseOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PurchaseOrder">
+              <PropertyRef Name="ApprovedUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseOrder_CreatorId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.PurchaseOrder" Role="PurchaseOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PurchaseOrder">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseOrder_InactivateUserId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+          <End Type="CriticalPathDataModel.PurchaseOrder" Role="PurchaseOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PurchaseOrder">
+              <PropertyRef Name="InactivateUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseOrder_ModifierId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.PurchaseOrder" Role="PurchaseOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PurchaseOrder">
+              <PropertyRef Name="ModifierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SizeRate_CreatorId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.SizeRate" Role="SizeRate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SizeRate">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SizeRate_ModifierId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.SizeRate" Role="SizeRate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SizeRate">
+              <PropertyRef Name="ModifierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sizing_CreatorId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.Sizing" Role="Sizing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sizing">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sizing_ModifierId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.Sizing" Role="Sizing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sizing">
+              <PropertyRef Name="ModifierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SizingStandard_CreatorId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.SizingStandard" Role="SizingStandard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SizingStandard">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SizingStandard_ModifierId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.SizingStandard" Role="SizingStandard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SizingStandard">
+              <PropertyRef Name="ModifierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1095,6 +2243,7 @@
           <EntitySetMapping Name="Companies">
             <EntityTypeMapping TypeName="IsTypeOf(CriticalPathDataModel.Company)">
               <MappingFragment StoreEntitySet="Companies">
+                <ScalarProperty Name="InactivateUserId" ColumnName="InactivateUserId" />
                 <ScalarProperty Name="InactivateNotes" ColumnName="InactivateNotes" />
                 <ScalarProperty Name="InactivateDate" ColumnName="InactivateDate" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
@@ -1135,6 +2284,7 @@
           <EntitySetMapping Name="Contacts">
             <EntityTypeMapping TypeName="CriticalPathDataModel.Contact">
               <MappingFragment StoreEntitySet="Contacts">
+                <ScalarProperty Name="InactivateUserId" ColumnName="InactivateUserId" />
                 <ScalarProperty Name="InactivateNotes" ColumnName="InactivateNotes" />
                 <ScalarProperty Name="InactivateDate" ColumnName="InactivateDate" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
@@ -1179,6 +2329,7 @@
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="CriticalPathDataModel.Product">
               <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="InactivateUserId" ColumnName="InactivateUserId" />
                 <ScalarProperty Name="InactivateNotes" ColumnName="InactivateNotes" />
                 <ScalarProperty Name="InactivateDate" ColumnName="InactivateDate" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
@@ -1202,6 +2353,7 @@
           <EntitySetMapping Name="PurchaseOrders">
             <EntityTypeMapping TypeName="CriticalPathDataModel.PurchaseOrder">
               <MappingFragment StoreEntitySet="PurchaseOrders">
+                <ScalarProperty Name="InactivateUserId" ColumnName="InactivateUserId" />
                 <ScalarProperty Name="CancellationNotes" ColumnName="CancellationNotes" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="CancellationDate" ColumnName="CancellationDate" />
@@ -1234,6 +2386,7 @@
           <EntitySetMapping Name="Processes">
             <EntityTypeMapping TypeName="CriticalPathDataModel.Process">
               <MappingFragment StoreEntitySet="Processes">
+                <ScalarProperty Name="InactivateUserId" ColumnName="InactivateUserId" />
                 <ScalarProperty Name="CancellationNotes" ColumnName="CancellationNotes" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="CancellationDate" ColumnName="CancellationDate" />
@@ -1371,6 +2524,26 @@
                 <ScalarProperty Name="SizingStandardId" ColumnName="SizingStandardId" />
                 <ScalarProperty Name="Caption" ColumnName="Caption" />
                 <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="CriticalPathDataModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

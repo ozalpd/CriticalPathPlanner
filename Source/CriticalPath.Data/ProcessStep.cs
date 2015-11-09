@@ -38,6 +38,9 @@ namespace CriticalPath.Data
     
         public virtual Process Process { get; set; }
         public virtual ProcessStepTemplate Template { get; set; }
+        public virtual AspNetUser ApprovedUser { get; set; }
+        public virtual AspNetUser CreatedUser { get; set; }
+        public virtual AspNetUser ModifiedUser { get; set; }
     	/// <summary>
     	/// Clones all properties in a new ProcessStep instance,
     	/// except PrimaryKey(s)

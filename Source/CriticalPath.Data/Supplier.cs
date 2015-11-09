@@ -44,6 +44,7 @@ namespace CriticalPath.Data
             clone.CreateDate = CreateDate;
             clone.CreatorId = CreatorId;
             clone.CreatorIp = CreatorIp;
+            clone.InactivateUserId = InactivateUserId;
             clone.SupplierCode = SupplierCode;
     
             Cloning(clone);

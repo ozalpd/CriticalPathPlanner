@@ -40,6 +40,9 @@ namespace CriticalPath.Data
         public virtual ICollection<Process> Processes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProcessStepTemplate> StepTemplates { get; set; }
+        public virtual AspNetUser ApprovedUser { get; set; }
+        public virtual AspNetUser CreatedUser { get; set; }
+        public virtual AspNetUser ModifiedUser { get; set; }
     	/// <summary>
     	/// Clones all properties in a new ProcessTemplate instance,
     	/// except PrimaryKey(s)
