@@ -5,6 +5,43 @@
   <TargetFolder>..\Source\CriticalPath.Data\Metadata</TargetFolder>
   <EntitySettings>
     <BaseEntitySetting xsi:type="MetadataEntitySetting">
+      <Name>AspNetUser</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <Properties>
+        <MetadataPropertySetting>
+          <Name>Id</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>UserName</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Email</Name>
+          <Exclude>false</Exclude>
+          <DataType>EmailAddress</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>FirstName</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>LastName</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+      </Properties>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="MetadataEntitySetting">
       <Name>IPrimaryKey</Name>
       <Exclude>true</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
@@ -40,6 +77,11 @@
           <DataType />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>CreatedUser</Name>
+          <Exclude>false</Exclude>
+          <Required />
+        </MetadataPropertySetting>
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="MetadataEntitySetting">
@@ -71,6 +113,11 @@
           <DataType />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>ModifiedUser</Name>
+          <Exclude>false</Exclude>
+          <Required />
+        </MetadataPropertySetting>
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="MetadataEntitySetting">
@@ -100,6 +147,11 @@
           <Name>ApprovedUserIp</Name>
           <Exclude>true</Exclude>
           <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>ApprovedUser</Name>
+          <Exclude>false</Exclude>
           <Required />
         </MetadataPropertySetting>
       </Properties>
@@ -211,6 +263,17 @@
           <DataType>MultilineText</DataType>
           <Required />
         </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>InactivateUserId</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>InactivateUser</Name>
+          <Exclude>false</Exclude>
+          <Required />
+        </MetadataPropertySetting>
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="MetadataEntitySetting">
@@ -305,6 +368,17 @@
           <Name>InactivateNotes</Name>
           <Exclude>false</Exclude>
           <DataType>MultilineText</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>InactivateUserId</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>InactivateUser</Name>
+          <Exclude>false</Exclude>
           <Required />
         </MetadataPropertySetting>
       </Properties>
@@ -424,6 +498,17 @@
           <DataType>MultilineText</DataType>
           <Required />
         </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>InactivateUserId</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>InactivateUser</Name>
+          <Exclude>false</Exclude>
+          <Required />
+        </MetadataPropertySetting>
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="MetadataEntitySetting">
@@ -534,6 +619,17 @@
           <Name>CancellationNotes</Name>
           <Exclude>false</Exclude>
           <DataType>MultilineText</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>InactivateUserId</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>InactivateUser</Name>
+          <Exclude>false</Exclude>
           <Required />
         </MetadataPropertySetting>
       </Properties>
@@ -716,6 +812,17 @@
           <Name>CancellationNotes</Name>
           <Exclude>false</Exclude>
           <DataType>MultilineText</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>InactivateUserId</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>InactivateUser</Name>
+          <Exclude>false</Exclude>
           <Required />
         </MetadataPropertySetting>
       </Properties>

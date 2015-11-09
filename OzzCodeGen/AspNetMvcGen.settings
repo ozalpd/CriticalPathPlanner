@@ -5,6 +5,97 @@
   <TargetFolder>..\Source\CriticalPath.Web</TargetFolder>
   <EntitySettings>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
+      <Name>AspNetUser</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <Properties>
+        <AspNetMvcPropertySetting>
+          <Name>Id</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>false</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
+          <HasValidation>false</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>UserName</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>Email</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>FirstName</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>LastName</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+      </Properties>
+      <ControllerName>AspNetUsers</ControllerName>
+      <DataSetName>AspNetUsers</DataSetName>
+      <SaveParameter>this</SaveParameter>
+      <ModelForCreate>AspNetUser</ModelForCreate>
+      <ModelForEdit>AspNetUser</ModelForEdit>
+      <RolesCanView>users</RolesCanView>
+      <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
+      <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
+      <RolesCanDelete>admin, supervisor</RolesCanDelete>
+      <GenerateController>true</GenerateController>
+      <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
+      <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateCreateAction>true</GenerateCreateAction>
+      <GenerateDeleteAction>true</GenerateDeleteAction>
+      <GenerateEditAction>true</GenerateEditAction>
+      <GenerateDetailsAction>true</GenerateDetailsAction>
+      <IndexView>true</IndexView>
+      <DetailsView>true</DetailsView>
+      <CreateView>true</CreateView>
+      <EditView>true</EditView>
+      <BaseControllerName>BaseController</BaseControllerName>
+      <CreateRedirect>"Index"</CreateRedirect>
+      <EditRedirect>"Index"</EditRedirect>
+      <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>IPrimaryKey</Name>
       <Exclude>true</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
@@ -88,6 +179,18 @@
           <UseForCreate>TextBox</UseForCreate>
           <UseForEdit>TextBox</UseForEdit>
         </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>CreatedUser</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
+          <HasValidation>false</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
       </Properties>
       <ControllerName>ICreateds</ControllerName>
       <DataSetName>ICreateds</DataSetName>
@@ -167,6 +270,18 @@
           <UseForCreate>TextBox</UseForCreate>
           <UseForEdit>TextBox</UseForEdit>
         </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>ModifiedUser</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
+          <HasValidation>false</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
       </Properties>
       <ControllerName>IModifieds</ControllerName>
       <DataSetName>IModifieds</DataSetName>
@@ -245,6 +360,18 @@
           <HasValidation>false</HasValidation>
           <UseForCreate>TextBox</UseForCreate>
           <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>ApprovedUser</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
+          <HasValidation>false</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
       </Properties>
       <ControllerName>IApprovals</ControllerName>
@@ -500,6 +627,30 @@
           <UseForCreate>TextBox</UseForCreate>
           <UseForEdit>TextBox</UseForEdit>
         </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>InactivateUserId</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>false</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>DropDownList</UseForCreate>
+          <UseForEdit>DropDownList</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>InactivateUser</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
+          <HasValidation>false</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
       </Properties>
       <ControllerName>Contacts</ControllerName>
       <DataSetName>Contacts</DataSetName>
@@ -711,6 +862,30 @@
           <HasValidation>true</HasValidation>
           <UseForCreate>TextBox</UseForCreate>
           <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>InactivateUserId</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>false</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
+          <HasValidation>false</HasValidation>
+          <UseForCreate>DropDownList</UseForCreate>
+          <UseForEdit>DropDownList</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>InactivateUser</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
+          <HasValidation>false</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
       </Properties>
       <ControllerName>Companies</ControllerName>
@@ -1028,6 +1203,30 @@
           <UseForCreate>TextBox</UseForCreate>
           <UseForEdit>TextBox</UseForEdit>
         </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>InactivateUserId</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>false</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
+          <HasValidation>false</HasValidation>
+          <UseForCreate>DropDownList</UseForCreate>
+          <UseForEdit>DropDownList</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>InactivateUser</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
+          <HasValidation>false</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
       </Properties>
       <ControllerName>Products</ControllerName>
       <DataSetName>Products</DataSetName>
@@ -1274,6 +1473,30 @@
           <HasValidation>true</HasValidation>
           <UseForCreate>TextBox</UseForCreate>
           <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>InactivateUserId</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>false</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
+          <HasValidation>false</HasValidation>
+          <UseForCreate>DropDownList</UseForCreate>
+          <UseForEdit>DropDownList</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>InactivateUser</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
+          <HasValidation>false</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
       </Properties>
       <ControllerName>PurchaseOrders</ControllerName>
@@ -1726,6 +1949,30 @@
           <HasValidation>true</HasValidation>
           <UseForCreate>TextBox</UseForCreate>
           <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>InactivateUserId</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>false</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
+          <HasValidation>false</HasValidation>
+          <UseForCreate>DropDownList</UseForCreate>
+          <UseForEdit>DropDownList</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>InactivateUser</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
+          <HasValidation>false</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
       </Properties>
       <ControllerName>Processes</ControllerName>

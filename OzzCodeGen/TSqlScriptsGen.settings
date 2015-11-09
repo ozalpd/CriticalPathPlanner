@@ -5,6 +5,69 @@
   <TargetFolder>..\T-SQL Scripts</TargetFolder>
   <EntitySettings>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
+      <Name>AspNetUser</Name>
+      <Exclude>true</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <UseInheritance>false</UseInheritance>
+      <SchemaName>dbo</SchemaName>
+      <TableName>AspNetUsers</TableName>
+      <ModifyTrack>false</ModifyTrack>
+      <StoredProcs>false</StoredProcs>
+      <CustomStoredProcs>false</CustomStoredProcs>
+      <Properties>
+        <StorageColumnSetting>
+          <Name>Id</Name>
+          <Exclude>false</Exclude>
+          <DataType>nVarChar</DataType>
+          <Lenght>48</Lenght>
+          <PrimaryKey>true</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>UserName</Name>
+          <Exclude>false</Exclude>
+          <DataType>nVarChar</DataType>
+          <Lenght>256</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>Email</Name>
+          <Exclude>false</Exclude>
+          <DataType>nVarChar</DataType>
+          <Lenght>256</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>FirstName</Name>
+          <Exclude>false</Exclude>
+          <DataType>nVarChar</DataType>
+          <Lenght>128</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>LastName</Name>
+          <Exclude>false</Exclude>
+          <DataType>nVarChar</DataType>
+          <Lenght>128</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
+      </Properties>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="StorageEntitySetting">
       <Name>IPrimaryKey</Name>
       <Exclude>true</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
@@ -59,6 +122,7 @@
           <Indexed>false</Indexed>
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
+          <ForeignKeyTable>AspNetUsers</ForeignKeyTable>
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>CreatorIp</Name>
@@ -115,6 +179,7 @@
           <Indexed>false</Indexed>
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
+          <ForeignKeyTable>AspNetUsers</ForeignKeyTable>
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>ModifierIp</Name>
@@ -169,6 +234,7 @@
           <Indexed>false</Indexed>
           <SortDesc>false</SortDesc>
           <Nullable>true</Nullable>
+          <ForeignKeyTable>AspNetUsers</ForeignKeyTable>
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>ApprovedUserIp</Name>
@@ -359,6 +425,17 @@
           <SortDesc>false</SortDesc>
           <Nullable>true</Nullable>
         </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>InactivateUserId</Name>
+          <Exclude>false</Exclude>
+          <DataType>VarChar</DataType>
+          <Lenght>48</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <ForeignKeyTable>AspNetUsers</ForeignKeyTable>
+        </StorageColumnSetting>
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
@@ -513,6 +590,17 @@
           <SortDesc>false</SortDesc>
           <Nullable>true</Nullable>
         </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>InactivateUserId</Name>
+          <Exclude>false</Exclude>
+          <DataType>VarChar</DataType>
+          <Lenght>48</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <ForeignKeyTable>AspNetUsers</ForeignKeyTable>
+        </StorageColumnSetting>
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
@@ -661,6 +749,17 @@
           <Indexed>false</Indexed>
           <SortDesc>false</SortDesc>
           <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>InactivateUserId</Name>
+          <Exclude>false</Exclude>
+          <DataType>VarChar</DataType>
+          <Lenght>48</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <ForeignKeyTable>AspNetUsers</ForeignKeyTable>
         </StorageColumnSetting>
       </Properties>
     </BaseEntitySetting>
@@ -818,6 +917,17 @@
           <Indexed>false</Indexed>
           <SortDesc>false</SortDesc>
           <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>InactivateUserId</Name>
+          <Exclude>false</Exclude>
+          <DataType>VarChar</DataType>
+          <Lenght>48</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <ForeignKeyTable>AspNetUsers</ForeignKeyTable>
         </StorageColumnSetting>
       </Properties>
     </BaseEntitySetting>
@@ -1069,6 +1179,17 @@
           <SortDesc>false</SortDesc>
           <Nullable>true</Nullable>
         </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>InactivateUserId</Name>
+          <Exclude>false</Exclude>
+          <DataType>VarChar</DataType>
+          <Lenght>48</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <ForeignKeyTable>AspNetUsers</ForeignKeyTable>
+        </StorageColumnSetting>
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
@@ -1272,6 +1393,7 @@
   <PluralizeTableNames>true</PluralizeTableNames>
   <DatabaseName>CriticalPath</DatabaseName>
   <DatabaseServer>.\SqlExpress</DatabaseServer>
-  <AfterScripts>_IdentityDB.sql</AfterScripts>
+  <BeforeScripts>_IdentityDB.sql</BeforeScripts>
+  <AfterScripts />
   <SchemaName>dbo</SchemaName>
 </TSqlScriptsEngine>

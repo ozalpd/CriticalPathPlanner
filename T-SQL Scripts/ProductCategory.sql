@@ -10,10 +10,10 @@ CREATE TABLE [dbo].[ProductCategories](
     [ParentCategoryId] [int] Null Constraint FK_ProductCategory_ParentCategoryId Foreign Key References [dbo].[ProductCategories]([Id]),
     [ModifyNr] [int] Not Null Default 1,
     [ModifyDate] [DateTime] Not Null Default GetDate(),
-    [ModifierId] [VarChar](48) Not Null,
+    [ModifierId] [VarChar](48) Not Null Constraint FK_ProductCategory_ModifierId Foreign Key References [dbo].[AspNetUsers]([Id]),
     [ModifierIp] [VarChar](48) Not Null,
     [CreateDate] [DateTime] Not Null Default GetDate(),
-    [CreatorId] [VarChar](48) Not Null,
+    [CreatorId] [VarChar](48) Not Null Constraint FK_ProductCategory_CreatorId Foreign Key References [dbo].[AspNetUsers]([Id]),
     [CreatorIp] [VarChar](48) Not Null,
   CONSTRAINT [PK_ProductCategories] PRIMARY KEY CLUSTERED ([Id] ASC)
   WITH (PAD_INDEX  = OFF,
