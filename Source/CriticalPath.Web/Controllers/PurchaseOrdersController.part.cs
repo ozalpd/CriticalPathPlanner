@@ -65,7 +65,7 @@ namespace CriticalPath.Web.Controllers
         }
 
         [Authorize(Roles = "admin, supervisor")]
-        public async Task<ActionResult> Approve(int? id)  //GET: /PurchaseOrders/Edit/5
+        public async Task<ActionResult> Approve(int? id)  //GET: /PurchaseOrders/Approve/5
         {
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -109,22 +109,48 @@ namespace CriticalPath.Web.Controllers
             return View(poVM);
         }
 
-        private static void PutVmToPO(PurchaseOrderVM vm, PurchaseOrder purchaseOrder, bool isApproving)
+        [Authorize(Roles = "admin, supervisor")]
+        public async Task<ActionResult> CancelPO(int? id)
         {
-            purchaseOrder.Code = vm.Code;
-            purchaseOrder.Description = vm.Description;
-            purchaseOrder.Notes = vm.Notes;
+            if (id == null)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            if (isApproving)
+            var purchaseOrder = await FindAsyncPurchaseOrder(id.Value);
+
+            if (purchaseOrder == null)
+                return HttpNotFound();
+
+            if (!purchaseOrder.IsActive)
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            var purchaseOrderVM = new PurchaseOrderCancelVM(purchaseOrder);
+            return View(purchaseOrderVM);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin, supervisor")]
+        public async Task<ActionResult> CancelPO(PurchaseOrderCancelVM vm)
+        {
+            var purchaseOrder = await FindAsyncPurchaseOrder(vm.Id);
+            if (purchaseOrder == null)
+                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+
+            if (!string.IsNullOrEmpty(vm.CancellationNotes))
             {
-                purchaseOrder.DueDate = vm.DueDate;
+                purchaseOrder.CancellationNotes = vm.CancellationNotes;
+                await CancelSaveAsync(purchaseOrder);
+                return RedirectToAction("Details", new { id = purchaseOrder.Id });
             }
-            if (!purchaseOrder.IsApproved || isApproving)
-            {
-                purchaseOrder.CustomerId = vm.CustomerId > 0 ? vm.CustomerId : purchaseOrder.CustomerId;
-                purchaseOrder.Quantity = vm.Quantity > 0 ? vm.Quantity : purchaseOrder.Quantity;
-                purchaseOrder.UnitPrice = vm.UnitPrice;
-            }
+            var poVM = new PurchaseOrderCancelVM(purchaseOrder);
+            return View(poVM);
+        }
+
+        //TODO: Create ICancellationDate & IInactivateDate interfaces
+        //TODO: Implement CancelSaveAsync into BaseController
+        protected Task CancelSaveAsync(PurchaseOrder purchaseOrder)
+        {
+            throw new NotImplementedException();
         }
 
         [HttpGet]
@@ -259,6 +285,24 @@ namespace CriticalPath.Web.Controllers
             }
 
             return new HttpStatusCodeResult(HttpStatusCode.OK);
+        }
+
+        private static void PutVmToPO(PurchaseOrderVM vm, PurchaseOrder purchaseOrder, bool isApproving)
+        {
+            purchaseOrder.Code = vm.Code;
+            purchaseOrder.Description = vm.Description;
+            purchaseOrder.Notes = vm.Notes;
+
+            if (isApproving)
+            {
+                purchaseOrder.DueDate = vm.DueDate;
+            }
+            if (!purchaseOrder.IsApproved || isApproving)
+            {
+                purchaseOrder.CustomerId = vm.CustomerId > 0 ? vm.CustomerId : purchaseOrder.CustomerId;
+                purchaseOrder.Quantity = vm.Quantity > 0 ? vm.Quantity : purchaseOrder.Quantity;
+                purchaseOrder.UnitPrice = vm.UnitPrice;
+            }
         }
 
         protected override Task SetPurchaseOrderDefaults(PurchaseOrderDTO purchaseOrder)

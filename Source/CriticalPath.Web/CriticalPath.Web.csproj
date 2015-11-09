@@ -216,6 +216,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AppSettings.cs" />
+    <Compile Include="Models\PurchaseOrderCancelVM.cs" />
     <Compile Include="Models\PurchaseOrderCreateVM.cs" />
     <Compile Include="Models\PurchaseOrderVM.cs" />
     <Compile Include="Models\SecurityRoles.g.cs" />
@@ -468,6 +469,7 @@
     <Content Include="Views\Shared\DisplayTemplates\ProductDTO.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\PurchaseOrderDTO.cshtml" />
     <Content Include="Views\PurchaseOrders\_PoPartialEdit.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\AspNetUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

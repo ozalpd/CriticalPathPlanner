@@ -4,72 +4,157 @@
 @model Process
 @{
     ViewBag.Title = EntityStrings.Process;
+
+    //Authorization Flags
+    bool canUserEdit = ViewBag.canUserEdit;
+    bool canUserCreate = ViewBag.canUserCreate;
+    bool canUserDelete = ViewBag.canUserDelete;
 }
 
 <h2>@EntityStrings.Process @ActionStrings.Details</h2>
 
 <div class="row">
-    <label class="control-label col-md-2">
-        @Html.DisplayNameFor(model => model.Title)
-    </label>
-    <div class="col-md-10">
-        @Html.DisplayFor(m => m.Title)
-    </div>
-</div>
-<div class="row">
-    <label class="control-label col-md-2">
-        @Html.DisplayNameFor(model => model.IsCompleted)
-    </label>
-    <div class="col-md-10">
-        @Html.DisplayFor(m => m.IsCompleted)
-    </div>
-</div>
-<div class="row">
-    <label class="control-label col-md-2">
-        @Html.DisplayNameFor(model => model.Description)
-    </label>
-    <div class="col-md-10">
-        @Html.DisplayFor(m => m.Description)
-    </div>
-</div>
-<div class="row">
-    <label class="control-label col-md-2">
-        @Html.DisplayNameFor(model => model.ProcessTemplate)
-    </label>
-    <div class="col-md-10">
-        @Html.DisplayFor(m => m.ProcessTemplate)
-    </div>
-</div>
-<div class="row">
-    <label class="control-label col-md-2">
-        @Html.DisplayNameFor(model => model.OrderItem)
-    </label>
-    <div class="col-md-10">
-        @Html.DisplayFor(m => m.OrderItem)
-    </div>
-</div>
-<div class="row">
-    <label class="control-label col-md-2">
-        @Html.DisplayNameFor(model => model.ProcessSteps)
-    </label>
-    <div class="col-md-10">
-        @Html.DisplayFor(m => m.ProcessSteps)
-    </div>
-</div>
-<div class="row">
-    <label class="control-label col-md-2">
+    <label class="control-label col-md-2 col-sm-3">
         @Html.DisplayNameFor(model => model.IsApproved)
     </label>
-    <div class="col-md-10">
+    <div class="col-md-10 col-sm-9">
         @Html.DisplayFor(m => m.IsApproved)
     </div>
 </div>
 <div class="row">
-    <label class="control-label col-md-2">
+    <label class="control-label col-md-2 col-sm-3">
         @Html.DisplayNameFor(model => model.ApproveDate)
     </label>
-    <div class="col-md-10">
+    <div class="col-md-10 col-sm-9">
         @Html.DisplayFor(m => m.ApproveDate)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.IsActive)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.IsActive)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.Title)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.Title)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.Description)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.Description)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.IsCompleted)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.IsCompleted)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.ProcessTemplate)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.ProcessTemplate)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.PurchaseOrder)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.PurchaseOrder)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.TargetDate)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.TargetDate)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.ForecastDate)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.ForecastDate)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.RealizedDate)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.RealizedDate)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.ProcessSteps)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.ProcessSteps)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.CancellationDate)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.CancellationDate)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.CancellationNotes)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.CancellationNotes)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.InactivateUser)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.InactivateUser)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.ApprovedUser)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.ApprovedUser)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.ModifiedUser)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.ModifiedUser)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.CreatedUser)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.CreatedUser)
     </div>
 </div>
 @Html.Partial("_DetailFormButtonsPartial")

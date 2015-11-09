@@ -1,0 +1,11 @@
+@using LMT.Web.Models
+@using LMT.Data
+@using LMT.i8n
+@model AspNetUser
+@{
+    Layout = null;
+}
+@if (Model != null)
+{
+    <div>@Model.UserName</div>
+}
