@@ -129,13 +129,14 @@ foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection)
     var allProperties = GetAllSimpleProperties(entity, typeMapper).Where(p => !entity.KeyMembers.Contains(p));
     if(!entity.Abstract)
     {
+		string declareNew = (entity.BaseType!=null && !entity.BaseType.Abstract) ? "new " : string.Empty;
  #>
 	/// <summary>
 	/// Clones all properties in a new <#=code.Escape(entity)#> instance,
 	/// except PrimaryKey(s)
 	/// </summary>
 	/// <returns>New <#=code.Escape(entity)#> instance</returns>
-    public <#=code.Escape(entity)#> Clone()
+    public <#= declareNew #><#=code.Escape(entity)#> Clone()
     {
         var clone = new <#=code.Escape(entity)#>();
 <#   foreach (var edmProperty in allProperties)
