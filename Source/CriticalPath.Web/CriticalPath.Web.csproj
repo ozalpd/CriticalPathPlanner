@@ -470,6 +470,11 @@
     <Content Include="Views\Shared\DisplayTemplates\PurchaseOrderDTO.cshtml" />
     <Content Include="Views\PurchaseOrders\_PoPartialEdit.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\AspNetUser.cshtml" />
+    <Content Include="Views\PurchaseOrders\CancelPO.cshtml" />
+    <Content Include="Views\PurchaseOrders\PartialDetails.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\BoolRed.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\BoolRed.cshtml" />
+    <Content Include="Views\Shared\_ICancellationPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

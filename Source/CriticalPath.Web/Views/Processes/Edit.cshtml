@@ -15,10 +15,10 @@
         @Html.HiddenFor(model => model.Id)
         
         <div class="form-group">
-            @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            @Html.LabelFor(model => model.Cancelled, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
             <div class="col-lg-5 col-md-6 col-sm-7">
-                @Html.EditorFor(m => m.IsActive, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(m => m.IsActive, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.Cancelled, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(m => m.Cancelled, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
@@ -72,17 +72,17 @@
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.CancellationDate, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            @Html.LabelFor(model => model.CancelDate, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
             <div class="col-lg-5 col-md-6 col-sm-7">
-                @Html.EditorFor(m => m.CancellationDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(m => m.CancellationDate, "", new { @class = "text-danger" })
+                @Html.EditorFor(m => m.CancelDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(m => m.CancelDate, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.CancellationNotes, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            @Html.LabelFor(model => model.CancelNotes, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
             <div class="col-lg-5 col-md-6 col-sm-7">
-                @Html.TextBoxFor(m => m.CancellationNotes, new { @class = "form-control", autocomplete = "off" })
-                @Html.ValidationMessageFor(m => m.CancellationNotes, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.CancelNotes, new { @class = "form-control", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.CancelNotes, "", new { @class = "text-danger" })
             </div>
         </div>
         @Html.Partial("_SaveButtonsPartial")

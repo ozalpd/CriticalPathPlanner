@@ -12,7 +12,7 @@ namespace CriticalPath.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Contact : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate, IIsActive, IInactivation
+    public partial class Contact : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate, IDiscontinued, IDiscontinuedUser
     {
         public int Id { get; set; }
         public int CompanyId { get; set; }
@@ -23,9 +23,9 @@ namespace CriticalPath.Data
         public string PhoneMobile { get; set; }
         public string PhoneWork1 { get; set; }
         public string PhoneWork2 { get; set; }
-        public bool IsActive { get; set; }
-        public Nullable<System.DateTime> InactivateDate { get; set; }
-        public string InactivateNotes { get; set; }
+        public bool Discontinued { get; set; }
+        public Nullable<System.DateTime> DiscontinueDate { get; set; }
+        public string DiscontinueNotes { get; set; }
         public string Notes { get; set; }
         public int ModifyNr { get; set; }
         public System.DateTime ModifyDate { get; set; }
@@ -34,11 +34,12 @@ namespace CriticalPath.Data
         public System.DateTime CreateDate { get; set; }
         public string CreatorId { get; set; }
         public string CreatorIp { get; set; }
-        public string InactivateUserId { get; set; }
+        public string DiscontinuedUserId { get; set; }
+        public string DiscontinuedUserIp { get; set; }
     
         public virtual Company Company { get; set; }
         public virtual AspNetUser CreatedUser { get; set; }
-        public virtual AspNetUser InactivateUser { get; set; }
+        public virtual AspNetUser DiscontinuedUser { get; set; }
         public virtual AspNetUser ModifiedUser { get; set; }
     	/// <summary>
     	/// Clones all properties in a new Contact instance,
@@ -56,9 +57,9 @@ namespace CriticalPath.Data
             clone.PhoneMobile = PhoneMobile;
             clone.PhoneWork1 = PhoneWork1;
             clone.PhoneWork2 = PhoneWork2;
-            clone.IsActive = IsActive;
-            clone.InactivateDate = InactivateDate;
-            clone.InactivateNotes = InactivateNotes;
+            clone.Discontinued = Discontinued;
+            clone.DiscontinueDate = DiscontinueDate;
+            clone.DiscontinueNotes = DiscontinueNotes;
             clone.Notes = Notes;
             clone.ModifyNr = ModifyNr;
             clone.ModifyDate = ModifyDate;
@@ -67,7 +68,8 @@ namespace CriticalPath.Data
             clone.CreateDate = CreateDate;
             clone.CreatorId = CreatorId;
             clone.CreatorIp = CreatorIp;
-            clone.InactivateUserId = InactivateUserId;
+            clone.DiscontinuedUserId = DiscontinuedUserId;
+            clone.DiscontinuedUserIp = DiscontinuedUserIp;
     
             Cloning(clone);
     
@@ -95,9 +97,9 @@ namespace CriticalPath.Data
             PhoneMobile = entity.PhoneMobile;
             PhoneWork1 = entity.PhoneWork1;
             PhoneWork2 = entity.PhoneWork2;
-            IsActive = entity.IsActive;
-            InactivateDate = entity.InactivateDate;
-            InactivateNotes = entity.InactivateNotes;
+            Discontinued = entity.Discontinued;
+            DiscontinueDate = entity.DiscontinueDate;
+            DiscontinueNotes = entity.DiscontinueNotes;
             Notes = entity.Notes;
         
             Initiliazing(entity);
@@ -117,9 +119,9 @@ namespace CriticalPath.Data
             entity.PhoneMobile = PhoneMobile;
             entity.PhoneWork1 = PhoneWork1;
             entity.PhoneWork2 = PhoneWork2;
-            entity.IsActive = IsActive;
-            entity.InactivateDate = InactivateDate;
-            entity.InactivateNotes = InactivateNotes;
+            entity.Discontinued = Discontinued;
+            entity.DiscontinueDate = DiscontinueDate;
+            entity.DiscontinueNotes = DiscontinueNotes;
             entity.Notes = Notes;
     
             Converting(entity);
@@ -138,9 +140,9 @@ namespace CriticalPath.Data
         public string PhoneMobile { get; set; }
         public string PhoneWork1 { get; set; }
         public string PhoneWork2 { get; set; }
-        public bool IsActive { get; set; }
-        public Nullable<System.DateTime> InactivateDate { get; set; }
-        public string InactivateNotes { get; set; }
+        public bool Discontinued { get; set; }
+        public Nullable<System.DateTime> DiscontinueDate { get; set; }
+        public string DiscontinueNotes { get; set; }
         public string Notes { get; set; }
     }
 }

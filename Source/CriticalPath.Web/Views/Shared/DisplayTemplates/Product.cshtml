@@ -7,14 +7,13 @@
 }
 @if (Model != null)
 {
-    <div>
-        @if (Model.Category != null)
-        {
+    if (Model.Category != null)
+    {
             <a class="pull-left" title="@EntityStrings.Category"
-               href='/ProductCategoriess/Details/@Model.CategoryId'>
-                @Model.Category.Title /&nbsp;
+            href='/ProductCategoriess/Details/@Model.CategoryId'>
+            @Model.Category.Title /&nbsp;
             </a>
-        }
-        <a href='/Products/Details/@Model.Id'>@Model.Title</a>
-    </div>
+    }
+    <a href='/Products/Details/@Model.Id'>
+        @Model.Title </a >
 }

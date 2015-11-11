@@ -19,7 +19,6 @@ namespace CriticalPath.Web.Controllers
 
         protected override Task SetSupplierDefaults(Supplier supplier)
         {
-            supplier.IsActive = true;
             return base.SetSupplierDefaults(supplier);
         }
     }

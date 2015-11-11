@@ -12,7 +12,7 @@ namespace CriticalPath.Data
     using System;
     using System.Collections.Generic;
     
-    public abstract partial class Company : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate, IIsActive, IInactivation
+    public abstract partial class Company : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate, IDiscontinued, IDiscontinuedUser
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Company()
@@ -31,9 +31,9 @@ namespace CriticalPath.Data
         public string State { get; set; }
         public string ZipCode { get; set; }
         public string Country { get; set; }
-        public bool IsActive { get; set; }
-        public Nullable<System.DateTime> InactivateDate { get; set; }
-        public string InactivateNotes { get; set; }
+        public bool Discontinued { get; set; }
+        public Nullable<System.DateTime> DiscontinueDate { get; set; }
+        public string DiscontinueNotes { get; set; }
         public string Notes { get; set; }
         public int ModifyNr { get; set; }
         public System.DateTime ModifyDate { get; set; }
@@ -42,12 +42,13 @@ namespace CriticalPath.Data
         public System.DateTime CreateDate { get; set; }
         public string CreatorId { get; set; }
         public string CreatorIp { get; set; }
-        public string InactivateUserId { get; set; }
+        public string DiscontinuedUserId { get; set; }
+        public string DiscontinuedUserIp { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contact> Contacts { get; set; }
         public virtual AspNetUser CreatedUser { get; set; }
-        public virtual AspNetUser InactivateUser { get; set; }
+        public virtual AspNetUser DiscontinuedUser { get; set; }
         public virtual AspNetUser ModifiedUser { get; set; }
     }
 }

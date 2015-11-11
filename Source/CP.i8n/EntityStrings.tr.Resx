@@ -59,6 +59,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 
+	<data name="AddAspNetUser" xml:space="preserve">
+		<value>Uygulama Kullanıcısı Ekle</value>
+	</data>
+
 	<data name="AddCompany" xml:space="preserve">
 		<value>Şirket Ekle</value>
 	</data>
@@ -69,6 +73,10 @@
 
 	<data name="AddCustomer" xml:space="preserve">
 		<value>Müşteri Ekle</value>
+	</data>
+
+	<data name="AddNewAspNetUser" xml:space="preserve">
+		<value>Yeni Uygulama Kullanıcısı Ekle</value>
 	</data>
 
 	<data name="AddNewCompany" xml:space="preserve">
@@ -155,6 +163,10 @@
 		<value>Sipariş Ekle</value>
 	</data>
 
+	<data name="AddRemoveAspNetUser" xml:space="preserve">
+		<value>Uygulama Kullanıcısı Ekle/Çıkar</value>
+	</data>
+
 	<data name="AddRemoveCompany" xml:space="preserve">
 		<value>Şirket Ekle/Çıkar</value>
 	</data>
@@ -239,6 +251,10 @@
 		<value>Onay Tarihi</value>
 	</data>
 
+	<data name="ApprovedUser" xml:space="preserve">
+		<value>Onaylayan Kullanıcı</value>
+	</data>
+
 	<data name="ApprovedUserId" xml:space="preserve">
 		<value>Onaylayan Kullanıcı</value>
 	</data>
@@ -247,12 +263,40 @@
 		<value>Onaylayanın IP</value>
 	</data>
 
-	<data name="CancellationDate" xml:space="preserve">
+	<data name="AspNetUser" xml:space="preserve">
+		<value>Uygulama Kullanıcısı</value>
+	</data>
+
+	<data name="AspNetUsers" xml:space="preserve">
+		<value>Uygulama Kullanıcıları</value>
+	</data>
+
+	<data name="AspNetUsersList" xml:space="preserve">
+		<value>Uygulama Kullanıcısı Listesi</value>
+	</data>
+
+	<data name="CancelDate" xml:space="preserve">
 		<value>İptal Tarihi</value>
 	</data>
 
-	<data name="CancellationNotes" xml:space="preserve">
-		<value>İptal Notu</value>
+	<data name="Cancelled" xml:space="preserve">
+		<value>İptal Edilmiş</value>
+	</data>
+
+	<data name="CancelledUser" xml:space="preserve">
+		<value>İptal Eden Kullanıcı</value>
+	</data>
+
+	<data name="CancelledUserId" xml:space="preserve">
+		<value>İptal Eden Kullanıcı</value>
+	</data>
+
+	<data name="CancelledUserIp" xml:space="preserve">
+		<value>İptal Eden Kullanıcı IP</value>
+	</data>
+
+	<data name="CancelNotes" xml:space="preserve">
+		<value>İptal Notları</value>
 	</data>
 
 	<data name="Caption" xml:space="preserve">
@@ -311,6 +355,10 @@
 		<value>Ülke</value>
 	</data>
 
+	<data name="CreateAspNetUser" xml:space="preserve">
+		<value>Uygulama Kullanıcısı Oluştur</value>
+	</data>
+
 	<data name="CreateCompany" xml:space="preserve">
 		<value>Şirket Oluştur</value>
 	</data>
@@ -325,6 +373,10 @@
 
 	<data name="CreateDate" xml:space="preserve">
 		<value>Oluşturma Tarihi</value>
+	</data>
+
+	<data name="CreatedUser" xml:space="preserve">
+		<value>Oluşturan Kullanıcı</value>
 	</data>
 
 	<data name="CreateProcess" xml:space="preserve">
@@ -403,6 +455,10 @@
 		<value>Varsayılan Başlık</value>
 	</data>
 
+	<data name="DeleteAspNetUser" xml:space="preserve">
+		<value>Uygulama Kullanıcısını Sil</value>
+	</data>
+
 	<data name="DeleteCompany" xml:space="preserve">
 		<value>Şirketi Sil</value>
 	</data>
@@ -463,12 +519,40 @@
 		<value>Açıklama</value>
 	</data>
 
+	<data name="Discontinued" xml:space="preserve">
+		<value>Sonlandırıldı</value>
+	</data>
+
+	<data name="DiscontinueDate" xml:space="preserve">
+		<value>Sonlandırma Tarihi</value>
+	</data>
+
+	<data name="DiscontinuedUser" xml:space="preserve">
+		<value>Sonlandıran Kullanıcı</value>
+	</data>
+
+	<data name="DiscontinuedUserId" xml:space="preserve">
+		<value>Sonlandıran Kullanıcı</value>
+	</data>
+
+	<data name="DiscontinuedUserIp" xml:space="preserve">
+		<value>Sonlandıran Kullanıcı IP</value>
+	</data>
+
+	<data name="DiscontinueNotes" xml:space="preserve">
+		<value>Sonlandırma Notları</value>
+	</data>
+
 	<data name="DisplayOrder" xml:space="preserve">
 		<value>Gösterim Sırası</value>
 	</data>
 
 	<data name="DueDate" xml:space="preserve">
 		<value>Vadesi</value>
+	</data>
+
+	<data name="EditAspNetUser" xml:space="preserve">
+		<value>Uygulama Kullanıcısını Düzenle</value>
 	</data>
 
 	<data name="EditCompany" xml:space="preserve">
@@ -527,6 +611,10 @@
 		<value>Tedarikçiyi Düzenle</value>
 	</data>
 
+	<data name="Email" xml:space="preserve">
+		<value>E-Posta</value>
+	</data>
+
 	<data name="EmailHome" xml:space="preserve">
 		<value>E-Posta Ev</value>
 	</data>
@@ -551,18 +639,6 @@
 		<value>Resim Yolu</value>
 	</data>
 
-	<data name="InactivateDate" xml:space="preserve">
-		<value>İnaktif Tarihi</value>
-	</data>
-
-	<data name="InactivateNotes" xml:space="preserve">
-		<value>İnaktifleşme Notu</value>
-	</data>
-
-	<data name="IsActive" xml:space="preserve">
-		<value>Aktif</value>
-	</data>
-
 	<data name="IsApproved" xml:space="preserve">
 		<value>Onaylandı</value>
 	</data>
@@ -573,6 +649,10 @@
 
 	<data name="LastName" xml:space="preserve">
 		<value>Soyad</value>
+	</data>
+
+	<data name="ModifiedUser" xml:space="preserve">
+		<value>Düzenleyen Kullanıcı</value>
 	</data>
 
 	<data name="ModifierId" xml:space="preserve">
@@ -747,6 +827,10 @@
 		<value>Gerçekleşme Tarihi</value>
 	</data>
 
+	<data name="RemoveAspNetUser" xml:space="preserve">
+		<value>Uygulama Kullanıcısını Çıkar</value>
+	</data>
+
 	<data name="RemoveCompany" xml:space="preserve">
 		<value>Şirketi Çıkar</value>
 	</data>
@@ -901,6 +985,10 @@
 
 	<data name="UnitPrice" xml:space="preserve">
 		<value>Birim Fiyat</value>
+	</data>
+
+	<data name="UserName" xml:space="preserve">
+		<value>Kullanıcı Adı</value>
 	</data>
 
 	<data name="ZipCode" xml:space="preserve">

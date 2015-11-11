@@ -10,10 +10,11 @@ CREATE TABLE [dbo].[Products](
     [ImageUrl] [nVarChar](256) Null,
     [CategoryId] [int] Not Null Constraint FK_Product_CategoryId Foreign Key References [dbo].[ProductCategories]([Id]),
     [SizingStandardId] [int] Not Null Constraint FK_Product_SizingStandardId Foreign Key References [dbo].[SizingStandards]([Id]),
-    [IsActive] [bit] Not Null,
-    [InactivateDate] [DateTime] Null,
-    [InactivateNotes] [nVarChar](max) Null,
-    [InactivateUserId] [VarChar](48) Null Constraint FK_Product_InactivateUserId Foreign Key References [dbo].[AspNetUsers]([Id]),
+    [Discontinued] [bit] Not Null,
+    [DiscontinueDate] [DateTime] Null,
+    [DiscontinueNotes] [nVarChar](max) Null,
+    [DiscontinuedUserIp] [VarChar](48) Null,
+    [DiscontinuedUserId] [VarChar](48) Null Constraint FK_Product_DiscontinuedUserId Foreign Key References [dbo].[AspNetUsers]([Id]),
     [ModifyNr] [int] Not Null Default 1,
     [ModifyDate] [DateTime] Not Null Default GetDate(),
     [ModifierId] [VarChar](48) Not Null Constraint FK_Product_ModifierId Foreign Key References [dbo].[AspNetUsers]([Id]),
@@ -34,8 +35,6 @@ Go
 Create Nonclustered Index [idx_Products_CategoryId] On [dbo].[Products]([CategoryId] Asc)
 Go
 Create Nonclustered Index [idx_Products_SizingStandardId] On [dbo].[Products]([SizingStandardId] Asc)
-Go
-Create Nonclustered Index [idx_Products_IsActive] On [dbo].[Products]([IsActive] Asc)
 Go
 Create Nonclustered Index [idx_Products_ModifyDate] On [dbo].[Products]([ModifyDate] Desc)
 Go

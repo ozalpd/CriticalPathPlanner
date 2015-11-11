@@ -7,5 +7,57 @@
 }
 @if (Model != null)
 {
-    <div><a href='/PurchaseOrders/Details/@Model.Id'>@Model.Title</a></div>
+    string accordionId = string.Format("accordion{0}", Model.Id);
+    string collapseId = string.Format("collapse{0}", Model.Id);
+    <div class="accordion">
+        <div class="accordion-group shadedRoundCaption" id='@accordionId'>
+            <div class="accordion-heading fontSize125pc">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent='#@accordionId' href='#@collapseId'>
+                    @if (Model.Cancelled)
+                    {
+                        @Html.DisplayFor(m => m.Cancelled)
+                    }
+                    @Html.DisplayNameFor(m => m.OrderDate): @Html.DisplayFor(m => m.OrderDate) |
+                    @Html.DisplayFor(m => m.Customer.CompanyName)
+                </a>
+            </div>
+            <div id='@collapseId' class="accordion-body collapse">
+                <div class="accordion-inner text-left ml10 mt20 fontSize125pc">
+                    <div class="fontSize125pc">
+                        @Html.DisplayNameFor(m => m.Product): @Model.Product.Title
+                    </div>
+                    <div>
+                        <span class="checkboxText">@Html.DisplayNameFor(m => m.IsApproved)</span>
+                        @Html.DisplayFor(m => m.IsApproved)
+                        <span class="checkboxText">
+                            @Html.DisplayFor(m => m.ApproveDate) |
+                            @Html.DisplayNameFor(m => m.DueDate):
+                            @Html.DisplayFor(m => m.DueDate)
+                        </span>
+                    </div>
+                    <div>
+                        @Html.DisplayNameFor(m => m.UnitPrice):
+                        @Html.DisplayFor(m => m.UnitPrice) |
+                        @Html.DisplayNameFor(m => m.Quantity):
+                        @Html.DisplayFor(m => m.Quantity)
+                    </div>
+                    @if (Model.Cancelled)
+                    {
+                        <div>
+                            <span class="text-danger">@Html.DisplayNameFor(m => m.CancelDate):</span>
+                            @Html.DisplayFor(m => m.CancelDate)
+                        </div>
+                        <div>
+                            <span class="text-danger">@Html.DisplayNameFor(m => m.CancelNotes):</span>
+                            @Html.DisplayFor(m => m.CancelNotes)
+                        </div>
+                    }
+
+                    <div class="mt10 mb5">
+                        @Html.ActionLink(ActionStrings.Details, "Details", "PurchaseOrders", new { id = Model.Id }, new { @class = "btn btn-sm" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 }

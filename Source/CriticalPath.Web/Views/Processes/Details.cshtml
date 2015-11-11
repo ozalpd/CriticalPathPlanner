@@ -31,10 +31,10 @@
 </div>
 <div class="row">
     <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.IsActive)
+        @Html.DisplayNameFor(model => model.Cancelled)
     </label>
     <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.IsActive)
+        @Html.DisplayFor(m => m.Cancelled)
     </div>
 </div>
 <div class="row">
@@ -111,26 +111,34 @@
 </div>
 <div class="row">
     <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.CancellationDate)
+        @Html.DisplayNameFor(model => model.CancelDate)
     </label>
     <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.CancellationDate)
+        @Html.DisplayFor(m => m.CancelDate)
     </div>
 </div>
 <div class="row">
     <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.CancellationNotes)
+        @Html.DisplayNameFor(model => model.CancelNotes)
     </label>
     <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.CancellationNotes)
+        @Html.DisplayFor(m => m.CancelNotes)
     </div>
 </div>
 <div class="row">
     <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.InactivateUser)
+        @Html.DisplayNameFor(model => model.CancelledUserIp)
     </label>
     <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.InactivateUser)
+        @Html.DisplayFor(m => m.CancelledUserIp)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.CancelledUser)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.CancelledUser)
     </div>
 </div>
 <div class="row">

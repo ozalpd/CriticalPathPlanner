@@ -17,6 +17,10 @@
     <Translation>Ekle</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddAspNetUser</Name>
+    <Translation>Uygulama Kullanıcısı Ekle</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddCompany</Name>
     <Translation>Şirket Ekle</Translation>
   </Vocab>
@@ -31,6 +35,10 @@
   <Vocab>
     <Name>AddNew</Name>
     <Translation>Yeni Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewAspNetUser</Name>
+    <Translation>Yeni Uygulama Kullanıcısı Ekle</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNewCompany</Name>
@@ -71,6 +79,10 @@
   <Vocab>
     <Name>AddNewProductCategory</Name>
     <Translation>Yeni Ürün Kategorisi Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewProductSupplier</Name>
+    <Translation>Yeni Ürün Tedarikçisi Ekle</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNewPurchaseOrder</Name>
@@ -133,12 +145,20 @@
     <Translation>Ürün Kategorisi Ekle</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddProductSupplier</Name>
+    <Translation>Ürün Tedarikçisi Ekle</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddPurchaseOrder</Name>
     <Translation>Sipariş Ekle</Translation>
   </Vocab>
   <Vocab>
     <Name>AddRemove</Name>
     <Translation>Ekle/Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveAspNetUser</Name>
+    <Translation>Uygulama Kullanıcısı Ekle/Çıkar</Translation>
   </Vocab>
   <Vocab>
     <Name>AddRemoveCompany</Name>
@@ -175,6 +195,10 @@
   <Vocab>
     <Name>AddRemoveProductCategory</Name>
     <Translation>Ürün Kategorisi Ekle/Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveProductSupplier</Name>
+    <Translation>Ürün Tedarikçisi Ekle/Çıkar</Translation>
   </Vocab>
   <Vocab>
     <Name>AddRemovePurchaseOrder</Name>
@@ -269,6 +293,10 @@
     <Translation>Onay Tarihi</Translation>
   </Vocab>
   <Vocab>
+    <Name>ApprovedUser</Name>
+    <Translation>Onaylayan Kullanıcı</Translation>
+  </Vocab>
+  <Vocab>
     <Name>ApprovedUserId</Name>
     <Translation>Onaylayan Kullanıcı</Translation>
   </Vocab>
@@ -279,6 +307,18 @@
   <Vocab>
     <Name>AreYouSure</Name>
     <Translation>Devam etmek istediğinizden emin misiniz</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AspNetUser</Name>
+    <Translation>Uygulama Kullanıcısı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AspNetUsers</Name>
+    <Translation>Uygulama Kullanıcıları</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AspNetUsersList</Name>
+    <Translation>Uygulama Kullanıcısı Listesi</Translation>
   </Vocab>
   <Vocab>
     <Name>BackToIndex</Name>
@@ -293,6 +333,10 @@
     <Translation>Vazgeç</Translation>
   </Vocab>
   <Vocab>
+    <Name>CancelDate</Name>
+    <Translation>İptal Tarihi</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CancellationDate</Name>
     <Translation>İptal Tarihi</Translation>
   </Vocab>
@@ -301,7 +345,35 @@
     <Translation>İptal Notu</Translation>
   </Vocab>
   <Vocab>
+    <Name>Cancelled</Name>
+    <Translation>İptal Edilmiş</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CancelledUser</Name>
+    <Translation>İptal Eden Kullanıcı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CancelledUserId</Name>
+    <Translation>İptal Eden Kullanıcı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CancelledUserIp</Name>
+    <Translation>İptal Eden Kullanıcı IP</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CancelledUserUser</Name>
+    <Translation>İptal Eden Kullanıcı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CancelNotes</Name>
+    <Translation>İptal Notları</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CancelPO</Name>
+    <Translation>Siparişi İptal Et</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CancelPurchaseOrder</Name>
     <Translation>Siparişi İptal Et</Translation>
   </Vocab>
   <Vocab>
@@ -413,6 +485,10 @@
     <Translation>Oluştur</Translation>
   </Vocab>
   <Vocab>
+    <Name>CreateAspNetUser</Name>
+    <Translation>Uygulama Kullanıcısı Oluştur</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CreateCompany</Name>
     <Translation>Şirket Oluştur</Translation>
   </Vocab>
@@ -427,6 +503,10 @@
   <Vocab>
     <Name>CreateDate</Name>
     <Translation>Oluşturma Tarihi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreatedUser</Name>
+    <Translation>Oluşturan Kullanıcı</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateNew</Name>
@@ -463,6 +543,10 @@
   <Vocab>
     <Name>CreateProductCategory</Name>
     <Translation>Ürün Kategorisi Oluştur</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateProductSupplier</Name>
+    <Translation>Ürün Tedarikçisi Oluştur</Translation>
   </Vocab>
   <Vocab>
     <Name>CreatePurchaseOrder</Name>
@@ -537,6 +621,10 @@
     <Translation>Sil</Translation>
   </Vocab>
   <Vocab>
+    <Name>DeleteAspNetUser</Name>
+    <Translation>Uygulama Kullanıcısını Sil</Translation>
+  </Vocab>
+  <Vocab>
     <Name>DeleteCompany</Name>
     <Translation>Şirketi Sil</Translation>
   </Vocab>
@@ -579,6 +667,10 @@
   <Vocab>
     <Name>DeleteProductCategory</Name>
     <Translation>Ürün Kategorisini Sil</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteProductSupplier</Name>
+    <Translation>Ürün Tedarikçisini Sil</Translation>
   </Vocab>
   <Vocab>
     <Name>DeletePurchaseOrder</Name>
@@ -629,6 +721,30 @@
     <Translation>Detay</Translation>
   </Vocab>
   <Vocab>
+    <Name>Discontinued</Name>
+    <Translation>Sonlandırıldı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DiscontinueDate</Name>
+    <Translation>Sonlandırma Tarihi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DiscontinuedUser</Name>
+    <Translation>Sonlandıran Kullanıcı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DiscontinuedUserId</Name>
+    <Translation>Sonlandıran Kullanıcı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DiscontinuedUserIp</Name>
+    <Translation>Sonlandıran Kullanıcı IP</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DiscontinueNotes</Name>
+    <Translation>Sonlandırma Notları</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Display</Name>
     <Translation>Göster</Translation>
   </Vocab>
@@ -659,6 +775,10 @@
   <Vocab>
     <Name>Edit</Name>
     <Translation>Düzenle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditAspNetUser</Name>
+    <Translation>Uygulama Kullanıcısını Düzenle</Translation>
   </Vocab>
   <Vocab>
     <Name>EditCompany</Name>
@@ -703,6 +823,10 @@
   <Vocab>
     <Name>EditProductCategory</Name>
     <Translation>Ürün Kategorisini Düzenle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditProductSupplier</Name>
+    <Translation>Ürün Tedarikçisini Düzenle</Translation>
   </Vocab>
   <Vocab>
     <Name>EditPurchaseOrder</Name>
@@ -899,6 +1023,10 @@
   <Vocab>
     <Name>Male</Name>
     <Translation>Erkek</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ModifiedUser</Name>
+    <Translation>Düzenleyen Kullanıcı</Translation>
   </Vocab>
   <Vocab>
     <Name>ModifierId</Name>
@@ -1137,6 +1265,18 @@
     <Translation>Ürün Listesi</Translation>
   </Vocab>
   <Vocab>
+    <Name>ProductSupplier</Name>
+    <Translation>Ürün Tedarikçisi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ProductSuppliers</Name>
+    <Translation>Ürün Tedarikçileri</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ProductSuppliersList</Name>
+    <Translation>Ürün Tedarikçisi Listesi</Translation>
+  </Vocab>
+  <Vocab>
     <Name>PublishDate</Name>
     <Translation>Yayın Tarihi</Translation>
   </Vocab>
@@ -1197,6 +1337,10 @@
     <Translation>Çıkar</Translation>
   </Vocab>
   <Vocab>
+    <Name>RemoveAspNetUser</Name>
+    <Translation>Uygulama Kullanıcısını Çıkar</Translation>
+  </Vocab>
+  <Vocab>
     <Name>RemoveCompany</Name>
     <Translation>Şirketi Çıkar</Translation>
   </Vocab>
@@ -1231,6 +1375,10 @@
   <Vocab>
     <Name>RemoveProductCategory</Name>
     <Translation>Ürün Kategorisini Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveProductSupplier</Name>
+    <Translation>Ürün Tedarikçisini Çıkar</Translation>
   </Vocab>
   <Vocab>
     <Name>RemovePurchaseOrder</Name>
@@ -1407,6 +1555,10 @@
   <Vocab>
     <Name>SupplierCode</Name>
     <Translation>Tedarikçi Kodu</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SupplierId</Name>
+    <Translation>Tedarikçi</Translation>
   </Vocab>
   <Vocab>
     <Name>Suppliers</Name>

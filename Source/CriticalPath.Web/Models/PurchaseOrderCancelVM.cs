@@ -1,10 +1,6 @@
 ﻿using CP.i8n;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CriticalPath.Data;
 
 namespace CriticalPath.Web.Models
@@ -17,15 +13,15 @@ namespace CriticalPath.Web.Models
         public override PurchaseOrder ToPurchaseOrder()
         {
             var po = base.ToPurchaseOrder();
-            po.CancellationDate = DateTime.Now;
-            po.CancellationNotes = CancellationNotes;
+            po.CancelDate = DateTime.Now;
+            po.CancelNotes = CancelNotes;
 
             return po;
         }
 
         [DataType(DataType.MultilineText)]
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-        [Display(ResourceType = typeof(EntityStrings), Name = "CancellationNotes")]
-        public new string CancellationNotes { get; set; }
+        [Display(ResourceType = typeof(EntityStrings), Name = "CancelNotes")]
+        public new string CancelNotes { get; set; }
     }
 }

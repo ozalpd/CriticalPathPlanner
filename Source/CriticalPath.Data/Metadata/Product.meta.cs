@@ -57,16 +57,26 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "PurchaseOrders")]
             public ICollection<PurchaseOrder> PurchaseOrders { get; set; }
 
-            [Display(ResourceType = typeof(EntityStrings), Name = "IsActive")]
-            public bool IsActive { get; set; }
+            [UIHint("BoolRed")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "Discontinued")]
+            public bool Discontinued { get; set; }
 
             [DataType(DataType.Date)]
-            [Display(ResourceType = typeof(EntityStrings), Name = "InactivateDate")]
-            public DateTime InactivateDate { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "DiscontinueDate")]
+            public DateTime DiscontinueDate { get; set; }
 
             [DataType(DataType.MultilineText)]
-            [Display(ResourceType = typeof(EntityStrings), Name = "InactivateNotes")]
-            public string InactivateNotes { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "DiscontinueNotes")]
+            public string DiscontinueNotes { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "DiscontinuedUser")]
+            public AspNetUser DiscontinuedUser { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "ModifiedUser")]
+            public AspNetUser ModifiedUser { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "CreatedUser")]
+            public AspNetUser CreatedUser { get; set; }
 
 		}
 	}

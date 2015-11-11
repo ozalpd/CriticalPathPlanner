@@ -61,6 +61,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add AppUser.
+        /// </summary>
+        public static string AddAspNetUser {
+            get {
+                return ResourceManager.GetString("AddAspNetUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Company.
         /// </summary>
         public static string AddCompany {
@@ -84,6 +93,15 @@ namespace CP.i8n {
         public static string AddCustomer {
             get {
                 return ResourceManager.GetString("AddCustomer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add New AppUser.
+        /// </summary>
+        public static string AddNewAspNetUser {
+            get {
+                return ResourceManager.GetString("AddNewAspNetUser", resourceCulture);
             }
         }
         
@@ -277,6 +295,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Remove AppUser.
+        /// </summary>
+        public static string AddRemoveAspNetUser {
+            get {
+                return ResourceManager.GetString("AddRemoveAspNetUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add/Remove Company.
         /// </summary>
         public static string AddRemoveCompany {
@@ -466,6 +493,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Approved User.
+        /// </summary>
+        public static string ApprovedUser {
+            get {
+                return ResourceManager.GetString("ApprovedUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Approved User ID.
         /// </summary>
         public static string ApprovedUserId {
@@ -484,20 +520,83 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cancellation Date.
+        ///   Looks up a localized string similar to AppUser.
         /// </summary>
-        public static string CancellationDate {
+        public static string AspNetUser {
             get {
-                return ResourceManager.GetString("CancellationDate", resourceCulture);
+                return ResourceManager.GetString("AspNetUser", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cancellation Notes.
+        ///   Looks up a localized string similar to AppUsers.
         /// </summary>
-        public static string CancellationNotes {
+        public static string AspNetUsers {
             get {
-                return ResourceManager.GetString("CancellationNotes", resourceCulture);
+                return ResourceManager.GetString("AspNetUsers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AppUsers List.
+        /// </summary>
+        public static string AspNetUsersList {
+            get {
+                return ResourceManager.GetString("AspNetUsersList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel Date.
+        /// </summary>
+        public static string CancelDate {
+            get {
+                return ResourceManager.GetString("CancelDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancelled.
+        /// </summary>
+        public static string Cancelled {
+            get {
+                return ResourceManager.GetString("Cancelled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancelled User.
+        /// </summary>
+        public static string CancelledUser {
+            get {
+                return ResourceManager.GetString("CancelledUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancelled User Id.
+        /// </summary>
+        public static string CancelledUserId {
+            get {
+                return ResourceManager.GetString("CancelledUserId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancelled User Ip.
+        /// </summary>
+        public static string CancelledUserIp {
+            get {
+                return ResourceManager.GetString("CancelledUserIp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel Notes.
+        /// </summary>
+        public static string CancelNotes {
+            get {
+                return ResourceManager.GetString("CancelNotes", resourceCulture);
             }
         }
         
@@ -628,6 +727,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create AppUser.
+        /// </summary>
+        public static string CreateAspNetUser {
+            get {
+                return ResourceManager.GetString("CreateAspNetUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create Company.
         /// </summary>
         public static string CreateCompany {
@@ -660,6 +768,15 @@ namespace CP.i8n {
         public static string CreateDate {
             get {
                 return ResourceManager.GetString("CreateDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Created User.
+        /// </summary>
+        public static string CreatedUser {
+            get {
+                return ResourceManager.GetString("CreatedUser", resourceCulture);
             }
         }
         
@@ -835,6 +952,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete AppUser.
+        /// </summary>
+        public static string DeleteAspNetUser {
+            get {
+                return ResourceManager.GetString("DeleteAspNetUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete Company.
         /// </summary>
         public static string DeleteCompany {
@@ -970,6 +1096,60 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Discontinued.
+        /// </summary>
+        public static string Discontinued {
+            get {
+                return ResourceManager.GetString("Discontinued", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Discontinue Date.
+        /// </summary>
+        public static string DiscontinueDate {
+            get {
+                return ResourceManager.GetString("DiscontinueDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Discontinued User.
+        /// </summary>
+        public static string DiscontinuedUser {
+            get {
+                return ResourceManager.GetString("DiscontinuedUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Discontinued User Id.
+        /// </summary>
+        public static string DiscontinuedUserId {
+            get {
+                return ResourceManager.GetString("DiscontinuedUserId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Discontinued User Ip.
+        /// </summary>
+        public static string DiscontinuedUserIp {
+            get {
+                return ResourceManager.GetString("DiscontinuedUserIp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Discontinue Notes.
+        /// </summary>
+        public static string DiscontinueNotes {
+            get {
+                return ResourceManager.GetString("DiscontinueNotes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Display Order.
         /// </summary>
         public static string DisplayOrder {
@@ -984,6 +1164,15 @@ namespace CP.i8n {
         public static string DueDate {
             get {
                 return ResourceManager.GetString("DueDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit AppUser.
+        /// </summary>
+        public static string EditAspNetUser {
+            get {
+                return ResourceManager.GetString("EditAspNetUser", resourceCulture);
             }
         }
         
@@ -1114,6 +1303,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        public static string Email {
+            get {
+                return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email Home.
         /// </summary>
         public static string EmailHome {
@@ -1168,33 +1366,6 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Inactivate Date.
-        /// </summary>
-        public static string InactivateDate {
-            get {
-                return ResourceManager.GetString("InactivateDate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Inactivate Notes.
-        /// </summary>
-        public static string InactivateNotes {
-            get {
-                return ResourceManager.GetString("InactivateNotes", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Active.
-        /// </summary>
-        public static string IsActive {
-            get {
-                return ResourceManager.GetString("IsActive", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Approved.
         /// </summary>
         public static string IsApproved {
@@ -1218,6 +1389,15 @@ namespace CP.i8n {
         public static string LastName {
             get {
                 return ResourceManager.GetString("LastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Modified User.
+        /// </summary>
+        public static string ModifiedUser {
+            get {
+                return ResourceManager.GetString("ModifiedUser", resourceCulture);
             }
         }
         
@@ -1609,6 +1789,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Remove AppUser.
+        /// </summary>
+        public static string RemoveAspNetUser {
+            get {
+                return ResourceManager.GetString("RemoveAspNetUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remove Company.
         /// </summary>
         public static string RemoveCompany {
@@ -1956,6 +2145,15 @@ namespace CP.i8n {
         public static string UnitPrice {
             get {
                 return ResourceManager.GetString("UnitPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UserName.
+        /// </summary>
+        public static string UserName {
+            get {
+                return ResourceManager.GetString("UserName", resourceCulture);
             }
         }
         

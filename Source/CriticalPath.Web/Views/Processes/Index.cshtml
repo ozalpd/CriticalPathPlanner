@@ -37,14 +37,11 @@
             <th>@ActionStrings.Action</th>
             <th>@Html.DisplayNameFor(model => model.Title)</th>
             <th>@Html.DisplayNameFor(model => model.IsApproved)</th>
-            <th>@Html.DisplayNameFor(model => model.IsCompleted)</th>
-            <th>@Html.DisplayNameFor(model => model.OrderItem)</th>
-            <th>@Html.DisplayNameFor(model => model.TargetStartDate)</th>
-            <th>@Html.DisplayNameFor(model => model.TargetEndDate)</th>
-            <th>@Html.DisplayNameFor(model => model.ForecastStartDate)</th>
-            <th>@Html.DisplayNameFor(model => model.ForecastEndDate)</th>
-            <th>@Html.DisplayNameFor(model => model.RealizedStartDate)</th>
-            <th>@Html.DisplayNameFor(model => model.RealizedEndDate)</th>
+            <th>@Html.DisplayNameFor(model => model.PurchaseOrder)</th>
+            <th>@Html.DisplayNameFor(model => model.TargetDate)</th>
+            <th>@Html.DisplayNameFor(model => model.ForecastDate)</th>
+            <th colspan="2">@Html.DisplayNameFor(model => model.IsCompleted)</th>
+            <th>@Html.DisplayNameFor(model => model.Cancelled)</th>
         </tr>
         @foreach (var item in Model)
         {
@@ -78,15 +75,19 @@
                     </div>
                 </td>
                 <td>@Html.DisplayFor(modelItem => item.Title)</td>
-                <td>@Html.DisplayFor(modelItem => item.IsApproved)</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsApproved)
+                    <span class="checkboxText">@Html.DisplayFor(modelItem => item.ApproveDate)</span>
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.PurchaseOrder)</td>
+                <td align="right">@Html.DisplayFor(modelItem => item.TargetDate)</td>
+                <td align="right">@Html.DisplayFor(modelItem => item.ForecastDate)</td>
                 <td>@Html.DisplayFor(modelItem => item.IsCompleted)</td>
-                <td>@Html.DisplayFor(modelItem => item.OrderItem)</td>
-                <td align="right">@Html.DisplayFor(modelItem => item.TargetStartDate)</td>
-                <td align="right">@Html.DisplayFor(modelItem => item.ForecastStartDate)</td>
-                <td align="right">@Html.DisplayFor(modelItem => item.RealizedStartDate)</td>
-                <td align="right">@Html.DisplayFor(modelItem => item.ForecastEndDate)</td>
-                <td align="right">@Html.DisplayFor(modelItem => item.TargetEndDate)</td>
-                <td align="right">@Html.DisplayFor(modelItem => item.RealizedEndDate)</td>
+                <td align="right">@Html.DisplayFor(modelItem => item.RealizedDate)</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cancelled)
+                    <span class="checkboxText">@Html.DisplayFor(modelItem => item.CancelDate)</span>
+                </td>
             </tr>
         }
     </table>

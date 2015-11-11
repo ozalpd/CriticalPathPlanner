@@ -396,17 +396,17 @@
           <Nullable>true</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>IsActive</Name>
+          <Name>Discontinued</Name>
           <Exclude>false</Exclude>
           <DataType>bit</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
+          <Indexed>false</Indexed>
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>InactivateDate</Name>
+          <Name>DiscontinueDate</Name>
           <Exclude>false</Exclude>
           <DataType>DateTime</DataType>
           <Lenght>0</Lenght>
@@ -416,7 +416,7 @@
           <Nullable>true</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>InactivateNotes</Name>
+          <Name>DiscontinueNotes</Name>
           <Exclude>false</Exclude>
           <DataType>nVarChar</DataType>
           <Lenght>0</Lenght>
@@ -426,7 +426,17 @@
           <Nullable>true</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>InactivateUserId</Name>
+          <Name>DiscontinuedUserIp</Name>
+          <Exclude>false</Exclude>
+          <DataType>VarChar</DataType>
+          <Lenght>48</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>DiscontinuedUserId</Name>
           <Exclude>false</Exclude>
           <DataType>VarChar</DataType>
           <Lenght>48</Lenght>
@@ -561,17 +571,17 @@
           <Nullable>true</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>IsActive</Name>
+          <Name>Discontinued</Name>
           <Exclude>false</Exclude>
           <DataType>bit</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
+          <Indexed>false</Indexed>
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>InactivateDate</Name>
+          <Name>DiscontinueDate</Name>
           <Exclude>false</Exclude>
           <DataType>DateTime</DataType>
           <Lenght>0</Lenght>
@@ -581,7 +591,7 @@
           <Nullable>true</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>InactivateNotes</Name>
+          <Name>DiscontinueNotes</Name>
           <Exclude>false</Exclude>
           <DataType>nVarChar</DataType>
           <Lenght>0</Lenght>
@@ -591,7 +601,17 @@
           <Nullable>true</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>InactivateUserId</Name>
+          <Name>DiscontinuedUserIp</Name>
+          <Exclude>false</Exclude>
+          <DataType>VarChar</DataType>
+          <Lenght>48</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>DiscontinuedUserId</Name>
           <Exclude>false</Exclude>
           <DataType>VarChar</DataType>
           <Lenght>48</Lenght>
@@ -721,17 +741,17 @@
           <ForeignKeyTable>SizingStandards</ForeignKeyTable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>IsActive</Name>
+          <Name>Discontinued</Name>
           <Exclude>false</Exclude>
           <DataType>bit</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
+          <Indexed>false</Indexed>
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>InactivateDate</Name>
+          <Name>DiscontinueDate</Name>
           <Exclude>false</Exclude>
           <DataType>DateTime</DataType>
           <Lenght>0</Lenght>
@@ -741,7 +761,7 @@
           <Nullable>true</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>InactivateNotes</Name>
+          <Name>DiscontinueNotes</Name>
           <Exclude>false</Exclude>
           <DataType>nVarChar</DataType>
           <Lenght>0</Lenght>
@@ -751,7 +771,17 @@
           <Nullable>true</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>InactivateUserId</Name>
+          <Name>DiscontinuedUserIp</Name>
+          <Exclude>false</Exclude>
+          <DataType>VarChar</DataType>
+          <Lenght>48</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>DiscontinuedUserId</Name>
           <Exclude>false</Exclude>
           <DataType>VarChar</DataType>
           <Lenght>48</Lenght>
@@ -776,12 +806,12 @@
       <CustomStoredProcs>false</CustomStoredProcs>
       <Properties>
         <StorageColumnSetting>
-          <Name>IsActive</Name>
+          <Name>Cancelled</Name>
           <Exclude>false</Exclude>
           <DataType>bit</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
+          <Indexed>false</Indexed>
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
         </StorageColumnSetting>
@@ -892,14 +922,14 @@
           <Name>Notes</Name>
           <Exclude>false</Exclude>
           <DataType>nVarChar</DataType>
-          <Lenght>2048</Lenght>
+          <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
           <SortDesc>false</SortDesc>
           <Nullable>true</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>CancellationDate</Name>
+          <Name>CancelDate</Name>
           <Exclude>false</Exclude>
           <DataType>DateTime</DataType>
           <Lenght>0</Lenght>
@@ -909,7 +939,7 @@
           <Nullable>true</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>CancellationNotes</Name>
+          <Name>CancelNotes</Name>
           <Exclude>false</Exclude>
           <DataType>nVarChar</DataType>
           <Lenght>0</Lenght>
@@ -919,7 +949,17 @@
           <Nullable>true</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>InactivateUserId</Name>
+          <Name>CancelledUserIp</Name>
+          <Exclude>false</Exclude>
+          <DataType>VarChar</DataType>
+          <Lenght>48</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>CancelledUserId</Name>
           <Exclude>false</Exclude>
           <DataType>VarChar</DataType>
           <Lenght>48</Lenght>
@@ -1068,7 +1108,7 @@
       <CustomStoredProcs>false</CustomStoredProcs>
       <Properties>
         <StorageColumnSetting>
-          <Name>IsActive</Name>
+          <Name>Cancelled</Name>
           <Exclude>false</Exclude>
           <DataType>bit</DataType>
           <Lenght>0</Lenght>
@@ -1160,7 +1200,7 @@
           <Nullable>true</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>CancellationDate</Name>
+          <Name>CancelDate</Name>
           <Exclude>false</Exclude>
           <DataType>DateTime</DataType>
           <Lenght>0</Lenght>
@@ -1170,7 +1210,7 @@
           <Nullable>true</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>CancellationNotes</Name>
+          <Name>CancelNotes</Name>
           <Exclude>false</Exclude>
           <DataType>nVarChar</DataType>
           <Lenght>0</Lenght>
@@ -1180,7 +1220,17 @@
           <Nullable>true</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>InactivateUserId</Name>
+          <Name>CancelledUserIp</Name>
+          <Exclude>false</Exclude>
+          <DataType>VarChar</DataType>
+          <Lenght>48</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>CancelledUserId</Name>
           <Exclude>false</Exclude>
           <DataType>VarChar</DataType>
           <Lenght>48</Lenght>

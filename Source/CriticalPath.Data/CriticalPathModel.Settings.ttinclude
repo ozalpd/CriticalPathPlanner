@@ -34,7 +34,10 @@ defaultQuerySettings.DtoExclusions
             "ExpireDate",
 			"ApprovedUserId",
 			"ApprovedUserIp",
-			"InactivateUserId",
+			"DiscontinuedUserId",
+			"DiscontinuedUserIp",
+			"CancelledUserId",
+			"CancelledUserIp",
             defaultQuerySettings.PublishPropertyName
         });
 
@@ -91,21 +94,30 @@ InterfaceDefinition hasProduct = new InterfaceDefinition() { Name = "IHasProduct
 AutoGenInterfaces.Add(hasProduct);
 hasProduct.Properties.Add(new InterfaceProperty() { TypeName = "int", Name = "ProductId" });
 
-InterfaceDefinition isActive = new InterfaceDefinition() { Name = "IIsActive" };
-AutoGenInterfaces.Add(isActive);
-isActive.Properties.Add(new InterfaceProperty() { TypeName = "bool", Name = "IsActive" });
+InterfaceDefinition cancelled = new InterfaceDefinition() { Name = "ICancelled" };
+AutoGenInterfaces.Add(cancelled);
+cancelled.Properties.Add(new InterfaceProperty() { TypeName = "bool", Name = "Cancelled" });
+cancelled.Properties.Add(new InterfaceProperty() { TypeName = "Nullable<System.DateTime>", Name = "CancelDate" });
+cancelled.Properties.Add(new InterfaceProperty() { TypeName = "string", Name = "CancelNotes" });
 
 InterfaceDefinition cancellation = new InterfaceDefinition() { Name = "ICancellation" };
 AutoGenInterfaces.Add(cancellation);
-cancellation.Properties.Add(new InterfaceProperty() { TypeName = "bool", Name = "IsActive" });
-cancellation.Properties.Add(new InterfaceProperty() { TypeName = "Nullable<System.DateTime>", Name = "CancellationDate" });
-cancellation.Properties.Add(new InterfaceProperty() { TypeName = "string", Name = "CancellationNotes" });
+cancellation.Properties.Add(new InterfaceProperty() { TypeName = "bool", Name = "Cancelled" });
+cancellation.Properties.Add(new InterfaceProperty() { TypeName = "Nullable<System.DateTime>", Name = "CancelDate" });
+cancellation.Properties.Add(new InterfaceProperty() { TypeName = "string", Name = "CancelNotes" });
+cancellation.Properties.Add(new InterfaceProperty() { TypeName = "string", Name = "CancelledUserId" });
+cancellation.Properties.Add(new InterfaceProperty() { TypeName = "string", Name = "CancelledUserIp" });
 
-InterfaceDefinition inactivation = new InterfaceDefinition() { Name = "IInactivation" };
-AutoGenInterfaces.Add(inactivation);
-inactivation.Properties.Add(new InterfaceProperty() { TypeName = "bool", Name = "IsActive" });
-inactivation.Properties.Add(new InterfaceProperty() { TypeName = "Nullable<System.DateTime>", Name = "InactivateDate" });
-inactivation.Properties.Add(new InterfaceProperty() { TypeName = "string", Name = "InactivateNotes" });
+InterfaceDefinition discontinued = new InterfaceDefinition() { Name = "IDiscontinued" };
+AutoGenInterfaces.Add(discontinued);
+discontinued.Properties.Add(new InterfaceProperty() { TypeName = "bool", Name = "Discontinued" });
+discontinued.Properties.Add(new InterfaceProperty() { TypeName = "Nullable<System.DateTime>", Name = "DiscontinueDate" });
+discontinued.Properties.Add(new InterfaceProperty() { TypeName = "string", Name = "DiscontinueNotes" });
+
+InterfaceDefinition discontinuedUser = new InterfaceDefinition() { Name = "IDiscontinuedUser" };
+discontinuedUser.Properties.Add(new InterfaceProperty() { TypeName = "string", Name = "DiscontinuedUserId" });
+discontinuedUser.Properties.Add(new InterfaceProperty() { TypeName = "string", Name = "DiscontinuedUserIp" });
+AutoGenInterfaces.Add(discontinuedUser);
 
 //Ends Here - Interface Definition List
 

@@ -24,14 +24,8 @@ namespace CriticalPath.Web.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
-        partial void OnCreateSaving(Product product)
-        {
-            product.IsActive = true;
-        }
-
         protected override Task SetProductDefaults(Product product)
         {
-            product.IsActive = true;
             return base.SetProductDefaults(product);
         }
     }

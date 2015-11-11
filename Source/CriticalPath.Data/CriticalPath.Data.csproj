@@ -67,6 +67,8 @@
     <Compile Include="Customer.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Metadata\AspNetUser.meta.cs" />
+    <Compile Include="Metadata\AspNetUserDTO.meta.cs" />
     <Compile Include="Parts\CustomerDTO.part.cs" />
     <Compile Include="Metadata\SizeRate.meta.cs" />
     <Compile Include="Metadata\SizeRateDTO.meta.cs" />

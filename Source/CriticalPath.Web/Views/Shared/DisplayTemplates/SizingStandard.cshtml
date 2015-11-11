@@ -12,8 +12,8 @@
     foreach (var sizing in Model.Sizings)
     {
         string divClass = i==6 ?
-                "shadedCaption col-lg-1 col-lg-offset-0 col-md-1 col-md-offset-5 visible-lg visible-md" :
-                "shadedCaption col-lg-1 col-md-1 visible-lg visible-md";
+                "shadedRoundCaption col-lg-1 col-lg-offset-0 col-md-1 col-md-offset-5 visible-lg visible-md" :
+                "shadedRoundCaption col-lg-1 col-md-1 visible-lg visible-md";
         <div class='@divClass'>@sizing.Caption</div>
         i++;
     }

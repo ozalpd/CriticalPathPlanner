@@ -1,4 +1,5 @@
-﻿using CriticalPath.Data;
+﻿using CP.i8n;
+using CriticalPath.Data;
 using OzzUtils.Web.Mvc;
 using System;
 using System.Collections.Generic;
@@ -31,6 +32,24 @@ namespace CriticalPath.Web.Controllers
             await DataContext.SaveChangesAsync(this);
         }
 
+        protected virtual void CancelCancellation(ICancellation entity)
+        {
+            entity.CancelledUserId = UserID;
+            entity.CancelledUserIp = this.GetUserIP();
+            entity.CancelDate = DateTime.Now;
+            entity.Cancelled = true;
+        }
+
+        protected virtual async Task CancelSaveAsync(ICancellation entity)
+        {
+            if (string.IsNullOrEmpty((entity.CancelNotes)))
+            {
+                throw new Exception(string.Format("{0} required!", EntityStrings.CancelNotes));
+            }
+
+            CancelCancellation(entity);
+            await DataContext.SaveChangesAsync(this);
+        }
         #region SetSelectList Helper Methods
 
         protected async Task SetProductCategorySelectListAsync(ProductDTO product)

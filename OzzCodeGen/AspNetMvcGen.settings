@@ -592,7 +592,7 @@
           <UseForEdit>TextBox</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>IsActive</Name>
+          <Name>Discontinued</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>
@@ -604,7 +604,7 @@
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>InactivateDate</Name>
+          <Name>DiscontinueDate</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>
@@ -616,7 +616,7 @@
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>InactivateNotes</Name>
+          <Name>DiscontinueNotes</Name>
           <Exclude>false</Exclude>
           <UseInSearch>true</UseInSearch>
           <InIndexView>true</InIndexView>
@@ -628,7 +628,19 @@
           <UseForEdit>TextBox</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>InactivateUserId</Name>
+          <Name>DiscontinuedUserIp</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
+          <HasValidation>false</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>DiscontinuedUserId</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>false</InIndexView>
@@ -640,7 +652,7 @@
           <UseForEdit>DropDownList</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>InactivateUser</Name>
+          <Name>DiscontinuedUser</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>false</InIndexView>
@@ -828,7 +840,7 @@
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>IsActive</Name>
+          <Name>Discontinued</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>
@@ -840,7 +852,7 @@
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>InactivateDate</Name>
+          <Name>DiscontinueDate</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>
@@ -852,7 +864,7 @@
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>InactivateNotes</Name>
+          <Name>DiscontinueNotes</Name>
           <Exclude>false</Exclude>
           <UseInSearch>true</UseInSearch>
           <InIndexView>true</InIndexView>
@@ -864,7 +876,19 @@
           <UseForEdit>TextBox</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>InactivateUserId</Name>
+          <Name>DiscontinuedUserIp</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
+          <HasValidation>false</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>DiscontinuedUserId</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>false</InIndexView>
@@ -876,7 +900,7 @@
           <UseForEdit>DropDownList</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>InactivateUser</Name>
+          <Name>DiscontinuedUser</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>false</InIndexView>
@@ -1168,7 +1192,7 @@
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>IsActive</Name>
+          <Name>Discontinued</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>
@@ -1180,7 +1204,7 @@
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>InactivateDate</Name>
+          <Name>DiscontinueDate</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>
@@ -1192,7 +1216,7 @@
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>InactivateNotes</Name>
+          <Name>DiscontinueNotes</Name>
           <Exclude>false</Exclude>
           <UseInSearch>true</UseInSearch>
           <InIndexView>true</InIndexView>
@@ -1204,7 +1228,19 @@
           <UseForEdit>TextBox</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>InactivateUserId</Name>
+          <Name>DiscontinuedUserIp</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
+          <HasValidation>false</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>DiscontinuedUserId</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>false</InIndexView>
@@ -1216,7 +1252,7 @@
           <UseForEdit>DropDownList</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>InactivateUser</Name>
+          <Name>DiscontinuedUser</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>false</InIndexView>
@@ -1259,7 +1295,7 @@
       <OverwriteExisting>true</OverwriteExisting>
       <Properties>
         <AspNetMvcPropertySetting>
-          <Name>IsActive</Name>
+          <Name>Cancelled</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>
@@ -1451,7 +1487,7 @@
           <UseForEdit>TextArea</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>CancellationDate</Name>
+          <Name>CancelDate</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>
@@ -1463,7 +1499,7 @@
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>CancellationNotes</Name>
+          <Name>CancelNotes</Name>
           <Exclude>false</Exclude>
           <UseInSearch>true</UseInSearch>
           <InIndexView>true</InIndexView>
@@ -1475,19 +1511,31 @@
           <UseForEdit>TextBox</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>InactivateUserId</Name>
+          <Name>CancelledUserIp</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
+          <HasValidation>false</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>CancelledUserId</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
           <InIndexView>false</InIndexView>
           <InDetailsView>false</InDetailsView>
           <InCreateView>false</InCreateView>
           <InEditView>false</InEditView>
           <HasValidation>false</HasValidation>
-          <UseForCreate>DropDownList</UseForCreate>
-          <UseForEdit>DropDownList</UseForEdit>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>InactivateUser</Name>
+          <Name>CancelledUser</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>false</InIndexView>
@@ -1783,13 +1831,13 @@
       <OverwriteExisting>true</OverwriteExisting>
       <Properties>
         <AspNetMvcPropertySetting>
-          <Name>IsActive</Name>
+          <Name>Cancelled</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
           <HasValidation>true</HasValidation>
           <UseForCreate>Standart</UseForCreate>
           <UseForEdit>Standart</UseForEdit>
@@ -1825,7 +1873,7 @@
           <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>false</InCreateView>
-          <InEditView>true</InEditView>
+          <InEditView>false</InEditView>
           <HasValidation>true</HasValidation>
           <UseForCreate>Standart</UseForCreate>
           <UseForEdit>Standart</UseForEdit>
@@ -1863,8 +1911,8 @@
           <InCreateView>true</InCreateView>
           <InEditView>true</InEditView>
           <HasValidation>true</HasValidation>
-          <UseForCreate>DropDownList</UseForCreate>
-          <UseForEdit>DropDownList</UseForEdit>
+          <UseForCreate>HiddenInput</UseForCreate>
+          <UseForEdit>HiddenInput</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
           <Name>PurchaseOrder</Name>
@@ -1872,8 +1920,8 @@
           <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
-          <InCreateView>false</InCreateView>
-          <InEditView>false</InEditView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
           <HasValidation>true</HasValidation>
           <UseForCreate>Standart</UseForCreate>
           <UseForEdit>Standart</UseForEdit>
@@ -1908,8 +1956,8 @@
           <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
           <HasValidation>true</HasValidation>
           <UseForCreate>Standart</UseForCreate>
           <UseForEdit>Standart</UseForEdit>
@@ -1927,43 +1975,55 @@
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>CancellationDate</Name>
+          <Name>CancelDate</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
           <HasValidation>true</HasValidation>
           <UseForCreate>Standart</UseForCreate>
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>CancellationNotes</Name>
+          <Name>CancelNotes</Name>
           <Exclude>false</Exclude>
           <UseInSearch>true</UseInSearch>
           <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
           <HasValidation>true</HasValidation>
           <UseForCreate>TextBox</UseForCreate>
           <UseForEdit>TextBox</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>InactivateUserId</Name>
+          <Name>CancelledUserIp</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
+          <HasValidation>false</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>CancelledUserId</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
           <InIndexView>false</InIndexView>
           <InDetailsView>false</InDetailsView>
           <InCreateView>false</InCreateView>
           <InEditView>false</InEditView>
           <HasValidation>false</HasValidation>
-          <UseForCreate>DropDownList</UseForCreate>
-          <UseForEdit>DropDownList</UseForEdit>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>InactivateUser</Name>
+          <Name>CancelledUser</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>false</InIndexView>
@@ -2155,7 +2215,7 @@
       <GenerateDeleteAction>false</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
-      <IndexView>false</IndexView>
+      <IndexView>true</IndexView>
       <DetailsView>true</DetailsView>
       <CreateView>false</CreateView>
       <EditView>true</EditView>

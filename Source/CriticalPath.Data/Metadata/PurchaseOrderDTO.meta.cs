@@ -28,8 +28,9 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "ApproveDate")]
             public DateTime ApproveDate { get; set; }
 
-            [Display(ResourceType = typeof(EntityStrings), Name = "IsActive")]
-            public bool IsActive { get; set; }
+            [UIHint("BoolRed")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "Cancelled")]
+            public bool Cancelled { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [DataType(DataType.Date)]
@@ -74,18 +75,17 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "SizeRateDivisor")]
             public int SizeRateDivisor { get; set; }
 
-            [StringLength(2048, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [DataType(DataType.MultilineText)]
             [Display(ResourceType = typeof(EntityStrings), Name = "Notes")]
             public string Notes { get; set; }
 
             [DataType(DataType.Date)]
-            [Display(ResourceType = typeof(EntityStrings), Name = "CancellationDate")]
-            public DateTime CancellationDate { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "CancelDate")]
+            public DateTime CancelDate { get; set; }
 
             [DataType(DataType.MultilineText)]
-            [Display(ResourceType = typeof(EntityStrings), Name = "CancellationNotes")]
-            public string CancellationNotes { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "CancelNotes")]
+            public string CancelNotes { get; set; }
 
 		}
 	}

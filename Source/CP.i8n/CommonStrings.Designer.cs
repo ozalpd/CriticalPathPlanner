@@ -124,6 +124,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel Purchase Order.
+        /// </summary>
+        public static string CancelPurchaseOrder {
+            get {
+                return ResourceManager.GetString("CancelPurchaseOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contact Us.
         /// </summary>
         public static string ContactUs {

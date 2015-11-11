@@ -24,14 +24,8 @@ namespace CriticalPath.Web.Controllers
             await base.PutCanUserInViewBag();
         }
 
-        partial void OnCreateSaving(Customer customer)
-        {
-            customer.IsActive = true;
-        }
-
         protected override Task SetCustomerDefaults(Customer customer)
         {
-            customer.IsActive = true;
             return base.SetCustomerDefaults(customer);
         }
     }

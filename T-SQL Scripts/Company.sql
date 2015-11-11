@@ -15,10 +15,11 @@ CREATE TABLE [dbo].[Companies](
     [ZipCode] [nVarChar](32) Null,
     [Country] [nVarChar](32) Null,
     [Notes] [nVarChar](2048) Null,
-    [IsActive] [bit] Not Null,
-    [InactivateDate] [DateTime] Null,
-    [InactivateNotes] [nVarChar](max) Null,
-    [InactivateUserId] [VarChar](48) Null Constraint FK_Company_InactivateUserId Foreign Key References [dbo].[AspNetUsers]([Id]),
+    [Discontinued] [bit] Not Null,
+    [DiscontinueDate] [DateTime] Null,
+    [DiscontinueNotes] [nVarChar](max) Null,
+    [DiscontinuedUserIp] [VarChar](48) Null,
+    [DiscontinuedUserId] [VarChar](48) Null Constraint FK_Company_DiscontinuedUserId Foreign Key References [dbo].[AspNetUsers]([Id]),
     [ModifyNr] [int] Not Null Default 1,
     [ModifyDate] [DateTime] Not Null Default GetDate(),
     [ModifierId] [VarChar](48) Not Null Constraint FK_Company_ModifierId Foreign Key References [dbo].[AspNetUsers]([Id]),
@@ -37,8 +38,6 @@ Go
 Create Nonclustered Index [idx_Companies_CompanyName] On [dbo].[Companies]([CompanyName] Asc)
 Go
 Create Nonclustered Index [idx_Companies_City] On [dbo].[Companies]([City] Asc)
-Go
-Create Nonclustered Index [idx_Companies_IsActive] On [dbo].[Companies]([IsActive] Asc)
 Go
 Create Nonclustered Index [idx_Companies_ModifyDate] On [dbo].[Companies]([ModifyDate] Desc)
 Go

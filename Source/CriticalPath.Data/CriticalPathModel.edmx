@@ -40,10 +40,11 @@
           <Property Name="ZipCode" Type="nvarchar" MaxLength="32" />
           <Property Name="Country" Type="nvarchar" MaxLength="32" />
           <Property Name="Notes" Type="nvarchar" MaxLength="2048" />
-          <Property Name="IsActive" Type="bit" Nullable="false" />
-          <Property Name="InactivateDate" Type="datetime" />
-          <Property Name="InactivateNotes" Type="nvarchar(max)" />
-          <Property Name="InactivateUserId" Type="varchar" MaxLength="48" />
+          <Property Name="Discontinued" Type="bit" Nullable="false" />
+          <Property Name="DiscontinueDate" Type="datetime" />
+          <Property Name="DiscontinueNotes" Type="nvarchar(max)" />
+          <Property Name="DiscontinuedUserId" Type="varchar" MaxLength="48" />
+          <Property Name="DiscontinuedUserIp" Type="varchar" MaxLength="48" />
           <Property Name="ModifyNr" Type="int" Nullable="false" />
           <Property Name="ModifyDate" Type="datetime" Nullable="false" />
           <Property Name="ModifierId" Type="varchar" MaxLength="48" Nullable="false" />
@@ -66,10 +67,11 @@
           <Property Name="PhoneWork1" Type="nvarchar" MaxLength="64" />
           <Property Name="PhoneWork2" Type="nvarchar" MaxLength="64" />
           <Property Name="Notes" Type="nvarchar" MaxLength="2048" />
-          <Property Name="IsActive" Type="bit" Nullable="false" />
-          <Property Name="InactivateDate" Type="datetime" />
-          <Property Name="InactivateNotes" Type="nvarchar(max)" />
-          <Property Name="InactivateUserId" Type="varchar" MaxLength="48" />
+          <Property Name="Discontinued" Type="bit" Nullable="false" />
+          <Property Name="DiscontinueDate" Type="datetime" />
+          <Property Name="DiscontinueNotes" Type="nvarchar(max)" />
+          <Property Name="DiscontinuedUserId" Type="varchar" MaxLength="48" />
+          <Property Name="DiscontinuedUserIp" Type="varchar" MaxLength="48" />
           <Property Name="ModifyNr" Type="int" Nullable="false" />
           <Property Name="ModifyDate" Type="datetime" Nullable="false" />
           <Property Name="ModifierId" Type="varchar" MaxLength="48" Nullable="false" />
@@ -92,7 +94,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IsApproved" Type="bit" Nullable="false" />
           <Property Name="ApproveDate" Type="datetime" />
-          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Cancelled" Type="bit" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="256" />
           <Property Name="IsCompleted" Type="bit" Nullable="false" />
@@ -101,9 +103,10 @@
           <Property Name="TargetDate" Type="datetime" Nullable="false" />
           <Property Name="ForecastDate" Type="datetime" />
           <Property Name="RealizedDate" Type="datetime" />
-          <Property Name="CancellationDate" Type="datetime" />
-          <Property Name="CancellationNotes" Type="nvarchar(max)" />
-          <Property Name="InactivateUserId" Type="varchar" MaxLength="48" />
+          <Property Name="CancelDate" Type="datetime" />
+          <Property Name="CancelNotes" Type="nvarchar(max)" />
+          <Property Name="CancelledUserId" Type="varchar" MaxLength="48" />
+          <Property Name="CancelledUserIp" Type="varchar" MaxLength="48" />
           <Property Name="ApprovedUserId" Type="varchar" MaxLength="48" />
           <Property Name="ApprovedUserIp" Type="varchar" MaxLength="48" />
           <Property Name="ModifyNr" Type="int" Nullable="false" />
@@ -204,10 +207,11 @@
           <Property Name="ImageUrl" Type="nvarchar" MaxLength="256" />
           <Property Name="CategoryId" Type="int" Nullable="false" />
           <Property Name="SizingStandardId" Type="int" Nullable="false" />
-          <Property Name="IsActive" Type="bit" Nullable="false" />
-          <Property Name="InactivateDate" Type="datetime" />
-          <Property Name="InactivateNotes" Type="nvarchar(max)" />
-          <Property Name="InactivateUserId" Type="varchar" MaxLength="48" />
+          <Property Name="Discontinued" Type="bit" Nullable="false" />
+          <Property Name="DiscontinueDate" Type="datetime" />
+          <Property Name="DiscontinueNotes" Type="nvarchar(max)" />
+          <Property Name="DiscontinuedUserId" Type="varchar" MaxLength="48" />
+          <Property Name="DiscontinuedUserIp" Type="varchar" MaxLength="48" />
           <Property Name="ModifyNr" Type="int" Nullable="false" />
           <Property Name="ModifyDate" Type="datetime" Nullable="false" />
           <Property Name="ModifierId" Type="varchar" MaxLength="48" Nullable="false" />
@@ -223,7 +227,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IsApproved" Type="bit" Nullable="false" />
           <Property Name="ApproveDate" Type="datetime" />
-          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Cancelled" Type="bit" Nullable="false" />
           <Property Name="OrderDate" Type="datetime" Nullable="false" />
           <Property Name="DueDate" Type="datetime" />
           <Property Name="CustomerId" Type="int" Nullable="false" />
@@ -234,10 +238,11 @@
           <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="4" Nullable="false" />
           <Property Name="SizingStandardId" Type="int" Nullable="false" />
           <Property Name="SizeRateDivisor" Type="int" Nullable="false" />
-          <Property Name="Notes" Type="nvarchar" MaxLength="2048" />
-          <Property Name="CancellationDate" Type="datetime" />
-          <Property Name="CancellationNotes" Type="nvarchar(max)" />
-          <Property Name="InactivateUserId" Type="varchar" MaxLength="48" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="CancelDate" Type="datetime" />
+          <Property Name="CancelNotes" Type="nvarchar(max)" />
+          <Property Name="CancelledUserId" Type="varchar" MaxLength="48" />
+          <Property Name="CancelledUserIp" Type="varchar" MaxLength="48" />
           <Property Name="ApprovedUserId" Type="varchar" MaxLength="48" />
           <Property Name="ApprovedUserIp" Type="varchar" MaxLength="48" />
           <Property Name="ModifyNr" Type="int" Nullable="false" />
@@ -314,7 +319,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Company_InactivateUserId">
+        <Association Name="FK_Company_DiscontinuedUserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
           <End Role="Companies" Type="Self.Companies" Multiplicity="*" />
           <ReferentialConstraint>
@@ -322,7 +327,7 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Companies">
-              <PropertyRef Name="InactivateUserId" />
+              <PropertyRef Name="DiscontinuedUserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -362,7 +367,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Contact_InactivateUserId">
+        <Association Name="FK_Contact_DiscontinuedUserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
           <End Role="Contacts" Type="Self.Contacts" Multiplicity="*" />
           <ReferentialConstraint>
@@ -370,7 +375,7 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Contacts">
-              <PropertyRef Name="InactivateUserId" />
+              <PropertyRef Name="DiscontinuedUserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -410,6 +415,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Process_CancelledUserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Processes" Type="Self.Processes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Processes">
+              <PropertyRef Name="CancelledUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Process_CreatorId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
           <End Role="Processes" Type="Self.Processes" Multiplicity="*" />
@@ -419,18 +436,6 @@
             </Principal>
             <Dependent Role="Processes">
               <PropertyRef Name="CreatorId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Process_InactivateUserId">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
-          <End Role="Processes" Type="Self.Processes" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Processes">
-              <PropertyRef Name="InactivateUserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -626,7 +631,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Product_InactivateUserId">
+        <Association Name="FK_Product_DiscontinuedUserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
           <End Role="Products" Type="Self.Products" Multiplicity="*" />
           <ReferentialConstraint>
@@ -634,7 +639,7 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Products">
-              <PropertyRef Name="InactivateUserId" />
+              <PropertyRef Name="DiscontinuedUserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -710,6 +715,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_PurchaseOrder_CancelledUserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="PurchaseOrders" Type="Self.PurchaseOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PurchaseOrders">
+              <PropertyRef Name="CancelledUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_PurchaseOrder_CreatorId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
           <End Role="PurchaseOrders" Type="Self.PurchaseOrders" Multiplicity="*" />
@@ -731,18 +748,6 @@
             </Principal>
             <Dependent Role="PurchaseOrders">
               <PropertyRef Name="CustomerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PurchaseOrder_InactivateUserId">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
-          <End Role="PurchaseOrders" Type="Self.PurchaseOrders" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="PurchaseOrders">
-              <PropertyRef Name="InactivateUserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -910,7 +915,7 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Companies" EntitySet="Companies" />
           </AssociationSet>
-          <AssociationSet Name="FK_Company_InactivateUserId" Association="Self.FK_Company_InactivateUserId">
+          <AssociationSet Name="FK_Company_DiscontinuedUserId" Association="Self.FK_Company_DiscontinuedUserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Companies" EntitySet="Companies" />
           </AssociationSet>
@@ -926,7 +931,7 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Contacts" EntitySet="Contacts" />
           </AssociationSet>
-          <AssociationSet Name="FK_Contact_InactivateUserId" Association="Self.FK_Contact_InactivateUserId">
+          <AssociationSet Name="FK_Contact_DiscontinuedUserId" Association="Self.FK_Contact_DiscontinuedUserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Contacts" EntitySet="Contacts" />
           </AssociationSet>
@@ -942,11 +947,11 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Processes" EntitySet="Processes" />
           </AssociationSet>
-          <AssociationSet Name="FK_Process_CreatorId" Association="Self.FK_Process_CreatorId">
+          <AssociationSet Name="FK_Process_CancelledUserId" Association="Self.FK_Process_CancelledUserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Processes" EntitySet="Processes" />
           </AssociationSet>
-          <AssociationSet Name="FK_Process_InactivateUserId" Association="Self.FK_Process_InactivateUserId">
+          <AssociationSet Name="FK_Process_CreatorId" Association="Self.FK_Process_CreatorId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Processes" EntitySet="Processes" />
           </AssociationSet>
@@ -1014,7 +1019,7 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Products" EntitySet="Products" />
           </AssociationSet>
-          <AssociationSet Name="FK_Product_InactivateUserId" Association="Self.FK_Product_InactivateUserId">
+          <AssociationSet Name="FK_Product_DiscontinuedUserId" Association="Self.FK_Product_DiscontinuedUserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Products" EntitySet="Products" />
           </AssociationSet>
@@ -1042,16 +1047,16 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
           </AssociationSet>
+          <AssociationSet Name="FK_PurchaseOrder_CancelledUserId" Association="Self.FK_PurchaseOrder_CancelledUserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
+          </AssociationSet>
           <AssociationSet Name="FK_PurchaseOrder_CreatorId" Association="Self.FK_PurchaseOrder_CreatorId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
           </AssociationSet>
           <AssociationSet Name="FK_PurchaseOrder_CustomerId" Association="Self.FK_PurchaseOrder_CustomerId">
             <End Role="Customers" EntitySet="Customers" />
-            <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_PurchaseOrder_InactivateUserId" Association="Self.FK_PurchaseOrder_InactivateUserId">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
           </AssociationSet>
           <AssociationSet Name="FK_PurchaseOrder_ModifierId" Association="Self.FK_PurchaseOrder_ModifierId">
@@ -1181,7 +1186,7 @@
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
             <End Role="Company" EntitySet="Companies" />
           </AssociationSet>
-          <AssociationSet Name="FK_Company_InactivateUserId" Association="CriticalPathDataModel.FK_Company_InactivateUserId">
+          <AssociationSet Name="FK_Company_DiscontinuedUserId" Association="CriticalPathDataModel.FK_Company_DiscontinuedUserId">
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
             <End Role="Company" EntitySet="Companies" />
           </AssociationSet>
@@ -1193,7 +1198,7 @@
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
             <End Role="Contact" EntitySet="Contacts" />
           </AssociationSet>
-          <AssociationSet Name="FK_Contact_InactivateUserId" Association="CriticalPathDataModel.FK_Contact_InactivateUserId">
+          <AssociationSet Name="FK_Contact_DiscontinuedUserId" Association="CriticalPathDataModel.FK_Contact_DiscontinuedUserId">
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
             <End Role="Contact" EntitySet="Contacts" />
           </AssociationSet>
@@ -1209,7 +1214,7 @@
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
             <End Role="Process" EntitySet="Processes" />
           </AssociationSet>
-          <AssociationSet Name="FK_Process_InactivateUserId" Association="CriticalPathDataModel.FK_Process_InactivateUserId">
+          <AssociationSet Name="FK_Process_CancelledUserId" Association="CriticalPathDataModel.FK_Process_CancelledUserId">
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
             <End Role="Process" EntitySet="Processes" />
           </AssociationSet>
@@ -1253,7 +1258,7 @@
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
             <End Role="Product" EntitySet="Products" />
           </AssociationSet>
-          <AssociationSet Name="FK_Product_InactivateUserId" Association="CriticalPathDataModel.FK_Product_InactivateUserId">
+          <AssociationSet Name="FK_Product_DiscontinuedUserId" Association="CriticalPathDataModel.FK_Product_DiscontinuedUserId">
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
             <End Role="Product" EntitySet="Products" />
           </AssociationSet>
@@ -1277,7 +1282,7 @@
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
             <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
           </AssociationSet>
-          <AssociationSet Name="FK_PurchaseOrder_InactivateUserId" Association="CriticalPathDataModel.FK_PurchaseOrder_InactivateUserId">
+          <AssociationSet Name="FK_PurchaseOrder_CancelledUserId" Association="CriticalPathDataModel.FK_PurchaseOrder_CancelledUserId">
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
             <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
           </AssociationSet>
@@ -1326,9 +1331,9 @@
           <Property Name="State" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
           <Property Name="ZipCode" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
           <Property Name="Country" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="InactivateDate" Type="DateTime" Precision="3" />
-          <Property Name="InactivateNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Discontinued" Type="Boolean" Nullable="false" />
+          <Property Name="DiscontinueDate" Type="DateTime" Precision="3" />
+          <Property Name="DiscontinueNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Notes" Type="String" MaxLength="2048" FixedLength="false" Unicode="true" />
           <Property Name="ModifyNr" Type="Int32" Nullable="false" />
           <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
@@ -1338,10 +1343,11 @@
           <Property Name="CreatorId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
           <Property Name="CreatorIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Contacts" Relationship="CriticalPathDataModel.FK_Contact_CompanyId" FromRole="Company" ToRole="Contact" />
-          <Property Name="InactivateUserId" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="DiscontinuedUserId" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="CreatedUser" Relationship="CriticalPathDataModel.FK_Company_CreatorId" FromRole="Company" ToRole="AspNetUser" />
-          <NavigationProperty Name="InactivateUser" Relationship="CriticalPathDataModel.FK_Company_InactivateUserId" FromRole="Company" ToRole="AspNetUser" />
+          <NavigationProperty Name="DiscontinuedUser" Relationship="CriticalPathDataModel.FK_Company_DiscontinuedUserId" FromRole="Company" ToRole="AspNetUser" />
           <NavigationProperty Name="ModifiedUser" Relationship="CriticalPathDataModel.FK_Company_ModifierId" FromRole="Company" ToRole="AspNetUser" />
+          <Property Name="DiscontinuedUserIp" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Contact">
           <Key>
@@ -1356,9 +1362,9 @@
           <Property Name="PhoneMobile" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
           <Property Name="PhoneWork1" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
           <Property Name="PhoneWork2" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="InactivateDate" Type="DateTime" Precision="3" />
-          <Property Name="InactivateNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Discontinued" Type="Boolean" Nullable="false" />
+          <Property Name="DiscontinueDate" Type="DateTime" Precision="3" />
+          <Property Name="DiscontinueNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Notes" Type="String" MaxLength="2048" FixedLength="false" Unicode="true" />
           <Property Name="ModifyNr" Type="Int32" Nullable="false" />
           <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
@@ -1368,10 +1374,11 @@
           <Property Name="CreatorId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
           <Property Name="CreatorIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Company" Relationship="CriticalPathDataModel.FK_Contact_CompanyId" FromRole="Contact" ToRole="Company" />
-          <Property Name="InactivateUserId" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="DiscontinuedUserId" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="CreatedUser" Relationship="CriticalPathDataModel.FK_Contact_CreatorId" FromRole="Contact" ToRole="AspNetUser" />
-          <NavigationProperty Name="InactivateUser" Relationship="CriticalPathDataModel.FK_Contact_InactivateUserId" FromRole="Contact" ToRole="AspNetUser" />
+          <NavigationProperty Name="DiscontinuedUser" Relationship="CriticalPathDataModel.FK_Contact_DiscontinuedUserId" FromRole="Contact" ToRole="AspNetUser" />
           <NavigationProperty Name="ModifiedUser" Relationship="CriticalPathDataModel.FK_Contact_ModifierId" FromRole="Contact" ToRole="AspNetUser" />
+          <Property Name="DiscontinuedUserIp" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Customer" BaseType="CriticalPathDataModel.Company">
           <Property Name="CustomerCode" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
@@ -1437,9 +1444,9 @@
           <Property Name="CategoryId" Type="Int32" Nullable="false" />
           <Property Name="SizingStandardId" Type="Int32" Nullable="false" />
           <Property Name="ImageUrl" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="InactivateDate" Type="DateTime" Precision="3" />
-          <Property Name="InactivateNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Discontinued" Type="Boolean" Nullable="false" />
+          <Property Name="DiscontinueDate" Type="DateTime" Precision="3" />
+          <Property Name="DiscontinueNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ModifyNr" Type="Int32" Nullable="false" />
           <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
@@ -1450,10 +1457,11 @@
           <NavigationProperty Name="Category" Relationship="CriticalPathDataModel.FK_Product_CategoryId" FromRole="Product" ToRole="ProductCategory" />
           <NavigationProperty Name="PurchaseOrders" Relationship="CriticalPathDataModel.FK_PurchaseOrder_ProductId" FromRole="Product" ToRole="PurchaseOrder" />
           <NavigationProperty Name="SizingStandard" Relationship="CriticalPathDataModel.FK_Product_SizingStandardId" FromRole="Product" ToRole="SizingStandard" />
-          <Property Name="InactivateUserId" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="DiscontinuedUserId" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="CreatedUser" Relationship="CriticalPathDataModel.FK_Product_CreatorId" FromRole="Product" ToRole="AspNetUser" />
-          <NavigationProperty Name="InactivateUser" Relationship="CriticalPathDataModel.FK_Product_InactivateUserId" FromRole="Product" ToRole="AspNetUser" />
+          <NavigationProperty Name="DiscontinuedUser" Relationship="CriticalPathDataModel.FK_Product_DiscontinuedUserId" FromRole="Product" ToRole="AspNetUser" />
           <NavigationProperty Name="ModifiedUser" Relationship="CriticalPathDataModel.FK_Product_ModifierId" FromRole="Product" ToRole="AspNetUser" />
+          <Property Name="DiscontinuedUserIp" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_Product_CategoryId">
           <End Type="CriticalPathDataModel.ProductCategory" Role="ProductCategory" Multiplicity="1" />
@@ -1482,14 +1490,16 @@
           <Property Name="Quantity" Type="Int32" Nullable="false" />
           <Property Name="UnitPrice" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
           <Property Name="SizeRateDivisor" Type="Int32" Nullable="false" />
-          <Property Name="Notes" Type="String" MaxLength="2048" FixedLength="false" Unicode="true" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="CancellationDate" Type="DateTime" Precision="3" />
-          <Property Name="CancellationNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ApproveDate" Type="DateTime" Precision="3" />
           <Property Name="ApprovedUserId" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
           <Property Name="ApprovedUserIp" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="Cancelled" Type="Boolean" Nullable="false" />
+          <Property Name="CancelDate" Type="DateTime" Precision="3" />
+          <Property Name="CancelNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CancelledUserId" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="CancelledUserIp" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="IsApproved" Type="Boolean" Nullable="false" />
           <Property Name="ModifyNr" Type="Int32" Nullable="false" />
           <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
@@ -1502,10 +1512,9 @@
           <NavigationProperty Name="Product" Relationship="CriticalPathDataModel.FK_PurchaseOrder_ProductId" FromRole="PurchaseOrder" ToRole="Product" />
           <NavigationProperty Name="SizeRates" Relationship="CriticalPathDataModel.FK_SizeRate_PurchaseOrderId" FromRole="PurchaseOrder" ToRole="SizeRate" />
           <NavigationProperty Name="SizingStandard" Relationship="CriticalPathDataModel.FK_PurchaseOrder_SizingStandardId" FromRole="PurchaseOrder" ToRole="SizingStandard" />
-          <Property Name="InactivateUserId" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="ApprovedUser" Relationship="CriticalPathDataModel.FK_PurchaseOrder_ApprovedUserId" FromRole="PurchaseOrder" ToRole="AspNetUser" />
           <NavigationProperty Name="CreatedUser" Relationship="CriticalPathDataModel.FK_PurchaseOrder_CreatorId" FromRole="PurchaseOrder" ToRole="AspNetUser" />
-          <NavigationProperty Name="InactivateUser" Relationship="CriticalPathDataModel.FK_PurchaseOrder_InactivateUserId" FromRole="PurchaseOrder" ToRole="AspNetUser" />
+          <NavigationProperty Name="CancelledUser" Relationship="CriticalPathDataModel.FK_PurchaseOrder_CancelledUserId" FromRole="PurchaseOrder" ToRole="AspNetUser" />
           <NavigationProperty Name="ModifiedUser" Relationship="CriticalPathDataModel.FK_PurchaseOrder_ModifierId" FromRole="PurchaseOrder" ToRole="AspNetUser" />
         </EntityType>
         <Association Name="FK_PurchaseOrder_CustomerId">
@@ -1533,13 +1542,15 @@
           <Property Name="TargetDate" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="ForecastDate" Type="DateTime" Precision="3" />
           <Property Name="RealizedDate" Type="DateTime" Precision="3" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="CancellationDate" Type="DateTime" Precision="3" />
-          <Property Name="CancellationNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="IsApproved" Type="Boolean" Nullable="false" />
           <Property Name="ApproveDate" Type="DateTime" Precision="3" />
           <Property Name="ApprovedUserId" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
           <Property Name="ApprovedUserIp" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="Cancelled" Type="Boolean" Nullable="false" />
+          <Property Name="CancelDate" Type="DateTime" Precision="3" />
+          <Property Name="CancelNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CancelledUserId" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="CancelledUserIp" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
           <Property Name="ModifyNr" Type="Int32" Nullable="false" />
           <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
@@ -1550,10 +1561,9 @@
           <NavigationProperty Name="ProcessTemplate" Relationship="CriticalPathDataModel.FK_Process_ProcessTemplateId" FromRole="Process" ToRole="ProcessTemplate" />
           <NavigationProperty Name="ProcessSteps" Relationship="CriticalPathDataModel.FK_ProcessStep_ProcessId" FromRole="Process" ToRole="ProcessStep" />
           <NavigationProperty Name="PurchaseOrder" Relationship="CriticalPathDataModel.FK_Process_PurchaseOrderId" FromRole="Process" ToRole="PurchaseOrder" />
-          <Property Name="InactivateUserId" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="ApprovedUser" Relationship="CriticalPathDataModel.FK_Process_ApprovedUserId" FromRole="Process" ToRole="AspNetUser" />
           <NavigationProperty Name="CreatedUser" Relationship="CriticalPathDataModel.FK_Process_CreatorId" FromRole="Process" ToRole="AspNetUser" />
-          <NavigationProperty Name="InactivateUser" Relationship="CriticalPathDataModel.FK_Process_InactivateUserId" FromRole="Process" ToRole="AspNetUser" />
+          <NavigationProperty Name="CancelledUser" Relationship="CriticalPathDataModel.FK_Process_CancelledUserId" FromRole="Process" ToRole="AspNetUser" />
           <NavigationProperty Name="ModifiedUser" Relationship="CriticalPathDataModel.FK_Process_ModifierId" FromRole="Process" ToRole="AspNetUser" />
         </EntityType>
         <EntityType Name="ProcessStep">
@@ -1828,15 +1838,15 @@
           <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
           <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
           <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="InactivateCompanies" Relationship="CriticalPathDataModel.FK_Company_InactivateUserId" FromRole="AspNetUser" ToRole="Company" />
-          <NavigationProperty Name="InactivateContacts" Relationship="CriticalPathDataModel.FK_Contact_InactivateUserId" FromRole="AspNetUser" ToRole="Contact" />
+          <NavigationProperty Name="InactivatedCompanies" Relationship="CriticalPathDataModel.FK_Company_DiscontinuedUserId" FromRole="AspNetUser" ToRole="Company" />
+          <NavigationProperty Name="InactivatedContacts" Relationship="CriticalPathDataModel.FK_Contact_DiscontinuedUserId" FromRole="AspNetUser" ToRole="Contact" />
           <NavigationProperty Name="ApprovedProcesses" Relationship="CriticalPathDataModel.FK_Process_ApprovedUserId" FromRole="AspNetUser" ToRole="Process" />
-          <NavigationProperty Name="InactivateProcesses" Relationship="CriticalPathDataModel.FK_Process_InactivateUserId" FromRole="AspNetUser" ToRole="Process" />
+          <NavigationProperty Name="CancelledProcesses" Relationship="CriticalPathDataModel.FK_Process_CancelledUserId" FromRole="AspNetUser" ToRole="Process" />
           <NavigationProperty Name="ApprovedProcessSteps" Relationship="CriticalPathDataModel.FK_ProcessStep_ApprovedUserId" FromRole="AspNetUser" ToRole="ProcessStep" />
           <NavigationProperty Name="ApprovedProcessTemplates" Relationship="CriticalPathDataModel.FK_ProcessTemplate_ApprovedUserId" FromRole="AspNetUser" ToRole="ProcessTemplate" />
-          <NavigationProperty Name="InactivateProducts" Relationship="CriticalPathDataModel.FK_Product_InactivateUserId" FromRole="AspNetUser" ToRole="Product" />
+          <NavigationProperty Name="InactivatedProducts" Relationship="CriticalPathDataModel.FK_Product_DiscontinuedUserId" FromRole="AspNetUser" ToRole="Product" />
           <NavigationProperty Name="ApprovedPurchaseOrders" Relationship="CriticalPathDataModel.FK_PurchaseOrder_ApprovedUserId" FromRole="AspNetUser" ToRole="PurchaseOrder" />
-          <NavigationProperty Name="InactivatePurchaseOrders" Relationship="CriticalPathDataModel.FK_PurchaseOrder_InactivateUserId" FromRole="AspNetUser" ToRole="PurchaseOrder" />
+          <NavigationProperty Name="CancelledPurchaseOrders" Relationship="CriticalPathDataModel.FK_PurchaseOrder_CancelledUserId" FromRole="AspNetUser" ToRole="PurchaseOrder" />
         </EntityType>
         <Association Name="FK_Company_CreatorId">
           <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
@@ -1850,7 +1860,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Company_InactivateUserId">
+        <Association Name="FK_Company_DiscontinuedUserId">
           <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
           <End Type="CriticalPathDataModel.Company" Role="Company" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1858,7 +1868,7 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Company">
-              <PropertyRef Name="InactivateUserId" />
+              <PropertyRef Name="DiscontinuedUserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1886,7 +1896,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Contact_InactivateUserId">
+        <Association Name="FK_Contact_DiscontinuedUserId">
           <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
           <End Type="CriticalPathDataModel.Contact" Role="Contact" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1894,7 +1904,7 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Contact">
-              <PropertyRef Name="InactivateUserId" />
+              <PropertyRef Name="DiscontinuedUserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1934,7 +1944,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Process_InactivateUserId">
+        <Association Name="FK_Process_CancelledUserId">
           <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
           <End Type="CriticalPathDataModel.Process" Role="Process" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1942,7 +1952,7 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Process">
-              <PropertyRef Name="InactivateUserId" />
+              <PropertyRef Name="CancelledUserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2066,7 +2076,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Product_InactivateUserId">
+        <Association Name="FK_Product_DiscontinuedUserId">
           <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
           <End Type="CriticalPathDataModel.Product" Role="Product" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2074,7 +2084,7 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Product">
-              <PropertyRef Name="InactivateUserId" />
+              <PropertyRef Name="DiscontinuedUserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2138,7 +2148,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_PurchaseOrder_InactivateUserId">
+        <Association Name="FK_PurchaseOrder_CancelledUserId">
           <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
           <End Type="CriticalPathDataModel.PurchaseOrder" Role="PurchaseOrder" Multiplicity="*" />
           <ReferentialConstraint>
@@ -2146,7 +2156,7 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="PurchaseOrder">
-              <PropertyRef Name="InactivateUserId" />
+              <PropertyRef Name="CancelledUserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2243,10 +2253,11 @@
           <EntitySetMapping Name="Companies">
             <EntityTypeMapping TypeName="IsTypeOf(CriticalPathDataModel.Company)">
               <MappingFragment StoreEntitySet="Companies">
-                <ScalarProperty Name="InactivateUserId" ColumnName="InactivateUserId" />
-                <ScalarProperty Name="InactivateNotes" ColumnName="InactivateNotes" />
-                <ScalarProperty Name="InactivateDate" ColumnName="InactivateDate" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DiscontinuedUserIp" ColumnName="DiscontinuedUserIp" />
+                <ScalarProperty Name="DiscontinuedUserId" ColumnName="DiscontinuedUserId" />
+                <ScalarProperty Name="DiscontinueNotes" ColumnName="DiscontinueNotes" />
+                <ScalarProperty Name="DiscontinueDate" ColumnName="DiscontinueDate" />
+                <ScalarProperty Name="Discontinued" ColumnName="Discontinued" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="CreatorIp" ColumnName="CreatorIp" />
                 <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
@@ -2284,10 +2295,11 @@
           <EntitySetMapping Name="Contacts">
             <EntityTypeMapping TypeName="CriticalPathDataModel.Contact">
               <MappingFragment StoreEntitySet="Contacts">
-                <ScalarProperty Name="InactivateUserId" ColumnName="InactivateUserId" />
-                <ScalarProperty Name="InactivateNotes" ColumnName="InactivateNotes" />
-                <ScalarProperty Name="InactivateDate" ColumnName="InactivateDate" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DiscontinuedUserIp" ColumnName="DiscontinuedUserIp" />
+                <ScalarProperty Name="DiscontinuedUserId" ColumnName="DiscontinuedUserId" />
+                <ScalarProperty Name="DiscontinueNotes" ColumnName="DiscontinueNotes" />
+                <ScalarProperty Name="DiscontinueDate" ColumnName="DiscontinueDate" />
+                <ScalarProperty Name="Discontinued" ColumnName="Discontinued" />
                 <ScalarProperty Name="CreatorIp" ColumnName="CreatorIp" />
                 <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
                 <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
@@ -2329,10 +2341,11 @@
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="CriticalPathDataModel.Product">
               <MappingFragment StoreEntitySet="Products">
-                <ScalarProperty Name="InactivateUserId" ColumnName="InactivateUserId" />
-                <ScalarProperty Name="InactivateNotes" ColumnName="InactivateNotes" />
-                <ScalarProperty Name="InactivateDate" ColumnName="InactivateDate" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DiscontinuedUserIp" ColumnName="DiscontinuedUserIp" />
+                <ScalarProperty Name="DiscontinuedUserId" ColumnName="DiscontinuedUserId" />
+                <ScalarProperty Name="DiscontinueNotes" ColumnName="DiscontinueNotes" />
+                <ScalarProperty Name="DiscontinueDate" ColumnName="DiscontinueDate" />
+                <ScalarProperty Name="Discontinued" ColumnName="Discontinued" />
                 <ScalarProperty Name="SizingStandardId" ColumnName="SizingStandardId" />
                 <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
                 <ScalarProperty Name="CreatorIp" ColumnName="CreatorIp" />
@@ -2353,10 +2366,11 @@
           <EntitySetMapping Name="PurchaseOrders">
             <EntityTypeMapping TypeName="CriticalPathDataModel.PurchaseOrder">
               <MappingFragment StoreEntitySet="PurchaseOrders">
-                <ScalarProperty Name="InactivateUserId" ColumnName="InactivateUserId" />
-                <ScalarProperty Name="CancellationNotes" ColumnName="CancellationNotes" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="CancellationDate" ColumnName="CancellationDate" />
+                <ScalarProperty Name="CancelledUserIp" ColumnName="CancelledUserIp" />
+                <ScalarProperty Name="CancelledUserId" ColumnName="CancelledUserId" />
+                <ScalarProperty Name="CancelNotes" ColumnName="CancelNotes" />
+                <ScalarProperty Name="Cancelled" ColumnName="Cancelled" />
+                <ScalarProperty Name="CancelDate" ColumnName="CancelDate" />
                 <ScalarProperty Name="SizeRateDivisor" ColumnName="SizeRateDivisor" />
                 <ScalarProperty Name="SizingStandardId" ColumnName="SizingStandardId" />
                 <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
@@ -2386,10 +2400,11 @@
           <EntitySetMapping Name="Processes">
             <EntityTypeMapping TypeName="CriticalPathDataModel.Process">
               <MappingFragment StoreEntitySet="Processes">
-                <ScalarProperty Name="InactivateUserId" ColumnName="InactivateUserId" />
-                <ScalarProperty Name="CancellationNotes" ColumnName="CancellationNotes" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="CancellationDate" ColumnName="CancellationDate" />
+                <ScalarProperty Name="CancelledUserIp" ColumnName="CancelledUserIp" />
+                <ScalarProperty Name="CancelledUserId" ColumnName="CancelledUserId" />
+                <ScalarProperty Name="CancelNotes" ColumnName="CancelNotes" />
+                <ScalarProperty Name="Cancelled" ColumnName="Cancelled" />
+                <ScalarProperty Name="CancelDate" ColumnName="CancelDate" />
                 <ScalarProperty Name="PurchaseOrderId" ColumnName="PurchaseOrderId" />
                 <ScalarProperty Name="RealizedDate" ColumnName="RealizedDate" />
                 <ScalarProperty Name="ForecastDate" ColumnName="ForecastDate" />

@@ -17,15 +17,15 @@ namespace CriticalPath.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public AspNetUser()
         {
-            this.InactivateCompanies = new HashSet<Company>();
-            this.InactivateContacts = new HashSet<Contact>();
+            this.InactivatedCompanies = new HashSet<Company>();
+            this.InactivatedContacts = new HashSet<Contact>();
             this.ApprovedProcesses = new HashSet<Process>();
-            this.InactivateProcesses = new HashSet<Process>();
+            this.CancelledProcesses = new HashSet<Process>();
             this.ApprovedProcessSteps = new HashSet<ProcessStep>();
             this.ApprovedProcessTemplates = new HashSet<ProcessTemplate>();
-            this.InactivateProducts = new HashSet<Product>();
+            this.InactivatedProducts = new HashSet<Product>();
             this.ApprovedPurchaseOrders = new HashSet<PurchaseOrder>();
-            this.InactivatePurchaseOrders = new HashSet<PurchaseOrder>();
+            this.CancelledPurchaseOrders = new HashSet<PurchaseOrder>();
         }
     
         public string Id { get; set; }
@@ -44,23 +44,23 @@ namespace CriticalPath.Data
         public string UserName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Company> InactivateCompanies { get; set; }
+        public virtual ICollection<Company> InactivatedCompanies { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Contact> InactivateContacts { get; set; }
+        public virtual ICollection<Contact> InactivatedContacts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Process> ApprovedProcesses { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Process> InactivateProcesses { get; set; }
+        public virtual ICollection<Process> CancelledProcesses { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProcessStep> ApprovedProcessSteps { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProcessTemplate> ApprovedProcessTemplates { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> InactivateProducts { get; set; }
+        public virtual ICollection<Product> InactivatedProducts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PurchaseOrder> ApprovedPurchaseOrders { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PurchaseOrder> InactivatePurchaseOrders { get; set; }
+        public virtual ICollection<PurchaseOrder> CancelledPurchaseOrders { get; set; }
     	/// <summary>
     	/// Clones all properties in a new AspNetUser instance,
     	/// except PrimaryKey(s)

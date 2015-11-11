@@ -41,6 +41,15 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "StepTemplates")]
             public ICollection<ProcessStepTemplate> StepTemplates { get; set; }
 
+            [Display(ResourceType = typeof(EntityStrings), Name = "ApprovedUser")]
+            public AspNetUser ApprovedUser { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "ModifiedUser")]
+            public AspNetUser ModifiedUser { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "CreatedUser")]
+            public AspNetUser CreatedUser { get; set; }
+
 		}
 	}
 }

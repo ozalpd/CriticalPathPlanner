@@ -133,9 +133,9 @@ namespace CriticalPath.Data
                        State = e.State,
                        ZipCode = e.ZipCode,
                        Country = e.Country,
-                       IsActive = e.IsActive,
-                       InactivateDate = e.InactivateDate,
-                       InactivateNotes = e.InactivateNotes,
+                       Discontinued = e.Discontinued,
+                       DiscontinueDate = e.DiscontinueDate,
+                       DiscontinueNotes = e.DiscontinueNotes,
                        Notes = e.Notes,
                        CustomerCode = e.CustomerCode,
                    };
@@ -183,9 +183,9 @@ namespace CriticalPath.Data
                        State = e.State,
                        ZipCode = e.ZipCode,
                        Country = e.Country,
-                       IsActive = e.IsActive,
-                       InactivateDate = e.InactivateDate,
-                       InactivateNotes = e.InactivateNotes,
+                       Discontinued = e.Discontinued,
+                       DiscontinueDate = e.DiscontinueDate,
+                       DiscontinueNotes = e.DiscontinueNotes,
                        Notes = e.Notes,
                        SupplierCode = e.SupplierCode,
                    };
@@ -230,9 +230,9 @@ namespace CriticalPath.Data
                        PhoneMobile = e.PhoneMobile,
                        PhoneWork1 = e.PhoneWork1,
                        PhoneWork2 = e.PhoneWork2,
-                       IsActive = e.IsActive,
-                       InactivateDate = e.InactivateDate,
-                       InactivateNotes = e.InactivateNotes,
+                       Discontinued = e.Discontinued,
+                       DiscontinueDate = e.DiscontinueDate,
+                       DiscontinueNotes = e.DiscontinueNotes,
                        Notes = e.Notes,
                    };
         }
@@ -276,11 +276,11 @@ namespace CriticalPath.Data
                        TargetDate = e.TargetDate,
                        ForecastDate = e.ForecastDate,
                        RealizedDate = e.RealizedDate,
-                       IsActive = e.IsActive,
-                       CancellationDate = e.CancellationDate,
-                       CancellationNotes = e.CancellationNotes,
                        IsApproved = e.IsApproved,
                        ApproveDate = e.ApproveDate,
+                       Cancelled = e.Cancelled,
+                       CancelDate = e.CancelDate,
+                       CancelNotes = e.CancelNotes,
                    };
         }
     
@@ -480,9 +480,9 @@ namespace CriticalPath.Data
                        CategoryId = e.CategoryId,
                        SizingStandardId = e.SizingStandardId,
                        ImageUrl = e.ImageUrl,
-                       IsActive = e.IsActive,
-                       InactivateDate = e.InactivateDate,
-                       InactivateNotes = e.InactivateNotes,
+                       Discontinued = e.Discontinued,
+                       DiscontinueDate = e.DiscontinueDate,
+                       DiscontinueNotes = e.DiscontinueNotes,
                    };
         }
     
@@ -528,11 +528,11 @@ namespace CriticalPath.Data
                        UnitPrice = e.UnitPrice,
                        SizeRateDivisor = e.SizeRateDivisor,
                        Notes = e.Notes,
-                       IsActive = e.IsActive,
-                       CancellationDate = e.CancellationDate,
-                       CancellationNotes = e.CancellationNotes,
-                       IsApproved = e.IsApproved,
                        ApproveDate = e.ApproveDate,
+                       Cancelled = e.Cancelled,
+                       CancelDate = e.CancelDate,
+                       CancelNotes = e.CancelNotes,
+                       IsApproved = e.IsApproved,
                    };
         }
     

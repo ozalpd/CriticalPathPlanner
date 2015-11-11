@@ -74,23 +74,33 @@ namespace CriticalPath.Data
         int ProductId { get; set; }
     }
     
-    public interface IIsActive
+    public interface ICancelled
     {
-        bool IsActive { get; set; }
+        bool Cancelled { get; set; }
+        Nullable<System.DateTime> CancelDate { get; set; }
+        string CancelNotes { get; set; }
     }
     
     public interface ICancellation
     {
-        bool IsActive { get; set; }
-        Nullable<System.DateTime> CancellationDate { get; set; }
-        string CancellationNotes { get; set; }
+        bool Cancelled { get; set; }
+        Nullable<System.DateTime> CancelDate { get; set; }
+        string CancelNotes { get; set; }
+        string CancelledUserId { get; set; }
+        string CancelledUserIp { get; set; }
     }
     
-    public interface IInactivation
+    public interface IDiscontinued
     {
-        bool IsActive { get; set; }
-        Nullable<System.DateTime> InactivateDate { get; set; }
-        string InactivateNotes { get; set; }
+        bool Discontinued { get; set; }
+        Nullable<System.DateTime> DiscontinueDate { get; set; }
+        string DiscontinueNotes { get; set; }
+    }
+    
+    public interface IDiscontinuedUser
+    {
+        string DiscontinuedUserId { get; set; }
+        string DiscontinuedUserIp { get; set; }
     }
     #endregion
 }

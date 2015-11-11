@@ -42,9 +42,9 @@ namespace CriticalPath.Data
             clone.State = State;
             clone.ZipCode = ZipCode;
             clone.Country = Country;
-            clone.IsActive = IsActive;
-            clone.InactivateDate = InactivateDate;
-            clone.InactivateNotes = InactivateNotes;
+            clone.Discontinued = Discontinued;
+            clone.DiscontinueDate = DiscontinueDate;
+            clone.DiscontinueNotes = DiscontinueNotes;
             clone.Notes = Notes;
             clone.ModifyNr = ModifyNr;
             clone.ModifyDate = ModifyDate;
@@ -53,7 +53,8 @@ namespace CriticalPath.Data
             clone.CreateDate = CreateDate;
             clone.CreatorId = CreatorId;
             clone.CreatorIp = CreatorIp;
-            clone.InactivateUserId = InactivateUserId;
+            clone.DiscontinuedUserId = DiscontinuedUserId;
+            clone.DiscontinuedUserIp = DiscontinuedUserIp;
             clone.CustomerCode = CustomerCode;
     
             Cloning(clone);
@@ -84,9 +85,9 @@ namespace CriticalPath.Data
             State = entity.State;
             ZipCode = entity.ZipCode;
             Country = entity.Country;
-            IsActive = entity.IsActive;
-            InactivateDate = entity.InactivateDate;
-            InactivateNotes = entity.InactivateNotes;
+            Discontinued = entity.Discontinued;
+            DiscontinueDate = entity.DiscontinueDate;
+            DiscontinueNotes = entity.DiscontinueNotes;
             Notes = entity.Notes;
             CustomerCode = entity.CustomerCode;
         
@@ -109,9 +110,9 @@ namespace CriticalPath.Data
             entity.State = State;
             entity.ZipCode = ZipCode;
             entity.Country = Country;
-            entity.IsActive = IsActive;
-            entity.InactivateDate = InactivateDate;
-            entity.InactivateNotes = InactivateNotes;
+            entity.Discontinued = Discontinued;
+            entity.DiscontinueDate = DiscontinueDate;
+            entity.DiscontinueNotes = DiscontinueNotes;
             entity.Notes = Notes;
             entity.CustomerCode = CustomerCode;
     
@@ -133,9 +134,9 @@ namespace CriticalPath.Data
         public string State { get; set; }
         public string ZipCode { get; set; }
         public string Country { get; set; }
-        public bool IsActive { get; set; }
-        public Nullable<System.DateTime> InactivateDate { get; set; }
-        public string InactivateNotes { get; set; }
+        public bool Discontinued { get; set; }
+        public Nullable<System.DateTime> DiscontinueDate { get; set; }
+        public string DiscontinueNotes { get; set; }
         public string Notes { get; set; }
         public string CustomerCode { get; set; }
     }

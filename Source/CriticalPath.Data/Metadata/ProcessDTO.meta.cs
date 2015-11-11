@@ -28,8 +28,9 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "ApproveDate")]
             public DateTime ApproveDate { get; set; }
 
-            [Display(ResourceType = typeof(EntityStrings), Name = "IsActive")]
-            public bool IsActive { get; set; }
+            [UIHint("BoolRed")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "Cancelled")]
+            public bool Cancelled { get; set; }
 
             [StringLength(128, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
@@ -66,12 +67,12 @@ namespace CriticalPath.Data
             public DateTime RealizedDate { get; set; }
 
             [DataType(DataType.Date)]
-            [Display(ResourceType = typeof(EntityStrings), Name = "CancellationDate")]
-            public DateTime CancellationDate { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "CancelDate")]
+            public DateTime CancelDate { get; set; }
 
             [DataType(DataType.MultilineText)]
-            [Display(ResourceType = typeof(EntityStrings), Name = "CancellationNotes")]
-            public string CancellationNotes { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "CancelNotes")]
+            public string CancelNotes { get; set; }
 
 		}
 	}

@@ -4,10 +4,31 @@
 @model ProcessStep
 @{
     ViewBag.Title = EntityStrings.ProcessStep;
+
+    //Authorization Flags
+    bool canUserEdit = ViewBag.canUserEdit;
+    bool canUserCreate = ViewBag.canUserCreate;
+    bool canUserDelete = ViewBag.canUserDelete;
 }
 
 <h2>@EntityStrings.ProcessStep @ActionStrings.Details</h2>
 
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.IsApproved)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.IsApproved)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.ApproveDate)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.ApproveDate)
+    </div>
+</div>
 <div class="row">
     <label class="control-label col-md-2 col-sm-3">
         @Html.DisplayNameFor(model => model.Title)
@@ -42,74 +63,50 @@
 </div>
 <div class="row">
     <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.TargetStartDate)
+        @Html.DisplayNameFor(model => model.TargetDate)
     </label>
     <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.TargetStartDate)
+        @Html.DisplayFor(m => m.TargetDate)
     </div>
 </div>
 <div class="row">
     <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.TargetEndDate)
+        @Html.DisplayNameFor(model => model.ForecastDate)
     </label>
     <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.TargetEndDate)
+        @Html.DisplayFor(m => m.ForecastDate)
     </div>
 </div>
 <div class="row">
     <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.ForecastStartDate)
+        @Html.DisplayNameFor(model => model.RealizedDate)
     </label>
     <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.ForecastStartDate)
+        @Html.DisplayFor(m => m.RealizedDate)
     </div>
 </div>
 <div class="row">
     <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.ForecastEndDate)
+        @Html.DisplayNameFor(model => model.ApprovedUser)
     </label>
     <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.ForecastEndDate)
+        @Html.DisplayFor(m => m.ApprovedUser)
     </div>
 </div>
 <div class="row">
     <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.RealizedStartDate)
+        @Html.DisplayNameFor(model => model.ModifiedUser)
     </label>
     <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.RealizedStartDate)
+        @Html.DisplayFor(m => m.ModifiedUser)
     </div>
 </div>
 <div class="row">
     <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.RealizedEndDate)
+        @Html.DisplayNameFor(model => model.CreatedUser)
     </label>
     <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.RealizedEndDate)
-    </div>
-</div>
-<div class="row">
-    <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.Template)
-    </label>
-    <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.Template)
-    </div>
-</div>
-<div class="row">
-    <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.IsApproved)
-    </label>
-    <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.IsApproved)
-    </div>
-</div>
-<div class="row">
-    <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.ApproveDate)
-    </label>
-    <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.ApproveDate)
+        @Html.DisplayFor(m => m.CreatedUser)
     </div>
 </div>
 @Html.Partial("_DetailFormButtonsPartial")

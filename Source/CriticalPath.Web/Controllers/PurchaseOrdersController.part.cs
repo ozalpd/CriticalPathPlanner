@@ -120,7 +120,7 @@ namespace CriticalPath.Web.Controllers
             if (purchaseOrder == null)
                 return HttpNotFound();
 
-            if (!purchaseOrder.IsActive)
+            if (purchaseOrder.Cancelled)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
             var purchaseOrderVM = new PurchaseOrderCancelVM(purchaseOrder);
@@ -136,21 +136,20 @@ namespace CriticalPath.Web.Controllers
             if (purchaseOrder == null)
                 return new HttpStatusCodeResult(HttpStatusCode.NotFound);
 
-            if (!string.IsNullOrEmpty(vm.CancellationNotes))
+            if (!string.IsNullOrEmpty(vm.CancelNotes) && vm.Cancelled)
             {
-                purchaseOrder.CancellationNotes = vm.CancellationNotes;
-                await CancelSaveAsync(purchaseOrder);
+                purchaseOrder.CancelNotes = vm.CancelNotes;
+                CancelCancellation(purchaseOrder);
+                foreach (var item in purchaseOrder.Processes)
+                {
+                    item.CancelNotes = vm.CancelNotes;
+                    CancelCancellation(item);
+                }
+                await DataContext.SaveChangesAsync(this);
                 return RedirectToAction("Details", new { id = purchaseOrder.Id });
             }
             var poVM = new PurchaseOrderCancelVM(purchaseOrder);
             return View(poVM);
-        }
-
-        //TODO: Create ICancellationDate & IInactivateDate interfaces
-        //TODO: Implement CancelSaveAsync into BaseController
-        protected Task CancelSaveAsync(PurchaseOrder purchaseOrder)
-        {
-            throw new NotImplementedException();
         }
 
         [HttpGet]
@@ -308,13 +307,12 @@ namespace CriticalPath.Web.Controllers
         protected override Task SetPurchaseOrderDefaults(PurchaseOrderDTO purchaseOrder)
         {
             purchaseOrder.OrderDate = DateTime.Today;
-            purchaseOrder.IsActive = true;
             return Task.FromResult(default(object));
         }
 
         public new partial class QueryParameters : BaseController.QueryParameters
         {
-            public bool? IsActive { get; set; }
+            public bool? IsCancelled { get; set; }
             public bool? IsApproved { get; set; }
         }
     }

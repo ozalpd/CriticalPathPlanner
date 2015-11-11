@@ -246,31 +246,38 @@
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>IsActive</Name>
+          <Name>Discontinued</Name>
           <Exclude>false</Exclude>
+          <UIHint>BoolRed</UIHint>
           <DataType />
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>InactivateDate</Name>
+          <Name>DiscontinueDate</Name>
           <Exclude>false</Exclude>
           <DataType>Date</DataType>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>InactivateNotes</Name>
+          <Name>DiscontinueNotes</Name>
           <Exclude>false</Exclude>
           <DataType>MultilineText</DataType>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>InactivateUserId</Name>
-          <Exclude>false</Exclude>
+          <Name>DiscontinuedUserIp</Name>
+          <Exclude>true</Exclude>
           <DataType />
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>InactivateUser</Name>
+          <Name>DiscontinuedUserId</Name>
+          <Exclude>true</Exclude>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>DiscontinuedUser</Name>
           <Exclude>false</Exclude>
           <Required />
         </MetadataPropertySetting>
@@ -353,31 +360,38 @@
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>IsActive</Name>
+          <Name>Discontinued</Name>
           <Exclude>false</Exclude>
+          <UIHint>BoolRed</UIHint>
           <DataType />
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>InactivateDate</Name>
+          <Name>DiscontinueDate</Name>
           <Exclude>false</Exclude>
           <DataType>Date</DataType>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>InactivateNotes</Name>
+          <Name>DiscontinueNotes</Name>
           <Exclude>false</Exclude>
           <DataType>MultilineText</DataType>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>InactivateUserId</Name>
-          <Exclude>false</Exclude>
+          <Name>DiscontinuedUserIp</Name>
+          <Exclude>true</Exclude>
           <DataType />
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>InactivateUser</Name>
+          <Name>DiscontinuedUserId</Name>
+          <Exclude>true</Exclude>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>DiscontinuedUser</Name>
           <Exclude>false</Exclude>
           <Required />
         </MetadataPropertySetting>
@@ -481,31 +495,38 @@
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>IsActive</Name>
+          <Name>Discontinued</Name>
           <Exclude>false</Exclude>
+          <UIHint>BoolRed</UIHint>
           <DataType />
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>InactivateDate</Name>
+          <Name>DiscontinueDate</Name>
           <Exclude>false</Exclude>
           <DataType>Date</DataType>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>InactivateNotes</Name>
+          <Name>DiscontinueNotes</Name>
           <Exclude>false</Exclude>
           <DataType>MultilineText</DataType>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>InactivateUserId</Name>
-          <Exclude>false</Exclude>
+          <Name>DiscontinuedUserIp</Name>
+          <Exclude>true</Exclude>
           <DataType />
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>InactivateUser</Name>
+          <Name>DiscontinuedUserId</Name>
+          <Exclude>true</Exclude>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>DiscontinuedUser</Name>
           <Exclude>false</Exclude>
           <Required />
         </MetadataPropertySetting>
@@ -517,8 +538,9 @@
       <OverwriteExisting>false</OverwriteExisting>
       <Properties>
         <MetadataPropertySetting>
-          <Name>IsActive</Name>
+          <Name>Cancelled</Name>
           <Exclude>false</Exclude>
+          <UIHint>BoolRed</UIHint>
           <DataType />
           <Required />
         </MetadataPropertySetting>
@@ -610,25 +632,31 @@
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>CancellationDate</Name>
+          <Name>CancelDate</Name>
           <Exclude>false</Exclude>
           <DataType>Date</DataType>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>CancellationNotes</Name>
+          <Name>CancelNotes</Name>
           <Exclude>false</Exclude>
           <DataType>MultilineText</DataType>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>InactivateUserId</Name>
-          <Exclude>false</Exclude>
+          <Name>CancelledUserIp</Name>
+          <Exclude>true</Exclude>
           <DataType />
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>InactivateUser</Name>
+          <Name>CancelledUserId</Name>
+          <Exclude>true</Exclude>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>CancelledUser</Name>
           <Exclude>false</Exclude>
           <Required />
         </MetadataPropertySetting>
@@ -734,8 +762,9 @@
       <OverwriteExisting>false</OverwriteExisting>
       <Properties>
         <MetadataPropertySetting>
-          <Name>IsActive</Name>
+          <Name>Cancelled</Name>
           <Exclude>false</Exclude>
+          <UIHint>BoolRed</UIHint>
           <DataType />
           <Required />
         </MetadataPropertySetting>
@@ -803,25 +832,31 @@
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>CancellationDate</Name>
+          <Name>CancelDate</Name>
           <Exclude>false</Exclude>
           <DataType>Date</DataType>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>CancellationNotes</Name>
+          <Name>CancelNotes</Name>
           <Exclude>false</Exclude>
           <DataType>MultilineText</DataType>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>InactivateUserId</Name>
-          <Exclude>false</Exclude>
+          <Name>CancelledUserIp</Name>
+          <Exclude>true</Exclude>
           <DataType />
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>InactivateUser</Name>
+          <Name>CancelledUserId</Name>
+          <Exclude>true</Exclude>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>CancelledUser</Name>
           <Exclude>false</Exclude>
           <Required />
         </MetadataPropertySetting>

@@ -13,6 +13,7 @@
     <div class="form-horizontal">
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.Id)
+        @Html.Partial("_ICancellationPartial")
 
         <div class="row">
             <label class="control-label col-md-2 col-sm-3 col-xs-3">
@@ -22,7 +23,7 @@
         </div>
         <div class="row">
             <label class="control-label col-md-2 col-sm-3 col-xs-3">
-                <span class="approveText">@Html.DisplayNameFor(model => model.IsApproved)</span>
+                <span class="checkboxText">@Html.DisplayNameFor(model => model.IsApproved)</span>
                 @Html.DisplayFor(m => m.IsApproved)
             </label>
             <div class="col-xs-6 mt10">

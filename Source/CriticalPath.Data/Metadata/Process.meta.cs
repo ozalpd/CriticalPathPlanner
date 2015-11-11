@@ -28,8 +28,9 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "ApproveDate")]
             public DateTime ApproveDate { get; set; }
 
-            [Display(ResourceType = typeof(EntityStrings), Name = "IsActive")]
-            public bool IsActive { get; set; }
+            [UIHint("BoolRed")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "Cancelled")]
+            public bool Cancelled { get; set; }
 
             [StringLength(128, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
@@ -75,12 +76,24 @@ namespace CriticalPath.Data
             public ICollection<ProcessStep> ProcessSteps { get; set; }
 
             [DataType(DataType.Date)]
-            [Display(ResourceType = typeof(EntityStrings), Name = "CancellationDate")]
-            public DateTime CancellationDate { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "CancelDate")]
+            public DateTime CancelDate { get; set; }
 
             [DataType(DataType.MultilineText)]
-            [Display(ResourceType = typeof(EntityStrings), Name = "CancellationNotes")]
-            public string CancellationNotes { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "CancelNotes")]
+            public string CancelNotes { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "CancelledUser")]
+            public AspNetUser CancelledUser { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "ApprovedUser")]
+            public AspNetUser ApprovedUser { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "ModifiedUser")]
+            public AspNetUser ModifiedUser { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "CreatedUser")]
+            public AspNetUser CreatedUser { get; set; }
 
 		}
 	}

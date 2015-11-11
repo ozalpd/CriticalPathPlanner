@@ -1,0 +1,25 @@
+﻿@using CP.i8n
+@using CriticalPath.Data
+@model ICancelled
+@{
+    Layout = null;
+}
+@if (Model.Cancelled)
+{
+    <div class="row fontSize150pc">
+        <label class="control-label col-md-2 col-sm-3 text-danger">
+            <span class="approveText">@Html.DisplayNameFor(model => model.Cancelled)</span>
+        </label>
+        <div class="col-sm-6">
+            @Html.DisplayFor(m => m.CancelDate)
+        </div>
+    </div>
+    <div class="row">
+        <label class="control-label col-md-2 col-sm-3 fontSize150pc text-danger">
+            @Html.DisplayNameFor(model => model.CancelNotes)
+        </label>
+        <div class="col-md-10 col-sm-9">
+            @Html.DisplayFor(m => m.CancelNotes)
+        </div>
+    </div>
+}

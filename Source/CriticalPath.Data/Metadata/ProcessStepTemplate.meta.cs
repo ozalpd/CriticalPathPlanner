@@ -42,6 +42,12 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "RequiredWorkDays")]
             public int RequiredWorkDays { get; set; }
 
+            [Display(ResourceType = typeof(EntityStrings), Name = "ModifiedUser")]
+            public AspNetUser ModifiedUser { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "CreatedUser")]
+            public AspNetUser CreatedUser { get; set; }
+
 		}
 	}
 }

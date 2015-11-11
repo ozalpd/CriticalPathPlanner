@@ -87,6 +87,10 @@
 		<value>Uygulama Ayarları</value>
 	</data>
 
+	<data name="CancelPurchaseOrder" xml:space="preserve">
+		<value>Siparişi İptal Et</value>
+	</data>
+
 	<data name="ContactUs" xml:space="preserve">
 		<value>Bize Ulaşın</value>
 	</data>

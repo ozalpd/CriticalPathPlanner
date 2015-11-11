@@ -13,7 +13,7 @@
     <div class="col-lg-6 col-md-7 col-sm-8">
         @foreach (var sizing in Model.SizingStandard.Sizings)
         {
-            <div class="col-xs-2 shadedCaption">@sizing.Caption</div>
+            <div class="col-xs-2 shadedRoundCaption">@sizing.Caption</div>
         }
     </div>
 </div>
@@ -24,10 +24,10 @@
     <div class="col-lg-6 col-md-7 col-sm-8">
         @foreach (var rate in Model.SizeRates)
         {
-            <div class="col-xs-2 shadedCaption">@rate.Caption: @rate.Rate</div>
+            <div class="col-xs-2 shadedRoundCaption">@rate.Caption: @rate.Rate</div>
         }
         <div class="col-xs-1 mr4">&nbsp;</div>
-        <div class="col-xs-3 shadedCaption fontSize125pc">
+        <div class="col-xs-3 shadedRoundCaption fontSize125pc">
             @Html.DisplayFor(m => m.SizeRateDivisor)
         </div>
     </div>

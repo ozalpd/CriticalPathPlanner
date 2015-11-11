@@ -13,10 +13,11 @@ CREATE TABLE [dbo].[Contacts](
     [PhoneWork1] [nVarChar](64) Null,
     [PhoneWork2] [nVarChar](64) Null,
     [Notes] [nVarChar](2048) Null,
-    [IsActive] [bit] Not Null,
-    [InactivateDate] [DateTime] Null,
-    [InactivateNotes] [nVarChar](max) Null,
-    [InactivateUserId] [VarChar](48) Null Constraint FK_Contact_InactivateUserId Foreign Key References [dbo].[AspNetUsers]([Id]),
+    [Discontinued] [bit] Not Null,
+    [DiscontinueDate] [DateTime] Null,
+    [DiscontinueNotes] [nVarChar](max) Null,
+    [DiscontinuedUserIp] [VarChar](48) Null,
+    [DiscontinuedUserId] [VarChar](48) Null Constraint FK_Contact_DiscontinuedUserId Foreign Key References [dbo].[AspNetUsers]([Id]),
     [ModifyNr] [int] Not Null Default 1,
     [ModifyDate] [DateTime] Not Null Default GetDate(),
     [ModifierId] [VarChar](48) Not Null Constraint FK_Contact_ModifierId Foreign Key References [dbo].[AspNetUsers]([Id]),
@@ -37,8 +38,6 @@ Go
 Create Nonclustered Index [idx_Contacts_LastName] On [dbo].[Contacts]([LastName] Asc)
 Go
 Create Nonclustered Index [idx_Contacts_CompanyId] On [dbo].[Contacts]([CompanyId] Asc)
-Go
-Create Nonclustered Index [idx_Contacts_IsActive] On [dbo].[Contacts]([IsActive] Asc)
 Go
 Create Nonclustered Index [idx_Contacts_ModifyDate] On [dbo].[Contacts]([ModifyDate] Desc)
 Go

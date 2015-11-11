@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CriticalPath.Data
 {
-    public partial class ProductDTO : IInactivation, IIsActive
+    public partial class ProductDTO
     {
 
     }

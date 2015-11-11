@@ -94,7 +94,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 FirstName = "Tucker",
                 LastName = "Gentry",
                 EmailHome = "tucker.gentry@" + c.CompanyName.ToLowerInvariant().Replace(".", "").Replace(" ", "") + ".tv",
-                IsActive = true
             });
             i++; c = customers[i % customers.Length];
             c.Contacts.Add(new Contact
@@ -102,7 +101,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 FirstName = "Thelma",
                 LastName = "Mcdaniel",
                 EmailWork = "thelma.mcdaniel@" + c.CompanyName.ToLowerInvariant().Replace(".", "").Replace(" ", "") + ".me",
-                IsActive = true
             });
             i++; c = customers[i % customers.Length];
             c.Contacts.Add(new Contact
@@ -110,7 +108,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 FirstName = "Michael",
                 LastName = "Bradshaw",
                 EmailHome = "michael.bradshaw@" + c.CompanyName.ToLowerInvariant().Replace(".", "").Replace(" ", "") + ".info",
-                IsActive = true
             });
             i++; c = customers[i % customers.Length];
             c.Contacts.Add(new Contact
@@ -118,7 +115,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 FirstName = "Jannie",
                 LastName = "Murray",
                 EmailWork = "jannie.murray@" + c.CompanyName.ToLowerInvariant().Replace(".", "").Replace(" ", "") + ".org",
-                IsActive = true
             });
             i++; c = customers[i % customers.Length];
             c.Contacts.Add(new Contact
@@ -126,7 +122,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 FirstName = "Weber",
                 LastName = "Gross",
                 EmailWork = "weber.gross@" + c.CompanyName.ToLowerInvariant().Replace(".", "").Replace(" ", "") + ".biz",
-                IsActive = true
             });
             i++; c = customers[i % customers.Length];
             c.Contacts.Add(new Contact
@@ -134,7 +129,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 FirstName = "Myra",
                 LastName = "Aguilar",
                 EmailHome = "myra.aguilar@" + c.CompanyName.ToLowerInvariant().Replace(".", "").Replace(" ", "") + ".tv",
-                IsActive = true
             });
 
             i++; c = customers[i % customers.Length];
@@ -143,7 +137,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 FirstName = "Bray",
                 LastName = "Spencer",
                 EmailWork = "bray.spencer@" + c.CompanyName.ToLowerInvariant().Replace(".", "").Replace(" ", "") + ".ca",
-                IsActive = true
             });
             i++; c = customers[i % customers.Length];
             c.Contacts.Add(new Contact
@@ -151,7 +144,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 FirstName = "Ruiz",
                 LastName = "Moody",
                 EmailHome = "ruiz.moody@" + c.CompanyName.ToLowerInvariant().Replace(".", "").Replace(" ", "") + ".biz",
-                IsActive = true
             });
             i++; c = customers[i % customers.Length];
             c.Contacts.Add(new Contact
@@ -159,7 +151,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 FirstName = "Bridgette",
                 LastName = "Murray",
                 EmailWork = "bridgette.murray@" + c.CompanyName.ToLowerInvariant().Replace(".", "").Replace(" ", "") + ".tv",
-                IsActive = true
             });
 
             i++; c = customers[i % customers.Length];
@@ -168,7 +159,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 FirstName = "Mücahit",
                 LastName = "Demir",
                 EmailWork = "mucahit.demir@" + c.CompanyName.ToLowerInvariant().Replace(".", "").Replace(" ", "") + ".ca",
-                IsActive = true
             });
             i++; c = customers[i % customers.Length];
             c.Contacts.Add(new Contact
@@ -176,7 +166,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 FirstName = "Özge",
                 LastName = "Şahin",
                 EmailHome = "ozge.sahin@" + c.CompanyName.ToLowerInvariant().Replace(".", "").Replace(" ", "") + ".biz",
-                IsActive = true
             });
             i++; c = customers[i % customers.Length];
             c.Contacts.Add(new Contact
@@ -184,7 +173,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 FirstName = "Selahattin",
                 LastName = "Çakaler",
                 EmailWork = "selahattin.c@" + c.CompanyName.ToLowerInvariant().Replace(".", "").Replace(" ", "") + ".tv",
-                IsActive = true
             });
         }
 
@@ -200,7 +188,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                         Notes = "In aliqua fugiat magna adipisicing magna cillum enim exercitation ullamco cillum ullamco.",
                         Phone1 = "(944) 444-2599",
                         Phone2 = "(877) 466-3224",
-                        IsActive = true
                     },
                     new Customer
                     {
@@ -211,7 +198,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                         Phone1 = "+1 (888) 435-3835",
                         Phone2 = "+1 (898) 597-3808",
                         Notes = "Laborum aliquip pariatur aliqua dolor voluptate cillum proident officia in.",
-                        IsActive = true
                     },
                     new Customer
                     {
@@ -222,7 +208,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                         Phone1 = "+1 (880) 473-3081",
                         Phone2 = "+1 (972) 568-2580",
                         Notes = "Mollit Lorem cupidatat voluptate occaecat sunt sunt eu in dolore ad eiusmod.",
-                        IsActive = true
                     },
                     new Customer
                     {
@@ -233,7 +218,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                         Phone1 = "+1 (983) 445-2431",
                         Phone2 = "+1 (931) 552-3165",
                         Notes = "Ea ea amet consectetur excepteur velit reprehenderit tempor dolor eiusmod laborum voluptate aute.",
-                        IsActive = true
                     },
                     new Customer
                     {
@@ -244,7 +228,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                         Phone1 = "+1 (999) 498-3117",
                         Phone2 = "+1 (876) 457-3103",
                         Notes = "Do ex magna mollit excepteur eu fugiat sit minim ullamco est est.",
-                        IsActive = true
                     },
                     new Customer
                     {
@@ -255,7 +238,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                         Notes = "In aliqua fugiat magna adipisicing magna cillum enim exercitation ullamco cillum ullamco.",
                         Phone1 = "(944) 444-2599",
                         Phone2 = "(877) 466-3224",
-                        IsActive = true
                     },
                     new Customer
                     {
@@ -266,7 +248,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                         Phone1 = "+1 (888) 435-3835",
                         Phone2 = "+1 (898) 597-3808",
                         Notes = "Laborum aliquip pariatur aliqua dolor voluptate cillum proident officia in.",
-                        IsActive = true
                     },
                     new Customer
                     {
@@ -277,7 +258,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                         Phone1 = "+1 (880) 473-3081",
                         Phone2 = "+1 (972) 568-2580",
                         Notes = "Mollit Lorem cupidatat voluptate occaecat sunt sunt eu in dolore ad eiusmod.",
-                        IsActive = true
                     },
                     new Customer
                     {
@@ -288,7 +268,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                         Phone1 = "+1 (983) 445-2431",
                         Phone2 = "+1 (931) 552-3165",
                         Notes = "Ea ea amet consectetur excepteur velit reprehenderit tempor dolor eiusmod laborum voluptate aute.",
-                        IsActive = true
                     },
                     new Customer
                     {
@@ -299,7 +278,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                         Phone1 = "+1 (999) 498-3117",
                         Phone2 = "+1 (876) 457-3103",
                         Notes = "Do ex magna mollit excepteur eu fugiat sit minim ullamco est est.",
-                        IsActive = true
                     },
                     new Customer
                     {
@@ -310,7 +288,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                         Phone1 = "+1 (984) 410-2831",
                         Phone2 = "+1 (873) 545-2215",
                         Notes = "Ullamco reprehenderit esse id qui voluptate ipsum veniam.",
-                        IsActive = true
                     },
                     new Customer
                     {
@@ -321,7 +298,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                         Phone1 = "+1 (835) 416-2323",
                         Phone2 = "+1 (845) 440-2230",
                         Notes = "Mollit minim cillum ex reprehenderit nisi proident nulla.",
-                        IsActive = true
                     }
                 };
 
@@ -341,7 +317,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                     Phone2 = "+1 (805) 494-2722",
                     Notes = "Ullamco laboris non occaecat minim consectetur ullamco cillum veniam enim aute reprehenderit. Officia aliqua ipsum magna nisi sunt eu aliquip nostrud. Anim excepteur nulla fugiat velit.",
                     Address2 = "650 Gold Street, Lloyd, Michigan, 5066",
-                    IsActive = true
                 },
                 new Supplier()
                 {
@@ -633,7 +608,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                     var prod = new Product()
                     {
                         Category = catg,
-                        IsActive = true
                     };
                     for (int j = 0; j < wordCount; j++)
                     {

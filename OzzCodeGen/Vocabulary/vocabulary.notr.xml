@@ -17,6 +17,10 @@
     <Translation>Add</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddAspNetUser</Name>
+    <Translation>Add AppUser</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddCompany</Name>
     <Translation>Add Company</Translation>
   </Vocab>
@@ -31,6 +35,10 @@
   <Vocab>
     <Name>AddNew</Name>
     <Translation>Add New</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewAspNetUser</Name>
+    <Translation>Add New AppUser</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNewCompany</Name>
@@ -71,6 +79,10 @@
   <Vocab>
     <Name>AddNewProductCategory</Name>
     <Translation>Add New Product Category</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewProductSupplier</Name>
+    <Translation>Add New Product Supplier</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNewPurchaseOrder</Name>
@@ -133,12 +145,20 @@
     <Translation>Add Product Category</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddProductSupplier</Name>
+    <Translation>Add Product Supplier</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddPurchaseOrder</Name>
     <Translation>Add Purchase Order</Translation>
   </Vocab>
   <Vocab>
     <Name>AddRemove</Name>
     <Translation>Add/Remove</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveAspNetUser</Name>
+    <Translation>Add Remove AppUser</Translation>
   </Vocab>
   <Vocab>
     <Name>AddRemoveCompany</Name>
@@ -175,6 +195,10 @@
   <Vocab>
     <Name>AddRemoveProductCategory</Name>
     <Translation>Add/Remove Product Category</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveProductSupplier</Name>
+    <Translation>Add Remove Product Supplier</Translation>
   </Vocab>
   <Vocab>
     <Name>AddRemovePurchaseOrder</Name>
@@ -269,6 +293,10 @@
     <Translation>Approve Date</Translation>
   </Vocab>
   <Vocab>
+    <Name>ApprovedUser</Name>
+    <Translation>Approved User</Translation>
+  </Vocab>
+  <Vocab>
     <Name>ApprovedUserId</Name>
     <Translation>Approved User ID</Translation>
   </Vocab>
@@ -279,6 +307,18 @@
   <Vocab>
     <Name>AreYouSure</Name>
     <Translation>Are you sure</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AspNetUser</Name>
+    <Translation>AppUser</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AspNetUsers</Name>
+    <Translation>AppUsers</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AspNetUsersList</Name>
+    <Translation>AppUsers List</Translation>
   </Vocab>
   <Vocab>
     <Name>BackToIndex</Name>
@@ -293,6 +333,10 @@
     <Translation>Cancel</Translation>
   </Vocab>
   <Vocab>
+    <Name>CancelDate</Name>
+    <Translation>Cancel Date</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CancellationDate</Name>
     <Translation>Cancellation Date</Translation>
   </Vocab>
@@ -301,8 +345,36 @@
     <Translation>Cancellation Notes</Translation>
   </Vocab>
   <Vocab>
+    <Name>Cancelled</Name>
+    <Translation>Cancelled</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CancelledUser</Name>
+    <Translation>Cancelled User</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CancelledUserId</Name>
+    <Translation>Cancelled User Id</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CancelledUserIp</Name>
+    <Translation>Cancelled User Ip</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CancelledUserUser</Name>
+    <Translation>Cancelled User User</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CancelNotes</Name>
+    <Translation>Cancel Notes</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CancelPO</Name>
     <Translation>Cancel P.O.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CancelPurchaseOrder</Name>
+    <Translation>Cancel Purchase Order</Translation>
   </Vocab>
   <Vocab>
     <Name>CanNotDelete</Name>
@@ -413,6 +485,10 @@
     <Translation>Create</Translation>
   </Vocab>
   <Vocab>
+    <Name>CreateAspNetUser</Name>
+    <Translation>Create AppUser</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CreateCompany</Name>
     <Translation>Create Company</Translation>
   </Vocab>
@@ -427,6 +503,10 @@
   <Vocab>
     <Name>CreateDate</Name>
     <Translation>Create Date</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreatedUser</Name>
+    <Translation>Created User</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateNew</Name>
@@ -463,6 +543,10 @@
   <Vocab>
     <Name>CreateProductCategory</Name>
     <Translation>Create Product Category</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateProductSupplier</Name>
+    <Translation>Create Product Supplier</Translation>
   </Vocab>
   <Vocab>
     <Name>CreatePurchaseOrder</Name>
@@ -537,6 +621,10 @@
     <Translation>Delete</Translation>
   </Vocab>
   <Vocab>
+    <Name>DeleteAspNetUser</Name>
+    <Translation>Delete AppUser</Translation>
+  </Vocab>
+  <Vocab>
     <Name>DeleteCompany</Name>
     <Translation>Delete Company</Translation>
   </Vocab>
@@ -579,6 +667,10 @@
   <Vocab>
     <Name>DeleteProductCategory</Name>
     <Translation>Delete Product Category</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteProductSupplier</Name>
+    <Translation>Delete Product Supplier</Translation>
   </Vocab>
   <Vocab>
     <Name>DeletePurchaseOrder</Name>
@@ -629,6 +721,30 @@
     <Translation>Details</Translation>
   </Vocab>
   <Vocab>
+    <Name>Discontinued</Name>
+    <Translation>Discontinued</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DiscontinueDate</Name>
+    <Translation>Discontinue Date</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DiscontinuedUser</Name>
+    <Translation>Discontinued User</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DiscontinuedUserId</Name>
+    <Translation>Discontinued User Id</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DiscontinuedUserIp</Name>
+    <Translation>Discontinued User Ip</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DiscontinueNotes</Name>
+    <Translation>Discontinue Notes</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Display</Name>
     <Translation>Display</Translation>
   </Vocab>
@@ -659,6 +775,10 @@
   <Vocab>
     <Name>Edit</Name>
     <Translation>Edit</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditAspNetUser</Name>
+    <Translation>Edit AppUser</Translation>
   </Vocab>
   <Vocab>
     <Name>EditCompany</Name>
@@ -703,6 +823,10 @@
   <Vocab>
     <Name>EditProductCategory</Name>
     <Translation>Edit Product Category</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditProductSupplier</Name>
+    <Translation>Edit Product Supplier</Translation>
   </Vocab>
   <Vocab>
     <Name>EditPurchaseOrder</Name>
@@ -899,6 +1023,10 @@
   <Vocab>
     <Name>Male</Name>
     <Translation>Male</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ModifiedUser</Name>
+    <Translation>Modified User</Translation>
   </Vocab>
   <Vocab>
     <Name>ModifierId</Name>
@@ -1137,6 +1265,18 @@
     <Translation>Products List</Translation>
   </Vocab>
   <Vocab>
+    <Name>ProductSupplier</Name>
+    <Translation>Product Supplier</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ProductSuppliers</Name>
+    <Translation>Product Suppliers</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ProductSuppliersList</Name>
+    <Translation>Product Suppliers List</Translation>
+  </Vocab>
+  <Vocab>
     <Name>PublishDate</Name>
     <Translation>Publish Date</Translation>
   </Vocab>
@@ -1197,6 +1337,10 @@
     <Translation>Remove</Translation>
   </Vocab>
   <Vocab>
+    <Name>RemoveAspNetUser</Name>
+    <Translation>Remove AppUser</Translation>
+  </Vocab>
+  <Vocab>
     <Name>RemoveCompany</Name>
     <Translation>Remove Company</Translation>
   </Vocab>
@@ -1231,6 +1375,10 @@
   <Vocab>
     <Name>RemoveProductCategory</Name>
     <Translation>Remove Product Category</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveProductSupplier</Name>
+    <Translation>Remove Product Supplier</Translation>
   </Vocab>
   <Vocab>
     <Name>RemovePurchaseOrder</Name>
@@ -1407,6 +1555,10 @@
   <Vocab>
     <Name>SupplierCode</Name>
     <Translation>Supplier Code</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SupplierId</Name>
+    <Translation>Supplier Id</Translation>
   </Vocab>
   <Vocab>
     <Name>Suppliers</Name>

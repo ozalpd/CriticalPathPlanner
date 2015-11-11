@@ -12,7 +12,7 @@ namespace CriticalPath.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Product : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate, IIsActive, IInactivation
+    public partial class Product : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate, IDiscontinued, IDiscontinuedUser
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
@@ -27,9 +27,9 @@ namespace CriticalPath.Data
         public int CategoryId { get; set; }
         public int SizingStandardId { get; set; }
         public string ImageUrl { get; set; }
-        public bool IsActive { get; set; }
-        public Nullable<System.DateTime> InactivateDate { get; set; }
-        public string InactivateNotes { get; set; }
+        public bool Discontinued { get; set; }
+        public Nullable<System.DateTime> DiscontinueDate { get; set; }
+        public string DiscontinueNotes { get; set; }
         public int ModifyNr { get; set; }
         public System.DateTime ModifyDate { get; set; }
         public string ModifierId { get; set; }
@@ -37,14 +37,15 @@ namespace CriticalPath.Data
         public System.DateTime CreateDate { get; set; }
         public string CreatorId { get; set; }
         public string CreatorIp { get; set; }
-        public string InactivateUserId { get; set; }
+        public string DiscontinuedUserId { get; set; }
+        public string DiscontinuedUserIp { get; set; }
     
         public virtual ProductCategory Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PurchaseOrder> PurchaseOrders { get; set; }
         public virtual SizingStandard SizingStandard { get; set; }
         public virtual AspNetUser CreatedUser { get; set; }
-        public virtual AspNetUser InactivateUser { get; set; }
+        public virtual AspNetUser DiscontinuedUser { get; set; }
         public virtual AspNetUser ModifiedUser { get; set; }
     	/// <summary>
     	/// Clones all properties in a new Product instance,
@@ -60,9 +61,9 @@ namespace CriticalPath.Data
             clone.CategoryId = CategoryId;
             clone.SizingStandardId = SizingStandardId;
             clone.ImageUrl = ImageUrl;
-            clone.IsActive = IsActive;
-            clone.InactivateDate = InactivateDate;
-            clone.InactivateNotes = InactivateNotes;
+            clone.Discontinued = Discontinued;
+            clone.DiscontinueDate = DiscontinueDate;
+            clone.DiscontinueNotes = DiscontinueNotes;
             clone.ModifyNr = ModifyNr;
             clone.ModifyDate = ModifyDate;
             clone.ModifierId = ModifierId;
@@ -70,7 +71,8 @@ namespace CriticalPath.Data
             clone.CreateDate = CreateDate;
             clone.CreatorId = CreatorId;
             clone.CreatorIp = CreatorIp;
-            clone.InactivateUserId = InactivateUserId;
+            clone.DiscontinuedUserId = DiscontinuedUserId;
+            clone.DiscontinuedUserIp = DiscontinuedUserIp;
     
             Cloning(clone);
     
@@ -96,9 +98,9 @@ namespace CriticalPath.Data
             CategoryId = entity.CategoryId;
             SizingStandardId = entity.SizingStandardId;
             ImageUrl = entity.ImageUrl;
-            IsActive = entity.IsActive;
-            InactivateDate = entity.InactivateDate;
-            InactivateNotes = entity.InactivateNotes;
+            Discontinued = entity.Discontinued;
+            DiscontinueDate = entity.DiscontinueDate;
+            DiscontinueNotes = entity.DiscontinueNotes;
         
             Initiliazing(entity);
         }
@@ -115,9 +117,9 @@ namespace CriticalPath.Data
             entity.CategoryId = CategoryId;
             entity.SizingStandardId = SizingStandardId;
             entity.ImageUrl = ImageUrl;
-            entity.IsActive = IsActive;
-            entity.InactivateDate = InactivateDate;
-            entity.InactivateNotes = InactivateNotes;
+            entity.Discontinued = Discontinued;
+            entity.DiscontinueDate = DiscontinueDate;
+            entity.DiscontinueNotes = DiscontinueNotes;
     
             Converting(entity);
     
@@ -133,8 +135,8 @@ namespace CriticalPath.Data
         public int CategoryId { get; set; }
         public int SizingStandardId { get; set; }
         public string ImageUrl { get; set; }
-        public bool IsActive { get; set; }
-        public Nullable<System.DateTime> InactivateDate { get; set; }
-        public string InactivateNotes { get; set; }
+        public bool Discontinued { get; set; }
+        public Nullable<System.DateTime> DiscontinueDate { get; set; }
+        public string DiscontinueNotes { get; set; }
     }
 }
