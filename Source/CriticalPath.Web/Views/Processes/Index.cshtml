@@ -35,9 +35,8 @@
     <table class="table table-hover">
         <tr>
             <th>@ActionStrings.Action</th>
-            <th>@Html.DisplayNameFor(model => model.Title)</th>
-            <th>@Html.DisplayNameFor(model => model.IsApproved)</th>
             <th>@Html.DisplayNameFor(model => model.PurchaseOrder)</th>
+            <th>@Html.DisplayNameFor(model => model.IsApproved)</th>
             <th>@Html.DisplayNameFor(model => model.TargetDate)</th>
             <th>@Html.DisplayNameFor(model => model.ForecastDate)</th>
             <th colspan="2">@Html.DisplayNameFor(model => model.IsCompleted)</th>
@@ -74,12 +73,11 @@
                         </ul>
                     </div>
                 </td>
-                <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                <td>@Html.DisplayFor(modelItem => item.PurchaseOrder)</td>
                 <td>
                     @Html.DisplayFor(modelItem => item.IsApproved)
                     <span class="checkboxText">@Html.DisplayFor(modelItem => item.ApproveDate)</span>
                 </td>
-                <td>@Html.DisplayFor(modelItem => item.PurchaseOrder)</td>
                 <td align="right">@Html.DisplayFor(modelItem => item.TargetDate)</td>
                 <td align="right">@Html.DisplayFor(modelItem => item.ForecastDate)</td>
                 <td>@Html.DisplayFor(modelItem => item.IsCompleted)</td>
