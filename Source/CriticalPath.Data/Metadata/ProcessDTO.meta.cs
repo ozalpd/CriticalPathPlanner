@@ -28,14 +28,13 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "ApproveDate")]
             public DateTime ApproveDate { get; set; }
 
-            [UIHint("BoolRed")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "Cancelled")]
-            public bool Cancelled { get; set; }
-
-            [StringLength(128, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "Title")]
-            public string Title { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "PurchaseOrderId")]
+            public int PurchaseOrderId { get; set; }
+
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "SupplierId")]
+            public int SupplierId { get; set; }
 
             [StringLength(256, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [DataType(DataType.MultilineText)]
@@ -45,13 +44,18 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "IsCompleted")]
             public bool IsCompleted { get; set; }
 
+            [UIHint("BoolRed")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "Cancelled")]
+            public bool Cancelled { get; set; }
+
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Display(ResourceType = typeof(EntityStrings), Name = "ProcessTemplateId")]
             public int ProcessTemplateId { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "PurchaseOrderId")]
-            public int PurchaseOrderId { get; set; }
+            [DataType(DataType.Date)]
+            [Display(ResourceType = typeof(EntityStrings), Name = "StartDate")]
+            public DateTime StartDate { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [DataType(DataType.Date)]

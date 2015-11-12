@@ -56,14 +56,6 @@
                             {
                                 <li>@Html.ActionLink(ActionStrings.Edit, "Edit", new { id = item.Id })</li>
                             }
-                            @if (canUserDelete)
-                            {
-                                <li>
-                                    <a href="#deleteConfirm" data-toggle="modal" onclick="setDelete('<b>@(item.Title)</b>', @item.Id);">
-                                        @ActionStrings.Delete
-                                    </a>
-                                </li>
-                            }
                             <li class="divider"></li>
                             @if (!item.IsApproved && canUserApprove)
                             {

@@ -6,12 +6,13 @@ CREATE TABLE [dbo].[Processes](
     [Id] [int] Identity(1,1) Not Null,
     [IsApproved] [bit] Not Null,
     [ApproveDate] [DateTime] Null,
-    [Cancelled] [bit] Not Null,
-    [Title] [nVarChar](128) Not Null,
+    [PurchaseOrderId] [int] Not Null Constraint FK_Process_PurchaseOrderId Foreign Key References [dbo].[PurchaseOrders]([Id]),
+    [SupplierId] [int] Not Null Constraint FK_Process_SupplierId Foreign Key References [dbo].[Suppliers]([Id]),
     [Description] [nVarChar](256) Null,
     [IsCompleted] [bit] Not Null,
+    [Cancelled] [bit] Not Null,
     [ProcessTemplateId] [int] Not Null Constraint FK_Process_ProcessTemplateId Foreign Key References [dbo].[ProcessTemplates]([Id]),
-    [PurchaseOrderId] [int] Not Null Constraint FK_Process_PurchaseOrderId Foreign Key References [dbo].[PurchaseOrders]([Id]),
+    [StartDate] [DateTime] Not Null,
     [TargetDate] [DateTime] Not Null,
     [ForecastDate] [DateTime] Null,
     [RealizedDate] [DateTime] Null,
@@ -38,11 +39,11 @@ CREATE TABLE [dbo].[Processes](
 Go
 Create Nonclustered Index [idx_Processes_IsApproved] On [dbo].[Processes]([IsApproved] Asc)
 Go
+Create Nonclustered Index [idx_Processes_PurchaseOrderId] On [dbo].[Processes]([PurchaseOrderId] Asc)
+Go
 Create Nonclustered Index [idx_Processes_IsCompleted] On [dbo].[Processes]([IsCompleted] Asc)
 Go
 Create Nonclustered Index [idx_Processes_ProcessTemplateId] On [dbo].[Processes]([ProcessTemplateId] Asc)
-Go
-Create Nonclustered Index [idx_Processes_PurchaseOrderId] On [dbo].[Processes]([PurchaseOrderId] Asc)
 Go
 Create Nonclustered Index [idx_Processes_TargetDate] On [dbo].[Processes]([TargetDate] Asc)
 Go

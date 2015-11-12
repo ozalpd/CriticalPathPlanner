@@ -954,6 +954,18 @@
           <UseForCreate>TextBox</UseForCreate>
           <UseForEdit>TextBox</UseForEdit>
         </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>Products</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
       </Properties>
       <ControllerName>Suppliers</ControllerName>
       <DataSetName>Companies</DataSetName>
@@ -1260,6 +1272,18 @@
           <InCreateView>false</InCreateView>
           <InEditView>false</InEditView>
           <HasValidation>false</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>Suppliers</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
           <UseForCreate>Standart</UseForCreate>
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
@@ -1831,9 +1855,33 @@
       <OverwriteExisting>true</OverwriteExisting>
       <Properties>
         <AspNetMvcPropertySetting>
-          <Name>Cancelled</Name>
+          <Name>PurchaseOrder</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>PurchaseOrderId</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>false</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>HiddenInput</UseForCreate>
+          <UseForEdit>HiddenInput</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>Supplier</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
           <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>false</InCreateView>
@@ -1843,16 +1891,16 @@
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>Title</Name>
+          <Name>SupplierId</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>true</UseInSearch>
-          <InIndexView>true</InIndexView>
-          <InDetailsView>true</InDetailsView>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>false</InDetailsView>
           <InCreateView>true</InCreateView>
           <InEditView>true</InEditView>
           <HasValidation>true</HasValidation>
-          <UseForCreate>TextBox</UseForCreate>
-          <UseForEdit>TextBox</UseForEdit>
+          <UseForCreate>DropDownList</UseForCreate>
+          <UseForEdit>DropDownList</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
           <Name>Description</Name>
@@ -1868,6 +1916,18 @@
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
           <Name>IsCompleted</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>Cancelled</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>
@@ -1903,19 +1963,7 @@
           <UseForEdit>HiddenInput</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>PurchaseOrderId</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
-          <InIndexView>false</InIndexView>
-          <InDetailsView>false</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForCreate>HiddenInput</UseForCreate>
-          <UseForEdit>HiddenInput</UseForEdit>
-        </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
-          <Name>PurchaseOrder</Name>
+          <Name>StartDate</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>
@@ -1989,7 +2037,7 @@
         <AspNetMvcPropertySetting>
           <Name>CancelNotes</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>true</UseInSearch>
+          <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>false</InCreateView>
@@ -2001,7 +2049,7 @@
         <AspNetMvcPropertySetting>
           <Name>CancelledUserIp</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>true</UseInSearch>
+          <UseInSearch>false</UseInSearch>
           <InIndexView>false</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>false</InCreateView>
@@ -2013,7 +2061,7 @@
         <AspNetMvcPropertySetting>
           <Name>CancelledUserId</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>true</UseInSearch>
+          <UseInSearch>false</UseInSearch>
           <InIndexView>false</InIndexView>
           <InDetailsView>false</InDetailsView>
           <InCreateView>false</InCreateView>
@@ -2046,20 +2094,20 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>true</GenerateController>
-      <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
+      <GenerateGetQueryMethod>false</GenerateGetQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
       <GenerateCreateAction>true</GenerateCreateAction>
-      <GenerateDeleteAction>true</GenerateDeleteAction>
+      <GenerateDeleteAction>false</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
       <IndexView>false</IndexView>
       <DetailsView>true</DetailsView>
-      <CreateView>true</CreateView>
-      <EditView>true</EditView>
+      <CreateView>false</CreateView>
+      <EditView>false</EditView>
       <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index", "ProcessSteps", new { processId = process.Id, pageSize = process.ProcessSteps.Count }</CreateRedirect>
       <EditRedirect>"Details", new { id = process.Id }</EditRedirect>
-      <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
+      <FillSelectListsMethod>await SetSupplierSelectList;await SetProcessTemplateSelectList</FillSelectListsMethod>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>ProcessStep</Name>
@@ -2204,13 +2252,13 @@
       <SaveParameter>this</SaveParameter>
       <ModelForCreate>ProcessStep</ModelForCreate>
       <ModelForEdit>ProcessStep</ModelForEdit>
-      <RolesCanView>users</RolesCanView>
+      <RolesCanView>admin, supervisor, clerk</RolesCanView>
       <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
-      <RolesCanDelete>admin, supervisor</RolesCanDelete>
+      <RolesCanDelete>admin</RolesCanDelete>
       <GenerateController>true</GenerateController>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
-      <GenerateIndexAction>false</GenerateIndexAction>
+      <GenerateIndexAction>true</GenerateIndexAction>
       <GenerateCreateAction>false</GenerateCreateAction>
       <GenerateDeleteAction>false</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>

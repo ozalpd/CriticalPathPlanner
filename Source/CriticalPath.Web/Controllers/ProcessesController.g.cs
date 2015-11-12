@@ -16,29 +16,6 @@ namespace CriticalPath.Web.Controllers
 {
     public partial class ProcessesController : BaseController 
     {
-        protected virtual IQueryable<Process> GetProcessQuery(QueryParameters qParams)
-        {
-            var query = GetProcessQuery();
-            if (!string.IsNullOrEmpty(qParams.SearchString))
-            {
-                query = from a in query
-                        where
-                            a.Title.Contains(qParams.SearchString) | 
-                            a.Description.Contains(qParams.SearchString) 
-                        select a;
-            }
-            if (qParams.ProcessTemplateId != null)
-            {
-                query = query.Where(x => x.ProcessTemplateId == qParams.ProcessTemplateId);
-            }
-            if (qParams.PurchaseOrderId != null)
-            {
-                query = query.Where(x => x.PurchaseOrderId == qParams.PurchaseOrderId);
-            }
-
-            return query;
-        }
-
         [Authorize]
         public async Task<ActionResult> Index(QueryParameters qParams)
         {
@@ -109,6 +86,7 @@ namespace CriticalPath.Web.Controllers
                 return HttpNotFound();
             }
 
+            await PutCanUserInViewBag();
             return View(process);
         }
 
@@ -126,7 +104,8 @@ namespace CriticalPath.Web.Controllers
                 process.PurchaseOrder = purchaseOrder;
             }
             await SetProcessDefaults(process);
-            SetSelectLists(process);
+            await SetSupplierSelectList(process);
+            await SetProcessTemplateSelectList(process);
             return View(process);
         }
 
@@ -149,7 +128,8 @@ namespace CriticalPath.Web.Controllers
                 return RedirectToAction("Index", "ProcessSteps", new { processId = process.Id, pageSize = process.ProcessSteps.Count });
             }
 
-            SetSelectLists(process);
+            await SetSupplierSelectList(process);
+            await SetProcessTemplateSelectList(process);
             return View(process);
         }
 
@@ -167,7 +147,8 @@ namespace CriticalPath.Web.Controllers
                 return HttpNotFound();
             }
 
-            SetSelectLists(process);
+            await SetSupplierSelectList(process);
+            await SetProcessTemplateSelectList(process);
             return View(process);
         }
 
@@ -189,75 +170,21 @@ namespace CriticalPath.Web.Controllers
                 return RedirectToAction("Details", new { id = process.Id });
             }
 
-            SetSelectLists(process);
+            await SetSupplierSelectList(process);
+            await SetProcessTemplateSelectList(process);
             return View(process);
-        }
-
-
-        [Authorize(Roles = "admin, supervisor")]
-        public async Task<ActionResult> Delete(int? id)  //GET: /Processes/Delete/5
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Process process = await FindAsyncProcess(id.Value);
-
-            if (process == null)
-            {
-                return HttpNotFound();
-            }
-
-            int processStepsCount = process.ProcessSteps.Count;
-            if ((processStepsCount) > 0)
-            {
-                var sb = new StringBuilder();
-
-                sb.Append(MessageStrings.CanNotDelete);
-                sb.Append(" <b>");
-                sb.Append(process.Title);
-                sb.Append("</b>.<br/>");
-
-                if (processStepsCount > 0)
-                {
-                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, processStepsCount, EntityStrings.ProcessSteps));
-                    sb.Append("<br/>");
-                }
-
-                return GetErrorResult(sb, HttpStatusCode.BadRequest);
-            }
-
-            DataContext.Processes.Remove(process);
-            try
-            {
-                await DataContext.SaveChangesAsync(this);
-            }
-            catch (Exception ex)
-            {
-                var sb = new StringBuilder();
-                sb.Append(MessageStrings.CanNotDelete);
-                sb.Append(process.Title);
-                sb.Append("<br/>");
-                AppendExceptionMsg(ex, sb);
-
-                return GetErrorResult(sb, HttpStatusCode.InternalServerError);
-            }
-
-            return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
 
         public new partial class QueryParameters : BaseController.QueryParameters
         {
-            public int? ProcessTemplateId { get; set; }
             public int? PurchaseOrderId { get; set; }
+            public int? SupplierId { get; set; }
+            public int? ProcessTemplateId { get; set; }
         }
 
-
-        //Partial methods
         partial void OnCreateSaving(Process process);
         partial void OnCreateSaved(Process process);
         partial void OnEditSaving(Process process);
         partial void OnEditSaved(Process process);
-        partial void SetSelectLists(Process process);
     }
 }

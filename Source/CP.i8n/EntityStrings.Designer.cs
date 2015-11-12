@@ -2032,6 +2032,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Start Date.
+        /// </summary>
+        public static string StartDate {
+            get {
+                return ResourceManager.GetString("StartDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to State.
         /// </summary>
         public static string State {
@@ -2073,6 +2082,15 @@ namespace CP.i8n {
         public static string SupplierCode {
             get {
                 return ResourceManager.GetString("SupplierCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Supplier Id.
+        /// </summary>
+        public static string SupplierId {
+            get {
+                return ResourceManager.GetString("SupplierId", resourceCulture);
             }
         }
         

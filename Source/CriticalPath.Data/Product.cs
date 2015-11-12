@@ -18,6 +18,7 @@ namespace CriticalPath.Data
         public Product()
         {
             this.PurchaseOrders = new HashSet<PurchaseOrder>();
+            this.Suppliers = new HashSet<Supplier>();
         }
     
         public int Id { get; set; }
@@ -32,21 +33,23 @@ namespace CriticalPath.Data
         public string DiscontinueNotes { get; set; }
         public int ModifyNr { get; set; }
         public System.DateTime ModifyDate { get; set; }
+        public string DiscontinuedUserId { get; set; }
+        public string DiscontinuedUserIp { get; set; }
         public string ModifierId { get; set; }
         public string ModifierIp { get; set; }
         public System.DateTime CreateDate { get; set; }
         public string CreatorId { get; set; }
         public string CreatorIp { get; set; }
-        public string DiscontinuedUserId { get; set; }
-        public string DiscontinuedUserIp { get; set; }
     
         public virtual ProductCategory Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PurchaseOrder> PurchaseOrders { get; set; }
         public virtual SizingStandard SizingStandard { get; set; }
-        public virtual AspNetUser CreatedUser { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Supplier> Suppliers { get; set; }
         public virtual AspNetUser DiscontinuedUser { get; set; }
         public virtual AspNetUser ModifiedUser { get; set; }
+        public virtual AspNetUser CreatedUser { get; set; }
     	/// <summary>
     	/// Clones all properties in a new Product instance,
     	/// except PrimaryKey(s)
@@ -66,13 +69,13 @@ namespace CriticalPath.Data
             clone.DiscontinueNotes = DiscontinueNotes;
             clone.ModifyNr = ModifyNr;
             clone.ModifyDate = ModifyDate;
+            clone.DiscontinuedUserId = DiscontinuedUserId;
+            clone.DiscontinuedUserIp = DiscontinuedUserIp;
             clone.ModifierId = ModifierId;
             clone.ModifierIp = ModifierIp;
             clone.CreateDate = CreateDate;
             clone.CreatorId = CreatorId;
             clone.CreatorIp = CreatorIp;
-            clone.DiscontinuedUserId = DiscontinuedUserId;
-            clone.DiscontinuedUserIp = DiscontinuedUserIp;
     
             Cloning(clone);
     

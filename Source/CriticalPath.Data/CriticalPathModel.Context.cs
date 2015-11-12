@@ -244,7 +244,7 @@ namespace CriticalPath.Data
         /// <returns></returns>
         public virtual IQueryable<Process> GetProcessQuery()
         {
-            IQueryable<Process> query = Processes.OrderBy(p => p.Title);
+            IQueryable<Process> query = Processes;
             return query;
         }
     
@@ -268,11 +268,12 @@ namespace CriticalPath.Data
                    select new ProcessDTO
                    {
                        Id = e.Id,
-                       Title = e.Title,
                        IsCompleted = e.IsCompleted,
                        Description = e.Description,
                        ProcessTemplateId = e.ProcessTemplateId,
                        PurchaseOrderId = e.PurchaseOrderId,
+                       SupplierId = e.SupplierId,
+                       StartDate = e.StartDate,
                        TargetDate = e.TargetDate,
                        ForecastDate = e.ForecastDate,
                        RealizedDate = e.RealizedDate,

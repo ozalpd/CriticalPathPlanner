@@ -935,6 +935,10 @@
 		<value>Sizing Standards List</value>
 	</data>
 
+	<data name="StartDate" xml:space="preserve">
+		<value>Start Date</value>
+	</data>
+
 	<data name="State" xml:space="preserve">
 		<value>State</value>
 	</data>
@@ -953,6 +957,10 @@
 
 	<data name="SupplierCode" xml:space="preserve">
 		<value>Supplier Code</value>
+	</data>
+
+	<data name="SupplierId" xml:space="preserve">
+		<value>Supplier Id</value>
 	</data>
 
 	<data name="Suppliers" xml:space="preserve">

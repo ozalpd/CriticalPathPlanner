@@ -137,6 +137,27 @@ namespace CriticalPath.Web.Controllers
         #region Query Methods for Entity Types
 
         /// <summary>
+        /// Finds an AspNetUser by PrimaryKey value
+        /// </summary>
+        /// <param name="id">Represents PrimaryKey of AspNetUser.Id</param>
+        /// <returns></returns>
+        protected virtual async Task<AspNetUser> FindAsyncAspNetUser(string id)
+        {
+            return await GetAspNetUserQuery()
+                            .FirstOrDefaultAsync(x => x.Id == id);
+        }
+
+        protected virtual IQueryable<AspNetUser> GetAspNetUserQuery()
+		{
+		    return DataContext.GetAspNetUserQuery();
+		}
+
+		protected virtual Task SetAspNetUserDefaults(AspNetUser aspNetUser)
+        {
+            return Task.FromResult(default(object));
+        }
+
+        /// <summary>
         /// Finds an Contact by PrimaryKey value
         /// </summary>
         /// <param name="id">Represents PrimaryKey of Contact.Id</param>

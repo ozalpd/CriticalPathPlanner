@@ -14,7 +14,19 @@ namespace CriticalPath.Data
     
     public partial class Supplier : Company
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Supplier()
+        {
+            this.Products = new HashSet<Product>();
+            this.Processes = new HashSet<Process>();
+        }
+    
         public string SupplierCode { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Product> Products { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Process> Processes { get; set; }
     	/// <summary>
     	/// Clones all properties in a new Supplier instance,
     	/// except PrimaryKey(s)
@@ -39,13 +51,13 @@ namespace CriticalPath.Data
             clone.Notes = Notes;
             clone.ModifyNr = ModifyNr;
             clone.ModifyDate = ModifyDate;
+            clone.DiscontinuedUserId = DiscontinuedUserId;
+            clone.DiscontinuedUserIp = DiscontinuedUserIp;
             clone.ModifierId = ModifierId;
             clone.ModifierIp = ModifierIp;
             clone.CreateDate = CreateDate;
             clone.CreatorId = CreatorId;
             clone.CreatorIp = CreatorIp;
-            clone.DiscontinuedUserId = DiscontinuedUserId;
-            clone.DiscontinuedUserIp = DiscontinuedUserIp;
             clone.SupplierCode = SupplierCode;
     
             Cloning(clone);

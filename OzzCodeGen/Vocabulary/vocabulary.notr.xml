@@ -9,6 +9,10 @@
     <Translation>About Us</Translation>
   </Vocab>
   <Vocab>
+    <Name>Account</Name>
+    <Translation>Account</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Action</Name>
     <Translation>Action</Translation>
   </Vocab>
@@ -397,6 +401,10 @@
     <Translation>Category</Translation>
   </Vocab>
   <Vocab>
+    <Name>ChangePassword</Name>
+    <Translation>Change Your Password</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Choose</Name>
     <Translation>Choose</Translation>
   </Vocab>
@@ -454,7 +462,7 @@
   </Vocab>
   <Vocab>
     <Name>ConfirmPassword</Name>
-    <Translation>Confirm Password</Translation>
+    <Translation>Confirm Your Password</Translation>
   </Vocab>
   <Vocab>
     <Name>Contact</Name>
@@ -1025,6 +1033,10 @@
     <Translation>Male</Translation>
   </Vocab>
   <Vocab>
+    <Name>ManageAccount</Name>
+    <Translation>Manage Account</Translation>
+  </Vocab>
+  <Vocab>
     <Name>ModifiedUser</Name>
     <Translation>Modified User</Translation>
   </Vocab>
@@ -1531,6 +1543,10 @@
   <Vocab>
     <Name>Sometimes</Name>
     <Translation>Sometimes</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>StartDate</Name>
+    <Translation>Start Date</Translation>
   </Vocab>
   <Vocab>
     <Name>State</Name>

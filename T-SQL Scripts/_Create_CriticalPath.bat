@@ -86,6 +86,11 @@
 @sqlcmd -S .\SqlExpress -d CriticalPath -E -i _FinishingSetup.sql
 
 @echo .
+@echo .
+@echo 17 - Executing ProductSupplier.sql...
+@sqlcmd -S .\SqlExpress -d CriticalPath -E -i ProductSupplier.sql
+
+@echo .
 @echo * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 @echo *
 @echo * Create scripts for database CriticalPath executed on Server .\SqlExpress

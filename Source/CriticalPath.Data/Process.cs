@@ -21,11 +21,12 @@ namespace CriticalPath.Data
         }
     
         public int Id { get; set; }
-        public string Title { get; set; }
         public bool IsCompleted { get; set; }
         public string Description { get; set; }
         public int ProcessTemplateId { get; set; }
         public int PurchaseOrderId { get; set; }
+        public int SupplierId { get; set; }
+        public System.DateTime StartDate { get; set; }
         public System.DateTime TargetDate { get; set; }
         public Nullable<System.DateTime> ForecastDate { get; set; }
         public Nullable<System.DateTime> RealizedDate { get; set; }
@@ -46,13 +47,14 @@ namespace CriticalPath.Data
         public string CreatorId { get; set; }
         public string CreatorIp { get; set; }
     
-        public virtual ProcessTemplate ProcessTemplate { get; set; }
+        public virtual PurchaseOrder PurchaseOrder { get; set; }
+        public virtual Supplier Supplier { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProcessStep> ProcessSteps { get; set; }
-        public virtual PurchaseOrder PurchaseOrder { get; set; }
+        public virtual ProcessTemplate ProcessTemplate { get; set; }
         public virtual AspNetUser ApprovedUser { get; set; }
-        public virtual AspNetUser CreatedUser { get; set; }
         public virtual AspNetUser CancelledUser { get; set; }
+        public virtual AspNetUser CreatedUser { get; set; }
         public virtual AspNetUser ModifiedUser { get; set; }
     	/// <summary>
     	/// Clones all properties in a new Process instance,
@@ -62,11 +64,12 @@ namespace CriticalPath.Data
         public Process Clone()
         {
             var clone = new Process();
-            clone.Title = Title;
             clone.IsCompleted = IsCompleted;
             clone.Description = Description;
             clone.ProcessTemplateId = ProcessTemplateId;
             clone.PurchaseOrderId = PurchaseOrderId;
+            clone.SupplierId = SupplierId;
+            clone.StartDate = StartDate;
             clone.TargetDate = TargetDate;
             clone.ForecastDate = ForecastDate;
             clone.RealizedDate = RealizedDate;
@@ -105,11 +108,12 @@ namespace CriticalPath.Data
         public ProcessDTO(Process entity)
         {
             Id = entity.Id;
-            Title = entity.Title;
             IsCompleted = entity.IsCompleted;
             Description = entity.Description;
             ProcessTemplateId = entity.ProcessTemplateId;
             PurchaseOrderId = entity.PurchaseOrderId;
+            SupplierId = entity.SupplierId;
+            StartDate = entity.StartDate;
             TargetDate = entity.TargetDate;
             ForecastDate = entity.ForecastDate;
             RealizedDate = entity.RealizedDate;
@@ -128,11 +132,12 @@ namespace CriticalPath.Data
         {
             var entity = new Process();
             entity.Id = Id;
-            entity.Title = Title;
             entity.IsCompleted = IsCompleted;
             entity.Description = Description;
             entity.ProcessTemplateId = ProcessTemplateId;
             entity.PurchaseOrderId = PurchaseOrderId;
+            entity.SupplierId = SupplierId;
+            entity.StartDate = StartDate;
             entity.TargetDate = TargetDate;
             entity.ForecastDate = ForecastDate;
             entity.RealizedDate = RealizedDate;
@@ -150,11 +155,12 @@ namespace CriticalPath.Data
         partial void Converting(Process entity);
       
         public int Id { get; set; }
-        public string Title { get; set; }
         public bool IsCompleted { get; set; }
         public string Description { get; set; }
         public int ProcessTemplateId { get; set; }
         public int PurchaseOrderId { get; set; }
+        public int SupplierId { get; set; }
+        public System.DateTime StartDate { get; set; }
         public System.DateTime TargetDate { get; set; }
         public Nullable<System.DateTime> ForecastDate { get; set; }
         public Nullable<System.DateTime> RealizedDate { get; set; }

@@ -91,6 +91,10 @@
 		<value>Cancel P.O.</value>
 	</data>
 
+	<data name="ChangePassword" xml:space="preserve">
+		<value>Change Your Password</value>
+	</data>
+
 	<data name="Choose" xml:space="preserve">
 		<value>Choose</value>
 	</data>
@@ -145,6 +149,10 @@
 
 	<data name="Logout" xml:space="preserve">
 		<value>Logout</value>
+	</data>
+
+	<data name="ManageAccount" xml:space="preserve">
+		<value>Manage Account</value>
 	</data>
 
 	<data name="No" xml:space="preserve">

@@ -1108,24 +1108,26 @@
       <CustomStoredProcs>false</CustomStoredProcs>
       <Properties>
         <StorageColumnSetting>
-          <Name>Cancelled</Name>
+          <Name>PurchaseOrderId</Name>
           <Exclude>false</Exclude>
-          <DataType>bit</DataType>
+          <DataType>int</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>true</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+          <ForeignKeyTable>PurchaseOrders</ForeignKeyTable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>SupplierId</Name>
+          <Exclude>false</Exclude>
+          <DataType>int</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
-          <Name>Title</Name>
-          <Exclude>false</Exclude>
-          <DataType>nVarChar</DataType>
-          <Lenght>128</Lenght>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>false</Indexed>
-          <SortDesc>false</SortDesc>
-          <Nullable>false</Nullable>
+          <ForeignKeyTable>Suppliers</ForeignKeyTable>
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>Description</Name>
@@ -1148,6 +1150,16 @@
           <Nullable>false</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
+          <Name>Cancelled</Name>
+          <Exclude>false</Exclude>
+          <DataType>bit</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
           <Name>ProcessTemplateId</Name>
           <Exclude>false</Exclude>
           <DataType>int</DataType>
@@ -1159,15 +1171,14 @@
           <ForeignKeyTable>ProcessTemplates</ForeignKeyTable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>PurchaseOrderId</Name>
+          <Name>StartDate</Name>
           <Exclude>false</Exclude>
-          <DataType>int</DataType>
+          <DataType>DateTime</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
+          <Indexed>false</Indexed>
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
-          <ForeignKeyTable>PurchaseOrders</ForeignKeyTable>
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>TargetDate</Name>
@@ -1444,6 +1455,6 @@
   <DatabaseName>CriticalPath</DatabaseName>
   <DatabaseServer>.\SqlExpress</DatabaseServer>
   <BeforeScripts>_IdentityDB.sql</BeforeScripts>
-  <AfterScripts />
+  <AfterScripts>ProductSupplier.sql</AfterScripts>
   <SchemaName>dbo</SchemaName>
 </TSqlScriptsEngine>

@@ -80,7 +80,7 @@ namespace CriticalPath.Web.Controllers
 
             if (purchaseOrder.DueDate == null)
             {
-                //TODO:get 42 days from an AppSetting
+                //TODO: Get 42 days from an AppSetting
                 purchaseOrder.DueDate = DateTime.Today.AddDays(42);
             }
             var purchaseOrderVM = new PurchaseOrderVM(purchaseOrder);

@@ -29,13 +29,13 @@ namespace CriticalPath.Data
         public string Notes { get; set; }
         public int ModifyNr { get; set; }
         public System.DateTime ModifyDate { get; set; }
+        public string DiscontinuedUserId { get; set; }
+        public string DiscontinuedUserIp { get; set; }
         public string ModifierId { get; set; }
         public string ModifierIp { get; set; }
         public System.DateTime CreateDate { get; set; }
         public string CreatorId { get; set; }
         public string CreatorIp { get; set; }
-        public string DiscontinuedUserId { get; set; }
-        public string DiscontinuedUserIp { get; set; }
     
         public virtual Company Company { get; set; }
         public virtual AspNetUser CreatedUser { get; set; }
@@ -63,13 +63,13 @@ namespace CriticalPath.Data
             clone.Notes = Notes;
             clone.ModifyNr = ModifyNr;
             clone.ModifyDate = ModifyDate;
+            clone.DiscontinuedUserId = DiscontinuedUserId;
+            clone.DiscontinuedUserIp = DiscontinuedUserIp;
             clone.ModifierId = ModifierId;
             clone.ModifierIp = ModifierIp;
             clone.CreateDate = CreateDate;
             clone.CreatorId = CreatorId;
             clone.CreatorIp = CreatorIp;
-            clone.DiscontinuedUserId = DiscontinuedUserId;
-            clone.DiscontinuedUserIp = DiscontinuedUserIp;
     
             Cloning(clone);
     

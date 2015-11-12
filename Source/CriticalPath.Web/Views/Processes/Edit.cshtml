@@ -9,45 +9,24 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.Id)
-        
+        @Html.HiddenFor(m => m.PurchaseOrderId)
+        @Html.HiddenFor(m => m.ProcessTemplateId)
         <div class="form-group">
-            @Html.LabelFor(model => model.Cancelled, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            @Html.LabelFor(model => model.PurchaseOrder, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
             <div class="col-lg-5 col-md-6 col-sm-7">
-                @Html.EditorFor(m => m.Cancelled, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(m => m.Cancelled, "", new { @class = "text-danger" })
+                @Html.DisplayFor(m => m.PurchaseOrder)
             </div>
         </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
-            <div class="col-lg-5 col-md-6 col-sm-7">
-                @Html.TextBoxFor(m => m.Title, new { @class = "form-control", autocomplete = "off" })
-                @Html.ValidationMessageFor(m => m.Title, "", new { @class = "text-danger" })
-            </div>
-        </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
             <div class="col-lg-5 col-md-6 col-sm-7">
                 @Html.TextBoxFor(m => m.Description, new { @class = "form-control", autocomplete = "off" })
                 @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.IsCompleted, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
-            <div class="col-lg-5 col-md-6 col-sm-7">
-                @Html.EditorFor(m => m.IsCompleted, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(m => m.IsCompleted, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        @Html.HiddenFor(m => m.ProcessTemplateId)
-        <div class="form-group">
-            @Html.LabelFor(model => model.PurchaseOrderId, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
-            <div class="col-lg-5 col-md-6 col-sm-7">
-                @Html.DropDownList("PurchaseOrderId", null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.PurchaseOrderId, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
@@ -65,24 +44,10 @@
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.RealizedDate, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            @Html.LabelFor(model => model.SupplierId, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
             <div class="col-lg-5 col-md-6 col-sm-7">
-                @Html.EditorFor(m => m.RealizedDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(m => m.RealizedDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.CancelDate, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
-            <div class="col-lg-5 col-md-6 col-sm-7">
-                @Html.EditorFor(m => m.CancelDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(m => m.CancelDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.CancelNotes, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
-            <div class="col-lg-5 col-md-6 col-sm-7">
-                @Html.TextBoxFor(m => m.CancelNotes, new { @class = "form-control", autocomplete = "off" })
-                @Html.ValidationMessageFor(m => m.CancelNotes, "", new { @class = "text-danger" })
+                @Html.DropDownList("SupplierId", null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.SupplierId, "", new { @class = "text-danger" })
             </div>
         </div>
         @Html.Partial("_SaveButtonsPartial")

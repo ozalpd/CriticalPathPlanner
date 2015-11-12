@@ -408,6 +408,11 @@
           <DataType />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Products</Name>
+          <Exclude>false</Exclude>
+          <Required />
+        </MetadataPropertySetting>
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="MetadataEntitySetting">
@@ -527,6 +532,11 @@
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>DiscontinuedUser</Name>
+          <Exclude>false</Exclude>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Suppliers</Name>
           <Exclude>false</Exclude>
           <Required />
         </MetadataPropertySetting>
@@ -762,14 +772,23 @@
       <OverwriteExisting>false</OverwriteExisting>
       <Properties>
         <MetadataPropertySetting>
-          <Name>Cancelled</Name>
+          <Name>PurchaseOrder</Name>
           <Exclude>false</Exclude>
-          <UIHint>BoolRed</UIHint>
-          <DataType />
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>Title</Name>
+          <Name>PurchaseOrderId</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Supplier</Name>
+          <Exclude>false</Exclude>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>SupplierId</Name>
           <Exclude>false</Exclude>
           <DataType />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
@@ -787,6 +806,13 @@
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
+          <Name>Cancelled</Name>
+          <Exclude>false</Exclude>
+          <UIHint>BoolRed</UIHint>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
           <Name>ProcessTemplate</Name>
           <Exclude>false</Exclude>
           <Required />
@@ -798,15 +824,10 @@
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>PurchaseOrderId</Name>
+          <Name>StartDate</Name>
           <Exclude>false</Exclude>
-          <DataType />
+          <DataType>Date</DataType>
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>PurchaseOrder</Name>
-          <Exclude>false</Exclude>
-          <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>TargetDate</Name>

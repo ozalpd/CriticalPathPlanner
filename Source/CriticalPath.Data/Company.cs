@@ -37,18 +37,18 @@ namespace CriticalPath.Data
         public string Notes { get; set; }
         public int ModifyNr { get; set; }
         public System.DateTime ModifyDate { get; set; }
+        public string DiscontinuedUserId { get; set; }
+        public string DiscontinuedUserIp { get; set; }
         public string ModifierId { get; set; }
         public string ModifierIp { get; set; }
         public System.DateTime CreateDate { get; set; }
         public string CreatorId { get; set; }
         public string CreatorIp { get; set; }
-        public string DiscontinuedUserId { get; set; }
-        public string DiscontinuedUserIp { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contact> Contacts { get; set; }
-        public virtual AspNetUser CreatedUser { get; set; }
         public virtual AspNetUser DiscontinuedUser { get; set; }
         public virtual AspNetUser ModifiedUser { get; set; }
+        public virtual AspNetUser CreatedUser { get; set; }
     }
 }

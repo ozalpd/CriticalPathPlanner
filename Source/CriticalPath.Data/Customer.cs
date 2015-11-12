@@ -48,13 +48,13 @@ namespace CriticalPath.Data
             clone.Notes = Notes;
             clone.ModifyNr = ModifyNr;
             clone.ModifyDate = ModifyDate;
+            clone.DiscontinuedUserId = DiscontinuedUserId;
+            clone.DiscontinuedUserIp = DiscontinuedUserIp;
             clone.ModifierId = ModifierId;
             clone.ModifierIp = ModifierIp;
             clone.CreateDate = CreateDate;
             clone.CreatorId = CreatorId;
             clone.CreatorIp = CreatorIp;
-            clone.DiscontinuedUserId = DiscontinuedUserId;
-            clone.DiscontinuedUserIp = DiscontinuedUserIp;
             clone.CustomerCode = CustomerCode;
     
             Cloning(clone);

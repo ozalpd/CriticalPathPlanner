@@ -935,6 +935,10 @@
 		<value>Ölçü Standartlar Listesi</value>
 	</data>
 
+	<data name="StartDate" xml:space="preserve">
+		<value>Başlama Tarihi</value>
+	</data>
+
 	<data name="State" xml:space="preserve">
 		<value>Eyalet</value>
 	</data>
@@ -953,6 +957,10 @@
 
 	<data name="SupplierCode" xml:space="preserve">
 		<value>Tedarikçi Kodu</value>
+	</data>
+
+	<data name="SupplierId" xml:space="preserve">
+		<value>Tedarikçi</value>
 	</data>
 
 	<data name="Suppliers" xml:space="preserve">

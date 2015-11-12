@@ -72,6 +72,9 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "DiscontinuedUser")]
             public AspNetUser DiscontinuedUser { get; set; }
 
+            [Display(ResourceType = typeof(EntityStrings), Name = "Suppliers")]
+            public ICollection<Supplier> Suppliers { get; set; }
+
             [Display(ResourceType = typeof(EntityStrings), Name = "ModifiedUser")]
             public AspNetUser ModifiedUser { get; set; }
 

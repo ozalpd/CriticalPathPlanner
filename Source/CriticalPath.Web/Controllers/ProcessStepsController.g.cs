@@ -39,7 +39,62 @@ namespace CriticalPath.Web.Controllers
             return query;
         }
 
-        [Authorize]
+        [Authorize(Roles = "admin, supervisor, clerk")]
+        public async Task<ActionResult> Index(QueryParameters qParams)
+        {
+            var query = GetProcessStepQuery(qParams);
+            qParams.TotalCount = await query.CountAsync();
+            PutPagerInViewBag(qParams);
+            await PutCanUserInViewBag();
+
+            if (qParams.TotalCount > 0)
+            {
+                return View(await query.Skip(qParams.Skip).Take(qParams.PageSize).ToListAsync());
+            }
+            else
+            {
+                return View(new List<ProcessStep>());   //there isn't any record, so no need to run a query
+            }
+        }
+        
+        protected override async Task<bool> CanUserCreate()
+        {
+            if (!_canUserCreate.HasValue)
+            {
+                _canUserCreate = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync() ||
+                                    await IsUserClerkAsync());
+            }
+            return _canUserCreate.Value;
+        }
+        bool? _canUserCreate;
+
+        protected override async Task<bool> CanUserEdit()
+        {
+            if (!_canUserEdit.HasValue)
+            {
+                _canUserEdit = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync() ||
+                                    await IsUserClerkAsync());
+            }
+            return _canUserEdit.Value;
+        }
+        bool? _canUserEdit;
+        
+        protected override async Task<bool> CanUserDelete()
+        {
+            if (!_canUserDelete.HasValue)
+            {
+                _canUserDelete = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync());
+            }
+            return _canUserDelete.Value;
+        }
+        bool? _canUserDelete;
+
+        [Authorize(Roles = "admin, supervisor, clerk")]
         public async Task<ActionResult> Details(int? id)  //GET: /ProcessSteps/Details/5
         {
             if (id == null)
@@ -53,6 +108,7 @@ namespace CriticalPath.Web.Controllers
                 return HttpNotFound();
             }
 
+            await PutCanUserInViewBag();
             return View(processStep);
         }
 
@@ -102,10 +158,6 @@ namespace CriticalPath.Web.Controllers
             public int? TemplateId { get; set; }
         }
 
-
-        //Partial methods
-        partial void OnCreateSaving(ProcessStep processStep);
-        partial void OnCreateSaved(ProcessStep processStep);
         partial void OnEditSaving(ProcessStep processStep);
         partial void OnEditSaved(ProcessStep processStep);
         partial void SetSelectLists(ProcessStep processStep);

@@ -11,12 +11,12 @@
         <EntityTypeShape EntityType="CriticalPathDataModel.ProcessStepTemplate" Width="1.875" PointX="3.125" PointY="8.875" />
         <EntityTypeShape EntityType="CriticalPathDataModel.ProcessTemplate" Width="1.75" PointX="0.5" PointY="8.875" />
         <EntityTypeShape EntityType="CriticalPathDataModel.PurchaseOrder" Width="1.5" PointX="16.75" PointY="1.375" />
-        <EntityTypeShape EntityType="CriticalPathDataModel.Contact" Width="1.5" PointX="18.875" PointY="4.75" />
-        <EntityTypeShape EntityType="CriticalPathDataModel.Company" Width="1.5" PointX="21" PointY="2.625" />
+        <EntityTypeShape EntityType="CriticalPathDataModel.Contact" Width="1.625" PointX="18.75" PointY="4.75" />
+        <EntityTypeShape EntityType="CriticalPathDataModel.Company" Width="1.625" PointX="21" PointY="2.625" />
         <InheritanceConnector EntityType="CriticalPathDataModel.Customer" />
         <InheritanceConnector EntityType="CriticalPathDataModel.Supplier" />
         <EntityTypeShape EntityType="CriticalPathDataModel.Customer" Width="1.5" PointX="18.875" PointY="2.625" />
-        <EntityTypeShape EntityType="CriticalPathDataModel.Supplier" Width="1.5" PointX="21" PointY="0.625" />
+        <EntityTypeShape EntityType="CriticalPathDataModel.Supplier" Width="1.625" PointX="21" PointY="0.625" />
         <EntityTypeShape EntityType="CriticalPathDataModel.ProductCategory" Width="1.625" PointX="6.125" PointY="0.875" />
         <EntityTypeShape EntityType="CriticalPathDataModel.SizingStandard" Width="1.625" PointX="10.375" PointY="1.375" />
         <EntityTypeShape EntityType="CriticalPathDataModel.Sizing" Width="1.5" PointX="12.5" PointY="2.25" />
@@ -70,6 +70,8 @@
         <AssociationConnector Association="CriticalPathDataModel.FK_SizeRate_CreatorId" />
         <AssociationConnector Association="CriticalPathDataModel.FK_SizeRate_ModifierId" />
         <AssociationConnector Association="CriticalPathDataModel.FK_Product_SizingStandardId" />
+        <AssociationConnector Association="CriticalPathDataModel.ProductsSuppliers" />
+        <AssociationConnector Association="CriticalPathDataModel.FK_Process_SupplierId" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

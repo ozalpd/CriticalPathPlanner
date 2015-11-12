@@ -91,6 +91,10 @@
 		<value>Siparişi İptal Et</value>
 	</data>
 
+	<data name="ChangePassword" xml:space="preserve">
+		<value>Parolanı Değiştir</value>
+	</data>
+
 	<data name="Choose" xml:space="preserve">
 		<value>Seç</value>
 	</data>
@@ -145,6 +149,10 @@
 
 	<data name="Logout" xml:space="preserve">
 		<value>Çıkış Yap</value>
+	</data>
+
+	<data name="ManageAccount" xml:space="preserve">
+		<value>Hesabını Yönet</value>
 	</data>
 
 	<data name="No" xml:space="preserve">

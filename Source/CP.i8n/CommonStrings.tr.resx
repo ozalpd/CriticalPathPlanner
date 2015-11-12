@@ -67,6 +67,10 @@
 		<value>Hakkımızda</value>
 	</data>
 
+	<data name="Account" xml:space="preserve">
+		<value>Hesap</value>
+	</data>
+
 	<data name="Admin" xml:space="preserve">
 		<value>Admin</value>
 	</data>
