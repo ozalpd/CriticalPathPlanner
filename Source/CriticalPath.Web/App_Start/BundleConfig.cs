@@ -8,6 +8,17 @@ namespace CriticalPath.Web
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.Add(new StyleBundle("~/css/ag-grid").Include(
+                        "~/libs/ag-grid/ag-grid.css",
+                        "~/libs/ag-grid/theme-fresh.css",
+                        "~/libs/ag-grid/theme-dark.css",
+                        "~/libs/ag-grid/theme-blue.css",
+                        "~/libs/ag-grid/ag-dark-blue.css",
+                        "~/libs/ag-grid/ag-grid-addt.css"));
+
+            bundles.Add(new ScriptBundle("~/js/ag-grid").Include(
+                        "~/libs/ag-grid/ag-grid.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
                         "~/Scripts/jquery-ui-{version}.js",

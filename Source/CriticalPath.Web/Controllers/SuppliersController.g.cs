@@ -16,74 +16,28 @@ namespace CriticalPath.Web.Controllers
 {
     public partial class SuppliersController : BaseController 
     {
-        [Authorize]
-        public async Task<ActionResult> Index(QueryParameters qParams)
+        protected virtual async Task<IQueryable<Supplier>> GetSupplierQuery(QueryParameters qParams)
         {
-            var query = DataContext.GetSupplierQuery();
+            var query = GetSupplierQuery();
             if (!string.IsNullOrEmpty(qParams.SearchString))
             {
                 query = from a in query
                         where
                             a.CompanyName.Contains(qParams.SearchString) | 
-                            a.SupplierCode.Contains(qParams.SearchString) | 
                             a.Phone1.Contains(qParams.SearchString) | 
                             a.Phone2.Contains(qParams.SearchString) | 
                             a.Phone3.Contains(qParams.SearchString) | 
+                            a.SupplierCode.Contains(qParams.SearchString) | 
                             a.Address1.Contains(qParams.SearchString) | 
-                            a.Address2.Contains(qParams.SearchString) 
+                            a.Address2.Contains(qParams.SearchString) | 
+                            a.DiscontinueNotes.Contains(qParams.SearchString) | 
+                            a.DiscontinuedUserIp.Contains(qParams.SearchString) 
                         select a;
             }
+
             qParams.TotalCount = await query.CountAsync();
-            PutPagerInViewBag(qParams);
-            await PutCanUserInViewBag();
-
-            if (qParams.TotalCount > 0)
-            {
-                return View(await query.Skip(qParams.Skip).Take(qParams.PageSize).ToListAsync());
-            }
-            else
-            {
-                return View(new List<Supplier>());   //there isn't any record, so no need to run a query
-            }
+            return query.Skip(qParams.Skip).Take(qParams.PageSize);
         }
-        
-        protected override async Task<bool> CanUserCreate()
-        {
-            if (!_canUserCreate.HasValue)
-            {
-                _canUserCreate = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync() ||
-                                    await IsUserClerkAsync());
-            }
-            return _canUserCreate.Value;
-        }
-        bool? _canUserCreate;
-
-        protected override async Task<bool> CanUserEdit()
-        {
-            if (!_canUserEdit.HasValue)
-            {
-                _canUserEdit = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync() ||
-                                    await IsUserClerkAsync());
-            }
-            return _canUserEdit.Value;
-        }
-        bool? _canUserEdit;
-        
-        protected override async Task<bool> CanUserDelete()
-        {
-            if (!_canUserDelete.HasValue)
-            {
-                _canUserDelete = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync());
-            }
-            return _canUserDelete.Value;
-        }
-        bool? _canUserDelete;
 
         [Authorize]
         public async Task<ActionResult> Details(int? id)  //GET: /Suppliers/Details/5
@@ -99,16 +53,17 @@ namespace CriticalPath.Web.Controllers
                 return HttpNotFound();
             }
 
+            await PutCanUserInViewBag();
             return View(supplier);
         }
 
         [HttpGet]
         [Authorize(Roles = "admin, supervisor, clerk")]
-        public ActionResult Create()  //GET: /Suppliers/Create
+        public async Task<ActionResult> Create()  //GET: /Suppliers/Create
         {
             var supplier = new Supplier();
-            SetSupplierDefaults(supplier);
-            SetSelectLists(null);
+            await SetSupplierDefaults(supplier);
+            SetSelectLists(supplier);
             return View(supplier);
         }
 
@@ -189,8 +144,9 @@ namespace CriticalPath.Web.Controllers
                 return HttpNotFound();
             }
 
+            int productsCount = supplier.Products.Count;
             int contactsCount = supplier.Contacts.Count;
-            if ((contactsCount) > 0)
+            if ((productsCount + contactsCount) > 0)
             {
                 var sb = new StringBuilder();
 
@@ -198,6 +154,12 @@ namespace CriticalPath.Web.Controllers
                 sb.Append(" <b>");
                 sb.Append(supplier.CompanyName);
                 sb.Append("</b>.<br/>");
+
+                if (productsCount > 0)
+                {
+                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, productsCount, EntityStrings.Products));
+                    sb.Append("<br/>");
+                }
 
                 if (contactsCount > 0)
                 {
@@ -227,8 +189,6 @@ namespace CriticalPath.Web.Controllers
             return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
 
-
-        //Partial methods
         partial void OnCreateSaving(Supplier supplier);
         partial void OnCreateSaved(Supplier supplier);
         partial void OnEditSaving(Supplier supplier);

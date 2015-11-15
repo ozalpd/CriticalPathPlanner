@@ -1,0 +1,15 @@
+﻿.cell-col-0 {
+    overflow: visible;
+}
+
+.ag-body {
+    background-color:#303436;
+}
+
+.ag-body-viewport {
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+}
+    .ag-body-viewport::-webkit-scrollbar {
+        width: 3px;
+    }

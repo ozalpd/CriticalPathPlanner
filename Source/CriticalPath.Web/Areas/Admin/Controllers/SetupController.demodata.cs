@@ -24,13 +24,13 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             await SeedSizingStandards(sb);
             await DataContext.SaveChangesAsync(this);
 
-            await SeedProducts(sb);
-            await DataContext.SaveChangesAsync(this);
-
             await SeedCustomers(sb);
             await DataContext.SaveChangesAsync(this);
 
             await SeedSuppliers(sb);
+            await DataContext.SaveChangesAsync(this);
+
+            await SeedProducts(sb);
             await DataContext.SaveChangesAsync(this);
 
             ViewBag.status = sb.ToString();
@@ -499,7 +499,308 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                     Phone2 = "+1 (831) 521-2237",
                     Notes = "Excepteur ipsum consectetur ut fugiat eu magna nisi laborum anim nostrud sunt nisi. Consequat magna cillum nulla ex magna culpa aliqua proident laborum fugiat voluptate dolor mollit. Non magna dolor aute deserunt ipsum eu nostrud magna mollit aute pariatur. Consectetur labore deserunt ut ut. Reprehenderit occaecat excepteur reprehenderit quis in sint aliquip non adipisicing aliquip cupidatat adipisicing quis ipsum.",
                     Address2 = "775 Kent Street, Kenwood, Oklahoma, 8689"
+                },
+             new Supplier() {
+                    CompanyName = "Immunics",
+                    SupplierCode = "IMMUNICS-3423",
+                    City = "Biddle",
+                    Address1 = "660 Wilson Street",
+                    Address2 = "880 Truxton Street, Levant, Palau, 8054",
+                    Phone1 = "+1 (932) 417-2844",
+                    Phone2 = "+1 (925) 451-3350",
+                    Notes = "Eiusmod magna cillum eu deserunt. Irure ut excepteur excepteur fugiat esse do officia velit consectetur dolor culpa labore. Consectetur consequat excepteur dolore Lorem non. Ex qui voluptate in pariatur eu.",
+                    Contacts = {
+                        new Contact() { FirstName = "Mayra", LastName = "Solomon", EmailWork = "mayra.solomon@genmex.biz" },
+                        new Contact() { FirstName = "Lillie", LastName = "Mcknight", EmailWork = "lillie.mcknight@cedward.tv" },
+                        new Contact() { FirstName = "Jimenez", LastName = "Roberson", EmailWork = "jimenez.roberson@organica.info" },
+                        new Contact() { FirstName = "Iris", LastName = "Whitney", EmailWork = "iris.whitney@vortexaco.co.uk" },
                 }
+              },
+             new Supplier() {
+                    CompanyName = "Dancerity",
+                    SupplierCode = "DANCERITY-2214",
+                    City = "Belleview",
+                    Address1 = "718 Main Street",
+                    Address2 = "804 Apollo Street, Robbins, American Samoa, 5682",
+                    Phone1 = "+1 (921) 426-3382",
+                    Phone2 = "+1 (988) 506-3471",
+                    Notes = "Id ut nostrud et anim tempor. In reprehenderit non duis dolor. Eiusmod laboris cupidatat magna nostrud enim deserunt ullamco nostrud sint nostrud. Occaecat occaecat do ipsum eu dolor officia. Velit anim mollit consequat consectetur aliqua labore eiusmod nulla duis qui ipsum. Quis voluptate ex occaecat pariatur aliquip culpa commodo.",
+                    Contacts = {
+                        new Contact() { FirstName = "Rosario", LastName = "Mclean", EmailWork = "rosario.mclean@essensia.ca" },
+                        new Contact() { FirstName = "Ann", LastName = "Strickland", EmailWork = "ann.strickland@exostream.org" },
+                        new Contact() { FirstName = "Jewel", LastName = "Jordan", EmailWork = "jewel.jordan@rameon.us" },
+                }
+              },
+             new Supplier() {
+                    CompanyName = "Aclima",
+                    SupplierCode = "ACLIMA-9468",
+                    City = "Blackgum",
+                    Address1 = "889 Holly Street",
+                    Address2 = "481 Pulaski Street, Haring, Kentucky, 3976",
+                    Phone1 = "+1 (902) 456-2965",
+                    Phone2 = "+1 (973) 594-2326",
+                    Notes = "Occaecat officia voluptate commodo culpa amet velit non irure sit nostrud fugiat officia. Esse elit qui anim dolor duis ex commodo. Tempor qui anim laborum cillum sunt. Lorem nostrud ipsum proident sunt mollit.",
+                    Contacts = {
+                        new Contact() { FirstName = "Gloria", LastName = "Avery", EmailWork = "gloria.avery@zenolux.com" },
+                        new Contact() { FirstName = "Robin", LastName = "Knapp", EmailWork = "robin.knapp@gology.biz" },
+                }
+              },
+             new Supplier() {
+                    CompanyName = "Ronelon",
+                    SupplierCode = "RONELON-5032",
+                    City = "Allison",
+                    Address1 = "395 Cass Place",
+                    Address2 = "267 Eaton Court, Valle, Northern Mariana Islands, 4690",
+                    Phone1 = "+1 (819) 571-2145",
+                    Phone2 = "+1 (935) 480-2729",
+                    Notes = "Est do dolor esse nisi cupidatat occaecat. Non tempor nostrud aliqua voluptate ea nulla pariatur nostrud est nisi do nulla voluptate. Pariatur aliqua culpa qui aute adipisicing Lorem officia pariatur enim non sint irure. Nisi mollit laborum voluptate consectetur cupidatat veniam sunt.",
+                    Contacts = {
+                        new Contact() { FirstName = "Edith", LastName = "Boyer", EmailWork = "edith.boyer@digique.net" },
+                        new Contact() { FirstName = "Phillips", LastName = "Sears", EmailWork = "phillips.sears@lovepad.io" },
+                        new Contact() { FirstName = "Abigail", LastName = "Zamora", EmailWork = "abigail.zamora@tropoli.me" },
+                }
+              },
+             new Supplier() {
+                    CompanyName = "Blanet",
+                    SupplierCode = "BLANET-1389",
+                    City = "Harborton",
+                    Address1 = "697 Box Street",
+                    Address2 = "103 Gold Street, Finderne, North Carolina, 1543",
+                    Phone1 = "+1 (898) 499-2203",
+                    Phone2 = "+1 (927) 482-3222",
+                    Notes = "Culpa voluptate labore reprehenderit proident veniam eu proident ad cillum aliqua id sunt quis. Amet ea quis officia consequat voluptate sit fugiat proident irure in aute reprehenderit labore. Dolore et incididunt veniam sit aute. Ad ex elit labore velit nostrud eiusmod qui exercitation ex sint qui veniam aliqua. Elit sint cupidatat amet labore do do exercitation commodo consectetur. Sint tempor ipsum culpa pariatur.",
+                    Contacts = {
+                        new Contact() { FirstName = "Sue", LastName = "Huber", EmailWork = "sue.huber@exoblue.biz" },
+                }
+              },
+             new Supplier() {
+                    CompanyName = "Magnemo",
+                    SupplierCode = "MAGNEMO-1768",
+                    City = "Bangor",
+                    Address1 = "802 Autumn Avenue",
+                    Address2 = "681 Richards Street, Gwynn, Oklahoma, 993",
+                    Phone1 = "+1 (936) 530-3933",
+                    Phone2 = "+1 (985) 498-3529",
+                    Notes = "Incididunt proident exercitation consectetur sint dolore sint tempor veniam cupidatat esse do tempor fugiat. Aute cillum veniam aliquip qui minim eu ut laboris nostrud nostrud quis. Esse adipisicing consequat commodo non laboris deserunt aute irure minim. Incididunt incididunt reprehenderit ipsum elit excepteur velit irure proident id nisi.",
+                    Contacts = {
+                        new Contact() { FirstName = "Mitchell", LastName = "Compton", EmailWork = "mitchell.compton@renovize.tv" },
+                        new Contact() { FirstName = "Roxie", LastName = "Snider", EmailWork = "roxie.snider@xiix.info" },
+                        new Contact() { FirstName = "Pam", LastName = "Gonzales", EmailWork = "pam.gonzales@applideck.co.uk" },
+                }
+              },
+             new Supplier() {
+                    CompanyName = "Candecor",
+                    SupplierCode = "CANDECOR-6710",
+                    City = "Matthews",
+                    Address1 = "203 King Street",
+                    Address2 = "923 Varick Street, Caln, Alabama, 9814",
+                    Phone1 = "+1 (906) 553-2108",
+                    Phone2 = "+1 (839) 550-2353",
+                    Notes = "Exercitation enim nisi ipsum laborum aliqua minim nulla ex ex dolore ex exercitation. Excepteur laboris proident deserunt fugiat aliqua quis excepteur dolore. Incididunt proident est consectetur aliquip nostrud dolore. Et ullamco reprehenderit sint magna laboris sint esse adipisicing Lorem nisi.",
+                    Contacts = {
+                        new Contact() { FirstName = "Jolene", LastName = "Holder", EmailWork = "jolene.holder@zepitope.ca" },
+                        new Contact() { FirstName = "Lily", LastName = "Horne", EmailWork = "lily.horne@zeam.org" },
+                }
+              },
+             new Supplier() {
+                    CompanyName = "Xth",
+                    SupplierCode = "XTH-3396",
+                    City = "Lupton",
+                    Address1 = "994 Jackson Street",
+                    Address2 = "561 Bouck Court, Westwood, Minnesota, 9986",
+                    Phone1 = "+1 (911) 507-2245",
+                    Phone2 = "+1 (931) 416-2699",
+                    Notes = "Reprehenderit ea ad irure veniam velit minim. Mollit commodo non pariatur fugiat ipsum enim velit nostrud sint consequat adipisicing ullamco nostrud. Proident adipisicing eu quis veniam commodo. Excepteur est exercitation eu laboris aute non deserunt proident do. Elit elit deserunt in amet incididunt id labore cupidatat do laborum consectetur ex cillum. Exercitation elit fugiat cillum elit cupidatat pariatur ullamco consequat laboris tempor.",
+                    Contacts = {
+                        new Contact() { FirstName = "Levy", LastName = "Best", EmailWork = "levy.best@genekom.us" },
+                        new Contact() { FirstName = "Stanton", LastName = "Kelly", EmailWork = "stanton.kelly@imperium.com" },
+                }
+              },
+             new Supplier() {
+                    CompanyName = "Toyletry",
+                    SupplierCode = "TOYLETRY-6155",
+                    City = "Rodanthe",
+                    Address1 = "488 Wythe Avenue",
+                    Address2 = "838 Bethel Loop, Bordelonville, Wyoming, 3389",
+                    Phone1 = "+1 (850) 544-3169",
+                    Phone2 = "+1 (958) 551-2260",
+                    Notes = "Nostrud reprehenderit nulla exercitation quis sint voluptate. Ullamco duis adipisicing aliqua in irure consequat fugiat. Cillum officia ex est aliquip veniam do sint.",
+                    Contacts = {
+                        new Contact() { FirstName = "Conner", LastName = "Hammond", EmailWork = "conner.hammond@qnekt.biz" },
+                }
+              },
+             new Supplier() {
+                    CompanyName = "Gluid",
+                    SupplierCode = "GLUID-9776",
+                    City = "Macdona",
+                    Address1 = "830 Lefferts Place",
+                    Address2 = "398 Fenimore Street, Geyserville, Massachusetts, 9745",
+                    Phone1 = "+1 (835) 549-2098",
+                    Phone2 = "+1 (869) 531-2076",
+                    Notes = "Id mollit exercitation cupidatat incididunt elit sint adipisicing elit. Est Lorem deserunt Lorem Lorem occaecat cupidatat exercitation minim sunt non exercitation aliqua amet anim. Laboris id ut adipisicing minim occaecat magna adipisicing do officia ullamco irure ipsum voluptate. Aliqua reprehenderit commodo commodo officia dolor do ad nulla. Nostrud consectetur ut laborum pariatur minim. Eiusmod nisi sint eiusmod cupidatat do laboris ea ipsum eiusmod qui amet nostrud labore.",
+                    Contacts = {
+                        new Contact() { FirstName = "Isabel", LastName = "Mcintyre", EmailWork = "isabel.mcintyre@panzent.net" },
+                }
+              },
+             new Supplier() {
+                    CompanyName = "Vertide",
+                    SupplierCode = "VERTIDE-1627",
+                    City = "Windsor",
+                    Address1 = "707 Greenpoint Avenue",
+                    Address2 = "734 Beach Place, Reno, District Of Columbia, 9328",
+                    Phone1 = "+1 (968) 512-2627",
+                    Phone2 = "+1 (910) 485-3403",
+                    Notes = "Adipisicing dolor id irure aliquip veniam exercitation. Irure pariatur veniam ex deserunt laboris eiusmod id velit dolore. Ipsum ipsum elit culpa dolor anim reprehenderit pariatur ex ea culpa fugiat. Sunt anim sit ipsum occaecat ad proident consectetur deserunt. Sunt Lorem dolor dolore quis quis enim occaecat. Quis consequat sit pariatur ut aliqua nostrud magna. Dolore enim non anim irure ipsum eu officia aliqua velit cillum et ullamco tempor nostrud.",
+                    Contacts = {
+                        new Contact() { FirstName = "Caldwell", LastName = "Washington", EmailWork = "caldwell.washington@ovolo.io" },
+                }
+              },
+             new Supplier() {
+                    CompanyName = "Suretech",
+                    SupplierCode = "SURETECH-7037",
+                    City = "Saddlebrooke",
+                    Address1 = "969 Victor Road",
+                    Address2 = "923 Hamilton Walk, Darbydale, Florida, 8688",
+                    Phone1 = "+1 (849) 499-3627",
+                    Phone2 = "+1 (869) 451-3306",
+                    Notes = "Incididunt anim reprehenderit eu excepteur. Irure fugiat non et ipsum aute consectetur irure qui esse laborum ipsum fugiat irure aliquip. Enim velit quis ad nisi. Duis deserunt voluptate aliquip proident.",
+                    Contacts = {
+                        new Contact() { FirstName = "Diane", LastName = "Skinner", EmailWork = "diane.skinner@geofarm.me" },
+                }
+              },
+             new Supplier() {
+                    CompanyName = "Geoform",
+                    SupplierCode = "GEOFORM-4979",
+                    City = "Kennedyville",
+                    Address1 = "254 Estate Road",
+                    Address2 = "164 Delevan Street, Ola, Michigan, 151",
+                    Phone1 = "+1 (847) 441-3310",
+                    Phone2 = "+1 (874) 590-2937",
+                    Notes = "Ex veniam commodo voluptate occaecat irure anim elit eiusmod. Voluptate nisi sint Lorem non enim eiusmod. Est cupidatat veniam ex ea incididunt nisi ex laboris aliquip eu eiusmod. Id consequat consectetur ut culpa excepteur.",
+                    Contacts = {
+                        new Contact() { FirstName = "Albert", LastName = "Velasquez", EmailWork = "albert.velasquez@webiotic.biz" }
+                }
+              },
+             new Supplier() {
+                    CompanyName = "Ontality",
+                    SupplierCode = "ONTALITY-1766",
+                    City = "Marshall",
+                    Address1 = "889 Nolans Lane",
+                    Address2 = "288 Wortman Avenue, Manila, Colorado, 2649",
+                    Phone1 = "+1 (992) 441-2651",
+                    Phone2 = "+1 (902) 446-2763",
+                    Notes = "Ex consectetur enim occaecat dolore ipsum sit eiusmod incididunt. Proident ex ex mollit adipisicing fugiat labore et ipsum dolore magna commodo quis. Proident excepteur amet elit amet irure labore labore."
+              },
+             new Supplier() {
+                    CompanyName = "Comtent",
+                    SupplierCode = "COMTENT-2906",
+                    City = "Outlook",
+                    Address1 = "430 Vandam Street",
+                    Address2 = "163 Sullivan Place, Henrietta, Arkansas, 8680",
+                    Phone1 = "+1 (874) 446-2484",
+                    Phone2 = "+1 (994) 574-3628",
+                    Notes = "Aliqua qui reprehenderit pariatur excepteur sint ex dolore sint ipsum ut aliquip ad. Id id irure nulla incididunt officia consequat minim pariatur deserunt sint ea aliqua tempor. Veniam eiusmod minim fugiat labore mollit ad sit non aliqua. Occaecat eu magna est esse quis ullamco amet ullamco. Officia nostrud voluptate tempor sint minim occaecat id duis dolore dolor quis ullamco Lorem magna. Ad voluptate ea Lorem dolor nisi occaecat cupidatat aute duis voluptate occaecat consequat incididunt eiusmod."
+              },
+             new Supplier() {
+                    CompanyName = "Solgan",
+                    SupplierCode = "SOLGAN-6543",
+                    City = "Dola",
+                    Address1 = "921 Hawthorne Street",
+                    Address2 = "455 Wolcott Street, Coyote, New Mexico, 7035",
+                    Phone1 = "+1 (840) 567-2790",
+                    Phone2 = "+1 (848) 532-2094",
+                    Notes = "Occaecat ut laborum exercitation exercitation. Est qui incididunt eu deserunt cillum aute aliqua. Duis dolore excepteur adipisicing Lorem anim labore culpa voluptate aliqua. Enim laborum proident est occaecat dolor nulla occaecat sunt do."
+              },
+             new Supplier() {
+                    CompanyName = "Columella",
+                    SupplierCode = "COLUMELLA-693",
+                    City = "Gibsonia",
+                    Address1 = "378 Williams Place",
+                    Address2 = "759 Verona Street, Riner, Hawaii, 4585",
+                    Phone1 = "+1 (809) 573-2396",
+                    Phone2 = "+1 (912) 466-2597",
+                    Notes = "Ad ea culpa veniam adipisicing labore voluptate aliqua cillum velit exercitation elit. Reprehenderit consequat cillum cillum est occaecat. Eiusmod sunt eiusmod culpa proident et consectetur incididunt consectetur est laborum quis. Consequat qui veniam velit fugiat aliqua culpa adipisicing duis excepteur qui occaecat ad. Qui sint voluptate irure ad dolore elit enim nulla."
+              },
+             new Supplier() {
+                    CompanyName = "Hometown",
+                    SupplierCode = "HOMETOWN-8865",
+                    City = "Malo",
+                    Address1 = "184 Gelston Avenue",
+                    Address2 = "705 Legion Street, Chesterfield, Idaho, 2924",
+                    Phone1 = "+1 (923) 459-2131",
+                    Phone2 = "+1 (908) 540-2257",
+                    Notes = "Amet sint eiusmod deserunt eiusmod pariatur aute dolor. Magna ullamco culpa pariatur do nisi fugiat id aliqua amet id anim mollit velit. Adipisicing reprehenderit labore deserunt nisi exercitation anim occaecat est eiusmod minim aliqua. Dolore consequat irure dolor dolor. Velit enim ad amet consequat ipsum est enim excepteur cillum. Aliqua non aliquip est nisi consectetur eiusmod voluptate laborum. Laborum exercitation cillum ea ullamco incididunt nostrud."
+              },
+             new Supplier() {
+                    CompanyName = "Ronbert",
+                    SupplierCode = "RONBERT-3095",
+                    City = "Walker",
+                    Address1 = "815 Polhemus Place",
+                    Address2 = "805 Vandervoort Place, Cliffside, Louisiana, 4546",
+                    Phone1 = "+1 (811) 515-3041",
+                    Phone2 = "+1 (840) 485-2220",
+                    Notes = "Ea reprehenderit mollit anim anim eu pariatur ad cupidatat minim culpa magna. Qui dolor non irure aliquip irure elit est et et deserunt voluptate exercitation commodo enim. Enim do occaecat amet consequat fugiat id quis sunt. Occaecat minim id ipsum reprehenderit officia anim labore dolore sint. Ullamco sit veniam ullamco cupidatat duis adipisicing nostrud officia aute."
+              },
+             new Supplier() {
+                    CompanyName = "Ecrater",
+                    SupplierCode = "ECRATER-8693",
+                    City = "Knowlton",
+                    Address1 = "698 Powers Street",
+                    Address2 = "957 Albemarle Terrace, Matheny, Washington, 9454",
+                    Phone1 = "+1 (937) 404-2295",
+                    Phone2 = "+1 (818) 442-2328",
+                    Notes = "Incididunt tempor non reprehenderit ex. Ut veniam deserunt dolor dolore commodo. Esse exercitation excepteur laborum occaecat dolore minim enim minim commodo eu. In cupidatat do ut veniam voluptate sint non officia laboris. Ea non esse et cupidatat ipsum ea."
+              },
+             new Supplier() {
+                    CompanyName = "Zilidium",
+                    SupplierCode = "ZILIDIUM-7035",
+                    City = "Lumberton",
+                    Address1 = "492 Martense Street",
+                    Address2 = "292 Prescott Place, Grahamtown, Indiana, 1521",
+                    Phone1 = "+1 (902) 444-3482",
+                    Phone2 = "+1 (841) 519-3090",
+                    Notes = "Sunt excepteur est sit cillum mollit ex eu adipisicing mollit laboris voluptate. Proident et Lorem enim aute incididunt in reprehenderit cupidatat in occaecat esse adipisicing consequat. Amet cupidatat deserunt exercitation ipsum nulla commodo. Aute culpa tempor eu occaecat aute qui tempor dolor deserunt est est culpa incididunt. In proident voluptate aliqua irure velit consectetur pariatur non ad consectetur aliqua officia amet esse. Proident deserunt consectetur est ipsum nostrud amet et. Fugiat reprehenderit tempor ipsum do cupidatat mollit aliqua aute duis esse Lorem."
+             },
+             new Supplier() {
+                    CompanyName = "Rotodyne",
+                    SupplierCode = "ROTODYNE-6766",
+                    City = "Rowe",
+                    Address1 = "275 Ferry Place",
+                    Address2 = "246 Barbey Street, Dotsero, North Dakota, 5570",
+                    Phone1 = "+1 (867) 587-3500",
+                    Phone2 = "+1 (944) 501-3533",
+                    Notes = "Occaecat minim excepteur ea consequat proident elit aliqua aliquip incididunt aliquip. Sit ad ex adipisicing anim. Ea non ex officia eu cupidatat deserunt eu ad reprehenderit aliqua ea velit. Id aliquip quis mollit proident ea laborum dolor sunt eiusmod incididunt velit laborum Lorem. Nulla excepteur dolor veniam ipsum labore quis velit dolor est nisi voluptate sint Lorem. Reprehenderit nisi minim aute in officia laboris ex ipsum magna aute id et nostrud eiusmod. Laboris ullamco laborum dolore amet excepteur qui qui tempor eu aliqua voluptate nisi qui."
+             },
+             new Supplier() {
+                    CompanyName = "Zillanet",
+                    SupplierCode = "ZILLANET-1908",
+                    City = "Sparkill",
+                    Address1 = "921 Miami Court",
+                    Address2 = "603 Bryant Street, Churchill, Nebraska, 6871",
+                    Phone1 = "+1 (857) 572-3314",
+                    Phone2 = "+1 (951) 514-3485",
+                    Notes = "Consectetur occaecat consequat nulla cillum deserunt eiusmod aliquip ex sint enim esse est anim. In tempor non anim consectetur. Aute est velit mollit aliquip enim magna consectetur nulla laboris magna ullamco aliquip. Anim amet deserunt officia cillum elit deserunt amet esse commodo."
+              },
+             new Supplier() {
+                    CompanyName = "Geekology",
+                    SupplierCode = "GEEKOLOGY-2576",
+                    City = "Idledale",
+                    Address1 = "718 Granite Street",
+                    Address2 = "968 Driggs Avenue, Bartonsville, Iowa, 5241",
+                    Phone1 = "+1 (954) 521-2928",
+                    Phone2 = "+1 (813) 430-3234",
+                    Notes = "Esse duis nostrud laborum aliquip laborum commodo ad aliqua est pariatur quis eu reprehenderit. Nulla anim sit adipisicing laborum reprehenderit minim duis ipsum in velit proident exercitation aliquip pariatur. Id ut elit reprehenderit in et ut et cupidatat irure commodo laborum. Et officia labore occaecat quis velit dolore laboris sint adipisicing veniam et occaecat nulla duis. Velit id voluptate fugiat est non ea. In qui Lorem esse occaecat qui laboris reprehenderit culpa excepteur incididunt deserunt culpa."
+              },
+             new Supplier() {
+                    CompanyName = "Mitroc",
+                    SupplierCode = "MITROC-5899",
+                    City = "Boomer",
+                    Address1 = "683 Monitor Street",
+                    Address2 = "605 Concord Street, Dexter, Texas, 1711",
+                    Phone1 = "+1 (995) 521-3482",
+                    Phone2 = "+1 (973) 549-2579",
+                    Notes = "Quis laboris pariatur in velit minim in fugiat reprehenderit aliqua duis. Elit elit deserunt cupidatat eiusmod occaecat aliquip tempor aliquip proident. Aliquip adipisicing sint tempor dolor laboris officia labore qui irure labore veniam ullamco dolore voluptate. Cupidatat pariatur ea Lorem labore est in excepteur laborum aute dolore mollit excepteur. Aliquip sit sit sunt consectetur proident enim officia deserunt."
+              }
             };
 
             return suppliers;
