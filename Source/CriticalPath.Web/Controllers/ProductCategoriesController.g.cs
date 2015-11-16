@@ -16,10 +16,9 @@ namespace CriticalPath.Web.Controllers
 {
     public partial class ProductCategoriesController : BaseController 
     {
-        
-        public async Task<ActionResult> Index(QueryParameters qParams)
+        protected virtual async Task<IQueryable<ProductCategory>> GetProductCategoryQuery(QueryParameters qParams)
         {
-            var query = DataContext.GetProductCategoryQuery();
+            var query = GetProductCategoryQuery();
             if (!string.IsNullOrEmpty(qParams.SearchString))
             {
                 query = from a in query
@@ -32,18 +31,37 @@ namespace CriticalPath.Web.Controllers
             {
                 query = query.Where(x => x.ParentCategoryId == qParams.ParentCategoryId);
             }
-            qParams.TotalCount = await query.CountAsync();
-            PutPagerInViewBag(qParams);
-            await PutCanUserInViewBag();
 
+            qParams.TotalCount = await query.CountAsync();
+            return query.Skip(qParams.Skip).Take(qParams.PageSize);
+        }
+
+        protected virtual async Task<List<ProductCategoryDTO>> GetProductCategoryDtoList(QueryParameters qParams)
+        {
+            var query = await GetProductCategoryQuery(qParams);
+            var list = qParams.TotalCount > 0 ? await query.ToListAsync() : new List<ProductCategory>();
+            var result = new List<ProductCategoryDTO>();
+            foreach (var item in list)
+            {
+                result.Add(new ProductCategoryDTO(item));
+            }
+
+            return result;
+        }
+
+        
+        public async Task<ActionResult> Index(QueryParameters qParams)
+        {
+            var query = await GetProductCategoryQuery(qParams);
+            await PutCanUserInViewBag();
+			var result = new PagedList<ProductCategory>(qParams);
             if (qParams.TotalCount > 0)
             {
-                return View(await query.Skip(qParams.Skip).Take(qParams.PageSize).ToListAsync());
+                result.Items = await query.ToListAsync();
             }
-            else
-            {
-                return View(new List<ProductCategory>());   //there isn't any record, so no need to run a query
-            }
+
+            PutPagerInViewBag(result);
+            return View(result.Items);
         }
         
         protected override async Task<bool> CanUserCreate()
@@ -85,6 +103,21 @@ namespace CriticalPath.Web.Controllers
         bool? _canUserDelete;
 
         
+        public async Task<ActionResult> GetProductCategoryList(QueryParameters qParams)
+        {
+            var result = await GetProductCategoryDtoList(qParams);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        
+        public async Task<ActionResult> GetProductCategoryPagedList(QueryParameters qParams)
+        {
+            var result = new PagedList<ProductCategoryDTO>(qParams);
+            result.Items = await GetProductCategoryDtoList(qParams);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        
         public async Task<ActionResult> Details(int? id)  //GET: /ProductCategories/Details/5
         {
             if (id == null)
@@ -98,16 +131,34 @@ namespace CriticalPath.Web.Controllers
                 return HttpNotFound();
             }
 
+            await PutCanUserInViewBag();
             return View(productCategory);
+        }
+
+        
+        public async Task<ActionResult> GetProductCategory(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ProductCategory productCategory = await FindAsyncProductCategory(id.Value);
+
+            if (productCategory == null)
+            {
+                return HttpNotFound();
+            }
+
+            return Json(new ProductCategoryDTO(productCategory), JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
         [Authorize(Roles = "admin, supervisor, clerk")]
-        public ActionResult Create()  //GET: /ProductCategories/Create
+        public async Task<ActionResult> Create()  //GET: /ProductCategories/Create
         {
             var productCategory = new ProductCategory();
-            SetProductCategoryDefaults(productCategory);
-            SetSelectLists(null);
+            await SetProductCategoryDefaults(productCategory);
+            SetSelectLists(productCategory);
             return View(productCategory);
         }
 
@@ -235,11 +286,33 @@ namespace CriticalPath.Web.Controllers
 
         public new partial class QueryParameters : BaseController.QueryParameters
         {
+            public QueryParameters() { }
+            public QueryParameters(QueryParameters parameters) : base(parameters)
+            {
+                ParentCategoryId = parameters.ParentCategoryId;
+            }
             public int? ParentCategoryId { get; set; }
         }
 
+        public partial class PagedList<T> : QueryParameters
+        {
+            public PagedList() { }
+            public PagedList(QueryParameters parameters) : base(parameters) { }
 
-        //Partial methods
+            public IEnumerable<T> Items
+            {
+                set { _items = value; }
+                get
+                {
+                    if (_items == null)
+                    {
+                        _items = new List<T>();
+                    }
+                    return _items;
+                }
+            }
+            IEnumerable<T> _items;
+        }
         partial void OnCreateSaving(ProductCategory productCategory);
         partial void OnCreateSaved(ProductCategory productCategory);
         partial void OnEditSaving(ProductCategory productCategory);

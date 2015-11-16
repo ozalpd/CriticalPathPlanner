@@ -21,25 +21,5 @@ namespace CriticalPath.Web.Controllers
                                         .Where(c => c.Products.Count == 0);
 			ViewBag.ParentCategoryId = new SelectList(queryParentCategory, "Id", "Title", parentCategoryId);
 		}
-
-        public async Task<ActionResult> MainCategories()
-        {
-            var query = from c in DataContext.GetProductCategoryDtoQuery()
-                        where c.ParentCategoryId == null
-                        select c;
-
-            var result = await query.ToListAsync();
-            return Json(result, JsonRequestBehavior.AllowGet);
-        }
-
-        public async Task<ActionResult> SubCategories(int parentCategoryId)
-        {
-            var query = from c in DataContext.GetProductCategoryDtoQuery()
-                        where c.ParentCategoryId == parentCategoryId
-                        select c;
-
-            var result = await query.ToListAsync();
-            return Json(result, JsonRequestBehavior.AllowGet);
-        }
     }
 }

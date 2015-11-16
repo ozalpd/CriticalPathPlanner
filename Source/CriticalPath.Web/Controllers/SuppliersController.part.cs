@@ -19,30 +19,37 @@ namespace CriticalPath.Web.Controllers
     {
         public new partial class QueryParameters : BaseController.QueryParameters
         {
-            public QueryParameters()
+            protected override void Constructing(BaseController.QueryParameters parameters)
             {
+                base.Constructing(parameters);
                 PageSize = 12;
             }
+        }
+
+        protected virtual async Task<List<SupplierDTO>> GetSupplierDtoList(QueryParameters qParams)
+        {
+            var query = await GetSupplierQuery(qParams);
+            var result = qParams.TotalCount > 0 ? await  DataContext.GetSupplierDtoQuery(query).ToListAsync() : new List<SupplierDTO>();
+
+            return result;
         }
 
         [Authorize]
         public async Task<ActionResult> Index(QueryParameters qParams)
         {
-            var query = await GetSupplierQuery(qParams);
+            var dtoList = await GetSupplierDtoList(qParams);
             PutPagerInViewBag(qParams);
             await PutCanUserInViewBag();
 
             if (qParams.TotalCount > 0)
             {
-                var dtoList = await DataContext.GetSupplierDtoQuery(query).ToListAsync();
                 ViewBag.suppliers = dtoList.ToJson();
-                return View();
             }
             else
             {
                 ViewBag.suppliers = "[]";
-                return View(new List<Supplier>());   //there isn't any record, so no need to run a query
             }
+            return View();
         }
 
         protected override async Task<bool> CanUserCreate()

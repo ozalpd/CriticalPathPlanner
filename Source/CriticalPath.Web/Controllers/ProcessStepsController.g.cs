@@ -16,7 +16,7 @@ namespace CriticalPath.Web.Controllers
 {
     public partial class ProcessStepsController : BaseController 
     {
-        protected virtual IQueryable<ProcessStep> GetProcessStepQuery(QueryParameters qParams)
+        protected virtual async Task<IQueryable<ProcessStep>> GetProcessStepQuery(QueryParameters qParams)
         {
             var query = GetProcessStepQuery();
             if (!string.IsNullOrEmpty(qParams.SearchString))
@@ -36,25 +36,36 @@ namespace CriticalPath.Web.Controllers
                 query = query.Where(x => x.TemplateId == qParams.TemplateId);
             }
 
-            return query;
+            qParams.TotalCount = await query.CountAsync();
+            return query.Skip(qParams.Skip).Take(qParams.PageSize);
+        }
+
+        protected virtual async Task<List<ProcessStepDTO>> GetProcessStepDtoList(QueryParameters qParams)
+        {
+            var query = await GetProcessStepQuery(qParams);
+            var list = qParams.TotalCount > 0 ? await query.ToListAsync() : new List<ProcessStep>();
+            var result = new List<ProcessStepDTO>();
+            foreach (var item in list)
+            {
+                result.Add(new ProcessStepDTO(item));
+            }
+
+            return result;
         }
 
         [Authorize(Roles = "admin, supervisor, clerk")]
         public async Task<ActionResult> Index(QueryParameters qParams)
         {
-            var query = GetProcessStepQuery(qParams);
-            qParams.TotalCount = await query.CountAsync();
-            PutPagerInViewBag(qParams);
+            var query = await GetProcessStepQuery(qParams);
             await PutCanUserInViewBag();
-
+			var result = new PagedList<ProcessStep>(qParams);
             if (qParams.TotalCount > 0)
             {
-                return View(await query.Skip(qParams.Skip).Take(qParams.PageSize).ToListAsync());
+                result.Items = await query.ToListAsync();
             }
-            else
-            {
-                return View(new List<ProcessStep>());   //there isn't any record, so no need to run a query
-            }
+
+            PutPagerInViewBag(result);
+            return View(result.Items);
         }
         
         protected override async Task<bool> CanUserCreate()
@@ -95,6 +106,21 @@ namespace CriticalPath.Web.Controllers
         bool? _canUserDelete;
 
         [Authorize(Roles = "admin, supervisor, clerk")]
+        public async Task<ActionResult> GetProcessStepList(QueryParameters qParams)
+        {
+            var result = await GetProcessStepDtoList(qParams);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        [Authorize(Roles = "admin, supervisor, clerk")]
+        public async Task<ActionResult> GetProcessStepPagedList(QueryParameters qParams)
+        {
+            var result = new PagedList<ProcessStepDTO>(qParams);
+            result.Items = await GetProcessStepDtoList(qParams);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        [Authorize(Roles = "admin, supervisor, clerk")]
         public async Task<ActionResult> Details(int? id)  //GET: /ProcessSteps/Details/5
         {
             if (id == null)
@@ -110,6 +136,23 @@ namespace CriticalPath.Web.Controllers
 
             await PutCanUserInViewBag();
             return View(processStep);
+        }
+
+        [Authorize(Roles = "admin, supervisor, clerk")]
+        public async Task<ActionResult> GetProcessStep(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ProcessStep processStep = await FindAsyncProcessStep(id.Value);
+
+            if (processStep == null)
+            {
+                return HttpNotFound();
+            }
+
+            return Json(new ProcessStepDTO(processStep), JsonRequestBehavior.AllowGet);
         }
 
         [Authorize(Roles = "admin, supervisor, clerk")]
@@ -154,10 +197,35 @@ namespace CriticalPath.Web.Controllers
 
         public new partial class QueryParameters : BaseController.QueryParameters
         {
+            public QueryParameters() { }
+            public QueryParameters(QueryParameters parameters) : base(parameters)
+            {
+                ProcessId = parameters.ProcessId;
+                TemplateId = parameters.TemplateId;
+            }
             public int? ProcessId { get; set; }
             public int? TemplateId { get; set; }
         }
 
+        public partial class PagedList<T> : QueryParameters
+        {
+            public PagedList() { }
+            public PagedList(QueryParameters parameters) : base(parameters) { }
+
+            public IEnumerable<T> Items
+            {
+                set { _items = value; }
+                get
+                {
+                    if (_items == null)
+                    {
+                        _items = new List<T>();
+                    }
+                    return _items;
+                }
+            }
+            IEnumerable<T> _items;
+        }
         partial void OnEditSaving(ProcessStep processStep);
         partial void OnEditSaved(ProcessStep processStep);
         partial void SetSelectLists(ProcessStep processStep);

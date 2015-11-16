@@ -16,7 +16,7 @@ namespace CriticalPath.Web.Controllers
 {
     public partial class ContactsController
     {
-        protected virtual IQueryable<Contact> GetContactQuery(QueryParameters qParams)
+        protected virtual async Task<IQueryable<Contact>> GetContactQuery(QueryParameters qParams)
         {
             var query = GetContactQuery();
             if (!string.IsNullOrEmpty(qParams.SearchString))
@@ -35,6 +35,7 @@ namespace CriticalPath.Web.Controllers
                 query = query.Where(x => x.CompanyId == qParams.CompanyId);
             }
 
+            qParams.TotalCount = await query.CountAsync();
             return query;
         }
 

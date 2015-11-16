@@ -16,7 +16,7 @@ namespace CriticalPath.Web.Controllers
 {
     public partial class ProductsController : BaseController 
     {
-        protected virtual IQueryable<Product> GetProductQuery(QueryParameters qParams)
+        protected virtual async Task<IQueryable<Product>> GetProductQuery(QueryParameters qParams)
         {
             var query = GetProductQuery();
             if (!string.IsNullOrEmpty(qParams.SearchString))
@@ -25,33 +25,50 @@ namespace CriticalPath.Web.Controllers
                         where
                             a.Title.Contains(qParams.SearchString) | 
                             a.Code.Contains(qParams.SearchString) | 
-                            a.ImageUrl.Contains(qParams.SearchString) 
+                            a.ImageUrl.Contains(qParams.SearchString) | 
+                            a.DiscontinueNotes.Contains(qParams.SearchString) | 
+                            a.DiscontinuedUserIp.Contains(qParams.SearchString) 
                         select a;
             }
             if (qParams.CategoryId != null)
             {
                 query = query.Where(x => x.CategoryId == qParams.CategoryId);
             }
+            if (qParams.SizingStandardId != null)
+            {
+                query = query.Where(x => x.SizingStandardId == qParams.SizingStandardId);
+            }
 
-            return query;
+            qParams.TotalCount = await query.CountAsync();
+            return query.Skip(qParams.Skip).Take(qParams.PageSize);
+        }
+
+        protected virtual async Task<List<ProductDTO>> GetProductDtoList(QueryParameters qParams)
+        {
+            var query = await GetProductQuery(qParams);
+            var list = qParams.TotalCount > 0 ? await query.ToListAsync() : new List<Product>();
+            var result = new List<ProductDTO>();
+            foreach (var item in list)
+            {
+                result.Add(new ProductDTO(item));
+            }
+
+            return result;
         }
 
         
         public async Task<ActionResult> Index(QueryParameters qParams)
         {
-            var query = GetProductQuery(qParams);
-            qParams.TotalCount = await query.CountAsync();
-            PutPagerInViewBag(qParams);
+            var query = await GetProductQuery(qParams);
             await PutCanUserInViewBag();
-
+			var result = new PagedList<Product>(qParams);
             if (qParams.TotalCount > 0)
             {
-                return View(await query.Skip(qParams.Skip).Take(qParams.PageSize).ToListAsync());
+                result.Items = await query.ToListAsync();
             }
-            else
-            {
-                return View(new List<Product>());   //there isn't any record, so no need to run a query
-            }
+
+            PutPagerInViewBag(result);
+            return View(result.Items);
         }
         
         protected override async Task<bool> CanUserCreate()
@@ -93,6 +110,21 @@ namespace CriticalPath.Web.Controllers
         bool? _canUserDelete;
 
         
+        public async Task<ActionResult> GetProductList(QueryParameters qParams)
+        {
+            var result = await GetProductDtoList(qParams);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        
+        public async Task<ActionResult> GetProductPagedList(QueryParameters qParams)
+        {
+            var result = new PagedList<ProductDTO>(qParams);
+            result.Items = await GetProductDtoList(qParams);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        
         public async Task<ActionResult> Details(int? id)  //GET: /Products/Details/5
         {
             if (id == null)
@@ -106,7 +138,25 @@ namespace CriticalPath.Web.Controllers
                 return HttpNotFound();
             }
 
+            await PutCanUserInViewBag();
             return View(product);
+        }
+
+        
+        public async Task<ActionResult> GetProduct(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Product product = await FindAsyncProduct(id.Value);
+
+            if (product == null)
+            {
+                return HttpNotFound();
+            }
+
+            return Json(new ProductDTO(product), JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
@@ -116,6 +166,8 @@ namespace CriticalPath.Web.Controllers
             var product = new Product();
             await SetProductDefaults(product);
             await SetProductCategorySelectListAsync(product);
+            await SetSizingStandardSelectListAsync(product.SizingStandardId);
+            
             return View(product);
         }
 
@@ -138,6 +190,8 @@ namespace CriticalPath.Web.Controllers
             }
 
             await SetProductCategorySelectListAsync(product);
+            await SetSizingStandardSelectListAsync(product.SizingStandardId);
+            
             return View(product);
         }
 
@@ -156,6 +210,8 @@ namespace CriticalPath.Web.Controllers
             }
 
             await SetProductCategorySelectListAsync(product);
+            await SetSizingStandardSelectListAsync(product.SizingStandardId);
+            
             return View(product);
         }
 
@@ -178,6 +234,8 @@ namespace CriticalPath.Web.Controllers
             }
 
             await SetProductCategorySelectListAsync(product);
+            await SetSizingStandardSelectListAsync(product.SizingStandardId);
+            
             return View(product);
         }
 
@@ -197,7 +255,8 @@ namespace CriticalPath.Web.Controllers
             }
 
             int purchaseOrdersCount = product.PurchaseOrders.Count;
-            if ((purchaseOrdersCount) > 0)
+            int suppliersCount = product.Suppliers.Count;
+            if ((purchaseOrdersCount + suppliersCount) > 0)
             {
                 var sb = new StringBuilder();
 
@@ -209,6 +268,12 @@ namespace CriticalPath.Web.Controllers
                 if (purchaseOrdersCount > 0)
                 {
                     sb.Append(string.Format(MessageStrings.RelatedRecordsExist, purchaseOrdersCount, EntityStrings.PurchaseOrders));
+                    sb.Append("<br/>");
+                }
+
+                if (suppliersCount > 0)
+                {
+                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, suppliersCount, EntityStrings.Suppliers));
                     sb.Append("<br/>");
                 }
 
@@ -236,11 +301,35 @@ namespace CriticalPath.Web.Controllers
 
         public new partial class QueryParameters : BaseController.QueryParameters
         {
+            public QueryParameters() { }
+            public QueryParameters(QueryParameters parameters) : base(parameters)
+            {
+                CategoryId = parameters.CategoryId;
+                SizingStandardId = parameters.SizingStandardId;
+            }
             public int? CategoryId { get; set; }
+            public int? SizingStandardId { get; set; }
         }
 
+        public partial class PagedList<T> : QueryParameters
+        {
+            public PagedList() { }
+            public PagedList(QueryParameters parameters) : base(parameters) { }
 
-        //Partial methods
+            public IEnumerable<T> Items
+            {
+                set { _items = value; }
+                get
+                {
+                    if (_items == null)
+                    {
+                        _items = new List<T>();
+                    }
+                    return _items;
+                }
+            }
+            IEnumerable<T> _items;
+        }
         partial void OnCreateSaving(Product product);
         partial void OnCreateSaved(Product product);
         partial void OnEditSaving(Product product);

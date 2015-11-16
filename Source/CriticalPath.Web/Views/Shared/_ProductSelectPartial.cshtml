@@ -32,14 +32,14 @@
     $('#ParentCategoryId').change(function () {
         var selectedId = $(this).val();
         if (selectedId != null && selectedId != '') {
-            $.getJSON('/ProductCategories/SubCategories', { parentCategoryId: selectedId }, function (subCategories) {
+            $.getJSON('/ProductCategories/GetProductCategoryList', { parentCategoryId: selectedId, pageSize: 100 }, function (categories) {
                 var targetSelect = $('#CategoryId');
                 resetSelect(targetSelect);
                 resetSelect(productSelect);
-                $.each(subCategories, function (index, subCategory) {
+                $.each(categories, function (index, category) {
                     targetSelect.append($('<option/>', {
-                        value: subCategory.Id,
-                        text: subCategory.Title
+                        value: category.Id,
+                        text: category.Title
                     }));
                 });
             });
@@ -48,7 +48,7 @@
     $('#CategoryId').change(function () {
         var selectedId = $(this).val();
         if (selectedId != null && selectedId != '') {
-            $.getJSON('/Products/Products', { categoryId: selectedId }, function (products) {
+            $.getJSON('/Products/GetProductList', { categoryId: selectedId, pageSize: 100 }, function (products) {
                 resetSelect(productSelect);
                 productList = products;
                 $.each(products, function (index, product) {

@@ -16,22 +16,32 @@ namespace CriticalPath.Web.Controllers
 {
     public partial class ProcessesController : BaseController 
     {
+        protected virtual async Task<List<ProcessDTO>> GetProcessDtoList(QueryParameters qParams)
+        {
+            var query = await GetProcessQuery(qParams);
+            var list = qParams.TotalCount > 0 ? await query.ToListAsync() : new List<Process>();
+            var result = new List<ProcessDTO>();
+            foreach (var item in list)
+            {
+                result.Add(new ProcessDTO(item));
+            }
+
+            return result;
+        }
+
         [Authorize]
         public async Task<ActionResult> Index(QueryParameters qParams)
         {
-            var query = GetProcessQuery(qParams);
-            qParams.TotalCount = await query.CountAsync();
-            PutPagerInViewBag(qParams);
+            var query = await GetProcessQuery(qParams);
             await PutCanUserInViewBag();
-
+			var result = new PagedList<Process>(qParams);
             if (qParams.TotalCount > 0)
             {
-                return View(await query.Skip(qParams.Skip).Take(qParams.PageSize).ToListAsync());
+                result.Items = await query.ToListAsync();
             }
-            else
-            {
-                return View(new List<Process>());   //there isn't any record, so no need to run a query
-            }
+
+            PutPagerInViewBag(result);
+            return View(result.Items);
         }
         
         protected override async Task<bool> CanUserCreate()
@@ -73,6 +83,21 @@ namespace CriticalPath.Web.Controllers
         bool? _canUserDelete;
 
         [Authorize]
+        public async Task<ActionResult> GetProcessList(QueryParameters qParams)
+        {
+            var result = await GetProcessDtoList(qParams);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        [Authorize]
+        public async Task<ActionResult> GetProcessPagedList(QueryParameters qParams)
+        {
+            var result = new PagedList<ProcessDTO>(qParams);
+            result.Items = await GetProcessDtoList(qParams);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        [Authorize]
         public async Task<ActionResult> Details(int? id)  //GET: /Processes/Details/5
         {
             if (id == null)
@@ -88,6 +113,23 @@ namespace CriticalPath.Web.Controllers
 
             await PutCanUserInViewBag();
             return View(process);
+        }
+
+        [Authorize]
+        public async Task<ActionResult> GetProcess(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Process process = await FindAsyncProcess(id.Value);
+
+            if (process == null)
+            {
+                return HttpNotFound();
+            }
+
+            return Json(new ProcessDTO(process), JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
@@ -177,11 +219,37 @@ namespace CriticalPath.Web.Controllers
 
         public new partial class QueryParameters : BaseController.QueryParameters
         {
+            public QueryParameters() { }
+            public QueryParameters(QueryParameters parameters) : base(parameters)
+            {
+                PurchaseOrderId = parameters.PurchaseOrderId;
+                SupplierId = parameters.SupplierId;
+                ProcessTemplateId = parameters.ProcessTemplateId;
+            }
             public int? PurchaseOrderId { get; set; }
             public int? SupplierId { get; set; }
             public int? ProcessTemplateId { get; set; }
         }
 
+        public partial class PagedList<T> : QueryParameters
+        {
+            public PagedList() { }
+            public PagedList(QueryParameters parameters) : base(parameters) { }
+
+            public IEnumerable<T> Items
+            {
+                set { _items = value; }
+                get
+                {
+                    if (_items == null)
+                    {
+                        _items = new List<T>();
+                    }
+                    return _items;
+                }
+            }
+            IEnumerable<T> _items;
+        }
         partial void OnCreateSaving(Process process);
         partial void OnCreateSaved(Process process);
         partial void OnEditSaving(Process process);

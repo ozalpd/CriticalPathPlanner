@@ -16,22 +16,32 @@ namespace CriticalPath.Web.Controllers
 {
     public partial class ContactsController : BaseController 
     {
+        protected virtual async Task<List<ContactDTO>> GetContactDtoList(QueryParameters qParams)
+        {
+            var query = await GetContactQuery(qParams);
+            var list = qParams.TotalCount > 0 ? await query.ToListAsync() : new List<Contact>();
+            var result = new List<ContactDTO>();
+            foreach (var item in list)
+            {
+                result.Add(new ContactDTO(item));
+            }
+
+            return result;
+        }
+
         [Authorize]
         public async Task<ActionResult> Index(QueryParameters qParams)
         {
-            var query = GetContactQuery(qParams);
-            qParams.TotalCount = await query.CountAsync();
-            PutPagerInViewBag(qParams);
+            var query = await GetContactQuery(qParams);
             await PutCanUserInViewBag();
-
+			var result = new PagedList<Contact>(qParams);
             if (qParams.TotalCount > 0)
             {
-                return View(await query.Skip(qParams.Skip).Take(qParams.PageSize).ToListAsync());
+                result.Items = await query.ToListAsync();
             }
-            else
-            {
-                return View(new List<Contact>());   //there isn't any record, so no need to run a query
-            }
+
+            PutPagerInViewBag(result);
+            return View(result.Items);
         }
         
         protected override async Task<bool> CanUserCreate()
@@ -73,6 +83,21 @@ namespace CriticalPath.Web.Controllers
         bool? _canUserDelete;
 
         [Authorize]
+        public async Task<ActionResult> GetContactList(QueryParameters qParams)
+        {
+            var result = await GetContactDtoList(qParams);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        [Authorize]
+        public async Task<ActionResult> GetContactPagedList(QueryParameters qParams)
+        {
+            var result = new PagedList<ContactDTO>(qParams);
+            result.Items = await GetContactDtoList(qParams);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        [Authorize]
         public async Task<ActionResult> Details(int? id)  //GET: /Contacts/Details/5
         {
             if (id == null)
@@ -86,7 +111,25 @@ namespace CriticalPath.Web.Controllers
                 return HttpNotFound();
             }
 
+            await PutCanUserInViewBag();
             return View(contact);
+        }
+
+        [Authorize]
+        public async Task<ActionResult> GetContact(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Contact contact = await FindAsyncContact(id.Value);
+
+            if (contact == null)
+            {
+                return HttpNotFound();
+            }
+
+            return Json(new ContactDTO(contact), JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
@@ -206,11 +249,33 @@ namespace CriticalPath.Web.Controllers
 
         public new partial class QueryParameters : BaseController.QueryParameters
         {
+            public QueryParameters() { }
+            public QueryParameters(QueryParameters parameters) : base(parameters)
+            {
+                CompanyId = parameters.CompanyId;
+            }
             public int? CompanyId { get; set; }
         }
 
+        public partial class PagedList<T> : QueryParameters
+        {
+            public PagedList() { }
+            public PagedList(QueryParameters parameters) : base(parameters) { }
 
-        //Partial methods
+            public IEnumerable<T> Items
+            {
+                set { _items = value; }
+                get
+                {
+                    if (_items == null)
+                    {
+                        _items = new List<T>();
+                    }
+                    return _items;
+                }
+            }
+            IEnumerable<T> _items;
+        }
         partial void OnCreateSaving(Contact contact);
         partial void OnCreateSaved(Contact contact);
         partial void OnEditSaving(Contact contact);

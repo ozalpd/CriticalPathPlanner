@@ -25,6 +25,20 @@ namespace CriticalPath.Web.Controllers
     {
         public partial class QueryParameters
         {
+            public QueryParameters() { }
+            public QueryParameters(QueryParameters parameters)
+            {
+                Constructing(parameters);
+            }
+
+            protected virtual void Constructing(QueryParameters parameters)
+            {
+                Page = parameters.Page;
+                PageSize = parameters.PageSize;
+                SearchString = parameters.SearchString;
+                TotalCount = parameters.TotalCount;
+            }
+
             public string SearchString { get; set; }
             public int Page { get; set; } = 1;
             public int PageSize { get; set; } = 10;
@@ -69,7 +83,7 @@ namespace CriticalPath.Web.Controllers
             ViewBag.canUserCreate = await CanUserCreate();
             ViewBag.canUserDelete = await CanUserDelete();
         }
-		//If we forget to implement override methods, we will keep it secure.
+        //If we forget to implement override methods, we will keep it secure.
         protected virtual Task<bool> CanUserCreate() { return Task.FromResult(false); }
         protected virtual Task<bool> CanUserEdit() { return Task.FromResult(false); }
         protected virtual Task<bool> CanUserDelete() { return Task.FromResult(false); }
@@ -148,11 +162,11 @@ namespace CriticalPath.Web.Controllers
         }
 
         protected virtual IQueryable<AspNetUser> GetAspNetUserQuery()
-		{
-		    return DataContext.GetAspNetUserQuery();
-		}
+        {
+            return DataContext.GetAspNetUserQuery();
+        }
 
-		protected virtual Task SetAspNetUserDefaults(AspNetUser aspNetUser)
+        protected virtual Task SetAspNetUserDefaults(AspNetUser aspNetUser)
         {
             return Task.FromResult(default(object));
         }
@@ -169,11 +183,11 @@ namespace CriticalPath.Web.Controllers
         }
 
         protected virtual IQueryable<Contact> GetContactQuery()
-		{
-		    return DataContext.GetContactQuery();
-		}
+        {
+            return DataContext.GetContactQuery();
+        }
 
-		protected virtual Task SetContactDefaults(Contact contact)
+        protected virtual Task SetContactDefaults(Contact contact)
         {
             return Task.FromResult(default(object));
         }
@@ -190,11 +204,11 @@ namespace CriticalPath.Web.Controllers
         }
 
         protected virtual IQueryable<Supplier> GetSupplierQuery()
-		{
-		    return DataContext.GetSupplierQuery();
-		}
+        {
+            return DataContext.GetSupplierQuery();
+        }
 
-		protected virtual Task SetSupplierDefaults(Supplier supplier)
+        protected virtual Task SetSupplierDefaults(Supplier supplier)
         {
             return Task.FromResult(default(object));
         }
@@ -211,11 +225,11 @@ namespace CriticalPath.Web.Controllers
         }
 
         protected virtual IQueryable<Customer> GetCustomerQuery()
-		{
-		    return DataContext.GetCustomerQuery();
-		}
+        {
+            return DataContext.GetCustomerQuery();
+        }
 
-		protected virtual Task SetCustomerDefaults(Customer customer)
+        protected virtual Task SetCustomerDefaults(Customer customer)
         {
             return Task.FromResult(default(object));
         }
@@ -232,11 +246,11 @@ namespace CriticalPath.Web.Controllers
         }
 
         protected virtual IQueryable<ProductCategory> GetProductCategoryQuery()
-		{
-		    return DataContext.GetProductCategoryQuery();
-		}
+        {
+            return DataContext.GetProductCategoryQuery();
+        }
 
-		protected virtual Task SetProductCategoryDefaults(ProductCategory productCategory)
+        protected virtual Task SetProductCategoryDefaults(ProductCategory productCategory)
         {
             return Task.FromResult(default(object));
         }
@@ -253,11 +267,11 @@ namespace CriticalPath.Web.Controllers
         }
 
         protected virtual IQueryable<Product> GetProductQuery()
-		{
-		    return DataContext.GetProductQuery();
-		}
+        {
+            return DataContext.GetProductQuery();
+        }
 
-		protected virtual Task SetProductDefaults(Product product)
+        protected virtual Task SetProductDefaults(Product product)
         {
             return Task.FromResult(default(object));
         }
@@ -274,11 +288,11 @@ namespace CriticalPath.Web.Controllers
         }
 
         protected virtual IQueryable<PurchaseOrder> GetPurchaseOrderQuery()
-		{
-		    return DataContext.GetPurchaseOrderQuery();
-		}
+        {
+            return DataContext.GetPurchaseOrderQuery();
+        }
 
-		protected virtual Task SetPurchaseOrderDefaults(PurchaseOrderDTO purchaseOrder)
+        protected virtual Task SetPurchaseOrderDefaults(PurchaseOrderDTO purchaseOrder)
         {
             return Task.FromResult(default(object));
         }
@@ -295,11 +309,11 @@ namespace CriticalPath.Web.Controllers
         }
 
         protected virtual IQueryable<SizeRate> GetSizeRateQuery()
-		{
-		    return DataContext.GetSizeRateQuery();
-		}
+        {
+            return DataContext.GetSizeRateQuery();
+        }
 
-		protected virtual Task SetSizeRateDefaults(SizeRate sizeRate)
+        protected virtual Task SetSizeRateDefaults(SizeRate sizeRate)
         {
             return Task.FromResult(default(object));
         }
@@ -316,11 +330,11 @@ namespace CriticalPath.Web.Controllers
         }
 
         protected virtual IQueryable<SizingStandard> GetSizingStandardQuery()
-		{
-		    return DataContext.GetSizingStandardQuery();
-		}
+        {
+            return DataContext.GetSizingStandardQuery();
+        }
 
-		protected virtual Task SetSizingStandardDefaults(SizingStandardVM sizingStandard)
+        protected virtual Task SetSizingStandardDefaults(SizingStandardVM sizingStandard)
         {
             return Task.FromResult(default(object));
         }
@@ -337,11 +351,11 @@ namespace CriticalPath.Web.Controllers
         }
 
         protected virtual IQueryable<Sizing> GetSizingQuery()
-		{
-		    return DataContext.GetSizingQuery();
-		}
+        {
+            return DataContext.GetSizingQuery();
+        }
 
-		protected virtual Task SetSizingDefaults(Sizing sizing)
+        protected virtual Task SetSizingDefaults(Sizing sizing)
         {
             return Task.FromResult(default(object));
         }
@@ -358,11 +372,11 @@ namespace CriticalPath.Web.Controllers
         }
 
         protected virtual IQueryable<Process> GetProcessQuery()
-		{
-		    return DataContext.GetProcessQuery();
-		}
+        {
+            return DataContext.GetProcessQuery();
+        }
 
-		protected virtual Task SetProcessDefaults(Process process)
+        protected virtual Task SetProcessDefaults(Process process)
         {
             return Task.FromResult(default(object));
         }
@@ -379,11 +393,11 @@ namespace CriticalPath.Web.Controllers
         }
 
         protected virtual IQueryable<ProcessStep> GetProcessStepQuery()
-		{
-		    return DataContext.GetProcessStepQuery();
-		}
+        {
+            return DataContext.GetProcessStepQuery();
+        }
 
-		protected virtual Task SetProcessStepDefaults(ProcessStep processStep)
+        protected virtual Task SetProcessStepDefaults(ProcessStep processStep)
         {
             return Task.FromResult(default(object));
         }
@@ -400,11 +414,11 @@ namespace CriticalPath.Web.Controllers
         }
 
         protected virtual IQueryable<ProcessTemplate> GetProcessTemplateQuery()
-		{
-		    return DataContext.GetProcessTemplateQuery();
-		}
+        {
+            return DataContext.GetProcessTemplateQuery();
+        }
 
-		protected virtual Task SetProcessTemplateDefaults(ProcessTemplate processTemplate)
+        protected virtual Task SetProcessTemplateDefaults(ProcessTemplate processTemplate)
         {
             return Task.FromResult(default(object));
         }
@@ -421,11 +435,11 @@ namespace CriticalPath.Web.Controllers
         }
 
         protected virtual IQueryable<ProcessStepTemplate> GetProcessStepTemplateQuery()
-		{
-		    return DataContext.GetProcessStepTemplateQuery();
-		}
+        {
+            return DataContext.GetProcessStepTemplateQuery();
+        }
 
-		protected virtual Task SetProcessStepTemplateDefaults(ProcessStepTemplate processStepTemplate)
+        protected virtual Task SetProcessStepTemplateDefaults(ProcessStepTemplate processStepTemplate)
         {
             return Task.FromResult(default(object));
         }

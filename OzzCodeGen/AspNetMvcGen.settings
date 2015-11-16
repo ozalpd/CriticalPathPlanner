@@ -73,6 +73,8 @@
       <ControllerName>AspNetUsers</ControllerName>
       <DataSetName>AspNetUsers</DataSetName>
       <SaveParameter>this</SaveParameter>
+      <ModelForIndex>AspNetUser</ModelForIndex>
+      <ModelForJson>AspNetUserDTO</ModelForJson>
       <ModelForCreate>AspNetUser</ModelForCreate>
       <ModelForEdit>AspNetUser</ModelForEdit>
       <RolesCanView>users</RolesCanView>
@@ -81,7 +83,10 @@
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>true</GenerateController>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
+      <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateGetEntityAction>true</GenerateGetEntityAction>
+      <GenerateGetEntityListAction>true</GenerateGetEntityListAction>
       <GenerateCreateAction>true</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
@@ -116,6 +121,8 @@
       <ControllerName>IPrimaryKeys</ControllerName>
       <DataSetName>IPrimaryKeys</DataSetName>
       <SaveParameter>this</SaveParameter>
+      <ModelForIndex>IPrimaryKey</ModelForIndex>
+      <ModelForJson>IPrimaryKeyDTO</ModelForJson>
       <ModelForCreate>IPrimaryKey</ModelForCreate>
       <ModelForEdit>IPrimaryKey</ModelForEdit>
       <RolesCanView>users</RolesCanView>
@@ -124,7 +131,10 @@
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>false</GenerateController>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
+      <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateGetEntityAction>true</GenerateGetEntityAction>
+      <GenerateGetEntityListAction>true</GenerateGetEntityListAction>
       <GenerateCreateAction>true</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
@@ -195,6 +205,8 @@
       <ControllerName>ICreateds</ControllerName>
       <DataSetName>ICreateds</DataSetName>
       <SaveParameter>this</SaveParameter>
+      <ModelForIndex>ICreated</ModelForIndex>
+      <ModelForJson>ICreatedDTO</ModelForJson>
       <ModelForCreate>ICreated</ModelForCreate>
       <ModelForEdit>ICreated</ModelForEdit>
       <RolesCanView>users</RolesCanView>
@@ -203,7 +215,10 @@
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>false</GenerateController>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
+      <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateGetEntityAction>true</GenerateGetEntityAction>
+      <GenerateGetEntityListAction>true</GenerateGetEntityListAction>
       <GenerateCreateAction>true</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
@@ -286,6 +301,8 @@
       <ControllerName>IModifieds</ControllerName>
       <DataSetName>IModifieds</DataSetName>
       <SaveParameter>this</SaveParameter>
+      <ModelForIndex>IModified</ModelForIndex>
+      <ModelForJson>IModifiedDTO</ModelForJson>
       <ModelForCreate>IModified</ModelForCreate>
       <ModelForEdit>IModified</ModelForEdit>
       <RolesCanView>users</RolesCanView>
@@ -294,7 +311,10 @@
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>false</GenerateController>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
+      <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateGetEntityAction>true</GenerateGetEntityAction>
+      <GenerateGetEntityListAction>true</GenerateGetEntityListAction>
       <GenerateCreateAction>true</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
@@ -377,6 +397,8 @@
       <ControllerName>IApprovals</ControllerName>
       <DataSetName>IApprovals</DataSetName>
       <SaveParameter>this</SaveParameter>
+      <ModelForIndex>IApproval</ModelForIndex>
+      <ModelForJson>IApprovalDTO</ModelForJson>
       <ModelForCreate>IApproval</ModelForCreate>
       <ModelForEdit>IApproval</ModelForEdit>
       <RolesCanView>users</RolesCanView>
@@ -385,7 +407,10 @@
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>false</GenerateController>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
+      <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateGetEntityAction>true</GenerateGetEntityAction>
+      <GenerateGetEntityListAction>true</GenerateGetEntityListAction>
       <GenerateCreateAction>true</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
@@ -444,6 +469,8 @@
       <ControllerName>IDescriptions</ControllerName>
       <DataSetName>IDescriptions</DataSetName>
       <SaveParameter>this</SaveParameter>
+      <ModelForIndex>IDescription</ModelForIndex>
+      <ModelForJson>IDescriptionDTO</ModelForJson>
       <ModelForCreate>IDescription</ModelForCreate>
       <ModelForEdit>IDescription</ModelForEdit>
       <RolesCanView>users</RolesCanView>
@@ -452,7 +479,10 @@
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>false</GenerateController>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
+      <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateGetEntityAction>true</GenerateGetEntityAction>
+      <GenerateGetEntityListAction>true</GenerateGetEntityListAction>
       <GenerateCreateAction>true</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
@@ -668,6 +698,8 @@
       <DataSetName>Contacts</DataSetName>
       <StrongDependedForeignKey>CompanyId</StrongDependedForeignKey>
       <SaveParameter>this</SaveParameter>
+      <ModelForIndex>Contact</ModelForIndex>
+      <ModelForJson>ContactDTO</ModelForJson>
       <ModelForCreate>Contact</ModelForCreate>
       <ModelForEdit>Contact</ModelForEdit>
       <RolesCanView>users</RolesCanView>
@@ -676,7 +708,10 @@
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>true</GenerateController>
       <GenerateGetQueryMethod>false</GenerateGetQueryMethod>
+      <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateGetEntityAction>true</GenerateGetEntityAction>
+      <GenerateGetEntityListAction>true</GenerateGetEntityListAction>
       <GenerateCreateAction>true</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
@@ -710,7 +745,7 @@
         <AspNetMvcPropertySetting>
           <Name>Phone1</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>true</UseInSearch>
+          <UseInSearch>false</UseInSearch>
           <InIndexView>false</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
@@ -722,7 +757,7 @@
         <AspNetMvcPropertySetting>
           <Name>Phone2</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>true</UseInSearch>
+          <UseInSearch>false</UseInSearch>
           <InIndexView>false</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
@@ -734,7 +769,7 @@
         <AspNetMvcPropertySetting>
           <Name>Phone3</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>true</UseInSearch>
+          <UseInSearch>false</UseInSearch>
           <InIndexView>false</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
@@ -746,7 +781,7 @@
         <AspNetMvcPropertySetting>
           <Name>Address1</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>true</UseInSearch>
+          <UseInSearch>false</UseInSearch>
           <InIndexView>false</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
@@ -758,7 +793,7 @@
         <AspNetMvcPropertySetting>
           <Name>Address2</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>true</UseInSearch>
+          <UseInSearch>false</UseInSearch>
           <InIndexView>false</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
@@ -866,7 +901,7 @@
         <AspNetMvcPropertySetting>
           <Name>DiscontinueNotes</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>true</UseInSearch>
+          <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
@@ -878,7 +913,7 @@
         <AspNetMvcPropertySetting>
           <Name>DiscontinuedUserIp</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>true</UseInSearch>
+          <UseInSearch>false</UseInSearch>
           <InIndexView>false</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>false</InCreateView>
@@ -915,6 +950,8 @@
       <ControllerName>Companies</ControllerName>
       <DataSetName>Companies</DataSetName>
       <SaveParameter>this</SaveParameter>
+      <ModelForIndex>Company</ModelForIndex>
+      <ModelForJson>CompanyDTO</ModelForJson>
       <ModelForCreate>Company</ModelForCreate>
       <ModelForEdit>Company</ModelForEdit>
       <RolesCanView>users</RolesCanView>
@@ -923,7 +960,10 @@
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>false</GenerateController>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
+      <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateGetEntityAction>true</GenerateGetEntityAction>
+      <GenerateGetEntityListAction>true</GenerateGetEntityListAction>
       <GenerateCreateAction>true</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
@@ -970,6 +1010,8 @@
       <ControllerName>Suppliers</ControllerName>
       <DataSetName>Companies</DataSetName>
       <SaveParameter>this</SaveParameter>
+      <ModelForIndex>Supplier</ModelForIndex>
+      <ModelForJson>SupplierDTO</ModelForJson>
       <ModelForCreate>Supplier</ModelForCreate>
       <ModelForEdit>Supplier</ModelForEdit>
       <RolesCanView>users</RolesCanView>
@@ -978,7 +1020,10 @@
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>true</GenerateController>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
+      <GenerateGetDtoQueryMethod>false</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>false</GenerateIndexAction>
+      <GenerateGetEntityAction>true</GenerateGetEntityAction>
+      <GenerateGetEntityListAction>true</GenerateGetEntityListAction>
       <GenerateCreateAction>true</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
@@ -1025,6 +1070,8 @@
       <ControllerName>Customers</ControllerName>
       <DataSetName>Companies</DataSetName>
       <SaveParameter>this</SaveParameter>
+      <ModelForIndex>Customer</ModelForIndex>
+      <ModelForJson>CustomerDTO</ModelForJson>
       <ModelForCreate>Customer</ModelForCreate>
       <ModelForEdit>Customer</ModelForEdit>
       <RolesCanView>users</RolesCanView>
@@ -1033,7 +1080,10 @@
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>true</GenerateController>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
+      <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateGetEntityAction>true</GenerateGetEntityAction>
+      <GenerateGetEntityListAction>true</GenerateGetEntityListAction>
       <GenerateCreateAction>true</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
@@ -1104,6 +1154,8 @@
       <ControllerName>ProductCategories</ControllerName>
       <DataSetName>ProductCategories</DataSetName>
       <SaveParameter>this</SaveParameter>
+      <ModelForIndex>ProductCategory</ModelForIndex>
+      <ModelForJson>ProductCategoryDTO</ModelForJson>
       <ModelForCreate>ProductCategory</ModelForCreate>
       <ModelForEdit>ProductCategory</ModelForEdit>
       <RolesCanView>everyone</RolesCanView>
@@ -1112,7 +1164,10 @@
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>true</GenerateController>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
+      <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateGetEntityAction>true</GenerateGetEntityAction>
+      <GenerateGetEntityListAction>true</GenerateGetEntityListAction>
       <GenerateCreateAction>true</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
@@ -1291,6 +1346,8 @@
       <ControllerName>Products</ControllerName>
       <DataSetName>Products</DataSetName>
       <SaveParameter>this</SaveParameter>
+      <ModelForIndex>Product</ModelForIndex>
+      <ModelForJson>ProductDTO</ModelForJson>
       <ModelForCreate>Product</ModelForCreate>
       <ModelForEdit>Product</ModelForEdit>
       <RolesCanView>everyone</RolesCanView>
@@ -1299,7 +1356,10 @@
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>true</GenerateController>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
+      <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateGetEntityAction>true</GenerateGetEntityAction>
+      <GenerateGetEntityListAction>true</GenerateGetEntityListAction>
       <GenerateCreateAction>true</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
@@ -1575,6 +1635,8 @@
       <DataSetName>PurchaseOrders</DataSetName>
       <StrongDependedForeignKey>CustomerId</StrongDependedForeignKey>
       <SaveParameter>this</SaveParameter>
+      <ModelForIndex>PurchaseOrder</ModelForIndex>
+      <ModelForJson>PurchaseOrderDTO</ModelForJson>
       <ModelForCreate>PurchaseOrderDTO</ModelForCreate>
       <ModelForEdit>PurchaseOrderDTO</ModelForEdit>
       <RolesCanView>users</RolesCanView>
@@ -1583,7 +1645,10 @@
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>true</GenerateController>
       <GenerateGetQueryMethod>false</GenerateGetQueryMethod>
+      <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateGetEntityAction>true</GenerateGetEntityAction>
+      <GenerateGetEntityListAction>true</GenerateGetEntityListAction>
       <GenerateCreateAction>false</GenerateCreateAction>
       <GenerateDeleteAction>false</GenerateDeleteAction>
       <GenerateEditAction>false</GenerateEditAction>
@@ -1666,6 +1731,8 @@
       <ControllerName>SizeRates</ControllerName>
       <DataSetName>SizeRates</DataSetName>
       <SaveParameter>this</SaveParameter>
+      <ModelForIndex>SizeRate</ModelForIndex>
+      <ModelForJson>SizeRateDTO</ModelForJson>
       <ModelForCreate>SizeRate</ModelForCreate>
       <ModelForEdit>SizeRate</ModelForEdit>
       <RolesCanView>users</RolesCanView>
@@ -1674,7 +1741,10 @@
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>false</GenerateController>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
+      <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateGetEntityAction>true</GenerateGetEntityAction>
+      <GenerateGetEntityListAction>true</GenerateGetEntityListAction>
       <GenerateCreateAction>true</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
@@ -1745,6 +1815,8 @@
       <ControllerName>SizingStandards</ControllerName>
       <DataSetName>SizingStandards</DataSetName>
       <SaveParameter>this</SaveParameter>
+      <ModelForIndex>SizingStandard</ModelForIndex>
+      <ModelForJson>SizingStandardDTO</ModelForJson>
       <ModelForCreate>SizingStandardVM</ModelForCreate>
       <ModelForEdit>SizingStandardVM</ModelForEdit>
       <RolesCanView>users</RolesCanView>
@@ -1753,7 +1825,10 @@
       <RolesCanDelete>admin</RolesCanDelete>
       <GenerateController>true</GenerateController>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
+      <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateGetEntityAction>true</GenerateGetEntityAction>
+      <GenerateGetEntityListAction>true</GenerateGetEntityListAction>
       <GenerateCreateAction>false</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>false</GenerateEditAction>
@@ -1826,6 +1901,8 @@
       <DataSetName>Sizings</DataSetName>
       <StrongDependedForeignKey>SizingStandardId</StrongDependedForeignKey>
       <SaveParameter>this</SaveParameter>
+      <ModelForIndex>Sizing</ModelForIndex>
+      <ModelForJson>SizingDTO</ModelForJson>
       <ModelForCreate>Sizing</ModelForCreate>
       <ModelForEdit>Sizing</ModelForEdit>
       <RolesCanView>users</RolesCanView>
@@ -1834,7 +1911,10 @@
       <RolesCanDelete>admin</RolesCanDelete>
       <GenerateController>true</GenerateController>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
+      <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateGetEntityAction>true</GenerateGetEntityAction>
+      <GenerateGetEntityListAction>true</GenerateGetEntityListAction>
       <GenerateCreateAction>true</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
@@ -2087,6 +2167,8 @@
       <DataSetName>Processes</DataSetName>
       <StrongDependedForeignKey>PurchaseOrderId</StrongDependedForeignKey>
       <SaveParameter>this</SaveParameter>
+      <ModelForIndex>Process</ModelForIndex>
+      <ModelForJson>ProcessDTO</ModelForJson>
       <ModelForCreate>Process</ModelForCreate>
       <ModelForEdit>Process</ModelForEdit>
       <RolesCanView>users</RolesCanView>
@@ -2095,7 +2177,10 @@
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>true</GenerateController>
       <GenerateGetQueryMethod>false</GenerateGetQueryMethod>
+      <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateGetEntityAction>true</GenerateGetEntityAction>
+      <GenerateGetEntityListAction>true</GenerateGetEntityListAction>
       <GenerateCreateAction>true</GenerateCreateAction>
       <GenerateDeleteAction>false</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
@@ -2250,6 +2335,8 @@
       <ControllerName>ProcessSteps</ControllerName>
       <DataSetName>ProcessSteps</DataSetName>
       <SaveParameter>this</SaveParameter>
+      <ModelForIndex>ProcessStep</ModelForIndex>
+      <ModelForJson>ProcessStepDTO</ModelForJson>
       <ModelForCreate>ProcessStep</ModelForCreate>
       <ModelForEdit>ProcessStep</ModelForEdit>
       <RolesCanView>admin, supervisor, clerk</RolesCanView>
@@ -2258,7 +2345,10 @@
       <RolesCanDelete>admin</RolesCanDelete>
       <GenerateController>true</GenerateController>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
+      <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateGetEntityAction>true</GenerateGetEntityAction>
+      <GenerateGetEntityListAction>true</GenerateGetEntityListAction>
       <GenerateCreateAction>false</GenerateCreateAction>
       <GenerateDeleteAction>false</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
@@ -2318,6 +2408,8 @@
       <DataSetName>ProcessTemplates</DataSetName>
       <StrongDependedForeignKey />
       <SaveParameter>this</SaveParameter>
+      <ModelForIndex>ProcessTemplate</ModelForIndex>
+      <ModelForJson>ProcessTemplateDTO</ModelForJson>
       <ModelForCreate>ProcessTemplate</ModelForCreate>
       <ModelForEdit>ProcessTemplate</ModelForEdit>
       <RolesCanView>users</RolesCanView>
@@ -2326,7 +2418,10 @@
       <RolesCanDelete>admin</RolesCanDelete>
       <GenerateController>true</GenerateController>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
+      <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateGetEntityAction>true</GenerateGetEntityAction>
+      <GenerateGetEntityListAction>true</GenerateGetEntityListAction>
       <GenerateCreateAction>true</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
@@ -2411,6 +2506,8 @@
       <DataSetName>ProcessStepTemplates</DataSetName>
       <StrongDependedForeignKey>ProcessTemplateId</StrongDependedForeignKey>
       <SaveParameter>this</SaveParameter>
+      <ModelForIndex>ProcessStepTemplate</ModelForIndex>
+      <ModelForJson>ProcessStepTemplateDTO</ModelForJson>
       <ModelForCreate>ProcessStepTemplate</ModelForCreate>
       <ModelForEdit>ProcessStepTemplate</ModelForEdit>
       <RolesCanView>users</RolesCanView>
@@ -2419,7 +2516,10 @@
       <RolesCanDelete>admin</RolesCanDelete>
       <GenerateController>true</GenerateController>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
+      <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateGetEntityAction>true</GenerateGetEntityAction>
+      <GenerateGetEntityListAction>true</GenerateGetEntityListAction>
       <GenerateCreateAction>true</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>

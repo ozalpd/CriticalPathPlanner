@@ -16,7 +16,7 @@ namespace CriticalPath.Web.Controllers
 {
     public partial class PurchaseOrdersController
     {
-        protected virtual IQueryable<PurchaseOrder> GetPurchaseOrderQuery(QueryParameters qParams)
+        protected virtual async Task<IQueryable<PurchaseOrder>> GetPurchaseOrderQuery(QueryParameters qParams)
         {
             var query = GetPurchaseOrderQuery();
             if (!string.IsNullOrEmpty(qParams.SearchString))
@@ -34,6 +34,8 @@ namespace CriticalPath.Web.Controllers
             {
                 query = query.Where(x => x.CustomerId == qParams.CustomerId);
             }
+
+            qParams.TotalCount = await query.CountAsync();
 
             return query;
         }

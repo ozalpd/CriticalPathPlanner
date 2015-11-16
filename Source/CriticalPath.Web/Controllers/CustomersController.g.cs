@@ -16,7 +16,7 @@ namespace CriticalPath.Web.Controllers
 {
     public partial class CustomersController : BaseController 
     {
-        protected virtual IQueryable<Customer> GetCustomerQuery(QueryParameters qParams)
+        protected virtual async Task<IQueryable<Customer>> GetCustomerQuery(QueryParameters qParams)
         {
             var query = GetCustomerQuery();
             if (!string.IsNullOrEmpty(qParams.SearchString))
@@ -24,34 +24,40 @@ namespace CriticalPath.Web.Controllers
                 query = from a in query
                         where
                             a.CompanyName.Contains(qParams.SearchString) | 
-                            a.CustomerCode.Contains(qParams.SearchString) | 
-                            a.Phone1.Contains(qParams.SearchString) | 
-                            a.Phone2.Contains(qParams.SearchString) | 
-                            a.Phone3.Contains(qParams.SearchString) | 
-                            a.Address1.Contains(qParams.SearchString) | 
-                            a.Address2.Contains(qParams.SearchString) 
+                            a.CustomerCode.Contains(qParams.SearchString) 
                         select a;
             }
 
-            return query;
+            qParams.TotalCount = await query.CountAsync();
+            return query.Skip(qParams.Skip).Take(qParams.PageSize);
+        }
+
+        protected virtual async Task<List<CustomerDTO>> GetCustomerDtoList(QueryParameters qParams)
+        {
+            var query = await GetCustomerQuery(qParams);
+            var list = qParams.TotalCount > 0 ? await query.ToListAsync() : new List<Customer>();
+            var result = new List<CustomerDTO>();
+            foreach (var item in list)
+            {
+                result.Add(new CustomerDTO(item));
+            }
+
+            return result;
         }
 
         [Authorize]
         public async Task<ActionResult> Index(QueryParameters qParams)
         {
-            var query = GetCustomerQuery(qParams);
-            qParams.TotalCount = await query.CountAsync();
-            PutPagerInViewBag(qParams);
+            var query = await GetCustomerQuery(qParams);
             await PutCanUserInViewBag();
-
+			var result = new PagedList<Customer>(qParams);
             if (qParams.TotalCount > 0)
             {
-                return View(await query.Skip(qParams.Skip).Take(qParams.PageSize).ToListAsync());
+                result.Items = await query.ToListAsync();
             }
-            else
-            {
-                return View(new List<Customer>());   //there isn't any record, so no need to run a query
-            }
+
+            PutPagerInViewBag(result);
+            return View(result.Items);
         }
         
         protected override async Task<bool> CanUserCreate()
@@ -93,6 +99,21 @@ namespace CriticalPath.Web.Controllers
         bool? _canUserDelete;
 
         [Authorize]
+        public async Task<ActionResult> GetCustomerList(QueryParameters qParams)
+        {
+            var result = await GetCustomerDtoList(qParams);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        [Authorize]
+        public async Task<ActionResult> GetCustomerPagedList(QueryParameters qParams)
+        {
+            var result = new PagedList<CustomerDTO>(qParams);
+            result.Items = await GetCustomerDtoList(qParams);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        [Authorize]
         public async Task<ActionResult> Details(int? id)  //GET: /Customers/Details/5
         {
             if (id == null)
@@ -106,7 +127,25 @@ namespace CriticalPath.Web.Controllers
                 return HttpNotFound();
             }
 
+            await PutCanUserInViewBag();
             return View(customer);
+        }
+
+        [Authorize]
+        public async Task<ActionResult> GetCustomer(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Customer customer = await FindAsyncCustomer(id.Value);
+
+            if (customer == null)
+            {
+                return HttpNotFound();
+            }
+
+            return Json(new CustomerDTO(customer), JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
@@ -241,8 +280,33 @@ namespace CriticalPath.Web.Controllers
             return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
 
+        public new partial class QueryParameters : BaseController.QueryParameters
+        {
+            public QueryParameters() { }
+            public QueryParameters(QueryParameters parameters) : base(parameters)
+            {
+            }
+        }
 
-        //Partial methods
+        public partial class PagedList<T> : QueryParameters
+        {
+            public PagedList() { }
+            public PagedList(QueryParameters parameters) : base(parameters) { }
+
+            public IEnumerable<T> Items
+            {
+                set { _items = value; }
+                get
+                {
+                    if (_items == null)
+                    {
+                        _items = new List<T>();
+                    }
+                    return _items;
+                }
+            }
+            IEnumerable<T> _items;
+        }
         partial void OnCreateSaving(Customer customer);
         partial void OnCreateSaved(Customer customer);
         partial void OnEditSaving(Customer customer);

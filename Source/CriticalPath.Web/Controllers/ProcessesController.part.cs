@@ -14,7 +14,7 @@ namespace CriticalPath.Web.Controllers
 {
     public partial class ProcessesController
     {
-        protected virtual IQueryable<Process> GetProcessQuery(QueryParameters qParams)
+        protected virtual async Task<IQueryable<Process>> GetProcessQuery(QueryParameters qParams)
         {
             var query = GetProcessQuery();
             if (!string.IsNullOrEmpty(qParams.SearchString))
@@ -43,6 +43,7 @@ namespace CriticalPath.Web.Controllers
                 query = query.Where(x => x.ProcessTemplateId == qParams.ProcessTemplateId);
             }
 
+            qParams.TotalCount = await query.CountAsync();
             return query;
         }
 

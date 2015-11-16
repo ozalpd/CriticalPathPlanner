@@ -24,19 +24,27 @@ namespace CriticalPath.Web.Controllers
                 query = from a in query
                         where
                             a.CompanyName.Contains(qParams.SearchString) | 
-                            a.Phone1.Contains(qParams.SearchString) | 
-                            a.Phone2.Contains(qParams.SearchString) | 
-                            a.Phone3.Contains(qParams.SearchString) | 
-                            a.SupplierCode.Contains(qParams.SearchString) | 
-                            a.Address1.Contains(qParams.SearchString) | 
-                            a.Address2.Contains(qParams.SearchString) | 
-                            a.DiscontinueNotes.Contains(qParams.SearchString) | 
-                            a.DiscontinuedUserIp.Contains(qParams.SearchString) 
+                            a.SupplierCode.Contains(qParams.SearchString) 
                         select a;
             }
 
             qParams.TotalCount = await query.CountAsync();
             return query.Skip(qParams.Skip).Take(qParams.PageSize);
+        }
+
+        [Authorize]
+        public async Task<ActionResult> GetSupplierList(QueryParameters qParams)
+        {
+            var result = await GetSupplierDtoList(qParams);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        [Authorize]
+        public async Task<ActionResult> GetSupplierPagedList(QueryParameters qParams)
+        {
+            var result = new PagedList<SupplierDTO>(qParams);
+            result.Items = await GetSupplierDtoList(qParams);
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         [Authorize]
@@ -55,6 +63,23 @@ namespace CriticalPath.Web.Controllers
 
             await PutCanUserInViewBag();
             return View(supplier);
+        }
+
+        [Authorize]
+        public async Task<ActionResult> GetSupplier(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Supplier supplier = await FindAsyncSupplier(id.Value);
+
+            if (supplier == null)
+            {
+                return HttpNotFound();
+            }
+
+            return Json(new SupplierDTO(supplier), JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
@@ -189,6 +214,33 @@ namespace CriticalPath.Web.Controllers
             return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
 
+        public new partial class QueryParameters : BaseController.QueryParameters
+        {
+            public QueryParameters() { }
+            public QueryParameters(QueryParameters parameters) : base(parameters)
+            {
+            }
+        }
+
+        public partial class PagedList<T> : QueryParameters
+        {
+            public PagedList() { }
+            public PagedList(QueryParameters parameters) : base(parameters) { }
+
+            public IEnumerable<T> Items
+            {
+                set { _items = value; }
+                get
+                {
+                    if (_items == null)
+                    {
+                        _items = new List<T>();
+                    }
+                    return _items;
+                }
+            }
+            IEnumerable<T> _items;
+        }
         partial void OnCreateSaving(Supplier supplier);
         partial void OnCreateSaved(Supplier supplier);
         partial void OnEditSaving(Supplier supplier);

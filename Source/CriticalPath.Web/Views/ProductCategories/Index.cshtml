@@ -15,14 +15,17 @@
     int totalCount = ViewBag.totalCount;
     int pageSize = ViewBag.pageSize;
     int pageCount = ViewBag.pageCount;
+
+	var title = EntityStrings.ProductCategories;
 }
 <div class="row well">
     <div class="col-md-8 col-sm-7">
-        <h4>@EntityStrings.ProductCategories</h4>
+        <h4>@title</h4>
     </div>
     @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "searchForm" }))
     {
         @Html.Hidden("page", page)
+        @Html.Hidden("pageSize", pageSize)
         <div class="col-md-4 col-sm-5">
             @Html.Partial("_SearchBoxPartial")
         </div>
