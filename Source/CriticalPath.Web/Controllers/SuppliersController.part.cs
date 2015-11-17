@@ -17,15 +17,6 @@ namespace CriticalPath.Web.Controllers
 {
     public partial class SuppliersController
     {
-        public new partial class QueryParameters : BaseController.QueryParameters
-        {
-            protected override void Constructing(BaseController.QueryParameters parameters)
-            {
-                base.Constructing(parameters);
-                PageSize = 12;
-            }
-        }
-
         protected virtual async Task<List<SupplierDTO>> GetSupplierDtoList(QueryParameters qParams)
         {
             var query = await GetSupplierQuery(qParams);
@@ -37,18 +28,13 @@ namespace CriticalPath.Web.Controllers
         [Authorize]
         public async Task<ActionResult> Index(QueryParameters qParams)
         {
-            var dtoList = await GetSupplierDtoList(qParams);
+            //qParams.PageSize = 100;
+            var items = await GetSupplierDtoList(qParams);
             PutPagerInViewBag(qParams);
             await PutCanUserInViewBag();
-
-            if (qParams.TotalCount > 0)
-            {
-                ViewBag.suppliers = dtoList.ToJson();
-            }
-            else
-            {
-                ViewBag.suppliers = "[]";
-            }
+            var result = new PagedList<SupplierDTO>(qParams, items);
+            ViewBag.result = result.ToJson();
+            
             return View();
         }
 

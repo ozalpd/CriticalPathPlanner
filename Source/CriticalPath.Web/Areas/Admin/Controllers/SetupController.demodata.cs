@@ -868,23 +868,29 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 //"Çocuk Deniz Şortu"
             };
 
+            var suppliers = await (from s in DataContext.Companies.OfType<Supplier>()
+                                   select s)
+                                   .ToArrayAsync();
+
             int countCatg = 0;
             ProductCategory catg1 = new ProductCategory() { Title = "Kadın Giyim" };
-            countCatg = AddCategory(catg1, catgKadin, sb, sizing, countCatg);
+            countCatg = AddCategory(catg1, catgKadin, suppliers, sb, sizing, countCatg);
 
             ProductCategory catg2 = new ProductCategory() { Title = "Erkek Giyim" };
             DataContext.ProductCategories.Add(catg2);
-            countCatg = AddCategory(catg2, catgErkek, sb, sizing, countCatg);
+            countCatg = AddCategory(catg2, catgErkek, suppliers, sb, sizing, countCatg);
 
             var sizingChildren = await DataContext.SizingStandards.FirstOrDefaultAsync(s => s.Title.Contains("child"));
             if (sizingChildren == null)
                 sizingChildren = sizing;
             ProductCategory catg3 = new ProductCategory() { Title = "Çocuk Giyim" };
             DataContext.ProductCategories.Add(catg3);
-            countCatg = AddCategory(catg3, catgCocuk, sb, sizingChildren, countCatg);
+            countCatg = AddCategory(catg3, catgCocuk, suppliers, sb, sizingChildren, countCatg);
         }
+        int suppliersAdded = 0;
 
-        private int AddCategory(ProductCategory parentCatg, string[] subCategories, StringBuilder sb, SizingStandard sizing, int countCatg)
+        private int AddCategory(ProductCategory parentCatg, string[] subCategories, Supplier[] suppliers,
+            StringBuilder sb, SizingStandard sizing, int countCatg)
         {
             DataContext.ProductCategories.Add(parentCatg);
             sb.Append("Category ");
@@ -906,6 +912,7 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 {
                     string[] lips = lipsums[countCatg % lipsums.Length].Split(' ');
                     int wordCount = rnd.Next(2, 4);
+                    int addSupplier = rnd.Next(2, 5);
                     var prod = new Product()
                     {
                         Category = catg,
@@ -920,6 +927,11 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                         {
                             prod.Title = prod.Title + " " + lips[rnd.Next(0, lips.Length - 1)].ToSentenceCase();
                         }
+                    }
+                    for (int k = 0; k < addSupplier; k++)
+                    {
+                        prod.Suppliers.Add(suppliers[suppliersAdded % suppliers.Length]);
+                        suppliersAdded++;
                     }
                     prod.SizingStandard = sizing;
                     DataContext.Products.Add(prod);

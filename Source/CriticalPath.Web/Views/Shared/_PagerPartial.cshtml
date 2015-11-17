@@ -16,71 +16,77 @@
 }
 @if (pageCount > 1)
 {
-<nav>
-    <ul class="pagination">
-        @if (page == 1)
-        {
-            <li class="disabled">
-                <a aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-            </li>
-            <li class="disabled">
-                <a aria-label="Previous">
-                    <span aria-hidden="true">&lsaquo;</span>
-                </a>
-            </li>
-        }
-        else
-        {
-            <li>
-                <a href="#" aria-label="FirstPage" onclick="setPager(1)">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" aria-label="Previous" onclick="setPager(@(page - 1))">
-                    <span aria-hidden="true">&lsaquo;</span>
-                </a>
-            </li>
-        }
-        @for (int i = pagerStart; i < (pagerStart + pagers); i++)
-        {
-            if (page == i)
+    <nav>
+        <ul class="pagination">
+            @if (page == 1)
             {
-                <li class="active"><a>@i <span class="sr-only">(current)</span></a></li>
+                <li class="disabled">
+                    <a aria-label="FirstPage">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="disabled">
+                    <a aria-label="Previous">
+                        <span aria-hidden="true">&lsaquo;</span>
+                    </a>
+                </li>
             }
             else
             {
-                <li><a href="#" onclick="setPager(@i)">@i</a></li>
+                <li>
+                    <a href="#" aria-label="FirstPage" onclick="setPager(1)">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" aria-label="Previous" onclick="setPager(@(page - 1))">
+                        <span aria-hidden="true">&lsaquo;</span>
+                    </a>
+                </li>
             }
+            @for (int i = pagerStart; i < (pagerStart + pagers); i++)
+            {
+                if (page == i)
+                {
+                    <li class="active"><a>@i <span class="sr-only">(current)</span></a></li>
+                }
+                else
+                {
+                    <li><a href="#" onclick="setPager(@i)">@i</a></li>
+                }
+            }
+            @if (page < pageCount)
+            {
+                <li>
+                    <a href="#" aria-label="Next" onclick="setPager(@(page + 1))">
+                        <span aria-hidden="true">&rsaquo;</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" aria-label="LastPage" onclick="setPager(@(pageCount))">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="disabled">
+                    <a aria-label="Next">
+                        <span aria-hidden="true">&rsaquo;</span>
+                    </a>
+                </li>
+                <li class="disabled">
+                    <a aria-label="LastPage">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            }
+        </ul>
+    </nav>
+    <script type="text/javascript">
+        function setPager(page) {
+            $('#page').val(page);
+            $('#searchForm').submit();
         }
-        @if (page < pageCount)
-        {
-            <li>
-                <a href="#" aria-label="Next" onclick="setPager(@(page + 1))">
-                    <span aria-hidden="true">&rsaquo;</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" aria-label="Next" onclick="setPager(@(pageCount))">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
-        }
-        else
-        {
-            <li class="disabled">
-                <a aria-label="Next">
-                    <span aria-hidden="true">&rsaquo;</span>
-                </a>
-            </li>
-            <li class="disabled">
-                <a aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
-        }
-    </ul>
-</nav>
+    </script>
 }

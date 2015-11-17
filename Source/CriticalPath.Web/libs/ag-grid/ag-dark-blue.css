@@ -173,13 +173,14 @@
 }
 
 .ag-dark-blue .ag-paging-panel {
-    color: #000;
+    color: rgb(208, 208, 208);
     padding: 4px;
 }
 
 .ag-dark-blue .ag-paging-button {
-    margin-left: 4px;
-    margin-right: 4px;
+    color: rgb(34, 34, 34);
+    margin-left: 6px;
+    margin-right: 6px;
 }
 
 .ag-dark-blue .ag-paging-row-summary-panel {

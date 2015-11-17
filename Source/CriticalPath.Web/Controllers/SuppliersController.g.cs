@@ -42,8 +42,8 @@ namespace CriticalPath.Web.Controllers
         [Authorize]
         public async Task<ActionResult> GetSupplierPagedList(QueryParameters qParams)
         {
-            var result = new PagedList<SupplierDTO>(qParams);
-            result.Items = await GetSupplierDtoList(qParams);
+            var items = await GetSupplierDtoList(qParams);
+            var result = new PagedList<SupplierDTO>(qParams, items);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
@@ -226,6 +226,10 @@ namespace CriticalPath.Web.Controllers
         {
             public PagedList() { }
             public PagedList(QueryParameters parameters) : base(parameters) { }
+            public PagedList(QueryParameters parameters, IEnumerable<T> items) : this(parameters)
+            {
+                Items = items;
+            }
 
             public IEnumerable<T> Items
             {

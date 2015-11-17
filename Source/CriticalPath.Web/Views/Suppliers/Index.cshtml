@@ -1,3 +1,4 @@
+@using CriticalPath.Web.Controllers
 @using CriticalPath.Web.Models
 @using CriticalPath.Data
 @using CP.i8n
@@ -31,7 +32,10 @@
 @if (totalCount > 0)
 {
     <div id="suppliersGrid" class="ag-dark-blue ag-basic" style="width:948px;height:420px;"></div>
-    @Html.Partial("_PagerPartial")
+    <div class="row pl15" style="margin-top:-80px;z-index:500;position:absolute;">
+        <nav><ul id="pagerUl" class="pagination"></ul></nav>
+        
+    </div>
     if (canUserDelete)
     {
         @Html.Partial("_MessageBoxPartial")
@@ -40,17 +44,19 @@
         @Scripts.Render("~/js/ag-grid")
         @Html.Partial("_IndexScriptsPartial", "Suppliers")
         <script type="text/javascript">
+            var result = @Html.Raw(ViewBag.result);
+            var gridOptions;
+
             var initSuppliersGrid = function() {
                 var vm = this;
-                vm.rowData = @Html.Raw(ViewBag.suppliers);
                 vm.columnDefs = columnDefs();
                 vm.gridOptions = {
                     columnDefs: vm.columnDefs,
-                    rowHeight: 28,
+                    rowHeight: 26,
+                    pageSize: 10,
                     headerHeight: 32,
-                    rowData: vm.rowData
+                    rowData: result.Items
                 };
-
 
                 function columnDefs(){
                     return[
@@ -62,56 +68,109 @@
                     ];
                 }
 
-                var True = true;
-                var False = false;
-                var canUserDelete = @canUserDelete;
-                var canUserEdit = @canUserEdit;
-                var canUserAddContact = @canUserCreate;
-
                 function actionCellRenderer(params) {
                     var actions = '<div class="btn-group">' +
                         '<button type="button" title="@ActionStrings.Action" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown" onclick="onActionClicked(this)">' +
                         '<span class="glyphicon glyphicon-tasks"></span> <span class="caret"></span>' +
                         '</button>' +
                         '<ul class="dropdown-menu" role="menu">' +
-                        '<li><a href="/Suppliers/Details/' + params.value + '">@ActionStrings.Details</a></li>';
-                    if(canUserDelete){
-                        actions = actions + '<li><a href="/Suppliers/Edit/' + params.value + '">@ActionStrings.Edit</a></li>';
+                        '<li><a href="/Suppliers/Details/' + params.value + '">@ActionStrings.Details</a></li>' +
+                    @if (canUserEdit)
+                    {
+                        @:'<li><a href="/Suppliers/Edit/' + params.value + '">@ActionStrings.Edit</a></li>' +
                     }
-                    if(canUserDelete){
-                        actions = actions + '<li><a href="#deleteConfirm" data-toggle="modal" onclick="setDelete(\'Dnm\', '
-                            + params.value + ');">@ActionStrings.Delete</a></li>';
+                    @if(canUserDelete)
+                    {
+                        @:'<li><a href="#deleteConfirm" data-toggle="modal" onclick="setDelete(getObjectById(result.Items,' + params.value + ').CompanyName, ' + params.value + ');">@ActionStrings.Delete</a></li>' +
                     }
-                    actions = actions + '<li class="divider"></li>';
-                    if(canUserAddContact){
-                        actions = actions + '<li><a href="/Contacts/Create/?companyId=' + params.value + '">@EntityStrings.AddContact</a></li>';
+                        '<li class="divider"></li>' +
+                    @if(canUserCreate)
+                    {
+                        @:'<li><a href="/Contacts/Create/?companyId=' + params.value + '">@EntityStrings.AddContact</a></li>' +
                     }
-                    actions = actions + '<li><a href="/Contacts/Index/?companyId=' + params.value + '">@EntityStrings.Contacts</a></li>';
-                    actions = actions + '</ul></div>';
+                        '<li><a href="/Contacts/Index/?companyId=' + params.value + '">@EntityStrings.Contacts</a></li>' +
+                        '</ul></div>';
 
                     return actions;
                 }
 
                 // angularGrid is a global function
                 agGridGlobalFunc('#suppliersGrid', vm.gridOptions);
-                return vm;
+                gridOptions = vm.gridOptions;
+            }
+
+            function setPager(page) {
+                var searchString = $('#SearchString').val();
+                $.getJSON(
+                    '/Suppliers/GetSupplierPagedList',
+                    {
+                        pageSize: result.PageSize,
+                        page: page,
+                        searchString: searchString
+                    },
+                    function (suppliers) {
+                        result = suppliers;
+                        gridOptions.api.setRowData(result.Items);
+                        setPagerButtons($('#pagerUl'), result.Page, result.PageCount);
+                        displayStats();
+                    });
+            }
+
+            function displayStats() {
+                $('#pagerUl').append('<li class="active"><span id="recordsStats" style="margin-left:16px;min-width:92px;text-align:center;"></span></li>');
+                $('#recordsStats').html(result.Items.length + ' / ' + result.TotalCount);
             }
 
             function onActionClicked(menuBtn){
-                var menuHeight = 180;
-                var rectMenu = menuBtn.getBoundingClientRect();
-                var rectGrid = document.getElementById("suppliersGrid").getBoundingClientRect();
+                setTimeout(function(){
+                    var menuHeight = 190;
+                    var rectMenu = menuBtn.getBoundingClientRect();
+                    var rectGrid = document.getElementById("suppliersGrid").getBoundingClientRect();
 
-                var diffY = rectGrid.bottom - rectMenu.bottom - menuHeight;
-                if (diffY < 0) {
-                    setTimeout(function(){
-                        $('#suppliersGrid .ag-body-viewport').scrollTop(diffY * -1);
-                        //document.getElementById("dnm").innerHTML = diffY;
-                    },250);
-                }
+                    var diffY = rectGrid.bottom - rectMenu.bottom - menuHeight;
+                    if (diffY < 0) {
+                        var viewport = $('#suppliersGrid .ag-body-viewport');
+                        var viewportScroll = viewport.scrollTop();
+                        viewport.scrollTop((diffY * -1) + viewportScroll);
+                    }
+                },250);
             }
 
             document.addEventListener("DOMContentLoaded", initSuppliersGrid());
+            setPagerButtons($('#pagerUl'), result.Page, result.PageCount);
+            displayStats();
+
+
+
+
+            
+            //Optional for grid pager
+            var dataSource = {
+                rowCount: result.TotalCount,
+                pageSize: 10,
+                getRows: function (params) {
+                    var pageNr = (params.startRow/10) + 1;
+                    var lastRow = pageNr * 10;
+                    var searchString = $('#SearchString').val();
+                    $.getJSON('/Suppliers/GetSupplierPagedList',
+                        {
+                            pageSize: 10,
+                            page: pageNr,
+                            searchString: searchString
+                        },
+                        function (suppliers) {
+                            result = suppliers;
+                            if(lastRow > result.TotalCount){
+                                lastRow = result.TotalCount;
+                            }
+                            params.successCallback(result.Items, result.TotalCount);
+
+                            //dataSource.rowCount = result.TotalCount;
+                            //gridOptions.api.refreshView();
+                        });
+                }
+            };
+            //gridOptions.api.setDatasource(dataSource);
         </script>
     }
 }
