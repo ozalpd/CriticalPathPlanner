@@ -27,16 +27,19 @@ function setPagerButtons(pagerParent, page, pageCount, buttonsCount) {
         if (buttonsCount == null || !(buttonsCount > 0)) {
             buttonsCount = 10;
         }
+        pagerParent.append('<li class="active"><span id="recordsStats" style="margin:0 0 0 2px;min-width:92px;text-align:center;"></span></li>');
         pagerParent.append(createPagerButton(0, page, pageCount));
+        pagerParent.append(createPagerButton(-1, page, pageCount));
         var pagers = pageCount > buttonsCount ? buttonsCount : pageCount;
-        var pagerStart = page > (buttonsCount/2) ? page - (pagers / 2) : 1;
+        var pagerStart = page > (buttonsCount / 2) ? page - (pagers / 2) : 1;
         if ((pagerStart + pagers) > pageCount) {
             pagerStart = pageCount - pagers + 1;
         }
         for (var i = pagerStart; i < (pagerStart + pagers) ; i++) {
             pagerParent.append(createPagerButton(i, page, pageCount));
         }
-        pagerParent.append(createPagerButton(-1, page, pageCount));
+        pagerParent.append(createPagerButton(-2, page, pageCount));
+        pagerParent.append(createPagerButton(-3, page, pageCount));
     }
 }
 /* Creates Bootstrap style pager button esp. for setPagerButtons function */
@@ -45,16 +48,22 @@ function createPagerButton(btnNr, page, pageCount) {
     if (page == btnNr) {
         li.addClass("active");
     }
-    var label = btnNr < 0 ? '&raquo;' : btnNr == 0 ? '&laquo;' : btnNr;
+    var label = btnNr == 0 ? '&laquo;' : btnNr == -1 ? '&lsaquo;' : btnNr == -2 ? '&rsaquo;' : btnNr == -3 ? '&raquo;' : btnNr;
     var ariaLabel = btnNr < 0 ? 'LastPage' : btnNr == 0 ? 'FirstPage' : btnNr;
-    if (btnNr < 0 || btnNr == 0) {
-        btnNr = btnNr < 0 ? pageCount : 1;
+    if (btnNr <= 0) {
+        var nextPage = page < pageCount ? page + 1 : pageCount;
+        var prevPage = page > 1 ? page - 1 : 1;
+        btnNr = btnNr == -3 ? pageCount : btnNr == -2 ? nextPage : btnNr == -1 ? prevPage : 1;
         if (page == btnNr) {
             li.addClass("disabled");
         }
     }
-    li.append('<a href="#" aria-label="' +
+    li.append('<a href="#" style="min-width:44px;text-align:center;" aria-label="' +
         ariaLabel + '" onclick="setPager(' +
         btnNr + ')"><span aria-hidden="true">' + label + '</span></a>');
     return li;
+}
+
+function displayRecordStats(visibleRecords, totalRecords) {
+    $('#recordsStats').html(visibleRecords + ' / ' + totalRecords);
 }

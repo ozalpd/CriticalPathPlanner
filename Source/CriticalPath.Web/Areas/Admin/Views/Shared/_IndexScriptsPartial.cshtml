@@ -2,14 +2,9 @@
 @using CriticalPath.Data
 @using CP.i8n
 @model string
-<script>
-    function setPager(page) {
-        $('#page').val(page);
-        $('#searchForm').submit();
-    }
+<script type="text/javascript">
     function setDelete(item, id) {
         $('#deleteText').html('@MessageStrings.YouAreAboutToDelete ' + item + '.<br/>@MessageStrings.AreYouSure?');
-        @*$('#deleteButton').attr('href', '/@Model/Delete/' + id);*@
         $('#ajxDelete').attr('onclick', 'ajaxDelete(' + id + ')');
     }
     function ajaxDelete(id) {

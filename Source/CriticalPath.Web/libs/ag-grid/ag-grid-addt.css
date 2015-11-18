@@ -2,10 +2,6 @@
     overflow: visible;
 }
 
-.ag-body {
-    background-color:#303436;
-}
-
 .ag-body-viewport {
     -ms-overflow-style: none;
     overflow: -moz-scrollbars-none;

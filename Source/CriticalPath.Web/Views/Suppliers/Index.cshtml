@@ -14,8 +14,6 @@
     //Records & Pager
     int page = ViewBag.page;
     int totalCount = ViewBag.totalCount;
-    int pageSize = ViewBag.pageSize;
-    int pageCount = ViewBag.pageCount;
 }
 <div class="row well">
     <div class="col-md-8 col-sm-7">
@@ -31,10 +29,9 @@
 </div>
 @if (totalCount > 0)
 {
-    <div id="suppliersGrid" class="ag-dark-blue ag-basic" style="width:948px;height:420px;"></div>
-    <div class="row pl15" style="margin-top:-80px;z-index:500;position:absolute;">
+    <div id="suppliersGrid" class="ag-dark-blue ag-basic" style="width:948px;height:400px;"></div>
+    <div class="row pl15" style="margin-top:-64px;z-index:500;position:absolute;">
         <nav><ul id="pagerUl" class="pagination"></ul></nav>
-        
     </div>
     if (canUserDelete)
     {
@@ -53,7 +50,7 @@
                 vm.gridOptions = {
                     columnDefs: vm.columnDefs,
                     rowHeight: 26,
-                    pageSize: 10,
+                    pageSize: result.pageSize,
                     headerHeight: 32,
                     rowData: result.Items
                 };
@@ -73,7 +70,7 @@
                         '<button type="button" title="@ActionStrings.Action" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown" onclick="onActionClicked(this)">' +
                         '<span class="glyphicon glyphicon-tasks"></span> <span class="caret"></span>' +
                         '</button>' +
-                        '<ul class="dropdown-menu" role="menu">' +
+                        '<ul class="dropdown-menu mb15" role="menu">' +
                         '<li><a href="/Suppliers/Details/' + params.value + '">@ActionStrings.Details</a></li>' +
                     @if (canUserEdit)
                     {
@@ -101,29 +98,30 @@
 
             function setPager(page) {
                 var searchString = $('#SearchString').val();
-                $.getJSON(
-                    '/Suppliers/GetSupplierPagedList',
-                    {
-                        pageSize: result.PageSize,
-                        page: page,
-                        searchString: searchString
-                    },
+                var url = '/Suppliers/GetSupplierPagedList';
+                showMessageBox('Loading...', '<span class="fontSize200pc">Data Loading...</span>');
+                $.getJSON(url, {
+                    pageSize: result.PageSize,
+                    page: page,
+                    searchString: searchString
+                },
                     function (suppliers) {
                         result = suppliers;
                         gridOptions.api.setRowData(result.Items);
                         setPagerButtons($('#pagerUl'), result.Page, result.PageCount);
-                        displayStats();
+                        displayRecordStats(result.Items.length, result.TotalCount);
+                        hideMessageBox();
+                    }).fail(function(jqXHR, textStatus, errorThrown){
+                        var msgboxMsg = jqXHR.responseText;
+                        showMessageBox(textStatus, msgboxMsg, true);
+                    }).always(function(jqXHR){
+                        
                     });
-            }
-
-            function displayStats() {
-                $('#pagerUl').append('<li class="active"><span id="recordsStats" style="margin-left:16px;min-width:92px;text-align:center;"></span></li>');
-                $('#recordsStats').html(result.Items.length + ' / ' + result.TotalCount);
             }
 
             function onActionClicked(menuBtn){
                 setTimeout(function(){
-                    var menuHeight = 190;
+                    var menuHeight = 196;
                     var rectMenu = menuBtn.getBoundingClientRect();
                     var rectGrid = document.getElementById("suppliersGrid").getBoundingClientRect();
 
@@ -138,7 +136,7 @@
 
             document.addEventListener("DOMContentLoaded", initSuppliersGrid());
             setPagerButtons($('#pagerUl'), result.Page, result.PageCount);
-            displayStats();
+            displayRecordStats(result.Items.length, result.TotalCount);
 
 
 
