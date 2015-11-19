@@ -368,6 +368,7 @@
     <Content Include="libs\ag-grid\ag-grid.js" />
     <Content Include="libs\ag-grid\ag-grid.min.css" />
     <Content Include="libs\ag-grid\ag-grid.min.js" />
+    <Content Include="libs\ag-grid\ag-light-blue.css" />
     <Content Include="libs\ag-grid\theme-blue.css" />
     <Content Include="libs\ag-grid\theme-blue.min.css" />
     <Content Include="libs\ag-grid\theme-dark.css" />

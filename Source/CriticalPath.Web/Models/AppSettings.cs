@@ -20,7 +20,7 @@ namespace CriticalPath.Web.Models
             get
             {
                 if (string.IsNullOrEmpty(_selectedTheme))
-                    _selectedTheme = "~/Content/Slate-Ligth";
+                    _selectedTheme = "~/Content/Cosmo";
                 return _selectedTheme;
             }
         }

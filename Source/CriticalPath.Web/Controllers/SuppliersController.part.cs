@@ -28,9 +28,8 @@ namespace CriticalPath.Web.Controllers
         [Authorize]
         public async Task<ActionResult> Index(QueryParameters qParams)
         {
-            //qParams.PageSize = 100;
             var items = await GetSupplierDtoList(qParams);
-            PutPagerInViewBag(qParams);
+            ViewBag.totalCount = qParams.TotalCount;
             await PutCanUserInViewBag();
             var result = new PagedList<SupplierDTO>(qParams, items);
             ViewBag.result = result.ToJson();

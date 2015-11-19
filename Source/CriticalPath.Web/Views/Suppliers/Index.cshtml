@@ -11,26 +11,20 @@
     bool canUserCreate = ViewBag.canUserCreate;
     bool canUserDelete = ViewBag.canUserDelete;
 
-    //Records & Pager
-    int page = ViewBag.page;
     int totalCount = ViewBag.totalCount;
 }
 <div class="row well">
     <div class="col-md-8 col-sm-7">
         <h4>@EntityStrings.Suppliers</h4>
     </div>
-    @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "searchForm" }))
-    {
-        @Html.Hidden("page", page)
         <div class="col-md-4 col-sm-5">
             @Html.Partial("_SearchBoxPartial")
         </div>
-    }
 </div>
 @if (totalCount > 0)
 {
-    <div id="suppliersGrid" class="ag-dark-blue ag-basic" style="width:948px;height:400px;"></div>
-    <div class="row pl15" style="margin-top:-64px;z-index:500;position:absolute;">
+    <div id="suppliersGrid" class="ag-light-blue ag-basic" style="width:948px;height:400px;"></div>
+    <div class="row pl15" style="margin-top:-72px;z-index:500;position:absolute;">
         <nav><ul id="pagerUl" class="pagination"></ul></nav>
     </div>
     if (canUserDelete)
@@ -44,7 +38,7 @@
             var result = @Html.Raw(ViewBag.result);
             var gridOptions;
 
-            var initSuppliersGrid = function() {
+            var initGrid = function() {
                 var vm = this;
                 vm.columnDefs = columnDefs();
                 vm.gridOptions = {
@@ -66,8 +60,8 @@
                 }
 
                 function actionCellRenderer(params) {
-                    var actions = '<div class="btn-group">' +
-                        '<button type="button" title="@ActionStrings.Action" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown" onclick="onActionClicked(this)">' +
+                    var actions = '<div class="btn-group" style="margin-top:-3px;">' +
+                        '<button type="button" title="@ActionStrings.Action" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown" onclick="onActionClicked(this)">' +
                         '<span class="glyphicon glyphicon-tasks"></span> <span class="caret"></span>' +
                         '</button>' +
                         '<ul class="dropdown-menu mb15" role="menu">' +
@@ -91,19 +85,28 @@
                     return actions;
                 }
 
+                $.ajaxSetup({ cache: false });
                 // angularGrid is a global function
                 agGridGlobalFunc('#suppliersGrid', vm.gridOptions);
+                
                 gridOptions = vm.gridOptions;
+                setPagerButtons($('#pagerUl'), result.Page, result.PageCount);
+                displayRecordStats(result.Items.length, result.TotalCount);
             }
 
-            function setPager(page) {
+            function refreshData(){
+                getPagedData(result.Page);
+            }
+
+            function getPagedData(page) {
                 var searchString = $('#SearchString').val();
                 var url = '/Suppliers/GetSupplierPagedList';
                 showMessageBox('Loading...', '<span class="fontSize200pc">Data Loading...</span>');
                 $.getJSON(url, {
                     pageSize: result.PageSize,
                     page: page,
-                    searchString: searchString
+                    searchString: searchString,
+                    cache: false
                 },
                     function (suppliers) {
                         result = suppliers;
@@ -134,9 +137,7 @@
                 },250);
             }
 
-            document.addEventListener("DOMContentLoaded", initSuppliersGrid());
-            setPagerButtons($('#pagerUl'), result.Page, result.PageCount);
-            displayRecordStats(result.Items.length, result.TotalCount);
+            document.addEventListener("DOMContentLoaded", initGrid());
 
 
 

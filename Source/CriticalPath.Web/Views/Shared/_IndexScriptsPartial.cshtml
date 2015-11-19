@@ -14,7 +14,7 @@
 
         var request = $.get(requestUrl, function (data) {
         }).done(function () {
-            $('#searchForm').submit();
+            refreshData();
         });
         showMessageBox('@MessageStrings.Deleting...', '@MessageStrings.PleaseWait.', false);
 

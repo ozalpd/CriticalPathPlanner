@@ -68,12 +68,12 @@ namespace CriticalPath.Data
 
         public void SetInsertDefaults(object o, ISessionData session)
         {
-            if (o is ICreateDate) ((ICreateDate)o).CreateDate = DateTime.Now;
+            if (o is ICreateDate) ((ICreateDate)o).CreateDate = DateTime.UtcNow;
             if (o is ICreatorIp) ((ICreatorIp)o).CreatorIp = session.GetUserIP();
             if (o is ICreatorId) ((ICreatorId)o).CreatorId = session.UserID;
 
             if (o is IModifyNr) ((IModifyNr)o).ModifyNr = 1;
-            if (o is IModifyDate) ((IModifyDate)o).ModifyDate = DateTime.Now;
+            if (o is IModifyDate) ((IModifyDate)o).ModifyDate = DateTime.UtcNow;
             if (o is IModifierIp) ((IModifierIp)o).ModifierIp = session.GetUserIP();
             if (o is IModifierId) ((IModifierId)o).ModifierId = session.UserID;
         }
@@ -90,7 +90,7 @@ namespace CriticalPath.Data
                 if (o is IModifyNr) ((IModifyNr)o).ModifyNr = original.GetValue<int>("ModifyNr") + 1;
             }
 
-            if (o is IModifyDate) ((IModifyDate)o).ModifyDate = DateTime.Now;
+            if (o is IModifyDate) ((IModifyDate)o).ModifyDate = DateTime.UtcNow;
             if (o is IModifierIp) ((IModifierIp)o).ModifierIp = session.GetUserIP();
             if (o is IModifierId) ((IModifierId)o).ModifierId = session.UserID;
         }
@@ -131,7 +131,7 @@ namespace CriticalPath.Data
                 if (o is IModifyNr) ((IModifyNr)o).ModifyNr = original.GetValue<int>("ModifyNr") + 1;
             }
 
-            if (o is IModifyDate) ((IModifyDate)o).ModifyDate = DateTime.Now;
+            if (o is IModifyDate) ((IModifyDate)o).ModifyDate = DateTime.UtcNow;
             if (o is IModifierIp) ((IModifierIp)o).ModifierIp = session.GetUserIP();
             if (o is IModifierId) ((IModifierId)o).ModifierId = session.UserID;
         }

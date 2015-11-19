@@ -59,7 +59,7 @@ function createPagerButton(btnNr, page, pageCount) {
         }
     }
     li.append('<a href="#" style="min-width:44px;text-align:center;" aria-label="' +
-        ariaLabel + '" onclick="setPager(' +
+        ariaLabel + '" onclick="getPagedData(' +
         btnNr + ')"><span aria-hidden="true">' + label + '</span></a>');
     return li;
 }

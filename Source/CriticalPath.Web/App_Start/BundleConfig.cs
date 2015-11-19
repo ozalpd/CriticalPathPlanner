@@ -14,6 +14,7 @@ namespace CriticalPath.Web
                         "~/libs/ag-grid/theme-dark.css",
                         "~/libs/ag-grid/theme-blue.css",
                         "~/libs/ag-grid/ag-dark-blue.css",
+                        "~/libs/ag-grid/ag-light-blue.css",
                         "~/libs/ag-grid/ag-grid-addt.css"));
 
             bundles.Add(new ScriptBundle("~/js/ag-grid").Include(
