@@ -17,13 +17,13 @@
     <div class="col-md-8 col-sm-7">
         <h4>@EntityStrings.Suppliers</h4>
     </div>
-        <div class="col-md-4 col-sm-5">
-            @Html.Partial("_SearchBoxPartial")
-        </div>
+    <div class="col-md-4 col-sm-5">
+        @Html.Partial("_SearchBoxPartial")
+    </div>
 </div>
 @if (totalCount > 0)
 {
-    <div id="suppliersGrid" class="ag-light-blue ag-basic" style="width:948px;height:400px;"></div>
+    <div id="mainGrid" class="ag-style ag-basic" style="width:948px;height:612px;"></div>
     <div class="row pl15" style="margin-top:-72px;z-index:500;position:absolute;">
         <nav><ul id="pagerUl" class="pagination"></ul></nav>
     </div>
@@ -32,17 +32,18 @@
         @Html.Partial("_MessageBoxPartial")
     }
     @section scripts{
-        @Scripts.Render("~/js/ag-grid")
-        @Html.Partial("_IndexScriptsPartial", "Suppliers")
+@Scripts.Render("~/js/ag-grid")
+@Html.Partial("_IndexScriptsPartial", "Suppliers") @* Controller's name *@
+@Html.Partial("_agGridScriptsPartial", "/Suppliers/GetSupplierPagedList") @* Service url *@
         <script type="text/javascript">
             var result = @Html.Raw(ViewBag.result);
             var gridOptions;
 
-            var initGrid = function() {
-                var vm = this;
-                vm.columnDefs = columnDefs();
-                vm.gridOptions = {
-                    columnDefs: vm.columnDefs,
+            var initPage = function() {
+                var init = this;
+                init.columnDefs = columnDefs();
+                init.gridOptions = {
+                    columnDefs: init.columnDefs,
                     rowHeight: 26,
                     pageSize: result.pageSize,
                     headerHeight: 32,
@@ -52,16 +53,16 @@
                 function columnDefs(){
                     return[
                          { headerName: '@ActionStrings.Action', field: "Id", width: 64, cellRenderer: actionCellRenderer},
-                         { headerName: '@Html.DisplayNameFor(model => model.CompanyName)', field: "CompanyName", width: 300 },
-                         { headerName: '@Html.DisplayNameFor(model => model.SupplierCode)', field: "SupplierCode", width: 160 },
-                         { headerName: '@Html.DisplayNameFor(model => model.City)', field: "City" },
-                         { headerName: '@Html.DisplayNameFor(model => model.Country)', field: "Country" }
+                         { headerName: '@Html.DisplayNameFor(m => m.CompanyName)', field: "CompanyName", width: 300 },
+                         { headerName: '@Html.DisplayNameFor(m => m.SupplierCode)', field: "SupplierCode", width: 160 },
+                         { headerName: '@Html.DisplayNameFor(m => m.City)', field: "City" },
+                         { headerName: '@Html.DisplayNameFor(m => m.Country)', field: "Country" }
                     ];
                 }
 
                 function actionCellRenderer(params) {
                     var actions = '<div class="btn-group" style="margin-top:-3px;">' +
-                        '<button type="button" title="@ActionStrings.Action" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown" onclick="onActionClicked(this)">' +
+                        '<button type="button" title="@ActionStrings.Action" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown" onclick="onActionMenuClick(this)">' +
                         '<span class="glyphicon glyphicon-tasks"></span> <span class="caret"></span>' +
                         '</button>' +
                         '<ul class="dropdown-menu mb15" role="menu">' +
@@ -86,63 +87,35 @@
                 }
 
                 $.ajaxSetup({ cache: false });
+                gridOptions = init.gridOptions;
                 // angularGrid is a global function
-                agGridGlobalFunc('#suppliersGrid', vm.gridOptions);
-                
-                gridOptions = vm.gridOptions;
+                agGridGlobalFunc('#mainGrid', gridOptions);
+
                 setPagerButtons($('#pagerUl'), result.Page, result.PageCount);
                 displayRecordStats(result.Items.length, result.TotalCount);
             }
 
-            function refreshData(){
-                getPagedData(result.Page);
-            }
-
-            function getPagedData(page) {
-                var searchString = $('#SearchString').val();
-                var url = '/Suppliers/GetSupplierPagedList';
-                showMessageBox('Loading...', '<span class="fontSize200pc">Data Loading...</span>');
-                $.getJSON(url, {
-                    pageSize: result.PageSize,
-                    page: page,
-                    searchString: searchString,
-                    cache: false
-                },
-                    function (suppliers) {
-                        result = suppliers;
-                        gridOptions.api.setRowData(result.Items);
-                        setPagerButtons($('#pagerUl'), result.Page, result.PageCount);
-                        displayRecordStats(result.Items.length, result.TotalCount);
-                        hideMessageBox();
-                    }).fail(function(jqXHR, textStatus, errorThrown){
-                        var msgboxMsg = jqXHR.responseText;
-                        showMessageBox(textStatus, msgboxMsg, true);
-                    }).always(function(jqXHR){
-                        
-                    });
-            }
-
-            function onActionClicked(menuBtn){
+            function onActionMenuClick(menuBtn){
                 setTimeout(function(){
-                    var menuHeight = 196;
+                    var menuHeight = 220;
                     var rectMenu = menuBtn.getBoundingClientRect();
-                    var rectGrid = document.getElementById("suppliersGrid").getBoundingClientRect();
+                    var rectGrid = document.getElementById("mainGrid").getBoundingClientRect();
 
                     var diffY = rectGrid.bottom - rectMenu.bottom - menuHeight;
                     if (diffY < 0) {
-                        var viewport = $('#suppliersGrid .ag-body-viewport');
+                        var viewport = $('#mainGrid .ag-body-viewport');
                         var viewportScroll = viewport.scrollTop();
                         viewport.scrollTop((diffY * -1) + viewportScroll);
                     }
                 },250);
             }
-
-            document.addEventListener("DOMContentLoaded", initGrid());
-
+            document.addEventListener("DOMContentLoaded", initPage());
 
 
 
-            
+
+
+
             //Optional for grid pager
             var dataSource = {
                 rowCount: result.TotalCount,

@@ -362,6 +362,7 @@
     <Content Include="Areas\Admin\Views\Shared\_PagerPartial.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_SaveButtonsPartial.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_SearchBoxPartial.cshtml" />
+    <Content Include="images\busy.gif" />
     <Content Include="libs\ag-grid\ag-dark-blue.css" />
     <Content Include="libs\ag-grid\ag-grid-addt.css" />
     <Content Include="libs\ag-grid\ag-grid.css" />
@@ -518,10 +519,9 @@
     <Content Include="Views\Shared\DisplayTemplates\BoolRed.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\BoolRed.cshtml" />
     <Content Include="Views\Shared\_ICancellationPartial.cshtml" />
+    <Content Include="Views\Shared\_agGridScriptsPartial.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />

@@ -806,14 +806,14 @@
       <CustomStoredProcs>false</CustomStoredProcs>
       <Properties>
         <StorageColumnSetting>
-          <Name>Cancelled</Name>
+          <Name>PoNr</Name>
           <Exclude>false</Exclude>
-          <DataType>bit</DataType>
-          <Lenght>0</Lenght>
+          <DataType>nVarChar</DataType>
+          <Lenght>64</Lenght>
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
           <SortDesc>false</SortDesc>
-          <Nullable>false</Nullable>
+          <Nullable>true</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>OrderDate</Name>
@@ -858,16 +858,6 @@
           <ForeignKeyTable>Products</ForeignKeyTable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>Code</Name>
-          <Exclude>false</Exclude>
-          <DataType>nVarChar</DataType>
-          <Lenght>48</Lenght>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>false</Indexed>
-          <SortDesc>false</SortDesc>
-          <Nullable>true</Nullable>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
           <Name>Description</Name>
           <Exclude>false</Exclude>
           <DataType>nVarChar</DataType>
@@ -896,6 +886,26 @@
           <Indexed>false</Indexed>
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>BuyingPrice</Name>
+          <Exclude>false</Exclude>
+          <DataType>[decimal](18, 4)</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>RetailPrice</Name>
+          <Exclude>false</Exclude>
+          <DataType>[decimal](18, 4)</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>SizingStandardId</Name>
@@ -927,6 +937,16 @@
           <Indexed>false</Indexed>
           <SortDesc>false</SortDesc>
           <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>Cancelled</Name>
+          <Exclude>false</Exclude>
+          <DataType>bit</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>CancelDate</Name>

@@ -78,10 +78,18 @@
                             {
                                 <li>@Html.ActionLink(ActionStrings.CancelPO, "CancelPO", new { id = item.Id })</li>
                             }
+                            @if (item.Processes.Count == 0)
+                            {
+                                <li>@Html.ActionLink(EntityStrings.CreateProcess, "Create", "Processes", new { purchaseOrderId = item.Id }, null)</li>
+                            }
                         </ul>
                     </div>
                 </td>
-                <td>@Html.DisplayFor(modelItem => item.IsApproved) <span class="checkboxText">@Html.DisplayFor(i => item.ApproveDate)</span></td>
+                <td>
+                    <div style="min-width:112px">
+                        @Html.DisplayFor(modelItem => item.IsApproved) <span class="checkboxText">@Html.DisplayFor(i => item.ApproveDate)</span>
+                    </div>
+                </td>
                 <td>@Html.DisplayFor(modelItem => item.Product)</td>
                 <td>@Html.DisplayFor(modelItem => item.Customer)</td>
                 <td>@Html.DisplayFor(modelItem => item.OrderDate)</td>

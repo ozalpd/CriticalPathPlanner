@@ -58,9 +58,9 @@ function createPagerButton(btnNr, page, pageCount) {
             li.addClass("disabled");
         }
     }
-    li.append('<a href="#" style="min-width:44px;text-align:center;" aria-label="' +
-        ariaLabel + '" onclick="getPagedData(' +
-        btnNr + ')"><span aria-hidden="true">' + label + '</span></a>');
+    var lnk = page == btnNr ? '' : ' href="#" onclick="getPagedData(' + btnNr + ')"';
+    li.append('<a style="min-width:44px;text-align:center;" aria-label="' + ariaLabel + '"' +
+        lnk + '><span aria-hidden="true">' + label + '</span></a>');
     return li;
 }
 

@@ -1,5 +1,5 @@
 ﻿.cell-col-0 {
-    overflow: visible;
+    overflow: visible; /* to make ActionMenu visible */
 }
 
 .ag-body-viewport {

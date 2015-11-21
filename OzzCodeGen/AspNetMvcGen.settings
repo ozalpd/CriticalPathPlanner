@@ -1379,16 +1379,16 @@
       <OverwriteExisting>true</OverwriteExisting>
       <Properties>
         <AspNetMvcPropertySetting>
-          <Name>Cancelled</Name>
+          <Name>PoNr</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
+          <UseInSearch>true</UseInSearch>
           <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
           <InEditView>true</InEditView>
           <HasValidation>true</HasValidation>
-          <UseForCreate>Standart</UseForCreate>
-          <UseForEdit>Standart</UseForEdit>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
           <Name>OrderDate</Name>
@@ -1463,18 +1463,6 @@
           <UseForEdit>DropDownList</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>Code</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>true</UseInSearch>
-          <InIndexView>true</InIndexView>
-          <InDetailsView>true</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForCreate>TextBox</UseForCreate>
-          <UseForEdit>TextBox</UseForEdit>
-        </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
           <Name>Description</Name>
           <Exclude>false</Exclude>
           <UseInSearch>true</UseInSearch>
@@ -1500,6 +1488,30 @@
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
           <Name>UnitPrice</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>BuyingPrice</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>RetailPrice</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>
@@ -1569,6 +1581,18 @@
           <HasValidation>true</HasValidation>
           <UseForCreate>TextArea</UseForCreate>
           <UseForEdit>TextArea</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>Cancelled</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
           <Name>CancelDate</Name>

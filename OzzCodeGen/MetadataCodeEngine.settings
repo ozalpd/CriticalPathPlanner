@@ -548,9 +548,8 @@
       <OverwriteExisting>false</OverwriteExisting>
       <Properties>
         <MetadataPropertySetting>
-          <Name>Cancelled</Name>
+          <Name>PoNr</Name>
           <Exclude>false</Exclude>
-          <UIHint>BoolRed</UIHint>
           <DataType />
           <Required />
         </MetadataPropertySetting>
@@ -589,12 +588,6 @@
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>Code</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
           <Name>Description</Name>
           <Exclude>false</Exclude>
           <DataType>MultilineText</DataType>
@@ -611,6 +604,18 @@
           <Exclude>false</Exclude>
           <DataType />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>BuyingPrice</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>RetailPrice</Name>
+          <Exclude>false</Exclude>
+          <DataType />
+          <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>SizingStandardId</Name>
@@ -639,6 +644,13 @@
           <Name>Notes</Name>
           <Exclude>false</Exclude>
           <DataType>MultilineText</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Cancelled</Name>
+          <Exclude>false</Exclude>
+          <UIHint>BoolRed</UIHint>
+          <DataType />
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
