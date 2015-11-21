@@ -6,18 +6,21 @@ CREATE TABLE [dbo].[PurchaseOrders](
     [Id] [int] Identity(1,1) Not Null,
     [IsApproved] [bit] Not Null,
     [ApproveDate] [DateTime] Null,
-    [Cancelled] [bit] Not Null,
+    [PoNr] [nVarChar](64) Not Null,
     [OrderDate] [DateTime] Not Null,
     [DueDate] [DateTime] Null,
-    [CustomerId] [int] Not Null Constraint FK_PurchaseOrder_CustomerId Foreign Key References [dbo].[Customers]([Id]),
     [ProductId] [int] Not Null Constraint FK_PurchaseOrder_ProductId Foreign Key References [dbo].[Products]([Id]),
-    [Code] [nVarChar](48) Null,
     [Description] [nVarChar](256) Null,
+    [CustomerId] [int] Not Null Constraint FK_PurchaseOrder_CustomerId Foreign Key References [dbo].[Customers]([Id]),
+    [CustomerPoNr] [nVarChar](64) Null,
     [Quantity] [int] Not Null,
     [UnitPrice] [decimal](18, 4) Not Null,
+    [BuyingPrice] [decimal](18, 4) Null,
+    [RetailPrice] [decimal](18, 4) Null,
     [SizingStandardId] [int] Not Null Constraint FK_PurchaseOrder_SizingStandardId Foreign Key References [dbo].[SizingStandards]([Id]),
-    [SizeRateDivisor] [int] Not Null,
+    [SizeRatioDivisor] [int] Not Null,
     [Notes] [nVarChar](max) Null,
+    [Cancelled] [bit] Not Null,
     [CancelDate] [DateTime] Null,
     [CancelNotes] [nVarChar](max) Null,
     [CancelledUserIp] [VarChar](48) Null,
@@ -41,13 +44,21 @@ CREATE TABLE [dbo].[PurchaseOrders](
 Go
 Create Nonclustered Index [idx_PurchaseOrders_IsApproved] On [dbo].[PurchaseOrders]([IsApproved] Asc)
 Go
+Create Nonclustered Index [idx_PurchaseOrders_PoNr] On [dbo].[PurchaseOrders]([PoNr] Asc)
+Go
 Create Nonclustered Index [idx_PurchaseOrders_OrderDate] On [dbo].[PurchaseOrders]([OrderDate] Asc)
 Go
 Create Nonclustered Index [idx_PurchaseOrders_DueDate] On [dbo].[PurchaseOrders]([DueDate] Asc)
 Go
+Create Nonclustered Index [idx_PurchaseOrders_ProductId] On [dbo].[PurchaseOrders]([ProductId] Asc)
+Go
+Create Nonclustered Index [idx_PurchaseOrders_Description] On [dbo].[PurchaseOrders]([Description] Asc)
+Go
 Create Nonclustered Index [idx_PurchaseOrders_CustomerId] On [dbo].[PurchaseOrders]([CustomerId] Asc)
 Go
-Create Nonclustered Index [idx_PurchaseOrders_ProductId] On [dbo].[PurchaseOrders]([ProductId] Asc)
+Create Nonclustered Index [idx_PurchaseOrders_CustomerPoNr] On [dbo].[PurchaseOrders]([CustomerPoNr] Asc)
+Go
+Create Nonclustered Index [idx_PurchaseOrders_Cancelled] On [dbo].[PurchaseOrders]([Cancelled] Asc)
 Go
 Create Nonclustered Index [idx_PurchaseOrders_ModifyDate] On [dbo].[PurchaseOrders]([ModifyDate] Desc)
 Go

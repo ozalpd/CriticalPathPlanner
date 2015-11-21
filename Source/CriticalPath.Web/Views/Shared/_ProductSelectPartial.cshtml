@@ -39,7 +39,7 @@
                 $.each(categories, function (index, category) {
                     targetSelect.append($('<option/>', {
                         value: category.Id,
-                        text: category.Title
+                        text: category.CategoryName
                     }));
                 });
             });
@@ -54,7 +54,7 @@
                 $.each(products, function (index, product) {
                     productSelect.append($('<option/>', {
                         value: product.Id,
-                        text: product.Title
+                        text: product.ProductCode
                     }));
                 });
             });

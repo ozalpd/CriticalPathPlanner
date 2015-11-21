@@ -23,17 +23,12 @@ namespace CriticalPath.Data
 
             [StringLength(128, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "Title")]
-            public string Title { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "CategoryName")]
+            public string CategoryName { get; set; }
 
-            [StringLength(48, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "Code")]
-            public string Code { get; set; }
-
-            [StringLength(256, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
-            [DataType(DataType.MultilineText)]
-            [Display(ResourceType = typeof(EntityStrings), Name = "Description")]
-            public string Description { get; set; }
+            [StringLength(64, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "CategoryCode")]
+            public string CategoryCode { get; set; }
 
             [Display(ResourceType = typeof(EntityStrings), Name = "ParentCategoryId")]
             public int ParentCategoryId { get; set; }

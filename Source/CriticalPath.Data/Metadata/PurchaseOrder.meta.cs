@@ -28,9 +28,10 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "ApproveDate")]
             public DateTime ApproveDate { get; set; }
 
-            [UIHint("BoolRed")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "Cancelled")]
-            public bool Cancelled { get; set; }
+            [StringLength(64, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "PoNr")]
+            public string PoNr { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [DataType(DataType.Date)]
@@ -41,13 +42,6 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "DueDate")]
             public DateTime DueDate { get; set; }
 
-            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "CustomerId")]
-            public int CustomerId { get; set; }
-
-            [Display(ResourceType = typeof(EntityStrings), Name = "Customer")]
-            public Customer Customer { get; set; }
-
             [Display(ResourceType = typeof(EntityStrings), Name = "Product")]
             public Product Product { get; set; }
 
@@ -55,14 +49,21 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "ProductId")]
             public int ProductId { get; set; }
 
-            [StringLength(48, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "Code")]
-            public string Code { get; set; }
-
             [StringLength(256, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [DataType(DataType.MultilineText)]
             [Display(ResourceType = typeof(EntityStrings), Name = "Description")]
             public string Description { get; set; }
+
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "CustomerId")]
+            public int CustomerId { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "Customer")]
+            public Customer Customer { get; set; }
+
+            [StringLength(64, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "CustomerPoNr")]
+            public string CustomerPoNr { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Display(ResourceType = typeof(EntityStrings), Name = "Quantity")]
@@ -72,6 +73,12 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "UnitPrice")]
             public decimal UnitPrice { get; set; }
 
+            [Display(ResourceType = typeof(EntityStrings), Name = "BuyingPrice")]
+            public decimal BuyingPrice { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "RetailPrice")]
+            public decimal RetailPrice { get; set; }
+
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Display(ResourceType = typeof(EntityStrings), Name = "SizingStandardId")]
             public int SizingStandardId { get; set; }
@@ -80,16 +87,20 @@ namespace CriticalPath.Data
             public SizingStandard SizingStandard { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Range(10,100)]
-            [Display(ResourceType = typeof(EntityStrings), Name = "SizeRateDivisor")]
-            public int SizeRateDivisor { get; set; }
+            [Range(6,1000000)]
+            [Display(ResourceType = typeof(EntityStrings), Name = "SizeRatioDivisor")]
+            public int SizeRatioDivisor { get; set; }
 
-            [Display(ResourceType = typeof(EntityStrings), Name = "SizeRates")]
-            public ICollection<SizeRate> SizeRates { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "SizeRatios")]
+            public ICollection<SizeRatio> SizeRatios { get; set; }
 
             [DataType(DataType.MultilineText)]
             [Display(ResourceType = typeof(EntityStrings), Name = "Notes")]
             public string Notes { get; set; }
+
+            [UIHint("BoolRed")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "Cancelled")]
+            public bool Cancelled { get; set; }
 
             [DataType(DataType.Date)]
             [Display(ResourceType = typeof(EntityStrings), Name = "CancelDate")]

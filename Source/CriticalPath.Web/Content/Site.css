@@ -51,3 +51,24 @@ div.accordion .accordion-group .accordion-heading .accordion-toggle {
     text-decoration: none;
     color: #DDD;
 }
+.table-striped>tbody>tr:nth-of-type(odd) {
+    background-color:#ddebf7;
+}
+.table-striped>tbody>tr:nth-of-type(1) {
+    background-color: #82a5dd;
+    background-image: -webkit-linear-gradient(#9bc2e6, #5b9bd5 60%, #5595d0);
+    background-image: -o-linear-gradient(#9bc2e6, #5b9bd5 60%, #5595d0);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#9bc2e6), color-stop(60%, #5b9bd5), to(#5595d0));
+    background-image: linear-gradient(#9bc2e6, #5b9bd5 60%, #5595d0);
+    border-top: 1px solid #9bc2e6;
+    border-bottom: 1px solid #9bc2e6;
+    color: #fff;
+    text-shadow: 1px 1px 3px #004;
+    height:32px !important;
+}
+.table-striped>tbody>tr>td{
+    padding: 1px 4px 1px 4px;
+}
+.table-striped{
+    margin-bottom:60px;
+}

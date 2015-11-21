@@ -13,23 +13,30 @@ using CP.i8n;
 
 namespace CriticalPath.Data
 {
-    [MetadataTypeAttribute(typeof(CustomerDTO.CustomerMetadata))]
-    public partial class CustomerDTO
+    [MetadataTypeAttribute(typeof(Manufacturer.ManufacturerMetadata))]
+    public partial class Manufacturer
 	{
-        internal sealed partial class CustomerMetadata
+        internal sealed partial class ManufacturerMetadata
 		{
             // This metadata class is not intended to be instantiated.
-            private CustomerMetadata() { }
+            private ManufacturerMetadata() { }
 
             [StringLength(64, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "CustomerCode")]
-            public string CustomerCode { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "ManufacturerCode")]
+            public string ManufacturerCode { get; set; }
 
             [StringLength(128, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Display(ResourceType = typeof(EntityStrings), Name = "CompanyName")]
             public string CompanyName { get; set; }
+
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "SupplierId")]
+            public int SupplierId { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "Supplier")]
+            public Supplier Supplier { get; set; }
 
             [StringLength(128, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [DataType(DataType.PhoneNumber)]
@@ -78,6 +85,9 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "Notes")]
             public string Notes { get; set; }
 
+            [Display(ResourceType = typeof(EntityStrings), Name = "Contacts")]
+            public ICollection<Contact> Contacts { get; set; }
+
             [UIHint("BoolRed")]
             [Display(ResourceType = typeof(EntityStrings), Name = "Discontinued")]
             public bool Discontinued { get; set; }
@@ -89,6 +99,15 @@ namespace CriticalPath.Data
             [DataType(DataType.MultilineText)]
             [Display(ResourceType = typeof(EntityStrings), Name = "DiscontinueNotes")]
             public string DiscontinueNotes { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "DiscontinuedUser")]
+            public AspNetUser DiscontinuedUser { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "ModifiedUser")]
+            public AspNetUser ModifiedUser { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "CreatedUser")]
+            public AspNetUser CreatedUser { get; set; }
 
 		}
 	}

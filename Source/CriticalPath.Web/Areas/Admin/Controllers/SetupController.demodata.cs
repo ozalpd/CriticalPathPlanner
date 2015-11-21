@@ -816,13 +816,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 return;
             }
 
-            var sizing = await DataContext.SizingStandards.FirstOrDefaultAsync();
-            if (sizing == null)
-            {
-                sb.Append("Database has no SizingStandard records! Product records cannot be created without SizingStandard!<br>");
-                return;
-            }
-
             string[] catgKadin = {
                 "Etek",
                 "Şort",
@@ -873,34 +866,31 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                                    .ToArrayAsync();
 
             int countCatg = 0;
-            ProductCategory catg1 = new ProductCategory() { Title = "Kadın Giyim" };
-            countCatg = AddCategory(catg1, catgKadin, suppliers, sb, sizing, countCatg);
+            ProductCategory catg1 = new ProductCategory() { CategoryName = "Kadın Giyim" };
+            countCatg = AddCategory(catg1, catgKadin, suppliers, sb, countCatg);
 
-            ProductCategory catg2 = new ProductCategory() { Title = "Erkek Giyim" };
+            ProductCategory catg2 = new ProductCategory() { CategoryName = "Erkek Giyim" };
             DataContext.ProductCategories.Add(catg2);
-            countCatg = AddCategory(catg2, catgErkek, suppliers, sb, sizing, countCatg);
+            countCatg = AddCategory(catg2, catgErkek, suppliers, sb, countCatg);
 
-            var sizingChildren = await DataContext.SizingStandards.FirstOrDefaultAsync(s => s.Title.Contains("child"));
-            if (sizingChildren == null)
-                sizingChildren = sizing;
-            ProductCategory catg3 = new ProductCategory() { Title = "Çocuk Giyim" };
+            ProductCategory catg3 = new ProductCategory() { CategoryName = "Çocuk Giyim" };
             DataContext.ProductCategories.Add(catg3);
-            countCatg = AddCategory(catg3, catgCocuk, suppliers, sb, sizingChildren, countCatg);
+            countCatg = AddCategory(catg3, catgCocuk, suppliers, sb, countCatg);
         }
         int suppliersAdded = 0;
 
         private int AddCategory(ProductCategory parentCatg, string[] subCategories, Supplier[] suppliers,
-            StringBuilder sb, SizingStandard sizing, int countCatg)
+            StringBuilder sb, int countCatg)
         {
             DataContext.ProductCategories.Add(parentCatg);
             sb.Append("Category ");
-            sb.Append(parentCatg.Title);
+            sb.Append(parentCatg.CategoryName);
             sb.Append(" added<br>");
             foreach (var item in subCategories)
             {
                 var catg = new ProductCategory()
                 {
-                    Title = item,
+                    CategoryName = item,
                     ParentCategory = parentCatg
                 };
                 DataContext.ProductCategories.Add(catg);
@@ -919,13 +909,14 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                     };
                     for (int j = 0; j < wordCount; j++)
                     {
-                        if (string.IsNullOrEmpty(prod.Title))
+                        if (string.IsNullOrEmpty(prod.Description))
                         {
-                            prod.Title = lips[rnd.Next(0, lips.Length - 1)].ToSentenceCase();
+                            prod.Description = lips[rnd.Next(0, lips.Length - 1)].ToSentenceCase();
+                            prod.ProductCode = lips[rnd.Next(0, lips.Length - 1)].ToUpperInvariant() + "-" + rnd.Next(1999, 9999).ToString();
                         }
                         else
                         {
-                            prod.Title = prod.Title + " " + lips[rnd.Next(0, lips.Length - 1)].ToSentenceCase();
+                            prod.Description = prod.Description + " " + lips[rnd.Next(0, lips.Length - 1)].ToSentenceCase();
                         }
                     }
                     for (int k = 0; k < addSupplier; k++)
@@ -933,7 +924,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                         prod.Suppliers.Add(suppliers[suppliersAdded % suppliers.Length]);
                         suppliersAdded++;
                     }
-                    prod.SizingStandard = sizing;
                     DataContext.Products.Add(prod);
                 }
             }

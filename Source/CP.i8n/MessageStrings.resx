@@ -79,6 +79,10 @@
 		<value>Enter keyword here</value>
 	</data>
 
+	<data name="Loading" xml:space="preserve">
+		<value>Loading...</value>
+	</data>
+
 	<data name="NoResults" xml:space="preserve">
 		<value>There is no results to display</value>
 	</data>

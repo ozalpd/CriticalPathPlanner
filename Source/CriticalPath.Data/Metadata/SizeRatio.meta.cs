@@ -13,13 +13,13 @@ using CP.i8n;
 
 namespace CriticalPath.Data
 {
-    [MetadataTypeAttribute(typeof(SizeRate.SizeRateMetadata))]
-    public partial class SizeRate
+    [MetadataTypeAttribute(typeof(SizeRatio.SizeRatioMetadata))]
+    public partial class SizeRatio
 	{
-        internal sealed partial class SizeRateMetadata
+        internal sealed partial class SizeRatioMetadata
 		{
             // This metadata class is not intended to be instantiated.
-            private SizeRateMetadata() { }
+            private SizeRatioMetadata() { }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Display(ResourceType = typeof(EntityStrings), Name = "DisplayOrder")]

@@ -23,8 +23,8 @@ namespace CriticalPath.Web.Controllers
             {
                 query = from a in query
                         where
-                           a.Product.Title.Contains(qParams.SearchString) |
-                           a.Code.Contains(qParams.SearchString) |
+                           a.Product.ProductCode.Contains(qParams.SearchString) |
+                           a.PoNr.Contains(qParams.SearchString) |
                            a.Description.Contains(qParams.SearchString) |
                            a.Customer.CompanyName.Contains(qParams.SearchString) |
                            a.Notes.Contains(qParams.SearchString)
@@ -44,6 +44,7 @@ namespace CriticalPath.Web.Controllers
         {
             ViewBag.canUserApprove = await CanUserApprove();
             ViewBag.canUserCancelPO = await CanUserCancelPO();
+            ViewBag.canUserSeeCustomer = await CanUserSeeCustomer();
 
             await base.PutCanUserInViewBag();
         }
@@ -250,19 +251,19 @@ namespace CriticalPath.Web.Controllers
                 return GetErrorResult(sb, HttpStatusCode.BadRequest);
             }
 
-            int sizeRatesCount = purchaseOrder.SizeRates.Count;
+            int sizeRatesCount = purchaseOrder.SizeRatios.Count;
             if ((sizeRatesCount) > 0)
             {
                 var sb = new StringBuilder();
 
                 sb.Append(MessageStrings.CanNotDelete);
                 sb.Append(" <b>");
-                sb.Append(purchaseOrder.Product.Title);
+                sb.Append(purchaseOrder.Product.ProductCode);
                 sb.Append("</b>.<br/>");
 
                 if (sizeRatesCount > 0)
                 {
-                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, sizeRatesCount, EntityStrings.SizeRates));
+                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, sizeRatesCount, EntityStrings.SizeRatios));
                     sb.Append("<br/>");
                 }
 
@@ -278,7 +279,7 @@ namespace CriticalPath.Web.Controllers
             {
                 var sb = new StringBuilder();
                 sb.Append(MessageStrings.CanNotDelete);
-                sb.Append(purchaseOrder.Product.Title);
+                sb.Append(purchaseOrder.Product.ProductCode);
                 sb.Append("<br/>");
                 AppendExceptionMsg(ex, sb);
 
@@ -290,7 +291,7 @@ namespace CriticalPath.Web.Controllers
 
         private static void PutVmToPO(PurchaseOrderVM vm, PurchaseOrder purchaseOrder, bool isApproving)
         {
-            purchaseOrder.Code = vm.Code;
+            purchaseOrder.CustomerPoNr = vm.CustomerPoNr;
             purchaseOrder.Description = vm.Description;
             purchaseOrder.Notes = vm.Notes;
 

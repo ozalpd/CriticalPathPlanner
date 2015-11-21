@@ -21,16 +21,13 @@ namespace CriticalPath.Data
             // This metadata class is not intended to be instantiated.
             private ProductMetadata() { }
 
+            [StringLength(64, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "ProductCode")]
+            public string ProductCode { get; set; }
+
             [StringLength(128, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "Title")]
-            public string Title { get; set; }
-
-            [StringLength(48, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "Code")]
-            public string Code { get; set; }
-
-            [StringLength(256, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [DataType(DataType.MultilineText)]
             [Display(ResourceType = typeof(EntityStrings), Name = "Description")]
             public string Description { get; set; }
@@ -43,10 +40,6 @@ namespace CriticalPath.Data
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Display(ResourceType = typeof(EntityStrings), Name = "CategoryId")]
             public int CategoryId { get; set; }
-
-            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "SizingStandardId")]
-            public int SizingStandardId { get; set; }
 
             [UIHint("BoolRed")]
             [Display(ResourceType = typeof(EntityStrings), Name = "Discontinued")]

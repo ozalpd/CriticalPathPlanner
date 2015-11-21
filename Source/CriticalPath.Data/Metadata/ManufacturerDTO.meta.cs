@@ -13,23 +13,27 @@ using CP.i8n;
 
 namespace CriticalPath.Data
 {
-    [MetadataTypeAttribute(typeof(CustomerDTO.CustomerMetadata))]
-    public partial class CustomerDTO
+    [MetadataTypeAttribute(typeof(ManufacturerDTO.ManufacturerMetadata))]
+    public partial class ManufacturerDTO
 	{
-        internal sealed partial class CustomerMetadata
+        internal sealed partial class ManufacturerMetadata
 		{
             // This metadata class is not intended to be instantiated.
-            private CustomerMetadata() { }
+            private ManufacturerMetadata() { }
 
             [StringLength(64, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "CustomerCode")]
-            public string CustomerCode { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "ManufacturerCode")]
+            public string ManufacturerCode { get; set; }
 
             [StringLength(128, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Display(ResourceType = typeof(EntityStrings), Name = "CompanyName")]
             public string CompanyName { get; set; }
+
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "SupplierId")]
+            public int SupplierId { get; set; }
 
             [StringLength(128, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [DataType(DataType.PhoneNumber)]

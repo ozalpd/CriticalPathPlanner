@@ -16,7 +16,7 @@ namespace CriticalPath.Web.Models
         {
             base.Constructing(entity);
             int i = 0;
-            var rates = entity.SizeRates.OrderBy(r => r.DisplayOrder);
+            var rates = entity.SizeRatios.OrderBy(r => r.DisplayOrder);
             foreach (var rate in rates)
             {
                 i++;
@@ -65,7 +65,7 @@ namespace CriticalPath.Web.Models
         }
 
         #region Long Helper Methods GetSizeRate PutSizeRate
-        protected SizeRateDTO GetSizeRate(int rateNr)
+        protected SizeRatioDTO GetSizeRate(int rateNr)
         {
             int id = 0;
             int rate = 0;
@@ -131,7 +131,7 @@ namespace CriticalPath.Web.Models
             }
             else
             {
-                return new SizeRateDTO()
+                return new SizeRatioDTO()
                 {
                     Id = id,
                     Caption = caption,
@@ -142,7 +142,7 @@ namespace CriticalPath.Web.Models
             }
         }
 
-        protected void PutSizeRate(int rateNr, SizeRate rate)
+        protected void PutSizeRate(int rateNr, SizeRatio rate)
         {
             switch (rateNr)
             {

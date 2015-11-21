@@ -205,6 +205,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Display All.
+        /// </summary>
+        public static string DisplayAll {
+            get {
+                return ResourceManager.GetString("DisplayAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Duplicate.
         /// </summary>
         public static string Duplicate {

@@ -249,50 +249,6 @@
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
-      <Name>IDescription</Name>
-      <Exclude>true</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
-      <InheritedEntity>IModified</InheritedEntity>
-      <UseInheritance>false</UseInheritance>
-      <SchemaName>dbo</SchemaName>
-      <TableName>IDescriptions</TableName>
-      <ModifyTrack>false</ModifyTrack>
-      <StoredProcs>false</StoredProcs>
-      <CustomStoredProcs>false</CustomStoredProcs>
-      <Properties>
-        <StorageColumnSetting>
-          <Name>Title</Name>
-          <Exclude>false</Exclude>
-          <DataType>nVarChar</DataType>
-          <Lenght>128</Lenght>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
-          <SortDesc>false</SortDesc>
-          <Nullable>false</Nullable>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
-          <Name>Code</Name>
-          <Exclude>false</Exclude>
-          <DataType>nVarChar</DataType>
-          <Lenght>48</Lenght>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>false</Indexed>
-          <SortDesc>false</SortDesc>
-          <Nullable>true</Nullable>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
-          <Name>Description</Name>
-          <Exclude>false</Exclude>
-          <DataType>nVarChar</DataType>
-          <Lenght>256</Lenght>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>false</Indexed>
-          <SortDesc>false</SortDesc>
-          <Nullable>true</Nullable>
-        </StorageColumnSetting>
-      </Properties>
-    </BaseEntitySetting>
-    <BaseEntitySetting xsi:type="StorageEntitySetting">
       <Name>Contact</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
@@ -624,6 +580,30 @@
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
+      <Name>Customer</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <InheritedEntity>Company</InheritedEntity>
+      <UseInheritance>true</UseInheritance>
+      <SchemaName>dbo</SchemaName>
+      <TableName>Customers</TableName>
+      <ModifyTrack>false</ModifyTrack>
+      <StoredProcs>false</StoredProcs>
+      <CustomStoredProcs>false</CustomStoredProcs>
+      <Properties>
+        <StorageColumnSetting>
+          <Name>CustomerCode</Name>
+          <Exclude>false</Exclude>
+          <DataType>nVarChar</DataType>
+          <Lenght>128</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+        </StorageColumnSetting>
+      </Properties>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="StorageEntitySetting">
       <Name>Supplier</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
@@ -648,19 +628,54 @@
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
-      <Name>Customer</Name>
+      <Name>Manufacturer</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
-      <InheritedEntity>IDescription</InheritedEntity>
+      <InheritedEntity>Company</InheritedEntity>
       <UseInheritance>true</UseInheritance>
       <SchemaName>dbo</SchemaName>
-      <TableName>Customers</TableName>
+      <TableName>Manufacturers</TableName>
       <ModifyTrack>false</ModifyTrack>
       <StoredProcs>false</StoredProcs>
       <CustomStoredProcs>false</CustomStoredProcs>
       <Properties>
         <StorageColumnSetting>
-          <Name>CustomerCode</Name>
+          <Name>ManufacturerCode</Name>
+          <Exclude>false</Exclude>
+          <DataType>nVarChar</DataType>
+          <Lenght>64</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>SupplierId</Name>
+          <Exclude>false</Exclude>
+          <DataType>int</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+          <ForeignKeyTable>Suppliers</ForeignKeyTable>
+        </StorageColumnSetting>
+      </Properties>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="StorageEntitySetting">
+      <Name>ProductCategory</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <InheritedEntity>IModified</InheritedEntity>
+      <UseInheritance>false</UseInheritance>
+      <SchemaName>dbo</SchemaName>
+      <TableName>ProductCategories</TableName>
+      <ModifyTrack>false</ModifyTrack>
+      <StoredProcs>false</StoredProcs>
+      <CustomStoredProcs>false</CustomStoredProcs>
+      <Properties>
+        <StorageColumnSetting>
+          <Name>CategoryName</Name>
           <Exclude>false</Exclude>
           <DataType>nVarChar</DataType>
           <Lenght>128</Lenght>
@@ -669,20 +684,16 @@
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
         </StorageColumnSetting>
-      </Properties>
-    </BaseEntitySetting>
-    <BaseEntitySetting xsi:type="StorageEntitySetting">
-      <Name>ProductCategory</Name>
-      <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
-      <InheritedEntity>IDescription</InheritedEntity>
-      <UseInheritance>false</UseInheritance>
-      <SchemaName>dbo</SchemaName>
-      <TableName>ProductCategories</TableName>
-      <ModifyTrack>false</ModifyTrack>
-      <StoredProcs>false</StoredProcs>
-      <CustomStoredProcs>false</CustomStoredProcs>
-      <Properties>
+        <StorageColumnSetting>
+          <Name>CategoryCode</Name>
+          <Exclude>false</Exclude>
+          <DataType>nVarChar</DataType>
+          <Lenght>64</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>ParentCategoryId</Name>
           <Exclude>false</Exclude>
@@ -700,7 +711,7 @@
       <Name>Product</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
-      <InheritedEntity>IDescription</InheritedEntity>
+      <InheritedEntity>IModified</InheritedEntity>
       <UseInheritance>false</UseInheritance>
       <SchemaName>dbo</SchemaName>
       <TableName>Products</TableName>
@@ -708,6 +719,26 @@
       <StoredProcs>false</StoredProcs>
       <CustomStoredProcs>false</CustomStoredProcs>
       <Properties>
+        <StorageColumnSetting>
+          <Name>ProductCode</Name>
+          <Exclude>false</Exclude>
+          <DataType>nVarChar</DataType>
+          <Lenght>64</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>Description</Name>
+          <Exclude>false</Exclude>
+          <DataType>nVarChar</DataType>
+          <Lenght>128</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+        </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>ImageUrl</Name>
           <Exclude>false</Exclude>
@@ -728,17 +759,6 @@
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
           <ForeignKeyTable>ProductCategories</ForeignKeyTable>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
-          <Name>SizingStandardId</Name>
-          <Exclude>false</Exclude>
-          <DataType>int</DataType>
-          <Lenght>0</Lenght>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
-          <SortDesc>false</SortDesc>
-          <Nullable>false</Nullable>
-          <ForeignKeyTable>SizingStandards</ForeignKeyTable>
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>Discontinued</Name>
@@ -811,9 +831,9 @@
           <DataType>nVarChar</DataType>
           <Lenght>64</Lenght>
           <PrimaryKey>false</PrimaryKey>
-          <Indexed>false</Indexed>
+          <Indexed>true</Indexed>
           <SortDesc>false</SortDesc>
-          <Nullable>true</Nullable>
+          <Nullable>false</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>OrderDate</Name>
@@ -836,17 +856,6 @@
           <Nullable>true</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>CustomerId</Name>
-          <Exclude>false</Exclude>
-          <DataType>int</DataType>
-          <Lenght>0</Lenght>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>true</Indexed>
-          <SortDesc>false</SortDesc>
-          <Nullable>false</Nullable>
-          <ForeignKeyTable>Customers</ForeignKeyTable>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
           <Name>ProductId</Name>
           <Exclude>false</Exclude>
           <DataType>int</DataType>
@@ -863,7 +872,28 @@
           <DataType>nVarChar</DataType>
           <Lenght>256</Lenght>
           <PrimaryKey>false</PrimaryKey>
-          <Indexed>false</Indexed>
+          <Indexed>true</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>CustomerId</Name>
+          <Exclude>false</Exclude>
+          <DataType>int</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>true</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+          <ForeignKeyTable>Customers</ForeignKeyTable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>CustomerPoNr</Name>
+          <Exclude>false</Exclude>
+          <DataType>nVarChar</DataType>
+          <Lenght>64</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>true</Indexed>
           <SortDesc>false</SortDesc>
           <Nullable>true</Nullable>
         </StorageColumnSetting>
@@ -919,7 +949,7 @@
           <ForeignKeyTable>SizingStandards</ForeignKeyTable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>SizeRateDivisor</Name>
+          <Name>SizeRatioDivisor</Name>
           <Exclude>false</Exclude>
           <DataType>int</DataType>
           <Lenght>0</Lenght>
@@ -944,7 +974,7 @@
           <DataType>bit</DataType>
           <Lenght>0</Lenght>
           <PrimaryKey>false</PrimaryKey>
-          <Indexed>false</Indexed>
+          <Indexed>true</Indexed>
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
         </StorageColumnSetting>
@@ -992,13 +1022,13 @@
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
-      <Name>SizeRate</Name>
+      <Name>SizeRatio</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
       <InheritedEntity>IModified</InheritedEntity>
       <UseInheritance>false</UseInheritance>
       <SchemaName>dbo</SchemaName>
-      <TableName>SizeRates</TableName>
+      <TableName>SizeRatios</TableName>
       <ModifyTrack>false</ModifyTrack>
       <StoredProcs>false</StoredProcs>
       <CustomStoredProcs>false</CustomStoredProcs>

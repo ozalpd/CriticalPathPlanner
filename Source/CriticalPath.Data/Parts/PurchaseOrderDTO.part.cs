@@ -25,9 +25,9 @@ namespace CriticalPath.Data
             {
                 Product = new ProductDTO(entity.Product);
             }
-            foreach (var rate in entity.SizeRates)
+            foreach (var rate in entity.SizeRatios)
             {
-                SizeRates.Add(new SizeRateDTO(rate));
+                SizeRates.Add(new SizeRatioDTO(rate));
             }
         }
 
@@ -39,12 +39,12 @@ namespace CriticalPath.Data
             }
             foreach (var rate in SizeRates)
             {
-                entity.SizeRates.Add(rate.ToSizeRate());
+                entity.SizeRatios.Add(rate.ToSizeRatio());
             }
         }
 
 
-        public ICollection<SizeRateDTO> SizeRates
+        public ICollection<SizeRatioDTO> SizeRates
         {
             set { _sizeRates = value; }
             get
@@ -54,11 +54,11 @@ namespace CriticalPath.Data
                 return _sizeRates;
             }
         }
-        private ICollection<SizeRateDTO> _sizeRates;
+        private ICollection<SizeRatioDTO> _sizeRates;
 
         protected virtual void InitSizeRates()
         {
-            _sizeRates = new List<SizeRateDTO>();
+            _sizeRates = new List<SizeRatioDTO>();
         }
     }
 }

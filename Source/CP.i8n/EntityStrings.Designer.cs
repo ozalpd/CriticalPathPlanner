@@ -97,6 +97,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Factory.
+        /// </summary>
+        public static string AddManufacturer {
+            get {
+                return ResourceManager.GetString("AddManufacturer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add New AppUser.
         /// </summary>
         public static string AddNewAspNetUser {
@@ -129,6 +138,15 @@ namespace CP.i8n {
         public static string AddNewCustomer {
             get {
                 return ResourceManager.GetString("AddNewCustomer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add New Factory.
+        /// </summary>
+        public static string AddNewManufacturer {
+            get {
+                return ResourceManager.GetString("AddNewManufacturer", resourceCulture);
             }
         }
         
@@ -178,7 +196,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add New Product Category.
+        ///   Looks up a localized string similar to Add New Department/Group.
         /// </summary>
         public static string AddNewProductCategory {
             get {
@@ -196,11 +214,11 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add New Size Rate.
+        ///   Looks up a localized string similar to Add New Size Ratio.
         /// </summary>
-        public static string AddNewSizeRate {
+        public static string AddNewSizeRatio {
             get {
-                return ResourceManager.GetString("AddNewSizeRate", resourceCulture);
+                return ResourceManager.GetString("AddNewSizeRatio", resourceCulture);
             }
         }
         
@@ -277,7 +295,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add Product Category.
+        ///   Looks up a localized string similar to Add Department/Group.
         /// </summary>
         public static string AddProductCategory {
             get {
@@ -327,6 +345,15 @@ namespace CP.i8n {
         public static string AddRemoveCustomer {
             get {
                 return ResourceManager.GetString("AddRemoveCustomer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Remove Factory.
+        /// </summary>
+        public static string AddRemoveManufacturer {
+            get {
+                return ResourceManager.GetString("AddRemoveManufacturer", resourceCulture);
             }
         }
         
@@ -394,11 +421,11 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add/Remove Size Rate.
+        ///   Looks up a localized string similar to Add Remove Size Ratio.
         /// </summary>
-        public static string AddRemoveSizeRate {
+        public static string AddRemoveSizeRatio {
             get {
-                return ResourceManager.GetString("AddRemoveSizeRate", resourceCulture);
+                return ResourceManager.GetString("AddRemoveSizeRatio", resourceCulture);
             }
         }
         
@@ -448,11 +475,11 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add Size Rate.
+        ///   Looks up a localized string similar to Add Size Ratio.
         /// </summary>
-        public static string AddSizeRate {
+        public static string AddSizeRatio {
             get {
-                return ResourceManager.GetString("AddSizeRate", resourceCulture);
+                return ResourceManager.GetString("AddSizeRatio", resourceCulture);
             }
         }
         
@@ -547,6 +574,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Buying Price.
+        /// </summary>
+        public static string BuyingPrice {
+            get {
+                return ResourceManager.GetString("BuyingPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel Date.
         /// </summary>
         public static string CancelDate {
@@ -610,11 +646,20 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Category.
+        ///   Looks up a localized string similar to Department/Group.
         /// </summary>
         public static string Category {
             get {
                 return ResourceManager.GetString("Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Code.
+        /// </summary>
+        public static string CategoryCode {
+            get {
+                return ResourceManager.GetString("CategoryCode", resourceCulture);
             }
         }
         
@@ -628,20 +673,20 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string CategoryName {
+            get {
+                return ResourceManager.GetString("CategoryName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to City.
         /// </summary>
         public static string City {
             get {
                 return ResourceManager.GetString("City", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Code.
-        /// </summary>
-        public static string Code {
-            get {
-                return ResourceManager.GetString("Code", resourceCulture);
             }
         }
         
@@ -781,6 +826,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create Factory.
+        /// </summary>
+        public static string CreateManufacturer {
+            get {
+                return ResourceManager.GetString("CreateManufacturer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create Process.
         /// </summary>
         public static string CreateProcess {
@@ -826,7 +880,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Create Product Category.
+        ///   Looks up a localized string similar to Create Department/Group.
         /// </summary>
         public static string CreateProductCategory {
             get {
@@ -844,11 +898,11 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Create Size Rate.
+        ///   Looks up a localized string similar to Create Size Ratio.
         /// </summary>
-        public static string CreateSizeRate {
+        public static string CreateSizeRatio {
             get {
-                return ResourceManager.GetString("CreateSizeRate", resourceCulture);
+                return ResourceManager.GetString("CreateSizeRatio", resourceCulture);
             }
         }
         
@@ -925,6 +979,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Customer&apos;s P.O. Nr..
+        /// </summary>
+        public static string CustomerPoNr {
+            get {
+                return ResourceManager.GetString("CustomerPoNr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Customers.
         /// </summary>
         public static string Customers {
@@ -988,6 +1051,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete Factory.
+        /// </summary>
+        public static string DeleteManufacturer {
+            get {
+                return ResourceManager.GetString("DeleteManufacturer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete Process.
         /// </summary>
         public static string DeleteProcess {
@@ -1033,7 +1105,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Delete Product Category.
+        ///   Looks up a localized string similar to Delete Department/Group.
         /// </summary>
         public static string DeleteProductCategory {
             get {
@@ -1051,11 +1123,11 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Delete Size Rate.
+        ///   Looks up a localized string similar to Delete Size Ratio.
         /// </summary>
-        public static string DeleteSizeRate {
+        public static string DeleteSizeRatio {
             get {
-                return ResourceManager.GetString("DeleteSizeRate", resourceCulture);
+                return ResourceManager.GetString("DeleteSizeRatio", resourceCulture);
             }
         }
         
@@ -1204,6 +1276,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit Factory.
+        /// </summary>
+        public static string EditManufacturer {
+            get {
+                return ResourceManager.GetString("EditManufacturer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit Process.
         /// </summary>
         public static string EditProcess {
@@ -1249,7 +1330,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit Product Category.
+        ///   Looks up a localized string similar to Edit Department/Group.
         /// </summary>
         public static string EditProductCategory {
             get {
@@ -1267,11 +1348,11 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit Size Rate.
+        ///   Looks up a localized string similar to Edit Size Ratio.
         /// </summary>
-        public static string EditSizeRate {
+        public static string EditSizeRatio {
             get {
-                return ResourceManager.GetString("EditSizeRate", resourceCulture);
+                return ResourceManager.GetString("EditSizeRatio", resourceCulture);
             }
         }
         
@@ -1393,6 +1474,42 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Factory.
+        /// </summary>
+        public static string Manufacturer {
+            get {
+                return ResourceManager.GetString("Manufacturer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manufacturer Code.
+        /// </summary>
+        public static string ManufacturerCode {
+            get {
+                return ResourceManager.GetString("ManufacturerCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Factories.
+        /// </summary>
+        public static string Manufacturers {
+            get {
+                return ResourceManager.GetString("Manufacturers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Factories List.
+        /// </summary>
+        public static string ManufacturersList {
+            get {
+                return ResourceManager.GetString("ManufacturersList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Modified User.
         /// </summary>
         public static string ModifiedUser {
@@ -1465,7 +1582,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Parent Category.
+        ///   Looks up a localized string similar to Department.
         /// </summary>
         public static string ParentCategory {
             get {
@@ -1474,7 +1591,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Parent Category.
+        ///   Looks up a localized string similar to Department.
         /// </summary>
         public static string ParentCategoryId {
             get {
@@ -1533,6 +1650,15 @@ namespace CP.i8n {
         public static string PhoneWork2 {
             get {
                 return ResourceManager.GetString("PhoneWork2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to P.O. Nr..
+        /// </summary>
+        public static string PoNr {
+            get {
+                return ResourceManager.GetString("PoNr", resourceCulture);
             }
         }
         
@@ -1672,7 +1798,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Product Categories.
+        ///   Looks up a localized string similar to Departments/Groups.
         /// </summary>
         public static string ProductCategories {
             get {
@@ -1681,7 +1807,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Product Categories List.
+        ///   Looks up a localized string similar to Department/Group List.
         /// </summary>
         public static string ProductCategoriesList {
             get {
@@ -1690,11 +1816,20 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Product Category.
+        ///   Looks up a localized string similar to Department/Group.
         /// </summary>
         public static string ProductCategory {
             get {
                 return ResourceManager.GetString("ProductCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item Nr.
+        /// </summary>
+        public static string ProductCode {
+            get {
+                return ResourceManager.GetString("ProductCode", resourceCulture);
             }
         }
         
@@ -1825,6 +1960,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Remove Factory.
+        /// </summary>
+        public static string RemoveManufacturer {
+            get {
+                return ResourceManager.GetString("RemoveManufacturer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remove Process.
         /// </summary>
         public static string RemoveProcess {
@@ -1870,7 +2014,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Remove Product Category.
+        ///   Looks up a localized string similar to Remove Department/Group.
         /// </summary>
         public static string RemoveProductCategory {
             get {
@@ -1888,11 +2032,11 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Remove Size Rate.
+        ///   Looks up a localized string similar to Remove Size Ratio.
         /// </summary>
-        public static string RemoveSizeRate {
+        public static string RemoveSizeRatio {
             get {
-                return ResourceManager.GetString("RemoveSizeRate", resourceCulture);
+                return ResourceManager.GetString("RemoveSizeRatio", resourceCulture);
             }
         }
         
@@ -1933,38 +2077,47 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Size Rate.
+        ///   Looks up a localized string similar to Retail Price.
         /// </summary>
-        public static string SizeRate {
+        public static string RetailPrice {
             get {
-                return ResourceManager.GetString("SizeRate", resourceCulture);
+                return ResourceManager.GetString("RetailPrice", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Size Rate Divisor.
+        ///   Looks up a localized string similar to Size Ratio.
         /// </summary>
-        public static string SizeRateDivisor {
+        public static string SizeRatio {
             get {
-                return ResourceManager.GetString("SizeRateDivisor", resourceCulture);
+                return ResourceManager.GetString("SizeRatio", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Size Rates.
+        ///   Looks up a localized string similar to Size Ratio Divisor.
         /// </summary>
-        public static string SizeRates {
+        public static string SizeRatioDivisor {
             get {
-                return ResourceManager.GetString("SizeRates", resourceCulture);
+                return ResourceManager.GetString("SizeRatioDivisor", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Size Rates List.
+        ///   Looks up a localized string similar to Size Ratios.
         /// </summary>
-        public static string SizeRatesList {
+        public static string SizeRatios {
             get {
-                return ResourceManager.GetString("SizeRatesList", resourceCulture);
+                return ResourceManager.GetString("SizeRatios", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Size Ratios List.
+        /// </summary>
+        public static string SizeRatiosList {
+            get {
+                return ResourceManager.GetString("SizeRatiosList", resourceCulture);
             }
         }
         
@@ -2059,7 +2212,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sub Categories.
+        ///   Looks up a localized string similar to Product Groups.
         /// </summary>
         public static string SubCategories {
             get {

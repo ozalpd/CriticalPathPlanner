@@ -16,26 +16,6 @@ namespace CriticalPath.Web.Controllers
 {
     public partial class ProductCategoriesController : BaseController 
     {
-        protected virtual async Task<IQueryable<ProductCategory>> GetProductCategoryQuery(QueryParameters qParams)
-        {
-            var query = GetProductCategoryQuery();
-            if (!string.IsNullOrEmpty(qParams.SearchString))
-            {
-                query = from a in query
-                        where
-                            a.Title.Contains(qParams.SearchString) | 
-                            a.Code.Contains(qParams.SearchString) 
-                        select a;
-            }
-            if (qParams.ParentCategoryId != null)
-            {
-                query = query.Where(x => x.ParentCategoryId == qParams.ParentCategoryId);
-            }
-
-            qParams.TotalCount = await query.CountAsync();
-            return query.Skip(qParams.Skip).Take(qParams.PageSize);
-        }
-
         protected virtual async Task<List<ProductCategoryDTO>> GetProductCategoryDtoList(QueryParameters qParams)
         {
             var query = await GetProductCategoryQuery(qParams);
@@ -112,8 +92,8 @@ namespace CriticalPath.Web.Controllers
         
         public async Task<ActionResult> GetProductCategoryPagedList(QueryParameters qParams)
         {
-            var result = new PagedList<ProductCategoryDTO>(qParams);
-            result.Items = await GetProductCategoryDtoList(qParams);
+            var items = await GetProductCategoryDtoList(qParams);
+            var result = new PagedList<ProductCategoryDTO>(qParams, items);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
@@ -158,7 +138,7 @@ namespace CriticalPath.Web.Controllers
         {
             var productCategory = new ProductCategory();
             await SetProductCategoryDefaults(productCategory);
-            SetSelectLists(productCategory);
+            await SetParentCategorySelectList(productCategory?.ParentCategoryId ?? 0);
             return View(productCategory);
         }
 
@@ -180,7 +160,7 @@ namespace CriticalPath.Web.Controllers
                 return RedirectToAction("Index");
             }
 
-            SetSelectLists(productCategory);
+            await SetParentCategorySelectList(productCategory?.ParentCategoryId ?? 0);
             return View(productCategory);
         }
 
@@ -198,7 +178,7 @@ namespace CriticalPath.Web.Controllers
                 return HttpNotFound();
             }
 
-            SetSelectLists(productCategory);
+            await SetParentCategorySelectList(productCategory?.ParentCategoryId ?? 0);
             return View(productCategory);
         }
 
@@ -220,7 +200,7 @@ namespace CriticalPath.Web.Controllers
                 return RedirectToAction("Index");
             }
 
-            SetSelectLists(productCategory);
+            await SetParentCategorySelectList(productCategory?.ParentCategoryId ?? 0);
             return View(productCategory);
         }
 
@@ -247,7 +227,7 @@ namespace CriticalPath.Web.Controllers
 
                 sb.Append(MessageStrings.CanNotDelete);
                 sb.Append(" <b>");
-                sb.Append(productCategory.Title);
+                sb.Append(productCategory.CategoryName);
                 sb.Append("</b>.<br/>");
 
                 if (subCategoriesCount > 0)
@@ -274,7 +254,7 @@ namespace CriticalPath.Web.Controllers
             {
                 var sb = new StringBuilder();
                 sb.Append(MessageStrings.CanNotDelete);
-                sb.Append(productCategory.Title);
+                sb.Append(productCategory.CategoryName);
                 sb.Append("<br/>");
                 AppendExceptionMsg(ex, sb);
 
@@ -298,6 +278,10 @@ namespace CriticalPath.Web.Controllers
         {
             public PagedList() { }
             public PagedList(QueryParameters parameters) : base(parameters) { }
+            public PagedList(QueryParameters parameters, IEnumerable<T> items) : this(parameters)
+            {
+                Items = items;
+            }
 
             public IEnumerable<T> Items
             {
@@ -317,6 +301,5 @@ namespace CriticalPath.Web.Controllers
         partial void OnCreateSaved(ProductCategory productCategory);
         partial void OnEditSaving(ProductCategory productCategory);
         partial void OnEditSaved(ProductCategory productCategory);
-        partial void SetSelectLists(ProductCategory productCategory);
     }
 }

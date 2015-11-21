@@ -29,9 +29,6 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "Sizings")]
             public ICollection<Sizing> Sizings { get; set; }
 
-            [Display(ResourceType = typeof(EntityStrings), Name = "Products")]
-            public ICollection<Product> Products { get; set; }
-
             [Display(ResourceType = typeof(EntityStrings), Name = "PurchaseOrders")]
             public ICollection<PurchaseOrder> PurchaseOrders { get; set; }
 

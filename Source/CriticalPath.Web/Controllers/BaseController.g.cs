@@ -193,6 +193,27 @@ namespace CriticalPath.Web.Controllers
         }
 
         /// <summary>
+        /// Finds an Customer by PrimaryKey value
+        /// </summary>
+        /// <param name="id">Represents PrimaryKey of Customer.Id</param>
+        /// <returns></returns>
+        protected virtual async Task<Customer> FindAsyncCustomer(int id)
+        {
+            return await GetCustomerQuery()
+                            .FirstOrDefaultAsync(x => x.Id == id);
+        }
+
+        protected virtual IQueryable<Customer> GetCustomerQuery()
+        {
+            return DataContext.GetCustomerQuery();
+        }
+
+        protected virtual Task SetCustomerDefaults(Customer customer)
+        {
+            return Task.FromResult(default(object));
+        }
+
+        /// <summary>
         /// Finds an Supplier by PrimaryKey value
         /// </summary>
         /// <param name="id">Represents PrimaryKey of Supplier.Id</param>
@@ -214,22 +235,22 @@ namespace CriticalPath.Web.Controllers
         }
 
         /// <summary>
-        /// Finds an Customer by PrimaryKey value
+        /// Finds an Manufacturer by PrimaryKey value
         /// </summary>
-        /// <param name="id">Represents PrimaryKey of Customer.Id</param>
+        /// <param name="id">Represents PrimaryKey of Manufacturer.Id</param>
         /// <returns></returns>
-        protected virtual async Task<Customer> FindAsyncCustomer(int id)
+        protected virtual async Task<Manufacturer> FindAsyncManufacturer(int id)
         {
-            return await GetCustomerQuery()
+            return await GetManufacturerQuery()
                             .FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        protected virtual IQueryable<Customer> GetCustomerQuery()
+        protected virtual IQueryable<Manufacturer> GetManufacturerQuery()
         {
-            return DataContext.GetCustomerQuery();
+            return DataContext.GetManufacturerQuery();
         }
 
-        protected virtual Task SetCustomerDefaults(Customer customer)
+        protected virtual Task SetManufacturerDefaults(Manufacturer manufacturer)
         {
             return Task.FromResult(default(object));
         }
@@ -298,22 +319,22 @@ namespace CriticalPath.Web.Controllers
         }
 
         /// <summary>
-        /// Finds an SizeRate by PrimaryKey value
+        /// Finds an SizeRatio by PrimaryKey value
         /// </summary>
-        /// <param name="id">Represents PrimaryKey of SizeRate.Id</param>
+        /// <param name="id">Represents PrimaryKey of SizeRatio.Id</param>
         /// <returns></returns>
-        protected virtual async Task<SizeRate> FindAsyncSizeRate(int id)
+        protected virtual async Task<SizeRatio> FindAsyncSizeRatio(int id)
         {
-            return await GetSizeRateQuery()
+            return await GetSizeRatioQuery()
                             .FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        protected virtual IQueryable<SizeRate> GetSizeRateQuery()
+        protected virtual IQueryable<SizeRatio> GetSizeRatioQuery()
         {
-            return DataContext.GetSizeRateQuery();
+            return DataContext.GetSizeRatioQuery();
         }
 
-        protected virtual Task SetSizeRateDefaults(SizeRate sizeRate)
+        protected virtual Task SetSizeRatioDefaults(SizeRatio sizeRatio)
         {
             return Task.FromResult(default(object));
         }

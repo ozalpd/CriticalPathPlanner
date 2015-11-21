@@ -21,10 +21,21 @@ namespace CriticalPath.Data
             // This metadata class is not intended to be instantiated.
             private SupplierMetadata() { }
 
+            [StringLength(64, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "SupplierCode")]
+            public string SupplierCode { get; set; }
+
             [StringLength(128, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Display(ResourceType = typeof(EntityStrings), Name = "CompanyName")]
             public string CompanyName { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "Products")]
+            public ICollection<Product> Products { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "Manufacturers")]
+            public ICollection<Manufacturer> Manufacturers { get; set; }
 
             [StringLength(128, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [DataType(DataType.PhoneNumber)]
@@ -40,13 +51,6 @@ namespace CriticalPath.Data
             [DataType(DataType.PhoneNumber)]
             [Display(ResourceType = typeof(EntityStrings), Name = "Phone3")]
             public string Phone3 { get; set; }
-
-            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "SupplierCode")]
-            public string SupplierCode { get; set; }
-
-            [Display(ResourceType = typeof(EntityStrings), Name = "Products")]
-            public ICollection<Product> Products { get; set; }
 
             [StringLength(128, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]

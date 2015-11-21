@@ -37,6 +37,10 @@
     <Translation>Müşteri Ekle</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddManufacturer</Name>
+    <Translation>Üretici Ekle</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddNew</Name>
     <Translation>Yeni Ekle</Translation>
   </Vocab>
@@ -55,6 +59,10 @@
   <Vocab>
     <Name>AddNewCustomer</Name>
     <Translation>Yeni Müşteri Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewManufacturer</Name>
+    <Translation>Yeni Üretici Ekle</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNewOrderItem</Name>
@@ -106,7 +114,11 @@
   </Vocab>
   <Vocab>
     <Name>AddNewSizeRate</Name>
-    <Translation>Yeni Ölçü Oranı Ekle</Translation>
+    <Translation>Yeni Assorti Ekle*</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewSizeRatio</Name>
+    <Translation>Yeni Assorti Ekle</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNewSizing</Name>
@@ -177,6 +189,10 @@
     <Translation>Müşteri Ekle/Çıkar</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddRemoveManufacturer</Name>
+    <Translation>Üretici Ekle/Çıkar</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddRemoveProcess</Name>
     <Translation>Süreç Ekle/Çıkar</Translation>
   </Vocab>
@@ -210,7 +226,11 @@
   </Vocab>
   <Vocab>
     <Name>AddRemoveSizeRate</Name>
-    <Translation>Ölçü Oranı Ekle/Çıkar</Translation>
+    <Translation>Assorti Ekle/Çıkar*</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveSizeRatio</Name>
+    <Translation>Assorti Ekle/Çıkar</Translation>
   </Vocab>
   <Vocab>
     <Name>AddRemoveSizing</Name>
@@ -250,7 +270,11 @@
   </Vocab>
   <Vocab>
     <Name>AddSizeRate</Name>
-    <Translation>Ölçü Oranı Ekle</Translation>
+    <Translation>Assorti Ekle*</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddSizeRatio</Name>
+    <Translation>Assorti Ekle</Translation>
   </Vocab>
   <Vocab>
     <Name>AddSizing</Name>
@@ -333,6 +357,10 @@
     <Translation>Bu kayıtla ilişkili başka kayıtlar mevcut.</Translation>
   </Vocab>
   <Vocab>
+    <Name>BuyingPrice</Name>
+    <Translation>Alış Fiyatı</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Cancel</Name>
     <Translation>Vazgeç</Translation>
   </Vocab>
@@ -397,8 +425,16 @@
     <Translation>Kategori</Translation>
   </Vocab>
   <Vocab>
+    <Name>CategoryCode</Name>
+    <Translation>Kod</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CategoryId</Name>
     <Translation>Kategori</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CategoryName</Name>
+    <Translation>İsim</Translation>
   </Vocab>
   <Vocab>
     <Name>ChangePassword</Name>
@@ -517,6 +553,10 @@
     <Translation>Oluşturan Kullanıcı</Translation>
   </Vocab>
   <Vocab>
+    <Name>CreateManufacturer</Name>
+    <Translation>Üretici Olu;tur</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CreateNew</Name>
     <Translation>Yeni Oluştur</Translation>
   </Vocab>
@@ -574,7 +614,11 @@
   </Vocab>
   <Vocab>
     <Name>CreateSizeRate</Name>
-    <Translation>Ölçü Oranı Oluştur</Translation>
+    <Translation>Assorti Oluştur*</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateSizeRatio</Name>
+    <Translation>Assorti Oluştur</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateSizing</Name>
@@ -607,6 +651,10 @@
   <Vocab>
     <Name>CustomerId</Name>
     <Translation>Müşteri</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CustomerPoNr</Name>
+    <Translation>Müşterinin Sipariş Kodu</Translation>
   </Vocab>
   <Vocab>
     <Name>Customers</Name>
@@ -643,6 +691,10 @@
   <Vocab>
     <Name>DeleteCustomer</Name>
     <Translation>Müşteri Sil</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteManufacturer</Name>
+    <Translation>Üreticiyi Sil</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteOrder</Name>
@@ -698,7 +750,11 @@
   </Vocab>
   <Vocab>
     <Name>DeleteSizeRate</Name>
-    <Translation>Ölçü Oranı Sil</Translation>
+    <Translation>Assortiyi Sil*</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteSizeRatio</Name>
+    <Translation>Assortiyi Sil</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteSizing</Name>
@@ -757,6 +813,10 @@
     <Translation>Göster</Translation>
   </Vocab>
   <Vocab>
+    <Name>DisplayAll</Name>
+    <Translation>Display All</Translation>
+  </Vocab>
+  <Vocab>
     <Name>DisplayOrder</Name>
     <Translation>Gösterim Sırası</Translation>
   </Vocab>
@@ -799,6 +859,10 @@
   <Vocab>
     <Name>EditCustomer</Name>
     <Translation>Müşteriyi Düzenle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditManufacturer</Name>
+    <Translation>Üreticiyi Düzenle</Translation>
   </Vocab>
   <Vocab>
     <Name>EditOrder</Name>
@@ -854,7 +918,11 @@
   </Vocab>
   <Vocab>
     <Name>EditSizeRate</Name>
-    <Translation>Ölçü Oranı Düzenle</Translation>
+    <Translation>Assortiyi Düzenle*</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditSizeRatio</Name>
+    <Translation>Assortiyi Düzenle</Translation>
   </Vocab>
   <Vocab>
     <Name>EditSizing</Name>
@@ -994,7 +1062,7 @@
   </Vocab>
   <Vocab>
     <Name>Loading</Name>
-    <Translation>Yükleniyor</Translation>
+    <Translation>Yükleniyor...</Translation>
   </Vocab>
   <Vocab>
     <Name>Location</Name>
@@ -1035,6 +1103,22 @@
   <Vocab>
     <Name>ManageAccount</Name>
     <Translation>Hesabını Yönet</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Manufacturer</Name>
+    <Translation>Üretici</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ManufacturerCode</Name>
+    <Translation>Üretici Kodu</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Manufacturers</Name>
+    <Translation>Üreticiler</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ManufacturersList</Name>
+    <Translation>Üretici Listesi</Translation>
   </Vocab>
   <Vocab>
     <Name>ModifiedUser</Name>
@@ -1126,15 +1210,15 @@
   </Vocab>
   <Vocab>
     <Name>ParentCategories</Name>
-    <Translation>Üst Kategoriler</Translation>
+    <Translation>Departmanlar</Translation>
   </Vocab>
   <Vocab>
     <Name>ParentCategory</Name>
-    <Translation>Üst Kategori</Translation>
+    <Translation>Departman</Translation>
   </Vocab>
   <Vocab>
     <Name>ParentCategoryId</Name>
-    <Translation>Üst Kategori</Translation>
+    <Translation>Departman</Translation>
   </Vocab>
   <Vocab>
     <Name>Password</Name>
@@ -1183,6 +1267,10 @@
   <Vocab>
     <Name>PleaseWait</Name>
     <Translation>Lütfen Bekleyin</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PoNr</Name>
+    <Translation>Sipariş Kodu</Translation>
   </Vocab>
   <Vocab>
     <Name>Print</Name>
@@ -1263,6 +1351,10 @@
   <Vocab>
     <Name>ProductCategoryId</Name>
     <Translation>Ürün Kategorisi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ProductCode</Name>
+    <Translation>Ürün Kodu</Translation>
   </Vocab>
   <Vocab>
     <Name>ProductId</Name>
@@ -1365,6 +1457,10 @@
     <Translation>Müşteriyi Çıkar</Translation>
   </Vocab>
   <Vocab>
+    <Name>RemoveManufacturer</Name>
+    <Translation>Üreticiyi Çıkar</Translation>
+  </Vocab>
+  <Vocab>
     <Name>RemoveProcess</Name>
     <Translation>Süreci Çıkar</Translation>
   </Vocab>
@@ -1398,7 +1494,11 @@
   </Vocab>
   <Vocab>
     <Name>RemoveSizeRate</Name>
-    <Translation>Ölçü Oranını Çıkar</Translation>
+    <Translation>Assortiyi Çıkar*</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveSizeRatio</Name>
+    <Translation>Assortiyi Çıkar</Translation>
   </Vocab>
   <Vocab>
     <Name>RemoveSizing</Name>
@@ -1415,6 +1515,10 @@
   <Vocab>
     <Name>RequiredWorkDays</Name>
     <Translation>Gereken İş Günü</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RetailPrice</Name>
+    <Translation>Perakende Fiyatı</Translation>
   </Vocab>
   <Vocab>
     <Name>Save</Name>
@@ -1486,19 +1590,35 @@
   </Vocab>
   <Vocab>
     <Name>SizeRate</Name>
-    <Translation>Ölçü Oranı</Translation>
+    <Translation>Assorti*</Translation>
   </Vocab>
   <Vocab>
     <Name>SizeRateDivisor</Name>
-    <Translation>Ölçü Oran Paydası</Translation>
+    <Translation>Assorti Paydası*</Translation>
   </Vocab>
   <Vocab>
     <Name>SizeRates</Name>
-    <Translation>Ölçü Oranları</Translation>
+    <Translation>Assortiler*</Translation>
   </Vocab>
   <Vocab>
     <Name>SizeRatesList</Name>
-    <Translation>Ölçü Oran Listesi</Translation>
+    <Translation>Assorti Listesi*</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizeRatio</Name>
+    <Translation>Assorti</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizeRatioDivisor</Name>
+    <Translation>Assorti Paydası</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizeRatios</Name>
+    <Translation>Assortiler</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizeRatiosList</Name>
+    <Translation>Assorti Listesi</Translation>
   </Vocab>
   <Vocab>
     <Name>Sizes</Name>
@@ -1558,11 +1678,11 @@
   </Vocab>
   <Vocab>
     <Name>SubCategories</Name>
-    <Translation>Alt Kategoriler</Translation>
+    <Translation>Ürün Grupları</Translation>
   </Vocab>
   <Vocab>
     <Name>SubCategory</Name>
-    <Translation>Alt Kategori</Translation>
+    <Translation>Ürün Grubu</Translation>
   </Vocab>
   <Vocab>
     <Name>Supplier</Name>

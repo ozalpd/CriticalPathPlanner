@@ -22,11 +22,9 @@ namespace CriticalPath.Data
         }
     
         public int Id { get; set; }
-        public string Title { get; set; }
-        public string Code { get; set; }
+        public string ProductCode { get; set; }
         public string Description { get; set; }
         public int CategoryId { get; set; }
-        public int SizingStandardId { get; set; }
         public string ImageUrl { get; set; }
         public bool Discontinued { get; set; }
         public Nullable<System.DateTime> DiscontinueDate { get; set; }
@@ -44,7 +42,6 @@ namespace CriticalPath.Data
         public virtual ProductCategory Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PurchaseOrder> PurchaseOrders { get; set; }
-        public virtual SizingStandard SizingStandard { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Supplier> Suppliers { get; set; }
         public virtual AspNetUser DiscontinuedUser { get; set; }
@@ -58,11 +55,9 @@ namespace CriticalPath.Data
         public Product Clone()
         {
             var clone = new Product();
-            clone.Title = Title;
-            clone.Code = Code;
+            clone.ProductCode = ProductCode;
             clone.Description = Description;
             clone.CategoryId = CategoryId;
-            clone.SizingStandardId = SizingStandardId;
             clone.ImageUrl = ImageUrl;
             clone.Discontinued = Discontinued;
             clone.DiscontinueDate = DiscontinueDate;
@@ -95,11 +90,9 @@ namespace CriticalPath.Data
         public ProductDTO(Product entity)
         {
             Id = entity.Id;
-            Title = entity.Title;
-            Code = entity.Code;
+            ProductCode = entity.ProductCode;
             Description = entity.Description;
             CategoryId = entity.CategoryId;
-            SizingStandardId = entity.SizingStandardId;
             ImageUrl = entity.ImageUrl;
             Discontinued = entity.Discontinued;
             DiscontinueDate = entity.DiscontinueDate;
@@ -114,11 +107,9 @@ namespace CriticalPath.Data
         {
             var entity = new Product();
             entity.Id = Id;
-            entity.Title = Title;
-            entity.Code = Code;
+            entity.ProductCode = ProductCode;
             entity.Description = Description;
             entity.CategoryId = CategoryId;
-            entity.SizingStandardId = SizingStandardId;
             entity.ImageUrl = ImageUrl;
             entity.Discontinued = Discontinued;
             entity.DiscontinueDate = DiscontinueDate;
@@ -132,11 +123,9 @@ namespace CriticalPath.Data
         partial void Converting(Product entity);
       
         public int Id { get; set; }
-        public string Title { get; set; }
-        public string Code { get; set; }
+        public string ProductCode { get; set; }
         public string Description { get; set; }
         public int CategoryId { get; set; }
-        public int SizingStandardId { get; set; }
         public string ImageUrl { get; set; }
         public bool Discontinued { get; set; }
         public Nullable<System.DateTime> DiscontinueDate { get; set; }

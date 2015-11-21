@@ -4,12 +4,10 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Products](
     [Id] [int] Identity(1,1) Not Null,
-    [Title] [nVarChar](128) Not Null,
-    [Code] [nVarChar](48) Null,
-    [Description] [nVarChar](256) Null,
+    [ProductCode] [nVarChar](64) Not Null,
+    [Description] [nVarChar](128) Not Null,
     [ImageUrl] [nVarChar](256) Null,
     [CategoryId] [int] Not Null Constraint FK_Product_CategoryId Foreign Key References [dbo].[ProductCategories]([Id]),
-    [SizingStandardId] [int] Not Null Constraint FK_Product_SizingStandardId Foreign Key References [dbo].[SizingStandards]([Id]),
     [Discontinued] [bit] Not Null,
     [DiscontinueDate] [DateTime] Null,
     [DiscontinueNotes] [nVarChar](max) Null,
@@ -30,11 +28,7 @@ CREATE TABLE [dbo].[Products](
     ALLOW_PAGE_LOCKS  = ON)
   ON [PRIMARY]) ON [PRIMARY]
 Go
-Create Nonclustered Index [idx_Products_Title] On [dbo].[Products]([Title] Asc)
-Go
 Create Nonclustered Index [idx_Products_CategoryId] On [dbo].[Products]([CategoryId] Asc)
-Go
-Create Nonclustered Index [idx_Products_SizingStandardId] On [dbo].[Products]([SizingStandardId] Asc)
 Go
 Create Nonclustered Index [idx_Products_ModifyDate] On [dbo].[Products]([ModifyDate] Desc)
 Go

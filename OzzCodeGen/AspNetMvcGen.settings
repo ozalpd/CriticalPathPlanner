@@ -425,78 +425,6 @@
       <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
-      <Name>IDescription</Name>
-      <Exclude>true</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
-      <Properties>
-        <AspNetMvcPropertySetting>
-          <Name>Title</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>true</UseInSearch>
-          <InIndexView>true</InIndexView>
-          <InDetailsView>true</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForCreate>TextBox</UseForCreate>
-          <UseForEdit>TextBox</UseForEdit>
-        </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
-          <Name>Code</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>true</UseInSearch>
-          <InIndexView>true</InIndexView>
-          <InDetailsView>true</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForCreate>TextBox</UseForCreate>
-          <UseForEdit>TextBox</UseForEdit>
-        </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
-          <Name>Description</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
-          <InIndexView>false</InIndexView>
-          <InDetailsView>true</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForCreate>TextBox</UseForCreate>
-          <UseForEdit>Standart</UseForEdit>
-        </AspNetMvcPropertySetting>
-      </Properties>
-      <ControllerName>IDescriptions</ControllerName>
-      <DataSetName>IDescriptions</DataSetName>
-      <SaveParameter>this</SaveParameter>
-      <ModelForIndex>IDescription</ModelForIndex>
-      <ModelForJson>IDescriptionDTO</ModelForJson>
-      <ModelForCreate>IDescription</ModelForCreate>
-      <ModelForEdit>IDescription</ModelForEdit>
-      <RolesCanView>users</RolesCanView>
-      <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
-      <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
-      <RolesCanDelete>admin, supervisor</RolesCanDelete>
-      <GenerateController>false</GenerateController>
-      <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
-      <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
-      <GenerateIndexAction>true</GenerateIndexAction>
-      <GenerateGetEntityAction>true</GenerateGetEntityAction>
-      <GenerateGetEntityListAction>true</GenerateGetEntityListAction>
-      <GenerateCreateAction>true</GenerateCreateAction>
-      <GenerateDeleteAction>true</GenerateDeleteAction>
-      <GenerateEditAction>true</GenerateEditAction>
-      <GenerateDetailsAction>true</GenerateDetailsAction>
-      <IndexView>false</IndexView>
-      <DetailsView>false</DetailsView>
-      <CreateView>false</CreateView>
-      <EditView>false</EditView>
-      <BaseControllerName>BaseController</BaseControllerName>
-      <CreateRedirect>"Index"</CreateRedirect>
-      <EditRedirect>"Index"</EditRedirect>
-      <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
-    </BaseEntitySetting>
-    <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>Contact</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>true</OverwriteExisting>
@@ -978,66 +906,6 @@
       <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
-      <Name>Supplier</Name>
-      <Exclude>false</Exclude>
-      <OverwriteExisting>true</OverwriteExisting>
-      <Properties>
-        <AspNetMvcPropertySetting>
-          <Name>SupplierCode</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>true</UseInSearch>
-          <InIndexView>true</InIndexView>
-          <InDetailsView>true</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForCreate>TextBox</UseForCreate>
-          <UseForEdit>TextBox</UseForEdit>
-        </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
-          <Name>Products</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
-          <InIndexView>true</InIndexView>
-          <InDetailsView>true</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForCreate>Standart</UseForCreate>
-          <UseForEdit>Standart</UseForEdit>
-        </AspNetMvcPropertySetting>
-      </Properties>
-      <ControllerName>Suppliers</ControllerName>
-      <DataSetName>Companies</DataSetName>
-      <SaveParameter>this</SaveParameter>
-      <ModelForIndex>Supplier</ModelForIndex>
-      <ModelForJson>SupplierDTO</ModelForJson>
-      <ModelForCreate>Supplier</ModelForCreate>
-      <ModelForEdit>Supplier</ModelForEdit>
-      <RolesCanView>users</RolesCanView>
-      <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
-      <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
-      <RolesCanDelete>admin, supervisor</RolesCanDelete>
-      <GenerateController>true</GenerateController>
-      <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
-      <GenerateGetDtoQueryMethod>false</GenerateGetDtoQueryMethod>
-      <GenerateIndexAction>false</GenerateIndexAction>
-      <GenerateGetEntityAction>true</GenerateGetEntityAction>
-      <GenerateGetEntityListAction>true</GenerateGetEntityListAction>
-      <GenerateCreateAction>true</GenerateCreateAction>
-      <GenerateDeleteAction>true</GenerateDeleteAction>
-      <GenerateEditAction>true</GenerateEditAction>
-      <GenerateDetailsAction>true</GenerateDetailsAction>
-      <IndexView>false</IndexView>
-      <DetailsView>true</DetailsView>
-      <CreateView>true</CreateView>
-      <EditView>true</EditView>
-      <BaseControllerName>BaseController</BaseControllerName>
-      <CreateRedirect>"Index"</CreateRedirect>
-      <EditRedirect>"Index"</EditRedirect>
-      <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
-    </BaseEntitySetting>
-    <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>Customer</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>true</OverwriteExisting>
@@ -1098,10 +966,178 @@
       <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
+      <Name>Supplier</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>true</OverwriteExisting>
+      <Properties>
+        <AspNetMvcPropertySetting>
+          <Name>SupplierCode</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>Products</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>Manufacturers</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+      </Properties>
+      <ControllerName>Suppliers</ControllerName>
+      <DataSetName>Companies</DataSetName>
+      <SaveParameter>this</SaveParameter>
+      <ModelForIndex>Supplier</ModelForIndex>
+      <ModelForJson>SupplierDTO</ModelForJson>
+      <ModelForCreate>Supplier</ModelForCreate>
+      <ModelForEdit>Supplier</ModelForEdit>
+      <RolesCanView>users</RolesCanView>
+      <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
+      <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
+      <RolesCanDelete>admin, supervisor</RolesCanDelete>
+      <GenerateController>true</GenerateController>
+      <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
+      <GenerateGetDtoQueryMethod>false</GenerateGetDtoQueryMethod>
+      <GenerateIndexAction>false</GenerateIndexAction>
+      <GenerateGetEntityAction>true</GenerateGetEntityAction>
+      <GenerateGetEntityListAction>true</GenerateGetEntityListAction>
+      <GenerateCreateAction>true</GenerateCreateAction>
+      <GenerateDeleteAction>true</GenerateDeleteAction>
+      <GenerateEditAction>true</GenerateEditAction>
+      <GenerateDetailsAction>true</GenerateDetailsAction>
+      <IndexView>false</IndexView>
+      <DetailsView>true</DetailsView>
+      <CreateView>true</CreateView>
+      <EditView>true</EditView>
+      <BaseControllerName>BaseController</BaseControllerName>
+      <CreateRedirect>"Index"</CreateRedirect>
+      <EditRedirect>"Index"</EditRedirect>
+      <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
+      <Name>Manufacturer</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <Properties>
+        <AspNetMvcPropertySetting>
+          <Name>ManufacturerCode</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>SupplierId</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>false</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>DropDownList</UseForCreate>
+          <UseForEdit>DropDownList</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>Supplier</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+      </Properties>
+      <ControllerName>Manufacturers</ControllerName>
+      <DataSetName>Manufacturers</DataSetName>
+      <SaveParameter>this</SaveParameter>
+      <ModelForIndex>Manufacturer</ModelForIndex>
+      <ModelForJson>ManufacturerDTO</ModelForJson>
+      <ModelForCreate>Manufacturer</ModelForCreate>
+      <ModelForEdit>Manufacturer</ModelForEdit>
+      <RolesCanView>users</RolesCanView>
+      <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
+      <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
+      <RolesCanDelete>admin, supervisor</RolesCanDelete>
+      <GenerateController>true</GenerateController>
+      <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
+      <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
+      <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateGetEntityAction>true</GenerateGetEntityAction>
+      <GenerateGetEntityListAction>true</GenerateGetEntityListAction>
+      <GenerateCreateAction>true</GenerateCreateAction>
+      <GenerateDeleteAction>true</GenerateDeleteAction>
+      <GenerateEditAction>true</GenerateEditAction>
+      <GenerateDetailsAction>true</GenerateDetailsAction>
+      <IndexView>true</IndexView>
+      <DetailsView>true</DetailsView>
+      <CreateView>true</CreateView>
+      <EditView>true</EditView>
+      <BaseControllerName>BaseController</BaseControllerName>
+      <CreateRedirect>"Index"</CreateRedirect>
+      <EditRedirect>"Index"</EditRedirect>
+      <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>ProductCategory</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>true</OverwriteExisting>
       <Properties>
+        <AspNetMvcPropertySetting>
+          <Name>CategoryName</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>CategoryCode</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
           <Name>ParentCategoryId</Name>
           <Exclude>false</Exclude>
@@ -1163,7 +1199,7 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>true</GenerateController>
-      <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
+      <GenerateGetQueryMethod>false</GenerateGetQueryMethod>
       <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
       <GenerateGetEntityAction>true</GenerateGetEntityAction>
@@ -1172,14 +1208,14 @@
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
-      <IndexView>true</IndexView>
+      <IndexView>false</IndexView>
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
       <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
-      <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
+      <FillSelectListsMethod>await SetParentCategorySelectList(productCategory?.ParentCategoryId ?? 0)</FillSelectListsMethod>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>Product</Name>
@@ -1187,10 +1223,34 @@
       <OverwriteExisting>true</OverwriteExisting>
       <Properties>
         <AspNetMvcPropertySetting>
-          <Name>ImageUrl</Name>
+          <Name>ProductCode</Name>
           <Exclude>false</Exclude>
           <UseInSearch>true</UseInSearch>
           <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>Description</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>ImageUrl</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>false</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
           <InEditView>true</InEditView>
@@ -1223,34 +1283,10 @@
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>SizingStandardId</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
-          <InIndexView>false</InIndexView>
-          <InDetailsView>false</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForCreate>DropDownList</UseForCreate>
-          <UseForEdit>DropDownList</UseForEdit>
-        </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
-          <Name>SizingStandard</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
-          <InIndexView>true</InIndexView>
-          <InDetailsView>true</InDetailsView>
-          <InCreateView>false</InCreateView>
-          <InEditView>false</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForCreate>Standart</UseForCreate>
-          <UseForEdit>Standart</UseForEdit>
-        </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
           <Name>PurchaseOrders</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
-          <InIndexView>true</InIndexView>
+          <InIndexView>false</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>false</InCreateView>
           <InEditView>false</InEditView>
@@ -1286,7 +1322,7 @@
           <Name>DiscontinueNotes</Name>
           <Exclude>false</Exclude>
           <UseInSearch>true</UseInSearch>
-          <InIndexView>true</InIndexView>
+          <InIndexView>false</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
           <InEditView>true</InEditView>
@@ -1297,7 +1333,7 @@
         <AspNetMvcPropertySetting>
           <Name>DiscontinuedUserIp</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>true</UseInSearch>
+          <UseInSearch>false</UseInSearch>
           <InIndexView>false</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>false</InCreateView>
@@ -1334,11 +1370,11 @@
           <Name>Suppliers</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
-          <InIndexView>true</InIndexView>
+          <InIndexView>false</InIndexView>
           <InDetailsView>true</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
-          <HasValidation>true</HasValidation>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
+          <HasValidation>false</HasValidation>
           <UseForCreate>Standart</UseForCreate>
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
@@ -1371,7 +1407,7 @@
       <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
-      <FillSelectListsMethod>await SetProductCategorySelectListAsync(product);await SetSizingStandardSelectListAsync(product.SizingStandardId);</FillSelectListsMethod>
+      <FillSelectListsMethod>await SetProductCategorySelectListAsync(product);</FillSelectListsMethod>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>PurchaseOrder</Name>
@@ -1415,30 +1451,6 @@
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>CustomerId</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
-          <InIndexView>false</InIndexView>
-          <InDetailsView>false</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForCreate>DropDownList</UseForCreate>
-          <UseForEdit>DropDownList</UseForEdit>
-        </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
-          <Name>Customer</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
-          <InIndexView>true</InIndexView>
-          <InDetailsView>true</InDetailsView>
-          <InCreateView>false</InCreateView>
-          <InEditView>false</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForCreate>Standart</UseForCreate>
-          <UseForEdit>Standart</UseForEdit>
-        </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
           <Name>Product</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
@@ -1467,6 +1479,42 @@
           <Exclude>false</Exclude>
           <UseInSearch>true</UseInSearch>
           <InIndexView>false</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>CustomerId</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>false</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>DropDownList</UseForCreate>
+          <UseForEdit>DropDownList</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>Customer</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>CustomerPoNr</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
           <InEditView>true</InEditView>
@@ -1547,7 +1595,7 @@
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>SizeRateDivisor</Name>
+          <Name>SizeRatioDivisor</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>
@@ -1559,7 +1607,7 @@
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>SizeRates</Name>
+          <Name>SizeRatios</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>
@@ -1687,7 +1735,7 @@
       <FillSelectListsMethod>await SetProductSelectListAsync(purchaseOrderVM.Product);await SetSizingStandardSelectListAsync(purchaseOrderVM);await SetCustomerSelectListAsync(purchaseOrderVM)</FillSelectListsMethod>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
-      <Name>SizeRate</Name>
+      <Name>SizeRatio</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
       <Properties>
@@ -1752,13 +1800,13 @@
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
       </Properties>
-      <ControllerName>SizeRates</ControllerName>
-      <DataSetName>SizeRates</DataSetName>
+      <ControllerName>SizeRatios</ControllerName>
+      <DataSetName>SizeRatios</DataSetName>
       <SaveParameter>this</SaveParameter>
-      <ModelForIndex>SizeRate</ModelForIndex>
-      <ModelForJson>SizeRateDTO</ModelForJson>
-      <ModelForCreate>SizeRate</ModelForCreate>
-      <ModelForEdit>SizeRate</ModelForEdit>
+      <ModelForIndex>SizeRatio</ModelForIndex>
+      <ModelForJson>SizeRatioDTO</ModelForJson>
+      <ModelForCreate>SizeRatio</ModelForCreate>
+      <ModelForEdit>SizeRatio</ModelForEdit>
       <RolesCanView>users</RolesCanView>
       <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
@@ -1801,18 +1849,6 @@
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
           <Name>Sizings</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
-          <InIndexView>true</InIndexView>
-          <InDetailsView>true</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForCreate>Standart</UseForCreate>
-          <UseForEdit>Standart</UseForEdit>
-        </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
-          <Name>Products</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>

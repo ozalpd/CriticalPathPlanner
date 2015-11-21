@@ -123,6 +123,10 @@
 		<value>Göster</value>
 	</data>
 
+	<data name="DisplayAll" xml:space="preserve">
+		<value>Display All</value>
+	</data>
+
 	<data name="Duplicate" xml:space="preserve">
 		<value>Çoğalt</value>
 	</data>

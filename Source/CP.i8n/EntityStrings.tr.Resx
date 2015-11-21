@@ -75,6 +75,10 @@
 		<value>Müşteri Ekle</value>
 	</data>
 
+	<data name="AddManufacturer" xml:space="preserve">
+		<value>Üretici Ekle</value>
+	</data>
+
 	<data name="AddNewAspNetUser" xml:space="preserve">
 		<value>Yeni Uygulama Kullanıcısı Ekle</value>
 	</data>
@@ -89,6 +93,10 @@
 
 	<data name="AddNewCustomer" xml:space="preserve">
 		<value>Yeni Müşteri Ekle</value>
+	</data>
+
+	<data name="AddNewManufacturer" xml:space="preserve">
+		<value>Yeni Üretici Ekle</value>
 	</data>
 
 	<data name="AddNewProcess" xml:space="preserve">
@@ -119,8 +127,8 @@
 		<value>Yeni Sipariş Ekle</value>
 	</data>
 
-	<data name="AddNewSizeRate" xml:space="preserve">
-		<value>Yeni Ölçü Oranı Ekle</value>
+	<data name="AddNewSizeRatio" xml:space="preserve">
+		<value>Yeni Assorti Ekle</value>
 	</data>
 
 	<data name="AddNewSizing" xml:space="preserve">
@@ -179,6 +187,10 @@
 		<value>Müşteri Ekle/Çıkar</value>
 	</data>
 
+	<data name="AddRemoveManufacturer" xml:space="preserve">
+		<value>Üretici Ekle/Çıkar</value>
+	</data>
+
 	<data name="AddRemoveProcess" xml:space="preserve">
 		<value>Süreç Ekle/Çıkar</value>
 	</data>
@@ -207,8 +219,8 @@
 		<value>Sipariş Ekle/Çıkar</value>
 	</data>
 
-	<data name="AddRemoveSizeRate" xml:space="preserve">
-		<value>Ölçü Oranı Ekle/Çıkar</value>
+	<data name="AddRemoveSizeRatio" xml:space="preserve">
+		<value>Assorti Ekle/Çıkar</value>
 	</data>
 
 	<data name="AddRemoveSizing" xml:space="preserve">
@@ -231,8 +243,8 @@
 		<value>Adres Satır 2</value>
 	</data>
 
-	<data name="AddSizeRate" xml:space="preserve">
-		<value>Ölçü Oranı Ekle</value>
+	<data name="AddSizeRatio" xml:space="preserve">
+		<value>Assorti Ekle</value>
 	</data>
 
 	<data name="AddSizing" xml:space="preserve">
@@ -275,6 +287,10 @@
 		<value>Uygulama Kullanıcısı Listesi</value>
 	</data>
 
+	<data name="BuyingPrice" xml:space="preserve">
+		<value>Alış Fiyatı</value>
+	</data>
+
 	<data name="CancelDate" xml:space="preserve">
 		<value>İptal Tarihi</value>
 	</data>
@@ -307,16 +323,20 @@
 		<value>Kategori</value>
 	</data>
 
+	<data name="CategoryCode" xml:space="preserve">
+		<value>Kod</value>
+	</data>
+
 	<data name="CategoryId" xml:space="preserve">
 		<value>Kategori</value>
 	</data>
 
-	<data name="City" xml:space="preserve">
-		<value>Şehir</value>
+	<data name="CategoryName" xml:space="preserve">
+		<value>İsim</value>
 	</data>
 
-	<data name="Code" xml:space="preserve">
-		<value>Kod</value>
+	<data name="City" xml:space="preserve">
+		<value>Şehir</value>
 	</data>
 
 	<data name="Companies" xml:space="preserve">
@@ -379,6 +399,10 @@
 		<value>Oluşturan Kullanıcı</value>
 	</data>
 
+	<data name="CreateManufacturer" xml:space="preserve">
+		<value>Üretici Olu;tur</value>
+	</data>
+
 	<data name="CreateProcess" xml:space="preserve">
 		<value>Süreç Başlat</value>
 	</data>
@@ -407,8 +431,8 @@
 		<value>Sipariş Oluştur</value>
 	</data>
 
-	<data name="CreateSizeRate" xml:space="preserve">
-		<value>Ölçü Oranı Oluştur</value>
+	<data name="CreateSizeRatio" xml:space="preserve">
+		<value>Assorti Oluştur</value>
 	</data>
 
 	<data name="CreateSizing" xml:space="preserve">
@@ -443,6 +467,10 @@
 		<value>Müşteri</value>
 	</data>
 
+	<data name="CustomerPoNr" xml:space="preserve">
+		<value>Müşterinin Sipariş Kodu</value>
+	</data>
+
 	<data name="Customers" xml:space="preserve">
 		<value>Müşteriler</value>
 	</data>
@@ -469,6 +497,10 @@
 
 	<data name="DeleteCustomer" xml:space="preserve">
 		<value>Müşteri Sil</value>
+	</data>
+
+	<data name="DeleteManufacturer" xml:space="preserve">
+		<value>Üreticiyi Sil</value>
 	</data>
 
 	<data name="DeleteProcess" xml:space="preserve">
@@ -499,8 +531,8 @@
 		<value>Siparişi Sil</value>
 	</data>
 
-	<data name="DeleteSizeRate" xml:space="preserve">
-		<value>Ölçü Oranı Sil</value>
+	<data name="DeleteSizeRatio" xml:space="preserve">
+		<value>Assortiyi Sil</value>
 	</data>
 
 	<data name="DeleteSizing" xml:space="preserve">
@@ -567,6 +599,10 @@
 		<value>Müşteriyi Düzenle</value>
 	</data>
 
+	<data name="EditManufacturer" xml:space="preserve">
+		<value>Üreticiyi Düzenle</value>
+	</data>
+
 	<data name="EditProcess" xml:space="preserve">
 		<value>Süreci Düzenle</value>
 	</data>
@@ -595,8 +631,8 @@
 		<value>Siparişi Düzenle</value>
 	</data>
 
-	<data name="EditSizeRate" xml:space="preserve">
-		<value>Ölçü Oranı Düzenle</value>
+	<data name="EditSizeRatio" xml:space="preserve">
+		<value>Assortiyi Düzenle</value>
 	</data>
 
 	<data name="EditSizing" xml:space="preserve">
@@ -651,6 +687,22 @@
 		<value>Soyad</value>
 	</data>
 
+	<data name="Manufacturer" xml:space="preserve">
+		<value>Üretici</value>
+	</data>
+
+	<data name="ManufacturerCode" xml:space="preserve">
+		<value>Üretici Kodu</value>
+	</data>
+
+	<data name="Manufacturers" xml:space="preserve">
+		<value>Üreticiler</value>
+	</data>
+
+	<data name="ManufacturersList" xml:space="preserve">
+		<value>Üretici Listesi</value>
+	</data>
+
 	<data name="ModifiedUser" xml:space="preserve">
 		<value>Düzenleyen Kullanıcı</value>
 	</data>
@@ -684,11 +736,11 @@
 	</data>
 
 	<data name="ParentCategory" xml:space="preserve">
-		<value>Üst Kategori</value>
+		<value>Departman</value>
 	</data>
 
 	<data name="ParentCategoryId" xml:space="preserve">
-		<value>Üst Kategori</value>
+		<value>Departman</value>
 	</data>
 
 	<data name="Phone1" xml:space="preserve">
@@ -713,6 +765,10 @@
 
 	<data name="PhoneWork2" xml:space="preserve">
 		<value>İş Telefonu 2</value>
+	</data>
+
+	<data name="PoNr" xml:space="preserve">
+		<value>Sipariş Kodu</value>
 	</data>
 
 	<data name="Process" xml:space="preserve">
@@ -787,6 +843,10 @@
 		<value>Ürün Kategorisi</value>
 	</data>
 
+	<data name="ProductCode" xml:space="preserve">
+		<value>Ürün Kodu</value>
+	</data>
+
 	<data name="ProductId" xml:space="preserve">
 		<value>Ürün</value>
 	</data>
@@ -843,6 +903,10 @@
 		<value>Müşteriyi Çıkar</value>
 	</data>
 
+	<data name="RemoveManufacturer" xml:space="preserve">
+		<value>Üreticiyi Çıkar</value>
+	</data>
+
 	<data name="RemoveProcess" xml:space="preserve">
 		<value>Süreci Çıkar</value>
 	</data>
@@ -871,8 +935,8 @@
 		<value>Siparişi Çıkar</value>
 	</data>
 
-	<data name="RemoveSizeRate" xml:space="preserve">
-		<value>Ölçü Oranını Çıkar</value>
+	<data name="RemoveSizeRatio" xml:space="preserve">
+		<value>Assortiyi Çıkar</value>
 	</data>
 
 	<data name="RemoveSizing" xml:space="preserve">
@@ -891,20 +955,24 @@
 		<value>Gereken İş Günü</value>
 	</data>
 
-	<data name="SizeRate" xml:space="preserve">
-		<value>Ölçü Oranı</value>
+	<data name="RetailPrice" xml:space="preserve">
+		<value>Perakende Fiyatı</value>
 	</data>
 
-	<data name="SizeRateDivisor" xml:space="preserve">
-		<value>Ölçü Oran Paydası</value>
+	<data name="SizeRatio" xml:space="preserve">
+		<value>Assorti</value>
 	</data>
 
-	<data name="SizeRates" xml:space="preserve">
-		<value>Ölçü Oranları</value>
+	<data name="SizeRatioDivisor" xml:space="preserve">
+		<value>Assorti Paydası</value>
 	</data>
 
-	<data name="SizeRatesList" xml:space="preserve">
-		<value>Ölçü Oran Listesi</value>
+	<data name="SizeRatios" xml:space="preserve">
+		<value>Assortiler</value>
+	</data>
+
+	<data name="SizeRatiosList" xml:space="preserve">
+		<value>Assorti Listesi</value>
 	</data>
 
 	<data name="Sizing" xml:space="preserve">
@@ -948,7 +1016,7 @@
 	</data>
 
 	<data name="SubCategories" xml:space="preserve">
-		<value>Alt Kategoriler</value>
+		<value>Ürün Grupları</value>
 	</data>
 
 	<data name="Supplier" xml:space="preserve">

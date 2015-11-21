@@ -67,11 +67,16 @@
     <Compile Include="Customer.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Manufacturer.cs">
+      <DependentUpon>CriticalPathModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Metadata\AspNetUser.meta.cs" />
     <Compile Include="Metadata\AspNetUserDTO.meta.cs" />
+    <Compile Include="Metadata\Manufacturer.meta.cs" />
+    <Compile Include="Metadata\ManufacturerDTO.meta.cs" />
+    <Compile Include="Metadata\SizeRatio.meta.cs" />
+    <Compile Include="Metadata\SizeRatioDTO.meta.cs" />
     <Compile Include="Parts\CustomerDTO.part.cs" />
-    <Compile Include="Metadata\SizeRate.meta.cs" />
-    <Compile Include="Metadata\SizeRateDTO.meta.cs" />
     <Compile Include="Metadata\Sizing.meta.cs" />
     <Compile Include="Metadata\SizingDTO.meta.cs" />
     <Compile Include="Metadata\SizingStandard.meta.cs" />
@@ -136,13 +141,14 @@
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Parts\ProductDTO.part.cs" />
+    <Compile Include="Parts\ProductCategoryDTO.part.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Parts\PurchaseOrderDTO.part.cs" />
     <Compile Include="PurchaseOrder.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Parts\SizingStandardDTO.part.cs" />
-    <Compile Include="SizeRate.cs">
+    <Compile Include="SizeRatio.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Sizing.cs">

@@ -23,8 +23,8 @@ namespace CriticalPath.Web.Controllers
             {
                 query = from a in query
                         where
-                            a.Title.Contains(qParams.SearchString) | 
-                            a.Code.Contains(qParams.SearchString) | 
+                            a.ProductCode.Contains(qParams.SearchString) | 
+                            a.Description.Contains(qParams.SearchString) | 
                             a.ImageUrl.Contains(qParams.SearchString) | 
                             a.DiscontinueNotes.Contains(qParams.SearchString) | 
                             a.DiscontinuedUserIp.Contains(qParams.SearchString) 
@@ -33,10 +33,6 @@ namespace CriticalPath.Web.Controllers
             if (qParams.CategoryId != null)
             {
                 query = query.Where(x => x.CategoryId == qParams.CategoryId);
-            }
-            if (qParams.SizingStandardId != null)
-            {
-                query = query.Where(x => x.SizingStandardId == qParams.SizingStandardId);
             }
 
             qParams.TotalCount = await query.CountAsync();
@@ -119,8 +115,8 @@ namespace CriticalPath.Web.Controllers
         
         public async Task<ActionResult> GetProductPagedList(QueryParameters qParams)
         {
-            var result = new PagedList<ProductDTO>(qParams);
-            result.Items = await GetProductDtoList(qParams);
+            var items = await GetProductDtoList(qParams);
+            var result = new PagedList<ProductDTO>(qParams, items);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
@@ -166,7 +162,6 @@ namespace CriticalPath.Web.Controllers
             var product = new Product();
             await SetProductDefaults(product);
             await SetProductCategorySelectListAsync(product);
-            await SetSizingStandardSelectListAsync(product.SizingStandardId);
             
             return View(product);
         }
@@ -190,7 +185,6 @@ namespace CriticalPath.Web.Controllers
             }
 
             await SetProductCategorySelectListAsync(product);
-            await SetSizingStandardSelectListAsync(product.SizingStandardId);
             
             return View(product);
         }
@@ -210,7 +204,6 @@ namespace CriticalPath.Web.Controllers
             }
 
             await SetProductCategorySelectListAsync(product);
-            await SetSizingStandardSelectListAsync(product.SizingStandardId);
             
             return View(product);
         }
@@ -234,7 +227,6 @@ namespace CriticalPath.Web.Controllers
             }
 
             await SetProductCategorySelectListAsync(product);
-            await SetSizingStandardSelectListAsync(product.SizingStandardId);
             
             return View(product);
         }
@@ -262,7 +254,7 @@ namespace CriticalPath.Web.Controllers
 
                 sb.Append(MessageStrings.CanNotDelete);
                 sb.Append(" <b>");
-                sb.Append(product.Title);
+                sb.Append(product.ProductCode);
                 sb.Append("</b>.<br/>");
 
                 if (purchaseOrdersCount > 0)
@@ -289,7 +281,7 @@ namespace CriticalPath.Web.Controllers
             {
                 var sb = new StringBuilder();
                 sb.Append(MessageStrings.CanNotDelete);
-                sb.Append(product.Title);
+                sb.Append(product.ProductCode);
                 sb.Append("<br/>");
                 AppendExceptionMsg(ex, sb);
 
@@ -305,16 +297,18 @@ namespace CriticalPath.Web.Controllers
             public QueryParameters(QueryParameters parameters) : base(parameters)
             {
                 CategoryId = parameters.CategoryId;
-                SizingStandardId = parameters.SizingStandardId;
             }
             public int? CategoryId { get; set; }
-            public int? SizingStandardId { get; set; }
         }
 
         public partial class PagedList<T> : QueryParameters
         {
             public PagedList() { }
             public PagedList(QueryParameters parameters) : base(parameters) { }
+            public PagedList(QueryParameters parameters, IEnumerable<T> items) : this(parameters)
+            {
+                Items = items;
+            }
 
             public IEnumerable<T> Items
             {

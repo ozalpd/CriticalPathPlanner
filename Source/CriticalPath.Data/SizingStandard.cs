@@ -19,7 +19,6 @@ namespace CriticalPath.Data
         {
             this.PurchaseOrders = new HashSet<PurchaseOrder>();
             this.Sizings = new HashSet<Sizing>();
-            this.Products = new HashSet<Product>();
         }
     
         public int Id { get; set; }
@@ -36,8 +35,6 @@ namespace CriticalPath.Data
         public virtual ICollection<PurchaseOrder> PurchaseOrders { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sizing> Sizings { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Products { get; set; }
         public virtual AspNetUser CreatedUser { get; set; }
         public virtual AspNetUser ModifiedUser { get; set; }
     	/// <summary>

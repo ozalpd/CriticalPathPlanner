@@ -37,6 +37,10 @@
     <Translation>Add Customer</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddManufacturer</Name>
+    <Translation>Add Factory</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddNew</Name>
     <Translation>Add New</Translation>
   </Vocab>
@@ -55,6 +59,10 @@
   <Vocab>
     <Name>AddNewCustomer</Name>
     <Translation>Add New Customer</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewManufacturer</Name>
+    <Translation>Add New Factory</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNewOrderItem</Name>
@@ -82,7 +90,7 @@
   </Vocab>
   <Vocab>
     <Name>AddNewProductCategory</Name>
-    <Translation>Add New Product Category</Translation>
+    <Translation>Add New Department/Group</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNewProductSupplier</Name>
@@ -107,6 +115,10 @@
   <Vocab>
     <Name>AddNewSizeRate</Name>
     <Translation>Add New Size Rate</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewSizeRatio</Name>
+    <Translation>Add New Size Ratio</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNewSizing</Name>
@@ -146,7 +158,7 @@
   </Vocab>
   <Vocab>
     <Name>AddProductCategory</Name>
-    <Translation>Add Product Category</Translation>
+    <Translation>Add Department/Group</Translation>
   </Vocab>
   <Vocab>
     <Name>AddProductSupplier</Name>
@@ -175,6 +187,10 @@
   <Vocab>
     <Name>AddRemoveCustomer</Name>
     <Translation>Add/Remove Customer</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveManufacturer</Name>
+    <Translation>Add Remove Factory</Translation>
   </Vocab>
   <Vocab>
     <Name>AddRemoveProcess</Name>
@@ -211,6 +227,10 @@
   <Vocab>
     <Name>AddRemoveSizeRate</Name>
     <Translation>Add/Remove Size Rate</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveSizeRatio</Name>
+    <Translation>Add Remove Size Ratio</Translation>
   </Vocab>
   <Vocab>
     <Name>AddRemoveSizing</Name>
@@ -251,6 +271,10 @@
   <Vocab>
     <Name>AddSizeRate</Name>
     <Translation>Add Size Rate</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddSizeRatio</Name>
+    <Translation>Add Size Ratio</Translation>
   </Vocab>
   <Vocab>
     <Name>AddSizing</Name>
@@ -333,6 +357,10 @@
     <Translation>This record has some relations.</Translation>
   </Vocab>
   <Vocab>
+    <Name>BuyingPrice</Name>
+    <Translation>Buying Price</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Cancel</Name>
     <Translation>Cancel</Translation>
   </Vocab>
@@ -390,15 +418,23 @@
   </Vocab>
   <Vocab>
     <Name>Categories</Name>
-    <Translation>Categories</Translation>
+    <Translation>Departments/Groups</Translation>
   </Vocab>
   <Vocab>
     <Name>Category</Name>
-    <Translation>Category</Translation>
+    <Translation>Department/Group</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CategoryCode</Name>
+    <Translation>Code</Translation>
   </Vocab>
   <Vocab>
     <Name>CategoryId</Name>
     <Translation>Category</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CategoryName</Name>
+    <Translation>Name</Translation>
   </Vocab>
   <Vocab>
     <Name>ChangePassword</Name>
@@ -517,6 +553,10 @@
     <Translation>Created User</Translation>
   </Vocab>
   <Vocab>
+    <Name>CreateManufacturer</Name>
+    <Translation>Create Factory</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CreateNew</Name>
     <Translation>Create New</Translation>
   </Vocab>
@@ -550,7 +590,7 @@
   </Vocab>
   <Vocab>
     <Name>CreateProductCategory</Name>
-    <Translation>Create Product Category</Translation>
+    <Translation>Create Department/Group</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateProductSupplier</Name>
@@ -575,6 +615,10 @@
   <Vocab>
     <Name>CreateSizeRate</Name>
     <Translation>Create Size Rate</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateSizeRatio</Name>
+    <Translation>Create Size Ratio</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateSizing</Name>
@@ -607,6 +651,10 @@
   <Vocab>
     <Name>CustomerId</Name>
     <Translation>Customer</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CustomerPoNr</Name>
+    <Translation>Customer's P.O. Nr.</Translation>
   </Vocab>
   <Vocab>
     <Name>Customers</Name>
@@ -645,6 +693,10 @@
     <Translation>Delete Customer</Translation>
   </Vocab>
   <Vocab>
+    <Name>DeleteManufacturer</Name>
+    <Translation>Delete Factory</Translation>
+  </Vocab>
+  <Vocab>
     <Name>DeleteOrder</Name>
     <Translation>Delete Order</Translation>
   </Vocab>
@@ -674,7 +726,7 @@
   </Vocab>
   <Vocab>
     <Name>DeleteProductCategory</Name>
-    <Translation>Delete Product Category</Translation>
+    <Translation>Delete Department/Group</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteProductSupplier</Name>
@@ -699,6 +751,10 @@
   <Vocab>
     <Name>DeleteSizeRate</Name>
     <Translation>Delete Size Rate</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteSizeRatio</Name>
+    <Translation>Delete Size Ratio</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteSizing</Name>
@@ -757,6 +813,10 @@
     <Translation>Display</Translation>
   </Vocab>
   <Vocab>
+    <Name>DisplayAll</Name>
+    <Translation>Display All</Translation>
+  </Vocab>
+  <Vocab>
     <Name>DisplayOrder</Name>
     <Translation>Display Order</Translation>
   </Vocab>
@@ -801,6 +861,10 @@
     <Translation>Edit Customer</Translation>
   </Vocab>
   <Vocab>
+    <Name>EditManufacturer</Name>
+    <Translation>Edit Factory</Translation>
+  </Vocab>
+  <Vocab>
     <Name>EditOrder</Name>
     <Translation>Edit Order</Translation>
   </Vocab>
@@ -830,7 +894,7 @@
   </Vocab>
   <Vocab>
     <Name>EditProductCategory</Name>
-    <Translation>Edit Product Category</Translation>
+    <Translation>Edit Department/Group</Translation>
   </Vocab>
   <Vocab>
     <Name>EditProductSupplier</Name>
@@ -855,6 +919,10 @@
   <Vocab>
     <Name>EditSizeRate</Name>
     <Translation>Edit Size Rate</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditSizeRatio</Name>
+    <Translation>Edit Size Ratio</Translation>
   </Vocab>
   <Vocab>
     <Name>EditSizing</Name>
@@ -994,7 +1062,7 @@
   </Vocab>
   <Vocab>
     <Name>Loading</Name>
-    <Translation>Loading</Translation>
+    <Translation>Loading...</Translation>
   </Vocab>
   <Vocab>
     <Name>Location</Name>
@@ -1035,6 +1103,22 @@
   <Vocab>
     <Name>ManageAccount</Name>
     <Translation>Manage Account</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Manufacturer</Name>
+    <Translation>Factory</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ManufacturerCode</Name>
+    <Translation>Manufacturer Code</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Manufacturers</Name>
+    <Translation>Factories</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ManufacturersList</Name>
+    <Translation>Factories List</Translation>
   </Vocab>
   <Vocab>
     <Name>ModifiedUser</Name>
@@ -1126,15 +1210,15 @@
   </Vocab>
   <Vocab>
     <Name>ParentCategories</Name>
-    <Translation>Parent Categories</Translation>
+    <Translation>Departments</Translation>
   </Vocab>
   <Vocab>
     <Name>ParentCategory</Name>
-    <Translation>Parent Category</Translation>
+    <Translation>Department</Translation>
   </Vocab>
   <Vocab>
     <Name>ParentCategoryId</Name>
-    <Translation>Parent Category</Translation>
+    <Translation>Department</Translation>
   </Vocab>
   <Vocab>
     <Name>Password</Name>
@@ -1183,6 +1267,10 @@
   <Vocab>
     <Name>PleaseWait</Name>
     <Translation>Please Wait</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PoNr</Name>
+    <Translation>P.O. Nr.</Translation>
   </Vocab>
   <Vocab>
     <Name>Print</Name>
@@ -1250,19 +1338,23 @@
   </Vocab>
   <Vocab>
     <Name>ProductCategories</Name>
-    <Translation>Product Categories</Translation>
+    <Translation>Departments/Groups</Translation>
   </Vocab>
   <Vocab>
     <Name>ProductCategoriesList</Name>
-    <Translation>Product Categories List</Translation>
+    <Translation>Department/Group List</Translation>
   </Vocab>
   <Vocab>
     <Name>ProductCategory</Name>
-    <Translation>Product Category</Translation>
+    <Translation>Department/Group</Translation>
   </Vocab>
   <Vocab>
     <Name>ProductCategoryId</Name>
-    <Translation>Product Category</Translation>
+    <Translation>Department/Group</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ProductCode</Name>
+    <Translation>Item Nr</Translation>
   </Vocab>
   <Vocab>
     <Name>ProductId</Name>
@@ -1365,6 +1457,10 @@
     <Translation>Remove Customer</Translation>
   </Vocab>
   <Vocab>
+    <Name>RemoveManufacturer</Name>
+    <Translation>Remove Factory</Translation>
+  </Vocab>
+  <Vocab>
     <Name>RemoveProcess</Name>
     <Translation>Remove Process</Translation>
   </Vocab>
@@ -1386,7 +1482,7 @@
   </Vocab>
   <Vocab>
     <Name>RemoveProductCategory</Name>
-    <Translation>Remove Product Category</Translation>
+    <Translation>Remove Department/Group</Translation>
   </Vocab>
   <Vocab>
     <Name>RemoveProductSupplier</Name>
@@ -1399,6 +1495,10 @@
   <Vocab>
     <Name>RemoveSizeRate</Name>
     <Translation>Remove Size Rate</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveSizeRatio</Name>
+    <Translation>Remove Size Ratio</Translation>
   </Vocab>
   <Vocab>
     <Name>RemoveSizing</Name>
@@ -1415,6 +1515,10 @@
   <Vocab>
     <Name>RequiredWorkDays</Name>
     <Translation>Required Work Days</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RetailPrice</Name>
+    <Translation>Retail Price</Translation>
   </Vocab>
   <Vocab>
     <Name>Save</Name>
@@ -1501,6 +1605,22 @@
     <Translation>Size Rates List</Translation>
   </Vocab>
   <Vocab>
+    <Name>SizeRatio</Name>
+    <Translation>Size Ratio</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizeRatioDivisor</Name>
+    <Translation>Size Ratio Divisor</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizeRatios</Name>
+    <Translation>Size Ratios</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SizeRatiosList</Name>
+    <Translation>Size Ratios List</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Sizes</Name>
     <Translation>Sizes</Translation>
   </Vocab>
@@ -1558,11 +1678,11 @@
   </Vocab>
   <Vocab>
     <Name>SubCategories</Name>
-    <Translation>Sub Categories</Translation>
+    <Translation>Product Groups</Translation>
   </Vocab>
   <Vocab>
     <Name>SubCategory</Name>
-    <Translation>Sub Category</Translation>
+    <Translation>Product Group</Translation>
   </Vocab>
   <Vocab>
     <Name>Supplier</Name>

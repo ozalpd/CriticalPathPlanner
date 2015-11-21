@@ -40,7 +40,7 @@ namespace CriticalPath.Data
         public virtual DbSet<ProcessStep> ProcessSteps { get; set; }
         public virtual DbSet<ProcessStepTemplate> ProcessStepTemplates { get; set; }
         public virtual DbSet<ProcessTemplate> ProcessTemplates { get; set; }
-        public virtual DbSet<SizeRate> SizeRates { get; set; }
+        public virtual DbSet<SizeRatio> SizeRatios { get; set; }
         public virtual DbSet<SizingStandard> SizingStandards { get; set; }
         public virtual DbSet<Sizing> Sizings { get; set; }
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
@@ -138,6 +138,57 @@ namespace CriticalPath.Data
                        DiscontinueNotes = e.DiscontinueNotes,
                        Notes = e.Notes,
                        CustomerCode = e.CustomerCode,
+                   };
+        }
+    
+    
+        /// <summary>
+        /// Default query for Companies
+        /// </summary>
+        /// <returns></returns>
+        public virtual IQueryable<Manufacturer> GetManufacturerQuery()
+        {
+            IQueryable<Manufacturer> query = Companies.OrderBy(p => p.CompanyName)
+    														.OfType<Manufacturer>();
+            return query;
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from Manufacturer query
+        /// </summary>
+        /// <param name="query">query to be converted</param>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<ManufacturerDTO> GetManufacturerDtoQuery()
+        {
+            return GetManufacturerDtoQuery(GetManufacturerQuery());
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from Manufacturer query
+        /// </summary>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<ManufacturerDTO> GetManufacturerDtoQuery(IQueryable<Manufacturer> query)
+        {
+            return from e in query
+                   select new ManufacturerDTO
+                   {
+                       Id = e.Id,
+                       CompanyName = e.CompanyName,
+                       Phone1 = e.Phone1,
+                       Phone2 = e.Phone2,
+                       Phone3 = e.Phone3,
+                       Address1 = e.Address1,
+                       Address2 = e.Address2,
+                       City = e.City,
+                       State = e.State,
+                       ZipCode = e.ZipCode,
+                       Country = e.Country,
+                       Discontinued = e.Discontinued,
+                       DiscontinueDate = e.DiscontinueDate,
+                       DiscontinueNotes = e.DiscontinueNotes,
+                       Notes = e.Notes,
+                       ManufacturerCode = e.ManufacturerCode,
+                       SupplierId = e.SupplierId,
                    };
         }
     
@@ -413,7 +464,7 @@ namespace CriticalPath.Data
         /// <returns></returns>
         public virtual IQueryable<ProductCategory> GetProductCategoryQuery()
         {
-            IQueryable<ProductCategory> query = ProductCategories.OrderBy(p => p.Title);
+            IQueryable<ProductCategory> query = ProductCategories;
             return query;
         }
     
@@ -437,9 +488,8 @@ namespace CriticalPath.Data
                    select new ProductCategoryDTO
                    {
                        Id = e.Id,
-                       Title = e.Title,
-                       Code = e.Code,
-                       Description = e.Description,
+                       CategoryName = e.CategoryName,
+                       CategoryCode = e.CategoryCode,
                        ParentCategoryId = e.ParentCategoryId,
                    };
         }
@@ -451,7 +501,7 @@ namespace CriticalPath.Data
         /// <returns></returns>
         public virtual IQueryable<Product> GetProductQuery()
         {
-            IQueryable<Product> query = Products.OrderBy(p => p.Title);
+            IQueryable<Product> query = Products;
             return query;
         }
     
@@ -475,11 +525,9 @@ namespace CriticalPath.Data
                    select new ProductDTO
                    {
                        Id = e.Id,
-                       Title = e.Title,
-                       Code = e.Code,
+                       ProductCode = e.ProductCode,
                        Description = e.Description,
                        CategoryId = e.CategoryId,
-                       SizingStandardId = e.SizingStandardId,
                        ImageUrl = e.ImageUrl,
                        Discontinued = e.Discontinued,
                        DiscontinueDate = e.DiscontinueDate,
@@ -518,54 +566,57 @@ namespace CriticalPath.Data
                    select new PurchaseOrderDTO
                    {
                        Id = e.Id,
+                       PoNr = e.PoNr,
                        CustomerId = e.CustomerId,
                        ProductId = e.ProductId,
                        SizingStandardId = e.SizingStandardId,
                        OrderDate = e.OrderDate,
                        DueDate = e.DueDate,
-                       Code = e.Code,
                        Description = e.Description,
                        Quantity = e.Quantity,
                        UnitPrice = e.UnitPrice,
-                       SizeRateDivisor = e.SizeRateDivisor,
+                       BuyingPrice = e.BuyingPrice,
+                       RetailPrice = e.RetailPrice,
+                       SizeRatioDivisor = e.SizeRatioDivisor,
                        Notes = e.Notes,
                        ApproveDate = e.ApproveDate,
                        Cancelled = e.Cancelled,
                        CancelDate = e.CancelDate,
                        CancelNotes = e.CancelNotes,
                        IsApproved = e.IsApproved,
+                       CustomerPoNr = e.CustomerPoNr,
                    };
         }
     
     
         /// <summary>
-        /// Default query for SizeRates
+        /// Default query for SizeRatios
         /// </summary>
         /// <returns></returns>
-        public virtual IQueryable<SizeRate> GetSizeRateQuery()
+        public virtual IQueryable<SizeRatio> GetSizeRatioQuery()
         {
-            IQueryable<SizeRate> query = SizeRates.OrderBy(p => p.DisplayOrder);
+            IQueryable<SizeRatio> query = SizeRatios.OrderBy(p => p.DisplayOrder);
             return query;
         }
     
         /// <summary>
-        /// Gets a lighter data transfer object query from SizeRate query
+        /// Gets a lighter data transfer object query from SizeRatio query
         /// </summary>
         /// <param name="query">query to be converted</param>
         /// <returns>Converted data transfer object query</returns>
-        public virtual IQueryable<SizeRateDTO> GetSizeRateDtoQuery()
+        public virtual IQueryable<SizeRatioDTO> GetSizeRatioDtoQuery()
         {
-            return GetSizeRateDtoQuery(GetSizeRateQuery());
+            return GetSizeRatioDtoQuery(GetSizeRatioQuery());
         }
     
         /// <summary>
-        /// Gets a lighter data transfer object query from SizeRate query
+        /// Gets a lighter data transfer object query from SizeRatio query
         /// </summary>
         /// <returns>Converted data transfer object query</returns>
-        public virtual IQueryable<SizeRateDTO> GetSizeRateDtoQuery(IQueryable<SizeRate> query)
+        public virtual IQueryable<SizeRatioDTO> GetSizeRatioDtoQuery(IQueryable<SizeRatio> query)
         {
             return from e in query
-                   select new SizeRateDTO
+                   select new SizeRatioDTO
                    {
                        Id = e.Id,
                        DisplayOrder = e.DisplayOrder,

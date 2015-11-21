@@ -21,8 +21,9 @@ namespace CriticalPath.Web.Controllers
             {
                 query = from a in query
                         where
-                            a.PurchaseOrder.Product.Title.Contains(qParams.SearchString) |
-                            a.PurchaseOrder.Product.Code.Contains(qParams.SearchString) |
+                            a.PurchaseOrder.PoNr.Contains(qParams.SearchString) |
+                            a.PurchaseOrder.Product.ProductCode.Contains(qParams.SearchString) |
+                            a.PurchaseOrder.Product.Description.Contains(qParams.SearchString) |
                             a.PurchaseOrder.Customer.CompanyName.Contains(qParams.SearchString) |
                             a.PurchaseOrder.Customer.CustomerCode.Contains(qParams.SearchString) |
                             a.Supplier.CompanyName.Contains(qParams.SearchString) |

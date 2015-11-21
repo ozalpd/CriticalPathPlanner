@@ -22,9 +22,8 @@ namespace CriticalPath.Data
         }
     
         public int Id { get; set; }
-        public string Title { get; set; }
-        public string Code { get; set; }
-        public string Description { get; set; }
+        public string CategoryName { get; set; }
+        public string CategoryCode { get; set; }
         public Nullable<int> ParentCategoryId { get; set; }
         public int ModifyNr { get; set; }
         public System.DateTime ModifyDate { get; set; }
@@ -49,9 +48,8 @@ namespace CriticalPath.Data
         public ProductCategory Clone()
         {
             var clone = new ProductCategory();
-            clone.Title = Title;
-            clone.Code = Code;
-            clone.Description = Description;
+            clone.CategoryName = CategoryName;
+            clone.CategoryCode = CategoryCode;
             clone.ParentCategoryId = ParentCategoryId;
             clone.ModifyNr = ModifyNr;
             clone.ModifyDate = ModifyDate;
@@ -79,9 +77,8 @@ namespace CriticalPath.Data
         public ProductCategoryDTO(ProductCategory entity)
         {
             Id = entity.Id;
-            Title = entity.Title;
-            Code = entity.Code;
-            Description = entity.Description;
+            CategoryName = entity.CategoryName;
+            CategoryCode = entity.CategoryCode;
             ParentCategoryId = entity.ParentCategoryId;
         
             Initiliazing(entity);
@@ -93,9 +90,8 @@ namespace CriticalPath.Data
         {
             var entity = new ProductCategory();
             entity.Id = Id;
-            entity.Title = Title;
-            entity.Code = Code;
-            entity.Description = Description;
+            entity.CategoryName = CategoryName;
+            entity.CategoryCode = CategoryCode;
             entity.ParentCategoryId = ParentCategoryId;
     
             Converting(entity);
@@ -106,9 +102,8 @@ namespace CriticalPath.Data
         partial void Converting(ProductCategory entity);
       
         public int Id { get; set; }
-        public string Title { get; set; }
-        public string Code { get; set; }
-        public string Description { get; set; }
+        public string CategoryName { get; set; }
+        public string CategoryCode { get; set; }
         public Nullable<int> ParentCategoryId { get; set; }
     }
 }

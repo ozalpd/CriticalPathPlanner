@@ -17,7 +17,7 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
 {
     public partial class SizingStandardsController : BaseController 
     {
-        protected virtual IQueryable<SizingStandard> GetSizingStandardQuery(QueryParameters qParams)
+        protected virtual async Task<IQueryable<SizingStandard>> GetSizingStandardQuery(QueryParameters qParams)
         {
             var query = GetSizingStandardQuery();
             if (!string.IsNullOrEmpty(qParams.SearchString))
@@ -28,25 +28,36 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                         select a;
             }
 
-            return query;
+            qParams.TotalCount = await query.CountAsync();
+            return query.Skip(qParams.Skip).Take(qParams.PageSize);
+        }
+
+        protected virtual async Task<List<SizingStandardDTO>> GetSizingStandardDtoList(QueryParameters qParams)
+        {
+            var query = await GetSizingStandardQuery(qParams);
+            var list = qParams.TotalCount > 0 ? await query.ToListAsync() : new List<SizingStandard>();
+            var result = new List<SizingStandardDTO>();
+            foreach (var item in list)
+            {
+                result.Add(new SizingStandardDTO(item));
+            }
+
+            return result;
         }
 
         [Authorize]
         public async Task<ActionResult> Index(QueryParameters qParams)
         {
-            var query = GetSizingStandardQuery(qParams);
-            qParams.TotalCount = await query.CountAsync();
-            PutPagerInViewBag(qParams);
+            var query = await GetSizingStandardQuery(qParams);
             await PutCanUserInViewBag();
-
+			var result = new PagedList<SizingStandard>(qParams);
             if (qParams.TotalCount > 0)
             {
-                return View(await query.Skip(qParams.Skip).Take(qParams.PageSize).ToListAsync());
+                result.Items = await query.ToListAsync();
             }
-            else
-            {
-                return View(new List<SizingStandard>());   //there isn't any record, so no need to run a query
-            }
+
+            PutPagerInViewBag(result);
+            return View(result.Items);
         }
         
         protected override async Task<bool> CanUserCreate()
@@ -83,6 +94,21 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
         bool? _canUserDelete;
 
         [Authorize]
+        public async Task<ActionResult> GetSizingStandardList(QueryParameters qParams)
+        {
+            var result = await GetSizingStandardDtoList(qParams);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        [Authorize]
+        public async Task<ActionResult> GetSizingStandardPagedList(QueryParameters qParams)
+        {
+            var items = await GetSizingStandardDtoList(qParams);
+            var result = new PagedList<SizingStandardDTO>(qParams, items);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        [Authorize]
         public async Task<ActionResult> Details(int? id)  //GET: /SizingStandards/Details/5
         {
             if (id == null)
@@ -96,7 +122,25 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 return HttpNotFound();
             }
 
+            await PutCanUserInViewBag();
             return View(sizingStandard);
+        }
+
+        [Authorize]
+        public async Task<ActionResult> GetSizingStandard(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            SizingStandard sizingStandard = await FindAsyncSizingStandard(id.Value);
+
+            if (sizingStandard == null)
+            {
+                return HttpNotFound();
+            }
+
+            return Json(new SizingStandardDTO(sizingStandard), JsonRequestBehavior.AllowGet);
         }
 
 
@@ -116,9 +160,8 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             }
 
             int sizingsCount = sizingStandard.Sizings.Count;
-            int productsCount = sizingStandard.Products.Count;
             int purchaseOrdersCount = sizingStandard.PurchaseOrders.Count;
-            if ((sizingsCount + productsCount + purchaseOrdersCount) > 0)
+            if ((sizingsCount + purchaseOrdersCount) > 0)
             {
                 var sb = new StringBuilder();
 
@@ -130,12 +173,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 if (sizingsCount > 0)
                 {
                     sb.Append(string.Format(MessageStrings.RelatedRecordsExist, sizingsCount, EntityStrings.Sizings));
-                    sb.Append("<br/>");
-                }
-
-                if (productsCount > 0)
-                {
-                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, productsCount, EntityStrings.Products));
                     sb.Append("<br/>");
                 }
 
@@ -167,8 +204,37 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
 
+        public new partial class QueryParameters : BaseController.QueryParameters
+        {
+            public QueryParameters() { }
+            public QueryParameters(QueryParameters parameters) : base(parameters)
+            {
+            }
+        }
 
-        //Partial methods
+        public partial class PagedList<T> : QueryParameters
+        {
+            public PagedList() { }
+            public PagedList(QueryParameters parameters) : base(parameters) { }
+            public PagedList(QueryParameters parameters, IEnumerable<T> items) : this(parameters)
+            {
+                Items = items;
+            }
+
+            public IEnumerable<T> Items
+            {
+                set { _items = value; }
+                get
+                {
+                    if (_items == null)
+                    {
+                        _items = new List<T>();
+                    }
+                    return _items;
+                }
+            }
+            IEnumerable<T> _items;
+        }
         partial void SetSelectLists(SizingStandard sizingStandard);
     }
 }

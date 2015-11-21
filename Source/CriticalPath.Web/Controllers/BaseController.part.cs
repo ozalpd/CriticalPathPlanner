@@ -87,13 +87,13 @@ namespace CriticalPath.Web.Controllers
                 categoryList = new List<ProductCategoryDTO>();
             }
             int categoryId = productCategory == null ? 0 : productCategory.Id;
-            ViewBag.CategoryId = new SelectList(categoryList, "Id", "Title", categoryId);
+            ViewBag.CategoryId = new SelectList(categoryList, "Id", "CategoryName", categoryId);
 
             var query = from c in DataContext.GetProductCategoryDtoQuery()
                         where c.ParentCategoryId == null
                         select c;
             List<ProductCategoryDTO> parentCategoryList = await query.ToListAsync();
-            ViewBag.ParentCategoryId = new SelectList(parentCategoryList, "Id", "Title", parentCategoryId);
+            ViewBag.ParentCategoryId = new SelectList(parentCategoryList, "Id", "CategoryName", parentCategoryId);
         }
 
         protected async Task SetProductSelectListAsync(ProductDTO product)
@@ -117,7 +117,7 @@ namespace CriticalPath.Web.Controllers
             {
                 productList = new List<ProductDTO>();
             }
-            ViewBag.ProductId = new SelectList(productList, "Id", "Title", productCategoryId);
+            ViewBag.ProductId = new SelectList(productList, "Id", "ProductCode", productCategoryId);
             await SetProductCategorySelectListAsync(product);
         }
 
@@ -211,6 +211,19 @@ namespace CriticalPath.Web.Controllers
             return _canUserCancelPO.Value;
         }
         bool? _canUserCancelPO;
+
+        protected virtual async Task<bool> CanUserSeeCustomer()
+        {
+            if (!_canUserSeeCustomer.HasValue)
+            {
+                _canUserSeeCustomer = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync() ||
+                                    await IsUserClerkAsync());
+            }
+            return _canUserSeeCustomer.Value;
+        }
+        bool? _canUserSeeCustomer;
 
         #endregion
     }

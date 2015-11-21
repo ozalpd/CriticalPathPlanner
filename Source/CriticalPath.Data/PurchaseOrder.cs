@@ -18,20 +18,22 @@ namespace CriticalPath.Data
         public PurchaseOrder()
         {
             this.Processes = new HashSet<Process>();
-            this.SizeRates = new HashSet<SizeRate>();
+            this.SizeRatios = new HashSet<SizeRatio>();
         }
     
         public int Id { get; set; }
+        public string PoNr { get; set; }
         public int CustomerId { get; set; }
         public int ProductId { get; set; }
         public int SizingStandardId { get; set; }
         public System.DateTime OrderDate { get; set; }
         public Nullable<System.DateTime> DueDate { get; set; }
-        public string Code { get; set; }
         public string Description { get; set; }
         public int Quantity { get; set; }
         public decimal UnitPrice { get; set; }
-        public int SizeRateDivisor { get; set; }
+        public Nullable<decimal> BuyingPrice { get; set; }
+        public Nullable<decimal> RetailPrice { get; set; }
+        public int SizeRatioDivisor { get; set; }
         public string Notes { get; set; }
         public Nullable<System.DateTime> ApproveDate { get; set; }
         public string ApprovedUserId { get; set; }
@@ -49,13 +51,14 @@ namespace CriticalPath.Data
         public System.DateTime CreateDate { get; set; }
         public string CreatorId { get; set; }
         public string CreatorIp { get; set; }
+        public string CustomerPoNr { get; set; }
     
         public virtual Customer Customer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Process> Processes { get; set; }
         public virtual Product Product { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SizeRate> SizeRates { get; set; }
+        public virtual ICollection<SizeRatio> SizeRatios { get; set; }
         public virtual SizingStandard SizingStandard { get; set; }
         public virtual AspNetUser ApprovedUser { get; set; }
         public virtual AspNetUser CreatedUser { get; set; }
@@ -69,16 +72,18 @@ namespace CriticalPath.Data
         public PurchaseOrder Clone()
         {
             var clone = new PurchaseOrder();
+            clone.PoNr = PoNr;
             clone.CustomerId = CustomerId;
             clone.ProductId = ProductId;
             clone.SizingStandardId = SizingStandardId;
             clone.OrderDate = OrderDate;
             clone.DueDate = DueDate;
-            clone.Code = Code;
             clone.Description = Description;
             clone.Quantity = Quantity;
             clone.UnitPrice = UnitPrice;
-            clone.SizeRateDivisor = SizeRateDivisor;
+            clone.BuyingPrice = BuyingPrice;
+            clone.RetailPrice = RetailPrice;
+            clone.SizeRatioDivisor = SizeRatioDivisor;
             clone.Notes = Notes;
             clone.ApproveDate = ApproveDate;
             clone.ApprovedUserId = ApprovedUserId;
@@ -96,6 +101,7 @@ namespace CriticalPath.Data
             clone.CreateDate = CreateDate;
             clone.CreatorId = CreatorId;
             clone.CreatorIp = CreatorIp;
+            clone.CustomerPoNr = CustomerPoNr;
     
             Cloning(clone);
     
@@ -115,22 +121,25 @@ namespace CriticalPath.Data
         public PurchaseOrderDTO(PurchaseOrder entity)
         {
             Id = entity.Id;
+            PoNr = entity.PoNr;
             CustomerId = entity.CustomerId;
             ProductId = entity.ProductId;
             SizingStandardId = entity.SizingStandardId;
             OrderDate = entity.OrderDate;
             DueDate = entity.DueDate;
-            Code = entity.Code;
             Description = entity.Description;
             Quantity = entity.Quantity;
             UnitPrice = entity.UnitPrice;
-            SizeRateDivisor = entity.SizeRateDivisor;
+            BuyingPrice = entity.BuyingPrice;
+            RetailPrice = entity.RetailPrice;
+            SizeRatioDivisor = entity.SizeRatioDivisor;
             Notes = entity.Notes;
             ApproveDate = entity.ApproveDate;
             Cancelled = entity.Cancelled;
             CancelDate = entity.CancelDate;
             CancelNotes = entity.CancelNotes;
             IsApproved = entity.IsApproved;
+            CustomerPoNr = entity.CustomerPoNr;
         
             Initiliazing(entity);
         }
@@ -141,22 +150,25 @@ namespace CriticalPath.Data
         {
             var entity = new PurchaseOrder();
             entity.Id = Id;
+            entity.PoNr = PoNr;
             entity.CustomerId = CustomerId;
             entity.ProductId = ProductId;
             entity.SizingStandardId = SizingStandardId;
             entity.OrderDate = OrderDate;
             entity.DueDate = DueDate;
-            entity.Code = Code;
             entity.Description = Description;
             entity.Quantity = Quantity;
             entity.UnitPrice = UnitPrice;
-            entity.SizeRateDivisor = SizeRateDivisor;
+            entity.BuyingPrice = BuyingPrice;
+            entity.RetailPrice = RetailPrice;
+            entity.SizeRatioDivisor = SizeRatioDivisor;
             entity.Notes = Notes;
             entity.ApproveDate = ApproveDate;
             entity.Cancelled = Cancelled;
             entity.CancelDate = CancelDate;
             entity.CancelNotes = CancelNotes;
             entity.IsApproved = IsApproved;
+            entity.CustomerPoNr = CustomerPoNr;
     
             Converting(entity);
     
@@ -166,21 +178,24 @@ namespace CriticalPath.Data
         partial void Converting(PurchaseOrder entity);
       
         public int Id { get; set; }
+        public string PoNr { get; set; }
         public int CustomerId { get; set; }
         public int ProductId { get; set; }
         public int SizingStandardId { get; set; }
         public System.DateTime OrderDate { get; set; }
         public Nullable<System.DateTime> DueDate { get; set; }
-        public string Code { get; set; }
         public string Description { get; set; }
         public int Quantity { get; set; }
         public decimal UnitPrice { get; set; }
-        public int SizeRateDivisor { get; set; }
+        public Nullable<decimal> BuyingPrice { get; set; }
+        public Nullable<decimal> RetailPrice { get; set; }
+        public int SizeRatioDivisor { get; set; }
         public string Notes { get; set; }
         public Nullable<System.DateTime> ApproveDate { get; set; }
         public bool Cancelled { get; set; }
         public Nullable<System.DateTime> CancelDate { get; set; }
         public string CancelNotes { get; set; }
         public bool IsApproved { get; set; }
+        public string CustomerPoNr { get; set; }
     }
 }

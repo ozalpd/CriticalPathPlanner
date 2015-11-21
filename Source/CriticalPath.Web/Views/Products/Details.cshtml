@@ -10,30 +10,6 @@
 
 <div class="row">
     <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.Title)
-    </label>
-    <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.Title)
-    </div>
-</div>
-<div class="row">
-    <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.Code)
-    </label>
-    <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.Code)
-    </div>
-</div>
-<div class="row">
-    <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.Description)
-    </label>
-    <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.Description)
-    </div>
-</div>
-<div class="row">
-    <label class="control-label col-md-2 col-sm-3">
         @Html.DisplayNameFor(model => model.Category)
     </label>
     <div class="col-md-10 col-sm-9">
@@ -42,10 +18,18 @@
 </div>
 <div class="row">
     <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.SizingStandard)
+        @Html.DisplayNameFor(model => model.ProductCode)
     </label>
-    <div class="col-md-8 col-sm-9 col-lg-7 pl0">
-        @Html.DisplayFor(m => m.SizingStandard)
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.ProductCode)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.Description)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.Description)
     </div>
 </div>
 @Html.Partial("_DetailFormButtonsPartial")

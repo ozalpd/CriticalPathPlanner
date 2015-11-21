@@ -7,5 +7,9 @@
 }
 @if (Model != null)
 {
-    <div><a href='/ProductCategories/Details/@Model.Id'>@Model.Title</a></div>
+    if (Model.ParentCategory != null)
+    {
+        @: @Model.ParentCategory.CategoryName /
+    }
+    @: @Model.CategoryName
 }

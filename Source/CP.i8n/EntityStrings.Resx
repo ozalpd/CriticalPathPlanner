@@ -75,6 +75,10 @@
 		<value>Add Customer</value>
 	</data>
 
+	<data name="AddManufacturer" xml:space="preserve">
+		<value>Add Factory</value>
+	</data>
+
 	<data name="AddNewAspNetUser" xml:space="preserve">
 		<value>Add New AppUser</value>
 	</data>
@@ -89,6 +93,10 @@
 
 	<data name="AddNewCustomer" xml:space="preserve">
 		<value>Add New Customer</value>
+	</data>
+
+	<data name="AddNewManufacturer" xml:space="preserve">
+		<value>Add New Factory</value>
 	</data>
 
 	<data name="AddNewProcess" xml:space="preserve">
@@ -112,15 +120,15 @@
 	</data>
 
 	<data name="AddNewProductCategory" xml:space="preserve">
-		<value>Add New Product Category</value>
+		<value>Add New Department/Group</value>
 	</data>
 
 	<data name="AddNewPurchaseOrder" xml:space="preserve">
 		<value>Add New Purchase Order</value>
 	</data>
 
-	<data name="AddNewSizeRate" xml:space="preserve">
-		<value>Add New Size Rate</value>
+	<data name="AddNewSizeRatio" xml:space="preserve">
+		<value>Add New Size Ratio</value>
 	</data>
 
 	<data name="AddNewSizing" xml:space="preserve">
@@ -156,7 +164,7 @@
 	</data>
 
 	<data name="AddProductCategory" xml:space="preserve">
-		<value>Add Product Category</value>
+		<value>Add Department/Group</value>
 	</data>
 
 	<data name="AddPurchaseOrder" xml:space="preserve">
@@ -177,6 +185,10 @@
 
 	<data name="AddRemoveCustomer" xml:space="preserve">
 		<value>Add/Remove Customer</value>
+	</data>
+
+	<data name="AddRemoveManufacturer" xml:space="preserve">
+		<value>Add Remove Factory</value>
 	</data>
 
 	<data name="AddRemoveProcess" xml:space="preserve">
@@ -207,8 +219,8 @@
 		<value>Add/Remove Purchase Order</value>
 	</data>
 
-	<data name="AddRemoveSizeRate" xml:space="preserve">
-		<value>Add/Remove Size Rate</value>
+	<data name="AddRemoveSizeRatio" xml:space="preserve">
+		<value>Add Remove Size Ratio</value>
 	</data>
 
 	<data name="AddRemoveSizing" xml:space="preserve">
@@ -231,8 +243,8 @@
 		<value>Address Line 2</value>
 	</data>
 
-	<data name="AddSizeRate" xml:space="preserve">
-		<value>Add Size Rate</value>
+	<data name="AddSizeRatio" xml:space="preserve">
+		<value>Add Size Ratio</value>
 	</data>
 
 	<data name="AddSizing" xml:space="preserve">
@@ -275,6 +287,10 @@
 		<value>AppUsers List</value>
 	</data>
 
+	<data name="BuyingPrice" xml:space="preserve">
+		<value>Buying Price</value>
+	</data>
+
 	<data name="CancelDate" xml:space="preserve">
 		<value>Cancel Date</value>
 	</data>
@@ -304,19 +320,23 @@
 	</data>
 
 	<data name="Category" xml:space="preserve">
-		<value>Category</value>
+		<value>Department/Group</value>
+	</data>
+
+	<data name="CategoryCode" xml:space="preserve">
+		<value>Code</value>
 	</data>
 
 	<data name="CategoryId" xml:space="preserve">
 		<value>Category</value>
 	</data>
 
-	<data name="City" xml:space="preserve">
-		<value>City</value>
+	<data name="CategoryName" xml:space="preserve">
+		<value>Name</value>
 	</data>
 
-	<data name="Code" xml:space="preserve">
-		<value>Code</value>
+	<data name="City" xml:space="preserve">
+		<value>City</value>
 	</data>
 
 	<data name="Companies" xml:space="preserve">
@@ -379,6 +399,10 @@
 		<value>Created User</value>
 	</data>
 
+	<data name="CreateManufacturer" xml:space="preserve">
+		<value>Create Factory</value>
+	</data>
+
 	<data name="CreateProcess" xml:space="preserve">
 		<value>Create Process</value>
 	</data>
@@ -400,15 +424,15 @@
 	</data>
 
 	<data name="CreateProductCategory" xml:space="preserve">
-		<value>Create Product Category</value>
+		<value>Create Department/Group</value>
 	</data>
 
 	<data name="CreatePurchaseOrder" xml:space="preserve">
 		<value>Create Purchase Order</value>
 	</data>
 
-	<data name="CreateSizeRate" xml:space="preserve">
-		<value>Create Size Rate</value>
+	<data name="CreateSizeRatio" xml:space="preserve">
+		<value>Create Size Ratio</value>
 	</data>
 
 	<data name="CreateSizing" xml:space="preserve">
@@ -443,6 +467,10 @@
 		<value>Customer</value>
 	</data>
 
+	<data name="CustomerPoNr" xml:space="preserve">
+		<value>Customer's P.O. Nr.</value>
+	</data>
+
 	<data name="Customers" xml:space="preserve">
 		<value>Customers</value>
 	</data>
@@ -471,6 +499,10 @@
 		<value>Delete Customer</value>
 	</data>
 
+	<data name="DeleteManufacturer" xml:space="preserve">
+		<value>Delete Factory</value>
+	</data>
+
 	<data name="DeleteProcess" xml:space="preserve">
 		<value>Delete Process</value>
 	</data>
@@ -492,15 +524,15 @@
 	</data>
 
 	<data name="DeleteProductCategory" xml:space="preserve">
-		<value>Delete Product Category</value>
+		<value>Delete Department/Group</value>
 	</data>
 
 	<data name="DeletePurchaseOrder" xml:space="preserve">
 		<value>Delete Purchase Order</value>
 	</data>
 
-	<data name="DeleteSizeRate" xml:space="preserve">
-		<value>Delete Size Rate</value>
+	<data name="DeleteSizeRatio" xml:space="preserve">
+		<value>Delete Size Ratio</value>
 	</data>
 
 	<data name="DeleteSizing" xml:space="preserve">
@@ -567,6 +599,10 @@
 		<value>Edit Customer</value>
 	</data>
 
+	<data name="EditManufacturer" xml:space="preserve">
+		<value>Edit Factory</value>
+	</data>
+
 	<data name="EditProcess" xml:space="preserve">
 		<value>Edit Process</value>
 	</data>
@@ -588,15 +624,15 @@
 	</data>
 
 	<data name="EditProductCategory" xml:space="preserve">
-		<value>Edit Product Category</value>
+		<value>Edit Department/Group</value>
 	</data>
 
 	<data name="EditPurchaseOrder" xml:space="preserve">
 		<value>Edit Purchase Order</value>
 	</data>
 
-	<data name="EditSizeRate" xml:space="preserve">
-		<value>Edit Size Rate</value>
+	<data name="EditSizeRatio" xml:space="preserve">
+		<value>Edit Size Ratio</value>
 	</data>
 
 	<data name="EditSizing" xml:space="preserve">
@@ -651,6 +687,22 @@
 		<value>Last Name</value>
 	</data>
 
+	<data name="Manufacturer" xml:space="preserve">
+		<value>Factory</value>
+	</data>
+
+	<data name="ManufacturerCode" xml:space="preserve">
+		<value>Manufacturer Code</value>
+	</data>
+
+	<data name="Manufacturers" xml:space="preserve">
+		<value>Factories</value>
+	</data>
+
+	<data name="ManufacturersList" xml:space="preserve">
+		<value>Factories List</value>
+	</data>
+
 	<data name="ModifiedUser" xml:space="preserve">
 		<value>Modified User</value>
 	</data>
@@ -684,11 +736,11 @@
 	</data>
 
 	<data name="ParentCategory" xml:space="preserve">
-		<value>Parent Category</value>
+		<value>Department</value>
 	</data>
 
 	<data name="ParentCategoryId" xml:space="preserve">
-		<value>Parent Category</value>
+		<value>Department</value>
 	</data>
 
 	<data name="Phone1" xml:space="preserve">
@@ -713,6 +765,10 @@
 
 	<data name="PhoneWork2" xml:space="preserve">
 		<value>Phone Work2</value>
+	</data>
+
+	<data name="PoNr" xml:space="preserve">
+		<value>P.O. Nr.</value>
 	</data>
 
 	<data name="Process" xml:space="preserve">
@@ -776,15 +832,19 @@
 	</data>
 
 	<data name="ProductCategories" xml:space="preserve">
-		<value>Product Categories</value>
+		<value>Departments/Groups</value>
 	</data>
 
 	<data name="ProductCategoriesList" xml:space="preserve">
-		<value>Product Categories List</value>
+		<value>Department/Group List</value>
 	</data>
 
 	<data name="ProductCategory" xml:space="preserve">
-		<value>Product Category</value>
+		<value>Department/Group</value>
+	</data>
+
+	<data name="ProductCode" xml:space="preserve">
+		<value>Item Nr</value>
 	</data>
 
 	<data name="ProductId" xml:space="preserve">
@@ -843,6 +903,10 @@
 		<value>Remove Customer</value>
 	</data>
 
+	<data name="RemoveManufacturer" xml:space="preserve">
+		<value>Remove Factory</value>
+	</data>
+
 	<data name="RemoveProcess" xml:space="preserve">
 		<value>Remove Process</value>
 	</data>
@@ -864,15 +928,15 @@
 	</data>
 
 	<data name="RemoveProductCategory" xml:space="preserve">
-		<value>Remove Product Category</value>
+		<value>Remove Department/Group</value>
 	</data>
 
 	<data name="RemovePurchaseOrder" xml:space="preserve">
 		<value>Remove Purchase Order</value>
 	</data>
 
-	<data name="RemoveSizeRate" xml:space="preserve">
-		<value>Remove Size Rate</value>
+	<data name="RemoveSizeRatio" xml:space="preserve">
+		<value>Remove Size Ratio</value>
 	</data>
 
 	<data name="RemoveSizing" xml:space="preserve">
@@ -891,20 +955,24 @@
 		<value>Required Work Days</value>
 	</data>
 
-	<data name="SizeRate" xml:space="preserve">
-		<value>Size Rate</value>
+	<data name="RetailPrice" xml:space="preserve">
+		<value>Retail Price</value>
 	</data>
 
-	<data name="SizeRateDivisor" xml:space="preserve">
-		<value>Size Rate Divisor</value>
+	<data name="SizeRatio" xml:space="preserve">
+		<value>Size Ratio</value>
 	</data>
 
-	<data name="SizeRates" xml:space="preserve">
-		<value>Size Rates</value>
+	<data name="SizeRatioDivisor" xml:space="preserve">
+		<value>Size Ratio Divisor</value>
 	</data>
 
-	<data name="SizeRatesList" xml:space="preserve">
-		<value>Size Rates List</value>
+	<data name="SizeRatios" xml:space="preserve">
+		<value>Size Ratios</value>
+	</data>
+
+	<data name="SizeRatiosList" xml:space="preserve">
+		<value>Size Ratios List</value>
 	</data>
 
 	<data name="Sizing" xml:space="preserve">
@@ -948,7 +1016,7 @@
 	</data>
 
 	<data name="SubCategories" xml:space="preserve">
-		<value>Sub Categories</value>
+		<value>Product Groups</value>
 	</data>
 
 	<data name="Supplier" xml:space="preserve">

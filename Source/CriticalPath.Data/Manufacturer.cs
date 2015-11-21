@@ -12,32 +12,20 @@ namespace CriticalPath.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Supplier : Company
+    public partial class Manufacturer : Company
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Supplier()
-        {
-            this.Products = new HashSet<Product>();
-            this.Processes = new HashSet<Process>();
-            this.Manufacturers = new HashSet<Manufacturer>();
-        }
+        public string ManufacturerCode { get; set; }
+        public int SupplierId { get; set; }
     
-        public string SupplierCode { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Products { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Process> Processes { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Manufacturer> Manufacturers { get; set; }
+        public virtual Supplier Supplier { get; set; }
     	/// <summary>
-    	/// Clones all properties in a new Supplier instance,
+    	/// Clones all properties in a new Manufacturer instance,
     	/// except PrimaryKey(s)
     	/// </summary>
-    	/// <returns>New Supplier instance</returns>
-        public Supplier Clone()
+    	/// <returns>New Manufacturer instance</returns>
+        public Manufacturer Clone()
         {
-            var clone = new Supplier();
+            var clone = new Manufacturer();
             clone.CompanyName = CompanyName;
             clone.Phone1 = Phone1;
             clone.Phone2 = Phone2;
@@ -61,24 +49,25 @@ namespace CriticalPath.Data
             clone.CreateDate = CreateDate;
             clone.CreatorId = CreatorId;
             clone.CreatorIp = CreatorIp;
-            clone.SupplierCode = SupplierCode;
+            clone.ManufacturerCode = ManufacturerCode;
+            clone.SupplierId = SupplierId;
     
             Cloning(clone);
     
             return clone;
         }
     
-    	// Use below function in a partial class file (eg. Supplier.part.cs)
+    	// Use below function in a partial class file (eg. Manufacturer.part.cs)
     	// to add more complexity to clone
-        partial void Cloning(Supplier clone);
+        partial void Cloning(Manufacturer clone);
     }
     
-    //Data Transfer Object type for Supplier
-    public partial class SupplierDTO
+    //Data Transfer Object type for Manufacturer
+    public partial class ManufacturerDTO
     {
-        public SupplierDTO() { }
+        public ManufacturerDTO() { }
     
-        public SupplierDTO(Supplier entity)
+        public ManufacturerDTO(Manufacturer entity)
         {
             Id = entity.Id;
             CompanyName = entity.CompanyName;
@@ -95,16 +84,17 @@ namespace CriticalPath.Data
             DiscontinueDate = entity.DiscontinueDate;
             DiscontinueNotes = entity.DiscontinueNotes;
             Notes = entity.Notes;
-            SupplierCode = entity.SupplierCode;
+            ManufacturerCode = entity.ManufacturerCode;
+            SupplierId = entity.SupplierId;
         
             Initiliazing(entity);
         }
     
-        partial void Initiliazing(Supplier entity);
+        partial void Initiliazing(Manufacturer entity);
         
-        public virtual Supplier ToSupplier()
+        public virtual Manufacturer ToManufacturer()
         {
-            var entity = new Supplier();
+            var entity = new Manufacturer();
             entity.Id = Id;
             entity.CompanyName = CompanyName;
             entity.Phone1 = Phone1;
@@ -120,14 +110,15 @@ namespace CriticalPath.Data
             entity.DiscontinueDate = DiscontinueDate;
             entity.DiscontinueNotes = DiscontinueNotes;
             entity.Notes = Notes;
-            entity.SupplierCode = SupplierCode;
+            entity.ManufacturerCode = ManufacturerCode;
+            entity.SupplierId = SupplierId;
     
             Converting(entity);
     
             return entity;
         }
     
-        partial void Converting(Supplier entity);
+        partial void Converting(Manufacturer entity);
       
         public int Id { get; set; }
         public string CompanyName { get; set; }
@@ -144,6 +135,7 @@ namespace CriticalPath.Data
         public Nullable<System.DateTime> DiscontinueDate { get; set; }
         public string DiscontinueNotes { get; set; }
         public string Notes { get; set; }
-        public string SupplierCode { get; set; }
+        public string ManufacturerCode { get; set; }
+        public int SupplierId { get; set; }
     }
 }

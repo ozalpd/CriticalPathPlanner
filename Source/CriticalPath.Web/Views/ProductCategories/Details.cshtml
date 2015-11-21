@@ -3,57 +3,61 @@
 @using CP.i8n
 @model ProductCategory
 @{
-    ViewBag.Title = EntityStrings.ProductCategory;
+    ViewBag.Title = (Model.SubCategories.Count > 0) ? EntityStrings.ParentCategory : EntityStrings.SubCategories;
 }
 
-<h2>@EntityStrings.ProductCategory @ActionStrings.Details</h2>
+<h2>@ViewBag.Title @ActionStrings.Details</h2>
 
+@if (Model.ParentCategory != null)
+{
+    <div class="row">
+        <label class="control-label col-md-2 col-sm-3">
+            @Html.DisplayNameFor(model => model.ParentCategory)
+        </label>
+        <div class="col-md-10 col-sm-9">
+            <div><a href="/ProductCategories/Details/@Model.ParentCategory.Id">@Model.ParentCategory.CategoryName</a></div>
+        </div>
+    </div>
+}
 <div class="row">
     <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.Title)
+        @Html.DisplayNameFor(model => model.CategoryName)
     </label>
     <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.Title)
+        @Html.DisplayFor(m => m.CategoryName)
     </div>
 </div>
 <div class="row">
     <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.Code)
+        @Html.DisplayNameFor(model => model.CategoryCode)
     </label>
     <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.Code)
+        @Html.DisplayFor(m => m.CategoryCode)
     </div>
 </div>
-<div class="row">
-    <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.Description)
-    </label>
-    <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.Description)
+@if (Model.SubCategories.Count > 0)
+{
+    <div class="row">
+        <label class="control-label col-md-2 col-sm-3">
+            @Html.DisplayNameFor(model => model.SubCategories)
+        </label>
+        <div class="col-md-10 col-sm-9">
+            @foreach (var item in Model.SubCategories)
+            {
+                <div><a href="/ProductCategories/Details/@item.Id">@item.CategoryName</a></div>
+            }
+        </div>
     </div>
-</div>
-<div class="row">
-    <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.ParentCategory)
-    </label>
-    <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.ParentCategory)
-    </div>
-</div>
-<div class="row">
-    <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.SubCategories)
-    </label>
-    <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.SubCategories)
-    </div>
-</div>
+}
 <div class="row">
     <label class="control-label col-md-2 col-sm-3">
         @Html.DisplayNameFor(model => model.Products)
     </label>
     <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.Products)
+        @foreach (var product in Model.Products)
+        {
+            <div><a href="/Products/Details/@product.Id" title="@product.Description">@product.ProductCode</a></div>
+        }
     </div>
 </div>
 @Html.Partial("_DetailFormButtonsPartial")

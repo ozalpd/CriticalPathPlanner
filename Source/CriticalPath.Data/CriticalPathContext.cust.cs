@@ -11,18 +11,31 @@ namespace CriticalPath.Data
 {
     public partial class CriticalPathContext
     {
-        public override IQueryable<PurchaseOrder> GetPurchaseOrderQuery()
-        {
-            return base.GetPurchaseOrderQuery()
-                    .OrderByDescending(po => po.OrderDate)
-                    .ThenByDescending(po => po.ApproveDate);
-        }
 
         public override IQueryable<Contact> GetContactQuery()
         {
             return base.GetContactQuery()
                     .OrderBy(c => c.FirstName)
                     .ThenBy(c => c.LastName);
+        }
+
+        public override IQueryable<ProductCategory> GetProductCategoryQuery()
+        {
+            return base.GetProductCategoryQuery()
+                    .OrderBy(pc => pc.ParentCategory.CategoryName)
+                    .ThenBy(pc => pc.CategoryName);
+        }
+
+        public override IQueryable<Product> GetProductQuery()
+        {
+            return base.GetProductQuery().OrderBy(p => p.ProductCode);
+        }
+
+        public override IQueryable<PurchaseOrder> GetPurchaseOrderQuery()
+        {
+            return base.GetPurchaseOrderQuery()
+                    .OrderByDescending(po => po.OrderDate)
+                    .ThenByDescending(po => po.ApproveDate);
         }
 
         public async Task<ProductCategory> FindProductCategory(int id)
