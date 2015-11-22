@@ -33,8 +33,16 @@
     <Translation>Kişi Ekle</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddCurrency</Name>
+    <Translation>Add Currency</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddCustomer</Name>
     <Translation>Müşteri Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddFreightTerm</Name>
+    <Translation>Add Freight Term</Translation>
   </Vocab>
   <Vocab>
     <Name>AddManufacturer</Name>
@@ -57,8 +65,16 @@
     <Translation>Yeni Kişi Ekle</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddNewCurrency</Name>
+    <Translation>Add New Currency</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddNewCustomer</Name>
     <Translation>Yeni Müşteri Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewFreightTerm</Name>
+    <Translation>Add New Freight Term</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNewManufacturer</Name>
@@ -185,8 +201,16 @@
     <Translation>Kişi Ekle/Çıkar</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddRemoveCurrency</Name>
+    <Translation>Add Remove Currency</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddRemoveCustomer</Name>
     <Translation>Müşteri Ekle/Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveFreightTerm</Name>
+    <Translation>Add Remove Freight Term</Translation>
   </Vocab>
   <Vocab>
     <Name>AddRemoveManufacturer</Name>
@@ -355,6 +379,14 @@
   <Vocab>
     <Name>BecauseOfRelatedRecords</Name>
     <Translation>Bu kayıtla ilişkili başka kayıtlar mevcut.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>BuyingCurrency</Name>
+    <Translation>Buying Currency</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>BuyingCurrencyId</Name>
+    <Translation>Buying Currency Id</Translation>
   </Vocab>
   <Vocab>
     <Name>BuyingPrice</Name>
@@ -541,6 +573,10 @@
     <Translation>Kişi Oluştur</Translation>
   </Vocab>
   <Vocab>
+    <Name>CreateCurrency</Name>
+    <Translation>Create Currency</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CreateCustomer</Name>
     <Translation>Müşteri Oluştur</Translation>
   </Vocab>
@@ -551,6 +587,10 @@
   <Vocab>
     <Name>CreatedUser</Name>
     <Translation>Oluşturan Kullanıcı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateFreightTerm</Name>
+    <Translation>Create Freight Term</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateManufacturer</Name>
@@ -641,6 +681,30 @@
     <Translation>Oluşturan IP</Translation>
   </Vocab>
   <Vocab>
+    <Name>Currencies</Name>
+    <Translation>Currencies</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CurrenciesList</Name>
+    <Translation>Currencies List</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Currency</Name>
+    <Translation>Currency</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CurrencyCode</Name>
+    <Translation>Currency Code</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CurrencyName</Name>
+    <Translation>Currency Name</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CurrencySymbol</Name>
+    <Translation>Currency Symbol</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Customer</Name>
     <Translation>Müşteri</Translation>
   </Vocab>
@@ -689,8 +753,16 @@
     <Translation>Kişi Sil</Translation>
   </Vocab>
   <Vocab>
+    <Name>DeleteCurrency</Name>
+    <Translation>Delete Currency</Translation>
+  </Vocab>
+  <Vocab>
     <Name>DeleteCustomer</Name>
     <Translation>Müşteri Sil</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteFreightTerm</Name>
+    <Translation>Delete Freight Term</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteManufacturer</Name>
@@ -809,6 +881,10 @@
     <Translation>Sonlandırma Notları</Translation>
   </Vocab>
   <Vocab>
+    <Name>DiscountRate</Name>
+    <Translation>Discount Rate</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Display</Name>
     <Translation>Göster</Translation>
   </Vocab>
@@ -857,8 +933,16 @@
     <Translation>Kişiyi Düzenle</Translation>
   </Vocab>
   <Vocab>
+    <Name>EditCurrency</Name>
+    <Translation>Edit Currency</Translation>
+  </Vocab>
+  <Vocab>
     <Name>EditCustomer</Name>
     <Translation>Müşteriyi Düzenle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditFreightTerm</Name>
+    <Translation>Edit Freight Term</Translation>
   </Vocab>
   <Vocab>
     <Name>EditManufacturer</Name>
@@ -989,6 +1073,22 @@
     <Translation>Öngörülen Başlama Tarihi</Translation>
   </Vocab>
   <Vocab>
+    <Name>FreightTerm</Name>
+    <Translation>Freight Term</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>FreightTermId</Name>
+    <Translation>Freight Term Id</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>FreightTerms</Name>
+    <Translation>Freight Terms</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>FreightTermsList</Name>
+    <Translation>Freight Terms List</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Height</Name>
     <Translation>Yükseklik</Translation>
   </Vocab>
@@ -1027,6 +1127,10 @@
   <Vocab>
     <Name>InactivateNotes</Name>
     <Translation>İnaktifleşme Notu</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>IncotermCode</Name>
+    <Translation>Incoterm Code</Translation>
   </Vocab>
   <Vocab>
     <Name>Index</Name>
@@ -1453,8 +1557,16 @@
     <Translation>Kişiyi Çıkar</Translation>
   </Vocab>
   <Vocab>
+    <Name>RemoveCurrency</Name>
+    <Translation>Remove Currency</Translation>
+  </Vocab>
+  <Vocab>
     <Name>RemoveCustomer</Name>
     <Translation>Müşteriyi Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveFreightTerm</Name>
+    <Translation>Remove Freight Term</Translation>
   </Vocab>
   <Vocab>
     <Name>RemoveManufacturer</Name>
@@ -1517,8 +1629,28 @@
     <Translation>Gereken İş Günü</Translation>
   </Vocab>
   <Vocab>
+    <Name>RetailCurrency</Name>
+    <Translation>Retail Currency</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RetailCurrencyId</Name>
+    <Translation>Retail Currency Id</Translation>
+  </Vocab>
+  <Vocab>
     <Name>RetailPrice</Name>
     <Translation>Perakende Fiyatı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RoyaltyCurrency</Name>
+    <Translation>Royalty Currency</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RoyaltyCurrencyId</Name>
+    <Translation>Royalty Currency Id</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RoyaltyFee</Name>
+    <Translation>Royalty Fee</Translation>
   </Vocab>
   <Vocab>
     <Name>Save</Name>
@@ -1537,8 +1669,20 @@
     <Translation>Seç</Translation>
   </Vocab>
   <Vocab>
+    <Name>SelectCurrency</Name>
+    <Translation>Select Currency</Translation>
+  </Vocab>
+  <Vocab>
     <Name>SelectPlease</Name>
     <Translation>Lütfen Seçiniz</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SellingCurrency</Name>
+    <Translation>Selling Currency</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SellingCurrencyId</Name>
+    <Translation>Selling Currency Id</Translation>
   </Vocab>
   <Vocab>
     <Name>Settings</Name>
@@ -1691,6 +1835,10 @@
   <Vocab>
     <Name>SupplierCode</Name>
     <Translation>Tedarikçi Kodu</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SupplierDueDate</Name>
+    <Translation>Supplier Due Date</Translation>
   </Vocab>
   <Vocab>
     <Name>SupplierId</Name>

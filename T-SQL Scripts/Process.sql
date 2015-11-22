@@ -7,7 +7,6 @@ CREATE TABLE [dbo].[Processes](
     [IsApproved] [bit] Not Null,
     [ApproveDate] [DateTime] Null,
     [PurchaseOrderId] [int] Not Null Constraint FK_Process_PurchaseOrderId Foreign Key References [dbo].[PurchaseOrders]([Id]),
-    [SupplierId] [int] Not Null Constraint FK_Process_SupplierId Foreign Key References [dbo].[Suppliers]([Id]),
     [Description] [nVarChar](256) Null,
     [IsCompleted] [bit] Not Null,
     [Cancelled] [bit] Not Null,

@@ -10,6 +10,43 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
 {
     public partial class SetupController
     {
+        private async Task SeedCurrencies(StringBuilder sb)
+        {
+            int count = await DataContext.GetCurrencyQuery().CountAsync();
+            if (count > 0)
+            {
+                sb.Append("Database already has ");
+                sb.Append(count);
+                sb.Append(" Currency records.<br>");
+                return;
+            }
+
+            var currencies = GetCurrencies();
+            foreach (var item in currencies)
+            {
+                DataContext.Currencies.Add(item);
+            }
+
+            sb.Append("<h4>");
+            sb.Append(currencies.Length);
+            sb.Append(' ');
+            sb.Append(" Currency records added.</h4>");
+        }
+
+        private Currency[] GetCurrencies()
+        {
+            Currency[] c = new Currency[]
+            {
+                new Currency {CurrencyName="Turkish Lira", CurrencyCode="TRY",CurrencySymbol="₺", IsActive=true },
+                new Currency {CurrencyName="United States Dollar", CurrencyCode="USD",CurrencySymbol="$",IsActive=true },
+                new Currency {CurrencyName="United Kingdom Pound", CurrencyCode="GBP",CurrencySymbol="£",IsActive=true },
+                new Currency {CurrencyName="Turkish Lira", CurrencyCode="TRY",CurrencySymbol="₺",IsActive=true },
+                new Currency {CurrencyName="Canada Dollar", CurrencyCode="CAN",CurrencySymbol="$",IsActive=true }
+            };
+
+            return c;
+        }
+
         private async Task SeedFreightTerms(StringBuilder sb)
         {
             int count = await DataContext.GetFreightTermQuery().CountAsync();
@@ -30,26 +67,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             sb.Append(freightTerms.Length);
             sb.Append(' ');
             sb.Append(" FreightTerm records added.</h4>");
-        }
-
-        private FreightTerm[] GetFreightTerms()
-        {
-            FreightTerm[] terms =
-            {
-                new FreightTerm { IncotermCode="EXW" },
-                new FreightTerm { IncotermCode="FCA" },
-                new FreightTerm { IncotermCode="FAS" },
-                new FreightTerm { IncotermCode="FOB",IsActive=true },
-                new FreightTerm { IncotermCode="CPT" },
-                new FreightTerm { IncotermCode="CFR (CNF)" },
-                new FreightTerm { IncotermCode="CIF", IsActive=true },
-                new FreightTerm { IncotermCode="CIP" },
-                new FreightTerm { IncotermCode="DAT" },
-                new FreightTerm { IncotermCode="DAP" },
-                new FreightTerm { IncotermCode="DDP" }
-            };
-
-            return terms;
         }
 
         private async Task SeedSizingStandards(StringBuilder sb)
@@ -74,6 +91,26 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             sb.Append(sizingStandards.Length);
             sb.Append(' ');
             sb.Append(" SizingStandard records added.</h4>");
+        }
+
+        private FreightTerm[] GetFreightTerms()
+        {
+            FreightTerm[] terms =
+            {
+                new FreightTerm { IncotermCode="EXW" },
+                new FreightTerm { IncotermCode="FCA" },
+                new FreightTerm { IncotermCode="FAS" },
+                new FreightTerm { IncotermCode="FOB",IsActive=true },
+                new FreightTerm { IncotermCode="CPT" },
+                new FreightTerm { IncotermCode="CFR (CNF)" },
+                new FreightTerm { IncotermCode="CIF", IsActive=true },
+                new FreightTerm { IncotermCode="CIP" },
+                new FreightTerm { IncotermCode="DAT" },
+                new FreightTerm { IncotermCode="DAP" },
+                new FreightTerm { IncotermCode="DDP" }
+            };
+
+            return terms;
         }
 
         private SizingStandard[] GetSizingStandards()

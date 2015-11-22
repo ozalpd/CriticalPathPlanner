@@ -33,6 +33,9 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             await SeedSuppliers(sb);
             await DataContext.SaveChangesAsync(this);
 
+            await SeedCurrencies(sb);
+            await DataContext.SaveChangesAsync(this);
+
             await SeedProducts(sb);
             await DataContext.SaveChangesAsync(this);
 

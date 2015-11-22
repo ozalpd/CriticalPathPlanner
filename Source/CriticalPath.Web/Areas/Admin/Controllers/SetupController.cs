@@ -31,6 +31,9 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             await SeedFreightTerms(sb);
             await DataContext.SaveChangesAsync(this);
 
+            await SeedCurrencies(sb);
+            await DataContext.SaveChangesAsync(this);
+
             ViewBag.status = sb.ToString();
             return View("Index");
         }
@@ -46,6 +49,16 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             sb.Append("Database has ");
             sb.Append(count);
             sb.Append(" SizingStandard records.<br>");
+
+            count = await DataContext.GetFreightTermQuery().CountAsync();
+            sb.Append("Database has ");
+            sb.Append(count);
+            sb.Append(" FreightTerm records.<br>");
+
+            count = await DataContext.GetCurrencyQuery().CountAsync();
+            sb.Append("Database has ");
+            sb.Append(count);
+            sb.Append(" Currency records.<br>");
 
             count = await DataContext.GetCustomerQuery().CountAsync();
             sb.Append("Database has ");
