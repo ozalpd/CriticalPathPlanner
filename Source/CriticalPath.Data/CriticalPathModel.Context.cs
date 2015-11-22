@@ -44,6 +44,8 @@ namespace CriticalPath.Data
         public virtual DbSet<SizingStandard> SizingStandards { get; set; }
         public virtual DbSet<Sizing> Sizings { get; set; }
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
+        public virtual DbSet<FreightTerm> FreightTerms { get; set; }
+        public virtual DbSet<Currency> Currencies { get; set; }
     
         /// <summary>
         /// Default query for AspNetUsers
@@ -138,6 +140,7 @@ namespace CriticalPath.Data
                        DiscontinueNotes = e.DiscontinueNotes,
                        Notes = e.Notes,
                        CustomerCode = e.CustomerCode,
+                       DiscountRate = e.DiscountRate,
                    };
         }
     
@@ -290,6 +293,81 @@ namespace CriticalPath.Data
     
     
         /// <summary>
+        /// Default query for Currencies
+        /// </summary>
+        /// <returns></returns>
+        public virtual IQueryable<Currency> GetCurrencyQuery()
+        {
+            IQueryable<Currency> query = Currencies;
+            return query;
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from Currency query
+        /// </summary>
+        /// <param name="query">query to be converted</param>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<CurrencyDTO> GetCurrencyDtoQuery()
+        {
+            return GetCurrencyDtoQuery(GetCurrencyQuery());
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from Currency query
+        /// </summary>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<CurrencyDTO> GetCurrencyDtoQuery(IQueryable<Currency> query)
+        {
+            return from e in query
+                   select new CurrencyDTO
+                   {
+                       Id = e.Id,
+                       CurrencyName = e.CurrencyName,
+                       CurrencyCode = e.CurrencyCode,
+                       CurrencySymbol = e.CurrencySymbol,
+                       IsActive = e.IsActive,
+                   };
+        }
+    
+    
+        /// <summary>
+        /// Default query for FreightTerms
+        /// </summary>
+        /// <returns></returns>
+        public virtual IQueryable<FreightTerm> GetFreightTermQuery()
+        {
+            IQueryable<FreightTerm> query = FreightTerms;
+            return query;
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from FreightTerm query
+        /// </summary>
+        /// <param name="query">query to be converted</param>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<FreightTermDTO> GetFreightTermDtoQuery()
+        {
+            return GetFreightTermDtoQuery(GetFreightTermQuery());
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from FreightTerm query
+        /// </summary>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<FreightTermDTO> GetFreightTermDtoQuery(IQueryable<FreightTerm> query)
+        {
+            return from e in query
+                   select new FreightTermDTO
+                   {
+                       Id = e.Id,
+                       IncotermCode = e.IncotermCode,
+                       Description = e.Description,
+                       IsActive = e.IsActive,
+                   };
+        }
+    
+    
+        /// <summary>
         /// Default query for Processes
         /// </summary>
         /// <returns></returns>
@@ -323,7 +401,6 @@ namespace CriticalPath.Data
                        Description = e.Description,
                        ProcessTemplateId = e.ProcessTemplateId,
                        PurchaseOrderId = e.PurchaseOrderId,
-                       SupplierId = e.SupplierId,
                        StartDate = e.StartDate,
                        TargetDate = e.TargetDate,
                        ForecastDate = e.ForecastDate,
@@ -529,6 +606,14 @@ namespace CriticalPath.Data
                        Description = e.Description,
                        CategoryId = e.CategoryId,
                        ImageUrl = e.ImageUrl,
+                       UnitPrice = e.UnitPrice,
+                       SellingCurrencyId = e.SellingCurrencyId,
+                       BuyingPrice = e.BuyingPrice,
+                       BuyingCurrencyId = e.BuyingCurrencyId,
+                       RoyaltyFee = e.RoyaltyFee,
+                       RoyaltyCurrencyId = e.RoyaltyCurrencyId,
+                       RetailPrice = e.RetailPrice,
+                       RetailCurrencyId = e.RetailCurrencyId,
                        Discontinued = e.Discontinued,
                        DiscontinueDate = e.DiscontinueDate,
                        DiscontinueNotes = e.DiscontinueNotes,
@@ -567,24 +652,33 @@ namespace CriticalPath.Data
                    {
                        Id = e.Id,
                        PoNr = e.PoNr,
-                       CustomerId = e.CustomerId,
-                       ProductId = e.ProductId,
-                       SizingStandardId = e.SizingStandardId,
                        OrderDate = e.OrderDate,
                        DueDate = e.DueDate,
                        Description = e.Description,
+                       CustomerId = e.CustomerId,
+                       CustomerPoNr = e.CustomerPoNr,
+                       ProductId = e.ProductId,
+                       SizingStandardId = e.SizingStandardId,
                        Quantity = e.Quantity,
+                       DiscountRate = e.DiscountRate,
                        UnitPrice = e.UnitPrice,
+                       SellingCurrencyId = e.SellingCurrencyId,
                        BuyingPrice = e.BuyingPrice,
+                       BuyingCurrencyId = e.BuyingCurrencyId,
+                       RoyaltyFee = e.RoyaltyFee,
+                       RoyaltyCurrencyId = e.RoyaltyCurrencyId,
                        RetailPrice = e.RetailPrice,
+                       RetailCurrencyId = e.RetailCurrencyId,
                        SizeRatioDivisor = e.SizeRatioDivisor,
+                       FreightTermId = e.FreightTermId,
+                       SupplierId = e.SupplierId,
+                       SupplierDueDate = e.SupplierDueDate,
                        Notes = e.Notes,
+                       IsApproved = e.IsApproved,
                        ApproveDate = e.ApproveDate,
                        Cancelled = e.Cancelled,
                        CancelDate = e.CancelDate,
                        CancelNotes = e.CancelNotes,
-                       IsApproved = e.IsApproved,
-                       CustomerPoNr = e.CustomerPoNr,
                    };
         }
     

@@ -26,13 +26,21 @@ namespace CriticalPath.Data
         public string Description { get; set; }
         public int CategoryId { get; set; }
         public string ImageUrl { get; set; }
+        public decimal UnitPrice { get; set; }
+        public int SellingCurrencyId { get; set; }
+        public Nullable<decimal> BuyingPrice { get; set; }
+        public Nullable<int> BuyingCurrencyId { get; set; }
+        public decimal RoyaltyFee { get; set; }
+        public Nullable<int> RoyaltyCurrencyId { get; set; }
+        public Nullable<decimal> RetailPrice { get; set; }
+        public Nullable<int> RetailCurrencyId { get; set; }
         public bool Discontinued { get; set; }
         public Nullable<System.DateTime> DiscontinueDate { get; set; }
         public string DiscontinueNotes { get; set; }
-        public int ModifyNr { get; set; }
-        public System.DateTime ModifyDate { get; set; }
         public string DiscontinuedUserId { get; set; }
         public string DiscontinuedUserIp { get; set; }
+        public int ModifyNr { get; set; }
+        public System.DateTime ModifyDate { get; set; }
         public string ModifierId { get; set; }
         public string ModifierIp { get; set; }
         public System.DateTime CreateDate { get; set; }
@@ -47,6 +55,10 @@ namespace CriticalPath.Data
         public virtual AspNetUser DiscontinuedUser { get; set; }
         public virtual AspNetUser ModifiedUser { get; set; }
         public virtual AspNetUser CreatedUser { get; set; }
+        public virtual Currency BuyingCurrency { get; set; }
+        public virtual Currency RetailCurrency { get; set; }
+        public virtual Currency RoyaltyCurrency { get; set; }
+        public virtual Currency SellingCurrency { get; set; }
     	/// <summary>
     	/// Clones all properties in a new Product instance,
     	/// except PrimaryKey(s)
@@ -59,13 +71,21 @@ namespace CriticalPath.Data
             clone.Description = Description;
             clone.CategoryId = CategoryId;
             clone.ImageUrl = ImageUrl;
+            clone.UnitPrice = UnitPrice;
+            clone.SellingCurrencyId = SellingCurrencyId;
+            clone.BuyingPrice = BuyingPrice;
+            clone.BuyingCurrencyId = BuyingCurrencyId;
+            clone.RoyaltyFee = RoyaltyFee;
+            clone.RoyaltyCurrencyId = RoyaltyCurrencyId;
+            clone.RetailPrice = RetailPrice;
+            clone.RetailCurrencyId = RetailCurrencyId;
             clone.Discontinued = Discontinued;
             clone.DiscontinueDate = DiscontinueDate;
             clone.DiscontinueNotes = DiscontinueNotes;
-            clone.ModifyNr = ModifyNr;
-            clone.ModifyDate = ModifyDate;
             clone.DiscontinuedUserId = DiscontinuedUserId;
             clone.DiscontinuedUserIp = DiscontinuedUserIp;
+            clone.ModifyNr = ModifyNr;
+            clone.ModifyDate = ModifyDate;
             clone.ModifierId = ModifierId;
             clone.ModifierIp = ModifierIp;
             clone.CreateDate = CreateDate;
@@ -94,6 +114,14 @@ namespace CriticalPath.Data
             Description = entity.Description;
             CategoryId = entity.CategoryId;
             ImageUrl = entity.ImageUrl;
+            UnitPrice = entity.UnitPrice;
+            SellingCurrencyId = entity.SellingCurrencyId;
+            BuyingPrice = entity.BuyingPrice;
+            BuyingCurrencyId = entity.BuyingCurrencyId;
+            RoyaltyFee = entity.RoyaltyFee;
+            RoyaltyCurrencyId = entity.RoyaltyCurrencyId;
+            RetailPrice = entity.RetailPrice;
+            RetailCurrencyId = entity.RetailCurrencyId;
             Discontinued = entity.Discontinued;
             DiscontinueDate = entity.DiscontinueDate;
             DiscontinueNotes = entity.DiscontinueNotes;
@@ -111,6 +139,14 @@ namespace CriticalPath.Data
             entity.Description = Description;
             entity.CategoryId = CategoryId;
             entity.ImageUrl = ImageUrl;
+            entity.UnitPrice = UnitPrice;
+            entity.SellingCurrencyId = SellingCurrencyId;
+            entity.BuyingPrice = BuyingPrice;
+            entity.BuyingCurrencyId = BuyingCurrencyId;
+            entity.RoyaltyFee = RoyaltyFee;
+            entity.RoyaltyCurrencyId = RoyaltyCurrencyId;
+            entity.RetailPrice = RetailPrice;
+            entity.RetailCurrencyId = RetailCurrencyId;
             entity.Discontinued = Discontinued;
             entity.DiscontinueDate = DiscontinueDate;
             entity.DiscontinueNotes = DiscontinueNotes;
@@ -127,6 +163,14 @@ namespace CriticalPath.Data
         public string Description { get; set; }
         public int CategoryId { get; set; }
         public string ImageUrl { get; set; }
+        public decimal UnitPrice { get; set; }
+        public int SellingCurrencyId { get; set; }
+        public Nullable<decimal> BuyingPrice { get; set; }
+        public Nullable<int> BuyingCurrencyId { get; set; }
+        public decimal RoyaltyFee { get; set; }
+        public Nullable<int> RoyaltyCurrencyId { get; set; }
+        public Nullable<decimal> RetailPrice { get; set; }
+        public Nullable<int> RetailCurrencyId { get; set; }
         public bool Discontinued { get; set; }
         public Nullable<System.DateTime> DiscontinueDate { get; set; }
         public string DiscontinueNotes { get; set; }

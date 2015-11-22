@@ -26,8 +26,8 @@ namespace CriticalPath.Web.Controllers
                             a.PurchaseOrder.Product.Description.Contains(qParams.SearchString) |
                             a.PurchaseOrder.Customer.CompanyName.Contains(qParams.SearchString) |
                             a.PurchaseOrder.Customer.CustomerCode.Contains(qParams.SearchString) |
-                            a.Supplier.CompanyName.Contains(qParams.SearchString) |
-                            a.Supplier.SupplierCode.Contains(qParams.SearchString) |
+                            a.PurchaseOrder.Supplier.CompanyName.Contains(qParams.SearchString) |
+                            a.PurchaseOrder.Supplier.SupplierCode.Contains(qParams.SearchString) |
                             a.Description.Contains(qParams.SearchString)
                         select a;
             }
@@ -37,7 +37,7 @@ namespace CriticalPath.Web.Controllers
             }
             if (qParams.SupplierId != null)
             {
-                query = query.Where(x => x.SupplierId == qParams.SupplierId);
+                query = query.Where(x => x.PurchaseOrder.SupplierId == qParams.SupplierId);
             }
             if (qParams.ProcessTemplateId != null)
             {
@@ -99,36 +99,6 @@ namespace CriticalPath.Web.Controllers
                 processTemplateId = templates.FirstOrDefault().Id;
             }
             ViewBag.ProcessTemplateId = new SelectList(templates, "Id", "TemplateName", processTemplateId);
-        }
-
-        private async Task SetSupplierSelectList(Process process)
-        {
-            if (process.PurchaseOrder == null)
-            {
-                process.PurchaseOrder = process.PurchaseOrder ??
-                                            await DataContext.PurchaseOrders
-                                                .FirstOrDefaultAsync(p => p.Id == process.PurchaseOrderId);
-            }
-            if (process.PurchaseOrder.Product == null)
-            {
-                var purchaseOrder = process.PurchaseOrder;
-                purchaseOrder.Product = purchaseOrder.Product ??
-                            await DataContext.Products
-                                    .FirstOrDefaultAsync(p => p.Id == purchaseOrder.ProductId);
-            }
-
-            int supplierId = process == null ? 0 : process.SupplierId;
-            var suppliers = process.PurchaseOrder.Product.Suppliers;
-            if (suppliers == null || suppliers.Count == 0)
-            {
-                var querySuppliers = DataContext.GetSupplierQuery();
-                suppliers = await querySuppliers.ToListAsync();
-            }
-            else if (supplierId == 0)
-            {
-                supplierId = suppliers.FirstOrDefault().Id;
-            }
-            ViewBag.SupplierId = new SelectList(suppliers, "Id", "CompanyName", supplierId);
         }
 
         partial void OnCreateSaving(Process process)

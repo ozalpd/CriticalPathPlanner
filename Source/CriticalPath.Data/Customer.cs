@@ -21,6 +21,7 @@ namespace CriticalPath.Data
         }
     
         public string CustomerCode { get; set; }
+        public decimal DiscountRate { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PurchaseOrder> Orders { get; set; }
@@ -56,6 +57,7 @@ namespace CriticalPath.Data
             clone.CreatorId = CreatorId;
             clone.CreatorIp = CreatorIp;
             clone.CustomerCode = CustomerCode;
+            clone.DiscountRate = DiscountRate;
     
             Cloning(clone);
     
@@ -90,6 +92,7 @@ namespace CriticalPath.Data
             DiscontinueNotes = entity.DiscontinueNotes;
             Notes = entity.Notes;
             CustomerCode = entity.CustomerCode;
+            DiscountRate = entity.DiscountRate;
         
             Initiliazing(entity);
         }
@@ -115,6 +118,7 @@ namespace CriticalPath.Data
             entity.DiscontinueNotes = DiscontinueNotes;
             entity.Notes = Notes;
             entity.CustomerCode = CustomerCode;
+            entity.DiscountRate = DiscountRate;
     
             Converting(entity);
     
@@ -139,5 +143,6 @@ namespace CriticalPath.Data
         public string DiscontinueNotes { get; set; }
         public string Notes { get; set; }
         public string CustomerCode { get; set; }
+        public decimal DiscountRate { get; set; }
     }
 }

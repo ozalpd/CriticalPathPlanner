@@ -64,7 +64,13 @@
     <Compile Include="Contact.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Currency.cs">
+      <DependentUpon>CriticalPathModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Customer.cs">
+      <DependentUpon>CriticalPathModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FreightTerm.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Manufacturer.cs">

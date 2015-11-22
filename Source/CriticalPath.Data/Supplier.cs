@@ -18,8 +18,8 @@ namespace CriticalPath.Data
         public Supplier()
         {
             this.Products = new HashSet<Product>();
-            this.Processes = new HashSet<Process>();
             this.Manufacturers = new HashSet<Manufacturer>();
+            this.PurchaseOrders = new HashSet<PurchaseOrder>();
         }
     
         public string SupplierCode { get; set; }
@@ -27,9 +27,9 @@ namespace CriticalPath.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Products { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Process> Processes { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Manufacturer> Manufacturers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PurchaseOrder> PurchaseOrders { get; set; }
     	/// <summary>
     	/// Clones all properties in a new Supplier instance,
     	/// except PrimaryKey(s)

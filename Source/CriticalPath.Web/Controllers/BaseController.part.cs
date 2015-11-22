@@ -121,6 +121,37 @@ namespace CriticalPath.Web.Controllers
             await SetProductCategorySelectListAsync(product);
         }
 
+
+
+        protected async Task SetSupplierSelectList(PurchaseOrder purchaseOrder)
+        {
+            if (purchaseOrder.Product == null)
+            {
+                purchaseOrder.Product = purchaseOrder.Product ??
+                            await DataContext.Products
+                                    .FirstOrDefaultAsync(p => p.Id == purchaseOrder.ProductId);
+            }
+
+            int supplierId = purchaseOrder == null ? 0 : purchaseOrder.SupplierId;
+            await SetSupplierSelectList(purchaseOrder.Product, supplierId);
+        }
+
+        protected async Task SetSupplierSelectList(Product product, int supplierId)
+        {
+            var suppliers = product.Suppliers;
+            if (suppliers == null || suppliers.Count == 0)
+            {
+                var querySuppliers = DataContext.GetSupplierQuery();
+                suppliers = await querySuppliers.ToListAsync();
+            }
+            else if (supplierId == 0)
+            {
+                supplierId = suppliers.FirstOrDefault().Id;
+            }
+            ViewBag.SupplierId = new SelectList(suppliers, "Id", "CompanyName", supplierId);
+        }
+
+
         protected async Task SetCustomerSelectListAsync(PurchaseOrderDTO po)
         {
             int customerId = po == null ? 0 : po.CustomerId;

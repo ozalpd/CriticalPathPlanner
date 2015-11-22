@@ -146,7 +146,6 @@ namespace CriticalPath.Web.Controllers
                 process.PurchaseOrder = purchaseOrder;
             }
             await SetProcessDefaults(process);
-            await SetSupplierSelectList(process);
             await SetProcessTemplateSelectList(process);
             return View(process);
         }
@@ -170,7 +169,6 @@ namespace CriticalPath.Web.Controllers
                 return RedirectToAction("Index", "ProcessSteps", new { processId = process.Id, pageSize = process.ProcessSteps.Count });
             }
 
-            await SetSupplierSelectList(process);
             await SetProcessTemplateSelectList(process);
             return View(process);
         }
@@ -189,7 +187,6 @@ namespace CriticalPath.Web.Controllers
                 return HttpNotFound();
             }
 
-            await SetSupplierSelectList(process);
             await SetProcessTemplateSelectList(process);
             return View(process);
         }
@@ -212,7 +209,6 @@ namespace CriticalPath.Web.Controllers
                 return RedirectToAction("Details", new { id = process.Id });
             }
 
-            await SetSupplierSelectList(process);
             await SetProcessTemplateSelectList(process);
             return View(process);
         }
