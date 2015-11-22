@@ -10,6 +10,48 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
 {
     public partial class SetupController
     {
+        private async Task SeedFreightTerms(StringBuilder sb)
+        {
+            int count = await DataContext.GetFreightTermQuery().CountAsync();
+            if (count > 0)
+            {
+                sb.Append("Database already has ");
+                sb.Append(count);
+                sb.Append(" FreightTerm records.<br>");
+                return;
+            }
+
+            var freightTerms = GetFreightTerms();
+            foreach (var item in freightTerms)
+            {
+                DataContext.FreightTerms.Add(item);
+            }
+            sb.Append("<h4>");
+            sb.Append(freightTerms.Length);
+            sb.Append(' ');
+            sb.Append(" FreightTerm records added.</h4>");
+        }
+
+        private FreightTerm[] GetFreightTerms()
+        {
+            FreightTerm[] terms =
+            {
+                new FreightTerm { IncotermCode="EXW" },
+                new FreightTerm { IncotermCode="FCA" },
+                new FreightTerm { IncotermCode="FAS" },
+                new FreightTerm { IncotermCode="FOB",IsActive=true },
+                new FreightTerm { IncotermCode="CPT" },
+                new FreightTerm { IncotermCode="CFR (CNF)" },
+                new FreightTerm { IncotermCode="CIF", IsActive=true },
+                new FreightTerm { IncotermCode="CIP" },
+                new FreightTerm { IncotermCode="DAT" },
+                new FreightTerm { IncotermCode="DAP" },
+                new FreightTerm { IncotermCode="DDP" }
+            };
+
+            return terms;
+        }
+
         private async Task SeedSizingStandards(StringBuilder sb)
         {
             int count = await DataContext.GetSizingStandardQuery().CountAsync();

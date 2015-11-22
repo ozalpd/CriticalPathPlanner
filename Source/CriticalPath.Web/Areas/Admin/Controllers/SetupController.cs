@@ -28,6 +28,9 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             await SeedSizingStandards(sb);
             await DataContext.SaveChangesAsync(this);
 
+            await SeedFreightTerms(sb);
+            await DataContext.SaveChangesAsync(this);
+
             ViewBag.status = sb.ToString();
             return View("Index");
         }
