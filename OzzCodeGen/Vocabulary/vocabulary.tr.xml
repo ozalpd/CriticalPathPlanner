@@ -474,7 +474,7 @@
   </Vocab>
   <Vocab>
     <Name>ChangePassword</Name>
-    <Translation>Parolanı Değiştir</Translation>
+    <Translation>Parolanızı Değiştirin</Translation>
   </Vocab>
   <Vocab>
     <Name>Choose</Name>
@@ -1210,7 +1210,7 @@
   </Vocab>
   <Vocab>
     <Name>ManageAccount</Name>
-    <Translation>Hesabını Yönet</Translation>
+    <Translation>Hesabınızı Yönetin</Translation>
   </Vocab>
   <Vocab>
     <Name>Manufacturer</Name>

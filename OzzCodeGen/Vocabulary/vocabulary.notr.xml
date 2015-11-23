@@ -390,7 +390,7 @@
   </Vocab>
   <Vocab>
     <Name>BuyingCurrencyId</Name>
-    <Translation>Buying Currency Id</Translation>
+    <Translation>Buying Currency</Translation>
   </Vocab>
   <Vocab>
     <Name>BuyingPrice</Name>
@@ -422,7 +422,7 @@
   </Vocab>
   <Vocab>
     <Name>CancelledUserId</Name>
-    <Translation>Cancelled User Id</Translation>
+    <Translation>Cancelled User ID</Translation>
   </Vocab>
   <Vocab>
     <Name>CancelledUserIp</Name>
@@ -874,7 +874,7 @@
   </Vocab>
   <Vocab>
     <Name>DiscontinuedUserId</Name>
-    <Translation>Discontinued User Id</Translation>
+    <Translation>Discontinued User ID</Translation>
   </Vocab>
   <Vocab>
     <Name>DiscontinuedUserIp</Name>
@@ -1082,7 +1082,7 @@
   </Vocab>
   <Vocab>
     <Name>FreightTermId</Name>
-    <Translation>Freight Term Id</Translation>
+    <Translation>Freight Term</Translation>
   </Vocab>
   <Vocab>
     <Name>FreightTerms</Name>
@@ -1638,7 +1638,7 @@
   </Vocab>
   <Vocab>
     <Name>RetailCurrencyId</Name>
-    <Translation>Retail Currency Id</Translation>
+    <Translation>Retail Currency</Translation>
   </Vocab>
   <Vocab>
     <Name>RetailPrice</Name>
@@ -1650,7 +1650,7 @@
   </Vocab>
   <Vocab>
     <Name>RoyaltyCurrencyId</Name>
-    <Translation>Royalty Currency Id</Translation>
+    <Translation>Royalty Currency</Translation>
   </Vocab>
   <Vocab>
     <Name>RoyaltyFee</Name>
@@ -1686,7 +1686,7 @@
   </Vocab>
   <Vocab>
     <Name>SellingCurrencyId</Name>
-    <Translation>Selling Currency Id</Translation>
+    <Translation>Selling Currency</Translation>
   </Vocab>
   <Vocab>
     <Name>Settings</Name>
@@ -1710,7 +1710,7 @@
   </Vocab>
   <Vocab>
     <Name>SizeCaptionId</Name>
-    <Translation>Size Caption Id</Translation>
+    <Translation>Size Caption</Translation>
   </Vocab>
   <Vocab>
     <Name>SizeCaptions</Name>
@@ -1722,7 +1722,7 @@
   </Vocab>
   <Vocab>
     <Name>SizeId</Name>
-    <Translation>Size Id</Translation>
+    <Translation>Size</Translation>
   </Vocab>
   <Vocab>
     <Name>SizeQuantities</Name>
@@ -1794,7 +1794,7 @@
   </Vocab>
   <Vocab>
     <Name>SizingStandardId</Name>
-    <Translation>Sizing Standard Id</Translation>
+    <Translation>Sizing Standard</Translation>
   </Vocab>
   <Vocab>
     <Name>SizingStandards</Name>
@@ -1846,7 +1846,7 @@
   </Vocab>
   <Vocab>
     <Name>SupplierId</Name>
-    <Translation>Supplier Id</Translation>
+    <Translation>Supplier</Translation>
   </Vocab>
   <Vocab>
     <Name>Suppliers</Name>
