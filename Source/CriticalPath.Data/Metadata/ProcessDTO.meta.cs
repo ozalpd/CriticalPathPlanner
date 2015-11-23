@@ -32,12 +32,8 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "PurchaseOrderId")]
             public int PurchaseOrderId { get; set; }
 
-            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "SupplierId")]
-            public int SupplierId { get; set; }
-
             [StringLength(256, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
-            [DataType(DataType.MultilineText)]
+            [DataType(DataType.Text)]
             [Display(ResourceType = typeof(EntityStrings), Name = "Description")]
             public string Description { get; set; }
 

@@ -21,15 +21,22 @@ namespace CriticalPath.Data
             // This metadata class is not intended to be instantiated.
             private CustomerMetadata() { }
 
+            [StringLength(128, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "CompanyName")]
+            public string CompanyName { get; set; }
+
             [StringLength(64, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Display(ResourceType = typeof(EntityStrings), Name = "CustomerCode")]
             public string CustomerCode { get; set; }
 
-            [StringLength(128, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "CompanyName")]
-            public string CompanyName { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "DiscountRate")]
+            public decimal DiscountRate { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "Orders")]
+            public ICollection<PurchaseOrder> Orders { get; set; }
 
             [StringLength(128, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [DataType(DataType.PhoneNumber)]
@@ -95,9 +102,6 @@ namespace CriticalPath.Data
 
             [Display(ResourceType = typeof(EntityStrings), Name = "DiscontinuedUser")]
             public AspNetUser DiscontinuedUser { get; set; }
-
-            [Display(ResourceType = typeof(EntityStrings), Name = "Orders")]
-            public ICollection<PurchaseOrder> Orders { get; set; }
 
             [Display(ResourceType = typeof(EntityStrings), Name = "ModifiedUser")]
             public AspNetUser ModifiedUser { get; set; }

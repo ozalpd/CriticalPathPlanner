@@ -50,9 +50,55 @@ namespace CriticalPath.Data
             public int ProductId { get; set; }
 
             [StringLength(256, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
-            [DataType(DataType.MultilineText)]
+            [DataType(DataType.Text)]
             [Display(ResourceType = typeof(EntityStrings), Name = "Description")]
             public string Description { get; set; }
+
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "Quantity")]
+            public int Quantity { get; set; }
+
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "DiscountRate")]
+            public decimal DiscountRate { get; set; }
+
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "UnitPrice")]
+            public decimal UnitPrice { get; set; }
+
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "SellingCurrencyId")]
+            public int SellingCurrencyId { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "SellingCurrency")]
+            public Currency SellingCurrency { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "BuyingPrice")]
+            public decimal BuyingPrice { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "BuyingCurrencyId")]
+            public int BuyingCurrencyId { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "BuyingCurrency")]
+            public Currency BuyingCurrency { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "RoyaltyFee")]
+            public decimal RoyaltyFee { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "RoyaltyCurrencyId")]
+            public int RoyaltyCurrencyId { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "RoyaltyCurrency")]
+            public Currency RoyaltyCurrency { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "RetailPrice")]
+            public decimal RetailPrice { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "RetailCurrencyId")]
+            public int RetailCurrencyId { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "RetailCurrency")]
+            public Currency RetailCurrency { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Display(ResourceType = typeof(EntityStrings), Name = "CustomerId")]
@@ -66,18 +112,23 @@ namespace CriticalPath.Data
             public string CustomerPoNr { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "Quantity")]
-            public int Quantity { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "FreightTermId")]
+            public int FreightTermId { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "FreightTerm")]
+            public FreightTerm FreightTerm { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "Supplier")]
+            public Supplier Supplier { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "UnitPrice")]
-            public decimal UnitPrice { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "SupplierId")]
+            public int SupplierId { get; set; }
 
-            [Display(ResourceType = typeof(EntityStrings), Name = "BuyingPrice")]
-            public decimal BuyingPrice { get; set; }
-
-            [Display(ResourceType = typeof(EntityStrings), Name = "RetailPrice")]
-            public decimal RetailPrice { get; set; }
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [DataType(DataType.Date)]
+            [Display(ResourceType = typeof(EntityStrings), Name = "SupplierDueDate")]
+            public DateTime SupplierDueDate { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Display(ResourceType = typeof(EntityStrings), Name = "SizingStandardId")]
@@ -110,8 +161,24 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "CancelNotes")]
             public string CancelNotes { get; set; }
 
+            [StringLength(48, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "CancelledUserIp")]
+            public string CancelledUserIp { get; set; }
+
+            [StringLength(48, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "CancelledUserId")]
+            public string CancelledUserId { get; set; }
+
             [Display(ResourceType = typeof(EntityStrings), Name = "CancelledUser")]
             public AspNetUser CancelledUser { get; set; }
+
+            [StringLength(48, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "ApprovedUserId")]
+            public string ApprovedUserId { get; set; }
+
+            [StringLength(48, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "ApprovedUserIp")]
+            public string ApprovedUserIp { get; set; }
 
             [Display(ResourceType = typeof(EntityStrings), Name = "ApprovedUser")]
             public AspNetUser ApprovedUser { get; set; }

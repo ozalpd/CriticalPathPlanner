@@ -12,30 +12,35 @@
         <MetadataPropertySetting>
           <Name>Id</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType />
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>UserName</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>Email</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType>EmailAddress</DataType>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>FirstName</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType />
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>LastName</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType />
           <Required />
         </MetadataPropertySetting>
@@ -49,6 +54,7 @@
         <MetadataPropertySetting>
           <Name>Id</Name>
           <Exclude>true</Exclude>
+          <DTOExclusion>true</DTOExclusion>
           <DataType />
           <Required />
         </MetadataPropertySetting>
@@ -62,24 +68,28 @@
         <MetadataPropertySetting>
           <Name>CreateDate</Name>
           <Exclude>true</Exclude>
+          <DTOExclusion>true</DTOExclusion>
           <DataType>Date</DataType>
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>CreatorId</Name>
           <Exclude>true</Exclude>
+          <DTOExclusion>true</DTOExclusion>
           <DataType />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>CreatorIp</Name>
           <Exclude>true</Exclude>
+          <DTOExclusion>true</DTOExclusion>
           <DataType />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>CreatedUser</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <Required />
         </MetadataPropertySetting>
       </Properties>
@@ -92,30 +102,35 @@
         <MetadataPropertySetting>
           <Name>ModifyNr</Name>
           <Exclude>true</Exclude>
+          <DTOExclusion>true</DTOExclusion>
           <DataType />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>ModifyDate</Name>
           <Exclude>true</Exclude>
+          <DTOExclusion>true</DTOExclusion>
           <DataType>Date</DataType>
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>ModifierId</Name>
           <Exclude>true</Exclude>
+          <DTOExclusion>true</DTOExclusion>
           <DataType />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>ModifierIp</Name>
           <Exclude>true</Exclude>
+          <DTOExclusion>true</DTOExclusion>
           <DataType />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>ModifiedUser</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <Required />
         </MetadataPropertySetting>
       </Properties>
@@ -128,30 +143,35 @@
         <MetadataPropertySetting>
           <Name>IsApproved</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType />
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>ApproveDate</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType>Date</DataType>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>ApprovedUserId</Name>
-          <Exclude>true</Exclude>
+          <Exclude>false</Exclude>
+          <DTOExclusion>true</DTOExclusion>
           <DataType />
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>ApprovedUserIp</Name>
-          <Exclude>true</Exclude>
+          <Exclude>false</Exclude>
+          <DTOExclusion>true</DTOExclusion>
           <DataType />
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>ApprovedUser</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <Required />
         </MetadataPropertySetting>
       </Properties>
@@ -164,18 +184,21 @@
         <MetadataPropertySetting>
           <Name>IncotermCode</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>Description</Name>
           <Exclude>false</Exclude>
-          <DataType>MultilineText</DataType>
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType>Text</DataType>
+          <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>IsActive</Name>
+          <Name>IsPublished</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>true</DTOExclusion>
           <DataType />
           <Required />
         </MetadataPropertySetting>
@@ -189,770 +212,29 @@
         <MetadataPropertySetting>
           <Name>CurrencyName</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>CurrencyCode</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>CurrencySymbol</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>IsActive</Name>
+          <Name>IsPublished</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>true</DTOExclusion>
           <DataType />
-          <Required />
-        </MetadataPropertySetting>
-      </Properties>
-    </BaseEntitySetting>
-    <BaseEntitySetting xsi:type="MetadataEntitySetting">
-      <Name>Contact</Name>
-      <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
-      <Properties>
-        <MetadataPropertySetting>
-          <Name>FirstName</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>LastName</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>Company</Name>
-          <Exclude>false</Exclude>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>CompanyId</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>EmailWork</Name>
-          <Exclude>false</Exclude>
-          <DataType>EmailAddress</DataType>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>EmailHome</Name>
-          <Exclude>false</Exclude>
-          <DataType>EmailAddress</DataType>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>PhoneMobile</Name>
-          <Exclude>false</Exclude>
-          <DataType>PhoneNumber</DataType>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>PhoneWork1</Name>
-          <Exclude>false</Exclude>
-          <DataType>PhoneNumber</DataType>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>PhoneWork2</Name>
-          <Exclude>false</Exclude>
-          <DataType>PhoneNumber</DataType>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>Notes</Name>
-          <Exclude>false</Exclude>
-          <DataType>MultilineText</DataType>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>Discontinued</Name>
-          <Exclude>false</Exclude>
-          <UIHint>BoolRed</UIHint>
-          <DataType />
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>DiscontinueDate</Name>
-          <Exclude>false</Exclude>
-          <DataType>Date</DataType>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>DiscontinueNotes</Name>
-          <Exclude>false</Exclude>
-          <DataType>MultilineText</DataType>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>DiscontinuedUserIp</Name>
-          <Exclude>true</Exclude>
-          <DataType />
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>DiscontinuedUserId</Name>
-          <Exclude>true</Exclude>
-          <DataType />
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>DiscontinuedUser</Name>
-          <Exclude>false</Exclude>
-          <Required />
-        </MetadataPropertySetting>
-      </Properties>
-    </BaseEntitySetting>
-    <BaseEntitySetting xsi:type="MetadataEntitySetting">
-      <Name>Company</Name>
-      <Exclude>true</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
-      <Properties>
-        <MetadataPropertySetting>
-          <Name>CompanyName</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>Phone1</Name>
-          <Exclude>false</Exclude>
-          <DataType>PhoneNumber</DataType>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>Phone2</Name>
-          <Exclude>false</Exclude>
-          <DataType>PhoneNumber</DataType>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>Phone3</Name>
-          <Exclude>false</Exclude>
-          <DataType>PhoneNumber</DataType>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>Address1</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>Address2</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>City</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>State</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>ZipCode</Name>
-          <Exclude>false</Exclude>
-          <DataType>PostalCode</DataType>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>Country</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>Notes</Name>
-          <Exclude>false</Exclude>
-          <DataType>MultilineText</DataType>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>Contacts</Name>
-          <Exclude>false</Exclude>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>Discontinued</Name>
-          <Exclude>false</Exclude>
-          <UIHint>BoolRed</UIHint>
-          <DataType />
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>DiscontinueDate</Name>
-          <Exclude>false</Exclude>
-          <DataType>Date</DataType>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>DiscontinueNotes</Name>
-          <Exclude>false</Exclude>
-          <DataType>MultilineText</DataType>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>DiscontinuedUserIp</Name>
-          <Exclude>true</Exclude>
-          <DataType />
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>DiscontinuedUserId</Name>
-          <Exclude>true</Exclude>
-          <DataType />
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>DiscontinuedUser</Name>
-          <Exclude>false</Exclude>
-          <Required />
-        </MetadataPropertySetting>
-      </Properties>
-    </BaseEntitySetting>
-    <BaseEntitySetting xsi:type="MetadataEntitySetting">
-      <Name>Customer</Name>
-      <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
-      <Properties>
-        <MetadataPropertySetting>
-          <Name>CustomerCode</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>DiscountRate</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>Orders</Name>
-          <Exclude>false</Exclude>
-          <Required />
-        </MetadataPropertySetting>
-      </Properties>
-    </BaseEntitySetting>
-    <BaseEntitySetting xsi:type="MetadataEntitySetting">
-      <Name>Supplier</Name>
-      <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
-      <Properties>
-        <MetadataPropertySetting>
-          <Name>SupplierCode</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>Products</Name>
-          <Exclude>false</Exclude>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>Manufacturers</Name>
-          <Exclude>false</Exclude>
-          <Required />
-        </MetadataPropertySetting>
-      </Properties>
-    </BaseEntitySetting>
-    <BaseEntitySetting xsi:type="MetadataEntitySetting">
-      <Name>Manufacturer</Name>
-      <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
-      <Properties>
-        <MetadataPropertySetting>
-          <Name>ManufacturerCode</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>SupplierId</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>Supplier</Name>
-          <Exclude>false</Exclude>
-          <Required />
-        </MetadataPropertySetting>
-      </Properties>
-    </BaseEntitySetting>
-    <BaseEntitySetting xsi:type="MetadataEntitySetting">
-      <Name>ProductCategory</Name>
-      <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
-      <Properties>
-        <MetadataPropertySetting>
-          <Name>CategoryName</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>CategoryCode</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>ParentCategoryId</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>ParentCategory</Name>
-          <Exclude>false</Exclude>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>SubCategories</Name>
-          <Exclude>false</Exclude>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>Products</Name>
-          <Exclude>false</Exclude>
-          <Required />
-        </MetadataPropertySetting>
-      </Properties>
-    </BaseEntitySetting>
-    <BaseEntitySetting xsi:type="MetadataEntitySetting">
-      <Name>Product</Name>
-      <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
-      <Properties>
-        <MetadataPropertySetting>
-          <Name>ProductCode</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>Description</Name>
-          <Exclude>false</Exclude>
-          <DataType>MultilineText</DataType>
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>ImageUrl</Name>
-          <Exclude>false</Exclude>
-          <DataType>ImageUrl</DataType>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>CategoryId</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>Category</Name>
-          <Exclude>false</Exclude>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>UnitPrice</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>SellingCurrencyId</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>SellingCurrency</Name>
-          <Exclude>false</Exclude>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>BuyingPrice</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>BuyingCurrencyId</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>BuyingCurrency</Name>
-          <Exclude>false</Exclude>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>RoyaltyFee</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>RoyaltyCurrencyId</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>RoyaltyCurrency</Name>
-          <Exclude>false</Exclude>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>RetailPrice</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>RetailCurrencyId</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>RetailCurrency</Name>
-          <Exclude>false</Exclude>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>PurchaseOrders</Name>
-          <Exclude>false</Exclude>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>Suppliers</Name>
-          <Exclude>false</Exclude>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>Discontinued</Name>
-          <Exclude>false</Exclude>
-          <UIHint>BoolRed</UIHint>
-          <DataType />
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>DiscontinueDate</Name>
-          <Exclude>false</Exclude>
-          <DataType>Date</DataType>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>DiscontinueNotes</Name>
-          <Exclude>false</Exclude>
-          <DataType>MultilineText</DataType>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>DiscontinuedUserIp</Name>
-          <Exclude>true</Exclude>
-          <DataType />
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>DiscontinuedUserId</Name>
-          <Exclude>true</Exclude>
-          <DataType />
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>DiscontinuedUser</Name>
-          <Exclude>false</Exclude>
-          <Required />
-        </MetadataPropertySetting>
-      </Properties>
-    </BaseEntitySetting>
-    <BaseEntitySetting xsi:type="MetadataEntitySetting">
-      <Name>PurchaseOrder</Name>
-      <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
-      <Properties>
-        <MetadataPropertySetting>
-          <Name>PoNr</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>OrderDate</Name>
-          <Exclude>false</Exclude>
-          <DataType>Date</DataType>
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>DueDate</Name>
-          <Exclude>false</Exclude>
-          <DataType>Date</DataType>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>Product</Name>
-          <Exclude>false</Exclude>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>ProductId</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>Description</Name>
-          <Exclude>false</Exclude>
-          <DataType>MultilineText</DataType>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>Quantity</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>DiscountRate</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>UnitPrice</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>SellingCurrencyId</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>SellingCurrency</Name>
-          <Exclude>false</Exclude>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>BuyingPrice</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>BuyingCurrencyId</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>BuyingCurrency</Name>
-          <Exclude>false</Exclude>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>RoyaltyFee</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>RoyaltyCurrencyId</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>RoyaltyCurrency</Name>
-          <Exclude>false</Exclude>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>RetailPrice</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>RetailCurrencyId</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>RetailCurrency</Name>
-          <Exclude>false</Exclude>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>CustomerId</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>Customer</Name>
-          <Exclude>false</Exclude>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>CustomerPoNr</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>FreightTermId</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>FreightTerm</Name>
-          <Exclude>false</Exclude>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>Supplier</Name>
-          <Exclude>false</Exclude>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>SupplierId</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>SupplierDueDate</Name>
-          <Exclude>false</Exclude>
-          <DataType>Date</DataType>
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>SizingStandardId</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>SizingStandard</Name>
-          <Exclude>false</Exclude>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>SizeRatioDivisor</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Range>6,1000000</Range>
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>SizeRatios</Name>
-          <Exclude>false</Exclude>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>Notes</Name>
-          <Exclude>false</Exclude>
-          <DataType>MultilineText</DataType>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>Cancelled</Name>
-          <Exclude>false</Exclude>
-          <UIHint>BoolRed</UIHint>
-          <DataType />
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>CancelDate</Name>
-          <Exclude>false</Exclude>
-          <DataType>Date</DataType>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>CancelNotes</Name>
-          <Exclude>false</Exclude>
-          <DataType>MultilineText</DataType>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>CancelledUserIp</Name>
-          <Exclude>true</Exclude>
-          <DataType />
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>CancelledUserId</Name>
-          <Exclude>true</Exclude>
-          <DataType />
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>CancelledUser</Name>
-          <Exclude>false</Exclude>
-          <Required />
-        </MetadataPropertySetting>
-      </Properties>
-    </BaseEntitySetting>
-    <BaseEntitySetting xsi:type="MetadataEntitySetting">
-      <Name>SizeRatio</Name>
-      <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
-      <Properties>
-        <MetadataPropertySetting>
-          <Name>DisplayOrder</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>Caption</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>Rate</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>PurchaseOrderId</Name>
-          <Exclude>false</Exclude>
-          <DataType />
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>PurchaseOrder</Name>
-          <Exclude>false</Exclude>
           <Required />
         </MetadataPropertySetting>
       </Properties>
@@ -965,17 +247,20 @@
         <MetadataPropertySetting>
           <Name>Title</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>Sizings</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>PurchaseOrders</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <Required />
         </MetadataPropertySetting>
       </Properties>
@@ -988,24 +273,891 @@
         <MetadataPropertySetting>
           <Name>DisplayOrder</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>Caption</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>SizingStandardId</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>SizingStandard</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <Required />
+        </MetadataPropertySetting>
+      </Properties>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="MetadataEntitySetting">
+      <Name>Contact</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <Properties>
+        <MetadataPropertySetting>
+          <Name>FirstName</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>LastName</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Company</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>CompanyId</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>EmailWork</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType>EmailAddress</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>EmailHome</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType>EmailAddress</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>PhoneMobile</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType>PhoneNumber</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>PhoneWork1</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType>PhoneNumber</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>PhoneWork2</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType>PhoneNumber</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Notes</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType>MultilineText</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Discontinued</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <UIHint>BoolRed</UIHint>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>DiscontinueDate</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType>Date</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>DiscontinueNotes</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType>MultilineText</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>DiscontinuedUserIp</Name>
+          <Exclude>true</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>DiscontinuedUserId</Name>
+          <Exclude>true</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>DiscontinuedUser</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <Required />
+        </MetadataPropertySetting>
+      </Properties>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="MetadataEntitySetting">
+      <Name>Company</Name>
+      <Exclude>true</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <Properties>
+        <MetadataPropertySetting>
+          <Name>CompanyName</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Phone1</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType>PhoneNumber</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Phone2</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType>PhoneNumber</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Phone3</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType>PhoneNumber</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Address1</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Address2</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>City</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>State</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>ZipCode</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType>PostalCode</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Country</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Notes</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType>MultilineText</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Contacts</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Discontinued</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <UIHint>BoolRed</UIHint>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>DiscontinueDate</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType>Date</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>DiscontinueNotes</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType>MultilineText</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>DiscontinuedUserIp</Name>
+          <Exclude>true</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>DiscontinuedUserId</Name>
+          <Exclude>true</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>DiscontinuedUser</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <Required />
+        </MetadataPropertySetting>
+      </Properties>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="MetadataEntitySetting">
+      <Name>Customer</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <Properties>
+        <MetadataPropertySetting>
+          <Name>CustomerCode</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>DiscountRate</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Orders</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <Required />
+        </MetadataPropertySetting>
+      </Properties>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="MetadataEntitySetting">
+      <Name>Supplier</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <Properties>
+        <MetadataPropertySetting>
+          <Name>SupplierCode</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Products</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Manufacturers</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <Required />
+        </MetadataPropertySetting>
+      </Properties>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="MetadataEntitySetting">
+      <Name>Manufacturer</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <Properties>
+        <MetadataPropertySetting>
+          <Name>ManufacturerCode</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>SupplierId</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Supplier</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <Required />
+        </MetadataPropertySetting>
+      </Properties>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="MetadataEntitySetting">
+      <Name>ProductCategory</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <Properties>
+        <MetadataPropertySetting>
+          <Name>CategoryName</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>CategoryCode</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>ParentCategoryId</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>ParentCategory</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>SubCategories</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Products</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <Required />
+        </MetadataPropertySetting>
+      </Properties>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="MetadataEntitySetting">
+      <Name>Product</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <Properties>
+        <MetadataPropertySetting>
+          <Name>ProductCode</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Description</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType>Text</DataType>
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>ImageUrl</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType>ImageUrl</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>CategoryId</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Category</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>UnitPrice</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>SellingCurrencyId</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>SellingCurrency</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>BuyingPrice</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>BuyingCurrencyId</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>BuyingCurrency</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>RoyaltyFee</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>RoyaltyCurrencyId</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>RoyaltyCurrency</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>RetailPrice</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>RetailCurrencyId</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>RetailCurrency</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>PurchaseOrders</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Suppliers</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Discontinued</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <UIHint>BoolRed</UIHint>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>DiscontinueDate</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType>Date</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>DiscontinueNotes</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType>MultilineText</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>DiscontinuedUserIp</Name>
+          <Exclude>true</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>DiscontinuedUserId</Name>
+          <Exclude>true</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>DiscontinuedUser</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <Required />
+        </MetadataPropertySetting>
+      </Properties>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="MetadataEntitySetting">
+      <Name>PurchaseOrder</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <Properties>
+        <MetadataPropertySetting>
+          <Name>PoNr</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>OrderDate</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType>Date</DataType>
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>DueDate</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType>Date</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Product</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>ProductId</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Description</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType>Text</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Quantity</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>DiscountRate</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>UnitPrice</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>SellingCurrencyId</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>SellingCurrency</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>BuyingPrice</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>BuyingCurrencyId</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>BuyingCurrency</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>RoyaltyFee</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>RoyaltyCurrencyId</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>RoyaltyCurrency</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>RetailPrice</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>RetailCurrencyId</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>RetailCurrency</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>CustomerId</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Customer</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>CustomerPoNr</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>FreightTermId</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>FreightTerm</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Supplier</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>SupplierId</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>SupplierDueDate</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType>Date</DataType>
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>SizingStandardId</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>SizingStandard</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>SizeRatioDivisor</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Range>6,1000000</Range>
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>SizeRatios</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Notes</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType>MultilineText</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Cancelled</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <UIHint>BoolRed</UIHint>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>CancelDate</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType>Date</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>CancelNotes</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType>MultilineText</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>CancelledUserIp</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>true</DTOExclusion>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>CancelledUserId</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>true</DTOExclusion>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>CancelledUser</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <Required />
+        </MetadataPropertySetting>
+      </Properties>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="MetadataEntitySetting">
+      <Name>SizeRatio</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <Properties>
+        <MetadataPropertySetting>
+          <Name>DisplayOrder</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Caption</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Rate</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>PurchaseOrderId</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>PurchaseOrder</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <Required />
         </MetadataPropertySetting>
       </Properties>
@@ -1018,29 +1170,34 @@
         <MetadataPropertySetting>
           <Name>PurchaseOrder</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>PurchaseOrderId</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>Description</Name>
           <Exclude>false</Exclude>
-          <DataType>MultilineText</DataType>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType>Text</DataType>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>IsCompleted</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType />
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>Cancelled</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <UIHint>BoolRed</UIHint>
           <DataType />
           <Required />
@@ -1048,70 +1205,82 @@
         <MetadataPropertySetting>
           <Name>ProcessTemplate</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>ProcessTemplateId</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>StartDate</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType>Date</DataType>
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>TargetDate</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType>Date</DataType>
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>ForecastDate</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType>Date</DataType>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>RealizedDate</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType>Date</DataType>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>ProcessSteps</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>CancelDate</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType>Date</DataType>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>CancelNotes</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType>MultilineText</DataType>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>CancelledUserIp</Name>
           <Exclude>true</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType />
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>CancelledUserId</Name>
           <Exclude>true</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType />
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>CancelledUser</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <Required />
         </MetadataPropertySetting>
       </Properties>
@@ -1124,65 +1293,76 @@
         <MetadataPropertySetting>
           <Name>Title</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>Description</Name>
           <Exclude>false</Exclude>
-          <DataType>MultilineText</DataType>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType>Text</DataType>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>IsCompleted</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType />
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>DisplayOrder</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>ProcessId</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>Process</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>TargetDate</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType>Date</DataType>
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>ForecastDate</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType>Date</DataType>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>RealizedDate</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType>Date</DataType>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>TemplateId</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>Template</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <Required />
         </MetadataPropertySetting>
       </Properties>
@@ -1195,18 +1375,21 @@
         <MetadataPropertySetting>
           <Name>TemplateName</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>DefaultTitle</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>StepTemplates</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <Required />
         </MetadataPropertySetting>
       </Properties>
@@ -1219,37 +1402,42 @@
         <MetadataPropertySetting>
           <Name>Title</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>DisplayOrder</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>ProcessTemplateId</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>ProcessTemplate</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>RequiredWorkDays</Name>
           <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
           <DataType />
-          <Range>1,1000</Range>
+          <Range>0,1000</Range>
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
       </Properties>
     </BaseEntitySetting>
   </EntitySettings>
-  <RenderAllEntities>true</RenderAllEntities>
+  <RenderAllEntities>false</RenderAllEntities>
   <GenerateForDTO>true</GenerateForDTO>
   <UseResourceFiles>true</UseResourceFiles>
 </MetadataCodeEngine>

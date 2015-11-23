@@ -181,11 +181,17 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\AppSettingsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CurrenciesController.g.cs" />
+    <Compile Include="Areas\Admin\Controllers\CurrenciesController.part.cs" />
+    <Compile Include="Areas\Admin\Controllers\FreightTermsController.g.cs" />
+    <Compile Include="Areas\Admin\Controllers\FreightTermsController.part.cs" />
     <Compile Include="Areas\Admin\Controllers\SetupController.cs" />
     <Compile Include="Areas\Admin\Controllers\SetupController.defaults.cs" />
     <Compile Include="Areas\Admin\Controllers\SetupController.demoData.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Areas\Admin\Models\AppSettingVM.cs" />
+    <Compile Include="Areas\Admin\Models\CurrencyEditVM.cs" />
+    <Compile Include="Areas\Admin\Models\FreightTermEditVM.cs" />
     <Compile Include="Areas\Admin\Models\UserAdminVM.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.g.cs" />
@@ -376,6 +382,13 @@
     <Content Include="libs\ag-grid\theme-dark.min.css" />
     <Content Include="libs\ag-grid\theme-fresh.css" />
     <Content Include="libs\ag-grid\theme-fresh.min.css" />
+    <Content Include="Areas\Admin\Views\FreightTerms\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\FreightTerms\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\FreightTerms\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\FreightTerms\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Currencies\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Currencies\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Currencies\Index.cshtml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
@@ -522,6 +535,8 @@
     <Content Include="Views\Shared\EditorTemplates\BoolRed.cshtml" />
     <Content Include="Views\Shared\_ICancellationPartial.cshtml" />
     <Content Include="Views\Shared\_agGridScriptsPartial.cshtml" />
+    <Content Include="Views\Shared\_AllPriceEdit.cshtml" />
+    <Content Include="Views\Shared\_AllPrice.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

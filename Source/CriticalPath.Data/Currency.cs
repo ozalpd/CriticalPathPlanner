@@ -18,7 +18,7 @@ namespace CriticalPath.Data
         public string CurrencyName { get; set; }
         public string CurrencyCode { get; set; }
         public string CurrencySymbol { get; set; }
-        public bool IsActive { get; set; }
+        public bool IsPublished { get; set; }
     	/// <summary>
     	/// Clones all properties in a new Currency instance,
     	/// except PrimaryKey(s)
@@ -30,7 +30,7 @@ namespace CriticalPath.Data
             clone.CurrencyName = CurrencyName;
             clone.CurrencyCode = CurrencyCode;
             clone.CurrencySymbol = CurrencySymbol;
-            clone.IsActive = IsActive;
+            clone.IsPublished = IsPublished;
     
             Cloning(clone);
     
@@ -53,7 +53,6 @@ namespace CriticalPath.Data
             CurrencyName = entity.CurrencyName;
             CurrencyCode = entity.CurrencyCode;
             CurrencySymbol = entity.CurrencySymbol;
-            IsActive = entity.IsActive;
         
             Initiliazing(entity);
         }
@@ -67,7 +66,6 @@ namespace CriticalPath.Data
             entity.CurrencyName = CurrencyName;
             entity.CurrencyCode = CurrencyCode;
             entity.CurrencySymbol = CurrencySymbol;
-            entity.IsActive = IsActive;
     
             Converting(entity);
     
@@ -80,6 +78,5 @@ namespace CriticalPath.Data
         public string CurrencyName { get; set; }
         public string CurrencyCode { get; set; }
         public string CurrencySymbol { get; set; }
-        public bool IsActive { get; set; }
     }
 }

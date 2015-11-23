@@ -119,6 +119,34 @@ discontinuedUser.Properties.Add(new InterfaceProperty() { TypeName = "string", N
 discontinuedUser.Properties.Add(new InterfaceProperty() { TypeName = "string", Name = "DiscontinuedUserIp" });
 AutoGenInterfaces.Add(discontinuedUser);
 
+InterfaceDefinition allPrice = new InterfaceDefinition() { Name = "IAllPrice" };
+
+InterfaceDefinition retailPrice = new InterfaceDefinition() { Name = "IRetailPrice" };
+retailPrice.Properties.Add(new InterfaceProperty() { TypeName = "Nullable<decimal>", Name = "RetailPrice" });
+retailPrice.Properties.Add(new InterfaceProperty() { TypeName = "Nullable<int>", Name = "RetailCurrencyId" });
+AutoGenInterfaces.Add(retailPrice);
+allPrice.Properties.AddRange(retailPrice.Properties);
+
+InterfaceDefinition royalty = new InterfaceDefinition() { Name = "IRoyaltyFee" };
+royalty.Properties.Add(new InterfaceProperty() { TypeName = "Nullable<decimal>", Name = "RoyaltyFee" });
+royalty.Properties.Add(new InterfaceProperty() { TypeName = "Nullable<int>", Name = "RoyaltyCurrencyId" });
+AutoGenInterfaces.Add(royalty);
+allPrice.Properties.AddRange(royalty.Properties);
+
+InterfaceDefinition buyingPrice = new InterfaceDefinition() { Name = "IBuyingPrice" };
+buyingPrice.Properties.Add(new InterfaceProperty() { TypeName = "Nullable<decimal>", Name = "BuyingPrice" });
+buyingPrice.Properties.Add(new InterfaceProperty() { TypeName = "Nullable<int>", Name = "BuyingCurrencyId" });
+AutoGenInterfaces.Add(buyingPrice);
+allPrice.Properties.AddRange(buyingPrice.Properties);
+
+InterfaceDefinition sellingPrice = new InterfaceDefinition() { Name = "ISellingPrice" };
+sellingPrice.Properties.Add(new InterfaceProperty() { TypeName = "decimal", Name = "UnitPrice" });
+sellingPrice.Properties.Add(new InterfaceProperty() { TypeName = "int", Name = "SellingCurrencyId" });
+AutoGenInterfaces.Add(sellingPrice);
+allPrice.Properties.AddRange(sellingPrice.Properties);
+
+AutoGenInterfaces.Add(allPrice);
+
 //Ends Here - Interface Definition List
 
  #>

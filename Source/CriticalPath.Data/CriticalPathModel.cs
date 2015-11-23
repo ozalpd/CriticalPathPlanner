@@ -102,5 +102,41 @@ namespace CriticalPath.Data
         string DiscontinuedUserId { get; set; }
         string DiscontinuedUserIp { get; set; }
     }
+    
+    public interface IRetailPrice
+    {
+        Nullable<decimal> RetailPrice { get; set; }
+        Nullable<int> RetailCurrencyId { get; set; }
+    }
+    
+    public interface IRoyaltyFee
+    {
+        Nullable<decimal> RoyaltyFee { get; set; }
+        Nullable<int> RoyaltyCurrencyId { get; set; }
+    }
+    
+    public interface IBuyingPrice
+    {
+        Nullable<decimal> BuyingPrice { get; set; }
+        Nullable<int> BuyingCurrencyId { get; set; }
+    }
+    
+    public interface ISellingPrice
+    {
+        decimal UnitPrice { get; set; }
+        int SellingCurrencyId { get; set; }
+    }
+    
+    public interface IAllPrice
+    {
+        Nullable<decimal> RetailPrice { get; set; }
+        Nullable<int> RetailCurrencyId { get; set; }
+        Nullable<decimal> RoyaltyFee { get; set; }
+        Nullable<int> RoyaltyCurrencyId { get; set; }
+        Nullable<decimal> BuyingPrice { get; set; }
+        Nullable<int> BuyingCurrencyId { get; set; }
+        decimal UnitPrice { get; set; }
+        int SellingCurrencyId { get; set; }
+    }
     #endregion
 }

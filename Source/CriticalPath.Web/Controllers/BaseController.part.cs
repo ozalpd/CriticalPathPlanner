@@ -52,6 +52,12 @@ namespace CriticalPath.Web.Controllers
         }
         #region SetSelectList Helper Methods
 
+        protected virtual async Task<SelectList> GetCurrencySelectList(int currencyId = 0)
+        {
+            var currecies = await DataContext.GetCurrencyDtoList();
+            return new SelectList(currecies, "Id", "CurrencyCode", currencyId);
+        }
+
         protected async Task SetProductCategorySelectListAsync(ProductDTO product)
         {
             await SetProductCategorySelectListAsync(product);

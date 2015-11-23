@@ -35,15 +35,8 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "PurchaseOrderId")]
             public int PurchaseOrderId { get; set; }
 
-            [Display(ResourceType = typeof(EntityStrings), Name = "Supplier")]
-            public Supplier Supplier { get; set; }
-
-            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "SupplierId")]
-            public int SupplierId { get; set; }
-
             [StringLength(256, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
-            [DataType(DataType.MultilineText)]
+            [DataType(DataType.Text)]
             [Display(ResourceType = typeof(EntityStrings), Name = "Description")]
             public string Description { get; set; }
 
@@ -92,6 +85,14 @@ namespace CriticalPath.Data
 
             [Display(ResourceType = typeof(EntityStrings), Name = "CancelledUser")]
             public AspNetUser CancelledUser { get; set; }
+
+            [StringLength(48, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "ApprovedUserId")]
+            public string ApprovedUserId { get; set; }
+
+            [StringLength(48, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "ApprovedUserIp")]
+            public string ApprovedUserIp { get; set; }
 
             [Display(ResourceType = typeof(EntityStrings), Name = "ApprovedUser")]
             public AspNetUser ApprovedUser { get; set; }

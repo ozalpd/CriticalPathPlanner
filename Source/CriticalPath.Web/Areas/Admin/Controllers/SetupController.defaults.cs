@@ -33,20 +33,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             sb.Append(" Currency records added.</h4>");
         }
 
-        private Currency[] GetCurrencies()
-        {
-            Currency[] c = new Currency[]
-            {
-                new Currency {CurrencyName="Turkish Lira", CurrencyCode="TRY",CurrencySymbol="₺", IsActive=true },
-                new Currency {CurrencyName="United States Dollar", CurrencyCode="USD",CurrencySymbol="$",IsActive=true },
-                new Currency {CurrencyName="United Kingdom Pound", CurrencyCode="GBP",CurrencySymbol="£",IsActive=true },
-                new Currency {CurrencyName="Turkish Lira", CurrencyCode="TRY",CurrencySymbol="₺",IsActive=true },
-                new Currency {CurrencyName="Canada Dollar", CurrencyCode="CAN",CurrencySymbol="$",IsActive=true }
-            };
-
-            return c;
-        }
-
         private async Task SeedFreightTerms(StringBuilder sb)
         {
             int count = await DataContext.GetFreightTermQuery().CountAsync();
@@ -100,10 +86,10 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 new FreightTerm { IncotermCode="EXW" },
                 new FreightTerm { IncotermCode="FCA" },
                 new FreightTerm { IncotermCode="FAS" },
-                new FreightTerm { IncotermCode="FOB",IsActive=true },
+                new FreightTerm { IncotermCode="FOB", IsPublished=true },
                 new FreightTerm { IncotermCode="CPT" },
                 new FreightTerm { IncotermCode="CFR (CNF)" },
-                new FreightTerm { IncotermCode="CIF", IsActive=true },
+                new FreightTerm { IncotermCode="CIF", IsPublished=true },
                 new FreightTerm { IncotermCode="CIP" },
                 new FreightTerm { IncotermCode="DAT" },
                 new FreightTerm { IncotermCode="DAP" },
@@ -111,6 +97,20 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             };
 
             return terms;
+        }
+
+        private Currency[] GetCurrencies()
+        {
+            Currency[] c = new Currency[]
+            {
+                new Currency { CurrencyName="Turkish Lira", CurrencyCode="TRY", CurrencySymbol="₺", IsPublished=true },
+                new Currency { CurrencyName="United States Dollar", CurrencyCode="USD", CurrencySymbol="$", IsPublished=true },
+                new Currency { CurrencyName="United Kingdom Pound", CurrencyCode="GBP", CurrencySymbol="£", IsPublished=true },
+                new Currency { CurrencyName="Euro Member Countries", CurrencyCode="EUR", CurrencySymbol="€", IsPublished=true },
+                new Currency { CurrencyName="Canada Dollar", CurrencyCode="CAN", CurrencySymbol="$", IsPublished=true }
+            };
+
+            return c;
         }
 
         private SizingStandard[] GetSizingStandards()

@@ -63,6 +63,10 @@
 		<value>Eylem</value>
 	</data>
 
+	<data name="Actions" xml:space="preserve">
+		<value>Eylemler</value>
+	</data>
+
 	<data name="Add" xml:space="preserve">
 		<value>Ekle</value>
 	</data>
@@ -124,7 +128,7 @@
 	</data>
 
 	<data name="DisplayAll" xml:space="preserve">
-		<value>Display All</value>
+		<value>Tümünü Göster</value>
 	</data>
 
 	<data name="Duplicate" xml:space="preserve">
@@ -189,6 +193,10 @@
 
 	<data name="Select" xml:space="preserve">
 		<value>Seç</value>
+	</data>
+
+	<data name="SelectCurrency" xml:space="preserve">
+		<value>Para Birimini Seçiniz</value>
 	</data>
 
 	<data name="SelectPlease" xml:space="preserve">

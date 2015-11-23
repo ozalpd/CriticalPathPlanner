@@ -34,7 +34,7 @@ namespace CriticalPath.Data
             public string Title { get; set; }
 
             [StringLength(256, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
-            [DataType(DataType.MultilineText)]
+            [DataType(DataType.Text)]
             [Display(ResourceType = typeof(EntityStrings), Name = "Description")]
             public string Description { get; set; }
 

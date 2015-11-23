@@ -6,8 +6,8 @@ CREATE TABLE [dbo].[Currencies](
     [Id] [int] Identity(1,1) Not Null,
     [CurrencyName] [nVarChar](50) Not Null,
     [CurrencyCode] [nVarChar](5) Not Null,
-    [CurrencySymbol] [nVarChar](max) Not Null,
-    [IsActive] [bit] Not Null Default 1,
+    [CurrencySymbol] [nVarChar](5) Not Null,
+    [IsPublished] [bit] Not Null,
   CONSTRAINT [PK_Currencies] PRIMARY KEY CLUSTERED ([Id] ASC)
   WITH (PAD_INDEX  = OFF,
     STATISTICS_NORECOMPUTE  = OFF,

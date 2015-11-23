@@ -91,6 +91,7 @@
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
+      <IndexViewGeneration>HtmlTableWithButtonsAction</IndexViewGeneration>
       <IndexView>true</IndexView>
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
@@ -139,6 +140,7 @@
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
+      <IndexViewGeneration>HtmlTableWithButtonsAction</IndexViewGeneration>
       <IndexView>false</IndexView>
       <DetailsView>false</DetailsView>
       <CreateView>false</CreateView>
@@ -223,6 +225,7 @@
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
+      <IndexViewGeneration>HtmlTableWithButtonsAction</IndexViewGeneration>
       <IndexView>false</IndexView>
       <DetailsView>false</DetailsView>
       <CreateView>false</CreateView>
@@ -319,6 +322,7 @@
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
+      <IndexViewGeneration>HtmlTableWithButtonsAction</IndexViewGeneration>
       <IndexView>false</IndexView>
       <DetailsView>false</DetailsView>
       <CreateView>false</CreateView>
@@ -415,6 +419,7 @@
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
+      <IndexViewGeneration>HtmlTableWithButtonsAction</IndexViewGeneration>
       <IndexView>false</IndexView>
       <DetailsView>false</DetailsView>
       <CreateView>false</CreateView>
@@ -427,7 +432,7 @@
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>FreightTerm</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
+      <OverwriteExisting>true</OverwriteExisting>
       <Properties>
         <AspNetMvcPropertySetting>
           <Name>IncotermCode</Name>
@@ -454,7 +459,7 @@
           <UseForEdit>TextBox</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>IsActive</Name>
+          <Name>IsPublished</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>
@@ -474,24 +479,26 @@
       <ModelForCreate>FreightTerm</ModelForCreate>
       <ModelForEdit>FreightTerm</ModelForEdit>
       <RolesCanView>users</RolesCanView>
-      <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
-      <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
-      <RolesCanDelete>admin, supervisor</RolesCanDelete>
+      <RolesCanCreate>admin</RolesCanCreate>
+      <RolesCanEdit>admin</RolesCanEdit>
+      <RolesCanDelete>admin</RolesCanDelete>
       <GenerateController>true</GenerateController>
-      <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
-      <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
+      <GenerateGetQueryMethod>false</GenerateGetQueryMethod>
+      <GenerateGetDtoQueryMethod>false</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
-      <GenerateGetEntityAction>true</GenerateGetEntityAction>
-      <GenerateGetEntityListAction>true</GenerateGetEntityListAction>
-      <GenerateCreateAction>true</GenerateCreateAction>
-      <GenerateDeleteAction>true</GenerateDeleteAction>
-      <GenerateEditAction>true</GenerateEditAction>
-      <GenerateDetailsAction>true</GenerateDetailsAction>
+      <GenerateGetEntityAction>false</GenerateGetEntityAction>
+      <GenerateGetEntityListAction>false</GenerateGetEntityListAction>
+      <GenerateCreateAction>false</GenerateCreateAction>
+      <GenerateDeleteAction>false</GenerateDeleteAction>
+      <GenerateEditAction>false</GenerateEditAction>
+      <GenerateDetailsAction>false</GenerateDetailsAction>
+      <IndexViewGeneration>HtmlTableWithButtonsAction</IndexViewGeneration>
       <IndexView>true</IndexView>
-      <DetailsView>true</DetailsView>
+      <DetailsView>false</DetailsView>
       <CreateView>true</CreateView>
-      <EditView>true</EditView>
+      <EditView>false</EditView>
       <BaseControllerName>BaseController</BaseControllerName>
+      <Area>Admin</Area>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
       <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
@@ -499,7 +506,7 @@
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>Currency</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
+      <OverwriteExisting>true</OverwriteExisting>
       <Properties>
         <AspNetMvcPropertySetting>
           <Name>CurrencyName</Name>
@@ -538,7 +545,7 @@
           <UseForEdit>TextBox</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>IsActive</Name>
+          <Name>IsPublished</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>
@@ -558,9 +565,170 @@
       <ModelForCreate>Currency</ModelForCreate>
       <ModelForEdit>Currency</ModelForEdit>
       <RolesCanView>users</RolesCanView>
-      <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
-      <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
-      <RolesCanDelete>admin, supervisor</RolesCanDelete>
+      <RolesCanCreate>admin</RolesCanCreate>
+      <RolesCanEdit>admin</RolesCanEdit>
+      <RolesCanDelete>admin</RolesCanDelete>
+      <GenerateController>true</GenerateController>
+      <GenerateGetQueryMethod>false</GenerateGetQueryMethod>
+      <GenerateGetDtoQueryMethod>false</GenerateGetDtoQueryMethod>
+      <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateGetEntityAction>false</GenerateGetEntityAction>
+      <GenerateGetEntityListAction>false</GenerateGetEntityListAction>
+      <GenerateCreateAction>false</GenerateCreateAction>
+      <GenerateDeleteAction>false</GenerateDeleteAction>
+      <GenerateEditAction>false</GenerateEditAction>
+      <GenerateDetailsAction>false</GenerateDetailsAction>
+      <IndexViewGeneration>HtmlTableWithButtonsAction</IndexViewGeneration>
+      <IndexView>true</IndexView>
+      <DetailsView>false</DetailsView>
+      <CreateView>true</CreateView>
+      <EditView>false</EditView>
+      <BaseControllerName>BaseController</BaseControllerName>
+      <Area>Admin</Area>
+      <CreateRedirect>"Index"</CreateRedirect>
+      <EditRedirect>"Index"</EditRedirect>
+      <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
+      <Name>SizingStandard</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>true</OverwriteExisting>
+      <Properties>
+        <AspNetMvcPropertySetting>
+          <Name>Title</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>Sizings</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>PurchaseOrders</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+      </Properties>
+      <ControllerName>SizingStandards</ControllerName>
+      <DataSetName>SizingStandards</DataSetName>
+      <SaveParameter>this</SaveParameter>
+      <ModelForIndex>SizingStandard</ModelForIndex>
+      <ModelForJson>SizingStandardDTO</ModelForJson>
+      <ModelForCreate>SizingStandardVM</ModelForCreate>
+      <ModelForEdit>SizingStandardVM</ModelForEdit>
+      <RolesCanView>users</RolesCanView>
+      <RolesCanCreate>admin</RolesCanCreate>
+      <RolesCanEdit>admin</RolesCanEdit>
+      <RolesCanDelete>admin</RolesCanDelete>
+      <GenerateController>true</GenerateController>
+      <GenerateGetQueryMethod>false</GenerateGetQueryMethod>
+      <GenerateGetDtoQueryMethod>false</GenerateGetDtoQueryMethod>
+      <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateGetEntityAction>false</GenerateGetEntityAction>
+      <GenerateGetEntityListAction>false</GenerateGetEntityListAction>
+      <GenerateCreateAction>false</GenerateCreateAction>
+      <GenerateDeleteAction>false</GenerateDeleteAction>
+      <GenerateEditAction>false</GenerateEditAction>
+      <GenerateDetailsAction>true</GenerateDetailsAction>
+      <IndexViewGeneration>HtmlTableWithButtonsAction</IndexViewGeneration>
+      <IndexView>false</IndexView>
+      <DetailsView>false</DetailsView>
+      <CreateView>false</CreateView>
+      <EditView>false</EditView>
+      <BaseControllerName>BaseController</BaseControllerName>
+      <Area>Admin</Area>
+      <CreateRedirect>"Index"</CreateRedirect>
+      <EditRedirect>"Index"</EditRedirect>
+      <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
+      <Name>Sizing</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>true</OverwriteExisting>
+      <Properties>
+        <AspNetMvcPropertySetting>
+          <Name>DisplayOrder</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>Caption</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>SizingStandardId</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>false</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>HiddenInput</UseForCreate>
+          <UseForEdit>HiddenInput</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>SizingStandard</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+      </Properties>
+      <ControllerName>Sizings</ControllerName>
+      <DataSetName>Sizings</DataSetName>
+      <StrongDependedForeignKey>SizingStandardId</StrongDependedForeignKey>
+      <SaveParameter>this</SaveParameter>
+      <ModelForIndex>Sizing</ModelForIndex>
+      <ModelForJson>SizingDTO</ModelForJson>
+      <ModelForCreate>Sizing</ModelForCreate>
+      <ModelForEdit>Sizing</ModelForEdit>
+      <RolesCanView>users</RolesCanView>
+      <RolesCanCreate>admin</RolesCanCreate>
+      <RolesCanEdit>admin</RolesCanEdit>
+      <RolesCanDelete>admin</RolesCanDelete>
       <GenerateController>true</GenerateController>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
       <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
@@ -571,12 +739,14 @@
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
-      <IndexView>true</IndexView>
-      <DetailsView>true</DetailsView>
-      <CreateView>true</CreateView>
-      <EditView>true</EditView>
+      <IndexViewGeneration>HtmlTableWithButtonsAction</IndexViewGeneration>
+      <IndexView>false</IndexView>
+      <DetailsView>false</DetailsView>
+      <CreateView>false</CreateView>
+      <EditView>false</EditView>
       <BaseControllerName>BaseController</BaseControllerName>
-      <CreateRedirect>"Index"</CreateRedirect>
+      <Area>Admin</Area>
+      <CreateRedirect>"Create", "Sizings", new { SizingStandardId = SizingStandardId }</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
       <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
     </BaseEntitySetting>
@@ -800,6 +970,7 @@
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
+      <IndexViewGeneration>HtmlTableWithButtonsAction</IndexViewGeneration>
       <IndexView>false</IndexView>
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
@@ -1052,6 +1223,7 @@
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
+      <IndexViewGeneration>HtmlTableWithButtonsAction</IndexViewGeneration>
       <IndexView>false</IndexView>
       <DetailsView>false</DetailsView>
       <CreateView>false</CreateView>
@@ -1124,6 +1296,7 @@
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
+      <IndexViewGeneration>HtmlTableWithMenuAction</IndexViewGeneration>
       <IndexView>false</IndexView>
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
@@ -1196,6 +1369,7 @@
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
+      <IndexViewGeneration>HtmlTableWithButtonsAction</IndexViewGeneration>
       <IndexView>false</IndexView>
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
@@ -1268,6 +1442,7 @@
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
+      <IndexViewGeneration>HtmlTableWithButtonsAction</IndexViewGeneration>
       <IndexView>true</IndexView>
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
@@ -1376,6 +1551,7 @@
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
+      <IndexViewGeneration>HtmlTableWithButtonsAction</IndexViewGeneration>
       <IndexView>false</IndexView>
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
@@ -1490,7 +1666,7 @@
           <Name>BuyingPrice</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
-          <InIndexView>true</InIndexView>
+          <InIndexView>false</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
           <InEditView>true</InEditView>
@@ -1514,7 +1690,7 @@
           <Name>BuyingCurrency</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
-          <InIndexView>true</InIndexView>
+          <InIndexView>false</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>false</InCreateView>
           <InEditView>false</InEditView>
@@ -1550,7 +1726,7 @@
           <Name>RoyaltyCurrency</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
-          <InIndexView>true</InIndexView>
+          <InIndexView>false</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>false</InCreateView>
           <InEditView>false</InEditView>
@@ -1562,7 +1738,7 @@
           <Name>RetailPrice</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
-          <InIndexView>true</InIndexView>
+          <InIndexView>false</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
           <InEditView>true</InEditView>
@@ -1586,7 +1762,7 @@
           <Name>RetailCurrency</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
-          <InIndexView>true</InIndexView>
+          <InIndexView>false</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>false</InCreateView>
           <InEditView>false</InEditView>
@@ -1712,14 +1888,15 @@
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
-      <IndexView>true</IndexView>
-      <DetailsView>true</DetailsView>
+      <IndexViewGeneration>HtmlTableWithButtonsAction</IndexViewGeneration>
+      <IndexView>false</IndexView>
+      <DetailsView>false</DetailsView>
       <CreateView>false</CreateView>
       <EditView>false</EditView>
       <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
-      <FillSelectListsMethod>await SetProductCategorySelectListAsync(product);</FillSelectListsMethod>
+      <FillSelectListsMethod>await SetProductCategorySelectListAsync(product);ViewBag.SellingCurrencyId = await GetCurrencySelectList(product.SellingCurrencyId);ViewBag.BuyingCurrencyId = await GetCurrencySelectList(product.BuyingCurrencyId ?? 0);ViewBag.RoyaltyCurrencyId = await GetCurrencySelectList(product.RoyaltyCurrencyId ?? 0);ViewBag.RetailCurrencyId = await GetCurrencySelectList(product.RetailCurrencyId ?? 0)</FillSelectListsMethod>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>PurchaseOrder</Name>
@@ -2217,6 +2394,7 @@
       <GenerateDeleteAction>false</GenerateDeleteAction>
       <GenerateEditAction>false</GenerateEditAction>
       <GenerateDetailsAction>false</GenerateDetailsAction>
+      <IndexViewGeneration>HtmlTableWithButtonsAction</IndexViewGeneration>
       <IndexView>false</IndexView>
       <DetailsView>false</DetailsView>
       <CreateView>false</CreateView>
@@ -2224,7 +2402,7 @@
       <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Details", new { id = entity.Id }</CreateRedirect>
       <EditRedirect>"Details", new { id = entity.Id }</EditRedirect>
-      <FillSelectListsMethod>await SetSupplierSelectList(purchaseOrderVM.Product,purchaseOrderVM.SupplierId);await SetProductSelectListAsync(purchaseOrderVM.Product);await SetSizingStandardSelectListAsync(purchaseOrderVM);await SetCustomerSelectListAsync(purchaseOrderVM)</FillSelectListsMethod>
+      <FillSelectListsMethod>await SetSupplierSelectList(purchaseOrderVM.Product,purchaseOrderVM.SupplierId);await SetProductSelectListAsync(purchaseOrderVM.Product);await SetSizingStandardSelectListAsync(purchaseOrderVM);await SetCustomerSelectListAsync(purchaseOrderVM);await SetpurchaseOrderVMCategorySelectListAsync(purchaseOrderVM);ViewBag.SellingCurrencyId = await GetCurrencySelectList(purchaseOrderVM.SellingCurrencyId);ViewBag.BuyingCurrencyId = await GetCurrencySelectList(purchaseOrderVM.BuyingCurrencyId ?? 0);ViewBag.RoyaltyCurrencyId = await GetCurrencySelectList(purchaseOrderVM.RoyaltyCurrencyId ?? 0);ViewBag.RetailCurrencyId = await GetCurrencySelectList(purchaseOrderVM.RetailCurrencyId ?? 0)</FillSelectListsMethod>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>SizeRatio</Name>
@@ -2313,171 +2491,13 @@
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
+      <IndexViewGeneration>HtmlTableWithButtonsAction</IndexViewGeneration>
       <IndexView>false</IndexView>
       <DetailsView>false</DetailsView>
       <CreateView>false</CreateView>
       <EditView>false</EditView>
       <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
-      <EditRedirect>"Index"</EditRedirect>
-      <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
-    </BaseEntitySetting>
-    <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
-      <Name>SizingStandard</Name>
-      <Exclude>false</Exclude>
-      <OverwriteExisting>true</OverwriteExisting>
-      <Properties>
-        <AspNetMvcPropertySetting>
-          <Name>Title</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>true</UseInSearch>
-          <InIndexView>true</InIndexView>
-          <InDetailsView>true</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForCreate>TextBox</UseForCreate>
-          <UseForEdit>TextBox</UseForEdit>
-        </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
-          <Name>Sizings</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
-          <InIndexView>true</InIndexView>
-          <InDetailsView>true</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForCreate>Standart</UseForCreate>
-          <UseForEdit>Standart</UseForEdit>
-        </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
-          <Name>PurchaseOrders</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
-          <InIndexView>true</InIndexView>
-          <InDetailsView>true</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForCreate>Standart</UseForCreate>
-          <UseForEdit>Standart</UseForEdit>
-        </AspNetMvcPropertySetting>
-      </Properties>
-      <ControllerName>SizingStandards</ControllerName>
-      <DataSetName>SizingStandards</DataSetName>
-      <SaveParameter>this</SaveParameter>
-      <ModelForIndex>SizingStandard</ModelForIndex>
-      <ModelForJson>SizingStandardDTO</ModelForJson>
-      <ModelForCreate>SizingStandardVM</ModelForCreate>
-      <ModelForEdit>SizingStandardVM</ModelForEdit>
-      <RolesCanView>users</RolesCanView>
-      <RolesCanCreate>admin</RolesCanCreate>
-      <RolesCanEdit>admin</RolesCanEdit>
-      <RolesCanDelete>admin</RolesCanDelete>
-      <GenerateController>true</GenerateController>
-      <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
-      <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
-      <GenerateIndexAction>true</GenerateIndexAction>
-      <GenerateGetEntityAction>true</GenerateGetEntityAction>
-      <GenerateGetEntityListAction>true</GenerateGetEntityListAction>
-      <GenerateCreateAction>false</GenerateCreateAction>
-      <GenerateDeleteAction>true</GenerateDeleteAction>
-      <GenerateEditAction>false</GenerateEditAction>
-      <GenerateDetailsAction>true</GenerateDetailsAction>
-      <IndexView>false</IndexView>
-      <DetailsView>false</DetailsView>
-      <CreateView>false</CreateView>
-      <EditView>false</EditView>
-      <BaseControllerName>BaseController</BaseControllerName>
-      <Area>Admin</Area>
-      <CreateRedirect>"Index"</CreateRedirect>
-      <EditRedirect>"Index"</EditRedirect>
-      <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
-    </BaseEntitySetting>
-    <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
-      <Name>Sizing</Name>
-      <Exclude>false</Exclude>
-      <OverwriteExisting>true</OverwriteExisting>
-      <Properties>
-        <AspNetMvcPropertySetting>
-          <Name>DisplayOrder</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
-          <InIndexView>true</InIndexView>
-          <InDetailsView>true</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForCreate>Standart</UseForCreate>
-          <UseForEdit>Standart</UseForEdit>
-        </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
-          <Name>Caption</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>true</UseInSearch>
-          <InIndexView>true</InIndexView>
-          <InDetailsView>true</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForCreate>TextBox</UseForCreate>
-          <UseForEdit>TextBox</UseForEdit>
-        </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
-          <Name>SizingStandardId</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
-          <InIndexView>false</InIndexView>
-          <InDetailsView>false</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForCreate>HiddenInput</UseForCreate>
-          <UseForEdit>HiddenInput</UseForEdit>
-        </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
-          <Name>SizingStandard</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
-          <InIndexView>true</InIndexView>
-          <InDetailsView>true</InDetailsView>
-          <InCreateView>false</InCreateView>
-          <InEditView>false</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForCreate>Standart</UseForCreate>
-          <UseForEdit>Standart</UseForEdit>
-        </AspNetMvcPropertySetting>
-      </Properties>
-      <ControllerName>Sizings</ControllerName>
-      <DataSetName>Sizings</DataSetName>
-      <StrongDependedForeignKey>SizingStandardId</StrongDependedForeignKey>
-      <SaveParameter>this</SaveParameter>
-      <ModelForIndex>Sizing</ModelForIndex>
-      <ModelForJson>SizingDTO</ModelForJson>
-      <ModelForCreate>Sizing</ModelForCreate>
-      <ModelForEdit>Sizing</ModelForEdit>
-      <RolesCanView>users</RolesCanView>
-      <RolesCanCreate>admin</RolesCanCreate>
-      <RolesCanEdit>admin</RolesCanEdit>
-      <RolesCanDelete>admin</RolesCanDelete>
-      <GenerateController>true</GenerateController>
-      <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
-      <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
-      <GenerateIndexAction>true</GenerateIndexAction>
-      <GenerateGetEntityAction>true</GenerateGetEntityAction>
-      <GenerateGetEntityListAction>true</GenerateGetEntityListAction>
-      <GenerateCreateAction>true</GenerateCreateAction>
-      <GenerateDeleteAction>true</GenerateDeleteAction>
-      <GenerateEditAction>true</GenerateEditAction>
-      <GenerateDetailsAction>true</GenerateDetailsAction>
-      <IndexView>false</IndexView>
-      <DetailsView>false</DetailsView>
-      <CreateView>false</CreateView>
-      <EditView>false</EditView>
-      <BaseControllerName>BaseController</BaseControllerName>
-      <Area>Admin</Area>
-      <CreateRedirect>"Create", "Sizings", new { SizingStandardId = SizingStandardId }</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
       <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
     </BaseEntitySetting>
@@ -2713,6 +2733,7 @@
       <GenerateDeleteAction>false</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
+      <IndexViewGeneration>HtmlTableWithButtonsAction</IndexViewGeneration>
       <IndexView>false</IndexView>
       <DetailsView>true</DetailsView>
       <CreateView>false</CreateView>
@@ -2881,6 +2902,7 @@
       <GenerateDeleteAction>false</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
+      <IndexViewGeneration>HtmlTableWithButtonsAction</IndexViewGeneration>
       <IndexView>true</IndexView>
       <DetailsView>true</DetailsView>
       <CreateView>false</CreateView>
@@ -2954,6 +2976,7 @@
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
+      <IndexViewGeneration>HtmlTableWithButtonsAction</IndexViewGeneration>
       <IndexView>false</IndexView>
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
@@ -3052,6 +3075,7 @@
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
+      <IndexViewGeneration>HtmlTableWithButtonsAction</IndexViewGeneration>
       <IndexView>true</IndexView>
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>

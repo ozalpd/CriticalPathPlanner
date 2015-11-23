@@ -71,8 +71,16 @@
 		<value>Kişi Ekle</value>
 	</data>
 
+	<data name="AddCurrency" xml:space="preserve">
+		<value>Para Birimi Ekle</value>
+	</data>
+
 	<data name="AddCustomer" xml:space="preserve">
 		<value>Müşteri Ekle</value>
+	</data>
+
+	<data name="AddFreightTerm" xml:space="preserve">
+		<value>Nakliye Koşulu Ekle</value>
 	</data>
 
 	<data name="AddManufacturer" xml:space="preserve">
@@ -91,8 +99,16 @@
 		<value>Yeni Kişi Ekle</value>
 	</data>
 
+	<data name="AddNewCurrency" xml:space="preserve">
+		<value>Yeni Para Birimi Ekle</value>
+	</data>
+
 	<data name="AddNewCustomer" xml:space="preserve">
 		<value>Yeni Müşteri Ekle</value>
+	</data>
+
+	<data name="AddNewFreightTerm" xml:space="preserve">
+		<value>Yeni Nakliye Koşulu Ekle</value>
 	</data>
 
 	<data name="AddNewManufacturer" xml:space="preserve">
@@ -183,8 +199,16 @@
 		<value>Kişi Ekle/Çıkar</value>
 	</data>
 
+	<data name="AddRemoveCurrency" xml:space="preserve">
+		<value>Para Birimi Ekle/Çıkar</value>
+	</data>
+
 	<data name="AddRemoveCustomer" xml:space="preserve">
 		<value>Müşteri Ekle/Çıkar</value>
+	</data>
+
+	<data name="AddRemoveFreightTerm" xml:space="preserve">
+		<value>Nakliye Koşulu Ekle/Çıkar</value>
 	</data>
 
 	<data name="AddRemoveManufacturer" xml:space="preserve">
@@ -287,6 +311,14 @@
 		<value>Uygulama Kullanıcısı Listesi</value>
 	</data>
 
+	<data name="BuyingCurrency" xml:space="preserve">
+		<value>Alış Para Birimi</value>
+	</data>
+
+	<data name="BuyingCurrencyId" xml:space="preserve">
+		<value>Alış Para Birimi</value>
+	</data>
+
 	<data name="BuyingPrice" xml:space="preserve">
 		<value>Alış Fiyatı</value>
 	</data>
@@ -387,6 +419,10 @@
 		<value>Kişi Oluştur</value>
 	</data>
 
+	<data name="CreateCurrency" xml:space="preserve">
+		<value>Para Birimi Oluştur</value>
+	</data>
+
 	<data name="CreateCustomer" xml:space="preserve">
 		<value>Müşteri Oluştur</value>
 	</data>
@@ -397,6 +433,10 @@
 
 	<data name="CreatedUser" xml:space="preserve">
 		<value>Oluşturan Kullanıcı</value>
+	</data>
+
+	<data name="CreateFreightTerm" xml:space="preserve">
+		<value>Nakliye Koşulu Oluştur</value>
 	</data>
 
 	<data name="CreateManufacturer" xml:space="preserve">
@@ -455,6 +495,30 @@
 		<value>Oluşturan IP</value>
 	</data>
 
+	<data name="Currencies" xml:space="preserve">
+		<value>Para Birimleri</value>
+	</data>
+
+	<data name="CurrenciesList" xml:space="preserve">
+		<value>Para Birimi Listesi</value>
+	</data>
+
+	<data name="Currency" xml:space="preserve">
+		<value>Para Birimi</value>
+	</data>
+
+	<data name="CurrencyCode" xml:space="preserve">
+		<value>Döviz Kodu</value>
+	</data>
+
+	<data name="CurrencyName" xml:space="preserve">
+		<value>Döviz İsmi</value>
+	</data>
+
+	<data name="CurrencySymbol" xml:space="preserve">
+		<value>Döviz Sembolü</value>
+	</data>
+
 	<data name="Customer" xml:space="preserve">
 		<value>Müşteri</value>
 	</data>
@@ -495,8 +559,16 @@
 		<value>Kişi Sil</value>
 	</data>
 
+	<data name="DeleteCurrency" xml:space="preserve">
+		<value>Para Birimini Sil</value>
+	</data>
+
 	<data name="DeleteCustomer" xml:space="preserve">
 		<value>Müşteri Sil</value>
+	</data>
+
+	<data name="DeleteFreightTerm" xml:space="preserve">
+		<value>Nakliye Koşulunu Sil</value>
 	</data>
 
 	<data name="DeleteManufacturer" xml:space="preserve">
@@ -575,12 +647,16 @@
 		<value>Sonlandırma Notları</value>
 	</data>
 
+	<data name="DiscountRate" xml:space="preserve">
+		<value>İskonto (%)</value>
+	</data>
+
 	<data name="DisplayOrder" xml:space="preserve">
 		<value>Gösterim Sırası</value>
 	</data>
 
 	<data name="DueDate" xml:space="preserve">
-		<value>Vadesi</value>
+		<value>Teslim Tarihi</value>
 	</data>
 
 	<data name="EditAspNetUser" xml:space="preserve">
@@ -595,8 +671,16 @@
 		<value>Kişiyi Düzenle</value>
 	</data>
 
+	<data name="EditCurrency" xml:space="preserve">
+		<value>Para Birimini Düzenle</value>
+	</data>
+
 	<data name="EditCustomer" xml:space="preserve">
 		<value>Müşteriyi Düzenle</value>
+	</data>
+
+	<data name="EditFreightTerm" xml:space="preserve">
+		<value>Nakliye Koşulunu Düzenle</value>
 	</data>
 
 	<data name="EditManufacturer" xml:space="preserve">
@@ -667,6 +751,22 @@
 		<value>Öngörülen Tarih</value>
 	</data>
 
+	<data name="FreightTerm" xml:space="preserve">
+		<value>Nakliye Koşulu</value>
+	</data>
+
+	<data name="FreightTermId" xml:space="preserve">
+		<value>Nakliye Koşulu</value>
+	</data>
+
+	<data name="FreightTerms" xml:space="preserve">
+		<value>Nakliye Koşulları</value>
+	</data>
+
+	<data name="FreightTermsList" xml:space="preserve">
+		<value>Nakliye Koşul Listesi</value>
+	</data>
+
 	<data name="Id" xml:space="preserve">
 		<value>Kayıt No</value>
 	</data>
@@ -675,12 +775,20 @@
 		<value>Resim Yolu</value>
 	</data>
 
+	<data name="IncotermCode" xml:space="preserve">
+		<value>Incoterms Kodu</value>
+	</data>
+
 	<data name="IsApproved" xml:space="preserve">
 		<value>Onaylandı</value>
 	</data>
 
 	<data name="IsCompleted" xml:space="preserve">
 		<value>Bitti</value>
+	</data>
+
+	<data name="IsPublished" xml:space="preserve">
+		<value>Yayında</value>
 	</data>
 
 	<data name="LastName" xml:space="preserve">
@@ -899,8 +1007,16 @@
 		<value>Kişiyi Çıkar</value>
 	</data>
 
+	<data name="RemoveCurrency" xml:space="preserve">
+		<value>Para Birimini Çıkar</value>
+	</data>
+
 	<data name="RemoveCustomer" xml:space="preserve">
 		<value>Müşteriyi Çıkar</value>
+	</data>
+
+	<data name="RemoveFreightTerm" xml:space="preserve">
+		<value>Nakliye Koşulunu Çıkar</value>
 	</data>
 
 	<data name="RemoveManufacturer" xml:space="preserve">
@@ -955,8 +1071,36 @@
 		<value>Gereken İş Günü</value>
 	</data>
 
+	<data name="RetailCurrency" xml:space="preserve">
+		<value>Perakende Para Birimi</value>
+	</data>
+
+	<data name="RetailCurrencyId" xml:space="preserve">
+		<value>Perakende Para Birimi</value>
+	</data>
+
 	<data name="RetailPrice" xml:space="preserve">
 		<value>Perakende Fiyatı</value>
+	</data>
+
+	<data name="RoyaltyCurrency" xml:space="preserve">
+		<value>Telif Para Birimi</value>
+	</data>
+
+	<data name="RoyaltyCurrencyId" xml:space="preserve">
+		<value>Telif Para Birimi</value>
+	</data>
+
+	<data name="RoyaltyFee" xml:space="preserve">
+		<value>Telif Ücreti</value>
+	</data>
+
+	<data name="SellingCurrency" xml:space="preserve">
+		<value>Satış Para Birimi</value>
+	</data>
+
+	<data name="SellingCurrencyId" xml:space="preserve">
+		<value>Satış Para Birimi</value>
 	</data>
 
 	<data name="SizeRatio" xml:space="preserve">
@@ -1025,6 +1169,10 @@
 
 	<data name="SupplierCode" xml:space="preserve">
 		<value>Tedarikçi Kodu</value>
+	</data>
+
+	<data name="SupplierDueDate" xml:space="preserve">
+		<value>Tedarikçi Teslim Tarihi</value>
 	</data>
 
 	<data name="SupplierId" xml:space="preserve">

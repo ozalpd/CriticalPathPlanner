@@ -17,7 +17,7 @@ CREATE TABLE [dbo].[PurchaseOrders](
     [SellingCurrencyId] [int] Not Null Constraint FK_PurchaseOrder_SellingCurrencyId Foreign Key References [dbo].[Currencies]([Id]),
     [BuyingPrice] [decimal](18, 4) Null,
     [BuyingCurrencyId] [int] Null Constraint FK_PurchaseOrder_BuyingCurrencyId Foreign Key References [dbo].[Currencies]([Id]),
-    [RoyaltyFee] [decimal](18, 4) Not Null Default 0,
+    [RoyaltyFee] [decimal](18, 4) Null Default 0,
     [RoyaltyCurrencyId] [int] Null Constraint FK_PurchaseOrder_RoyaltyCurrencyId Foreign Key References [dbo].[Currencies]([Id]),
     [RetailPrice] [decimal](18, 4) Null,
     [RetailCurrencyId] [int] Null Constraint FK_PurchaseOrder_RetailCurrencyId Foreign Key References [dbo].[Currencies]([Id]),

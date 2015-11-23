@@ -41,6 +41,14 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "StepTemplates")]
             public ICollection<ProcessStepTemplate> StepTemplates { get; set; }
 
+            [StringLength(48, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "ApprovedUserId")]
+            public string ApprovedUserId { get; set; }
+
+            [StringLength(48, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "ApprovedUserIp")]
+            public string ApprovedUserIp { get; set; }
+
             [Display(ResourceType = typeof(EntityStrings), Name = "ApprovedUser")]
             public AspNetUser ApprovedUser { get; set; }
 

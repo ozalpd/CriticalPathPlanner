@@ -23,7 +23,7 @@ namespace CriticalPath.Data
         public int Id { get; set; }
         public string IncotermCode { get; set; }
         public string Description { get; set; }
-        public bool IsActive { get; set; }
+        public bool IsPublished { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PurchaseOrder> PurchaseOrders { get; set; }
@@ -37,7 +37,7 @@ namespace CriticalPath.Data
             var clone = new FreightTerm();
             clone.IncotermCode = IncotermCode;
             clone.Description = Description;
-            clone.IsActive = IsActive;
+            clone.IsPublished = IsPublished;
     
             Cloning(clone);
     
@@ -59,7 +59,6 @@ namespace CriticalPath.Data
             Id = entity.Id;
             IncotermCode = entity.IncotermCode;
             Description = entity.Description;
-            IsActive = entity.IsActive;
         
             Initiliazing(entity);
         }
@@ -72,7 +71,6 @@ namespace CriticalPath.Data
             entity.Id = Id;
             entity.IncotermCode = IncotermCode;
             entity.Description = Description;
-            entity.IsActive = IsActive;
     
             Converting(entity);
     
@@ -84,6 +82,5 @@ namespace CriticalPath.Data
         public int Id { get; set; }
         public string IncotermCode { get; set; }
         public string Description { get; set; }
-        public bool IsActive { get; set; }
     }
 }

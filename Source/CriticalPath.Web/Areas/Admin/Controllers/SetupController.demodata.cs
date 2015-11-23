@@ -870,23 +870,24 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             var suppliers = await (from s in DataContext.Companies.OfType<Supplier>()
                                    select s)
                                    .ToArrayAsync();
+            var currencies = await DataContext.Currencies.ToArrayAsync();
 
             int countCatg = 0;
             ProductCategory catg1 = new ProductCategory() { CategoryName = "Kadın Giyim" };
-            countCatg = AddCategory(catg1, catgKadin, suppliers, sb, countCatg);
+            countCatg = AddCategory(catg1, catgKadin, suppliers, currencies, sb, countCatg);
 
             ProductCategory catg2 = new ProductCategory() { CategoryName = "Erkek Giyim" };
             DataContext.ProductCategories.Add(catg2);
-            countCatg = AddCategory(catg2, catgErkek, suppliers, sb, countCatg);
+            countCatg = AddCategory(catg2, catgErkek, suppliers, currencies, sb, countCatg);
 
             ProductCategory catg3 = new ProductCategory() { CategoryName = "Çocuk Giyim" };
             DataContext.ProductCategories.Add(catg3);
-            countCatg = AddCategory(catg3, catgCocuk, suppliers, sb, countCatg);
+            countCatg = AddCategory(catg3, catgCocuk, suppliers, currencies, sb, countCatg);
         }
         int suppliersAdded = 0;
 
         private int AddCategory(ProductCategory parentCatg, string[] subCategories, Supplier[] suppliers,
-            StringBuilder sb, int countCatg)
+           Currency[] currencies, StringBuilder sb, int countCatg)
         {
             DataContext.ProductCategories.Add(parentCatg);
             sb.Append("Category ");
@@ -912,6 +913,7 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                     var prod = new Product()
                     {
                         Category = catg,
+                        SellingCurrency = currencies[countProduct % currencies.Length]
                     };
                     for (int j = 0; j < wordCount; j++)
                     {

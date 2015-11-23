@@ -87,8 +87,8 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CurrencyName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="CurrencyCode" Type="nvarchar" MaxLength="5" Nullable="false" />
-          <Property Name="CurrencySymbol" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CurrencySymbol" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="IsPublished" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Customers">
           <Key>
@@ -105,7 +105,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IncotermCode" Type="nvarchar" MaxLength="16" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="256" />
-          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="IsPublished" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Manufacturers">
           <Key>
@@ -236,7 +236,7 @@
           <Property Name="SellingCurrencyId" Type="int" Nullable="false" />
           <Property Name="BuyingPrice" Type="decimal" Precision="18" Scale="4" />
           <Property Name="BuyingCurrencyId" Type="int" />
-          <Property Name="RoyaltyFee" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="RoyaltyFee" Type="decimal" Precision="18" Scale="4" />
           <Property Name="RoyaltyCurrencyId" Type="int" />
           <Property Name="RetailPrice" Type="decimal" Precision="18" Scale="4" />
           <Property Name="RetailCurrencyId" Type="int" />
@@ -279,7 +279,7 @@
           <Property Name="SellingCurrencyId" Type="int" Nullable="false" />
           <Property Name="BuyingPrice" Type="decimal" Precision="18" Scale="4" />
           <Property Name="BuyingCurrencyId" Type="int" />
-          <Property Name="RoyaltyFee" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+          <Property Name="RoyaltyFee" Type="decimal" Precision="18" Scale="4" />
           <Property Name="RoyaltyCurrencyId" Type="int" />
           <Property Name="RetailPrice" Type="decimal" Precision="18" Scale="4" />
           <Property Name="RetailCurrencyId" Type="int" />
@@ -1760,7 +1760,7 @@
           <Property Name="SellingCurrencyId" Type="Int32" Nullable="false" />
           <Property Name="BuyingPrice" Type="Decimal" Precision="18" Scale="4" />
           <Property Name="BuyingCurrencyId" Type="Int32" />
-          <Property Name="RoyaltyFee" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+          <Property Name="RoyaltyFee" Type="Decimal" Precision="18" Scale="4" />
           <Property Name="RoyaltyCurrencyId" Type="Int32" />
           <Property Name="RetailPrice" Type="Decimal" Precision="18" Scale="4" />
           <Property Name="RetailCurrencyId" Type="Int32" />
@@ -1818,7 +1818,7 @@
           <Property Name="SellingCurrencyId" Type="Int32" Nullable="false" />
           <Property Name="BuyingPrice" Type="Decimal" Precision="18" Scale="4" />
           <Property Name="BuyingCurrencyId" Type="Int32" />
-          <Property Name="RoyaltyFee" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+          <Property Name="RoyaltyFee" Type="Decimal" Precision="18" Scale="4" />
           <Property Name="RoyaltyCurrencyId" Type="Int32" />
           <Property Name="RetailPrice" Type="Decimal" Precision="18" Scale="4" />
           <Property Name="RetailCurrencyId" Type="Int32" />
@@ -2601,8 +2601,8 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IncotermCode" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="PurchaseOrders" Relationship="CriticalPathDataModel.FK_PurchaseOrder_FreightTermId" FromRole="FreightTerm" ToRole="PurchaseOrder" />
+          <Property Name="IsPublished" Type="Boolean" Nullable="false" />
         </EntityType>
         <Association Name="FK_PurchaseOrder_FreightTermId">
           <End Type="CriticalPathDataModel.FreightTerm" Role="FreightTerm" Multiplicity="1" />
@@ -2635,8 +2635,8 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CurrencyName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CurrencyCode" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
-          <Property Name="CurrencySymbol" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CurrencySymbol" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="IsPublished" Type="Boolean" Nullable="false" />
         </EntityType>
         <Association Name="FK_Product_BuyingCurrencyId">
           <End Type="CriticalPathDataModel.Currency" Role="Currency" Multiplicity="0..1" />
@@ -3089,7 +3089,7 @@
           <EntitySetMapping Name="FreightTerms">
             <EntityTypeMapping TypeName="CriticalPathDataModel.FreightTerm">
               <MappingFragment StoreEntitySet="FreightTerms">
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsPublished" ColumnName="IsPublished" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="IncotermCode" ColumnName="IncotermCode" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -3099,7 +3099,7 @@
           <EntitySetMapping Name="Currencies">
             <EntityTypeMapping TypeName="CriticalPathDataModel.Currency">
               <MappingFragment StoreEntitySet="Currencies">
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsPublished" ColumnName="IsPublished" />
                 <ScalarProperty Name="CurrencySymbol" ColumnName="CurrencySymbol" />
                 <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
                 <ScalarProperty Name="CurrencyName" ColumnName="CurrencyName" />

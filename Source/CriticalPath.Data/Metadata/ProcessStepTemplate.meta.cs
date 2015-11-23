@@ -38,7 +38,7 @@ namespace CriticalPath.Data
             public ProcessTemplate ProcessTemplate { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Range(1,1000)]
+            [Range(0,1000)]
             [Display(ResourceType = typeof(EntityStrings), Name = "RequiredWorkDays")]
             public int RequiredWorkDays { get; set; }
 

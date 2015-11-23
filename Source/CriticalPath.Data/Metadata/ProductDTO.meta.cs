@@ -28,7 +28,7 @@ namespace CriticalPath.Data
 
             [StringLength(128, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [DataType(DataType.MultilineText)]
+            [DataType(DataType.Text)]
             [Display(ResourceType = typeof(EntityStrings), Name = "Description")]
             public string Description { get; set; }
 
@@ -41,6 +41,32 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "CategoryId")]
             public int CategoryId { get; set; }
 
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "UnitPrice")]
+            public decimal UnitPrice { get; set; }
+
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "SellingCurrencyId")]
+            public int SellingCurrencyId { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "BuyingPrice")]
+            public decimal BuyingPrice { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "BuyingCurrencyId")]
+            public int BuyingCurrencyId { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "RoyaltyFee")]
+            public decimal RoyaltyFee { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "RoyaltyCurrencyId")]
+            public int RoyaltyCurrencyId { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "RetailPrice")]
+            public decimal RetailPrice { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "RetailCurrencyId")]
+            public int RetailCurrencyId { get; set; }
+
             [UIHint("BoolRed")]
             [Display(ResourceType = typeof(EntityStrings), Name = "Discontinued")]
             public bool Discontinued { get; set; }
@@ -49,6 +75,7 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "DiscontinueDate")]
             public DateTime DiscontinueDate { get; set; }
 
+            [StringLength(256, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [DataType(DataType.MultilineText)]
             [Display(ResourceType = typeof(EntityStrings), Name = "DiscontinueNotes")]
             public string DiscontinueNotes { get; set; }

@@ -63,6 +63,10 @@
 		<value>Action</value>
 	</data>
 
+	<data name="Actions" xml:space="preserve">
+		<value>Actions</value>
+	</data>
+
 	<data name="Add" xml:space="preserve">
 		<value>Add</value>
 	</data>
@@ -189,6 +193,10 @@
 
 	<data name="Select" xml:space="preserve">
 		<value>Select</value>
+	</data>
+
+	<data name="SelectCurrency" xml:space="preserve">
+		<value>Select Currency</value>
 	</data>
 
 	<data name="SelectPlease" xml:space="preserve">

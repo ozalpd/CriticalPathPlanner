@@ -17,6 +17,10 @@
     <Translation>Action</Translation>
   </Vocab>
   <Vocab>
+    <Name>Actions</Name>
+    <Translation>Actions</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Add</Name>
     <Translation>Add</Translation>
   </Vocab>
@@ -1130,7 +1134,7 @@
   </Vocab>
   <Vocab>
     <Name>IncotermCode</Name>
-    <Translation>Incoterm Code</Translation>
+    <Translation>Incoterms Code</Translation>
   </Vocab>
   <Vocab>
     <Name>Index</Name>
@@ -1838,7 +1842,7 @@
   </Vocab>
   <Vocab>
     <Name>SupplierDueDate</Name>
-    <Translation>Supplier Due Date</Translation>
+    <Translation>Supplier's Due Date</Translation>
   </Vocab>
   <Vocab>
     <Name>SupplierId</Name>

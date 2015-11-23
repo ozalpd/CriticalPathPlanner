@@ -4,18 +4,15 @@
 @model Product
 @{
     ViewBag.Title = EntityStrings.Product;
+
+    //Authorization Flags
+    bool canUserEdit = ViewBag.canUserEdit;
+    bool canUserCreate = ViewBag.canUserCreate;
+    bool canUserDelete = ViewBag.canUserDelete;
 }
 
 <h2>@EntityStrings.Product @ActionStrings.Details</h2>
 
-<div class="row">
-    <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.Category)
-    </label>
-    <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.Category)
-    </div>
-</div>
 <div class="row">
     <label class="control-label col-md-2 col-sm-3">
         @Html.DisplayNameFor(model => model.ProductCode)
@@ -32,4 +29,84 @@
         @Html.DisplayFor(m => m.Description)
     </div>
 </div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.ImageUrl)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.ImageUrl)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.Category)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.Category)
+    </div>
+</div>
+@Html.Partial("_AllPrice", Model)
+
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.PurchaseOrders)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.PurchaseOrders.Count)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.Suppliers)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.Suppliers)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.CreateDate)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.CreateDate)
+        @Html.DisplayFor(m => m.CreatedUser)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.ModifyDate)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.ModifyDate)
+        @Html.DisplayFor(m => m.ModifiedUser)
+    </div>
+</div>
+@if (Model.Discontinued)
+{
+    <div class="row">
+        <label class="control-label col-md-2 col-sm-3">
+            @Html.DisplayNameFor(model => model.DiscontinueDate)
+        </label>
+        <div class="col-md-10 col-sm-9">
+            @Html.DisplayFor(m => m.DiscontinueDate)
+            @Html.DisplayFor(model => model.DiscontinuedUser)
+        </div>
+    </div>
+    <div class="row">
+        <label class="control-label col-md-2 col-sm-3">
+            @Html.DisplayNameFor(model => model.DiscontinueNotes)
+        </label>
+        <div class="col-md-10 col-sm-9">
+            @Html.DisplayFor(m => m.DiscontinueNotes)
+        </div>
+    </div>
+    <div class="row">
+        <label class="control-label col-md-2 col-sm-3">
+            @Html.DisplayNameFor(model => model.DiscontinuedUserIp)
+        </label>
+        <div class="col-md-10 col-sm-9">
+            @Html.DisplayFor(m => m.DiscontinuedUserIp)
+        </div>
+    </div>
+}
 @Html.Partial("_DetailFormButtonsPartial")

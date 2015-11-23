@@ -11,7 +11,7 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -33,6 +33,12 @@
                             <li class="divider"></li>
                             <li>@Html.ActionLink(@EntityStrings.ProcessTemplates, "Index", "ProcessTemplates")</li>
                             <li>@Html.ActionLink(@EntityStrings.CreateProcessTemplate, "Create", "ProcessTemplates")</li>
+                            <li class="divider"></li>
+                            <li>@Html.ActionLink(@EntityStrings.Currencies, "Index", "Currencies")</li>
+                            <li>@Html.ActionLink(@EntityStrings.CreateCurrency, "Create", "Currencies")</li>
+                            <li class="divider"></li>
+                            <li>@Html.ActionLink(@EntityStrings.FreightTerms, "Index", "FreightTerms")</li>
+                            <li>@Html.ActionLink(@EntityStrings.CreateFreightTerm, "Create", "FreightTerms")</li>
                             <li class="divider"></li>
                             <li><a href="#">@CommonStrings.ApplicationSettings</a></li>
                             <li>@Html.ActionLink(CommonStrings.Setup, "Index", "Setup")</li>

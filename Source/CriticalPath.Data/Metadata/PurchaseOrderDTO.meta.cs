@@ -47,9 +47,43 @@ namespace CriticalPath.Data
             public int ProductId { get; set; }
 
             [StringLength(256, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
-            [DataType(DataType.MultilineText)]
+            [DataType(DataType.Text)]
             [Display(ResourceType = typeof(EntityStrings), Name = "Description")]
             public string Description { get; set; }
+
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "Quantity")]
+            public int Quantity { get; set; }
+
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "DiscountRate")]
+            public decimal DiscountRate { get; set; }
+
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "UnitPrice")]
+            public decimal UnitPrice { get; set; }
+
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "SellingCurrencyId")]
+            public int SellingCurrencyId { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "BuyingPrice")]
+            public decimal BuyingPrice { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "BuyingCurrencyId")]
+            public int BuyingCurrencyId { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "RoyaltyFee")]
+            public decimal RoyaltyFee { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "RoyaltyCurrencyId")]
+            public int RoyaltyCurrencyId { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "RetailPrice")]
+            public decimal RetailPrice { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "RetailCurrencyId")]
+            public int RetailCurrencyId { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Display(ResourceType = typeof(EntityStrings), Name = "CustomerId")]
@@ -60,18 +94,17 @@ namespace CriticalPath.Data
             public string CustomerPoNr { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "Quantity")]
-            public int Quantity { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "FreightTermId")]
+            public int FreightTermId { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "UnitPrice")]
-            public decimal UnitPrice { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "SupplierId")]
+            public int SupplierId { get; set; }
 
-            [Display(ResourceType = typeof(EntityStrings), Name = "BuyingPrice")]
-            public decimal BuyingPrice { get; set; }
-
-            [Display(ResourceType = typeof(EntityStrings), Name = "RetailPrice")]
-            public decimal RetailPrice { get; set; }
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [DataType(DataType.Date)]
+            [Display(ResourceType = typeof(EntityStrings), Name = "SupplierDueDate")]
+            public DateTime SupplierDueDate { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Display(ResourceType = typeof(EntityStrings), Name = "SizingStandardId")]

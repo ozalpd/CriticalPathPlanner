@@ -64,6 +64,7 @@
     <Compile Include="Contact.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="CriticalPathContext.static.cs" />
     <Compile Include="Currency.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
@@ -78,6 +79,10 @@
     </Compile>
     <Compile Include="Metadata\AspNetUser.meta.cs" />
     <Compile Include="Metadata\AspNetUserDTO.meta.cs" />
+    <Compile Include="Metadata\Currency.meta.cs" />
+    <Compile Include="Metadata\CurrencyDTO.meta.cs" />
+    <Compile Include="Metadata\FreightTerm.meta.cs" />
+    <Compile Include="Metadata\FreightTermDTO.meta.cs" />
     <Compile Include="Metadata\Manufacturer.meta.cs" />
     <Compile Include="Metadata\ManufacturerDTO.meta.cs" />
     <Compile Include="Metadata\SizeRatio.meta.cs" />
@@ -88,7 +93,7 @@
     <Compile Include="Metadata\SizingStandard.meta.cs" />
     <Compile Include="Metadata\SizingStandardDTO.meta.cs" />
     <Compile Include="Parts\Contact.part.cs" />
-    <Compile Include="CriticalPathContext.cust.cs" />
+    <Compile Include="CriticalPathContext.query.cs" />
     <Compile Include="CriticalPathContext.save.cs" />
     <Compile Include="CriticalPathModel.Context.cs">
       <AutoGen>True</AutoGen>

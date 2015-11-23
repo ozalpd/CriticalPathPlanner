@@ -6,7 +6,7 @@ CREATE TABLE [dbo].[FreightTerms](
     [Id] [int] Identity(1,1) Not Null,
     [IncotermCode] [nVarChar](16) Not Null,
     [Description] [nVarChar](256) Null,
-    [IsActive] [bit] Not Null Default 1,
+    [IsPublished] [bit] Not Null,
   CONSTRAINT [PK_FreightTerms] PRIMARY KEY CLUSTERED ([Id] ASC)
   WITH (PAD_INDEX  = OFF,
     STATISTICS_NORECOMPUTE  = OFF,

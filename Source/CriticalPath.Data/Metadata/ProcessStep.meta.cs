@@ -34,7 +34,7 @@ namespace CriticalPath.Data
             public string Title { get; set; }
 
             [StringLength(256, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
-            [DataType(DataType.MultilineText)]
+            [DataType(DataType.Text)]
             [Display(ResourceType = typeof(EntityStrings), Name = "Description")]
             public string Description { get; set; }
 
@@ -71,6 +71,14 @@ namespace CriticalPath.Data
 
             [Display(ResourceType = typeof(EntityStrings), Name = "Template")]
             public ProcessStepTemplate Template { get; set; }
+
+            [StringLength(48, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "ApprovedUserId")]
+            public string ApprovedUserId { get; set; }
+
+            [StringLength(48, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "ApprovedUserIp")]
+            public string ApprovedUserIp { get; set; }
 
             [Display(ResourceType = typeof(EntityStrings), Name = "ApprovedUser")]
             public AspNetUser ApprovedUser { get; set; }

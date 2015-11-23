@@ -17,6 +17,10 @@
     <Translation>Eylem</Translation>
   </Vocab>
   <Vocab>
+    <Name>Actions</Name>
+    <Translation>Eylemler</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Add</Name>
     <Translation>Ekle</Translation>
   </Vocab>
@@ -34,7 +38,7 @@
   </Vocab>
   <Vocab>
     <Name>AddCurrency</Name>
-    <Translation>Add Currency</Translation>
+    <Translation>Para Birimi Ekle</Translation>
   </Vocab>
   <Vocab>
     <Name>AddCustomer</Name>
@@ -42,7 +46,7 @@
   </Vocab>
   <Vocab>
     <Name>AddFreightTerm</Name>
-    <Translation>Add Freight Term</Translation>
+    <Translation>Nakliye Koşulu Ekle</Translation>
   </Vocab>
   <Vocab>
     <Name>AddManufacturer</Name>
@@ -66,7 +70,7 @@
   </Vocab>
   <Vocab>
     <Name>AddNewCurrency</Name>
-    <Translation>Add New Currency</Translation>
+    <Translation>Yeni Para Birimi Ekle</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNewCustomer</Name>
@@ -74,7 +78,7 @@
   </Vocab>
   <Vocab>
     <Name>AddNewFreightTerm</Name>
-    <Translation>Add New Freight Term</Translation>
+    <Translation>Yeni Nakliye Koşulu Ekle</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNewManufacturer</Name>
@@ -202,7 +206,7 @@
   </Vocab>
   <Vocab>
     <Name>AddRemoveCurrency</Name>
-    <Translation>Add Remove Currency</Translation>
+    <Translation>Para Birimi Ekle/Çıkar</Translation>
   </Vocab>
   <Vocab>
     <Name>AddRemoveCustomer</Name>
@@ -210,7 +214,7 @@
   </Vocab>
   <Vocab>
     <Name>AddRemoveFreightTerm</Name>
-    <Translation>Add Remove Freight Term</Translation>
+    <Translation>Nakliye Koşulu Ekle/Çıkar</Translation>
   </Vocab>
   <Vocab>
     <Name>AddRemoveManufacturer</Name>
@@ -382,11 +386,11 @@
   </Vocab>
   <Vocab>
     <Name>BuyingCurrency</Name>
-    <Translation>Buying Currency</Translation>
+    <Translation>Alış Para Birimi</Translation>
   </Vocab>
   <Vocab>
     <Name>BuyingCurrencyId</Name>
-    <Translation>Buying Currency Id</Translation>
+    <Translation>Alış Para Birimi</Translation>
   </Vocab>
   <Vocab>
     <Name>BuyingPrice</Name>
@@ -574,7 +578,7 @@
   </Vocab>
   <Vocab>
     <Name>CreateCurrency</Name>
-    <Translation>Create Currency</Translation>
+    <Translation>Para Birimi Oluştur</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateCustomer</Name>
@@ -590,7 +594,7 @@
   </Vocab>
   <Vocab>
     <Name>CreateFreightTerm</Name>
-    <Translation>Create Freight Term</Translation>
+    <Translation>Nakliye Koşulu Oluştur</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateManufacturer</Name>
@@ -682,27 +686,27 @@
   </Vocab>
   <Vocab>
     <Name>Currencies</Name>
-    <Translation>Currencies</Translation>
+    <Translation>Para Birimleri</Translation>
   </Vocab>
   <Vocab>
     <Name>CurrenciesList</Name>
-    <Translation>Currencies List</Translation>
+    <Translation>Para Birimi Listesi</Translation>
   </Vocab>
   <Vocab>
     <Name>Currency</Name>
-    <Translation>Currency</Translation>
+    <Translation>Para Birimi</Translation>
   </Vocab>
   <Vocab>
     <Name>CurrencyCode</Name>
-    <Translation>Currency Code</Translation>
+    <Translation>Döviz Kodu</Translation>
   </Vocab>
   <Vocab>
     <Name>CurrencyName</Name>
-    <Translation>Currency Name</Translation>
+    <Translation>Döviz İsmi</Translation>
   </Vocab>
   <Vocab>
     <Name>CurrencySymbol</Name>
-    <Translation>Currency Symbol</Translation>
+    <Translation>Döviz Sembolü</Translation>
   </Vocab>
   <Vocab>
     <Name>Customer</Name>
@@ -754,7 +758,7 @@
   </Vocab>
   <Vocab>
     <Name>DeleteCurrency</Name>
-    <Translation>Delete Currency</Translation>
+    <Translation>Para Birimini Sil</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteCustomer</Name>
@@ -762,7 +766,7 @@
   </Vocab>
   <Vocab>
     <Name>DeleteFreightTerm</Name>
-    <Translation>Delete Freight Term</Translation>
+    <Translation>Nakliye Koşulunu Sil</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteManufacturer</Name>
@@ -882,7 +886,7 @@
   </Vocab>
   <Vocab>
     <Name>DiscountRate</Name>
-    <Translation>Discount Rate</Translation>
+    <Translation>İskonto (%)</Translation>
   </Vocab>
   <Vocab>
     <Name>Display</Name>
@@ -890,7 +894,7 @@
   </Vocab>
   <Vocab>
     <Name>DisplayAll</Name>
-    <Translation>Display All</Translation>
+    <Translation>Tümünü Göster</Translation>
   </Vocab>
   <Vocab>
     <Name>DisplayOrder</Name>
@@ -910,7 +914,7 @@
   </Vocab>
   <Vocab>
     <Name>DueDate</Name>
-    <Translation>Vadesi</Translation>
+    <Translation>Teslim Tarihi</Translation>
   </Vocab>
   <Vocab>
     <Name>Duplicate</Name>
@@ -934,7 +938,7 @@
   </Vocab>
   <Vocab>
     <Name>EditCurrency</Name>
-    <Translation>Edit Currency</Translation>
+    <Translation>Para Birimini Düzenle</Translation>
   </Vocab>
   <Vocab>
     <Name>EditCustomer</Name>
@@ -942,7 +946,7 @@
   </Vocab>
   <Vocab>
     <Name>EditFreightTerm</Name>
-    <Translation>Edit Freight Term</Translation>
+    <Translation>Nakliye Koşulunu Düzenle</Translation>
   </Vocab>
   <Vocab>
     <Name>EditManufacturer</Name>
@@ -1074,19 +1078,19 @@
   </Vocab>
   <Vocab>
     <Name>FreightTerm</Name>
-    <Translation>Freight Term</Translation>
+    <Translation>Nakliye Koşulu</Translation>
   </Vocab>
   <Vocab>
     <Name>FreightTermId</Name>
-    <Translation>Freight Term Id</Translation>
+    <Translation>Nakliye Koşulu</Translation>
   </Vocab>
   <Vocab>
     <Name>FreightTerms</Name>
-    <Translation>Freight Terms</Translation>
+    <Translation>Nakliye Koşulları</Translation>
   </Vocab>
   <Vocab>
     <Name>FreightTermsList</Name>
-    <Translation>Freight Terms List</Translation>
+    <Translation>Nakliye Koşul Listesi</Translation>
   </Vocab>
   <Vocab>
     <Name>Height</Name>
@@ -1130,7 +1134,7 @@
   </Vocab>
   <Vocab>
     <Name>IncotermCode</Name>
-    <Translation>Incoterm Code</Translation>
+    <Translation>Incoterms Kodu</Translation>
   </Vocab>
   <Vocab>
     <Name>Index</Name>
@@ -1558,7 +1562,7 @@
   </Vocab>
   <Vocab>
     <Name>RemoveCurrency</Name>
-    <Translation>Remove Currency</Translation>
+    <Translation>Para Birimini Çıkar</Translation>
   </Vocab>
   <Vocab>
     <Name>RemoveCustomer</Name>
@@ -1566,7 +1570,7 @@
   </Vocab>
   <Vocab>
     <Name>RemoveFreightTerm</Name>
-    <Translation>Remove Freight Term</Translation>
+    <Translation>Nakliye Koşulunu Çıkar</Translation>
   </Vocab>
   <Vocab>
     <Name>RemoveManufacturer</Name>
@@ -1630,11 +1634,11 @@
   </Vocab>
   <Vocab>
     <Name>RetailCurrency</Name>
-    <Translation>Retail Currency</Translation>
+    <Translation>Perakende Para Birimi</Translation>
   </Vocab>
   <Vocab>
     <Name>RetailCurrencyId</Name>
-    <Translation>Retail Currency Id</Translation>
+    <Translation>Perakende Para Birimi</Translation>
   </Vocab>
   <Vocab>
     <Name>RetailPrice</Name>
@@ -1642,15 +1646,15 @@
   </Vocab>
   <Vocab>
     <Name>RoyaltyCurrency</Name>
-    <Translation>Royalty Currency</Translation>
+    <Translation>Telif Para Birimi</Translation>
   </Vocab>
   <Vocab>
     <Name>RoyaltyCurrencyId</Name>
-    <Translation>Royalty Currency Id</Translation>
+    <Translation>Telif Para Birimi</Translation>
   </Vocab>
   <Vocab>
     <Name>RoyaltyFee</Name>
-    <Translation>Royalty Fee</Translation>
+    <Translation>Telif Ücreti</Translation>
   </Vocab>
   <Vocab>
     <Name>Save</Name>
@@ -1670,7 +1674,7 @@
   </Vocab>
   <Vocab>
     <Name>SelectCurrency</Name>
-    <Translation>Select Currency</Translation>
+    <Translation>Para Birimini Seçiniz</Translation>
   </Vocab>
   <Vocab>
     <Name>SelectPlease</Name>
@@ -1678,11 +1682,11 @@
   </Vocab>
   <Vocab>
     <Name>SellingCurrency</Name>
-    <Translation>Selling Currency</Translation>
+    <Translation>Satış Para Birimi</Translation>
   </Vocab>
   <Vocab>
     <Name>SellingCurrencyId</Name>
-    <Translation>Selling Currency Id</Translation>
+    <Translation>Satış Para Birimi</Translation>
   </Vocab>
   <Vocab>
     <Name>Settings</Name>
@@ -1838,7 +1842,7 @@
   </Vocab>
   <Vocab>
     <Name>SupplierDueDate</Name>
-    <Translation>Supplier Due Date</Translation>
+    <Translation>Tedarikçi Teslim Tarihi</Translation>
   </Vocab>
   <Vocab>
     <Name>SupplierId</Name>

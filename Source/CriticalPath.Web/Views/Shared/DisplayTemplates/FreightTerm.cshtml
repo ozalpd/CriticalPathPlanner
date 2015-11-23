@@ -1,0 +1,11 @@
+@using CriticalPath.Web.Models
+@using CriticalPath.Data
+@using CP.i8n
+@model FreightTerm
+@{
+    Layout = null;
+}
+@if (Model != null)
+{
+    <div><a href='/FreightTerms/Details/@Model.Id'>@Model.IncotermCode</a></div>
+}

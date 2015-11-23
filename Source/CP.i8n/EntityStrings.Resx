@@ -71,8 +71,16 @@
 		<value>Add Contact</value>
 	</data>
 
+	<data name="AddCurrency" xml:space="preserve">
+		<value>Add Currency</value>
+	</data>
+
 	<data name="AddCustomer" xml:space="preserve">
 		<value>Add Customer</value>
+	</data>
+
+	<data name="AddFreightTerm" xml:space="preserve">
+		<value>Add Freight Term</value>
 	</data>
 
 	<data name="AddManufacturer" xml:space="preserve">
@@ -91,8 +99,16 @@
 		<value>Add New Contact</value>
 	</data>
 
+	<data name="AddNewCurrency" xml:space="preserve">
+		<value>Add New Currency</value>
+	</data>
+
 	<data name="AddNewCustomer" xml:space="preserve">
 		<value>Add New Customer</value>
+	</data>
+
+	<data name="AddNewFreightTerm" xml:space="preserve">
+		<value>Add New Freight Term</value>
 	</data>
 
 	<data name="AddNewManufacturer" xml:space="preserve">
@@ -183,8 +199,16 @@
 		<value>Add/Remove Contact</value>
 	</data>
 
+	<data name="AddRemoveCurrency" xml:space="preserve">
+		<value>Add Remove Currency</value>
+	</data>
+
 	<data name="AddRemoveCustomer" xml:space="preserve">
 		<value>Add/Remove Customer</value>
+	</data>
+
+	<data name="AddRemoveFreightTerm" xml:space="preserve">
+		<value>Add Remove Freight Term</value>
 	</data>
 
 	<data name="AddRemoveManufacturer" xml:space="preserve">
@@ -287,6 +311,14 @@
 		<value>AppUsers List</value>
 	</data>
 
+	<data name="BuyingCurrency" xml:space="preserve">
+		<value>Buying Currency</value>
+	</data>
+
+	<data name="BuyingCurrencyId" xml:space="preserve">
+		<value>Buying Currency Id</value>
+	</data>
+
 	<data name="BuyingPrice" xml:space="preserve">
 		<value>Buying Price</value>
 	</data>
@@ -387,6 +419,10 @@
 		<value>Create Contact</value>
 	</data>
 
+	<data name="CreateCurrency" xml:space="preserve">
+		<value>Create Currency</value>
+	</data>
+
 	<data name="CreateCustomer" xml:space="preserve">
 		<value>Create Customer</value>
 	</data>
@@ -397,6 +433,10 @@
 
 	<data name="CreatedUser" xml:space="preserve">
 		<value>Created User</value>
+	</data>
+
+	<data name="CreateFreightTerm" xml:space="preserve">
+		<value>Create Freight Term</value>
 	</data>
 
 	<data name="CreateManufacturer" xml:space="preserve">
@@ -455,6 +495,30 @@
 		<value>Creator Ip</value>
 	</data>
 
+	<data name="Currencies" xml:space="preserve">
+		<value>Currencies</value>
+	</data>
+
+	<data name="CurrenciesList" xml:space="preserve">
+		<value>Currencies List</value>
+	</data>
+
+	<data name="Currency" xml:space="preserve">
+		<value>Currency</value>
+	</data>
+
+	<data name="CurrencyCode" xml:space="preserve">
+		<value>Currency Code</value>
+	</data>
+
+	<data name="CurrencyName" xml:space="preserve">
+		<value>Currency Name</value>
+	</data>
+
+	<data name="CurrencySymbol" xml:space="preserve">
+		<value>Currency Symbol</value>
+	</data>
+
 	<data name="Customer" xml:space="preserve">
 		<value>Customer</value>
 	</data>
@@ -495,8 +559,16 @@
 		<value>Delete Contact</value>
 	</data>
 
+	<data name="DeleteCurrency" xml:space="preserve">
+		<value>Delete Currency</value>
+	</data>
+
 	<data name="DeleteCustomer" xml:space="preserve">
 		<value>Delete Customer</value>
+	</data>
+
+	<data name="DeleteFreightTerm" xml:space="preserve">
+		<value>Delete Freight Term</value>
 	</data>
 
 	<data name="DeleteManufacturer" xml:space="preserve">
@@ -575,6 +647,10 @@
 		<value>Discontinue Notes</value>
 	</data>
 
+	<data name="DiscountRate" xml:space="preserve">
+		<value>Discount Rate</value>
+	</data>
+
 	<data name="DisplayOrder" xml:space="preserve">
 		<value>Display Order</value>
 	</data>
@@ -595,8 +671,16 @@
 		<value>Edit Contact</value>
 	</data>
 
+	<data name="EditCurrency" xml:space="preserve">
+		<value>Edit Currency</value>
+	</data>
+
 	<data name="EditCustomer" xml:space="preserve">
 		<value>Edit Customer</value>
+	</data>
+
+	<data name="EditFreightTerm" xml:space="preserve">
+		<value>Edit Freight Term</value>
 	</data>
 
 	<data name="EditManufacturer" xml:space="preserve">
@@ -667,6 +751,22 @@
 		<value>Forecast Date</value>
 	</data>
 
+	<data name="FreightTerm" xml:space="preserve">
+		<value>Freight Term</value>
+	</data>
+
+	<data name="FreightTermId" xml:space="preserve">
+		<value>Freight Term Id</value>
+	</data>
+
+	<data name="FreightTerms" xml:space="preserve">
+		<value>Freight Terms</value>
+	</data>
+
+	<data name="FreightTermsList" xml:space="preserve">
+		<value>Freight Terms List</value>
+	</data>
+
 	<data name="Id" xml:space="preserve">
 		<value>Record Nr</value>
 	</data>
@@ -675,12 +775,20 @@
 		<value>Image Url</value>
 	</data>
 
+	<data name="IncotermCode" xml:space="preserve">
+		<value>Incoterms Code</value>
+	</data>
+
 	<data name="IsApproved" xml:space="preserve">
 		<value>Approved</value>
 	</data>
 
 	<data name="IsCompleted" xml:space="preserve">
 		<value>Completed</value>
+	</data>
+
+	<data name="IsPublished" xml:space="preserve">
+		<value>Is Published</value>
 	</data>
 
 	<data name="LastName" xml:space="preserve">
@@ -899,8 +1007,16 @@
 		<value>Remove Contact</value>
 	</data>
 
+	<data name="RemoveCurrency" xml:space="preserve">
+		<value>Remove Currency</value>
+	</data>
+
 	<data name="RemoveCustomer" xml:space="preserve">
 		<value>Remove Customer</value>
+	</data>
+
+	<data name="RemoveFreightTerm" xml:space="preserve">
+		<value>Remove Freight Term</value>
 	</data>
 
 	<data name="RemoveManufacturer" xml:space="preserve">
@@ -955,8 +1071,36 @@
 		<value>Required Work Days</value>
 	</data>
 
+	<data name="RetailCurrency" xml:space="preserve">
+		<value>Retail Currency</value>
+	</data>
+
+	<data name="RetailCurrencyId" xml:space="preserve">
+		<value>Retail Currency Id</value>
+	</data>
+
 	<data name="RetailPrice" xml:space="preserve">
 		<value>Retail Price</value>
+	</data>
+
+	<data name="RoyaltyCurrency" xml:space="preserve">
+		<value>Royalty Currency</value>
+	</data>
+
+	<data name="RoyaltyCurrencyId" xml:space="preserve">
+		<value>Royalty Currency Id</value>
+	</data>
+
+	<data name="RoyaltyFee" xml:space="preserve">
+		<value>Royalty Fee</value>
+	</data>
+
+	<data name="SellingCurrency" xml:space="preserve">
+		<value>Selling Currency</value>
+	</data>
+
+	<data name="SellingCurrencyId" xml:space="preserve">
+		<value>Selling Currency Id</value>
 	</data>
 
 	<data name="SizeRatio" xml:space="preserve">
@@ -1025,6 +1169,10 @@
 
 	<data name="SupplierCode" xml:space="preserve">
 		<value>Supplier Code</value>
+	</data>
+
+	<data name="SupplierDueDate" xml:space="preserve">
+		<value>Supplier's Due Date</value>
 	</data>
 
 	<data name="SupplierId" xml:space="preserve">

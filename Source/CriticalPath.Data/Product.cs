@@ -12,7 +12,7 @@ namespace CriticalPath.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Product : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate, IDiscontinued, IDiscontinuedUser
+    public partial class Product : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate, IDiscontinued, IDiscontinuedUser, IRetailPrice, IRoyaltyFee, IBuyingPrice, ISellingPrice, IAllPrice
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
@@ -30,7 +30,7 @@ namespace CriticalPath.Data
         public int SellingCurrencyId { get; set; }
         public Nullable<decimal> BuyingPrice { get; set; }
         public Nullable<int> BuyingCurrencyId { get; set; }
-        public decimal RoyaltyFee { get; set; }
+        public Nullable<decimal> RoyaltyFee { get; set; }
         public Nullable<int> RoyaltyCurrencyId { get; set; }
         public Nullable<decimal> RetailPrice { get; set; }
         public Nullable<int> RetailCurrencyId { get; set; }
@@ -167,7 +167,7 @@ namespace CriticalPath.Data
         public int SellingCurrencyId { get; set; }
         public Nullable<decimal> BuyingPrice { get; set; }
         public Nullable<int> BuyingCurrencyId { get; set; }
-        public decimal RoyaltyFee { get; set; }
+        public Nullable<decimal> RoyaltyFee { get; set; }
         public Nullable<int> RoyaltyCurrencyId { get; set; }
         public Nullable<decimal> RetailPrice { get; set; }
         public Nullable<int> RetailCurrencyId { get; set; }

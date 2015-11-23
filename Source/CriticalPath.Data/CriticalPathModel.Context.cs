@@ -295,10 +295,16 @@ namespace CriticalPath.Data
         /// <summary>
         /// Default query for Currencies
         /// </summary>
+        /// <param name="publishedOnly">Sets query IsPublished == true</param>
         /// <returns></returns>
-        public virtual IQueryable<Currency> GetCurrencyQuery()
+        public virtual IQueryable<Currency> GetCurrencyQuery(bool publishedOnly = true)
         {
             IQueryable<Currency> query = Currencies;
+            if (publishedOnly)
+            {
+                query = query.Where(e => e.IsPublished);
+            }
+    
             return query;
         }
     
@@ -307,14 +313,15 @@ namespace CriticalPath.Data
         /// </summary>
         /// <param name="query">query to be converted</param>
         /// <returns>Converted data transfer object query</returns>
-        public virtual IQueryable<CurrencyDTO> GetCurrencyDtoQuery()
+        public virtual IQueryable<CurrencyDTO> GetCurrencyDtoQuery(bool publishedOnly = true)
         {
-            return GetCurrencyDtoQuery(GetCurrencyQuery());
+            return GetCurrencyDtoQuery(GetCurrencyQuery(publishedOnly));
         }
     
         /// <summary>
         /// Gets a lighter data transfer object query from Currency query
         /// </summary>
+        /// <param name="publishedOnly">Sets query IsPublished == true</param>
         /// <returns>Converted data transfer object query</returns>
         public virtual IQueryable<CurrencyDTO> GetCurrencyDtoQuery(IQueryable<Currency> query)
         {
@@ -325,7 +332,6 @@ namespace CriticalPath.Data
                        CurrencyName = e.CurrencyName,
                        CurrencyCode = e.CurrencyCode,
                        CurrencySymbol = e.CurrencySymbol,
-                       IsActive = e.IsActive,
                    };
         }
     
@@ -333,10 +339,16 @@ namespace CriticalPath.Data
         /// <summary>
         /// Default query for FreightTerms
         /// </summary>
+        /// <param name="publishedOnly">Sets query IsPublished == true</param>
         /// <returns></returns>
-        public virtual IQueryable<FreightTerm> GetFreightTermQuery()
+        public virtual IQueryable<FreightTerm> GetFreightTermQuery(bool publishedOnly = true)
         {
             IQueryable<FreightTerm> query = FreightTerms;
+            if (publishedOnly)
+            {
+                query = query.Where(e => e.IsPublished);
+            }
+    
             return query;
         }
     
@@ -345,14 +357,15 @@ namespace CriticalPath.Data
         /// </summary>
         /// <param name="query">query to be converted</param>
         /// <returns>Converted data transfer object query</returns>
-        public virtual IQueryable<FreightTermDTO> GetFreightTermDtoQuery()
+        public virtual IQueryable<FreightTermDTO> GetFreightTermDtoQuery(bool publishedOnly = true)
         {
-            return GetFreightTermDtoQuery(GetFreightTermQuery());
+            return GetFreightTermDtoQuery(GetFreightTermQuery(publishedOnly));
         }
     
         /// <summary>
         /// Gets a lighter data transfer object query from FreightTerm query
         /// </summary>
+        /// <param name="publishedOnly">Sets query IsPublished == true</param>
         /// <returns>Converted data transfer object query</returns>
         public virtual IQueryable<FreightTermDTO> GetFreightTermDtoQuery(IQueryable<FreightTerm> query)
         {
@@ -362,7 +375,6 @@ namespace CriticalPath.Data
                        Id = e.Id,
                        IncotermCode = e.IncotermCode,
                        Description = e.Description,
-                       IsActive = e.IsActive,
                    };
         }
     

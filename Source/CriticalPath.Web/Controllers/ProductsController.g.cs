@@ -25,14 +25,28 @@ namespace CriticalPath.Web.Controllers
                         where
                             a.ProductCode.Contains(qParams.SearchString) | 
                             a.Description.Contains(qParams.SearchString) | 
-                            a.ImageUrl.Contains(qParams.SearchString) | 
-                            a.DiscontinueNotes.Contains(qParams.SearchString) | 
-                            a.DiscontinuedUserIp.Contains(qParams.SearchString) 
+                            a.DiscontinueNotes.Contains(qParams.SearchString) 
                         select a;
             }
             if (qParams.CategoryId != null)
             {
                 query = query.Where(x => x.CategoryId == qParams.CategoryId);
+            }
+            if (qParams.SellingCurrencyId != null)
+            {
+                query = query.Where(x => x.SellingCurrencyId == qParams.SellingCurrencyId);
+            }
+            if (qParams.BuyingCurrencyId != null)
+            {
+                query = query.Where(x => x.BuyingCurrencyId == qParams.BuyingCurrencyId);
+            }
+            if (qParams.RoyaltyCurrencyId != null)
+            {
+                query = query.Where(x => x.RoyaltyCurrencyId == qParams.RoyaltyCurrencyId);
+            }
+            if (qParams.RetailCurrencyId != null)
+            {
+                query = query.Where(x => x.RetailCurrencyId == qParams.RetailCurrencyId);
             }
 
             qParams.TotalCount = await query.CountAsync();
@@ -162,7 +176,10 @@ namespace CriticalPath.Web.Controllers
             var product = new Product();
             await SetProductDefaults(product);
             await SetProductCategorySelectListAsync(product);
-            
+            ViewBag.SellingCurrencyId = await GetCurrencySelectList(product.SellingCurrencyId);
+            ViewBag.BuyingCurrencyId = await GetCurrencySelectList(product.BuyingCurrencyId ?? 0);
+            ViewBag.RoyaltyCurrencyId = await GetCurrencySelectList(product.RoyaltyCurrencyId ?? 0);
+            ViewBag.RetailCurrencyId = await GetCurrencySelectList(product.RetailCurrencyId ?? 0);
             return View(product);
         }
 
@@ -185,7 +202,10 @@ namespace CriticalPath.Web.Controllers
             }
 
             await SetProductCategorySelectListAsync(product);
-            
+            ViewBag.SellingCurrencyId = await GetCurrencySelectList(product.SellingCurrencyId);
+            ViewBag.BuyingCurrencyId = await GetCurrencySelectList(product.BuyingCurrencyId ?? 0);
+            ViewBag.RoyaltyCurrencyId = await GetCurrencySelectList(product.RoyaltyCurrencyId ?? 0);
+            ViewBag.RetailCurrencyId = await GetCurrencySelectList(product.RetailCurrencyId ?? 0);
             return View(product);
         }
 
@@ -204,7 +224,10 @@ namespace CriticalPath.Web.Controllers
             }
 
             await SetProductCategorySelectListAsync(product);
-            
+            ViewBag.SellingCurrencyId = await GetCurrencySelectList(product.SellingCurrencyId);
+            ViewBag.BuyingCurrencyId = await GetCurrencySelectList(product.BuyingCurrencyId ?? 0);
+            ViewBag.RoyaltyCurrencyId = await GetCurrencySelectList(product.RoyaltyCurrencyId ?? 0);
+            ViewBag.RetailCurrencyId = await GetCurrencySelectList(product.RetailCurrencyId ?? 0);
             return View(product);
         }
 
@@ -227,7 +250,10 @@ namespace CriticalPath.Web.Controllers
             }
 
             await SetProductCategorySelectListAsync(product);
-            
+            ViewBag.SellingCurrencyId = await GetCurrencySelectList(product.SellingCurrencyId);
+            ViewBag.BuyingCurrencyId = await GetCurrencySelectList(product.BuyingCurrencyId ?? 0);
+            ViewBag.RoyaltyCurrencyId = await GetCurrencySelectList(product.RoyaltyCurrencyId ?? 0);
+            ViewBag.RetailCurrencyId = await GetCurrencySelectList(product.RetailCurrencyId ?? 0);
             return View(product);
         }
 
@@ -297,8 +323,16 @@ namespace CriticalPath.Web.Controllers
             public QueryParameters(QueryParameters parameters) : base(parameters)
             {
                 CategoryId = parameters.CategoryId;
+                SellingCurrencyId = parameters.SellingCurrencyId;
+                BuyingCurrencyId = parameters.BuyingCurrencyId;
+                RoyaltyCurrencyId = parameters.RoyaltyCurrencyId;
+                RetailCurrencyId = parameters.RetailCurrencyId;
             }
             public int? CategoryId { get; set; }
+            public int? SellingCurrencyId { get; set; }
+            public int? BuyingCurrencyId { get; set; }
+            public int? RoyaltyCurrencyId { get; set; }
+            public int? RetailCurrencyId { get; set; }
         }
 
         public partial class PagedList<T> : QueryParameters
