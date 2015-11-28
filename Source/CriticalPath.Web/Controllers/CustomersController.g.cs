@@ -98,6 +98,19 @@ namespace CriticalPath.Web.Controllers
         }
         bool? _canUserDelete;
 
+        protected override async Task<bool> CanUserSeeRestricted()
+        {
+            if (!_canSeeRestricted.HasValue)
+            {
+                _canSeeRestricted = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync() ||
+                                    await IsUserClerkAsync());
+            }
+            return _canSeeRestricted.Value;
+        }
+        bool? _canSeeRestricted;
+
         [Authorize]
         public async Task<ActionResult> GetCustomerList(QueryParameters qParams)
         {
@@ -108,8 +121,8 @@ namespace CriticalPath.Web.Controllers
         [Authorize]
         public async Task<ActionResult> GetCustomerPagedList(QueryParameters qParams)
         {
-            var result = new PagedList<CustomerDTO>(qParams);
-            result.Items = await GetCustomerDtoList(qParams);
+            var items = await GetCustomerDtoList(qParams);
+            var result = new PagedList<CustomerDTO>(qParams, items);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
@@ -235,9 +248,9 @@ namespace CriticalPath.Web.Controllers
                 return HttpNotFound();
             }
 
-            int contactsCount = customer.Contacts.Count;
             int ordersCount = customer.Orders.Count;
-            if ((contactsCount + ordersCount) > 0)
+            int contactsCount = customer.Contacts.Count;
+            if ((ordersCount + contactsCount) > 0)
             {
                 var sb = new StringBuilder();
 
@@ -246,15 +259,15 @@ namespace CriticalPath.Web.Controllers
                 sb.Append(customer.CompanyName);
                 sb.Append("</b>.<br/>");
 
-                if (contactsCount > 0)
-                {
-                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, contactsCount, EntityStrings.Contacts));
-                    sb.Append("<br/>");
-                }
-
                 if (ordersCount > 0)
                 {
                     sb.Append(string.Format(MessageStrings.RelatedRecordsExist, ordersCount, EntityStrings.Orders));
+                    sb.Append("<br/>");
+                }
+
+                if (contactsCount > 0)
+                {
+                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, contactsCount, EntityStrings.Contacts));
                     sb.Append("<br/>");
                 }
 
@@ -292,6 +305,10 @@ namespace CriticalPath.Web.Controllers
         {
             public PagedList() { }
             public PagedList(QueryParameters parameters) : base(parameters) { }
+            public PagedList(QueryParameters parameters, IEnumerable<T> items) : this(parameters)
+            {
+                Items = items;
+            }
 
             public IEnumerable<T> Items
             {

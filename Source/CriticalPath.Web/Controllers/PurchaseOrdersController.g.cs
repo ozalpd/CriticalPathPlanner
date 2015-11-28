@@ -43,7 +43,7 @@ namespace CriticalPath.Web.Controllers
             PutPagerInViewBag(result);
             return View(result.Items);
         }
-        
+
         protected override async Task<bool> CanUserCreate()
         {
             if (!_canUserCreate.HasValue)
@@ -82,6 +82,19 @@ namespace CriticalPath.Web.Controllers
         }
         bool? _canUserDelete;
 
+        protected override async Task<bool> CanUserSeeRestricted()
+        {
+            if (!_canSeeRestricted.HasValue)
+            {
+                _canSeeRestricted = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync() ||
+                                    await IsUserClerkAsync());
+            }
+            return _canSeeRestricted.Value;
+        }
+        bool? _canSeeRestricted;
+
         [Authorize]
         public async Task<ActionResult> GetPurchaseOrderList(QueryParameters qParams)
         {
@@ -92,8 +105,8 @@ namespace CriticalPath.Web.Controllers
         [Authorize]
         public async Task<ActionResult> GetPurchaseOrderPagedList(QueryParameters qParams)
         {
-            var result = new PagedList<PurchaseOrderDTO>(qParams);
-            result.Items = await GetPurchaseOrderDtoList(qParams);
+            var items = await GetPurchaseOrderDtoList(qParams);
+            var result = new PagedList<PurchaseOrderDTO>(qParams, items);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
@@ -120,12 +133,24 @@ namespace CriticalPath.Web.Controllers
             public QueryParameters() { }
             public QueryParameters(QueryParameters parameters) : base(parameters)
             {
-                CustomerId = parameters.CustomerId;
                 ProductId = parameters.ProductId;
+                SellingCurrencyId = parameters.SellingCurrencyId;
+                BuyingCurrencyId = parameters.BuyingCurrencyId;
+                RoyaltyCurrencyId = parameters.RoyaltyCurrencyId;
+                RetailCurrencyId = parameters.RetailCurrencyId;
+                CustomerId = parameters.CustomerId;
+                FreightTermId = parameters.FreightTermId;
+                SupplierId = parameters.SupplierId;
                 SizingStandardId = parameters.SizingStandardId;
             }
-            public int? CustomerId { get; set; }
             public int? ProductId { get; set; }
+            public int? SellingCurrencyId { get; set; }
+            public int? BuyingCurrencyId { get; set; }
+            public int? RoyaltyCurrencyId { get; set; }
+            public int? RetailCurrencyId { get; set; }
+            public int? CustomerId { get; set; }
+            public int? FreightTermId { get; set; }
+            public int? SupplierId { get; set; }
             public int? SizingStandardId { get; set; }
         }
 
@@ -133,6 +158,10 @@ namespace CriticalPath.Web.Controllers
         {
             public PagedList() { }
             public PagedList(QueryParameters parameters) : base(parameters) { }
+            public PagedList(QueryParameters parameters, IEnumerable<T> items) : this(parameters)
+            {
+                Items = items;
+            }
 
             public IEnumerable<T> Items
             {

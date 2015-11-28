@@ -960,6 +960,7 @@
       <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
+      <RolesCanSeeRestricted>admin, supervisor, clerk</RolesCanSeeRestricted>
       <GenerateController>true</GenerateController>
       <GenerateGetQueryMethod>false</GenerateGetQueryMethod>
       <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
@@ -1286,6 +1287,7 @@
       <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
+      <RolesCanSeeRestricted>admin, supervisor, clerk</RolesCanSeeRestricted>
       <GenerateController>true</GenerateController>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
       <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
@@ -2384,6 +2386,7 @@
       <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
+      <RolesCanSeeRestricted>admin, supervisor, clerk</RolesCanSeeRestricted>
       <GenerateController>true</GenerateController>
       <GenerateGetQueryMethod>false</GenerateGetQueryMethod>
       <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>

@@ -82,11 +82,13 @@ namespace CriticalPath.Web.Controllers
             ViewBag.canUserEdit = await CanUserEdit();
             ViewBag.canUserCreate = await CanUserCreate();
             ViewBag.canUserDelete = await CanUserDelete();
+            ViewBag.canSeeRestricted = await CanUserSeeRestricted();
         }
         //If we forget to implement override methods, we will keep it secure.
         protected virtual Task<bool> CanUserCreate() { return Task.FromResult(false); }
         protected virtual Task<bool> CanUserEdit() { return Task.FromResult(false); }
         protected virtual Task<bool> CanUserDelete() { return Task.FromResult(false); }
+        protected virtual Task<bool> CanUserSeeRestricted() { return Task.FromResult(false); }
 
         protected virtual async Task<bool> IsUserAdminAsync()
         {
