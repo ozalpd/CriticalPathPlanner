@@ -43,7 +43,7 @@ namespace CriticalPath.Web.Controllers
             PutPagerInViewBag(result);
             return View(result.Items);
         }
-        
+
         protected override async Task<bool> CanUserCreate()
         {
             if (!_canUserCreate.HasValue)
@@ -82,6 +82,19 @@ namespace CriticalPath.Web.Controllers
         }
         bool? _canUserDelete;
 
+        protected override async Task<bool> CanUserSeeRestricted()
+        {
+            if (!_canSeeRestricted.HasValue)
+            {
+                _canSeeRestricted = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync() ||
+                                    await IsUserClerkAsync());
+            }
+            return _canSeeRestricted.Value;
+        }
+        bool? _canSeeRestricted;
+
         [Authorize]
         public async Task<ActionResult> GetProcessList(QueryParameters qParams)
         {
@@ -92,8 +105,8 @@ namespace CriticalPath.Web.Controllers
         [Authorize]
         public async Task<ActionResult> GetProcessPagedList(QueryParameters qParams)
         {
-            var result = new PagedList<ProcessDTO>(qParams);
-            result.Items = await GetProcessDtoList(qParams);
+            var items = await GetProcessDtoList(qParams);
+            var result = new PagedList<ProcessDTO>(qParams, items);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
@@ -219,11 +232,9 @@ namespace CriticalPath.Web.Controllers
             public QueryParameters(QueryParameters parameters) : base(parameters)
             {
                 PurchaseOrderId = parameters.PurchaseOrderId;
-                SupplierId = parameters.SupplierId;
                 ProcessTemplateId = parameters.ProcessTemplateId;
             }
             public int? PurchaseOrderId { get; set; }
-            public int? SupplierId { get; set; }
             public int? ProcessTemplateId { get; set; }
         }
 
@@ -231,6 +242,10 @@ namespace CriticalPath.Web.Controllers
         {
             public PagedList() { }
             public PagedList(QueryParameters parameters) : base(parameters) { }
+            public PagedList(QueryParameters parameters, IEnumerable<T> items) : this(parameters)
+            {
+                Items = items;
+            }
 
             public IEnumerable<T> Items
             {

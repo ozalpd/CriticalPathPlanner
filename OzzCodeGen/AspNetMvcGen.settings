@@ -1880,6 +1880,7 @@
       <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
+      <RolesCanSeeRestricted>admin, supervisor, clerk</RolesCanSeeRestricted>
       <GenerateController>true</GenerateController>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
       <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
@@ -2726,6 +2727,7 @@
       <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
+      <RolesCanSeeRestricted>admin, supervisor, clerk</RolesCanSeeRestricted>
       <GenerateController>true</GenerateController>
       <GenerateGetQueryMethod>false</GenerateGetQueryMethod>
       <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
@@ -2736,7 +2738,7 @@
       <GenerateDeleteAction>false</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
-      <IndexViewGeneration>HtmlTableWithButtonsAction</IndexViewGeneration>
+      <IndexViewGeneration>AgGridWithMenuAction</IndexViewGeneration>
       <IndexView>false</IndexView>
       <DetailsView>true</DetailsView>
       <CreateView>false</CreateView>

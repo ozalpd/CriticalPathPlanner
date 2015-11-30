@@ -35,10 +35,10 @@ namespace CriticalPath.Web.Controllers
             {
                 query = query.Where(x => x.PurchaseOrderId == qParams.PurchaseOrderId);
             }
-            if (qParams.SupplierId != null)
-            {
-                query = query.Where(x => x.PurchaseOrder.SupplierId == qParams.SupplierId);
-            }
+            //if (qParams.SupplierId != null)
+            //{
+            //    query = query.Where(x => x.PurchaseOrder.SupplierId == qParams.SupplierId);
+            //}
             if (qParams.ProcessTemplateId != null)
             {
                 query = query.Where(x => x.ProcessTemplateId == qParams.ProcessTemplateId);

@@ -48,6 +48,15 @@ function createPagerButton(btnNr, page, pageCount) {
     if (page == btnNr) {
         li.addClass("active");
     }
+    if (btnNr > 0 && page!=btnNr && (page < btnNr-2 || page>btnNr+2)) {
+        li.addClass("visible-lg-inline");
+        li.addClass("visible-md-inline");
+    }
+    if (btnNr > 0 && page != btnNr && (page == btnNr - 1 || page == btnNr + 1 || page == btnNr - 7 || page == btnNr + 7 || page == btnNr - 9 || page == btnNr + 9)) {
+        li.addClass("visible-lg-inline");
+        li.addClass("visible-md-inline");
+        li.addClass("visible-sm-inline");
+    }
     var label = btnNr == 0 ? '&laquo;' : btnNr == -1 ? '&lsaquo;' : btnNr == -2 ? '&rsaquo;' : btnNr == -3 ? '&raquo;' : btnNr;
     var ariaLabel = btnNr < 0 ? 'LastPage' : btnNr == 0 ? 'FirstPage' : btnNr;
     if (btnNr <= 0) {

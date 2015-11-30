@@ -19,10 +19,8 @@
         @Html.Partial("_SearchBoxPartial")
     </div>
 </div>
-<div id="mainGrid" class="ag-style ag-basic" style="width:100%;height:600px;"></div>
-<div class="row pl15" style="margin-top:-64px;z-index:500;position:absolute;">
-    <nav><ul id="pagerUl" class="pagination"></ul></nav>
-</div>
+<div id="mainGrid" class="ag-style ag-basic" style="width:100%;height:360px;"></div>
+<nav><ul id="pagerUl" class="pagination"></ul></nav>
 @Html.Partial("_MessageBoxPartial")
 @section scripts{
     @Scripts.Render("~/js/ag-grid")

@@ -28,7 +28,7 @@ namespace CriticalPath.Web.Controllers
         [Authorize]
         public async Task<ActionResult> Index(QueryParameters qParams)
         {
-            qParams.PageSize = 20;
+            //qParams.PageSize = 20;
             var items = await GetSupplierDtoList(qParams);
             ViewBag.totalCount = qParams.TotalCount;
             await PutCanUserInViewBag();
