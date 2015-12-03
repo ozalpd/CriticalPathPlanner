@@ -13,6 +13,28 @@ namespace CriticalPath.Data
                     .ThenBy(c => c.LastName);
         }
 
+        public override IQueryable<Country> GetCountryQuery(bool publishedOnly = true)
+        {
+            return base.GetCountryQuery(publishedOnly)
+                    .OrderBy(c => c.DisplayOrder)
+                    .ThenBy(c => c.CountryName);
+        }
+
+        public override IQueryable<CountryDTO> GetCountryDtoQuery(IQueryable<Country> query)
+        {
+            return from e in query
+                   select new CountryDTO
+                   {
+                       Id = e.Id,
+                       CountryName = e.CountryName,
+                       TwoLetterIsoCode = e.TwoLetterIsoCode,
+                       ThreeLetterIsoCode = e.ThreeLetterIsoCode,
+                       NumericIsoCode = e.NumericIsoCode,
+                       DisplayOrder = e.DisplayOrder,
+                       IsPublished = e.IsPublished
+                   };
+        }
+
         public override IQueryable<FreightTerm> GetFreightTermQuery(bool publishedOnly = true)
         {
             return base.GetFreightTermQuery(publishedOnly)

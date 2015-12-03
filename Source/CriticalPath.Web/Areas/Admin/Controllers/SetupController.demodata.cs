@@ -59,8 +59,12 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             Customer[] customers = MockCustomers();
             AddContactsToCustomers(customers);
 
+            int[] countryIds = { 44, 1, 2 };
+            int i = 0;
             foreach (var item in customers)
             {
+                item.CountryId = countryIds[i % countryIds.Length];
+                i++;
                 DataContext.Companies.Add(item);
                 sb.Append("Customer: ");
                 sb.Append(item.CompanyName);
@@ -84,6 +88,8 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
 
             foreach (var item in Suppliers)
             {
+                item.CountryId = 90;
+
                 DataContext.Companies.Add(item);
                 sb.Append("Supplier: ");
                 sb.Append(item.CompanyName);

@@ -42,9 +42,9 @@ namespace CriticalPath.Web.Controllers
 
         protected virtual async Task CancelSaveAsync(ICancellation entity)
         {
-            if (string.IsNullOrEmpty((entity.CancelNotes)))
+            if (string.IsNullOrEmpty((entity.CancellationReason)))
             {
-                throw new Exception(string.Format("{0} required!", EntityStrings.CancelNotes));
+                throw new Exception(string.Format("{0} required!", EntityStrings.CancellationReason));
             }
 
             CancelCancellation(entity);
@@ -52,10 +52,26 @@ namespace CriticalPath.Web.Controllers
         }
         #region SetSelectList Helper Methods
 
+        protected virtual async Task<SelectList> GetCountrySelectList(int countryId = 0)
+        {
+            var currecies = await DataContext.GetCountryDtoList();
+            return new SelectList(currecies, "Id", "CountryCode", countryId);
+        }
+
+        protected virtual async Task SetCountrySelectList(int countryId = 0)
+        {
+            ViewBag.CountryId = await GetCountrySelectList(countryId);
+        }
+
         protected virtual async Task<SelectList> GetCurrencySelectList(int currencyId = 0)
         {
             var currecies = await DataContext.GetCurrencyDtoList();
             return new SelectList(currecies, "Id", "CurrencyCode", currencyId);
+        }
+
+        protected virtual async Task SetCurrencySelectList(int currencyId = 0)
+        {
+            ViewBag.CurrencyId = await GetCurrencySelectList(currencyId);
         }
 
         protected async Task SetProductCategorySelectListAsync(ProductDTO product)

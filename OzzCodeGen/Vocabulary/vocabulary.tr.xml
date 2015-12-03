@@ -37,6 +37,10 @@
     <Translation>Kişi Ekle</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddCountry</Name>
+    <Translation>Ülke Ekle</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddCurrency</Name>
     <Translation>Para Birimi Ekle</Translation>
   </Vocab>
@@ -67,6 +71,10 @@
   <Vocab>
     <Name>AddNewContact</Name>
     <Translation>Yeni Kişi Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewCountry</Name>
+    <Translation>Yeni Ülke Ekle</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNewCurrency</Name>
@@ -203,6 +211,10 @@
   <Vocab>
     <Name>AddRemoveContact</Name>
     <Translation>Kişi Ekle/Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveCountry</Name>
+    <Translation>Ülke Ekle/Çıkar</Translation>
   </Vocab>
   <Vocab>
     <Name>AddRemoveCurrency</Name>
@@ -413,6 +425,10 @@
     <Translation>İptal Notu</Translation>
   </Vocab>
   <Vocab>
+    <Name>CancellationReason</Name>
+    <Translation>İptal Sebebi</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Cancelled</Name>
     <Translation>İptal Edilmiş</Translation>
   </Vocab>
@@ -434,7 +450,7 @@
   </Vocab>
   <Vocab>
     <Name>CancelNotes</Name>
-    <Translation>İptal Notları</Translation>
+    <Translation>İptal Notu</Translation>
   </Vocab>
   <Vocab>
     <Name>CancelPO</Name>
@@ -553,7 +569,19 @@
     <Translation>Bize Ulaşın</Translation>
   </Vocab>
   <Vocab>
+    <Name>Countries</Name>
+    <Translation>Ülkeler</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CountriesList</Name>
+    <Translation>Ülke Listesi</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Country</Name>
+    <Translation>Ülke</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CountryId</Name>
     <Translation>Ülke</Translation>
   </Vocab>
   <Vocab>
@@ -575,6 +603,10 @@
   <Vocab>
     <Name>CreateContact</Name>
     <Translation>Kişi Oluştur</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateCountry</Name>
+    <Translation>Ülke Oluştur</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateCurrency</Name>
@@ -757,6 +789,10 @@
     <Translation>Kişi Sil</Translation>
   </Vocab>
   <Vocab>
+    <Name>DeleteCountry</Name>
+    <Translation>Ülkeyi Sil</Translation>
+  </Vocab>
+  <Vocab>
     <Name>DeleteCurrency</Name>
     <Translation>Para Birimini Sil</Translation>
   </Vocab>
@@ -935,6 +971,10 @@
   <Vocab>
     <Name>EditContact</Name>
     <Translation>Kişiyi Düzenle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditCountry</Name>
+    <Translation>Ülkeyi Düzenle</Translation>
   </Vocab>
   <Vocab>
     <Name>EditCurrency</Name>
@@ -1273,6 +1313,10 @@
     <Translation>Notlar</Translation>
   </Vocab>
   <Vocab>
+    <Name>NumericIsoCode</Name>
+    <Translation>Sayısal ISO Kod</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Often</Name>
     <Translation>Sık sık</Translation>
   </Vocab>
@@ -1559,6 +1603,10 @@
   <Vocab>
     <Name>RemoveContact</Name>
     <Translation>Kişiyi Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveCountry</Name>
+    <Translation>Ülkeyi Çıkar</Translation>
   </Vocab>
   <Vocab>
     <Name>RemoveCurrency</Name>
@@ -1893,6 +1941,10 @@
     <Translation>Şablon İsmi</Translation>
   </Vocab>
   <Vocab>
+    <Name>ThreeLetterIsoCode</Name>
+    <Translation>Üç Harf ISO Kod</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Title</Name>
     <Translation>Başlık</Translation>
   </Vocab>
@@ -1907,6 +1959,10 @@
   <Vocab>
     <Name>Townships</Name>
     <Translation>İlçeler</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TwoLetterIsoCode</Name>
+    <Translation>İki Harf ISO Kod</Translation>
   </Vocab>
   <Vocab>
     <Name>UnableToDelete</Name>

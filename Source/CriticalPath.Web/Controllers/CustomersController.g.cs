@@ -59,7 +59,7 @@ namespace CriticalPath.Web.Controllers
             PutPagerInViewBag(result);
             return View(result.Items);
         }
-        
+
         protected override async Task<bool> CanUserCreate()
         {
             if (!_canUserCreate.HasValue)
@@ -98,18 +98,8 @@ namespace CriticalPath.Web.Controllers
         }
         bool? _canUserDelete;
 
-        protected override async Task<bool> CanUserSeeRestricted()
-        {
-            if (!_canSeeRestricted.HasValue)
-            {
-                _canSeeRestricted = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync() ||
-                                    await IsUserClerkAsync());
-            }
-            return _canSeeRestricted.Value;
-        }
-        bool? _canSeeRestricted;
+        
+        protected override Task<bool> CanUserSeeRestricted() { return Task.FromResult(true); }
 
         [Authorize]
         public async Task<ActionResult> GetCustomerList(QueryParameters qParams)

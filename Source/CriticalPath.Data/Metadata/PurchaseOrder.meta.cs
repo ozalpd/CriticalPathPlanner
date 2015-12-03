@@ -158,8 +158,8 @@ namespace CriticalPath.Data
             public DateTime CancelDate { get; set; }
 
             [DataType(DataType.MultilineText)]
-            [Display(ResourceType = typeof(EntityStrings), Name = "CancelNotes")]
-            public string CancelNotes { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "CancellationReason")]
+            public string CancellationReason { get; set; }
 
             [StringLength(48, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [Display(ResourceType = typeof(EntityStrings), Name = "CancelledUserIp")]

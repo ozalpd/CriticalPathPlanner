@@ -78,14 +78,14 @@ namespace CriticalPath.Data
     {
         bool Cancelled { get; set; }
         Nullable<System.DateTime> CancelDate { get; set; }
-        string CancelNotes { get; set; }
+        string CancellationReason { get; set; }
     }
     
     public interface ICancellation
     {
         bool Cancelled { get; set; }
         Nullable<System.DateTime> CancelDate { get; set; }
-        string CancelNotes { get; set; }
+        string CancellationReason { get; set; }
         string CancelledUserId { get; set; }
         string CancelledUserIp { get; set; }
     }

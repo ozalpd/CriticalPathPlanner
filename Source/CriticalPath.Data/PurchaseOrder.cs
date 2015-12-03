@@ -51,7 +51,7 @@ namespace CriticalPath.Data
         public string ApprovedUserIp { get; set; }
         public bool Cancelled { get; set; }
         public Nullable<System.DateTime> CancelDate { get; set; }
-        public string CancelNotes { get; set; }
+        public string CancellationReason { get; set; }
         public string CancelledUserId { get; set; }
         public string CancelledUserIp { get; set; }
         public int ModifyNr { get; set; }
@@ -116,7 +116,7 @@ namespace CriticalPath.Data
             clone.ApprovedUserIp = ApprovedUserIp;
             clone.Cancelled = Cancelled;
             clone.CancelDate = CancelDate;
-            clone.CancelNotes = CancelNotes;
+            clone.CancellationReason = CancellationReason;
             clone.CancelledUserId = CancelledUserId;
             clone.CancelledUserIp = CancelledUserIp;
             clone.ModifyNr = ModifyNr;
@@ -172,7 +172,7 @@ namespace CriticalPath.Data
             ApproveDate = entity.ApproveDate;
             Cancelled = entity.Cancelled;
             CancelDate = entity.CancelDate;
-            CancelNotes = entity.CancelNotes;
+            CancellationReason = entity.CancellationReason;
         
             Initiliazing(entity);
         }
@@ -210,7 +210,7 @@ namespace CriticalPath.Data
             entity.ApproveDate = ApproveDate;
             entity.Cancelled = Cancelled;
             entity.CancelDate = CancelDate;
-            entity.CancelNotes = CancelNotes;
+            entity.CancellationReason = CancellationReason;
     
             Converting(entity);
     
@@ -247,6 +247,6 @@ namespace CriticalPath.Data
         public Nullable<System.DateTime> ApproveDate { get; set; }
         public bool Cancelled { get; set; }
         public Nullable<System.DateTime> CancelDate { get; set; }
-        public string CancelNotes { get; set; }
+        public string CancellationReason { get; set; }
     }
 }

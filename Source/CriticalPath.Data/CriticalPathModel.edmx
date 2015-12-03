@@ -35,10 +35,10 @@
           <Property Name="Phone3" Type="nvarchar" MaxLength="64" />
           <Property Name="Address1" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="Address2" Type="nvarchar" MaxLength="128" />
+          <Property Name="CountryId" Type="int" Nullable="false" />
           <Property Name="City" Type="nvarchar" MaxLength="64" Nullable="false" />
           <Property Name="State" Type="nvarchar" MaxLength="32" />
           <Property Name="ZipCode" Type="nvarchar" MaxLength="32" />
-          <Property Name="Country" Type="nvarchar" MaxLength="32" />
           <Property Name="Notes" Type="nvarchar" MaxLength="2048" />
           <Property Name="Discontinued" Type="bit" Nullable="false" />
           <Property Name="DiscontinueDate" Type="datetime" />
@@ -79,6 +79,18 @@
           <Property Name="CreateDate" Type="datetime" Nullable="false" />
           <Property Name="CreatorId" Type="varchar" MaxLength="48" Nullable="false" />
           <Property Name="CreatorIp" Type="varchar" MaxLength="48" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Countries">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="TwoLetterIsoCode" Type="nvarchar" MaxLength="2" />
+          <Property Name="ThreeLetterIsoCode" Type="nvarchar" MaxLength="3" />
+          <Property Name="NumericIsoCode" Type="int" Nullable="false" />
+          <Property Name="DisplayOrder" Type="int" Nullable="false" />
+          <Property Name="IsPublished" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Currencies">
           <Key>
@@ -132,7 +144,7 @@
           <Property Name="ForecastDate" Type="datetime" />
           <Property Name="RealizedDate" Type="datetime" />
           <Property Name="CancelDate" Type="datetime" />
-          <Property Name="CancelNotes" Type="nvarchar(max)" />
+          <Property Name="CancellationReason" Type="nvarchar(max)" />
           <Property Name="CancelledUserIp" Type="varchar" MaxLength="48" />
           <Property Name="CancelledUserId" Type="varchar" MaxLength="48" />
           <Property Name="ApprovedUserId" Type="varchar" MaxLength="48" />
@@ -293,7 +305,7 @@
           <Property Name="Notes" Type="nvarchar(max)" />
           <Property Name="Cancelled" Type="bit" Nullable="false" />
           <Property Name="CancelDate" Type="datetime" />
-          <Property Name="CancelNotes" Type="nvarchar(max)" />
+          <Property Name="CancellationReason" Type="nvarchar(max)" />
           <Property Name="CancelledUserIp" Type="varchar" MaxLength="48" />
           <Property Name="CancelledUserId" Type="varchar" MaxLength="48" />
           <Property Name="ApprovedUserId" Type="varchar" MaxLength="48" />
@@ -360,6 +372,18 @@
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="SupplierCode" Type="nvarchar" MaxLength="255" Nullable="false" />
         </EntityType>
+        <Association Name="FK_Company_CountryId">
+          <End Role="Countries" Type="Self.Countries" Multiplicity="1" />
+          <End Role="Companies" Type="Self.Companies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Companies">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Company_CreatorId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
           <End Role="Companies" Type="Self.Companies" Multiplicity="*" />
@@ -1108,6 +1132,7 @@
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Companies" EntityType="Self.Companies" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Contacts" EntityType="Self.Contacts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Currencies" EntityType="Self.Currencies" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FreightTerms" EntityType="Self.FreightTerms" Schema="dbo" store:Type="Tables" />
@@ -1124,6 +1149,10 @@
           <EntitySet Name="Sizings" EntityType="Self.Sizings" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SizingStandards" EntityType="Self.SizingStandards" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Suppliers" EntityType="Self.Suppliers" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Company_CountryId" Association="Self.FK_Company_CountryId">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="Companies" EntitySet="Companies" />
+          </AssociationSet>
           <AssociationSet Name="FK_Company_CreatorId" Association="Self.FK_Company_CreatorId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Companies" EntitySet="Companies" />
@@ -1625,6 +1654,11 @@
             <End Role="Currency" EntitySet="Currencies" />
             <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
           </AssociationSet>
+          <EntitySet Name="Countries" EntityType="CriticalPathDataModel.Country" />
+          <AssociationSet Name="FK_Company_CountryId" Association="CriticalPathDataModel.FK_Company_CountryId">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="Company" EntitySet="Companies" />
+          </AssociationSet>
           
         </EntityContainer>
         <EntityType Name="Company" Abstract="true">
@@ -1638,10 +1672,10 @@
           <Property Name="Phone3" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
           <Property Name="Address1" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="Address2" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCode" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
           <Property Name="City" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
           <Property Name="State" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
-          <Property Name="ZipCode" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
-          <Property Name="Country" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="CountryId" Type="Int32" Nullable="false" />
           <Property Name="Discontinued" Type="Boolean" Nullable="false" />
           <Property Name="DiscontinueDate" Type="DateTime" Precision="3" />
           <Property Name="DiscontinueNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -1659,6 +1693,7 @@
           <NavigationProperty Name="DiscontinuedUser" Relationship="CriticalPathDataModel.FK_Company_DiscontinuedUserId" FromRole="Company" ToRole="AspNetUser" />
           <NavigationProperty Name="ModifiedUser" Relationship="CriticalPathDataModel.FK_Company_ModifierId" FromRole="Company" ToRole="AspNetUser" />
           <NavigationProperty Name="CreatedUser" Relationship="CriticalPathDataModel.FK_Company_CreatorId" FromRole="Company" ToRole="AspNetUser" />
+          <NavigationProperty Name="Country" Relationship="CriticalPathDataModel.FK_Company_CountryId" FromRole="Company" ToRole="Country" />
         </EntityType>
         <EntityType Name="Contact">
           <Key>
@@ -1833,7 +1868,7 @@
           <Property Name="ApprovedUserIp" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
           <Property Name="Cancelled" Type="Boolean" Nullable="false" />
           <Property Name="CancelDate" Type="DateTime" Precision="3" />
-          <Property Name="CancelNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CancellationReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="CancelledUserId" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
           <Property Name="CancelledUserIp" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
           <Property Name="ModifyNr" Type="Int32" Nullable="false" />
@@ -1890,7 +1925,7 @@
           <Property Name="ApprovedUserIp" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
           <Property Name="Cancelled" Type="Boolean" Nullable="false" />
           <Property Name="CancelDate" Type="DateTime" Precision="3" />
-          <Property Name="CancelNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CancellationReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="CancelledUserId" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
           <Property Name="CancelledUserIp" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
           <Property Name="ModifyNr" Type="Int32" Nullable="false" />
@@ -2734,6 +2769,31 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TwoLetterIsoCode" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="ThreeLetterIsoCode" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="NumericIsoCode" Type="Int32" Nullable="false" />
+          <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+          <Property Name="IsPublished" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Companies" Relationship="CriticalPathDataModel.FK_Company_CountryId" FromRole="Country" ToRole="Company" />
+        </EntityType>
+        <Association Name="FK_Company_CountryId">
+          <End Type="CriticalPathDataModel.Country" Role="Country" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.Company" Role="Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2743,6 +2803,7 @@
           <EntitySetMapping Name="Companies">
             <EntityTypeMapping TypeName="IsTypeOf(CriticalPathDataModel.Company)">
               <MappingFragment StoreEntitySet="Companies">
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
                 <ScalarProperty Name="DiscontinuedUserIp" ColumnName="DiscontinuedUserIp" />
                 <ScalarProperty Name="DiscontinuedUserId" ColumnName="DiscontinuedUserId" />
                 <ScalarProperty Name="DiscontinueNotes" ColumnName="DiscontinueNotes" />
@@ -2757,7 +2818,6 @@
                 <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
                 <ScalarProperty Name="ModifyNr" ColumnName="ModifyNr" />
                 <ScalarProperty Name="Notes" ColumnName="Notes" />
-                <ScalarProperty Name="Country" ColumnName="Country" />
                 <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
                 <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="City" ColumnName="City" />
@@ -2884,7 +2944,7 @@
                 <ScalarProperty Name="PoNr" ColumnName="PoNr" />
                 <ScalarProperty Name="CancelledUserIp" ColumnName="CancelledUserIp" />
                 <ScalarProperty Name="CancelledUserId" ColumnName="CancelledUserId" />
-                <ScalarProperty Name="CancelNotes" ColumnName="CancelNotes" />
+                <ScalarProperty Name="CancellationReason" ColumnName="CancellationReason" />
                 <ScalarProperty Name="Cancelled" ColumnName="Cancelled" />
                 <ScalarProperty Name="CancelDate" ColumnName="CancelDate" />
                 <ScalarProperty Name="SizeRatioDivisor" ColumnName="SizeRatioDivisor" />
@@ -2918,7 +2978,7 @@
                 <ScalarProperty Name="StartDate" ColumnName="StartDate" />
                 <ScalarProperty Name="CancelledUserIp" ColumnName="CancelledUserIp" />
                 <ScalarProperty Name="CancelledUserId" ColumnName="CancelledUserId" />
-                <ScalarProperty Name="CancelNotes" ColumnName="CancelNotes" />
+                <ScalarProperty Name="CancellationReason" ColumnName="CancellationReason" />
                 <ScalarProperty Name="Cancelled" ColumnName="Cancelled" />
                 <ScalarProperty Name="CancelDate" ColumnName="CancelDate" />
                 <ScalarProperty Name="PurchaseOrderId" ColumnName="PurchaseOrderId" />
@@ -3103,6 +3163,19 @@
                 <ScalarProperty Name="CurrencySymbol" ColumnName="CurrencySymbol" />
                 <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
                 <ScalarProperty Name="CurrencyName" ColumnName="CurrencyName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="CriticalPathDataModel.Country">
+              <MappingFragment StoreEntitySet="Countries">
+                <ScalarProperty Name="IsPublished" ColumnName="IsPublished" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="NumericIsoCode" ColumnName="NumericIsoCode" />
+                <ScalarProperty Name="ThreeLetterIsoCode" ColumnName="ThreeLetterIsoCode" />
+                <ScalarProperty Name="TwoLetterIsoCode" ColumnName="TwoLetterIsoCode" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

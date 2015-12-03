@@ -27,10 +27,10 @@ namespace CriticalPath.Data
         public string Phone3 { get; set; }
         public string Address1 { get; set; }
         public string Address2 { get; set; }
+        public string ZipCode { get; set; }
         public string City { get; set; }
         public string State { get; set; }
-        public string ZipCode { get; set; }
-        public string Country { get; set; }
+        public int CountryId { get; set; }
         public bool Discontinued { get; set; }
         public Nullable<System.DateTime> DiscontinueDate { get; set; }
         public string DiscontinueNotes { get; set; }
@@ -50,5 +50,6 @@ namespace CriticalPath.Data
         public virtual AspNetUser DiscontinuedUser { get; set; }
         public virtual AspNetUser ModifiedUser { get; set; }
         public virtual AspNetUser CreatedUser { get; set; }
+        public virtual Country Country { get; set; }
     }
 }

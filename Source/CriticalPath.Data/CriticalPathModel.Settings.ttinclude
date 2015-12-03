@@ -98,13 +98,13 @@ InterfaceDefinition cancelled = new InterfaceDefinition() { Name = "ICancelled" 
 AutoGenInterfaces.Add(cancelled);
 cancelled.Properties.Add(new InterfaceProperty() { TypeName = "bool", Name = "Cancelled" });
 cancelled.Properties.Add(new InterfaceProperty() { TypeName = "Nullable<System.DateTime>", Name = "CancelDate" });
-cancelled.Properties.Add(new InterfaceProperty() { TypeName = "string", Name = "CancelNotes" });
+cancelled.Properties.Add(new InterfaceProperty() { TypeName = "string", Name = "CancellationReason" });
 
 InterfaceDefinition cancellation = new InterfaceDefinition() { Name = "ICancellation" };
 AutoGenInterfaces.Add(cancellation);
 cancellation.Properties.Add(new InterfaceProperty() { TypeName = "bool", Name = "Cancelled" });
 cancellation.Properties.Add(new InterfaceProperty() { TypeName = "Nullable<System.DateTime>", Name = "CancelDate" });
-cancellation.Properties.Add(new InterfaceProperty() { TypeName = "string", Name = "CancelNotes" });
+cancellation.Properties.Add(new InterfaceProperty() { TypeName = "string", Name = "CancellationReason" });
 cancellation.Properties.Add(new InterfaceProperty() { TypeName = "string", Name = "CancelledUserId" });
 cancellation.Properties.Add(new InterfaceProperty() { TypeName = "string", Name = "CancelledUserIp" });
 

@@ -14,14 +14,14 @@ namespace CriticalPath.Web.Models
         {
             var po = base.ToPurchaseOrder();
             po.CancelDate = DateTime.Now;
-            po.CancelNotes = CancelNotes;
+            po.CancellationReason = CancellationReason;
 
             return po;
         }
 
         [DataType(DataType.MultilineText)]
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-        [Display(ResourceType = typeof(EntityStrings), Name = "CancelNotes")]
-        public new string CancelNotes { get; set; }
+        [Display(ResourceType = typeof(EntityStrings), Name = "CancellationReason")]
+        public new string CancellationReason { get; set; }
     }
 }

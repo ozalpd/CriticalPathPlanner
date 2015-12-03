@@ -96,7 +96,7 @@
 	</data>
 
 	<data name="ChangePassword" xml:space="preserve">
-		<value>Parolanı Değiştir</value>
+		<value>Parolanızı Değiştirin</value>
 	</data>
 
 	<data name="Choose" xml:space="preserve">
@@ -160,7 +160,7 @@
 	</data>
 
 	<data name="ManageAccount" xml:space="preserve">
-		<value>Hesabını Yönet</value>
+		<value>Hesabınızı Yönetin</value>
 	</data>
 
 	<data name="No" xml:space="preserve">

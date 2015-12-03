@@ -26,7 +26,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TypeScriptToolsVersion>1.6</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>1.7</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -181,6 +181,8 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\AppSettingsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CountriesController.g.cs" />
+    <Compile Include="Areas\Admin\Controllers\CountriesController.part.cs" />
     <Compile Include="Areas\Admin\Controllers\CurrenciesController.g.cs" />
     <Compile Include="Areas\Admin\Controllers\CurrenciesController.part.cs" />
     <Compile Include="Areas\Admin\Controllers\FreightTermsController.g.cs" />
@@ -389,6 +391,11 @@
     <Content Include="Areas\Admin\Views\Currencies\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Currencies\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Currencies\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Countries\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Countries\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Countries\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Countries\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_agGridScriptsPartial.cshtml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
@@ -537,6 +544,9 @@
     <Content Include="Views\Shared\_agGridScriptsPartial.cshtml" />
     <Content Include="Views\Shared\_AllPriceEdit.cshtml" />
     <Content Include="Views\Shared\_AllPrice.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Country.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Currency.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\FreightTerm.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

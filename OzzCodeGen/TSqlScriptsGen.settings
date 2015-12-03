@@ -347,6 +347,80 @@
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
+      <Name>Country</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <UseInheritance>false</UseInheritance>
+      <SchemaName>dbo</SchemaName>
+      <TableName>Countries</TableName>
+      <FinishingScript>Country-data.sql</FinishingScript>
+      <ModifyTrack>false</ModifyTrack>
+      <StoredProcs>false</StoredProcs>
+      <CustomStoredProcs>false</CustomStoredProcs>
+      <Properties>
+        <StorageColumnSetting>
+          <Name>CountryName</Name>
+          <Exclude>false</Exclude>
+          <DataType>nVarChar</DataType>
+          <Lenght>100</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>TwoLetterIsoCode</Name>
+          <Exclude>false</Exclude>
+          <DataType>nVarChar</DataType>
+          <Lenght>2</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>ThreeLetterIsoCode</Name>
+          <Exclude>false</Exclude>
+          <DataType>nVarChar</DataType>
+          <Lenght>3</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>NumericIsoCode</Name>
+          <Exclude>false</Exclude>
+          <DataType>int</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>DisplayOrder</Name>
+          <Exclude>false</Exclude>
+          <DataType>int</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>IsPublished</Name>
+          <Exclude>false</Exclude>
+          <DataType>bit</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+        </StorageColumnSetting>
+      </Properties>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="StorageEntitySetting">
       <Name>SizingStandard</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
@@ -579,6 +653,7 @@
       <UseInheritance>false</UseInheritance>
       <SchemaName>dbo</SchemaName>
       <TableName>Companies</TableName>
+      <FinishingScript />
       <ModifyTrack>false</ModifyTrack>
       <StoredProcs>false</StoredProcs>
       <CustomStoredProcs>false</CustomStoredProcs>
@@ -644,6 +719,17 @@
           <Nullable>true</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
+          <Name>CountryId</Name>
+          <Exclude>false</Exclude>
+          <DataType>int</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+          <ForeignKeyTable>Countries</ForeignKeyTable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
           <Name>City</Name>
           <Exclude>false</Exclude>
           <DataType>nVarChar</DataType>
@@ -665,16 +751,6 @@
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>ZipCode</Name>
-          <Exclude>false</Exclude>
-          <DataType>nVarChar</DataType>
-          <Lenght>32</Lenght>
-          <PrimaryKey>false</PrimaryKey>
-          <Indexed>false</Indexed>
-          <SortDesc>false</SortDesc>
-          <Nullable>true</Nullable>
-        </StorageColumnSetting>
-        <StorageColumnSetting>
-          <Name>Country</Name>
           <Exclude>false</Exclude>
           <DataType>nVarChar</DataType>
           <Lenght>32</Lenght>
@@ -1352,7 +1428,7 @@
           <Nullable>true</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>CancelNotes</Name>
+          <Name>CancellationReason</Name>
           <Exclude>false</Exclude>
           <DataType>nVarChar</DataType>
           <Lenght>0</Lenght>
@@ -1554,7 +1630,7 @@
           <Nullable>true</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>CancelNotes</Name>
+          <Name>CancellationReason</Name>
           <Exclude>false</Exclude>
           <DataType>nVarChar</DataType>
           <Lenght>0</Lenght>

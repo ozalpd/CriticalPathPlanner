@@ -80,8 +80,8 @@ namespace CriticalPath.Data
             public DateTime CancelDate { get; set; }
 
             [DataType(DataType.MultilineText)]
-            [Display(ResourceType = typeof(EntityStrings), Name = "CancelNotes")]
-            public string CancelNotes { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "CancellationReason")]
+            public string CancellationReason { get; set; }
 
             [Display(ResourceType = typeof(EntityStrings), Name = "CancelledUser")]
             public AspNetUser CancelledUser { get; set; }

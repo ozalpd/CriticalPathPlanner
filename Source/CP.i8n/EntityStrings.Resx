@@ -71,6 +71,10 @@
 		<value>Add Contact</value>
 	</data>
 
+	<data name="AddCountry" xml:space="preserve">
+		<value>Add Country</value>
+	</data>
+
 	<data name="AddCurrency" xml:space="preserve">
 		<value>Add Currency</value>
 	</data>
@@ -97,6 +101,10 @@
 
 	<data name="AddNewContact" xml:space="preserve">
 		<value>Add New Contact</value>
+	</data>
+
+	<data name="AddNewCountry" xml:space="preserve">
+		<value>Add New Country</value>
 	</data>
 
 	<data name="AddNewCurrency" xml:space="preserve">
@@ -197,6 +205,10 @@
 
 	<data name="AddRemoveContact" xml:space="preserve">
 		<value>Add/Remove Contact</value>
+	</data>
+
+	<data name="AddRemoveCountry" xml:space="preserve">
+		<value>Add Remove Country</value>
 	</data>
 
 	<data name="AddRemoveCurrency" xml:space="preserve">
@@ -316,7 +328,7 @@
 	</data>
 
 	<data name="BuyingCurrencyId" xml:space="preserve">
-		<value>Buying Currency Id</value>
+		<value>Buying Currency</value>
 	</data>
 
 	<data name="BuyingPrice" xml:space="preserve">
@@ -325,6 +337,10 @@
 
 	<data name="CancelDate" xml:space="preserve">
 		<value>Cancel Date</value>
+	</data>
+
+	<data name="CancellationReason" xml:space="preserve">
+		<value>Cancellation Reason</value>
 	</data>
 
 	<data name="Cancelled" xml:space="preserve">
@@ -336,15 +352,11 @@
 	</data>
 
 	<data name="CancelledUserId" xml:space="preserve">
-		<value>Cancelled User Id</value>
+		<value>Cancelled User ID</value>
 	</data>
 
 	<data name="CancelledUserIp" xml:space="preserve">
 		<value>Cancelled User Ip</value>
-	</data>
-
-	<data name="CancelNotes" xml:space="preserve">
-		<value>Cancel Notes</value>
 	</data>
 
 	<data name="Caption" xml:space="preserve">
@@ -403,8 +415,24 @@
 		<value>Contacts List</value>
 	</data>
 
+	<data name="Countries" xml:space="preserve">
+		<value>Countries</value>
+	</data>
+
+	<data name="CountriesList" xml:space="preserve">
+		<value>Countries List</value>
+	</data>
+
 	<data name="Country" xml:space="preserve">
 		<value>Country</value>
+	</data>
+
+	<data name="CountryId" xml:space="preserve">
+		<value>Country Id</value>
+	</data>
+
+	<data name="CountryName" xml:space="preserve">
+		<value>Country Name</value>
 	</data>
 
 	<data name="CreateAspNetUser" xml:space="preserve">
@@ -417,6 +445,10 @@
 
 	<data name="CreateContact" xml:space="preserve">
 		<value>Create Contact</value>
+	</data>
+
+	<data name="CreateCountry" xml:space="preserve">
+		<value>Create Country</value>
 	</data>
 
 	<data name="CreateCurrency" xml:space="preserve">
@@ -559,6 +591,10 @@
 		<value>Delete Contact</value>
 	</data>
 
+	<data name="DeleteCountry" xml:space="preserve">
+		<value>Delete Country</value>
+	</data>
+
 	<data name="DeleteCurrency" xml:space="preserve">
 		<value>Delete Currency</value>
 	</data>
@@ -636,7 +672,7 @@
 	</data>
 
 	<data name="DiscontinuedUserId" xml:space="preserve">
-		<value>Discontinued User Id</value>
+		<value>Discontinued User ID</value>
 	</data>
 
 	<data name="DiscontinuedUserIp" xml:space="preserve">
@@ -669,6 +705,10 @@
 
 	<data name="EditContact" xml:space="preserve">
 		<value>Edit Contact</value>
+	</data>
+
+	<data name="EditCountry" xml:space="preserve">
+		<value>Edit Country</value>
 	</data>
 
 	<data name="EditCurrency" xml:space="preserve">
@@ -756,7 +796,7 @@
 	</data>
 
 	<data name="FreightTermId" xml:space="preserve">
-		<value>Freight Term Id</value>
+		<value>Freight Term</value>
 	</data>
 
 	<data name="FreightTerms" xml:space="preserve">
@@ -833,6 +873,10 @@
 
 	<data name="Notes" xml:space="preserve">
 		<value>Notes</value>
+	</data>
+
+	<data name="NumericIsoCode" xml:space="preserve">
+		<value>Numeric ISO Code</value>
 	</data>
 
 	<data name="OrderDate" xml:space="preserve">
@@ -1007,6 +1051,10 @@
 		<value>Remove Contact</value>
 	</data>
 
+	<data name="RemoveCountry" xml:space="preserve">
+		<value>Remove Country</value>
+	</data>
+
 	<data name="RemoveCurrency" xml:space="preserve">
 		<value>Remove Currency</value>
 	</data>
@@ -1076,7 +1124,7 @@
 	</data>
 
 	<data name="RetailCurrencyId" xml:space="preserve">
-		<value>Retail Currency Id</value>
+		<value>Retail Currency</value>
 	</data>
 
 	<data name="RetailPrice" xml:space="preserve">
@@ -1088,7 +1136,7 @@
 	</data>
 
 	<data name="RoyaltyCurrencyId" xml:space="preserve">
-		<value>Royalty Currency Id</value>
+		<value>Royalty Currency</value>
 	</data>
 
 	<data name="RoyaltyFee" xml:space="preserve">
@@ -1100,7 +1148,7 @@
 	</data>
 
 	<data name="SellingCurrencyId" xml:space="preserve">
-		<value>Selling Currency Id</value>
+		<value>Selling Currency</value>
 	</data>
 
 	<data name="SizeRatio" xml:space="preserve">
@@ -1136,7 +1184,7 @@
 	</data>
 
 	<data name="SizingStandardId" xml:space="preserve">
-		<value>Sizing Standard Id</value>
+		<value>Sizing Standard</value>
 	</data>
 
 	<data name="SizingStandards" xml:space="preserve">
@@ -1176,7 +1224,7 @@
 	</data>
 
 	<data name="SupplierId" xml:space="preserve">
-		<value>Supplier Id</value>
+		<value>Supplier</value>
 	</data>
 
 	<data name="Suppliers" xml:space="preserve">
@@ -1203,8 +1251,16 @@
 		<value>Template Name</value>
 	</data>
 
+	<data name="ThreeLetterIsoCode" xml:space="preserve">
+		<value>Three Letter ISO Code</value>
+	</data>
+
 	<data name="Title" xml:space="preserve">
 		<value>Title</value>
+	</data>
+
+	<data name="TwoLetterIsoCode" xml:space="preserve">
+		<value>Two Letter ISO Code</value>
 	</data>
 
 	<data name="UnitPrice" xml:space="preserve">

@@ -16,7 +16,7 @@ CREATE TABLE [dbo].[Processes](
     [ForecastDate] [DateTime] Null,
     [RealizedDate] [DateTime] Null,
     [CancelDate] [DateTime] Null,
-    [CancelNotes] [nVarChar](max) Null,
+    [CancellationReason] [nVarChar](max) Null,
     [CancelledUserIp] [VarChar](48) Null,
     [CancelledUserId] [VarChar](48) Null Constraint FK_Process_CancelledUserId Foreign Key References [dbo].[AspNetUsers]([Id]),
     [ApprovedUserId] [VarChar](48) Null Constraint FK_Process_ApprovedUserId Foreign Key References [dbo].[AspNetUsers]([Id]),

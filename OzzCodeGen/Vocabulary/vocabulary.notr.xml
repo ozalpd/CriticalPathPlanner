@@ -37,6 +37,10 @@
     <Translation>Add Contact</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddCountry</Name>
+    <Translation>Add Country</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddCurrency</Name>
     <Translation>Add Currency</Translation>
   </Vocab>
@@ -67,6 +71,10 @@
   <Vocab>
     <Name>AddNewContact</Name>
     <Translation>Add New Contact</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewCountry</Name>
+    <Translation>Add New Country</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNewCurrency</Name>
@@ -203,6 +211,10 @@
   <Vocab>
     <Name>AddRemoveContact</Name>
     <Translation>Add/Remove Contact</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveCountry</Name>
+    <Translation>Add Remove Country</Translation>
   </Vocab>
   <Vocab>
     <Name>AddRemoveCurrency</Name>
@@ -413,6 +425,10 @@
     <Translation>Cancellation Notes</Translation>
   </Vocab>
   <Vocab>
+    <Name>CancellationReason</Name>
+    <Translation>Cancellation Reason</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Cancelled</Name>
     <Translation>Cancelled</Translation>
   </Vocab>
@@ -553,8 +569,20 @@
     <Translation>Contact Us</Translation>
   </Vocab>
   <Vocab>
+    <Name>Countries</Name>
+    <Translation>Countries</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CountriesList</Name>
+    <Translation>Countries List</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Country</Name>
     <Translation>Country</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CountryId</Name>
+    <Translation>Country Id</Translation>
   </Vocab>
   <Vocab>
     <Name>CountryName</Name>
@@ -575,6 +603,10 @@
   <Vocab>
     <Name>CreateContact</Name>
     <Translation>Create Contact</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateCountry</Name>
+    <Translation>Create Country</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateCurrency</Name>
@@ -757,6 +789,10 @@
     <Translation>Delete Contact</Translation>
   </Vocab>
   <Vocab>
+    <Name>DeleteCountry</Name>
+    <Translation>Delete Country</Translation>
+  </Vocab>
+  <Vocab>
     <Name>DeleteCurrency</Name>
     <Translation>Delete Currency</Translation>
   </Vocab>
@@ -935,6 +971,10 @@
   <Vocab>
     <Name>EditContact</Name>
     <Translation>Edit Contact</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditCountry</Name>
+    <Translation>Edit Country</Translation>
   </Vocab>
   <Vocab>
     <Name>EditCurrency</Name>
@@ -1273,6 +1313,10 @@
     <Translation>Notes</Translation>
   </Vocab>
   <Vocab>
+    <Name>NumericIsoCode</Name>
+    <Translation>Numeric ISO Code</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Often</Name>
     <Translation>Often</Translation>
   </Vocab>
@@ -1559,6 +1603,10 @@
   <Vocab>
     <Name>RemoveContact</Name>
     <Translation>Remove Contact</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveCountry</Name>
+    <Translation>Remove Country</Translation>
   </Vocab>
   <Vocab>
     <Name>RemoveCurrency</Name>
@@ -1893,6 +1941,10 @@
     <Translation>Template Name</Translation>
   </Vocab>
   <Vocab>
+    <Name>ThreeLetterIsoCode</Name>
+    <Translation>Three Letter ISO Code</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Title</Name>
     <Translation>Title</Translation>
   </Vocab>
@@ -1907,6 +1959,10 @@
   <Vocab>
     <Name>Townships</Name>
     <Translation>Townships</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TwoLetterIsoCode</Name>
+    <Translation>Two Letter ISO Code</Translation>
   </Vocab>
   <Vocab>
     <Name>UnableToDelete</Name>

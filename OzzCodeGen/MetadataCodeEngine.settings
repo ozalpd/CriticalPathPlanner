@@ -240,6 +240,55 @@
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="MetadataEntitySetting">
+      <Name>Country</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <Properties>
+        <MetadataPropertySetting>
+          <Name>CountryName</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>TwoLetterIsoCode</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>ThreeLetterIsoCode</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>NumericIsoCode</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>DisplayOrder</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>IsPublished</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+      </Properties>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="MetadataEntitySetting">
       <Name>SizingStandard</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
@@ -465,6 +514,19 @@
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
+          <Name>Country</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>CountryId</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
           <Name>City</Name>
           <Exclude>false</Exclude>
           <DTOExclusion>false</DTOExclusion>
@@ -483,13 +545,6 @@
           <Exclude>false</Exclude>
           <DTOExclusion>false</DTOExclusion>
           <DataType>PostalCode</DataType>
-          <Required />
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>Country</Name>
-          <Exclude>false</Exclude>
-          <DTOExclusion>false</DTOExclusion>
-          <DataType />
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
@@ -1093,7 +1148,7 @@
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>CancelNotes</Name>
+          <Name>CancellationReason</Name>
           <Exclude>false</Exclude>
           <DTOExclusion>false</DTOExclusion>
           <DataType>MultilineText</DataType>
@@ -1257,7 +1312,7 @@
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
-          <Name>CancelNotes</Name>
+          <Name>CancellationReason</Name>
           <Exclude>false</Exclude>
           <DTOExclusion>false</DTOExclusion>
           <DataType>MultilineText</DataType>

@@ -46,6 +46,7 @@ namespace CriticalPath.Data
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<FreightTerm> FreightTerms { get; set; }
         public virtual DbSet<Currency> Currencies { get; set; }
+        public virtual DbSet<Country> Countries { get; set; }
     
         /// <summary>
         /// Default query for AspNetUsers
@@ -131,10 +132,10 @@ namespace CriticalPath.Data
                        Phone3 = e.Phone3,
                        Address1 = e.Address1,
                        Address2 = e.Address2,
+                       ZipCode = e.ZipCode,
                        City = e.City,
                        State = e.State,
-                       ZipCode = e.ZipCode,
-                       Country = e.Country,
+                       CountryId = e.CountryId,
                        Discontinued = e.Discontinued,
                        DiscontinueDate = e.DiscontinueDate,
                        DiscontinueNotes = e.DiscontinueNotes,
@@ -182,10 +183,10 @@ namespace CriticalPath.Data
                        Phone3 = e.Phone3,
                        Address1 = e.Address1,
                        Address2 = e.Address2,
+                       ZipCode = e.ZipCode,
                        City = e.City,
                        State = e.State,
-                       ZipCode = e.ZipCode,
-                       Country = e.Country,
+                       CountryId = e.CountryId,
                        Discontinued = e.Discontinued,
                        DiscontinueDate = e.DiscontinueDate,
                        DiscontinueNotes = e.DiscontinueNotes,
@@ -233,10 +234,10 @@ namespace CriticalPath.Data
                        Phone3 = e.Phone3,
                        Address1 = e.Address1,
                        Address2 = e.Address2,
+                       ZipCode = e.ZipCode,
                        City = e.City,
                        State = e.State,
-                       ZipCode = e.ZipCode,
-                       Country = e.Country,
+                       CountryId = e.CountryId,
                        Discontinued = e.Discontinued,
                        DiscontinueDate = e.DiscontinueDate,
                        DiscontinueNotes = e.DiscontinueNotes,
@@ -288,6 +289,52 @@ namespace CriticalPath.Data
                        DiscontinueDate = e.DiscontinueDate,
                        DiscontinueNotes = e.DiscontinueNotes,
                        Notes = e.Notes,
+                   };
+        }
+    
+    
+        /// <summary>
+        /// Default query for Countries
+        /// </summary>
+        /// <param name="publishedOnly">Sets query IsPublished == true</param>
+        /// <returns></returns>
+        public virtual IQueryable<Country> GetCountryQuery(bool publishedOnly = true)
+        {
+            IQueryable<Country> query = Countries.OrderBy(p => p.DisplayOrder);
+            if (publishedOnly)
+            {
+                query = query.Where(e => e.IsPublished);
+            }
+    
+            return query;
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from Country query
+        /// </summary>
+        /// <param name="query">query to be converted</param>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<CountryDTO> GetCountryDtoQuery(bool publishedOnly = true)
+        {
+            return GetCountryDtoQuery(GetCountryQuery(publishedOnly));
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from Country query
+        /// </summary>
+        /// <param name="publishedOnly">Sets query IsPublished == true</param>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<CountryDTO> GetCountryDtoQuery(IQueryable<Country> query)
+        {
+            return from e in query
+                   select new CountryDTO
+                   {
+                       Id = e.Id,
+                       CountryName = e.CountryName,
+                       TwoLetterIsoCode = e.TwoLetterIsoCode,
+                       ThreeLetterIsoCode = e.ThreeLetterIsoCode,
+                       NumericIsoCode = e.NumericIsoCode,
+                       DisplayOrder = e.DisplayOrder,
                    };
         }
     
@@ -421,7 +468,7 @@ namespace CriticalPath.Data
                        ApproveDate = e.ApproveDate,
                        Cancelled = e.Cancelled,
                        CancelDate = e.CancelDate,
-                       CancelNotes = e.CancelNotes,
+                       CancellationReason = e.CancellationReason,
                    };
         }
     
@@ -690,7 +737,7 @@ namespace CriticalPath.Data
                        ApproveDate = e.ApproveDate,
                        Cancelled = e.Cancelled,
                        CancelDate = e.CancelDate,
-                       CancelNotes = e.CancelNotes,
+                       CancellationReason = e.CancellationReason,
                    };
         }
     

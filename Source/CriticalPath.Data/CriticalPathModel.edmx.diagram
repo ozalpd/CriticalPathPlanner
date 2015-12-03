@@ -11,7 +11,7 @@
         <EntityTypeShape EntityType="CriticalPathDataModel.ProcessStepTemplate" Width="1.875" PointX="3" PointY="8.5" />
         <EntityTypeShape EntityType="CriticalPathDataModel.ProcessTemplate" Width="1.75" PointX="0.5" PointY="8.5" />
         <EntityTypeShape EntityType="CriticalPathDataModel.PurchaseOrder" Width="1.5" PointX="17.625" PointY="1.375" />
-        <EntityTypeShape EntityType="CriticalPathDataModel.Contact" Width="1.625" PointX="20" PointY="8" />
+        <EntityTypeShape EntityType="CriticalPathDataModel.Contact" Width="1.625" PointX="19.875" PointY="8" />
         <EntityTypeShape EntityType="CriticalPathDataModel.Company" Width="1.625" PointX="22.25" PointY="2.875" />
         <InheritanceConnector EntityType="CriticalPathDataModel.Customer" />
         <InheritanceConnector EntityType="CriticalPathDataModel.Supplier" />
@@ -73,10 +73,10 @@
         <EntityTypeShape EntityType="CriticalPathDataModel.Manufacturer" Width="1.75" PointX="22.25" PointY="0.875" />
         <AssociationConnector Association="CriticalPathDataModel.FK_Manufacturer_SupplierId" />
         <InheritanceConnector EntityType="CriticalPathDataModel.Manufacturer" />
-        <EntityTypeShape EntityType="CriticalPathDataModel.FreightTerm" Width="1.5" PointX="19.875" PointY="4.75" />
+        <EntityTypeShape EntityType="CriticalPathDataModel.FreightTerm" Width="1.5" PointX="15.25" PointY="4.125" />
         <AssociationConnector Association="CriticalPathDataModel.FK_PurchaseOrder_FreightTermId" />
         <AssociationConnector Association="CriticalPathDataModel.FK_PurchaseOrder_SupplierId" />
-        <EntityTypeShape EntityType="CriticalPathDataModel.Currency" Width="1.5" PointX="15.375" PointY="1.375" />
+        <EntityTypeShape EntityType="CriticalPathDataModel.Currency" Width="1.5" PointX="15.25" PointY="1.375" />
         <AssociationConnector Association="CriticalPathDataModel.FK_Product_BuyingCurrencyId" />
         <AssociationConnector Association="CriticalPathDataModel.FK_Product_RetailCurrencyId" />
         <AssociationConnector Association="CriticalPathDataModel.FK_Product_RoyaltyCurrencyId" />
@@ -85,6 +85,8 @@
         <AssociationConnector Association="CriticalPathDataModel.FK_PurchaseOrder_RetailCurrencyId" />
         <AssociationConnector Association="CriticalPathDataModel.FK_PurchaseOrder_RoyaltyCurrencyId" />
         <AssociationConnector Association="CriticalPathDataModel.FK_PurchaseOrder_SellingCurrencyId" />
+        <EntityTypeShape EntityType="CriticalPathDataModel.Country" Width="1.625" PointX="19.875" PointY="4.875" />
+        <AssociationConnector Association="CriticalPathDataModel.FK_Company_CountryId" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

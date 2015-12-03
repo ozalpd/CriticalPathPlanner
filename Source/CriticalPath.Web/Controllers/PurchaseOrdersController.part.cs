@@ -139,13 +139,13 @@ namespace CriticalPath.Web.Controllers
             if (purchaseOrder == null)
                 return new HttpStatusCodeResult(HttpStatusCode.NotFound);
 
-            if (!string.IsNullOrEmpty(vm.CancelNotes) && vm.Cancelled)
+            if (!string.IsNullOrEmpty(vm.CancellationReason) && vm.Cancelled)
             {
-                purchaseOrder.CancelNotes = vm.CancelNotes;
+                purchaseOrder.CancellationReason = vm.CancellationReason;
                 CancelCancellation(purchaseOrder);
                 foreach (var item in purchaseOrder.Processes)
                 {
-                    item.CancelNotes = vm.CancelNotes;
+                    item.CancellationReason = vm.CancellationReason;
                     CancelCancellation(item);
                 }
                 await DataContext.SaveChangesAsync(this);

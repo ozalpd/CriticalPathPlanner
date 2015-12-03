@@ -6,6 +6,34 @@ namespace CriticalPath.Data
 {
     public partial class CriticalPathContext
     {
+        public async Task<List<CountryDTO>> GetCountryDtoList()
+        {
+            if (_countryDtos == null)
+            {
+                var list = await GetCountryQuery().ToListAsync();
+                _countryDtos = new List<CountryDTO>();
+                foreach (var item in list)
+                {
+                    _countryDtos.Add(new CountryDTO(item));
+                }
+            }
+
+            return _countryDtos;
+        }
+        static List<CountryDTO> _countryDtos;
+
+        public async Task RefreshCountryDtoList()
+        {
+            var list = await GetCountryQuery().ToListAsync();
+            var Countrys = new List<CountryDTO>();
+            foreach (var item in list)
+            {
+                Countrys.Add(new CountryDTO(item));
+            }
+            _countryDtos = Countrys;
+        }
+
+
         public async Task<List<CurrencyDTO>> GetCurrencyDtoList()
         {
             if (_currencyDtos == null)

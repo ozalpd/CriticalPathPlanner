@@ -216,6 +216,27 @@ namespace CriticalPath.Web.Controllers
         }
 
         /// <summary>
+        /// Finds an Country by PrimaryKey value
+        /// </summary>
+        /// <param name="id">Represents PrimaryKey of Country.Id</param>
+        /// <returns></returns>
+        protected virtual async Task<Country> FindAsyncCountry(int id)
+        {
+            return await GetCountryQuery()
+                            .FirstOrDefaultAsync(x => x.Id == id);
+        }
+
+        protected virtual IQueryable<Country> GetCountryQuery()
+        {
+            return DataContext.GetCountryQuery();
+        }
+
+        protected virtual Task SetCountryDefaults(Country country)
+        {
+            return Task.FromResult(default(object));
+        }
+
+        /// <summary>
         /// Finds an SizingStandard by PrimaryKey value
         /// </summary>
         /// <param name="id">Represents PrimaryKey of SizingStandard.Id</param>

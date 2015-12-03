@@ -88,6 +88,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Country.
+        /// </summary>
+        public static string AddCountry {
+            get {
+                return ResourceManager.GetString("AddCountry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Currency.
         /// </summary>
         public static string AddCurrency {
@@ -147,6 +156,15 @@ namespace CP.i8n {
         public static string AddNewContact {
             get {
                 return ResourceManager.GetString("AddNewContact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add New Country.
+        /// </summary>
+        public static string AddNewCountry {
+            get {
+                return ResourceManager.GetString("AddNewCountry", resourceCulture);
             }
         }
         
@@ -372,6 +390,15 @@ namespace CP.i8n {
         public static string AddRemoveContact {
             get {
                 return ResourceManager.GetString("AddRemoveContact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Remove Country.
+        /// </summary>
+        public static string AddRemoveCountry {
+            get {
+                return ResourceManager.GetString("AddRemoveCountry", resourceCulture);
             }
         }
         
@@ -637,7 +664,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Buying Currency Id.
+        ///   Looks up a localized string similar to Buying Currency.
         /// </summary>
         public static string BuyingCurrencyId {
             get {
@@ -664,6 +691,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancellation Reason.
+        /// </summary>
+        public static string CancellationReason {
+            get {
+                return ResourceManager.GetString("CancellationReason", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancelled.
         /// </summary>
         public static string Cancelled {
@@ -682,7 +718,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cancelled User Id.
+        ///   Looks up a localized string similar to Cancelled User ID.
         /// </summary>
         public static string CancelledUserId {
             get {
@@ -696,15 +732,6 @@ namespace CP.i8n {
         public static string CancelledUserIp {
             get {
                 return ResourceManager.GetString("CancelledUserIp", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Cancel Notes.
-        /// </summary>
-        public static string CancelNotes {
-            get {
-                return ResourceManager.GetString("CancelNotes", resourceCulture);
             }
         }
         
@@ -835,11 +862,47 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Countries.
+        /// </summary>
+        public static string Countries {
+            get {
+                return ResourceManager.GetString("Countries", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Countries List.
+        /// </summary>
+        public static string CountriesList {
+            get {
+                return ResourceManager.GetString("CountriesList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Country.
         /// </summary>
         public static string Country {
             get {
                 return ResourceManager.GetString("Country", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Country Id.
+        /// </summary>
+        public static string CountryId {
+            get {
+                return ResourceManager.GetString("CountryId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Country Name.
+        /// </summary>
+        public static string CountryName {
+            get {
+                return ResourceManager.GetString("CountryName", resourceCulture);
             }
         }
         
@@ -867,6 +930,15 @@ namespace CP.i8n {
         public static string CreateContact {
             get {
                 return ResourceManager.GetString("CreateContact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create Country.
+        /// </summary>
+        public static string CreateCountry {
+            get {
+                return ResourceManager.GetString("CreateCountry", resourceCulture);
             }
         }
         
@@ -1186,6 +1258,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete Country.
+        /// </summary>
+        public static string DeleteCountry {
+            get {
+                return ResourceManager.GetString("DeleteCountry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete Currency.
         /// </summary>
         public static string DeleteCurrency {
@@ -1357,7 +1438,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Discontinued User Id.
+        ///   Looks up a localized string similar to Discontinued User ID.
         /// </summary>
         public static string DiscontinuedUserId {
             get {
@@ -1434,6 +1515,15 @@ namespace CP.i8n {
         public static string EditContact {
             get {
                 return ResourceManager.GetString("EditContact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Country.
+        /// </summary>
+        public static string EditCountry {
+            get {
+                return ResourceManager.GetString("EditCountry", resourceCulture);
             }
         }
         
@@ -1627,7 +1717,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Freight Term Id.
+        ///   Looks up a localized string similar to Freight Term.
         /// </summary>
         public static string FreightTermId {
             get {
@@ -1803,6 +1893,15 @@ namespace CP.i8n {
         public static string Notes {
             get {
                 return ResourceManager.GetString("Notes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Numeric ISO Code.
+        /// </summary>
+        public static string NumericIsoCode {
+            get {
+                return ResourceManager.GetString("NumericIsoCode", resourceCulture);
             }
         }
         
@@ -2194,6 +2293,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Remove Country.
+        /// </summary>
+        public static string RemoveCountry {
+            get {
+                return ResourceManager.GetString("RemoveCountry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remove Currency.
         /// </summary>
         public static string RemoveCurrency {
@@ -2347,7 +2455,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Retail Currency Id.
+        ///   Looks up a localized string similar to Retail Currency.
         /// </summary>
         public static string RetailCurrencyId {
             get {
@@ -2374,7 +2482,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Royalty Currency Id.
+        ///   Looks up a localized string similar to Royalty Currency.
         /// </summary>
         public static string RoyaltyCurrencyId {
             get {
@@ -2401,7 +2509,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Selling Currency Id.
+        ///   Looks up a localized string similar to Selling Currency.
         /// </summary>
         public static string SellingCurrencyId {
             get {
@@ -2482,7 +2590,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sizing Standard Id.
+        ///   Looks up a localized string similar to Sizing Standard.
         /// </summary>
         public static string SizingStandardId {
             get {
@@ -2572,7 +2680,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Supplier Id.
+        ///   Looks up a localized string similar to Supplier.
         /// </summary>
         public static string SupplierId {
             get {
@@ -2635,11 +2743,29 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Three Letter ISO Code.
+        /// </summary>
+        public static string ThreeLetterIsoCode {
+            get {
+                return ResourceManager.GetString("ThreeLetterIsoCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Title.
         /// </summary>
         public static string Title {
             get {
                 return ResourceManager.GetString("Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Two Letter ISO Code.
+        /// </summary>
+        public static string TwoLetterIsoCode {
+            get {
+                return ResourceManager.GetString("TwoLetterIsoCode", resourceCulture);
             }
         }
         

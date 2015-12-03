@@ -590,6 +590,117 @@
       <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
+      <Name>Country</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>true</OverwriteExisting>
+      <Properties>
+        <AspNetMvcPropertySetting>
+          <Name>CountryName</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>TwoLetterIsoCode</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>ThreeLetterIsoCode</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>NumericIsoCode</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>DisplayOrder</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>IsPublished</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+      </Properties>
+      <ControllerName>Countries</ControllerName>
+      <DataSetName>Countries</DataSetName>
+      <SaveParameter>this</SaveParameter>
+      <ModelForIndex>Country</ModelForIndex>
+      <ModelForJson>CountryDTO</ModelForJson>
+      <ModelForCreate>Country</ModelForCreate>
+      <ModelForEdit>Country</ModelForEdit>
+      <RolesCanView>users</RolesCanView>
+      <RolesCanCreate>admin, supervisor</RolesCanCreate>
+      <RolesCanEdit>admin, supervisor</RolesCanEdit>
+      <RolesCanDelete>admin</RolesCanDelete>
+      <RolesCanSeeRestricted />
+      <GenerateController>true</GenerateController>
+      <GenerateGetQueryMethod>false</GenerateGetQueryMethod>
+      <GenerateGetDtoQueryMethod>false</GenerateGetDtoQueryMethod>
+      <GenerateIndexAction>false</GenerateIndexAction>
+      <GenerateGetEntityAction>true</GenerateGetEntityAction>
+      <GenerateGetEntityListAction>true</GenerateGetEntityListAction>
+      <GenerateCreateAction>false</GenerateCreateAction>
+      <GenerateDeleteAction>false</GenerateDeleteAction>
+      <GenerateEditAction>false</GenerateEditAction>
+      <GenerateDetailsAction>true</GenerateDetailsAction>
+      <IndexViewGeneration>AgGridWithMenuAction</IndexViewGeneration>
+      <IndexView>false</IndexView>
+      <DetailsView>true</DetailsView>
+      <CreateView>true</CreateView>
+      <EditView>true</EditView>
+      <BaseControllerName>BaseController</BaseControllerName>
+      <Area>Admin</Area>
+      <CreateRedirect>"Index"</CreateRedirect>
+      <EditRedirect>"Index"</EditRedirect>
+      <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>SizingStandard</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>true</OverwriteExisting>
@@ -1059,6 +1170,30 @@
           <UseForEdit>TextBox</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
+          <Name>Country</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>CountryId</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>false</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>DropDownList</UseForCreate>
+          <UseForEdit>DropDownList</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
           <Name>City</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
@@ -1087,18 +1222,6 @@
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>false</InIndexView>
-          <InDetailsView>true</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
-          <HasValidation>true</HasValidation>
-          <UseForCreate>TextBox</UseForCreate>
-          <UseForEdit>TextBox</UseForEdit>
-        </AspNetMvcPropertySetting>
-        <AspNetMvcPropertySetting>
-          <Name>Country</Name>
-          <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
-          <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
           <InEditView>true</InEditView>
@@ -1287,7 +1410,7 @@
       <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
-      <RolesCanSeeRestricted>admin, supervisor, clerk</RolesCanSeeRestricted>
+      <RolesCanSeeRestricted />
       <GenerateController>true</GenerateController>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
       <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
@@ -2327,7 +2450,7 @@
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>CancelNotes</Name>
+          <Name>CancellationReason</Name>
           <Exclude>false</Exclude>
           <UseInSearch>true</UseInSearch>
           <InIndexView>true</InIndexView>
@@ -2667,7 +2790,7 @@
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>CancelNotes</Name>
+          <Name>CancellationReason</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>

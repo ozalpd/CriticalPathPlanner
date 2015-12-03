@@ -64,6 +64,10 @@
     <Compile Include="Contact.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Country.cs">
+      <DependentUpon>CriticalPathModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Parts\CountryDTO.part.cs" />
     <Compile Include="CriticalPathContext.static.cs" />
     <Compile Include="Currency.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
@@ -79,6 +83,8 @@
     </Compile>
     <Compile Include="Metadata\AspNetUser.meta.cs" />
     <Compile Include="Metadata\AspNetUserDTO.meta.cs" />
+    <Compile Include="Metadata\Country.meta.cs" />
+    <Compile Include="Metadata\CountryDTO.meta.cs" />
     <Compile Include="Metadata\Currency.meta.cs" />
     <Compile Include="Metadata\CurrencyDTO.meta.cs" />
     <Compile Include="Metadata\FreightTerm.meta.cs" />

@@ -71,6 +71,10 @@
 		<value>Kişi Ekle</value>
 	</data>
 
+	<data name="AddCountry" xml:space="preserve">
+		<value>Ülke Ekle</value>
+	</data>
+
 	<data name="AddCurrency" xml:space="preserve">
 		<value>Para Birimi Ekle</value>
 	</data>
@@ -97,6 +101,10 @@
 
 	<data name="AddNewContact" xml:space="preserve">
 		<value>Yeni Kişi Ekle</value>
+	</data>
+
+	<data name="AddNewCountry" xml:space="preserve">
+		<value>Yeni Ülke Ekle</value>
 	</data>
 
 	<data name="AddNewCurrency" xml:space="preserve">
@@ -197,6 +205,10 @@
 
 	<data name="AddRemoveContact" xml:space="preserve">
 		<value>Kişi Ekle/Çıkar</value>
+	</data>
+
+	<data name="AddRemoveCountry" xml:space="preserve">
+		<value>Ülke Ekle/Çıkar</value>
 	</data>
 
 	<data name="AddRemoveCurrency" xml:space="preserve">
@@ -327,6 +339,10 @@
 		<value>İptal Tarihi</value>
 	</data>
 
+	<data name="CancellationReason" xml:space="preserve">
+		<value>İptal Sebebi</value>
+	</data>
+
 	<data name="Cancelled" xml:space="preserve">
 		<value>İptal Edilmiş</value>
 	</data>
@@ -341,10 +357,6 @@
 
 	<data name="CancelledUserIp" xml:space="preserve">
 		<value>İptal Eden Kullanıcı IP</value>
-	</data>
-
-	<data name="CancelNotes" xml:space="preserve">
-		<value>İptal Notları</value>
 	</data>
 
 	<data name="Caption" xml:space="preserve">
@@ -403,7 +415,23 @@
 		<value>Kişi Listesi</value>
 	</data>
 
+	<data name="Countries" xml:space="preserve">
+		<value>Ülkeler</value>
+	</data>
+
+	<data name="CountriesList" xml:space="preserve">
+		<value>Ülke Listesi</value>
+	</data>
+
 	<data name="Country" xml:space="preserve">
+		<value>Ülke</value>
+	</data>
+
+	<data name="CountryId" xml:space="preserve">
+		<value>Ülke</value>
+	</data>
+
+	<data name="CountryName" xml:space="preserve">
 		<value>Ülke</value>
 	</data>
 
@@ -417,6 +445,10 @@
 
 	<data name="CreateContact" xml:space="preserve">
 		<value>Kişi Oluştur</value>
+	</data>
+
+	<data name="CreateCountry" xml:space="preserve">
+		<value>Ülke Oluştur</value>
 	</data>
 
 	<data name="CreateCurrency" xml:space="preserve">
@@ -559,6 +591,10 @@
 		<value>Kişi Sil</value>
 	</data>
 
+	<data name="DeleteCountry" xml:space="preserve">
+		<value>Ülkeyi Sil</value>
+	</data>
+
 	<data name="DeleteCurrency" xml:space="preserve">
 		<value>Para Birimini Sil</value>
 	</data>
@@ -669,6 +705,10 @@
 
 	<data name="EditContact" xml:space="preserve">
 		<value>Kişiyi Düzenle</value>
+	</data>
+
+	<data name="EditCountry" xml:space="preserve">
+		<value>Ülkeyi Düzenle</value>
 	</data>
 
 	<data name="EditCurrency" xml:space="preserve">
@@ -833,6 +873,10 @@
 
 	<data name="Notes" xml:space="preserve">
 		<value>Notlar</value>
+	</data>
+
+	<data name="NumericIsoCode" xml:space="preserve">
+		<value>Sayısal ISO Kod</value>
 	</data>
 
 	<data name="OrderDate" xml:space="preserve">
@@ -1005,6 +1049,10 @@
 
 	<data name="RemoveContact" xml:space="preserve">
 		<value>Kişiyi Çıkar</value>
+	</data>
+
+	<data name="RemoveCountry" xml:space="preserve">
+		<value>Ülkeyi Çıkar</value>
 	</data>
 
 	<data name="RemoveCurrency" xml:space="preserve">
@@ -1203,8 +1251,16 @@
 		<value>Şablon İsmi</value>
 	</data>
 
+	<data name="ThreeLetterIsoCode" xml:space="preserve">
+		<value>Üç Harf ISO Kod</value>
+	</data>
+
 	<data name="Title" xml:space="preserve">
 		<value>Başlık</value>
+	</data>
+
+	<data name="TwoLetterIsoCode" xml:space="preserve">
+		<value>İki Harf ISO Kod</value>
 	</data>
 
 	<data name="UnitPrice" xml:space="preserve">

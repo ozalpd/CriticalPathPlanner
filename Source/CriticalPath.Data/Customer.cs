@@ -39,10 +39,10 @@ namespace CriticalPath.Data
             clone.Phone3 = Phone3;
             clone.Address1 = Address1;
             clone.Address2 = Address2;
+            clone.ZipCode = ZipCode;
             clone.City = City;
             clone.State = State;
-            clone.ZipCode = ZipCode;
-            clone.Country = Country;
+            clone.CountryId = CountryId;
             clone.Discontinued = Discontinued;
             clone.DiscontinueDate = DiscontinueDate;
             clone.DiscontinueNotes = DiscontinueNotes;
@@ -83,10 +83,10 @@ namespace CriticalPath.Data
             Phone3 = entity.Phone3;
             Address1 = entity.Address1;
             Address2 = entity.Address2;
+            ZipCode = entity.ZipCode;
             City = entity.City;
             State = entity.State;
-            ZipCode = entity.ZipCode;
-            Country = entity.Country;
+            CountryId = entity.CountryId;
             Discontinued = entity.Discontinued;
             DiscontinueDate = entity.DiscontinueDate;
             DiscontinueNotes = entity.DiscontinueNotes;
@@ -109,10 +109,10 @@ namespace CriticalPath.Data
             entity.Phone3 = Phone3;
             entity.Address1 = Address1;
             entity.Address2 = Address2;
+            entity.ZipCode = ZipCode;
             entity.City = City;
             entity.State = State;
-            entity.ZipCode = ZipCode;
-            entity.Country = Country;
+            entity.CountryId = CountryId;
             entity.Discontinued = Discontinued;
             entity.DiscontinueDate = DiscontinueDate;
             entity.DiscontinueNotes = DiscontinueNotes;
@@ -134,10 +134,10 @@ namespace CriticalPath.Data
         public string Phone3 { get; set; }
         public string Address1 { get; set; }
         public string Address2 { get; set; }
+        public string ZipCode { get; set; }
         public string City { get; set; }
         public string State { get; set; }
-        public string ZipCode { get; set; }
-        public string Country { get; set; }
+        public int CountryId { get; set; }
         public bool Discontinued { get; set; }
         public Nullable<System.DateTime> DiscontinueDate { get; set; }
         public string DiscontinueNotes { get; set; }
