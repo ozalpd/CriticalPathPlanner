@@ -50,12 +50,20 @@ namespace CriticalPath.Web.Controllers
             CancelCancellation(entity);
             await DataContext.SaveChangesAsync(this);
         }
+
+        protected virtual void SetDiscontinuedUser(IDiscontinuedUser entity)
+        {
+            entity.DiscontinuedUserId = UserID;
+            entity.DiscontinuedUserIp = GetUserIP();
+        }
+
+
         #region SetSelectList Helper Methods
 
         protected virtual async Task<SelectList> GetCountrySelectList(int countryId = 0)
         {
             var currecies = await DataContext.GetCountryDtoList();
-            return new SelectList(currecies, "Id", "CountryCode", countryId);
+            return new SelectList(currecies, "Id", "CountryName", countryId);
         }
 
         protected virtual async Task SetCountrySelectList(int countryId = 0)
@@ -264,6 +272,18 @@ namespace CriticalPath.Web.Controllers
             return _canUserCancelPO.Value;
         }
         bool? _canUserCancelPO;
+
+        protected virtual async Task<bool> CanUserDiscontinue()
+        {
+            if (!_canUserDiscontinue.HasValue)
+            {
+                _canUserDiscontinue = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync());
+            }
+            return _canUserDiscontinue.Value;
+        }
+        bool? _canUserDiscontinue;
 
         protected virtual async Task<bool> CanUserSeeCustomer()
         {

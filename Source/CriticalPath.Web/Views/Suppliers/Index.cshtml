@@ -10,6 +10,8 @@
     bool canUserEdit = ViewBag.canUserEdit;
     bool canUserCreate = ViewBag.canUserCreate;
     bool canUserDelete = ViewBag.canUserDelete;
+    bool canUserAddContact = ViewBag.canUserAddContact;
+    bool canUserDiscontinue = ViewBag.canUserDiscontinue;
 }
 <div class="row well">
     <div class="col-md-8 col-sm-7">
@@ -44,11 +46,12 @@
 
             function columnDefs(){
                 return[
-                     { headerName: '@ActionStrings.Action', field: "Id", width: 64, cellRenderer: actionCellRenderer},
+                     { headerName: '@ActionStrings.Action', field: "Id", width: 64, cellRenderer: actionCellRenderer },
                      { headerName: '@Html.DisplayNameFor(m => m.CompanyName)', field: "CompanyName", width: 300 },
                      { headerName: '@Html.DisplayNameFor(m => m.SupplierCode)', field: "SupplierCode", width: 160 },
-                     { headerName: '@Html.DisplayNameFor(m => m.City)', field: "City" },
-                     { headerName: '@Html.DisplayNameFor(m => m.Country)', field: "Country" }
+                     { headerName: '@Html.DisplayNameFor(m => m.City)', field: "City", width: 112 },
+                     { headerName: '@Html.DisplayNameFor(m => m.Country)', field: "Country", width: 112 },
+                     { headerName: '@Html.DisplayNameFor(m => m.Discontinued)', field: "Discontinued", width: 112, cellRenderer: discontinueCellRenderer }
                 ];
             }
 
@@ -60,18 +63,22 @@
                     '<ul class="dropdown-menu mb15" role="menu">' +
                     '<li><a href="/Suppliers/Details/' + params.value + '">@ActionStrings.Details</a></li>' +
                 @if (canUserEdit)
-                    {
-                        @:'<li><a href="/Suppliers/Edit/' + params.value + '">@ActionStrings.Edit</a></li>' +
-                    }
+                {
+                    @:'<li><a href="/Suppliers/Edit/' + params.value + '">@ActionStrings.Edit</a></li>' +
+                }
+                @if (canUserDiscontinue)
+                {
+                    @:(params.data.Discontinued ? '' : '<li><a href="/Suppliers/Discontinue/' + params.value + '">@ActionStrings.Discontinue</a></li>') +
+                }
                 @if(canUserDelete)
-                    {
-                        @:'<li><a href="#deleteConfirm" data-toggle="modal" onclick="setDelete(getObjectById(result.Items,' + params.value + ').CompanyName, ' + params.value + ');">@ActionStrings.Delete</a></li>' +
-                    }
+                {
+                    @:'<li><a href="#deleteConfirm" data-toggle="modal" onclick="setDelete(getObjectById(result.Items,' + params.value + ').CompanyName, ' + params.value + ');">@ActionStrings.Delete</a></li>' +
+                }
                     '<li class="divider"></li>' +
-                @if(canUserCreate)
-                    {
-                        @:'<li><a href="/Contacts/Create/?companyId=' + params.value + '">@EntityStrings.AddContact</a></li>' +
-                    }
+                @if(canUserAddContact)
+                {
+                    @:'<li><a href="/Contacts/Create/?companyId=' + params.value + '">@EntityStrings.AddContact</a></li>' +
+                }
                     '<li><a href="/Contacts/Index/?companyId=' + params.value + '">@EntityStrings.Contacts</a></li>' +
                     '</ul></div>';
 

@@ -1413,8 +1413,8 @@
       <RolesCanSeeRestricted />
       <GenerateController>true</GenerateController>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
-      <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
-      <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateGetDtoQueryMethod>false</GenerateGetDtoQueryMethod>
+      <GenerateIndexAction>false</GenerateIndexAction>
       <GenerateGetEntityAction>true</GenerateGetEntityAction>
       <GenerateGetEntityListAction>true</GenerateGetEntityListAction>
       <GenerateCreateAction>true</GenerateCreateAction>
@@ -1426,10 +1426,10 @@
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
-      <BaseControllerName>BaseController</BaseControllerName>
+      <BaseControllerName>BaseCompaniesController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
-      <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
+      <FillSelectListsMethod>await SetCountrySelectList(customer.CountryId)</FillSelectListsMethod>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>Supplier</Name>
@@ -1484,6 +1484,7 @@
       <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
+      <RolesCanSeeRestricted>admin, supervisor, clerk</RolesCanSeeRestricted>
       <GenerateController>true</GenerateController>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
       <GenerateGetDtoQueryMethod>false</GenerateGetDtoQueryMethod>
@@ -1499,10 +1500,10 @@
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
-      <BaseControllerName>BaseController</BaseControllerName>
+      <BaseControllerName>BaseCompaniesController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
-      <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
+      <FillSelectListsMethod>await SetCountrySelectList(supplier.CountryId)</FillSelectListsMethod>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>Manufacturer</Name>

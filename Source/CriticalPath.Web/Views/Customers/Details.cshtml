@@ -4,6 +4,11 @@
 @model Customer
 @{
     ViewBag.Title = EntityStrings.Customer;
+
+    //Authorization Flags
+    bool canUserEdit = ViewBag.canUserEdit;
+    bool canUserCreate = ViewBag.canUserCreate;
+    bool canUserDelete = ViewBag.canUserDelete;
 }
 
 <h2>@EntityStrings.Customer @ActionStrings.Details</h2>
@@ -14,14 +19,6 @@
     </label>
     <div class="col-md-10 col-sm-9">
         @Html.DisplayFor(m => m.CompanyName)
-    </div>
-</div>
-<div class="row">
-    <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.CustomerCode)
-    </label>
-    <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.CustomerCode)
     </div>
 </div>
 <div class="row">
@@ -50,6 +47,22 @@
 </div>
 <div class="row">
     <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.CustomerCode)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.CustomerCode)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.DiscountRate)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.DiscountRate)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
         @Html.DisplayNameFor(model => model.Address1)
     </label>
     <div class="col-md-10 col-sm-9">
@@ -62,6 +75,14 @@
     </label>
     <div class="col-md-10 col-sm-9">
         @Html.DisplayFor(m => m.Address2)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.Country)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.Country)
     </div>
 </div>
 <div class="row">
@@ -90,18 +111,70 @@
 </div>
 <div class="row">
     <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.Country)
-    </label>
-    <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.Country)
-    </div>
-</div>
-<div class="row">
-    <label class="control-label col-md-2 col-sm-3">
         @Html.DisplayNameFor(model => model.Notes)
     </label>
     <div class="col-md-10 col-sm-9">
         @Html.DisplayFor(m => m.Notes)
+    </div>
+</div>
+@if (Model.Discontinued)
+{
+    <div class="row">
+        <label class="control-label col-md-2 col-sm-3">
+            @Html.DisplayNameFor(model => model.Discontinued)
+        </label>
+        <div class="col-md-10 col-sm-9">
+            @Html.DisplayFor(m => m.Discontinued)
+        </div>
+    </div>
+    <div class="row">
+        <label class="control-label col-md-2 col-sm-3">
+            @Html.DisplayNameFor(model => model.DiscontinueDate)
+        </label>
+        <div class="col-md-10 col-sm-9">
+            @Html.DisplayFor(m => m.DiscontinueDate)
+        </div>
+    </div>
+    <div class="row">
+        <label class="control-label col-md-2 col-sm-3">
+            @Html.DisplayNameFor(model => model.DiscontinueNotes)
+        </label>
+        <div class="col-md-10 col-sm-9">
+            @Html.DisplayFor(m => m.DiscontinueNotes)
+        </div>
+    </div>
+    <div class="row">
+        <label class="control-label col-md-2 col-sm-3">
+            @Html.DisplayNameFor(model => model.DiscontinuedUser)
+        </label>
+        <div class="col-md-4 col-sm-4">
+            @Html.DisplayFor(m => m.DiscontinuedUser)
+        </div>
+        <div class="col-md-4 col-sm-4">
+            @Html.DisplayFor(m => m.DiscontinuedUserIp)
+        </div>
+    </div>
+}
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.ModifiedUser)
+    </label>
+    <div class="col-md-4 col-sm-4">
+        @Html.DisplayFor(m => m.ModifiedUser)
+    </div>
+    <div class="col-md-4 col-sm-4">
+        @Html.DisplayFor(m => m.ModifierIp)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.CreatedUser)
+    </label>
+    <div class="col-md-4 col-sm-4">
+        @Html.DisplayFor(m => m.CreatedUser)
+    </div>
+    <div class="col-md-4 col-sm-4">
+        @Html.DisplayFor(m => m.CreatorIp)
     </div>
 </div>
 @Html.Partial("_DetailFormButtonsPartial")

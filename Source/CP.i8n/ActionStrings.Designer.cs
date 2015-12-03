@@ -205,6 +205,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Discontinue.
+        /// </summary>
+        public static string Discontinue {
+            get {
+                return ResourceManager.GetString("Discontinue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Display.
         /// </summary>
         public static string Display {

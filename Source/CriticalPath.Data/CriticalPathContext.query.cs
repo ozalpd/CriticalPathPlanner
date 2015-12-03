@@ -35,6 +35,58 @@ namespace CriticalPath.Data
                    };
         }
 
+        public override IQueryable<CustomerDTO> GetCustomerDtoQuery(IQueryable<Customer> query)
+        {
+            return from e in query
+                   select new CustomerDTO
+                   {
+                       Id = e.Id,
+                       CompanyName = e.CompanyName,
+                       Phone1 = e.Phone1,
+                       Phone2 = e.Phone2,
+                       Phone3 = e.Phone3,
+                       Address1 = e.Address1,
+                       Address2 = e.Address2,
+                       ZipCode = e.ZipCode,
+                       City = e.City,
+                       State = e.State,
+                       CountryId = e.CountryId,
+                       Discontinued = e.Discontinued,
+                       DiscontinueDate = e.DiscontinueDate,
+                       DiscontinueNotes = e.DiscontinueNotes,
+                       Notes = e.Notes,
+                       CustomerCode = e.CustomerCode,
+                       DiscountRate = e.DiscountRate,
+                       Country = e.Country.CountryName
+                   };
+        }
+
+        public override IQueryable<SupplierDTO> GetSupplierDtoQuery(IQueryable<Supplier> query)
+        {
+            return from e in query
+                   select new SupplierDTO
+                   {
+                       Id = e.Id,
+                       CompanyName = e.CompanyName,
+                       Phone1 = e.Phone1,
+                       Phone2 = e.Phone2,
+                       Phone3 = e.Phone3,
+                       Address1 = e.Address1,
+                       Address2 = e.Address2,
+                       ZipCode = e.ZipCode,
+                       City = e.City,
+                       State = e.State,
+                       CountryId = e.CountryId,
+                       Discontinued = e.Discontinued,
+                       DiscontinueDate = e.DiscontinueDate,
+                       DiscontinueNotes = e.DiscontinueNotes,
+                       Notes = e.Notes,
+                       SupplierCode = e.SupplierCode,
+                       Country = e.Country.CountryName
+                   };
+        }
+
+
         public override IQueryable<FreightTerm> GetFreightTermQuery(bool publishedOnly = true)
         {
             return base.GetFreightTermQuery(publishedOnly)

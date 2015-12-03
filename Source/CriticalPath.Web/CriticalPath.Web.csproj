@@ -196,6 +196,7 @@
     <Compile Include="Areas\Admin\Models\FreightTermEditVM.cs" />
     <Compile Include="Areas\Admin\Models\UserAdminVM.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseCompaniesController.cs" />
     <Compile Include="Controllers\BaseController.g.cs" />
     <Compile Include="Controllers\BaseController.part.cs" />
     <Compile Include="Controllers\ContactsController.g.cs" />
@@ -226,6 +227,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AppSettings.cs" />
+    <Compile Include="Models\DiscontinueCompanyVM.cs" />
+    <Compile Include="Models\DiscontinuedVM.cs" />
     <Compile Include="Models\PurchaseOrderCancelVM.cs" />
     <Compile Include="Models\PurchaseOrderCreateVM.cs" />
     <Compile Include="Models\PurchaseOrderVM.cs" />
@@ -378,6 +381,7 @@
     <Content Include="libs\ag-grid\ag-grid.min.css" />
     <Content Include="libs\ag-grid\ag-grid.min.js" />
     <Content Include="libs\ag-grid\ag-light-blue.css" />
+    <Content Include="libs\ag-grid\agCellRenderers.js" />
     <Content Include="libs\ag-grid\theme-blue.css" />
     <Content Include="libs\ag-grid\theme-blue.min.css" />
     <Content Include="libs\ag-grid\theme-dark.css" />
@@ -547,6 +551,8 @@
     <Content Include="Views\Shared\DisplayTemplates\Country.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Currency.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\FreightTerm.cshtml" />
+    <Content Include="Views\Shared\_Discontinued.cshtml" />
+    <Content Include="Views\Shared\DiscontinueCompany.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

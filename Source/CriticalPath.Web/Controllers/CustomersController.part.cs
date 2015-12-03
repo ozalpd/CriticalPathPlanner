@@ -11,21 +11,80 @@ using System.Threading.Tasks;
 using CriticalPath.Data;
 using CriticalPath.Web.Models;
 using CP.i8n;
+using OzzUtils.Web.Mvc;
 
 namespace CriticalPath.Web.Controllers
 {
-    public partial class CustomersController 
+    public partial class CustomersController
     {
-        protected override async Task PutCanUserInViewBag()
-        {
-            ViewBag.canUserAddPurchaseOrder = await CanUserAddPurchaseOrder();
-            ViewBag.canUserAddContact = await CanUserAddContact();
 
-            await base.PutCanUserInViewBag();
+        protected virtual async Task<List<CustomerDTO>> GetCustomerDtoList(QueryParameters qParams)
+        {
+            var query = await GetCustomerQuery(qParams);
+            var result = qParams.TotalCount > 0 ?
+                        await DataContext.GetCustomerDtoQuery(query).ToListAsync() :
+                        new List<CustomerDTO>();
+
+            return result;
         }
+
+        [Authorize]
+        public async Task<ActionResult> Index(QueryParameters qParams)
+        {
+            //qParams.PageSize = 20;
+            var items = await GetCustomerDtoList(qParams);
+            ViewBag.totalCount = qParams.TotalCount;
+            await PutCanUserInViewBag();
+            var result = new PagedList<CustomerDTO>(qParams, items);
+            ViewBag.result = result.ToJson();
+
+            return View();
+        }
+
+        protected override async Task<bool> CanUserCreate()
+        {
+            if (!_canUserCreate.HasValue)
+            {
+                _canUserCreate = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync() ||
+                                    await IsUserClerkAsync());
+            }
+            return _canUserCreate.Value;
+        }
+        bool? _canUserCreate;
+
+        protected override async Task<bool> CanUserEdit()
+        {
+            if (!_canUserEdit.HasValue)
+            {
+                _canUserEdit = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync() ||
+                                    await IsUserClerkAsync());
+            }
+            return _canUserEdit.Value;
+        }
+        bool? _canUserEdit;
+
+        protected override async Task<bool> CanUserDelete()
+        {
+            if (!_canUserDelete.HasValue)
+            {
+                _canUserDelete = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync());
+            }
+            return _canUserDelete.Value;
+        }
+        bool? _canUserDelete;
+
+
+        protected override Task<bool> CanUserSeeRestricted() { return Task.FromResult(true); }
 
         protected override Task SetCustomerDefaults(Customer customer)
         {
+            customer.CountryId = 44;
             return base.SetCustomerDefaults(customer);
         }
     }

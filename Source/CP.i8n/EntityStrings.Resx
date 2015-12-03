@@ -428,7 +428,7 @@
 	</data>
 
 	<data name="CountryId" xml:space="preserve">
-		<value>Country Id</value>
+		<value>Country</value>
 	</data>
 
 	<data name="CountryName" xml:space="preserve">
@@ -684,7 +684,7 @@
 	</data>
 
 	<data name="DiscountRate" xml:space="preserve">
-		<value>Discount Rate</value>
+		<value>Discount (%)</value>
 	</data>
 
 	<data name="DisplayOrder" xml:space="preserve">

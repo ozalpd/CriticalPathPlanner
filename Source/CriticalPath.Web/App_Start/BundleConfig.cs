@@ -18,7 +18,8 @@ namespace CriticalPath.Web
                         "~/libs/ag-grid/ag-grid-addt.css"));
 
             bundles.Add(new ScriptBundle("~/js/ag-grid").Include(
-                        "~/libs/ag-grid/ag-grid.js"));
+                        "~/libs/ag-grid/ag-grid.js",
+                        "~/libs/ag-grid/agCellRenderers.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",

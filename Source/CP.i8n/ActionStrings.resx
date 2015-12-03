@@ -123,6 +123,10 @@
 		<value>Details</value>
 	</data>
 
+	<data name="Discontinue" xml:space="preserve">
+		<value>Discontinue</value>
+	</data>
+
 	<data name="Display" xml:space="preserve">
 		<value>Display</value>
 	</data>

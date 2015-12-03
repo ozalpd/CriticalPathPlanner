@@ -14,7 +14,7 @@ using CP.i8n;
 
 namespace CriticalPath.Web.Controllers
 {
-    public partial class CustomersController : BaseController 
+    public partial class CustomersController : BaseCompaniesController 
     {
         protected virtual async Task<IQueryable<Customer>> GetCustomerQuery(QueryParameters qParams)
         {
@@ -27,79 +27,14 @@ namespace CriticalPath.Web.Controllers
                             a.CustomerCode.Contains(qParams.SearchString) 
                         select a;
             }
+            if (qParams.CountryId != null)
+            {
+                query = query.Where(x => x.CountryId == qParams.CountryId);
+            }
 
             qParams.TotalCount = await query.CountAsync();
             return query.Skip(qParams.Skip).Take(qParams.PageSize);
         }
-
-        protected virtual async Task<List<CustomerDTO>> GetCustomerDtoList(QueryParameters qParams)
-        {
-            var query = await GetCustomerQuery(qParams);
-            var list = qParams.TotalCount > 0 ? await query.ToListAsync() : new List<Customer>();
-            var result = new List<CustomerDTO>();
-            foreach (var item in list)
-            {
-                result.Add(new CustomerDTO(item));
-            }
-
-            return result;
-        }
-
-        [Authorize]
-        public async Task<ActionResult> Index(QueryParameters qParams)
-        {
-            var query = await GetCustomerQuery(qParams);
-            await PutCanUserInViewBag();
-			var result = new PagedList<Customer>(qParams);
-            if (qParams.TotalCount > 0)
-            {
-                result.Items = await query.ToListAsync();
-            }
-
-            PutPagerInViewBag(result);
-            return View(result.Items);
-        }
-
-        protected override async Task<bool> CanUserCreate()
-        {
-            if (!_canUserCreate.HasValue)
-            {
-                _canUserCreate = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync() ||
-                                    await IsUserClerkAsync());
-            }
-            return _canUserCreate.Value;
-        }
-        bool? _canUserCreate;
-
-        protected override async Task<bool> CanUserEdit()
-        {
-            if (!_canUserEdit.HasValue)
-            {
-                _canUserEdit = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync() ||
-                                    await IsUserClerkAsync());
-            }
-            return _canUserEdit.Value;
-        }
-        bool? _canUserEdit;
-        
-        protected override async Task<bool> CanUserDelete()
-        {
-            if (!_canUserDelete.HasValue)
-            {
-                _canUserDelete = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync());
-            }
-            return _canUserDelete.Value;
-        }
-        bool? _canUserDelete;
-
-        
-        protected override Task<bool> CanUserSeeRestricted() { return Task.FromResult(true); }
 
         [Authorize]
         public async Task<ActionResult> GetCustomerList(QueryParameters qParams)
@@ -157,7 +92,7 @@ namespace CriticalPath.Web.Controllers
         {
             var customer = new Customer();
             await SetCustomerDefaults(customer);
-            SetSelectLists(customer);
+            await SetCountrySelectList(customer.CountryId);
             return View(customer);
         }
 
@@ -179,7 +114,7 @@ namespace CriticalPath.Web.Controllers
                 return RedirectToAction("Index");
             }
 
-            SetSelectLists(customer);
+            await SetCountrySelectList(customer.CountryId);
             return View(customer);
         }
 
@@ -197,7 +132,7 @@ namespace CriticalPath.Web.Controllers
                 return HttpNotFound();
             }
 
-            SetSelectLists(customer);
+            await SetCountrySelectList(customer.CountryId);
             return View(customer);
         }
 
@@ -219,7 +154,7 @@ namespace CriticalPath.Web.Controllers
                 return RedirectToAction("Index");
             }
 
-            SetSelectLists(customer);
+            await SetCountrySelectList(customer.CountryId);
             return View(customer);
         }
 
@@ -288,7 +223,9 @@ namespace CriticalPath.Web.Controllers
             public QueryParameters() { }
             public QueryParameters(QueryParameters parameters) : base(parameters)
             {
+                CountryId = parameters.CountryId;
             }
+            public int? CountryId { get; set; }
         }
 
         public partial class PagedList<T> : QueryParameters
@@ -318,6 +255,5 @@ namespace CriticalPath.Web.Controllers
         partial void OnCreateSaved(Customer customer);
         partial void OnEditSaving(Customer customer);
         partial void OnEditSaved(Customer customer);
-        partial void SetSelectLists(Customer customer);
     }
 }

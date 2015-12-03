@@ -123,6 +123,10 @@
 		<value>Detay</value>
 	</data>
 
+	<data name="Discontinue" xml:space="preserve">
+		<value>Discontinue</value>
+	</data>
+
 	<data name="Display" xml:space="preserve">
 		<value>Göster</value>
 	</data>

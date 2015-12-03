@@ -897,6 +897,10 @@
     <Translation>Detay</Translation>
   </Vocab>
   <Vocab>
+    <Name>Discontinue</Name>
+    <Translation>Discontinue</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Discontinued</Name>
     <Translation>Sonlandırıldı</Translation>
   </Vocab>

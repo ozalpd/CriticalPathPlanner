@@ -582,7 +582,7 @@
   </Vocab>
   <Vocab>
     <Name>CountryId</Name>
-    <Translation>Country Id</Translation>
+    <Translation>Country</Translation>
   </Vocab>
   <Vocab>
     <Name>CountryName</Name>
@@ -897,6 +897,10 @@
     <Translation>Details</Translation>
   </Vocab>
   <Vocab>
+    <Name>Discontinue</Name>
+    <Translation>Discontinue</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Discontinued</Name>
     <Translation>Discontinued</Translation>
   </Vocab>
@@ -922,7 +926,7 @@
   </Vocab>
   <Vocab>
     <Name>DiscountRate</Name>
-    <Translation>Discount Rate</Translation>
+    <Translation>Discount (%)</Translation>
   </Vocab>
   <Vocab>
     <Name>Display</Name>

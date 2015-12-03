@@ -76,8 +76,22 @@ namespace CriticalPath.Web.Controllers
         }
         bool? _canUserDelete;
 
+        protected override async Task<bool> CanUserSeeRestricted()
+        {
+            if (!_canSeeRestricted.HasValue)
+            {
+                _canSeeRestricted = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync() ||
+                                    await IsUserClerkAsync());
+            }
+            return _canSeeRestricted.Value;
+        }
+        bool? _canSeeRestricted;
+
         protected override Task SetSupplierDefaults(Supplier supplier)
         {
+            supplier.CountryId = 90;
             return base.SetSupplierDefaults(supplier);
         }
     }

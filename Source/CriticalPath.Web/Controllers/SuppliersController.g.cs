@@ -14,7 +14,7 @@ using CP.i8n;
 
 namespace CriticalPath.Web.Controllers
 {
-    public partial class SuppliersController : BaseController 
+    public partial class SuppliersController : BaseCompaniesController 
     {
         protected virtual async Task<IQueryable<Supplier>> GetSupplierQuery(QueryParameters qParams)
         {
@@ -26,6 +26,10 @@ namespace CriticalPath.Web.Controllers
                             a.CompanyName.Contains(qParams.SearchString) | 
                             a.SupplierCode.Contains(qParams.SearchString) 
                         select a;
+            }
+            if (qParams.CountryId != null)
+            {
+                query = query.Where(x => x.CountryId == qParams.CountryId);
             }
 
             qParams.TotalCount = await query.CountAsync();
@@ -88,7 +92,7 @@ namespace CriticalPath.Web.Controllers
         {
             var supplier = new Supplier();
             await SetSupplierDefaults(supplier);
-            SetSelectLists(supplier);
+            await SetCountrySelectList(supplier.CountryId);
             return View(supplier);
         }
 
@@ -110,7 +114,7 @@ namespace CriticalPath.Web.Controllers
                 return RedirectToAction("Index");
             }
 
-            SetSelectLists(supplier);
+            await SetCountrySelectList(supplier.CountryId);
             return View(supplier);
         }
 
@@ -128,7 +132,7 @@ namespace CriticalPath.Web.Controllers
                 return HttpNotFound();
             }
 
-            SetSelectLists(supplier);
+            await SetCountrySelectList(supplier.CountryId);
             return View(supplier);
         }
 
@@ -150,7 +154,7 @@ namespace CriticalPath.Web.Controllers
                 return RedirectToAction("Index");
             }
 
-            SetSelectLists(supplier);
+            await SetCountrySelectList(supplier.CountryId);
             return View(supplier);
         }
 
@@ -170,8 +174,9 @@ namespace CriticalPath.Web.Controllers
             }
 
             int productsCount = supplier.Products.Count;
+            int manufacturersCount = supplier.Manufacturers.Count;
             int contactsCount = supplier.Contacts.Count;
-            if ((productsCount + contactsCount) > 0)
+            if ((productsCount + manufacturersCount + contactsCount) > 0)
             {
                 var sb = new StringBuilder();
 
@@ -183,6 +188,12 @@ namespace CriticalPath.Web.Controllers
                 if (productsCount > 0)
                 {
                     sb.Append(string.Format(MessageStrings.RelatedRecordsExist, productsCount, EntityStrings.Products));
+                    sb.Append("<br/>");
+                }
+
+                if (manufacturersCount > 0)
+                {
+                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, manufacturersCount, EntityStrings.Manufacturers));
                     sb.Append("<br/>");
                 }
 
@@ -219,7 +230,9 @@ namespace CriticalPath.Web.Controllers
             public QueryParameters() { }
             public QueryParameters(QueryParameters parameters) : base(parameters)
             {
+                CountryId = parameters.CountryId;
             }
+            public int? CountryId { get; set; }
         }
 
         public partial class PagedList<T> : QueryParameters
@@ -249,6 +262,5 @@ namespace CriticalPath.Web.Controllers
         partial void OnCreateSaved(Supplier supplier);
         partial void OnEditSaving(Supplier supplier);
         partial void OnEditSaved(Supplier supplier);
-        partial void SetSelectLists(Supplier supplier);
     }
 }
