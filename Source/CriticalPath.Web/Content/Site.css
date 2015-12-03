@@ -72,6 +72,9 @@ div.accordion .accordion-group .accordion-heading .accordion-toggle {
 .table-striped{
     margin-bottom:60px;
 }
+.table-responsive{
+    min-height:400px;
+}
 .form-control[data-val-required]{
     background-color:#fffff8;
     border: 1px solid #f0c4c4;

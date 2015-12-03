@@ -1,0 +1,129 @@
+@using CriticalPath.Web.Models
+@using CriticalPath.Data
+@using CP.i8n
+@model IEnumerable<Manufacturer>
+@{
+    ViewBag.Title = @EntityStrings.Manufacturers;
+
+    //Authorization Flags
+    bool canUserEdit = ViewBag.canUserEdit;
+    bool canUserCreate = ViewBag.canUserCreate;
+    bool canUserDelete = ViewBag.canUserDelete;
+    bool canSeeRestricted = ViewBag.canSeeRestricted;
+    bool canUserAddContact = ViewBag.canUserAddContact;
+    bool canUserDiscontinue = ViewBag.canUserDiscontinue;
+
+    //Records & Pager
+    int page = ViewBag.page;
+    int totalCount = ViewBag.totalCount;
+    int pageSize = ViewBag.pageSize;
+    int pageCount = ViewBag.pageCount;
+
+    var title = EntityStrings.Manufacturers;
+}
+<div class="row well">
+    <div class="col-md-8 col-sm-7">
+        <h4>@title</h4>
+    </div>
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "searchForm" }))
+    {
+        @Html.Hidden("page", page)
+        @Html.Hidden("pageSize", pageSize)
+        <div class="col-md-4 col-sm-5">
+            @Html.Partial("_SearchBoxPartial")
+        </div>
+    }
+</div>
+@if (totalCount > 0)
+{
+    <div id="manufacturerGridParent" class="table-responsive">
+        <table id="manufacturerGrid" class="table table-striped table-bordered table-hover">
+            <tr>
+                <th>@ActionStrings.Action</th>
+                <th>@Html.DisplayNameFor(model => model.CompanyName)</th>
+                <th>@Html.DisplayNameFor(model => model.ManufacturerCode)</th>
+                <th>@Html.DisplayNameFor(model => model.Supplier)</th>
+                <th>@Html.DisplayNameFor(model => model.Country)</th>
+                <th>@Html.DisplayNameFor(model => model.City)</th>
+                <th>@Html.DisplayNameFor(model => model.Contacts)</th>
+                <th>@Html.DisplayNameFor(model => model.Discontinued)</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" title="@ActionStrings.Action" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown" onclick="onActionMenuClick(this);">
+                                <span class="glyphicon glyphicon-tasks"></span> <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>@Html.ActionLink(ActionStrings.Details, "Details", new { id = item.Id })</li>
+                                @if (canUserEdit)
+                                {
+                                    <li>@Html.ActionLink(ActionStrings.Edit, "Edit", new { id = item.Id })</li>
+                                }
+                                @if (canUserDelete)
+                                {
+                                    <li>
+                                        <a href="#deleteConfirm" data-toggle="modal" onclick="setDelete('<b>@(item.CompanyName)</b>', @item.Id);">
+                                            @ActionStrings.Delete
+                                        </a>
+                                    </li>
+                                }
+                                @if (canUserDiscontinue && !item.Discontinued)
+                                {
+                                    <li class="divider"></li>
+                                    <li>@Html.ActionLink(ActionStrings.Discontinue, "Discontinue", new { id = item.Id }, null)</li>
+                                }
+                                @if (canUserAddContact)
+                                {
+                                    <li class="divider"></li>
+                                    <li>@Html.ActionLink(EntityStrings.AddContact, "Create", "Contacts", new { companyId = item.Id }, null)</li>
+                                    <li>@Html.ActionLink(EntityStrings.Contact, "Index", "Contacts", new { companyId = item.Id }, null)</li>
+                                }
+                            </ul>
+                        </div>
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => item.CompanyName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ManufacturerCode)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Supplier)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Country)</td>
+                    <td>@Html.DisplayFor(modelItem => item.City)</td>
+                    <td>@item.Contacts.Count</td>
+                    <td>
+                        @if (item.Discontinued)
+                        {
+                            @Html.DisplayFor(modelItem => item.Discontinued)
+                            <span class="checkboxText">@Html.DisplayFor(modelItem => item.DiscontinueDate)</span>
+                        }
+                    </td>
+                </tr>
+            }
+        </table>
+  </div>
+    @Html.Partial("_PagerPartial")
+    @Html.Partial("_MessageBoxPartial")
+    @section scripts{
+        @Html.Partial("_IndexScriptsPartial", "Manufacturers") @* Controller's name *@
+        <script type="text/javascript">
+            function onActionMenuClick(menuBtn) {
+                setTimeout(function () {
+                    var menuHeight = 160;
+                    var rectMenu = menuBtn.getBoundingClientRect();
+                    var rectGrid = document.getElementById("manufacturerGrid").getBoundingClientRect();
+                    var diffY = rectGrid.bottom - rectMenu.bottom - menuHeight;
+
+                    if (diffY < 0) {
+                        var viewport = $('#manufacturerGridParent');
+                        var viewportScroll = viewport.scrollTop();
+                        viewport.scrollTop((diffY * -1) + viewportScroll);
+                    }
+                }, 250);
+            }
+        </script>
+    }
+}
+else
+{
+    <h4>@MessageStrings.NoResults!</h4>
+}

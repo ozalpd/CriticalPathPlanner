@@ -32,6 +32,10 @@ namespace CriticalPath.Web.Models
         public int SizeRate6Id { get; set; }
         public int SizeRate7Id { get; set; }
         public int SizeRate8Id { get; set; }
+        public int SizeRate9Id { get; set; }
+        public int SizeRate10Id { get; set; }
+        public int SizeRate11Id { get; set; }
+        public int SizeRate12Id { get; set; }
 
         public int? Size1Rate { get; set; }
         public int? Size2Rate { get; set; }
@@ -41,6 +45,10 @@ namespace CriticalPath.Web.Models
         public int? Size6Rate { get; set; }
         public int? Size7Rate { get; set; }
         public int? Size8Rate { get; set; }
+        public int? Size9Rate { get; set; }
+        public int? Size10Rate { get; set; }
+        public int? Size11Rate { get; set; }
+        public int? Size12Rate { get; set; }
 
         public string Size1Caption { get; set; }
         public string Size2Caption { get; set; }
@@ -50,11 +58,16 @@ namespace CriticalPath.Web.Models
         public string Size6Caption { get; set; }
         public string Size7Caption { get; set; }
         public string Size8Caption { get; set; }
+        public string Size9Caption { get; set; }
+        public string Size10Caption { get; set; }
+        public string Size11Caption { get; set; }
+        public string Size12Caption { get; set; }
+
 
         protected override void InitSizeRates()
         {
             base.InitSizeRates();
-            for (int i = 1; i < 9; i++)
+            for (int i = 1; i < 13; i++)
             {
                 var sizeRate = GetSizeRate(i);
                 if (sizeRate != null)
@@ -119,6 +132,30 @@ namespace CriticalPath.Web.Models
                     id = SizeRate8Id;
                     rate = Size8Rate ?? 0;
                     caption = Size8Caption;
+                    break;
+
+                case 9:
+                    id = SizeRate9Id;
+                    rate = Size9Rate ?? 0;
+                    caption = Size9Caption;
+                    break;
+
+                case 10:
+                    id = SizeRate10Id;
+                    rate = Size10Rate ?? 0;
+                    caption = Size10Caption;
+                    break;
+
+                case 11:
+                    id = SizeRate11Id;
+                    rate = Size11Rate ?? 0;
+                    caption = Size11Caption;
+                    break;
+
+                case 12:
+                    id = SizeRate12Id;
+                    rate = Size12Rate ?? 0;
+                    caption = Size12Caption;
                     break;
 
                 default:
@@ -192,6 +229,30 @@ namespace CriticalPath.Web.Models
                     SizeRate8Id = rate.Id;
                     Size8Rate = rate.Rate;
                     Size8Caption = rate.Caption;
+                    break;
+
+                case 9:
+                    SizeRate9Id = rate.Id;
+                    Size9Rate = rate.Rate;
+                    Size9Caption = rate.Caption;
+                    break;
+
+                case 10:
+                    SizeRate10Id = rate.Id;
+                    Size10Rate = rate.Rate;
+                    Size10Caption = rate.Caption;
+                    break;
+
+                case 11:
+                    SizeRate11Id = rate.Id;
+                    Size11Rate = rate.Rate;
+                    Size11Caption = rate.Caption;
+                    break;
+
+                case 12:
+                    SizeRate12Id = rate.Id;
+                    Size12Rate = rate.Rate;
+                    Size12Caption = rate.Caption;
                     break;
 
                 default:

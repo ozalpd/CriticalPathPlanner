@@ -4,11 +4,13 @@
 <div class="form-group">
     @Html.Label(EntityStrings.UnitPrice, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3 col-xs-12" })
     <div class="col-lg-2 col-md-3 col-sm-3 col-xs-7">
+        @{ Html.EnableClientValidation(false); }
         @Html.EditorFor(m => m.UnitPrice, new { htmlAttributes = new { @class = "form-control" } })
+        @{ Html.EnableClientValidation(true); }
         @Html.ValidationMessageFor(m => m.UnitPrice, "", new { @class = "text-danger" })
     </div>
     <div class="col-lg-3 col-md-3 col-sm-4 col-xs-5">
-        @Html.DropDownList("SellingCurrencyId", null, ActionStrings.SelectCurrency, htmlAttributes: new { @class = "form-control" })
+        @Html.DropDownListFor(m => m.SellingCurrencyId, null, ActionStrings.SelectCurrency, htmlAttributes: new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.SellingCurrencyId, "", new { @class = "text-danger" })
     </div>
 </div>
@@ -16,11 +18,13 @@
 <div class="form-group">
     @Html.Label(EntityStrings.BuyingPrice, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3 col-xs-12" })
     <div class="col-lg-2 col-md-3 col-sm-3 col-xs-7">
+        @{ Html.EnableClientValidation(false); }
         @Html.EditorFor(m => m.BuyingPrice, new { htmlAttributes = new { @class = "form-control" } })
+        @{ Html.EnableClientValidation(true); }
         @Html.ValidationMessageFor(m => m.BuyingPrice, "", new { @class = "text-danger" })
     </div>
     <div class="col-lg-3 col-md-3 col-sm-4 col-xs-5">
-        @Html.DropDownList("BuyingCurrencyId", null, ActionStrings.SelectCurrency, htmlAttributes: new { @class = "form-control" })
+        @Html.DropDownListFor(m => m.BuyingCurrencyId, null, ActionStrings.SelectCurrency, htmlAttributes: new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.BuyingCurrencyId, "", new { @class = "text-danger" })
     </div>
 </div>
@@ -28,11 +32,13 @@
 <div class="form-group">
     @Html.Label(EntityStrings.RoyaltyFee, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3 col-xs-12" })
     <div class="col-lg-2 col-md-3 col-sm-3 col-xs-7">
+        @{ Html.EnableClientValidation(false); }
         @Html.EditorFor(m => m.RoyaltyFee, new { htmlAttributes = new { @class = "form-control" } })
+        @{ Html.EnableClientValidation(true); }
         @Html.ValidationMessageFor(m => m.RoyaltyFee, "", new { @class = "text-danger" })
     </div>
     <div class="col-lg-3 col-md-3 col-sm-4 col-xs-5">
-        @Html.DropDownList("RoyaltyCurrencyId", null, ActionStrings.SelectCurrency, htmlAttributes: new { @class = "form-control" })
+        @Html.DropDownListFor(m => m.RoyaltyCurrencyId, null, ActionStrings.SelectCurrency, htmlAttributes: new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.RoyaltyCurrencyId, "", new { @class = "text-danger" })
     </div>
 </div>
@@ -40,11 +46,13 @@
 <div class="form-group">
     @Html.Label(EntityStrings.RetailPrice, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3 col-xs-12" })
     <div class="col-lg-2 col-md-3 col-sm-3 col-xs-7">
+        @{ Html.EnableClientValidation(false); }
         @Html.EditorFor(m => m.RetailPrice, new { htmlAttributes = new { @class = "form-control" } })
+        @{ Html.EnableClientValidation(true); }
         @Html.ValidationMessageFor(m => m.RetailPrice, "", new { @class = "text-danger" })
     </div>
     <div class="col-lg-3 col-md-3 col-sm-4 col-xs-5">
-        @Html.DropDownList("RetailCurrencyId", null, ActionStrings.SelectCurrency, htmlAttributes: new { @class = "form-control" })
+        @Html.DropDownListFor(m => m.RetailCurrencyId, null, ActionStrings.SelectCurrency, htmlAttributes: new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.RetailCurrencyId, "", new { @class = "text-danger" })
     </div>
 </div>

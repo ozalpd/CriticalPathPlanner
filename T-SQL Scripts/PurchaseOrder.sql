@@ -25,7 +25,7 @@ CREATE TABLE [dbo].[PurchaseOrders](
     [CustomerPoNr] [nVarChar](64) Null,
     [FreightTermId] [int] Not Null Constraint FK_PurchaseOrder_FreightTermId Foreign Key References [dbo].[FreightTerms]([Id]),
     [SupplierId] [int] Not Null Constraint FK_PurchaseOrder_SupplierId Foreign Key References [dbo].[Suppliers]([Id]),
-    [SupplierDueDate] [DateTime] Not Null,
+    [SupplierDueDate] [DateTime] Null,
     [SizingStandardId] [int] Not Null Constraint FK_PurchaseOrder_SizingStandardId Foreign Key References [dbo].[SizingStandards]([Id]),
     [SizeRatioDivisor] [int] Not Null,
     [Notes] [nVarChar](max) Null,

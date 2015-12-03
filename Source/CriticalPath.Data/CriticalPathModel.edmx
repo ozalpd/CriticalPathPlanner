@@ -299,7 +299,7 @@
           <Property Name="CustomerPoNr" Type="nvarchar" MaxLength="64" />
           <Property Name="FreightTermId" Type="int" Nullable="false" />
           <Property Name="SupplierId" Type="int" Nullable="false" />
-          <Property Name="SupplierDueDate" Type="datetime" Nullable="false" />
+          <Property Name="SupplierDueDate" Type="datetime" />
           <Property Name="SizingStandardId" Type="int" Nullable="false" />
           <Property Name="SizeRatioDivisor" Type="int" Nullable="false" />
           <Property Name="Notes" Type="nvarchar(max)" />
@@ -1860,7 +1860,7 @@
           <Property Name="SizeRatioDivisor" Type="Int32" Nullable="false" />
           <Property Name="FreightTermId" Type="Int32" Nullable="false" />
           <Property Name="SupplierId" Type="Int32" Nullable="false" />
-          <Property Name="SupplierDueDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SupplierDueDate" Type="DateTime" Precision="3" />
           <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="IsApproved" Type="Boolean" Nullable="false" />
           <Property Name="ApproveDate" Type="DateTime" Precision="3" />

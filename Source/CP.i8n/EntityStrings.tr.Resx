@@ -472,7 +472,7 @@
 	</data>
 
 	<data name="CreateManufacturer" xml:space="preserve">
-		<value>Üretici Olu;tur</value>
+		<value>Üretici Oluştur</value>
 	</data>
 
 	<data name="CreateProcess" xml:space="preserve">

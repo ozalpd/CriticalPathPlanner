@@ -14,6 +14,14 @@
 </div>
 <div class="row">
     <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.PoNr)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @Html.DisplayFor(m => m.PoNr)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
         <span class="checkboxText">@Html.DisplayNameFor(model => model.IsApproved)</span>
         @Html.DisplayFor(m => m.IsApproved)
     </label>
@@ -43,14 +51,6 @@
     </label>
     <div class="col-md-10 col-sm-9 fontSize150pc">
         @Html.DisplayFor(m => m.Product)
-    </div>
-</div>
-<div class="row">
-    <label class="control-label col-md-2 col-sm-3">
-        @Html.DisplayNameFor(model => model.Code)
-    </label>
-    <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.Code)
     </div>
 </div>
 <div class="row">

@@ -25,7 +25,7 @@ namespace CriticalPath.Web.Models
 
         public override SizingStandard ToSizingStandard()
         {
-            for (int i = 1; i < 9; i++)
+            for (int i = 1; i < 13; i++)
             {
                 var sizing = GetCaption(i);
                 if (sizing != null)
@@ -81,6 +81,26 @@ namespace CriticalPath.Web.Models
                     Size8CaptionId = sizing.Id;
                     break;
 
+                case 9:
+                    Size9Caption = sizing.Caption;
+                    Size9CaptionId = sizing.Id;
+                    break;
+
+                case 10:
+                    Size10Caption = sizing.Caption;
+                    Size10CaptionId = sizing.Id;
+                    break;
+
+                case 11:
+                    Size11Caption = sizing.Caption;
+                    Size11CaptionId = sizing.Id;
+                    break;
+
+                case 12:
+                    Size12Caption = sizing.Caption;
+                    Size12CaptionId = sizing.Id;
+                    break;
+
                 default:
                     break;
             }
@@ -132,6 +152,26 @@ namespace CriticalPath.Web.Models
                     caption = Size8Caption;
                     break;
 
+                case 9:
+                    captionId = Size9CaptionId;
+                    caption = Size9Caption;
+                    break;
+
+                case 10:
+                    captionId = Size10CaptionId;
+                    caption = Size10Caption;
+                    break;
+
+                case 11:
+                    captionId = Size11CaptionId;
+                    caption = Size11Caption;
+                    break;
+
+                case 12:
+                    captionId = Size12CaptionId;
+                    caption = Size12Caption;
+                    break;
+
                 default:
                     break;
             }
@@ -161,6 +201,10 @@ namespace CriticalPath.Web.Models
         public int Size6CaptionId { get; set; }
         public int Size7CaptionId { get; set; }
         public int Size8CaptionId { get; set; }
+        public int Size9CaptionId { get; set; }
+        public int Size10CaptionId { get; set; }
+        public int Size11CaptionId { get; set; }
+        public int Size12CaptionId { get; set; }
 
         public string Size1Caption { get; set; }
         public string Size2Caption { get; set; }
@@ -170,5 +214,9 @@ namespace CriticalPath.Web.Models
         public string Size6Caption { get; set; }
         public string Size7Caption { get; set; }
         public string Size8Caption { get; set; }
+        public string Size9Caption { get; set; }
+        public string Size10Caption { get; set; }
+        public string Size11Caption { get; set; }
+        public string Size12Caption { get; set; }
     }
 }

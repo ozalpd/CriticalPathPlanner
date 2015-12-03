@@ -1,0 +1,11 @@
+@using CriticalPath.Web.Models
+@using CriticalPath.Data
+@using CP.i8n
+@model Manufacturer
+@{
+    Layout = null;
+}
+@if (Model != null)
+{
+    <div><a href='/Manufacturers/Details/@Model.Id'>@Model.CompanyName</a></div>
+}

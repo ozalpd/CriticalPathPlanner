@@ -1096,7 +1096,7 @@
           <Exclude>false</Exclude>
           <DTOExclusion>false</DTOExclusion>
           <DataType>Date</DataType>
-          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+          <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>SizingStandardId</Name>

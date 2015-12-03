@@ -66,13 +66,13 @@
                 {
                     @:'<li><a href="/Suppliers/Edit/' + params.value + '">@ActionStrings.Edit</a></li>' +
                 }
-                @if (canUserDiscontinue)
-                {
-                    @:(params.data.Discontinued ? '' : '<li><a href="/Suppliers/Discontinue/' + params.value + '">@ActionStrings.Discontinue</a></li>') +
-                }
                 @if(canUserDelete)
                 {
                     @:'<li><a href="#deleteConfirm" data-toggle="modal" onclick="setDelete(getObjectById(result.Items,' + params.value + ').CompanyName, ' + params.value + ');">@ActionStrings.Delete</a></li>' +
+                }
+                @if (canUserDiscontinue)
+                {
+                    @:(params.data.Discontinued ? '' : '<li class="divider"></li><li><a href="/Suppliers/Discontinue/' + params.value + '">@ActionStrings.Discontinue</a></li>') +
                 }
                     '<li class="divider"></li>' +
                 @if(canUserAddContact)
@@ -80,7 +80,13 @@
                     @:'<li><a href="/Contacts/Create/?companyId=' + params.value + '">@EntityStrings.AddContact</a></li>' +
                 }
                     '<li><a href="/Contacts/Index/?companyId=' + params.value + '">@EntityStrings.Contacts</a></li>' +
-                    '</ul></div>';
+                    '<li class="divider"></li>' +
+                @if(canUserAddContact)
+                {
+                    @:'<li><a href="/Manufacturers/Create/?supplierId=' + params.value + '">@EntityStrings.AddManufacturer</a></li>' +
+                }
+                '<li><a href="/Manufacturers/Index/?supplierId=' + params.value + '">@EntityStrings.Manufacturers</a></li>' +
+                '</ul></div>';
 
                 return actions;
             }
@@ -96,7 +102,7 @@
 
         function onActionMenuClick(menuBtn){
             setTimeout(function(){
-                var menuHeight = 220;
+                var menuHeight = 290;
                 var rectMenu = menuBtn.getBoundingClientRect();
                 var rectGrid = document.getElementById("mainGrid").getBoundingClientRect();
 

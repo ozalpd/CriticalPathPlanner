@@ -168,6 +168,11 @@ namespace CriticalPath.Web.Controllers
                     return HttpNotFound();
                 purchaseOrderVM.CustomerId = customer.Id;
             }
+            ViewBag.SellingCurrencyId = await GetCurrencySelectList(purchaseOrderVM.SellingCurrencyId);
+            ViewBag.BuyingCurrencyId = await GetCurrencySelectList(purchaseOrderVM.BuyingCurrencyId ?? 0);
+            ViewBag.RoyaltyCurrencyId = await GetCurrencySelectList(purchaseOrderVM.RoyaltyCurrencyId ?? 0);
+            ViewBag.RetailCurrencyId = await GetCurrencySelectList(purchaseOrderVM.RetailCurrencyId ?? 0);
+
             await SetPurchaseOrderDefaults(purchaseOrderVM);
             await SetProductSelectListAsync(purchaseOrderVM.Product);
             await SetSizingStandardSelectListAsync(purchaseOrderVM);
@@ -191,6 +196,11 @@ namespace CriticalPath.Web.Controllers
                 return RedirectToAction("Details", new { id = entity.Id });
             }
 
+            ViewBag.SellingCurrencyId = await GetCurrencySelectList(purchaseOrderVM.SellingCurrencyId);
+            ViewBag.BuyingCurrencyId = await GetCurrencySelectList(purchaseOrderVM.BuyingCurrencyId ?? 0);
+            ViewBag.RoyaltyCurrencyId = await GetCurrencySelectList(purchaseOrderVM.RoyaltyCurrencyId ?? 0);
+            ViewBag.RetailCurrencyId = await GetCurrencySelectList(purchaseOrderVM.RetailCurrencyId ?? 0);
+
             await SetProductSelectListAsync(purchaseOrderVM.Product);
             await SetSizingStandardSelectListAsync(purchaseOrderVM);
             await SetCustomerSelectListAsync(purchaseOrderVM);
@@ -212,6 +222,11 @@ namespace CriticalPath.Web.Controllers
             }
 
             var purchaseOrderVM = new PurchaseOrderVM(purchaseOrder);
+            ViewBag.SellingCurrencyId = await GetCurrencySelectList(purchaseOrderVM.SellingCurrencyId);
+            ViewBag.BuyingCurrencyId = await GetCurrencySelectList(purchaseOrderVM.BuyingCurrencyId ?? 0);
+            ViewBag.RoyaltyCurrencyId = await GetCurrencySelectList(purchaseOrderVM.RoyaltyCurrencyId ?? 0);
+            ViewBag.RetailCurrencyId = await GetCurrencySelectList(purchaseOrderVM.RetailCurrencyId ?? 0);
+
             await SetProductSelectListAsync(purchaseOrderVM.Product);
             await SetSizingStandardSelectListAsync(purchaseOrderVM);
             await SetCustomerSelectListAsync(purchaseOrderVM);
@@ -310,6 +325,8 @@ namespace CriticalPath.Web.Controllers
         protected override Task SetPurchaseOrderDefaults(PurchaseOrderDTO purchaseOrder)
         {
             purchaseOrder.OrderDate = DateTime.Today;
+            //TODO:Get count of PO at this month
+
             return Task.FromResult(default(object));
         }
 

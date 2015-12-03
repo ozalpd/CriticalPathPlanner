@@ -101,7 +101,6 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "SupplierId")]
             public int SupplierId { get; set; }
 
-            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [DataType(DataType.Date)]
             [Display(ResourceType = typeof(EntityStrings), Name = "SupplierDueDate")]
             public DateTime SupplierDueDate { get; set; }

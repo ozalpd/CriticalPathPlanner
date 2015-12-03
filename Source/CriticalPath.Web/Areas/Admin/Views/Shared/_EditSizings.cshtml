@@ -39,6 +39,22 @@
         @Html.EditorFor(m => m.Size8Caption, new { htmlAttributes = new { @class = "form-control", autocomplete = "off", placeholder = "Size 8 Caption" } })
         @Html.ValidationMessageFor(m => m.Size8Caption, "", new { @class = "text-danger" })
     </div>
+    <div class='@captionDivClass' style="margin-left:-15px;">
+        @Html.EditorFor(m => m.Size9Caption, new { htmlAttributes = new { @class = "form-control", autocomplete = "off", placeholder = "Size 9 Caption" } })
+        @Html.ValidationMessageFor(m => m.Size9Caption, "", new { @class = "text-danger" })
+    </div>
+    <div class='@captionDivClass' style="margin-left:-15px;">
+        @Html.EditorFor(m => m.Size10Caption, new { htmlAttributes = new { @class = "form-control", autocomplete = "off", placeholder = "Size 10 Caption" } })
+        @Html.ValidationMessageFor(m => m.Size10Caption, "", new { @class = "text-danger" })
+    </div>
+    <div class='@captionDivClass' style="margin-left:-15px;">
+        @Html.EditorFor(m => m.Size11Caption, new { htmlAttributes = new { @class = "form-control", autocomplete = "off", placeholder = "Size 11 Caption" } })
+        @Html.ValidationMessageFor(m => m.Size11Caption, "", new { @class = "text-danger" })
+    </div>
+    <div class='@captionDivClass' style="margin-left:-15px;">
+        @Html.EditorFor(m => m.Size12Caption, new { htmlAttributes = new { @class = "form-control", autocomplete = "off", placeholder = "Size 12 Caption" } })
+        @Html.ValidationMessageFor(m => m.Size12Caption, "", new { @class = "text-danger" })
+    </div>
 </div>
 @Html.HiddenFor(model => model.Size1CaptionId)
 @Html.HiddenFor(model => model.Size2CaptionId)
@@ -48,3 +64,7 @@
 @Html.HiddenFor(model => model.Size6CaptionId)
 @Html.HiddenFor(model => model.Size7CaptionId)
 @Html.HiddenFor(model => model.Size8CaptionId)
+@Html.HiddenFor(model => model.Size9CaptionId)
+@Html.HiddenFor(model => model.Size10CaptionId)
+@Html.HiddenFor(model => model.Size11CaptionId)
+@Html.HiddenFor(model => model.Size12CaptionId)

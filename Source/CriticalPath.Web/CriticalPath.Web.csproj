@@ -205,6 +205,8 @@
     <Compile Include="Controllers\CustomersController.part.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ManufacturersController.g.cs" />
+    <Compile Include="Controllers\ManufacturersController.part.cs" />
     <Compile Include="Controllers\ProcessesController.g.cs" />
     <Compile Include="Controllers\ProcessesController.part.cs" />
     <Compile Include="Controllers\ProcessStepsController.g.cs" />
@@ -522,15 +524,15 @@
     <Content Include="Views\Shared\DisplayTemplates\PurchaseOrder.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Boolean.cshtml" />
     <Content Include="Views\Shared\Approve.cshtml" />
-    <Content Include="Views\Shared\_ProductCategorySelectPartial.cshtml" />
-    <Content Include="Views\Shared\_ProductSelectPartial.cshtml" />
+    <Content Include="Views\Products\_ProductCategorySelectPartial.cshtml" />
+    <Content Include="Views\PurchaseOrders\_ProductSelectPartial.cshtml" />
     <Content Include="Areas\Admin\Views\SizingStandards\Create.cshtml" />
     <Content Include="Areas\Admin\Views\SizingStandards\Details.cshtml" />
     <Content Include="Areas\Admin\Views\SizingStandards\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\SizingStandards\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Sizing.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\SizingStandard.cshtml" />
-    <Content Include="Views\Shared\_ProductSizingPartial.cshtml" />
+    <Content Include="Views\PurchaseOrders\_ProductSizingPartial.cshtml" />
     <Content Include="Views\Shared\_BaseLayout.cshtml" />
     <Content Include="Views\PurchaseOrders\_PoSizeRates.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\ContactDTO.cshtml" />
@@ -553,6 +555,11 @@
     <Content Include="Views\Shared\DisplayTemplates\FreightTerm.cshtml" />
     <Content Include="Views\Shared\_Discontinued.cshtml" />
     <Content Include="Views\Shared\DiscontinueCompany.cshtml" />
+    <Content Include="Views\Manufacturers\Create.cshtml" />
+    <Content Include="Views\Manufacturers\Details.cshtml" />
+    <Content Include="Views\Manufacturers\Edit.cshtml" />
+    <Content Include="Views\Manufacturers\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Manufacturer.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

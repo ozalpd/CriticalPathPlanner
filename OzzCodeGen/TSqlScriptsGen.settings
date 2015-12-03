@@ -1373,7 +1373,7 @@
           <PrimaryKey>false</PrimaryKey>
           <Indexed>false</Indexed>
           <SortDesc>false</SortDesc>
-          <Nullable>false</Nullable>
+          <Nullable>true</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>SizingStandardId</Name>

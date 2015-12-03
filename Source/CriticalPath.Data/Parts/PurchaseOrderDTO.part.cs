@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CriticalPath.Data
 {
-    public partial class PurchaseOrderDTO : IIsApproved, IHasProduct, ICancelled
+    public partial class PurchaseOrderDTO : IIsApproved, IHasProduct, ICancelled, IAllPrice
     {
         public ProductDTO Product { get; set; }
 

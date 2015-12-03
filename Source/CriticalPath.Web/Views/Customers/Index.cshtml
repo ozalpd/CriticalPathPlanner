@@ -68,13 +68,13 @@
                 {
                     @:'<li><a href="/Customers/Edit/' + params.value + '">@ActionStrings.Edit</a></li>' +
                 }
-                @if (canUserDiscontinue)
-                {
-                    @:(params.data.Discontinued ? '' : '<li><a href="/Customers/Discontinue/' + params.value + '">@ActionStrings.Discontinue</a></li>') +
-                }
                 @if(canUserDelete)
                 {
                     @:'<li><a href="#deleteConfirm" data-toggle="modal" onclick="setDelete(getObjectById(result.Items,' + params.value + ').CompanyName, ' + params.value + ');">@ActionStrings.Delete</a></li>' +
+                }
+                @if (canUserDiscontinue)
+                {
+                    @:(params.data.Discontinued ? '' : '<li class="divider"></li><li><a href="/Customers/Discontinue/' + params.value + '">@ActionStrings.Discontinue</a></li>') +
                 }
                 '<li class="divider"></li>' +
                 @if(canUserAddContact)
@@ -104,7 +104,7 @@
 
         function onActionMenuClick(menuBtn){
             setTimeout(function(){
-                var menuHeight = 280;
+                var menuHeight = 320;
                 var rectMenu = menuBtn.getBoundingClientRect();
                 var rectGrid = document.getElementById("mainGrid").getBoundingClientRect();
 

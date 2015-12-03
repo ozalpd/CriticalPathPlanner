@@ -1508,7 +1508,7 @@
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>Manufacturer</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
+      <OverwriteExisting>true</OverwriteExisting>
       <Properties>
         <AspNetMvcPropertySetting>
           <Name>ManufacturerCode</Name>
@@ -1548,7 +1548,8 @@
         </AspNetMvcPropertySetting>
       </Properties>
       <ControllerName>Manufacturers</ControllerName>
-      <DataSetName>Manufacturers</DataSetName>
+      <DataSetName>Companies</DataSetName>
+      <StrongDependedForeignKey>SupplierId</StrongDependedForeignKey>
       <SaveParameter>this</SaveParameter>
       <ModelForIndex>Manufacturer</ModelForIndex>
       <ModelForJson>ManufacturerDTO</ModelForJson>
@@ -1568,15 +1569,15 @@
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
-      <IndexViewGeneration>HtmlTableWithButtonsAction</IndexViewGeneration>
-      <IndexView>true</IndexView>
+      <IndexViewGeneration>HtmlTableWithMenuAction</IndexViewGeneration>
+      <IndexView>false</IndexView>
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
-      <BaseControllerName>BaseController</BaseControllerName>
+      <BaseControllerName>BaseCompaniesController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
-      <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
+      <FillSelectListsMethod>await SetCountrySelectList(manufacturer.CountryId);await SetSupplierSelectList(manufacturer.SupplierId);</FillSelectListsMethod>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>ProductCategory</Name>

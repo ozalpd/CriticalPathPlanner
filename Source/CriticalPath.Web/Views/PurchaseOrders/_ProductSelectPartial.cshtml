@@ -17,11 +17,12 @@
 <div class="form-group">
     @Html.Label(EntityStrings.Product, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
     <div class="col-lg-5 col-md-6 col-sm-7">
-        @Html.DropDownList("ProductId", null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control" })
+        @Html.DropDownListFor(m => m.ProductId, null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control" })
         @Html.ValidationMessageFor(m => m.ProductId, "", new { @class = "text-danger" })
     </div>
 </div>
 <script type="text/javascript">
+    var productSelect = $('#ProductId');
     function resetSelect(targetSelect) {
         targetSelect.empty();
         targetSelect.append($('<option/>', {

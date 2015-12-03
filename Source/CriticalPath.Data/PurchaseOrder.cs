@@ -43,7 +43,7 @@ namespace CriticalPath.Data
         public int SizeRatioDivisor { get; set; }
         public int FreightTermId { get; set; }
         public int SupplierId { get; set; }
-        public System.DateTime SupplierDueDate { get; set; }
+        public Nullable<System.DateTime> SupplierDueDate { get; set; }
         public string Notes { get; set; }
         public bool IsApproved { get; set; }
         public Nullable<System.DateTime> ApproveDate { get; set; }
@@ -241,7 +241,7 @@ namespace CriticalPath.Data
         public int SizeRatioDivisor { get; set; }
         public int FreightTermId { get; set; }
         public int SupplierId { get; set; }
-        public System.DateTime SupplierDueDate { get; set; }
+        public Nullable<System.DateTime> SupplierDueDate { get; set; }
         public string Notes { get; set; }
         public bool IsApproved { get; set; }
         public Nullable<System.DateTime> ApproveDate { get; set; }

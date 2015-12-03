@@ -152,6 +152,10 @@ namespace CriticalPath.Web.Controllers
         }
 
 
+        protected async Task SetSupplierSelectList(int supplierId)
+        {
+            await SetSupplierSelectList(null, supplierId);
+        }
 
         protected async Task SetSupplierSelectList(PurchaseOrder purchaseOrder)
         {
@@ -168,7 +172,7 @@ namespace CriticalPath.Web.Controllers
 
         protected async Task SetSupplierSelectList(Product product, int supplierId)
         {
-            var suppliers = product.Suppliers;
+            var suppliers = product?.Suppliers;
             if (suppliers == null || suppliers.Count == 0)
             {
                 var querySuppliers = DataContext.GetSupplierQuery();
