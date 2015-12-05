@@ -66,7 +66,7 @@ namespace CriticalPath.Web.Controllers
             return result;
         }
 
-        
+        [Authorize]
         public async Task<ActionResult> Index(QueryParameters qParams)
         {
             var query = await GetProductQuery(qParams);
@@ -132,14 +132,14 @@ namespace CriticalPath.Web.Controllers
         }
         bool? _canSeeRestricted;
 
-        
+        [Authorize]
         public async Task<ActionResult> GetProductList(QueryParameters qParams)
         {
             var result = await GetProductDtoList(qParams);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
-        
+        [Authorize]
         public async Task<ActionResult> GetProductPagedList(QueryParameters qParams)
         {
             var items = await GetProductDtoList(qParams);
@@ -147,7 +147,24 @@ namespace CriticalPath.Web.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
-        
+        [Authorize]
+        public async Task<JsonResult> GetProductsForAutoComplete(QueryParameters qParam)
+        {
+            var query = GetProductQuery()
+                        .Where(x => x.ProductCode.Contains(qParam.SearchString))
+                        .Take(qParam.PageSize);
+            var list = from x in query
+                       select new
+                       {
+                           id = x.Id,
+                           value = x.ProductCode,
+                           label = x.ProductCode //can be extended as x.Category.CategoryName + "/" + x.ProductCode,
+                       };
+
+            return Json(await list.ToListAsync(), JsonRequestBehavior.AllowGet);
+        }
+
+        [Authorize]
         public async Task<ActionResult> Details(int? id)  //GET: /Products/Details/5
         {
             if (id == null)
@@ -165,7 +182,7 @@ namespace CriticalPath.Web.Controllers
             return View(product);
         }
 
-        
+        [Authorize]
         public async Task<ActionResult> GetProduct(int? id)
         {
             if (id == null)

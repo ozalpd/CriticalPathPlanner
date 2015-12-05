@@ -168,15 +168,11 @@ namespace CriticalPath.Web.Controllers
                     return HttpNotFound();
                 purchaseOrderVM.CustomerId = customer.Id;
             }
-            ViewBag.SellingCurrencyId = await GetCurrencySelectList(purchaseOrderVM.SellingCurrencyId);
-            ViewBag.BuyingCurrencyId = await GetCurrencySelectList(purchaseOrderVM.BuyingCurrencyId ?? 0);
-            ViewBag.RoyaltyCurrencyId = await GetCurrencySelectList(purchaseOrderVM.RoyaltyCurrencyId ?? 0);
-            ViewBag.RetailCurrencyId = await GetCurrencySelectList(purchaseOrderVM.RetailCurrencyId ?? 0);
 
             await SetPurchaseOrderDefaults(purchaseOrderVM);
-            await SetProductSelectListAsync(purchaseOrderVM.Product);
-            await SetSizingStandardSelectListAsync(purchaseOrderVM);
-            await SetCustomerSelectListAsync(purchaseOrderVM);
+
+            await SetSupplierSelectList(0);
+            await SetSectListAsync(purchaseOrderVM);
             return View(purchaseOrderVM);
         }
 
@@ -196,14 +192,8 @@ namespace CriticalPath.Web.Controllers
                 return RedirectToAction("Details", new { id = entity.Id });
             }
 
-            ViewBag.SellingCurrencyId = await GetCurrencySelectList(purchaseOrderVM.SellingCurrencyId);
-            ViewBag.BuyingCurrencyId = await GetCurrencySelectList(purchaseOrderVM.BuyingCurrencyId ?? 0);
-            ViewBag.RoyaltyCurrencyId = await GetCurrencySelectList(purchaseOrderVM.RoyaltyCurrencyId ?? 0);
-            ViewBag.RetailCurrencyId = await GetCurrencySelectList(purchaseOrderVM.RetailCurrencyId ?? 0);
-
-            await SetProductSelectListAsync(purchaseOrderVM.Product);
-            await SetSizingStandardSelectListAsync(purchaseOrderVM);
-            await SetCustomerSelectListAsync(purchaseOrderVM);
+            await SetSupplierSelectList(purchaseOrderVM.SupplierId);
+            await SetSectListAsync(purchaseOrderVM);
             return View(purchaseOrderVM);
         }
 
@@ -221,16 +211,22 @@ namespace CriticalPath.Web.Controllers
                 return HttpNotFound();
             }
 
+            await SetSupplierSelectList(purchaseOrder);
             var purchaseOrderVM = new PurchaseOrderVM(purchaseOrder);
-            ViewBag.SellingCurrencyId = await GetCurrencySelectList(purchaseOrderVM.SellingCurrencyId);
-            ViewBag.BuyingCurrencyId = await GetCurrencySelectList(purchaseOrderVM.BuyingCurrencyId ?? 0);
-            ViewBag.RoyaltyCurrencyId = await GetCurrencySelectList(purchaseOrderVM.RoyaltyCurrencyId ?? 0);
-            ViewBag.RetailCurrencyId = await GetCurrencySelectList(purchaseOrderVM.RetailCurrencyId ?? 0);
-
-            await SetProductSelectListAsync(purchaseOrderVM.Product);
-            await SetSizingStandardSelectListAsync(purchaseOrderVM);
-            await SetCustomerSelectListAsync(purchaseOrderVM);
+            await SetSectListAsync(purchaseOrderVM);
             return View(purchaseOrderVM);
+        }
+
+        private async Task SetSectListAsync(PurchaseOrderDTO poVM)
+        {
+            ViewBag.SellingCurrencyId = await GetCurrencySelectList(poVM.SellingCurrencyId);
+            ViewBag.BuyingCurrencyId = await GetCurrencySelectList(poVM.BuyingCurrencyId ?? 0);
+            ViewBag.RoyaltyCurrencyId = await GetCurrencySelectList(poVM.RoyaltyCurrencyId ?? 0);
+            ViewBag.RetailCurrencyId = await GetCurrencySelectList(poVM.RetailCurrencyId ?? 0);
+
+            await SetProductSelectListAsync(poVM.Product);
+            await SetSizingStandardSelectListAsync(poVM);
+            await SetCustomerSelectListAsync(poVM);
         }
 
         [Authorize(Roles = "admin, supervisor, clerk")]
@@ -322,12 +318,20 @@ namespace CriticalPath.Web.Controllers
             }
         }
 
-        protected override Task SetPurchaseOrderDefaults(PurchaseOrderDTO purchaseOrder)
+        protected override async Task SetPurchaseOrderDefaults(PurchaseOrderDTO purchaseOrder)
         {
+            int year = DateTime.Now.Year;
+            int month = DateTime.Now.Month;
+
+            var minDate = new DateTime(year, month, 1);
+            var maxDate = minDate.AddMonths(1);
+            var count = await DataContext.PurchaseOrders
+                        .Where(p => p.OrderDate >= minDate && p.OrderDate < maxDate)
+                        .CountAsync();
+
+            purchaseOrder.PoNr = string.Format("{0}{1:D2}-{2:D4}", (year - 2000), month, count + 1);
             purchaseOrder.OrderDate = DateTime.Today;
             //TODO:Get count of PO at this month
-
-            return Task.FromResult(default(object));
         }
 
         public new partial class QueryParameters : BaseController.QueryParameters

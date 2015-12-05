@@ -1,0 +1,56 @@
+﻿@using CP.i8n
+@using CriticalPath.Web.Models
+@model PurchaseOrderCreateVM
+@{
+    Layout = null;
+}
+<div class="form-group">
+    @Html.LabelFor(m => m.ProductCode, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+    <div class="col-lg-5 col-md-6 col-sm-7">
+        @Html.EditorFor(m => m.ProductCode, new
+   {
+       htmlAttributes = new
+       {
+           @class = "form-control ui-autocomplete-input",
+           autocomplete = "off",
+           data_url = Url.Action("GetProductsWithPrice", "Products")
+       }
+   })
+        @Html.HiddenFor(m => m.ProductId)
+        @Html.ValidationMessageFor(m => m.ProductId, "", new { @class = "text-danger" })
+        @Html.ValidationMessageFor(m => m.ProductCode, "", new { @class = "text-danger" })
+    </div>
+</div>
+<script type="text/javascript">
+    $('#ProductCode').autocomplete({
+        minLenght: 1,
+        source: function (request, response) {
+            var url = $(this.element).data('url');
+            $.getJSON(url, { searchString: request.term, pageSize: 25 }, function (data) {
+                response(data);
+            });
+        },
+        select: function (event, ui) {
+            $('#ProductId').val(ui.item.id);
+
+            $('#UnitPrice').val(ui.item.UnitPrice);
+            setSelectListID('#SellingCurrencyId > option', ui.item.SellingCurrencyId);
+            $('#BuyingPrice').val(ui.item.BuyingPrice);
+            setSelectListID('#BuyingCurrencyId > option', ui.item.BuyingCurrencyId);
+            $('#RoyaltyFee').val(ui.item.RoyaltyFee);
+            setSelectListID('#RoyaltyCurrencyId > option', ui.item.RoyaltyCurrencyId);
+            $('#RetailPrice').val(ui.item.RetailPrice);
+            setSelectListID('#RetailCurrencyId > option', ui.item.RetailCurrencyId);
+        },
+        change: function (event, ui) {
+            if (ui.item==null) {
+                $(event.target).val('');
+                $('#ProductId').val('');
+                console.log('ui.item is null');
+            }
+            else {
+                console.log(ui.item);
+            }
+        }
+    });
+</script>

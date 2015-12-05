@@ -21,6 +21,7 @@ function getObjectById(array, id) {
     });
     return found;
 }
+/* Bootstrap pager functions */
 function setPagerButtons(pagerParent, page, pageCount, buttonsCount) {
     pagerParent.empty();
     if (pageCount > 1) {
@@ -72,7 +73,24 @@ function createPagerButton(btnNr, page, pageCount) {
         lnk + '><span aria-hidden="true">' + label + '</span></a>');
     return li;
 }
-
 function displayRecordStats(visibleRecords, totalRecords) {
     $('#recordsStats').html(visibleRecords + ' / ' + totalRecords);
+}
+/* End - Bootstrap pager functions */
+
+/* * * * * * * * * * * * * * * * * * * * * * * * *
+ * Changes selection of a selectlist by selectId 
+ * usage sample => setSelectListID('#SellingCurrencyId > option', ui.item.SellingCurrencyId);
+ */
+function setSelectListID(selectListOpts, selectedId) {
+    if (sizingSelect != null) {
+        $(selectListOpts).each(function () {
+            if (this.value == selectedId) {
+                $(this).prop('selected', true);
+            }
+            else {
+                $(this).prop('selected', false);
+            }
+        });
+    }
 }

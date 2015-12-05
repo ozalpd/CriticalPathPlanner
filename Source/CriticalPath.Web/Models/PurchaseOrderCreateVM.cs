@@ -1,6 +1,8 @@
-﻿using CriticalPath.Data;
+﻿using CP.i8n;
+using CriticalPath.Data;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +25,11 @@ namespace CriticalPath.Web.Models
                 PutSizeRate(i, rate);
             }
         }
+
+        [StringLength(64, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
+        [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+        [Display(ResourceType = typeof(EntityStrings), Name = "ProductCode")]
+        public string ProductCode { get; set; }
 
         public int SizeRate1Id { get; set; }
         public int SizeRate2Id { get; set; }

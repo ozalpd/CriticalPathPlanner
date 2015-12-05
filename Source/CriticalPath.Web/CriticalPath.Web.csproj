@@ -560,6 +560,7 @@
     <Content Include="Views\Manufacturers\Edit.cshtml" />
     <Content Include="Views\Manufacturers\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Manufacturer.cshtml" />
+    <Content Include="Views\PurchaseOrders\_ProductAutoComplete.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

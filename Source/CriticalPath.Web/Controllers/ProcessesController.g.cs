@@ -111,6 +111,23 @@ namespace CriticalPath.Web.Controllers
         }
 
         [Authorize]
+        public async Task<JsonResult> GetProcessesForAutoComplete(QueryParameters qParam)
+        {
+            var query = GetProcessQuery()
+                        .Where(x => x.PurchaseOrder.PoNr.Contains(qParam.SearchString))
+                        .Take(qParam.PageSize);
+            var list = from x in query
+                       select new
+                       {
+                           id = x.Id,
+                           value = x.PurchaseOrder.PoNr,
+                           label = x.PurchaseOrder.PoNr //can be extended as x.Category.CategoryName + "/" + x.PurchaseOrder.PoNr,
+                       };
+
+            return Json(await list.ToListAsync(), JsonRequestBehavior.AllowGet);
+        }
+
+        [Authorize]
         public async Task<ActionResult> Details(int? id)  //GET: /Processes/Details/5
         {
             if (id == null)

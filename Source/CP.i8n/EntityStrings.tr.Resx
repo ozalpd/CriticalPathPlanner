@@ -364,7 +364,7 @@
 	</data>
 
 	<data name="Category" xml:space="preserve">
-		<value>Kategori</value>
+		<value>Departman/Grup</value>
 	</data>
 
 	<data name="CategoryCode" xml:space="preserve">
@@ -496,7 +496,7 @@
 	</data>
 
 	<data name="CreateProductCategory" xml:space="preserve">
-		<value>Ürün Kategorisi Oluştur</value>
+		<value>Departman/Grup Oluştur</value>
 	</data>
 
 	<data name="CreatePurchaseOrder" xml:space="preserve">
@@ -632,7 +632,7 @@
 	</data>
 
 	<data name="DeleteProductCategory" xml:space="preserve">
-		<value>Ürün Kategorisini Sil</value>
+		<value>Departman/Grup Sil</value>
 	</data>
 
 	<data name="DeletePurchaseOrder" xml:space="preserve">
@@ -748,7 +748,7 @@
 	</data>
 
 	<data name="EditProductCategory" xml:space="preserve">
-		<value>Ürün Kategorisini Düzenle</value>
+		<value>Departman/Grup Düzenle</value>
 	</data>
 
 	<data name="EditPurchaseOrder" xml:space="preserve">
@@ -992,7 +992,7 @@
 	</data>
 
 	<data name="ProductCategory" xml:space="preserve">
-		<value>Ürün Kategorisi</value>
+		<value>Departman/Grup</value>
 	</data>
 
 	<data name="ProductCode" xml:space="preserve">
@@ -1092,7 +1092,7 @@
 	</data>
 
 	<data name="RemoveProductCategory" xml:space="preserve">
-		<value>Ürün Kategorisini Çıkar</value>
+		<value>Departman/Grup Çıkar</value>
 	</data>
 
 	<data name="RemovePurchaseOrder" xml:space="preserve">

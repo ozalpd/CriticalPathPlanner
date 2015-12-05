@@ -248,7 +248,7 @@
 	</data>
 
 	<data name="AddRemoveProductCategory" xml:space="preserve">
-		<value>Add/Remove Product Category</value>
+		<value>Add/Remove Department/Group</value>
 	</data>
 
 	<data name="AddRemovePurchaseOrder" xml:space="preserve">
@@ -372,7 +372,7 @@
 	</data>
 
 	<data name="CategoryId" xml:space="preserve">
-		<value>Category</value>
+		<value>Department/Group</value>
 	</data>
 
 	<data name="CategoryName" xml:space="preserve">

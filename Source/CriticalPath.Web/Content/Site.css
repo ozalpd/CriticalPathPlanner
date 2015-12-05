@@ -79,3 +79,6 @@ div.accordion .accordion-group .accordion-heading .accordion-toggle {
     background-color:#fffff8;
     border: 1px solid #f0c4c4;
 }
+.ui-autocomplete{
+    position:relative;
+}

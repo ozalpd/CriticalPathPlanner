@@ -254,7 +254,7 @@
   </Vocab>
   <Vocab>
     <Name>AddRemoveProductCategory</Name>
-    <Translation>Add/Remove Product Category</Translation>
+    <Translation>Add/Remove Department/Group</Translation>
   </Vocab>
   <Vocab>
     <Name>AddRemoveProductSupplier</Name>
@@ -482,7 +482,7 @@
   </Vocab>
   <Vocab>
     <Name>CategoryId</Name>
-    <Translation>Category</Translation>
+    <Translation>Department/Group</Translation>
   </Vocab>
   <Vocab>
     <Name>CategoryName</Name>

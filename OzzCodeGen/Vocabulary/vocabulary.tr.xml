@@ -474,7 +474,7 @@
   </Vocab>
   <Vocab>
     <Name>Category</Name>
-    <Translation>Kategori</Translation>
+    <Translation>Departman/Grup</Translation>
   </Vocab>
   <Vocab>
     <Name>CategoryCode</Name>
@@ -666,7 +666,7 @@
   </Vocab>
   <Vocab>
     <Name>CreateProductCategory</Name>
-    <Translation>Ürün Kategorisi Oluştur</Translation>
+    <Translation>Departman/Grup Oluştur</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateProductSupplier</Name>
@@ -838,7 +838,7 @@
   </Vocab>
   <Vocab>
     <Name>DeleteProductCategory</Name>
-    <Translation>Ürün Kategorisini Sil</Translation>
+    <Translation>Departman/Grup Sil</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteProductSupplier</Name>
@@ -1026,7 +1026,7 @@
   </Vocab>
   <Vocab>
     <Name>EditProductCategory</Name>
-    <Translation>Ürün Kategorisini Düzenle</Translation>
+    <Translation>Departman/Grup Düzenle</Translation>
   </Vocab>
   <Vocab>
     <Name>EditProductSupplier</Name>
@@ -1502,11 +1502,11 @@
   </Vocab>
   <Vocab>
     <Name>ProductCategory</Name>
-    <Translation>Ürün Kategorisi</Translation>
+    <Translation>Departman/Grup</Translation>
   </Vocab>
   <Vocab>
     <Name>ProductCategoryId</Name>
-    <Translation>Ürün Kategorisi</Translation>
+    <Translation>Departman/Grup</Translation>
   </Vocab>
   <Vocab>
     <Name>ProductCode</Name>
@@ -1650,7 +1650,7 @@
   </Vocab>
   <Vocab>
     <Name>RemoveProductCategory</Name>
-    <Translation>Ürün Kategorisini Çıkar</Translation>
+    <Translation>Departman/Grup Çıkar</Translation>
   </Vocab>
   <Vocab>
     <Name>RemoveProductSupplier</Name>

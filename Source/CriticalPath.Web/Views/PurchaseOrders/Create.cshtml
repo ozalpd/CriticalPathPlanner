@@ -30,12 +30,21 @@
         <div class="form-group">
             @Html.LabelFor(model => model.CustomerId, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
             <div class="col-lg-5 col-md-6 col-sm-7">
-                @Html.DropDownList("CustomerId", null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownListFor(m => m.CustomerId, null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(m => m.CustomerId, "", new { @class = "text-danger" })
             </div>
         </div>
-        @Html.Partial("_ProductSelectPartial")
+        @Html.Partial("_ProductAutoComplete")
         @Html.Partial("_AllPriceEdit", Model)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SupplierId, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.DropDownListFor(m => m.SupplierId, null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.SupplierId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
         @Html.Partial("_ProductSizingPartial")
         @*
             <div class="form-group">

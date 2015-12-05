@@ -82,6 +82,7 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>true</GenerateController>
+      <GenerateActionForAutoComplete>true</GenerateActionForAutoComplete>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
       <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
@@ -131,6 +132,7 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>false</GenerateController>
+      <GenerateActionForAutoComplete>true</GenerateActionForAutoComplete>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
       <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
@@ -216,6 +218,7 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>false</GenerateController>
+      <GenerateActionForAutoComplete>true</GenerateActionForAutoComplete>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
       <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
@@ -313,6 +316,7 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>false</GenerateController>
+      <GenerateActionForAutoComplete>true</GenerateActionForAutoComplete>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
       <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
@@ -410,6 +414,7 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>false</GenerateController>
+      <GenerateActionForAutoComplete>true</GenerateActionForAutoComplete>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
       <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
@@ -483,6 +488,7 @@
       <RolesCanEdit>admin</RolesCanEdit>
       <RolesCanDelete>admin</RolesCanDelete>
       <GenerateController>true</GenerateController>
+      <GenerateActionForAutoComplete>true</GenerateActionForAutoComplete>
       <GenerateGetQueryMethod>false</GenerateGetQueryMethod>
       <GenerateGetDtoQueryMethod>false</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
@@ -569,6 +575,7 @@
       <RolesCanEdit>admin</RolesCanEdit>
       <RolesCanDelete>admin</RolesCanDelete>
       <GenerateController>true</GenerateController>
+      <GenerateActionForAutoComplete>true</GenerateActionForAutoComplete>
       <GenerateGetQueryMethod>false</GenerateGetQueryMethod>
       <GenerateGetDtoQueryMethod>false</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
@@ -680,6 +687,7 @@
       <RolesCanDelete>admin</RolesCanDelete>
       <RolesCanSeeRestricted />
       <GenerateController>true</GenerateController>
+      <GenerateActionForAutoComplete>true</GenerateActionForAutoComplete>
       <GenerateGetQueryMethod>false</GenerateGetQueryMethod>
       <GenerateGetDtoQueryMethod>false</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>false</GenerateIndexAction>
@@ -754,6 +762,7 @@
       <RolesCanEdit>admin</RolesCanEdit>
       <RolesCanDelete>admin</RolesCanDelete>
       <GenerateController>true</GenerateController>
+      <GenerateActionForAutoComplete>true</GenerateActionForAutoComplete>
       <GenerateGetQueryMethod>false</GenerateGetQueryMethod>
       <GenerateGetDtoQueryMethod>false</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
@@ -841,6 +850,7 @@
       <RolesCanEdit>admin</RolesCanEdit>
       <RolesCanDelete>admin</RolesCanDelete>
       <GenerateController>true</GenerateController>
+      <GenerateActionForAutoComplete>true</GenerateActionForAutoComplete>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
       <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
@@ -1073,6 +1083,7 @@
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <RolesCanSeeRestricted>admin, supervisor, clerk</RolesCanSeeRestricted>
       <GenerateController>true</GenerateController>
+      <GenerateActionForAutoComplete>true</GenerateActionForAutoComplete>
       <GenerateGetQueryMethod>false</GenerateGetQueryMethod>
       <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
@@ -1338,6 +1349,7 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>false</GenerateController>
+      <GenerateActionForAutoComplete>true</GenerateActionForAutoComplete>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
       <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
@@ -1406,12 +1418,13 @@
       <ModelForJson>CustomerDTO</ModelForJson>
       <ModelForCreate>Customer</ModelForCreate>
       <ModelForEdit>Customer</ModelForEdit>
-      <RolesCanView>users</RolesCanView>
+      <RolesCanView>admin, supervisor, clerk</RolesCanView>
       <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <RolesCanSeeRestricted />
       <GenerateController>true</GenerateController>
+      <GenerateActionForAutoComplete>true</GenerateActionForAutoComplete>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
       <GenerateGetDtoQueryMethod>false</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>false</GenerateIndexAction>
@@ -1486,6 +1499,7 @@
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <RolesCanSeeRestricted>admin, supervisor, clerk</RolesCanSeeRestricted>
       <GenerateController>true</GenerateController>
+      <GenerateActionForAutoComplete>true</GenerateActionForAutoComplete>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
       <GenerateGetDtoQueryMethod>false</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>false</GenerateIndexAction>
@@ -1560,6 +1574,7 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>true</GenerateController>
+      <GenerateActionForAutoComplete>true</GenerateActionForAutoComplete>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
       <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
@@ -1669,6 +1684,7 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>true</GenerateController>
+      <GenerateActionForAutoComplete>true</GenerateActionForAutoComplete>
       <GenerateGetQueryMethod>false</GenerateGetQueryMethod>
       <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
@@ -2001,12 +2017,13 @@
       <ModelForJson>ProductDTO</ModelForJson>
       <ModelForCreate>Product</ModelForCreate>
       <ModelForEdit>Product</ModelForEdit>
-      <RolesCanView>everyone</RolesCanView>
+      <RolesCanView>users</RolesCanView>
       <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <RolesCanSeeRestricted>admin, supervisor, clerk</RolesCanSeeRestricted>
       <GenerateController>true</GenerateController>
+      <GenerateActionForAutoComplete>true</GenerateActionForAutoComplete>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
       <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
@@ -2514,6 +2531,7 @@
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <RolesCanSeeRestricted>admin, supervisor, clerk</RolesCanSeeRestricted>
       <GenerateController>true</GenerateController>
+      <GenerateActionForAutoComplete>true</GenerateActionForAutoComplete>
       <GenerateGetQueryMethod>false</GenerateGetQueryMethod>
       <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
@@ -2611,6 +2629,7 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <GenerateController>false</GenerateController>
+      <GenerateActionForAutoComplete>true</GenerateActionForAutoComplete>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
       <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
@@ -2854,6 +2873,7 @@
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <RolesCanSeeRestricted>admin, supervisor, clerk</RolesCanSeeRestricted>
       <GenerateController>true</GenerateController>
+      <GenerateActionForAutoComplete>true</GenerateActionForAutoComplete>
       <GenerateGetQueryMethod>false</GenerateGetQueryMethod>
       <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
@@ -3023,6 +3043,7 @@
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
       <RolesCanDelete>admin</RolesCanDelete>
       <GenerateController>true</GenerateController>
+      <GenerateActionForAutoComplete>true</GenerateActionForAutoComplete>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
       <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
@@ -3097,6 +3118,7 @@
       <RolesCanEdit>admin</RolesCanEdit>
       <RolesCanDelete>admin</RolesCanDelete>
       <GenerateController>true</GenerateController>
+      <GenerateActionForAutoComplete>true</GenerateActionForAutoComplete>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
       <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
@@ -3196,6 +3218,7 @@
       <RolesCanEdit>admin</RolesCanEdit>
       <RolesCanDelete>admin</RolesCanDelete>
       <GenerateController>true</GenerateController>
+      <GenerateActionForAutoComplete>true</GenerateActionForAutoComplete>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
       <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
