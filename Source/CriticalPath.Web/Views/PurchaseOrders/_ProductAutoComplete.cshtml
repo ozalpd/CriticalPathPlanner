@@ -33,13 +33,13 @@
         select: function (event, ui) {
             $('#ProductId').val(ui.item.id);
 
-            $('#UnitPrice').val(ui.item.UnitPrice);
+            $('#UnitPrice').val(fixDecimalVal(ui.item.UnitPrice));
             setSelectListID('#SellingCurrencyId > option', ui.item.SellingCurrencyId);
-            $('#BuyingPrice').val(ui.item.BuyingPrice);
+            $('#BuyingPrice').val(fixDecimalVal(ui.item.BuyingPrice));
             setSelectListID('#BuyingCurrencyId > option', ui.item.BuyingCurrencyId);
-            $('#RoyaltyFee').val(ui.item.RoyaltyFee);
+            $('#RoyaltyFee').val(fixDecimalVal(ui.item.RoyaltyFee));
             setSelectListID('#RoyaltyCurrencyId > option', ui.item.RoyaltyCurrencyId);
-            $('#RetailPrice').val(ui.item.RetailPrice);
+            $('#RetailPrice').val(fixDecimalVal(ui.item.RetailPrice));
             setSelectListID('#RetailCurrencyId > option', ui.item.RetailCurrencyId);
         },
         change: function (event, ui) {

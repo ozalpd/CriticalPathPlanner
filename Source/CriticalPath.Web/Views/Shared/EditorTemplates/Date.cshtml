@@ -4,19 +4,22 @@
     Layout = null;
     var noSelection = !Model.HasValue ? "active" : null;
     var htmlField = ViewData.TemplateInfo.HtmlFieldPrefix;
+    var reqValidator = ViewData.ModelMetadata.GetValidators(ViewContext).FirstOrDefault(v => v.IsRequired);
+    var reqValRule = reqValidator == null ? null : reqValidator.GetClientValidationRules().FirstOrDefault();
+    string reqAttrib = reqValRule == null ? string.Empty : string.Format("data-val-required='{0}'", reqValRule.ErrorMessage);
     var dtpName = "dtp" + htmlField;
     string dateString = Model.HasValue ? Model.Value.ToString("yyyy.MM.dd") : "";
     string viewMode = htmlField.ToLowerInvariant().Contains("birthday") ? ", defaultDate: -15y" : "";
-    string divClass = ViewData.ModelMetadata.IsNullableValueType ?
-                        "input-group date col-md-6 col-sm-7" :
-                        "input-group date col-md-6 col-sm-7";
+    string divStyle = ViewData.ModelMetadata.IsNullableValueType ?
+                        "max-width:300px;" :
+                        "max-width:195px;";
 }
-<div class='@divClass' id="@htmlField-div" data-date="@dateString" data-date-format="yyyy.mm.dd" @viewMode>
+<div class="input-group date" style='@divStyle' id="@htmlField-div" data-date="@dateString" data-date-format="yyyy.mm.dd" @viewMode>
     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-    <input type="text" value="@dateString" id="@htmlField" name="@htmlField" class="form-control" autocomplete="off"">
+    <input type="text" value="@dateString" id="@htmlField" name="@htmlField" class="form-control" autocomplete="off" @Html.Raw(reqAttrib)>
     @if (ViewData.ModelMetadata.IsNullableValueType)
     {
-        <span class="input-group-btn">
+        <span class="input-group-btn" style="width:35%;">
             <button type="button" class="btn btn-primary" onclick="javascript:$('#@htmlField').val('');">@ActionStrings.Clear</button>
         </span>
     }

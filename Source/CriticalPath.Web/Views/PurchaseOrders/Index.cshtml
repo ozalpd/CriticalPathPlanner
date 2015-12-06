@@ -32,17 +32,20 @@
 </div>
 @if (totalCount > 0)
 {
-    <table class="table table-hover">
+    <table class="table table-hover table-striped">
         <tr>
             <th width="20px">@ActionStrings.Action</th>
-            <th>@Html.DisplayNameFor(model => model.IsApproved)</th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsApproved)<br />
+                @Html.DisplayNameFor(m => m.Cancelled)
+            </th>
+            <th>@Html.DisplayNameFor(model => model.PoNr)</th>
             <th>@Html.DisplayNameFor(model => model.Product)</th>
             <th>@Html.DisplayNameFor(model => model.Customer)</th>
             <th>@Html.DisplayNameFor(model => model.OrderDate)</th>
             <th>@Html.DisplayNameFor(model => model.DueDate)</th>
             <th>@Html.DisplayNameFor(model => model.Quantity)</th>
             <th>@Html.DisplayNameFor(model => model.UnitPrice)</th>
-            <th>@Html.DisplayNameFor(model => model.Cancelled)</th>
         </tr>
         @foreach (var item in Model)
         {
@@ -61,7 +64,7 @@
                             @if (!item.IsApproved && canUserDelete)
                             {
                                 <li>
-                                    <a href="#deleteConfirm" data-toggle="modal" onclick="setDelete('<b>@EntityStrings.OrderDate @item.OrderDate.ToShortDateString(), @EntityStrings.Product @item.Product.Title</b>', @item.Id);">
+                                    <a href="#deleteConfirm" data-toggle="modal" onclick="setDelete('<b>@EntityStrings.PoNr @item.PoNr, @EntityStrings.Product @item.Product.ProductCode</b>', @item.Id);">
                                         @ActionStrings.Delete
                                     </a>
                                 </li>
@@ -86,19 +89,28 @@
                     </div>
                 </td>
                 <td>
-                    <div style="min-width:112px">
-                        @Html.DisplayFor(modelItem => item.IsApproved) <span class="checkboxText">@Html.DisplayFor(i => item.ApproveDate)</span>
-                    </div>
+                    @if (item.Cancelled)
+                    {
+                        <div style="min-width:112px">
+                            @Html.DisplayFor(modelItem => item.Cancelled) <span class="checkboxText">@Html.DisplayFor(i => item.CancelDate)</span>
+                        </div>
+                    }
+                    else
+                    {
+                        <div style="min-width:112px">
+                            @Html.DisplayFor(modelItem => item.IsApproved) <span class="checkboxText">@Html.DisplayFor(i => item.ApproveDate)</span>
+                        </div>
+                    }
                 </td>
+                <td>@Html.DisplayFor(modelItem => item.PoNr)</td>
                 <td>@Html.DisplayFor(modelItem => item.Product)</td>
                 <td>@Html.DisplayFor(modelItem => item.Customer)</td>
                 <td>@Html.DisplayFor(modelItem => item.OrderDate)</td>
                 <td>@Html.DisplayFor(modelItem => item.DueDate)</td>
                 <td>@Html.DisplayFor(modelItem => item.Quantity)</td>
-                <td>@Html.DisplayFor(modelItem => item.UnitPrice)</td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Cancelled)
-                    <span class="checkboxText">@Html.DisplayFor(modelItem => item.CancelDate)</span>
+                <td align="right">
+                    @Html.DisplayFor(modelItem => item.UnitPrice)
+                    @Html.DisplayFor(modelItem => item.SellingCurrency)
                 </td>
             </tr>
         }

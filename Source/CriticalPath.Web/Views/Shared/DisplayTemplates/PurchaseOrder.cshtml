@@ -17,13 +17,16 @@
                     {
                         @Html.DisplayFor(m => m.Cancelled)
                     }
-                    @Html.DisplayFor(m => m.Customer.CompanyName)
+                    @Html.DisplayFor(m => m.PoNr)
                 </a>
             </div>
             <div id='@collapseId' class="accordion-body collapse">
                 <div class="accordion-inner text-left ml10 mt20 fontSize125pc">
                     <div class="fontSize125pc">
-                       @Model.Product.Title
+                       @Model.Product.ProductCode
+                    </div>
+                    <div class="fontSize125pc">
+                        @Html.DisplayFor(m => m.Customer.CompanyName)
                     </div>
                     <div>
                         @Html.DisplayNameFor(m => m.OrderDate):

@@ -94,3 +94,31 @@ function setSelectListID(selectListOpts, selectedId) {
         });
     }
 }
+
+
+function fixDecimalVal(dec) {
+    var strDec = dec.toFixed(2);
+    var decSeperator = getDecimalSeperator();
+    if (decSeperator == '.') {
+        return strDec;
+    }
+    else {
+        return strDec.replace('.', decSeperator);
+    }
+}
+/* getDecimalSeperator - Özalp Döndüren 2015.12
+ * Basitçe decimal ayıracının nokta yada virgül
+ * karakterlerinden hangisi olduğunu yakalıyor.
+ *  
+ * Sayfanın bir yerinde alttaki koda ihtiyaç duyar.
+ *  @Html.Hidden("decimalSample", 1.1m)
+ */
+function getDecimalSeperator() {
+    var sample = $('#decimalSample').val();
+    if (sample != null && sample.indexOf(',') > 0) {
+        return ',';
+    }
+    else {
+        return '.';
+    }
+}

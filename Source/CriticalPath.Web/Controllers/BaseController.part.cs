@@ -205,6 +205,12 @@ namespace CriticalPath.Web.Controllers
             ViewBag.CustomerId = new SelectList(customerList, "Id", "CompanyName", customerId);
         }
 
+        protected virtual async Task SetFreightTermSelectListAsync(int freightTermId)
+        {
+            var terms = await DataContext.GetFreightTermDtoList();
+            ViewBag.FreightTermId = new SelectList(terms, "Id", "IncotermCode", freightTermId);
+        }
+
         protected async Task SetSizingStandardSelectListAsync(PurchaseOrderDTO po)
         {
             int standardId = po == null ? 0 : po.SizingStandardId;

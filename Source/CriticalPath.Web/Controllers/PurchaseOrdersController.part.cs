@@ -224,6 +224,7 @@ namespace CriticalPath.Web.Controllers
             ViewBag.RoyaltyCurrencyId = await GetCurrencySelectList(poVM.RoyaltyCurrencyId ?? 0);
             ViewBag.RetailCurrencyId = await GetCurrencySelectList(poVM.RetailCurrencyId ?? 0);
 
+            await SetFreightTermSelectListAsync(poVM.FreightTermId);
             await SetProductSelectListAsync(poVM.Product);
             await SetSizingStandardSelectListAsync(poVM);
             await SetCustomerSelectListAsync(poVM);
