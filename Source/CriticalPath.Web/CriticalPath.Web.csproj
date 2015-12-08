@@ -562,6 +562,8 @@
     <Content Include="Views\Manufacturers\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Manufacturer.cshtml" />
     <Content Include="Views\PurchaseOrders\_ProductAutoComplete.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ProcessStepTemplate.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ProcessTemplate.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

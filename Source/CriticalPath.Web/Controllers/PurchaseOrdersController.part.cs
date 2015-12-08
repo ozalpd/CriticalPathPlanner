@@ -85,6 +85,7 @@ namespace CriticalPath.Web.Controllers
             {
                 //TODO: Get 42 days from an AppSetting
                 purchaseOrder.DueDate = DateTime.Today.AddDays(42);
+                purchaseOrder.SupplierDueDate = purchaseOrder.DueDate.Value.AddDays(-3);
             }
             var poVM = new PurchaseOrderEditVM(purchaseOrder);
             await SetSupplierSelectList(purchaseOrder);

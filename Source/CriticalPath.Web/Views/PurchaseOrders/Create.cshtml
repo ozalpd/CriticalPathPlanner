@@ -102,14 +102,15 @@
                 @Html.ValidationMessageFor(m => m.SupplierId, "", new { @class = "text-danger" })
             </div>
         </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.SupplierDueDate, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
-            <div class="col-lg-5 col-md-6 col-sm-7">
-                @Html.EditorFor(m => m.SupplierDueDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(m => m.SupplierDueDate, "", new { @class = "text-danger" })
-            </div>
+        @*
+    <div class="form-group">
+        @Html.LabelFor(model => model.SupplierDueDate, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+        <div class="col-lg-5 col-md-6 col-sm-7">
+            @Html.EditorFor(m => m.SupplierDueDate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(m => m.SupplierDueDate, "", new { @class = "text-danger" })
         </div>
-
+    </div>
+        *@
         @Html.Partial("_ProductSizingPartial")
 
         <div class="form-group">
@@ -135,6 +136,7 @@
     <script type="text/javascript">
         $('#CustomerName').autocomplete({
             minLenght: 1,
+            delay: 500,
             source: function (request, response) {
                 var url = $(this.element).data('url');
                 $.getJSON(url, { searchString: request.term, pageSize: 25 }, function (data) {
@@ -151,6 +153,13 @@
                     $(event.target).val('');
                     $('#CustomerId').val('');
                 }
+            },
+            open: function (event, ui) {
+                var boxWidth = $('#CustomerName').outerWidth();
+                var minWidth = 300;
+                $(this).autocomplete("widget")
+                    .css({ "width": (boxWidth > minWidth ? boxWidth : minWidth) })
+                    .addClass('fontSize80pc');
             }
         });
     </script>

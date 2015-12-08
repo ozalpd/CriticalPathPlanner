@@ -418,7 +418,7 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                             Phone1 = "+1 (854) 445-3758",
                             Phone2 = "+1 (838) 487-3474",
                             Notes = "Enim reprehenderit anim commodo nulla. Irure velit in sunt nisi voluptate aute et. Fugiat nostrud Lorem id ex esse incididunt aliqua aliqua eiusmod veniam anim consequat deserunt adipisicing. Irure labore sint veniam tempor elit reprehenderit occaecat aute in. Sint non aute quis enim Lorem reprehenderit.",
-                            Address2 = "822 Dooley Street, Nash, Montana, 4875",
+                            Address2 = "822 Dooley Street, Nash, Jackets & Coatsana, 4875",
                             CountryId=90
                         },
                         new Manufacturer()
@@ -426,7 +426,7 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                             CompanyName = "Rugstars",
                             ManufacturerCode = "Code 123",
                             City = "Farmington",
-                            Address1 = "259 Montauk Court",
+                            Address1 = "259 Jackets & Coatsauk Court",
                             Phone1 = "+1 (840) 462-2727",
                             Phone2 = "+1 (869) 566-3926",
                             Notes = "Ea voluptate labore cupidatat reprehenderit deserunt. Irure velit ullamco elit in cillum ad est cillum fugiat pariatur. Consectetur dolore velit irure enim dolor anim sit qui.",
@@ -892,48 +892,46 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             }
 
             string[] catgKadin = {
-                "Etek",
-                "Şort",
-                "Bluz / Tshirt",
-                "Elbise",
-                //"Pantolon / Tayt",
-                //"Hırka / Kazak",
-                //"Ceket / Kaban",
-                //"Büyük Beden",
-                //"Sweatshirt",
-                //"Eşofman",
-                //"Tulum"
+                "Skirt",
+                "Shorts",
+                "Blouses & Shirts",
+                "Dresses",
+                "Pants & Capris",
+                "Wool & Blends",
+                "Jackets & Coats",
+                "Sweatshirt",
+                "Jeans",
+                "Swimwear",
+                "Polo Shirts",
+                "Jumsuit"
             };
             string[] catgErkek = {
-                "Şort",
+                "Shorts",
                 "T-Shirt",
-                "Pantolon",
-                //"Denim Pantolon",
-                "Gömlek",
-                "Takım Elbise",
-                //"Mayo Şort",
-                //"Sweatshirt",
-                //"Hırka / Kazak",
-                //"Ceket / Kaban",
-                //"Yelek",
-                //"Eşofman"
+                "Trousers",
+                "Swimwear",
+                "Jeans",
+                "Shirt",
+                "Suit",
+                "Shorts",
+                "Sweatshirt",
+                "Wool & Blends",
+                "Jackets & Coats",
+                "Polo Shirts",
+                "Vest"
             };
             string[] catgCocuk = {
-                "Çocuk T-Shirt",
-                //"Çocuk Body",
-                "Çocuk Elbise",
-                "Çocuk Etek",
-                "Çocuk Pantolon",
-                "Çocuk Şort",
-                "Çocuk Gömlek",
-                "Çocuk Mont",
-                //"Çocuk Hırka",
-                //"Çocuk Kazak",
-                //"Çocuk Eşofman",
-                //"Çocuk Tulum",
-                //"Çocuk Hastane Çıkışı",
-                //"Çocuk Tayt",
-                //"Çocuk Deniz Şortu"
+                "Child T-Shirts",
+                "Child Dresses",
+                "Child Skirts",
+                "Child Trousers",
+                "Child Shorts",
+                "Child Shirts",
+                "Child Jackets & Coats",
+                "Child Wool & Blends",
+                "Children Swimwear",
+                "Child Capris",
+                "Jumsuit"
             };
 
             var suppliers = await (from s in DataContext.Companies.OfType<Supplier>()
@@ -942,14 +940,14 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             var currencies = await DataContext.Currencies.ToArrayAsync();
 
             int countCatg = 0;
-            ProductCategory catg1 = new ProductCategory() { CategoryName = "Kadın Giyim" };
+            ProductCategory catg1 = new ProductCategory() { CategoryName = "Women's Wear" };
             countCatg = AddCategory(catg1, catgKadin, suppliers, currencies, sb, countCatg);
 
-            ProductCategory catg2 = new ProductCategory() { CategoryName = "Erkek Giyim" };
+            ProductCategory catg2 = new ProductCategory() { CategoryName = "Men's Wear" };
             DataContext.ProductCategories.Add(catg2);
             countCatg = AddCategory(catg2, catgErkek, suppliers, currencies, sb, countCatg);
 
-            ProductCategory catg3 = new ProductCategory() { CategoryName = "Çocuk Giyim" };
+            ProductCategory catg3 = new ProductCategory() { CategoryName = "Children's Wear" };
             DataContext.ProductCategories.Add(catg3);
             countCatg = AddCategory(catg3, catgCocuk, suppliers, currencies, sb, countCatg);
         }
@@ -958,6 +956,8 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
         private int AddCategory(ProductCategory parentCatg, string[] subCategories, Supplier[] suppliers,
            Currency[] currencies, StringBuilder sb, int countCatg)
         {
+            var royaltyCurrency = currencies.FirstOrDefault(c => c.CurrencyCode.Equals("USD"));
+            var buyingCurrency = currencies.FirstOrDefault(c => c.CurrencyCode.Equals("TRY"));
             DataContext.ProductCategories.Add(parentCatg);
             sb.Append("Category ");
             sb.Append(parentCatg.CategoryName);
@@ -972,7 +972,7 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 DataContext.ProductCategories.Add(catg);
                 countCatg++;
                 Random rnd = new Random();
-                int countProduct = rnd.Next(3, 7);
+                int countProduct = rnd.Next(5, 13);
                 var lipsums = Text.LipsumSentences;
                 for (int i = 0; i < countProduct; i++)
                 {
@@ -983,12 +983,15 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                     {
                         Category = catg,
                         SellingCurrency = currencies[countProduct % currencies.Length],
+                        RetailCurrency = currencies[(countProduct + 1) % currencies.Length],
+                        BuyingCurrency = buyingCurrency,
                         UnitPrice = GetRandomPrice(5, 25)
                     };
 
                     prod.BuyingPrice = ((decimal)Math.Ceiling(prod.UnitPrice)) * 0.75m;
                     prod.RetailPrice = prod.UnitPrice * 3m;
                     prod.RoyaltyFee = prod.UnitPrice > 10 ? GetRandomPrice(0, 4) : 0m;
+                    prod.RoyaltyCurrency = prod.RoyaltyFee > 0 ? royaltyCurrency : null;
 
                     for (int j = 0; j < wordCount; j++)
                     {

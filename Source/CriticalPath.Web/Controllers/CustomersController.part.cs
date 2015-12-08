@@ -21,15 +21,15 @@ namespace CriticalPath.Web.Controllers
         [Authorize(Roles = "admin, supervisor, clerk")]
         public async Task<JsonResult> GetCustomersForAutoComplete(QueryParameters qParam)
         {
-            var query = GetCustomerQuery()
+            var query = DataContext.GetCustomerDtoQuery(GetCustomerQuery()
                         .Where(x => x.CompanyName.Contains(qParam.SearchString))
-                        .Take(qParam.PageSize);
+                        .Take(qParam.PageSize));
             var list = from x in query
                        select new
                        {
                            id = x.Id,
                            value = x.CompanyName,
-                           label = x.CompanyName,
+                           label = x.CompanyName + " [" + x.Country + " / " + x.City + "]",
                            DiscountRate = x.DiscountRate
                        };
 

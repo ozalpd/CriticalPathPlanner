@@ -27,7 +27,7 @@ namespace CriticalPath.Web.Controllers
                        {
                            id = p.Id,
                            value = p.ProductCode,
-                           label = p.Category.CategoryName + "/" + p.ProductCode,
+                           label = p.ProductCode + " [" + p.Category.ParentCategory.CategoryName + " / " + p.Category.CategoryName + "]",
                            UnitPrice = p.UnitPrice,
                            SellingCurrencyId = p.SellingCurrencyId,
                            RoyaltyFee = p.RoyaltyFee,

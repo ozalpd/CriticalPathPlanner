@@ -1,0 +1,23 @@
+@using CriticalPath.Web.Models
+@using CriticalPath.Data
+@using CP.i8n
+@model ProcessStepTemplate
+@{
+    Layout = null;
+    bool canUserEdit = ViewBag.canUserEdit != null ? ViewBag.canUserEdit : false;
+}
+@if (Model != null)
+{
+    <div style="max-width:240px;" class="clear">
+        @Model.Title
+        <div class="pull-right text-right" style="width:80px;">
+            @Model.RequiredWorkDays Days
+            @if (canUserEdit)
+            {
+                <a href='@Url.Action("Edit", "ProcessStepTemplates", new { id = Model.Id })' title="@ActionStrings.Edit"><span class="glyphicon glyphicon-edit ml5"></span></a>
+            }
+
+        </div>
+        <hr class="mt0 mb5" />
+    </div>
+}

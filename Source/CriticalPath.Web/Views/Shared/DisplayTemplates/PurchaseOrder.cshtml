@@ -4,6 +4,7 @@
 @model PurchaseOrder
 @{
     Layout = null;
+    bool canSeeRestricted = ViewBag.canSeeRestricted == null ? false : ViewBag.canSeeRestricted;
 }
 @if (Model != null)
 {
@@ -23,7 +24,19 @@
             <div id='@collapseId' class="accordion-body collapse">
                 <div class="accordion-inner text-left ml10 mt20 fontSize125pc">
                     <div class="fontSize125pc">
-                       @Model.Product.ProductCode
+                        @Model.Product.ProductCode
+                        @if (Model.Product.Category != null)
+                        {
+                            if (Model.Product.Category.ParentCategory != null)
+                            {
+                                @: [@Model.Product.Category.ParentCategory.CategoryName /
+                            }
+                            else
+                            {
+                                @:[
+                            }
+                            @: @Model.Product.Category.CategoryName]
+                        }
                     </div>
                     <div class="fontSize125pc">
                         @Html.DisplayFor(m => m.Customer.CompanyName)
@@ -43,12 +56,17 @@
                             @Html.DisplayFor(m => m.ApproveDate)
                         </span>
                     </div>
-                    <div>
-                        @Html.DisplayNameFor(m => m.UnitPrice):
-                        @Html.DisplayFor(m => m.UnitPrice) |
-                        @Html.DisplayNameFor(m => m.Quantity):
-                        @Html.DisplayFor(m => m.Quantity)
-                    </div>
+                    @if (canSeeRestricted)
+                    {
+                        <div>
+                            @Html.DisplayNameFor(m => m.UnitPrice):
+                            @Html.DisplayFor(m => m.UnitPrice) |
+                            @Html.DisplayNameFor(m => m.Quantity):
+                            @Html.DisplayFor(m => m.Quantity) |
+                            @Html.DisplayNameFor(m => m.DiscountRate):
+                            @Html.DisplayFor(m => m.DiscountRate)
+                        </div>
+                    }
                     @if (Model.Cancelled)
                     {
                         <div>
