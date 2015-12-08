@@ -91,7 +91,7 @@
                 <td>
                     @if (item.Cancelled)
                     {
-                        <div style="min-width:112px">
+                        <div style="min-width:112px" title="@EntityStrings.Cancelled">
                             @Html.DisplayFor(modelItem => item.Cancelled) <span class="checkboxText">@Html.DisplayFor(i => item.CancelDate)</span>
                         </div>
                     }

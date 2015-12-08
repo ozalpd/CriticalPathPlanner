@@ -15,11 +15,13 @@ namespace CriticalPath.Web.Models
         protected override void Constructing(PurchaseOrder entity)
         {
             base.Constructing(entity);
-            SizingStandard = new SizingStandardDTO(entity.SizingStandard);
-            Customer = new CustomerDTO(entity.Customer);
+            Customer = entity.Customer != null ? new CustomerDTO(entity.Customer) : null;
+            Product = entity.Product != null ? new ProductDTO(entity.Product) : null;
+            SizingStandard = entity.SizingStandard != null ? new SizingStandardDTO(entity.SizingStandard) : null;
         }
 
         public CustomerDTO Customer { get; set; }
+        public ProductDTO Product { get; set; }
         public SizingStandardDTO SizingStandard { get; set; }
     }
 }

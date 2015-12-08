@@ -23,13 +23,14 @@
 }
 
 .shadedRoundCaption {
-    -moz-border-radius: 6px;
-    -webkit-border-radius: 6px;
-    border-radius: 6px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
 }
 
 .shadedRoundCaption, .shadedCaption {
     color: #DDD;
+    text-shadow: 1px 1px 3px #448;
     background-color: #3a3f44;
     text-align: center;
     padding: 4px;
@@ -47,14 +48,25 @@
     filter: none;
 }
 
+.shadedCaptionsNumber {
+    padding-right: 5px !important;
+    text-align: right;
+    width: 100%;
+    background-color: #ccc;
+    color: #000;
+    text-shadow: 1px 1px 3px #fff;
+}
+
 div.accordion .accordion-group .accordion-heading .accordion-toggle {
     text-decoration: none;
     color: #DDD;
 }
-.table-striped>tbody>tr:nth-of-type(odd) {
-    background-color:#ddebf7;
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #ddebf7;
 }
-.table-striped>tbody>tr:nth-of-type(1) {
+
+.table-striped > tbody > tr:nth-of-type(1) {
     background-color: #82a5dd;
     background-image: -webkit-linear-gradient(#9bc2e6, #5b9bd5 60%, #5595d0);
     background-image: -o-linear-gradient(#9bc2e6, #5b9bd5 60%, #5595d0);
@@ -64,21 +76,32 @@ div.accordion .accordion-group .accordion-heading .accordion-toggle {
     border-bottom: 1px solid #9bc2e6;
     color: #fff;
     text-shadow: 1px 1px 3px #004;
-    height:32px !important;
+    height: 32px !important;
 }
-.table-striped>tbody>tr>td{
+
+.table-striped > tbody > tr > td {
     padding: 1px 4px 1px 4px;
 }
-.table-striped{
-    margin-bottom:60px;
+
+.table-striped {
+    margin-bottom: 60px;
 }
-.table-responsive{
-    min-height:400px;
+
+.table-responsive {
+    min-height: 400px;
 }
-.form-control[data-val-required]{
-    background-color:#fffff8;
+
+.form-control[data-val-required] {
+    background-color: #fffff8;
     border: 1px solid #f0c4c4;
 }
-.ui-autocomplete{
-    position:relative;
+
+.form-control[disabled][data-val-required],
+.form-control[readonly][data-val-required] {
+    background-color: #e6e6e6;
+    border: 1px solid #cccccc;
+}
+
+.ui-autocomplete {
+    position: relative;
 }

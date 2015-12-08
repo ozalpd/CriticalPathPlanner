@@ -86,15 +86,16 @@ namespace CriticalPath.Web.Controllers
                 //TODO: Get 42 days from an AppSetting
                 purchaseOrder.DueDate = DateTime.Today.AddDays(42);
             }
-            var purchaseOrderVM = new PurchaseOrderVM(purchaseOrder);
-            await SetCustomerSelectListAsync(purchaseOrderVM);
-            return View(purchaseOrderVM);
+            var poVM = new PurchaseOrderEditVM(purchaseOrder);
+            await SetSupplierSelectList(purchaseOrder);
+            await SetSectListAsync(poVM);
+            return View(poVM);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "admin, supervisor")]
-        public async Task<ActionResult> Approve(PurchaseOrderVM vm)
+        public async Task<ActionResult> Approve(PurchaseOrderEditVM vm)
         {
             var purchaseOrder = await FindAsyncPurchaseOrder(vm.Id);
             if (purchaseOrder == null)
@@ -107,8 +108,9 @@ namespace CriticalPath.Web.Controllers
                 await ApproveSaveAsync(purchaseOrder);
                 return RedirectToAction("Create", "Processes", new { purchaseOrderId = purchaseOrder.Id });
             }
-            var poVM = new PurchaseOrderVM(purchaseOrder);
-            await SetCustomerSelectListAsync(vm);
+            var poVM = new PurchaseOrderEditVM(purchaseOrder);
+            await SetSupplierSelectList(purchaseOrder);
+            await SetSectListAsync(poVM);
             return View(poVM);
         }
 
@@ -167,11 +169,14 @@ namespace CriticalPath.Web.Controllers
                 if (customer == null)
                     return HttpNotFound();
                 purchaseOrderVM.CustomerId = customer.Id;
+                purchaseOrderVM.DiscountRate = customer.DiscountRate;
+                purchaseOrderVM.Customer = new CustomerDTO(customer);
+                purchaseOrderVM.CustomerName = customer.CompanyName;
             }
 
             await SetPurchaseOrderDefaults(purchaseOrderVM);
 
-            await SetSupplierSelectList(0);
+            ViewBag.SupplierId = new SelectList(new List<SupplierDTO>(), "Id", "CompanyName", 0);
             await SetSectListAsync(purchaseOrderVM);
             return View(purchaseOrderVM);
         }
@@ -192,6 +197,7 @@ namespace CriticalPath.Web.Controllers
                 return RedirectToAction("Details", new { id = entity.Id });
             }
 
+            await SetCustomerSelectListAsync(purchaseOrderVM);
             await SetSupplierSelectList(purchaseOrderVM.SupplierId);
             await SetSectListAsync(purchaseOrderVM);
             return View(purchaseOrderVM);
@@ -212,12 +218,23 @@ namespace CriticalPath.Web.Controllers
             }
 
             await SetSupplierSelectList(purchaseOrder);
-            var purchaseOrderVM = new PurchaseOrderVM(purchaseOrder);
+            var purchaseOrderVM = new PurchaseOrderEditVM(purchaseOrder);
             await SetSectListAsync(purchaseOrderVM);
             return View(purchaseOrderVM);
         }
 
-        private async Task SetSectListAsync(PurchaseOrderDTO poVM)
+        [Authorize(Roles = "admin, supervisor, clerk")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Edit(PurchaseOrderEditVM vm)  //POST: /PurchaseOrders/Edit/5
+        {
+            PurchaseOrder purchaseOrder = await FindAsyncPurchaseOrder(vm.Id);
+            PutVmToPO(vm, purchaseOrder, false);
+            await DataContext.SaveChangesAsync(this);
+            return RedirectToAction("Details", new { id = vm.Id });
+        }
+
+        private async Task SetSectListAsync(PurchaseOrderVM poVM)
         {
             ViewBag.SellingCurrencyId = await GetCurrencySelectList(poVM.SellingCurrencyId);
             ViewBag.BuyingCurrencyId = await GetCurrencySelectList(poVM.BuyingCurrencyId ?? 0);
@@ -225,20 +242,8 @@ namespace CriticalPath.Web.Controllers
             ViewBag.RetailCurrencyId = await GetCurrencySelectList(poVM.RetailCurrencyId ?? 0);
 
             await SetFreightTermSelectListAsync(poVM.FreightTermId);
-            await SetProductSelectListAsync(poVM.Product);
+            //await SetProductSelectListAsync(poVM.Product);
             await SetSizingStandardSelectListAsync(poVM);
-            await SetCustomerSelectListAsync(poVM);
-        }
-
-        [Authorize(Roles = "admin, supervisor, clerk")]
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(PurchaseOrderVM vm)  //POST: /PurchaseOrders/Edit/5
-        {
-            PurchaseOrder purchaseOrder = await FindAsyncPurchaseOrder(vm.Id);
-            PutVmToPO(vm, purchaseOrder, false);
-            await DataContext.SaveChangesAsync(this);
-            return RedirectToAction("Details", new { id = vm.Id });
         }
 
         [Authorize(Roles = "admin, supervisor")]
@@ -263,8 +268,8 @@ namespace CriticalPath.Web.Controllers
                 return GetErrorResult(sb, HttpStatusCode.BadRequest);
             }
 
-            int sizeRatesCount = purchaseOrder.SizeRatios.Count;
-            if ((sizeRatesCount) > 0)
+            int sizeRatioCount = purchaseOrder.SizeRatios.Count;
+            if ((sizeRatioCount) > 0)
             {
                 var sb = new StringBuilder();
 
@@ -273,9 +278,9 @@ namespace CriticalPath.Web.Controllers
                 sb.Append(purchaseOrder.Product.ProductCode);
                 sb.Append("</b>.<br/>");
 
-                if (sizeRatesCount > 0)
+                if (sizeRatioCount > 0)
                 {
-                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, sizeRatesCount, EntityStrings.SizeRatios));
+                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, sizeRatioCount, EntityStrings.SizeRatios));
                     sb.Append("<br/>");
                 }
 
@@ -301,11 +306,12 @@ namespace CriticalPath.Web.Controllers
             return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
 
-        private static void PutVmToPO(PurchaseOrderVM vm, PurchaseOrder purchaseOrder, bool isApproving)
+        private void PutVmToPO(PurchaseOrderVM vm, PurchaseOrder purchaseOrder, bool isApproving)
         {
             purchaseOrder.CustomerPoNr = vm.CustomerPoNr;
             purchaseOrder.Description = vm.Description;
             purchaseOrder.Notes = vm.Notes;
+            purchaseOrder.SupplierId = vm.SupplierId;
 
             if (isApproving)
             {
@@ -315,7 +321,40 @@ namespace CriticalPath.Web.Controllers
             {
                 purchaseOrder.CustomerId = vm.CustomerId > 0 ? vm.CustomerId : purchaseOrder.CustomerId;
                 purchaseOrder.Quantity = vm.Quantity > 0 ? vm.Quantity : purchaseOrder.Quantity;
+                purchaseOrder.DiscountRate = vm.DiscountRate;
+                purchaseOrder.FreightTermId = vm.FreightTermId;
                 purchaseOrder.UnitPrice = vm.UnitPrice;
+                purchaseOrder.RoyaltyFee = vm.RoyaltyFee;
+                purchaseOrder.BuyingPrice = vm.BuyingPrice;
+                purchaseOrder.RetailPrice = vm.RetailPrice;
+                purchaseOrder.BuyingCurrencyId = vm.BuyingCurrencyId;
+                purchaseOrder.SellingCurrencyId = vm.SellingCurrencyId;
+                purchaseOrder.RetailCurrencyId = vm.RetailCurrencyId;
+                purchaseOrder.RoyaltyCurrencyId = vm.RoyaltyCurrencyId;
+
+                int srd = 0;
+                foreach (var item in vm.SizeRatios)
+                {
+                    var sizeRatio = purchaseOrder.SizeRatios.FirstOrDefault(sr => sr.Id == item.Id);
+                    if (sizeRatio != null)
+                    {
+                        if (item.Rate > 0)
+                        {
+                            sizeRatio.Rate = item.Rate;
+                            //sizeRatio.Caption = item.Caption;
+                        }
+                        else
+                        {
+                            DataContext.SizeRatios.Remove(sizeRatio);
+                        }
+                    }
+                    else
+                    {
+                        purchaseOrder.SizeRatios.Add(item.ToSizeRatio());
+                    }
+                    srd += item.Rate;
+                }
+                purchaseOrder.SizeRatioDivisor = srd;
             }
         }
 

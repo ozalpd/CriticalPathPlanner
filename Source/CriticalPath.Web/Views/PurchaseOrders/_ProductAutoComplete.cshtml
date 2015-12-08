@@ -31,7 +31,8 @@
             });
         },
         select: function (event, ui) {
-            $('#ProductId').val(ui.item.id);
+            var productId = ui.item.id;
+            $('#ProductId').val(productId);
 
             $('#UnitPrice').val(fixDecimalVal(ui.item.UnitPrice));
             setSelectListID('#SellingCurrencyId > option', ui.item.SellingCurrencyId);
@@ -41,15 +42,28 @@
             setSelectListID('#RoyaltyCurrencyId > option', ui.item.RoyaltyCurrencyId);
             $('#RetailPrice').val(fixDecimalVal(ui.item.RetailPrice));
             setSelectListID('#RetailCurrencyId > option', ui.item.RetailCurrencyId);
+
+            if (productId != null && productId != '') {
+                $.getJSON('/Suppliers/GetSupplierList', { productId: productId, pageSize: 100 }, function (suppliers) {
+                    var targetSelect = $('#SupplierId');
+                    targetSelect.empty();
+                    targetSelect.append($('<option/>', {
+                        value: '',
+                        text: '@Html.Raw(ActionStrings.SelectPlease)'
+                    }));
+                    $.each(suppliers, function (index, supplier) {
+                        targetSelect.append($('<option/>', {
+                            value: supplier.Id,
+                            text: supplier.CompanyName
+                        }));
+                    });
+                });
+            }
         },
         change: function (event, ui) {
             if (ui.item==null) {
                 $(event.target).val('');
                 $('#ProductId').val('');
-                console.log('ui.item is null');
-            }
-            else {
-                console.log(ui.item);
             }
         }
     });

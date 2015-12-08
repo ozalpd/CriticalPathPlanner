@@ -37,13 +37,6 @@ namespace CriticalPath.Web.Controllers
         }
 
         [Authorize]
-        public async Task<ActionResult> GetSupplierList(QueryParameters qParams)
-        {
-            var result = await GetSupplierDtoList(qParams);
-            return Json(result, JsonRequestBehavior.AllowGet);
-        }
-
-        [Authorize]
         public async Task<ActionResult> GetSupplierPagedList(QueryParameters qParams)
         {
             var items = await GetSupplierDtoList(qParams);

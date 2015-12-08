@@ -52,23 +52,6 @@ namespace CriticalPath.Web.Controllers
         }
 
         [Authorize(Roles = "admin, supervisor, clerk")]
-        public async Task<JsonResult> GetCustomersForAutoComplete(QueryParameters qParam)
-        {
-            var query = GetCustomerQuery()
-                        .Where(x => x.CompanyName.Contains(qParam.SearchString))
-                        .Take(qParam.PageSize);
-            var list = from x in query
-                       select new
-                       {
-                           id = x.Id,
-                           value = x.CompanyName,
-                           label = x.CompanyName //can be extended as x.Category.CategoryName + "/" + x.CompanyName,
-                       };
-
-            return Json(await list.ToListAsync(), JsonRequestBehavior.AllowGet);
-        }
-
-        [Authorize(Roles = "admin, supervisor, clerk")]
         public async Task<ActionResult> Details(int? id)  //GET: /Customers/Details/5
         {
             if (id == null)

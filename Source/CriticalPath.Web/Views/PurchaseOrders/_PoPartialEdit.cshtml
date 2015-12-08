@@ -1,48 +1,7 @@
 ﻿@using CriticalPath.Web.Models
 @using CriticalPath.Data
 @using CP.i8n
-@model PurchaseOrderVM
-
-<div class="form-group mt15">
-    @Html.LabelFor(model => model.PoNr, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
-    <div class="col-lg-5 col-md-6 col-sm-7">
-        @Html.TextBoxFor(m => m.PoNr, new { @class = "form-control", autocomplete = "off" })
-        @Html.ValidationMessageFor(m => m.PoNr, "", new { @class = "text-danger" })
-    </div>
-</div>
-
-@if (Model.IsApproved)
-{
-    @Html.HiddenFor(m => m.CustomerId)
-    <div class="row">
-        <label class="control-label col-lg-2 col-md-3 col-sm-3">
-            @Html.DisplayNameFor(model => model.Customer)
-        </label>
-        <div class="col-md-10 col-sm-9 fontSize150pc mt5">
-            @Html.DisplayFor(m => m.Customer.CompanyName)
-        </div>
-    </div>
-}
-else
-{
-    <div class="form-group">
-        @Html.LabelFor(model => model.CustomerId, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
-        <div class="col-lg-5 col-md-6 col-sm-7">
-            @Html.DropDownList("CustomerId", null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.CustomerId, "", new { @class = "text-danger" })
-        </div>
-    </div>
-}
-
-@Html.HiddenFor(m => m.ProductId)
-<div class="row">
-    <label class="control-label col-lg-2 col-md-3 col-sm-3">
-        @Html.DisplayNameFor(model => model.Product)
-    </label>
-    <div class="col-sm-9 fontSize150pc mt5 mb15">
-        @Html.DisplayFor(m => m.Product)
-    </div>
-</div>
+@model PurchaseOrderEditVM
 
 <div class="form-group">
     @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
@@ -83,7 +42,6 @@ else
         </div>
     </div>
 }
-@Html.Partial("_PoSizeRates")
 <div class="form-group mt20">
     @Html.LabelFor(model => model.Notes, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
     <div class="col-lg-5 col-md-6 col-sm-7">

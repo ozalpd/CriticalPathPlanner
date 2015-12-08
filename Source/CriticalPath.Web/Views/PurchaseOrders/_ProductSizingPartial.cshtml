@@ -1,7 +1,7 @@
 ﻿@using CriticalPath.Web.Models
 @using CriticalPath.Data
 @using CP.i8n
-@model PurchaseOrderCreateVM
+@model PurchaseOrderEditVM
 
 @Html.HiddenFor(m => m.SizeRate1Id)
 @Html.HiddenFor(m => m.SizeRate2Id)
@@ -18,7 +18,14 @@
 <div class="form-group">
     @Html.LabelFor(model => model.SizingStandardId, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
     <div class="col-lg-5 col-md-6 col-sm-7">
-        @Html.DropDownListFor(m => m.SizingStandardId, null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control" })
+        @if (Model.SizingStandardId > 0)
+        {
+            @Html.DropDownListFor(m => m.SizingStandardId, null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
+        }
+        else
+        {
+            @Html.DropDownListFor(m => m.SizingStandardId, null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control" })
+        }
         @Html.ValidationMessageFor(m => m.SizingStandardId, "", new { @class = "text-danger" })
     </div>
 </div>
@@ -100,10 +107,10 @@
     </div>
 </div>
 <div class="form-group">
-    @Html.LabelFor(model => model.SizeRatioDivisor, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+    @Html.Label(EntityStrings.SizeRatio, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
     <div class="col-lg-2 col-md-3 col-sm-3">
         <input id="SizeRatioDivisorDisplay" class="form-control text-right"
-                type="number" readonly="readonly" autocomplete="off" value="0" />
+               type="number" readonly="readonly" autocomplete="off" value="0" />
         @Html.HiddenFor(m => m.SizeRatioDivisor)
         @Html.ValidationMessageFor(m => m.SizeRatioDivisor, "", new { @class = "text-danger" })
     </div>
@@ -125,7 +132,7 @@
 
     function enableCaptions() {
         $.each(sizingCaptions, function(index, caption){
-            caption.prop('readonly', '');
+            caption.prop('disabled', false);
         });
     }
     function setSizingStandard(standardId) {
@@ -145,9 +152,7 @@
         $.each(sizingCaptions, function (index, caption) {
             caption.val('');
         });
-        $.each(sizingRates, function(index, rate){
-            rate.prop('readonly', 'readonly');
-        });
+        closeRates();
         if (selectedId != null && selectedId != '') {
             $.each(sizingStandards, function (index, standard) {
                 if (selectedId == standard.Id) {
@@ -172,7 +177,7 @@
             return;
         }
         var divisor = 0;
-        
+
         $.each(sizingRates, function(index, rate){
             rateVal = rate.val();
             if(rateVal!=null && rateVal!=''){
@@ -186,17 +191,34 @@
 
         $('#SizeRatioDivisor').val(divisor);
         $('#SizeRatioDivisorDisplay').val(divisor);
+        if(divisor>100){
+            $('#Quantity').val(divisor);
+        }
     }
     $(document).ready(function () {
+        @if (Model.IsApproved || Model.Cancelled)
+        {
+            @: closeRates();
+            @: $('#Quantity').prop('readonly', 'readonly');
+            @: $('#DiscountRate').prop('readonly', 'readonly');
+        }
+        else
+        {
+            @: initTextBoxes();
+        }
+        $('#Quantity').on('keydown', numbersOnly);
+    });
+    function closeRates(){
+        $.each(sizingRates, function(index, rate){
+            rate.prop('readonly', 'readonly');
+        });
+    }
+    function initTextBoxes(){
         $.each(sizingRates, function(index, rate){
             rate.on('keydown', numbersOnly);
             rate.on('keyup', calculateDivisor);
-            setSizingCaptions();
-            $('#UnitPrice').on('keydown', decNumbersOnly);
-            $('#Quantity').on('keydown', numbersOnly);
-        });
-        $.each(sizingRates,function(index, rate){
             rate.on('change', calculateDivisor);
         });
-    });
+        setSizingCaptions();
+    }
 </script>

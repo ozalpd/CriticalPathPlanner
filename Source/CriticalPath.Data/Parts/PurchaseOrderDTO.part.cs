@@ -8,12 +8,12 @@ namespace CriticalPath.Data
 {
     public partial class PurchaseOrderDTO : IIsApproved, IHasProduct, ICancelled, IAllPrice
     {
-        public ProductDTO Product { get; set; }
-
         partial void Initiliazing(PurchaseOrder entity)
         {
             Constructing(entity);
         }
+
+
 
         /// <summary>
         /// Constructing with a PurchaseOrder instance
@@ -21,44 +21,37 @@ namespace CriticalPath.Data
         /// <param name="entity">PurchaseOrder instance</param>
         protected virtual void Constructing(PurchaseOrder entity)
         {
-            if (entity.Product != null)
-            {
-                Product = new ProductDTO(entity.Product);
-            }
             foreach (var rate in entity.SizeRatios)
             {
-                SizeRates.Add(new SizeRatioDTO(rate));
+                SizeRatios.Add(new SizeRatioDTO(rate));
             }
         }
 
         partial void Converting(PurchaseOrder entity)
         {
-            if (Product != null)
-            {
-                entity.Product = Product.ToProduct();
-            }
-            foreach (var rate in SizeRates)
+            foreach (var rate in SizeRatios)
             {
                 entity.SizeRatios.Add(rate.ToSizeRatio());
             }
         }
 
 
-        public ICollection<SizeRatioDTO> SizeRates
+        public ICollection<SizeRatioDTO> SizeRatios
         {
-            set { _sizeRates = value; }
+            set { _sizeRatios = value; }
             get
             {
-                if (_sizeRates == null)
-                    InitSizeRates();
-                return _sizeRates;
+                if (_sizeRatios == null)
+                    InitSizeRatios();
+                return _sizeRatios;
             }
         }
-        private ICollection<SizeRatioDTO> _sizeRates;
+        private ICollection<SizeRatioDTO> _sizeRatios;
 
-        protected virtual void InitSizeRates()
+        protected virtual void InitSizeRatios()
         {
-            _sizeRates = new List<SizeRatioDTO>();
+            _sizeRatios = new List<SizeRatioDTO>();
         }
+
     }
 }

@@ -1,7 +1,7 @@
 ﻿@using CriticalPath.Web.Models
 @using CriticalPath.Data
 @using CP.i8n
-@model PurchaseOrderVM
+@model PurchaseOrderEditVM
 @{
     ViewBag.Title = ActionStrings.Approve;
 }
@@ -11,16 +11,95 @@
 {
     @Html.AntiForgeryToken()
     @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(m => m.CustomerId)
+    @Html.HiddenFor(m => m.ProductId)
+
     <div class="form-horizontal">
         <div class="form-group">
-            <label class="control-label col-lg-2 col-md-3 col-sm-3">
+            @Html.LabelFor(model => model.PoNr, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.TextBoxFor(m => m.PoNr, new { @class = "form-control", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.PoNr, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-2 col-md-3 col-sm-3 col-xs-3">
                 @Html.DisplayNameFor(model => model.OrderDate)
             </label>
-            <div class="col-sm-9 fontSize125pc mt10 mb10">
+            <div class="col-lg-1 col-md-1 col-sm-2 col-xs-3 mt10">
                 @Html.DisplayFor(m => m.OrderDate)
             </div>
         </div>
-        @Html.Partial("_PoPartialEdit")
+        <div class="form-group">
+            @Html.LabelFor(model => model.Customer, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.TextBoxFor(m => m.Customer.CompanyName, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.CustomerPoNr, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.TextBoxFor(m => m.CustomerPoNr, new { @class = "form-control", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.CustomerPoNr, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.DiscountRate, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-2 col-md-3 col-sm-3">
+                @{ Html.EnableClientValidation(false); }
+                @Html.EditorFor(m => m.DiscountRate, new { htmlAttributes = new { @class = "form-control text-right" } })
+                @{ Html.EnableClientValidation(true); }
+                @Html.ValidationMessageFor(m => m.DiscountRate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.FreightTermId, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.DropDownListFor(m => m.FreightTermId, null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.FreightTermId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Product.ProductCode, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.TextBoxFor(m => m.Product.ProductCode, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+        </div>
+
+        @Html.Partial("_AllPriceEdit", Model)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SupplierId, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.DropDownListFor(m => m.SupplierId, null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.SupplierId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.SupplierDueDate, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.EditorFor(m => m.SupplierDueDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(m => m.SupplierDueDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @Html.Partial("_ProductSizingPartial")
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.TextBoxFor(m => m.Description, new { @class = "form-control", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Notes, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.TextAreaFor(m => m.Notes, new { @class = "form-control", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.Notes, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
         <div class="form-group">
             <label class="control-label col-lg-2 col-md-3 col-sm-3">
                 @Html.DisplayNameFor(model => model.DueDate)
@@ -46,4 +125,4 @@
             </div>
         </div>
     </div>
-}
+                    }

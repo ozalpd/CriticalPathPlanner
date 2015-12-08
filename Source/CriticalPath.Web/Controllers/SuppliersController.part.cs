@@ -26,6 +26,32 @@ namespace CriticalPath.Web.Controllers
         }
 
         [Authorize]
+        public async Task<ActionResult> GetSupplierList(QueryParameters qParams)
+        {
+            List<SupplierDTO> result;
+            if (qParams.ProductId > 0)
+            {
+                result = new List<SupplierDTO>();
+                var product = await DataContext
+                                .Products
+                                .Include(p => p.Suppliers)
+                                .FirstOrDefaultAsync(p => p.Id == qParams.ProductId);
+                if (product != null)
+                {
+                    foreach (var supplier in product.Suppliers)
+                    {
+                        result.Add(new SupplierDTO(supplier));
+                    }
+                }
+            }
+            else
+            {
+                result = await GetSupplierDtoList(qParams);
+            }
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        [Authorize]
         public async Task<ActionResult> Index(QueryParameters qParams)
         {
             //qParams.PageSize = 20;
@@ -93,6 +119,11 @@ namespace CriticalPath.Web.Controllers
         {
             supplier.CountryId = 90;
             return base.SetSupplierDefaults(supplier);
+        }
+
+        public new partial class QueryParameters : BaseController.QueryParameters
+        {
+            public int ProductId { get; set; }
         }
     }
 }

@@ -18,6 +18,24 @@ namespace CriticalPath.Web.Controllers
     public partial class CustomersController
     {
 
+        [Authorize(Roles = "admin, supervisor, clerk")]
+        public async Task<JsonResult> GetCustomersForAutoComplete(QueryParameters qParam)
+        {
+            var query = GetCustomerQuery()
+                        .Where(x => x.CompanyName.Contains(qParam.SearchString))
+                        .Take(qParam.PageSize);
+            var list = from x in query
+                       select new
+                       {
+                           id = x.Id,
+                           value = x.CompanyName,
+                           label = x.CompanyName,
+                           DiscountRate = x.DiscountRate
+                       };
+
+            return Json(await list.ToListAsync(), JsonRequestBehavior.AllowGet);
+        }
+
         protected virtual async Task<List<CustomerDTO>> GetCustomerDtoList(QueryParameters qParams)
         {
             var query = await GetCustomerQuery(qParams);

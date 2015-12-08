@@ -233,6 +233,7 @@
     <Compile Include="Models\DiscontinuedVM.cs" />
     <Compile Include="Models\PurchaseOrderCancelVM.cs" />
     <Compile Include="Models\PurchaseOrderCreateVM.cs" />
+    <Compile Include="Models\PurchaseOrderEditVM.cs" />
     <Compile Include="Models\PurchaseOrderVM.cs" />
     <Compile Include="Models\SecurityRoles.g.cs" />
     <Compile Include="Models\SelectThemeVM.cs" />
@@ -534,7 +535,7 @@
     <Content Include="Views\Shared\DisplayTemplates\SizingStandard.cshtml" />
     <Content Include="Views\PurchaseOrders\_ProductSizingPartial.cshtml" />
     <Content Include="Views\Shared\_BaseLayout.cshtml" />
-    <Content Include="Views\PurchaseOrders\_PoSizeRates.cshtml" />
+    <Content Include="Views\PurchaseOrders\_PoSizeRatios.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\ContactDTO.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\CustomerDTO.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\ProductCategoryDTO.cshtml" />
