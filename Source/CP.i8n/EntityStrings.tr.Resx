@@ -551,6 +551,14 @@
 		<value>Döviz Sembolü</value>
 	</data>
 
+	<data name="CurrentStep" xml:space="preserve">
+		<value>Güncel Adım</value>
+	</data>
+
+	<data name="CurrentStepId" xml:space="preserve">
+		<value>Güncel Adım</value>
+	</data>
+
 	<data name="Customer" xml:space="preserve">
 		<value>Müşteri</value>
 	</data>
@@ -811,6 +819,10 @@
 		<value>Kayıt No</value>
 	</data>
 
+	<data name="IgnoreInRepeat" xml:space="preserve">
+		<value>Tekrarda Görme</value>
+	</data>
+
 	<data name="ImageUrl" xml:space="preserve">
 		<value>Resim Yolu</value>
 	</data>
@@ -829,6 +841,10 @@
 
 	<data name="IsPublished" xml:space="preserve">
 		<value>Yayında</value>
+	</data>
+
+	<data name="IsRepeat" xml:space="preserve">
+		<value>Tekrar</value>
 	</data>
 
 	<data name="LastName" xml:space="preserve">
@@ -893,6 +909,14 @@
 
 	<data name="ParentCategoryId" xml:space="preserve">
 		<value>Departman</value>
+	</data>
+
+	<data name="ParentPo" xml:space="preserve">
+		<value>Bağlı Sipariş</value>
+	</data>
+
+	<data name="ParentPoId" xml:space="preserve">
+		<value>Bağlı Sipariş</value>
 	</data>
 
 	<data name="Phone1" xml:space="preserve">

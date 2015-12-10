@@ -39,9 +39,94 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             await SeedProducts(sb);
             await DataContext.SaveChangesAsync(this);
 
+            await SeedPurchaseOrders(sb);
+            await DataContext.SaveChangesAsync(this);
+
             ViewBag.status = sb.ToString();
 
             return View("Index");
+        }
+
+        private async Task SeedPurchaseOrders(StringBuilder sb)
+        {
+            var count = await DataContext.PurchaseOrders.CountAsync();
+            if (count > 0)
+            {
+                sb.Append("Database has customer records already!<br>");
+                return;
+            }
+            var customers = await DataContext
+                                .Companies
+                                .OfType<Customer>()
+                                .Take(50)
+                                .ToArrayAsync();
+
+            var products = await DataContext.Products
+                            .OrderByDescending(p => p.RoyaltyFee)
+                            .ThenBy(p => p.ProductCode)
+                            .Take(50)
+                            .ToArrayAsync();
+
+            Random rnd = new Random(DateTime.Now.Millisecond);
+            var terms = await DataContext.FreightTerms.Where(f => f.IsPublished).ToArrayAsync();
+            var orderDate = DateTime.Now.Date.AddDays(-52);
+            var sizingStandard = await DataContext.SizingStandards.OrderByDescending(s => s.Sizings.Count).FirstOrDefaultAsync();
+
+            for (int i = 0; i < products.Length; i++)
+            {
+                orderDate =  orderDate.AddDays(1);
+                int year = orderDate.Year;
+                int month = orderDate.Month;
+
+                var c = customers[i % customers.Length];
+                var p = products[i];
+                var po = new PurchaseOrder()
+                {
+                    Customer = c,
+                    Product = p,
+                    DiscountRate = c.DiscountRate,
+                    BuyingCurrencyId = p.BuyingCurrencyId,
+                    BuyingPrice = p.BuyingPrice,
+                    FreightTermId = terms[i % terms.Length].Id,
+                    OrderDate = orderDate,
+                    PoNr = string.Format("{0}{1:D2}-{2:D4}", (year - 2000), month, i + 1),
+                    Quantity = rnd.Next(6, 40) * 10,
+                    RetailPrice = p.RetailPrice,
+                    UnitPrice = p.UnitPrice,
+                    RoyaltyFee = p.RoyaltyFee,
+                    RoyaltyCurrencyId = p.RoyaltyCurrencyId,
+                    RetailCurrencyId = p.RetailCurrencyId,
+                    SellingCurrencyId = p.SellingCurrencyId,
+                    SizingStandard = sizingStandard,
+                    SupplierId = p.Suppliers.FirstOrDefault().Id
+                };
+
+                int quantity = 0;
+                var sizings = sizingStandard.Sizings.OrderBy(s => s.DisplayOrder).ToList();
+                int k = 0;
+                foreach (var item in sizings)
+                {
+                    int ratio = po.Quantity / (Math.Abs((sizings.Count / 2) - k) + 1);
+                    if (ratio > 20)
+                    {
+                        quantity += ratio * 20;
+                        po.SizeRatios.Add(new SizeRatio()
+                        {
+                            Caption = item.Caption,
+                            DisplayOrder = item.DisplayOrder,
+                            Rate = ratio * 10
+                        });
+                    }
+                    k++;
+                }
+                po.Quantity = quantity;
+                po.SizeRatioDivisor = quantity;
+
+                DataContext.PurchaseOrders.Add(po);
+            }
+            sb.Append("<b>");
+            sb.Append(products.Length);
+            sb.Append(" PurchaseOrders</b> added<br>");
         }
 
         private async Task SeedCustomers(StringBuilder sb)
@@ -940,7 +1025,7 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             var currencies = await DataContext.Currencies.ToArrayAsync();
 
             int countCatg = 0;
-            ProductCategory catg1 = new ProductCategory() { CategoryName = "Women's Wear" };
+            ProductCategory catg1 = new ProductCategory() { CategoryName = "Ladies Wear" };
             countCatg = AddCategory(catg1, catgKadin, suppliers, currencies, sb, countCatg);
 
             ProductCategory catg2 = new ProductCategory() { CategoryName = "Men's Wear" };

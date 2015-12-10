@@ -17,7 +17,7 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
 {
     public partial class ProcessStepTemplatesController : BaseController 
     {
-        protected virtual IQueryable<ProcessStepTemplate> GetProcessStepTemplateQuery(QueryParameters qParams)
+        protected virtual async Task<IQueryable<ProcessStepTemplate>> GetProcessStepTemplateQuery(QueryParameters qParams)
         {
             var query = GetProcessStepTemplateQuery();
             if (!string.IsNullOrEmpty(qParams.SearchString))
@@ -32,27 +32,38 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 query = query.Where(x => x.ProcessTemplateId == qParams.ProcessTemplateId);
             }
 
-            return query;
+            qParams.TotalCount = await query.CountAsync();
+            return query.Skip(qParams.Skip).Take(qParams.PageSize);
+        }
+
+        protected virtual async Task<List<ProcessStepTemplateDTO>> GetProcessStepTemplateDtoList(QueryParameters qParams)
+        {
+            var query = await GetProcessStepTemplateQuery(qParams);
+            var list = qParams.TotalCount > 0 ? await query.ToListAsync() : new List<ProcessStepTemplate>();
+            var result = new List<ProcessStepTemplateDTO>();
+            foreach (var item in list)
+            {
+                result.Add(new ProcessStepTemplateDTO(item));
+            }
+
+            return result;
         }
 
         [Authorize]
         public async Task<ActionResult> Index(QueryParameters qParams)
         {
-            var query = GetProcessStepTemplateQuery(qParams);
-            qParams.TotalCount = await query.CountAsync();
-            PutPagerInViewBag(qParams);
+            var query = await GetProcessStepTemplateQuery(qParams);
             await PutCanUserInViewBag();
-
+			var result = new PagedList<ProcessStepTemplate>(qParams);
             if (qParams.TotalCount > 0)
             {
-                return View(await query.Skip(qParams.Skip).Take(qParams.PageSize).ToListAsync());
+                result.Items = await query.ToListAsync();
             }
-            else
-            {
-                return View(new List<ProcessStepTemplate>());   //there isn't any record, so no need to run a query
-            }
+
+            PutPagerInViewBag(result);
+            return View(result.Items);
         }
-        
+
         protected override async Task<bool> CanUserCreate()
         {
             if (!_canUserCreate.HasValue)
@@ -86,6 +97,41 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
         }
         bool? _canUserDelete;
 
+        
+        protected override Task<bool> CanUserSeeRestricted() { return Task.FromResult(true); }
+
+        [Authorize]
+        public async Task<ActionResult> GetProcessStepTemplateList(QueryParameters qParams)
+        {
+            var result = await GetProcessStepTemplateDtoList(qParams);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        [Authorize]
+        public async Task<ActionResult> GetProcessStepTemplatePagedList(QueryParameters qParams)
+        {
+            var items = await GetProcessStepTemplateDtoList(qParams);
+            var result = new PagedList<ProcessStepTemplateDTO>(qParams, items);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        [Authorize]
+        public async Task<JsonResult> GetProcessStepTemplatesForAutoComplete(QueryParameters qParam)
+        {
+            var query = GetProcessStepTemplateQuery()
+                        .Where(x => x.Title.Contains(qParam.SearchString))
+                        .Take(qParam.PageSize);
+            var list = from x in query
+                       select new
+                       {
+                           id = x.Id,
+                           value = x.Title,
+                           label = x.Title //can be extended as x.Category.CategoryName + "/" + x.Title,
+                       };
+
+            return Json(await list.ToListAsync(), JsonRequestBehavior.AllowGet);
+        }
+
         [Authorize]
         public async Task<ActionResult> Details(int? id)  //GET: /ProcessStepTemplates/Details/5
         {
@@ -100,7 +146,25 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 return HttpNotFound();
             }
 
+            await PutCanUserInViewBag();
             return View(processStepTemplate);
+        }
+
+        [Authorize]
+        public async Task<ActionResult> GetProcessStepTemplate(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ProcessStepTemplate processStepTemplate = await FindAsyncProcessStepTemplate(id.Value);
+
+            if (processStepTemplate == null)
+            {
+                return HttpNotFound();
+            }
+
+            return Json(new ProcessStepTemplateDTO(processStepTemplate), JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
@@ -113,7 +177,7 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 var processTemplate = await FindAsyncProcessTemplate(processTemplateId.Value);
                 if (processTemplate == null)
                     return HttpNotFound();
-                processStepTemplate.ProcessTemplateId = processTemplate.Id;
+                processStepTemplate.ProcessTemplate = processTemplate;
             }
             await SetProcessStepTemplateDefaults(processStepTemplate);
             SetSelectLists(processStepTemplate);
@@ -123,7 +187,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
         [HttpPost]
         [Authorize(Roles = "admin")]
         [ValidateAntiForgeryToken]
-        [Route("ProcessStepTemplates/Create/{processTemplateId:int?}")]
         public async Task<ActionResult> Create(int? processTemplateId, ProcessStepTemplate processStepTemplate)  //POST: /ProcessStepTemplates/Create
         {
             DataContext.SetInsertDefaults(processStepTemplate, this);
@@ -219,11 +282,37 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
 
         public new partial class QueryParameters : BaseController.QueryParameters
         {
+            public QueryParameters() { }
+            public QueryParameters(QueryParameters parameters) : base(parameters)
+            {
+                ProcessTemplateId = parameters.ProcessTemplateId;
+            }
             public int? ProcessTemplateId { get; set; }
         }
 
+        public partial class PagedList<T> : QueryParameters
+        {
+            public PagedList() { }
+            public PagedList(QueryParameters parameters) : base(parameters) { }
+            public PagedList(QueryParameters parameters, IEnumerable<T> items) : this(parameters)
+            {
+                Items = items;
+            }
 
-        //Partial methods
+            public IEnumerable<T> Items
+            {
+                set { _items = value; }
+                get
+                {
+                    if (_items == null)
+                    {
+                        _items = new List<T>();
+                    }
+                    return _items;
+                }
+            }
+            IEnumerable<T> _items;
+        }
         partial void OnCreateSaving(ProcessStepTemplate processStepTemplate);
         partial void OnCreateSaved(ProcessStepTemplate processStepTemplate);
         partial void OnEditSaving(ProcessStepTemplate processStepTemplate);

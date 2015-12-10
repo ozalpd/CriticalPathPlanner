@@ -42,6 +42,12 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "DueDate")]
             public DateTime DueDate { get; set; }
 
+            [Display(ResourceType = typeof(EntityStrings), Name = "IsRepeat")]
+            public bool IsRepeat { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "ParentPoId")]
+            public int ParentPoId { get; set; }
+
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Display(ResourceType = typeof(EntityStrings), Name = "ProductId")]
             public int ProductId { get; set; }
@@ -52,6 +58,7 @@ namespace CriticalPath.Data
             public string Description { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Range(1,1000000)]
             [Display(ResourceType = typeof(EntityStrings), Name = "Quantity")]
             public int Quantity { get; set; }
 
@@ -60,6 +67,7 @@ namespace CriticalPath.Data
             public decimal DiscountRate { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Range(1,1000000)]
             [Display(ResourceType = typeof(EntityStrings), Name = "UnitPrice")]
             public decimal UnitPrice { get; set; }
 
@@ -110,7 +118,7 @@ namespace CriticalPath.Data
             public int SizingStandardId { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Range(6,1000000)]
+            [Range(1,1000000)]
             [Display(ResourceType = typeof(EntityStrings), Name = "SizeRatioDivisor")]
             public int SizeRatioDivisor { get; set; }
 

@@ -741,6 +741,14 @@
     <Translation>Currency Symbol</Translation>
   </Vocab>
   <Vocab>
+    <Name>CurrentStep</Name>
+    <Translation>Current Step</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CurrentStepId</Name>
+    <Translation>Current Step Id</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Customer</Name>
     <Translation>Customer</Translation>
   </Vocab>
@@ -1149,6 +1157,10 @@
     <Translation>Record Nr</Translation>
   </Vocab>
   <Vocab>
+    <Name>IgnoreInRepeat</Name>
+    <Translation>Ignore In Repeat</Translation>
+  </Vocab>
+  <Vocab>
     <Name>ImageFile</Name>
     <Translation>Image File</Translation>
   </Vocab>
@@ -1199,6 +1211,10 @@
   <Vocab>
     <Name>IsPublished</Name>
     <Translation>Is Published</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>IsRepeat</Name>
+    <Translation>Is Repeat</Translation>
   </Vocab>
   <Vocab>
     <Name>Lastname</Name>
@@ -1375,6 +1391,14 @@
   <Vocab>
     <Name>ParentCategoryId</Name>
     <Translation>Department</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ParentPo</Name>
+    <Translation>Parent Po</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ParentPoId</Name>
+    <Translation>Parent Po Id</Translation>
   </Vocab>
   <Vocab>
     <Name>Password</Name>
@@ -1679,6 +1703,10 @@
   <Vocab>
     <Name>RemoveSupplier</Name>
     <Translation>Remove Supplier</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Repeat</Name>
+    <Translation>Repeat</Translation>
   </Vocab>
   <Vocab>
     <Name>RequiredWorkDays</Name>

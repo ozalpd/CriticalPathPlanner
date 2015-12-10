@@ -9,6 +9,8 @@ CREATE TABLE [dbo].[PurchaseOrders](
     [PoNr] [nVarChar](64) Not Null,
     [OrderDate] [DateTime] Not Null,
     [DueDate] [DateTime] Null,
+    [IsRepeat] [bit] Not Null,
+    [ParentPoId] [int] Null Constraint FK_PurchaseOrder_ParentPoId Foreign Key References [dbo].[PurchaseOrders]([Id]),
     [ProductId] [int] Not Null Constraint FK_PurchaseOrder_ProductId Foreign Key References [dbo].[Products]([Id]),
     [Description] [nVarChar](256) Null,
     [Quantity] [int] Not Null,
@@ -59,6 +61,8 @@ Create Nonclustered Index [idx_PurchaseOrders_OrderDate] On [dbo].[PurchaseOrder
 Go
 Create Nonclustered Index [idx_PurchaseOrders_DueDate] On [dbo].[PurchaseOrders]([DueDate] Asc)
 Go
+Create Nonclustered Index [idx_PurchaseOrders_ParentPoId] On [dbo].[PurchaseOrders]([ParentPoId] Asc)
+Go
 Create Nonclustered Index [idx_PurchaseOrders_ProductId] On [dbo].[PurchaseOrders]([ProductId] Asc)
 Go
 Create Nonclustered Index [idx_PurchaseOrders_Description] On [dbo].[PurchaseOrders]([Description] Asc)
@@ -66,6 +70,8 @@ Go
 Create Nonclustered Index [idx_PurchaseOrders_CustomerId] On [dbo].[PurchaseOrders]([CustomerId] Asc)
 Go
 Create Nonclustered Index [idx_PurchaseOrders_CustomerPoNr] On [dbo].[PurchaseOrders]([CustomerPoNr] Asc)
+Go
+Create Nonclustered Index [idx_PurchaseOrders_SupplierId] On [dbo].[PurchaseOrders]([SupplierId] Asc)
 Go
 Create Nonclustered Index [idx_PurchaseOrders_Cancelled] On [dbo].[PurchaseOrders]([Cancelled] Asc)
 Go

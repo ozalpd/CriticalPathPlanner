@@ -101,10 +101,67 @@ namespace CriticalPath.Web.Controllers
             ViewBag.ProcessTemplateId = new SelectList(templates, "Id", "TemplateName", processTemplateId);
         }
 
-        partial void OnCreateSaving(Process process)
+        [HttpGet]
+        [Authorize(Roles = "admin, supervisor, clerk")]
+        [Route("Processes/Create/{purchaseOrderId:int?}")]
+        public async Task<ActionResult> Create(int? purchaseOrderId)  //GET: /Processes/Create
         {
-            var queryTemplate = GetProcessStepTemplateQuery();
+            var process = new Process();
+            if (purchaseOrderId != null)
+            {
+                var purchaseOrder = await FindAsyncPurchaseOrder(purchaseOrderId.Value);
+                if (purchaseOrder == null)
+                    return HttpNotFound();
+                process.PurchaseOrder = purchaseOrder;
+            }
+            await SetProcessDefaults(process);
+            await SetProcessTemplateSelectList(process);
+            return View(process);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "admin, supervisor, clerk")]
+        [ValidateAntiForgeryToken]
+        [Route("Processes/Create/{purchaseOrderId:int?}")]
+        public async Task<ActionResult> Create(int? purchaseOrderId, Process process)  //POST: /Processes/Create
+        {
+            DataContext.SetInsertDefaults(process, this);
+
+            if (ModelState.IsValid)
+            {
+                await OnCreateSaving(process);
+
+                DataContext.Processes.Add(process);
+                await DataContext.SaveChangesAsync(this);
+
+                await OnCreateSaved(process);
+                return RedirectToAction("Index", "ProcessSteps", new { processId = process.Id, pageSize = process.ProcessSteps.Count });
+            }
+
+            await SetProcessTemplateSelectList(process);
+            return View(process);
+        }
+
+        async Task OnCreateSaved(Process process)
+        {
+            var currentStep = process
+                                .ProcessSteps
+                                .OrderBy(s => s.DisplayOrder)
+                                .FirstOrDefault();
+            if (currentStep != null)
+            {
+                process.CurrentStepId = currentStep.Id;
+                await DataContext.SaveChangesAsync(this);
+            }
+        }
+
+        async Task OnCreateSaving(Process process)
+        {
+            var queryTemplate = GetProcessStepTemplateQuery()
+                                .Where(s => s.ProcessTemplateId == process.ProcessTemplateId)
+                                .OrderBy(s => s.DisplayOrder);
             DateTime startDate = process.StartDate;
+            var templates = await queryTemplate.ToListAsync();
             foreach (var template in queryTemplate)
             {
                 var step = new ProcessStep()
@@ -112,7 +169,7 @@ namespace CriticalPath.Web.Controllers
                     Title = template.Title,
                     DisplayOrder = template.DisplayOrder,
                     TemplateId = template.Id,
-                    TargetDate = startDate
+                    TargetDate = template.RequiredWorkDays > 0 ? startDate : process.StartDate
                 };
                 startDate =  startDate.AddDays(template.RequiredWorkDays);
                 process.ProcessSteps.Add(step);

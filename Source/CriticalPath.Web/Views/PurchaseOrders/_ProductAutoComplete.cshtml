@@ -43,7 +43,6 @@
             setSelectListID('#RoyaltyCurrencyId > option', ui.item.RoyaltyCurrencyId);
             $('#RetailPrice').val(fixDecimalVal(ui.item.RetailPrice));
             setSelectListID('#RetailCurrencyId > option', ui.item.RetailCurrencyId);
-            console.log('select');
 
             if (productId != null && productId != '') {
                 $.getJSON('/Suppliers/GetSupplierList', { productId: productId, pageSize: 100 }, function (suppliers) {

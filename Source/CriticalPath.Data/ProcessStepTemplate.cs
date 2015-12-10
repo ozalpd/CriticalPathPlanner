@@ -25,6 +25,7 @@ namespace CriticalPath.Data
         public int DisplayOrder { get; set; }
         public int ProcessTemplateId { get; set; }
         public int RequiredWorkDays { get; set; }
+        public bool IgnoreInRepeat { get; set; }
         public int ModifyNr { get; set; }
         public System.DateTime ModifyDate { get; set; }
         public string ModifierId { get; set; }
@@ -50,6 +51,7 @@ namespace CriticalPath.Data
             clone.DisplayOrder = DisplayOrder;
             clone.ProcessTemplateId = ProcessTemplateId;
             clone.RequiredWorkDays = RequiredWorkDays;
+            clone.IgnoreInRepeat = IgnoreInRepeat;
             clone.ModifyNr = ModifyNr;
             clone.ModifyDate = ModifyDate;
             clone.ModifierId = ModifierId;
@@ -80,6 +82,7 @@ namespace CriticalPath.Data
             DisplayOrder = entity.DisplayOrder;
             ProcessTemplateId = entity.ProcessTemplateId;
             RequiredWorkDays = entity.RequiredWorkDays;
+            IgnoreInRepeat = entity.IgnoreInRepeat;
         
             Initiliazing(entity);
         }
@@ -94,6 +97,7 @@ namespace CriticalPath.Data
             entity.DisplayOrder = DisplayOrder;
             entity.ProcessTemplateId = ProcessTemplateId;
             entity.RequiredWorkDays = RequiredWorkDays;
+            entity.IgnoreInRepeat = IgnoreInRepeat;
     
             Converting(entity);
     
@@ -107,5 +111,6 @@ namespace CriticalPath.Data
         public int DisplayOrder { get; set; }
         public int ProcessTemplateId { get; set; }
         public int RequiredWorkDays { get; set; }
+        public bool IgnoreInRepeat { get; set; }
     }
 }

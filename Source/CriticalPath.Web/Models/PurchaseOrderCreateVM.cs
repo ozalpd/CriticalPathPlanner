@@ -20,6 +20,10 @@ namespace CriticalPath.Web.Models
             {
                 CustomerName = Customer.CompanyName;
             }
+            if (Product != null)
+            {
+                ProductCode = entity.Product.ProductCode;
+            }
         }
 
         [StringLength(64, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
@@ -30,5 +34,8 @@ namespace CriticalPath.Web.Models
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
         [Display(ResourceType = typeof(EntityStrings), Name = "Customer")]
         public string CustomerName { get; set; }
+
+        [Display(Name = "Repeat of")]
+        public string ParentPoNr { get; set; }
     }
 }

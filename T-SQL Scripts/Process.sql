@@ -11,6 +11,7 @@ CREATE TABLE [dbo].[Processes](
     [IsCompleted] [bit] Not Null,
     [Cancelled] [bit] Not Null,
     [ProcessTemplateId] [int] Not Null Constraint FK_Process_ProcessTemplateId Foreign Key References [dbo].[ProcessTemplates]([Id]),
+    [CurrentStepId] [int] Null,
     [StartDate] [DateTime] Not Null,
     [TargetDate] [DateTime] Not Null,
     [ForecastDate] [DateTime] Null,

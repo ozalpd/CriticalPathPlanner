@@ -19,12 +19,15 @@ namespace CriticalPath.Data
         {
             this.Processes = new HashSet<Process>();
             this.SizeRatios = new HashSet<SizeRatio>();
+            this.SubOrders = new HashSet<PurchaseOrder>();
         }
     
         public int Id { get; set; }
         public string PoNr { get; set; }
         public System.DateTime OrderDate { get; set; }
         public Nullable<System.DateTime> DueDate { get; set; }
+        public bool IsRepeat { get; set; }
+        public Nullable<int> ParentPoId { get; set; }
         public string Description { get; set; }
         public int CustomerId { get; set; }
         public string CustomerPoNr { get; set; }
@@ -79,6 +82,9 @@ namespace CriticalPath.Data
         public virtual Currency RetailCurrency { get; set; }
         public virtual Currency RoyaltyCurrency { get; set; }
         public virtual Currency SellingCurrency { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PurchaseOrder> SubOrders { get; set; }
+        public virtual PurchaseOrder ParentPo { get; set; }
     	/// <summary>
     	/// Clones all properties in a new PurchaseOrder instance,
     	/// except PrimaryKey(s)
@@ -90,6 +96,8 @@ namespace CriticalPath.Data
             clone.PoNr = PoNr;
             clone.OrderDate = OrderDate;
             clone.DueDate = DueDate;
+            clone.IsRepeat = IsRepeat;
+            clone.ParentPoId = ParentPoId;
             clone.Description = Description;
             clone.CustomerId = CustomerId;
             clone.CustomerPoNr = CustomerPoNr;
@@ -148,6 +156,8 @@ namespace CriticalPath.Data
             PoNr = entity.PoNr;
             OrderDate = entity.OrderDate;
             DueDate = entity.DueDate;
+            IsRepeat = entity.IsRepeat;
+            ParentPoId = entity.ParentPoId;
             Description = entity.Description;
             CustomerId = entity.CustomerId;
             CustomerPoNr = entity.CustomerPoNr;
@@ -186,6 +196,8 @@ namespace CriticalPath.Data
             entity.PoNr = PoNr;
             entity.OrderDate = OrderDate;
             entity.DueDate = DueDate;
+            entity.IsRepeat = IsRepeat;
+            entity.ParentPoId = ParentPoId;
             entity.Description = Description;
             entity.CustomerId = CustomerId;
             entity.CustomerPoNr = CustomerPoNr;
@@ -223,6 +235,8 @@ namespace CriticalPath.Data
         public string PoNr { get; set; }
         public System.DateTime OrderDate { get; set; }
         public Nullable<System.DateTime> DueDate { get; set; }
+        public bool IsRepeat { get; set; }
+        public Nullable<int> ParentPoId { get; set; }
         public string Description { get; set; }
         public int CustomerId { get; set; }
         public string CustomerPoNr { get; set; }

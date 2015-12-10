@@ -30,6 +30,9 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "DisplayOrder")]
             public int DisplayOrder { get; set; }
 
+            [Display(ResourceType = typeof(EntityStrings), Name = "IgnoreInRepeat")]
+            public bool IgnoreInRepeat { get; set; }
+
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Display(ResourceType = typeof(EntityStrings), Name = "ProcessTemplateId")]
             public int ProcessTemplateId { get; set; }

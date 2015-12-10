@@ -110,7 +110,9 @@ namespace CriticalPath.Data
         {
             return base.GetPurchaseOrderQuery()
                     .OrderByDescending(po => po.OrderDate)
-                    .ThenByDescending(po => po.ApproveDate);
+                    .ThenByDescending(po => po.ApproveDate)
+                    .ThenBy(po => po.PoNr)
+                    .ThenByDescending(po => po.Id);
         }
 
         public async Task<ProductCategory> FindProductCategory(int id)

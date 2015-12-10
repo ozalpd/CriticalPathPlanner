@@ -75,7 +75,12 @@
                                     </a>
                                 </li>
                             }
-                            @if (!item.Cancelled && canUserCancelPO && !item.IsApproved && canUserApprove)
+                            @if (canUserCreate)
+                            {
+                                <li class="divider"></li>
+                                <li>@Html.ActionLink(ActionStrings.Repeat, "Repeat", new { id = item.Id })</li>
+                            }
+                            @if ((!item.Cancelled && canUserCancelPO) || (!item.IsApproved && canUserApprove))
                             {
                                 <li class="divider"></li>
                             }

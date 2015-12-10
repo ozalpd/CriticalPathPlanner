@@ -9,7 +9,7 @@
     var toggleFunction = "toggle" + ViewData.TemplateInfo.HtmlFieldPrefix + "()";
 }
 @Html.HiddenFor(model => model)
-<span id="true-@htmlField" style="font-size:28px;cursor:pointer;" class="glyphicon @yesSelected" onclick='@toggleFunction'></span>
+<span id="true-@htmlField" style="font-size:200%;line-height:120%;cursor:pointer;" class="glyphicon @yesSelected" onclick='@toggleFunction'></span>
 <script>
     function @toggleFunction {
         var current = $('#@htmlField').val();

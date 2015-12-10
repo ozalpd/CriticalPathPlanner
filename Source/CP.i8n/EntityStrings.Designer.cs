@@ -484,7 +484,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add/Remove Product Category.
+        ///   Looks up a localized string similar to Add/Remove Department/Group.
         /// </summary>
         public static string AddRemoveProductCategory {
             get {
@@ -763,7 +763,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Category.
+        ///   Looks up a localized string similar to Department/Group.
         /// </summary>
         public static string CategoryId {
             get {
@@ -889,7 +889,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Country Id.
+        ///   Looks up a localized string similar to Country.
         /// </summary>
         public static string CountryId {
             get {
@@ -1164,6 +1164,24 @@ namespace CP.i8n {
         public static string CurrencySymbol {
             get {
                 return ResourceManager.GetString("CurrencySymbol", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current Step.
+        /// </summary>
+        public static string CurrentStep {
+            get {
+                return ResourceManager.GetString("CurrentStep", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current Step Id.
+        /// </summary>
+        public static string CurrentStepId {
+            get {
+                return ResourceManager.GetString("CurrentStepId", resourceCulture);
             }
         }
         
@@ -1465,7 +1483,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Discount Rate.
+        ///   Looks up a localized string similar to Discount (%).
         /// </summary>
         public static string DiscountRate {
             get {
@@ -1753,6 +1771,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ignore In Repeat.
+        /// </summary>
+        public static string IgnoreInRepeat {
+            get {
+                return ResourceManager.GetString("IgnoreInRepeat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Image Url.
         /// </summary>
         public static string ImageUrl {
@@ -1794,6 +1821,15 @@ namespace CP.i8n {
         public static string IsPublished {
             get {
                 return ResourceManager.GetString("IsPublished", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is Repeat.
+        /// </summary>
+        public static string IsRepeat {
+            get {
+                return ResourceManager.GetString("IsRepeat", resourceCulture);
             }
         }
         
@@ -1938,6 +1974,24 @@ namespace CP.i8n {
         public static string ParentCategoryId {
             get {
                 return ResourceManager.GetString("ParentCategoryId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parent Po.
+        /// </summary>
+        public static string ParentPo {
+            get {
+                return ResourceManager.GetString("ParentPo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parent Po Id.
+        /// </summary>
+        public static string ParentPoId {
+            get {
+                return ResourceManager.GetString("ParentPoId", resourceCulture);
             }
         }
         

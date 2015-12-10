@@ -54,6 +54,12 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "ProcessTemplateId")]
             public int ProcessTemplateId { get; set; }
 
+            [Display(ResourceType = typeof(EntityStrings), Name = "CurrentStepId")]
+            public int CurrentStepId { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "CurrentStep")]
+            public ProcessStep CurrentStep { get; set; }
+
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [DataType(DataType.Date)]
             [Display(ResourceType = typeof(EntityStrings), Name = "StartDate")]

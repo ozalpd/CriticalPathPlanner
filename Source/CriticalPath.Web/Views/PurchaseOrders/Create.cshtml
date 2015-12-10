@@ -17,6 +17,18 @@
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.Id)
         @Html.HiddenFor(m => m.CustomerId)
+        @Html.HiddenFor(m => m.IsRepeat)
+        @Html.HiddenFor(m => m.ParentPoId)
+
+        @if (Model.IsRepeat)
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.ParentPoNr, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+                <div class="col-lg-5 col-md-6 col-sm-7">
+                    @Html.TextBoxFor(m => m.ParentPoNr, new { @class = "form-control", autocomplete = "off", @readonly = "readonly" })
+                </div>
+            </div>
+        }
 
         <div class="form-group">
             @Html.LabelFor(model => model.PoNr, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
@@ -92,7 +104,21 @@
             </div>
         </div>
 
-        @Html.Partial("_ProductAutoComplete")
+        @if (Model.Product == null)
+        {
+            @Html.Partial("_ProductAutoComplete")
+        }
+        else
+        {
+            @Html.HiddenFor(m => m.ProductId)
+            <div class="form-group">
+                @Html.LabelFor(model => model.ProductCode, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+                <div class="col-lg-5 col-md-6 col-sm-7">
+                    @Html.EditorFor(m => m.ProductCode, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                    @Html.ValidationMessageFor(m => m.SupplierId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
         @Html.Partial("_AllPriceEdit", Model)
 
         <div class="form-group">
@@ -103,13 +129,13 @@
             </div>
         </div>
         @*
-    <div class="form-group">
-        @Html.LabelFor(model => model.SupplierDueDate, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
-        <div class="col-lg-5 col-md-6 col-sm-7">
-            @Html.EditorFor(m => m.SupplierDueDate, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(m => m.SupplierDueDate, "", new { @class = "text-danger" })
-        </div>
-    </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.SupplierDueDate, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+                <div class="col-lg-5 col-md-6 col-sm-7">
+                    @Html.EditorFor(m => m.SupplierDueDate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.SupplierDueDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
         *@
         @Html.Partial("_ProductSizingPartial")
 

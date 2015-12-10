@@ -741,6 +741,14 @@
     <Translation>Döviz Sembolü</Translation>
   </Vocab>
   <Vocab>
+    <Name>CurrentStep</Name>
+    <Translation>Güncel Adım</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CurrentStepId</Name>
+    <Translation>Güncel Adım</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Customer</Name>
     <Translation>Müşteri</Translation>
   </Vocab>
@@ -898,7 +906,7 @@
   </Vocab>
   <Vocab>
     <Name>Discontinue</Name>
-    <Translation>Discontinue</Translation>
+    <Translation>Sonlandır</Translation>
   </Vocab>
   <Vocab>
     <Name>Discontinued</Name>
@@ -1149,6 +1157,10 @@
     <Translation>Kayıt No</Translation>
   </Vocab>
   <Vocab>
+    <Name>IgnoreInRepeat</Name>
+    <Translation>Tekrarda Görme</Translation>
+  </Vocab>
+  <Vocab>
     <Name>ImageFile</Name>
     <Translation>Resim Dosyası</Translation>
   </Vocab>
@@ -1199,6 +1211,10 @@
   <Vocab>
     <Name>IsPublished</Name>
     <Translation>Yayında</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>IsRepeat</Name>
+    <Translation>Tekrar</Translation>
   </Vocab>
   <Vocab>
     <Name>Lastname</Name>
@@ -1375,6 +1391,14 @@
   <Vocab>
     <Name>ParentCategoryId</Name>
     <Translation>Departman</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ParentPo</Name>
+    <Translation>Bağlı Sipariş</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ParentPoId</Name>
+    <Translation>Bağlı Sipariş</Translation>
   </Vocab>
   <Vocab>
     <Name>Password</Name>
@@ -1679,6 +1703,10 @@
   <Vocab>
     <Name>RemoveSupplier</Name>
     <Translation>Tedarikçiyi Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Repeat</Name>
+    <Translation>Tekrarla</Translation>
   </Vocab>
   <Vocab>
     <Name>RequiredWorkDays</Name>

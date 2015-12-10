@@ -67,6 +67,7 @@
     <Compile Include="Country.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="CriticalPathContext.utils.cs" />
     <Compile Include="Parts\CountryDTO.part.cs" />
     <Compile Include="CriticalPathContext.static.cs" />
     <Compile Include="Currency.cs">

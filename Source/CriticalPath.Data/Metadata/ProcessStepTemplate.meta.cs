@@ -30,17 +30,20 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "DisplayOrder")]
             public int DisplayOrder { get; set; }
 
+            [Display(ResourceType = typeof(EntityStrings), Name = "IgnoreInRepeat")]
+            public bool IgnoreInRepeat { get; set; }
+
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Display(ResourceType = typeof(EntityStrings), Name = "ProcessTemplateId")]
             public int ProcessTemplateId { get; set; }
-
-            [Display(ResourceType = typeof(EntityStrings), Name = "ProcessTemplate")]
-            public ProcessTemplate ProcessTemplate { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Range(0,1000)]
             [Display(ResourceType = typeof(EntityStrings), Name = "RequiredWorkDays")]
             public int RequiredWorkDays { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "ProcessTemplate")]
+            public ProcessTemplate ProcessTemplate { get; set; }
 
             [Display(ResourceType = typeof(EntityStrings), Name = "ModifiedUser")]
             public AspNetUser ModifiedUser { get; set; }

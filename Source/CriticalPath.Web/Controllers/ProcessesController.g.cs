@@ -162,47 +162,6 @@ namespace CriticalPath.Web.Controllers
             return Json(new ProcessDTO(process), JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet]
-        [Authorize(Roles = "admin, supervisor, clerk")]
-        [Route("Processes/Create/{purchaseOrderId:int?}")]
-        public async Task<ActionResult> Create(int? purchaseOrderId)  //GET: /Processes/Create
-        {
-            var process = new Process();
-            if (purchaseOrderId != null)
-            {
-                var purchaseOrder = await FindAsyncPurchaseOrder(purchaseOrderId.Value);
-                if (purchaseOrder == null)
-                    return HttpNotFound();
-                process.PurchaseOrder = purchaseOrder;
-            }
-            await SetProcessDefaults(process);
-            await SetProcessTemplateSelectList(process);
-            return View(process);
-        }
-
-        [HttpPost]
-        [Authorize(Roles = "admin, supervisor, clerk")]
-        [ValidateAntiForgeryToken]
-        [Route("Processes/Create/{purchaseOrderId:int?}")]
-        public async Task<ActionResult> Create(int? purchaseOrderId, Process process)  //POST: /Processes/Create
-        {
-            DataContext.SetInsertDefaults(process, this);
-
-            if (ModelState.IsValid)
-            {
-                OnCreateSaving(process);
- 
-                DataContext.Processes.Add(process);
-                await DataContext.SaveChangesAsync(this);
- 
-                OnCreateSaved(process);
-                return RedirectToAction("Index", "ProcessSteps", new { processId = process.Id, pageSize = process.ProcessSteps.Count });
-            }
-
-            await SetProcessTemplateSelectList(process);
-            return View(process);
-        }
-
         [Authorize(Roles = "admin, supervisor, clerk")]
         public async Task<ActionResult> Edit(int? id)  //GET: /Processes/Edit/5
         {
@@ -278,8 +237,6 @@ namespace CriticalPath.Web.Controllers
             }
             IEnumerable<T> _items;
         }
-        partial void OnCreateSaving(Process process);
-        partial void OnCreateSaved(Process process);
         partial void OnEditSaving(Process process);
         partial void OnEditSaved(Process process);
     }

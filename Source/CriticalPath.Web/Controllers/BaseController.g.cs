@@ -25,12 +25,17 @@ namespace CriticalPath.Web.Controllers
     {
         public partial class QueryParameters
         {
-            public QueryParameters() { }
+            public QueryParameters() { Constructing(); }
+            protected virtual void Constructing()
+            {
+                Page = 1;
+                PageSize = 10;
+            }
+
             public QueryParameters(QueryParameters parameters)
             {
                 Constructing(parameters);
             }
-
             protected virtual void Constructing(QueryParameters parameters)
             {
                 Page = parameters.Page;
@@ -40,8 +45,8 @@ namespace CriticalPath.Web.Controllers
             }
 
             public string SearchString { get; set; }
-            public int Page { get; set; } = 1;
-            public int PageSize { get; set; } = 10;
+            public int Page { get; set; }
+            public int PageSize { get; set; }
             public int PageCount
             {
                 get

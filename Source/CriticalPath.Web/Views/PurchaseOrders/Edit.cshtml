@@ -14,6 +14,7 @@
         @Html.HiddenFor(model => model.Id)
         @Html.HiddenFor(m => m.CustomerId)
         @Html.HiddenFor(m => m.ProductId)
+        @Html.HiddenFor(m => m.ParentPoId)
 
         @if (Model.Cancelled)
         {

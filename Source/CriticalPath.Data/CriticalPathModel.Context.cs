@@ -460,6 +460,7 @@ namespace CriticalPath.Data
                        Description = e.Description,
                        ProcessTemplateId = e.ProcessTemplateId,
                        PurchaseOrderId = e.PurchaseOrderId,
+                       CurrentStepId = e.CurrentStepId,
                        StartDate = e.StartDate,
                        TargetDate = e.TargetDate,
                        ForecastDate = e.ForecastDate,
@@ -552,6 +553,7 @@ namespace CriticalPath.Data
                        DisplayOrder = e.DisplayOrder,
                        ProcessTemplateId = e.ProcessTemplateId,
                        RequiredWorkDays = e.RequiredWorkDays,
+                       IgnoreInRepeat = e.IgnoreInRepeat,
                    };
         }
     
@@ -713,6 +715,8 @@ namespace CriticalPath.Data
                        PoNr = e.PoNr,
                        OrderDate = e.OrderDate,
                        DueDate = e.DueDate,
+                       IsRepeat = e.IsRepeat,
+                       ParentPoId = e.ParentPoId,
                        Description = e.Description,
                        CustomerId = e.CustomerId,
                        CustomerPoNr = e.CustomerPoNr,

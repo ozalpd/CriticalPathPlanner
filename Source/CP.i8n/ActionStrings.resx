@@ -187,6 +187,10 @@
 		<value>Remove</value>
 	</data>
 
+	<data name="Repeat" xml:space="preserve">
+		<value>Repeat</value>
+	</data>
+
 	<data name="Save" xml:space="preserve">
 		<value>Save</value>
 	</data>

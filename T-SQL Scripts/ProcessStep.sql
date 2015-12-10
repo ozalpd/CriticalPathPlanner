@@ -10,7 +10,7 @@ CREATE TABLE [dbo].[ProcessSteps](
     [Description] [nVarChar](256) Null,
     [IsCompleted] [bit] Not Null,
     [DisplayOrder] [int] Not Null,
-    [ProcessId] [int] Not Null Constraint FK_ProcessStep_ProcessId Foreign Key References [dbo].[Processes]([Id]),
+    [ProcessId] [int] Not Null,
     [TargetDate] [DateTime] Not Null,
     [ForecastDate] [DateTime] Null,
     [RealizedDate] [DateTime] Null,

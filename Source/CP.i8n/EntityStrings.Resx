@@ -551,6 +551,14 @@
 		<value>Currency Symbol</value>
 	</data>
 
+	<data name="CurrentStep" xml:space="preserve">
+		<value>Current Step</value>
+	</data>
+
+	<data name="CurrentStepId" xml:space="preserve">
+		<value>Current Step Id</value>
+	</data>
+
 	<data name="Customer" xml:space="preserve">
 		<value>Customer</value>
 	</data>
@@ -811,6 +819,10 @@
 		<value>Record Nr</value>
 	</data>
 
+	<data name="IgnoreInRepeat" xml:space="preserve">
+		<value>Ignore In Repeat</value>
+	</data>
+
 	<data name="ImageUrl" xml:space="preserve">
 		<value>Image Url</value>
 	</data>
@@ -829,6 +841,10 @@
 
 	<data name="IsPublished" xml:space="preserve">
 		<value>Is Published</value>
+	</data>
+
+	<data name="IsRepeat" xml:space="preserve">
+		<value>Is Repeat</value>
 	</data>
 
 	<data name="LastName" xml:space="preserve">
@@ -893,6 +909,14 @@
 
 	<data name="ParentCategoryId" xml:space="preserve">
 		<value>Department</value>
+	</data>
+
+	<data name="ParentPo" xml:space="preserve">
+		<value>Parent Po</value>
+	</data>
+
+	<data name="ParentPoId" xml:space="preserve">
+		<value>Parent Po Id</value>
 	</data>
 
 	<data name="Phone1" xml:space="preserve">

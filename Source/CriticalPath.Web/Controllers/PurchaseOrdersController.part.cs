@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using System.Net;
@@ -37,7 +36,7 @@ namespace CriticalPath.Web.Controllers
 
             qParams.TotalCount = await query.CountAsync();
 
-            return query;
+            return query.Skip(qParams.Skip).Take(qParams.PageSize);
         }
 
         protected override async Task PutCanUserInViewBag()
@@ -160,6 +159,60 @@ namespace CriticalPath.Web.Controllers
 
         [HttpGet]
         [Authorize(Roles = "admin, supervisor, clerk")]
+        public async Task<ActionResult> Repeat(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            PurchaseOrder purchaseOrder = await FindAsyncPurchaseOrder(id.Value);
+
+            if (purchaseOrder == null)
+            {
+                return HttpNotFound();
+            }
+
+            foreach (var ratio in purchaseOrder.SizeRatios)
+            {
+                ratio.Id = 0;
+            }
+            var purchaseOrderVM = new PurchaseOrderCreateVM(purchaseOrder);
+            await SetPurchaseOrderDefaults(purchaseOrderVM);
+            purchaseOrderVM.IsRepeat = true;
+            purchaseOrderVM.ParentPoId = purchaseOrder.Id;
+            purchaseOrderVM.ParentPoNr = purchaseOrder.PoNr;
+
+            await SetSupplierSelectList(purchaseOrder);
+            await SetSectListAsync(purchaseOrderVM);
+            return View("Create", purchaseOrderVM);
+        }
+
+        //[HttpPost]
+        //[Authorize(Roles = "admin, supervisor, clerk")]
+        //[ValidateAntiForgeryToken]
+        //public async Task<ActionResult> Repeat(PurchaseOrderCreateVM purchaseOrderVM)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var entity = purchaseOrderVM.ToPurchaseOrder();
+        //        DataContext.PurchaseOrders.Add(entity);
+        //        await DataContext.SaveChangesAsync(this);
+        //        return RedirectToAction("Details", new { id = entity.Id });
+        //    }
+
+        //    PurchaseOrder purchaseOrder = await FindAsyncPurchaseOrder(purchaseOrderVM.ParentPoId ?? 0);
+        //    if (purchaseOrder == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    await SetSupplierSelectList(purchaseOrder);
+        //    await SetSectListAsync(purchaseOrderVM);
+        //    return View("Create", purchaseOrderVM);
+        //}
+
+
+        [HttpGet]
+        [Authorize(Roles = "admin, supervisor, clerk")]
         [Route("PurchaseOrders/Create/{customerId:int?}")]
         public async Task<ActionResult> Create(int? customerId)
         {
@@ -188,8 +241,7 @@ namespace CriticalPath.Web.Controllers
         [Route("PurchaseOrders/Create/{customerId:int?}")]
         public async Task<ActionResult> Create(int? customerId, PurchaseOrderCreateVM purchaseOrderVM)
         {
-            DataContext.SetInsertDefaults(purchaseOrderVM, this);
-
+            purchaseOrderVM.Id = 0;
             if (ModelState.IsValid)
             {
                 var entity = purchaseOrderVM.ToPurchaseOrder();
@@ -205,7 +257,7 @@ namespace CriticalPath.Web.Controllers
         }
 
         [Authorize(Roles = "admin, supervisor, clerk")]
-        public async Task<ActionResult> Edit(int? id)  //GET: /PurchaseOrders/Edit/5
+        public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
@@ -227,7 +279,7 @@ namespace CriticalPath.Web.Controllers
         [Authorize(Roles = "admin, supervisor, clerk")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(PurchaseOrderEditVM vm)  //POST: /PurchaseOrders/Edit/5
+        public async Task<ActionResult> Edit(PurchaseOrderEditVM vm)
         {
             PurchaseOrder purchaseOrder = await FindAsyncPurchaseOrder(vm.Id);
             PutVmToPO(vm, purchaseOrder, false);
@@ -361,17 +413,12 @@ namespace CriticalPath.Web.Controllers
 
         protected override async Task SetPurchaseOrderDefaults(PurchaseOrderDTO purchaseOrder)
         {
-            int year = DateTime.Now.Year;
-            int month = DateTime.Now.Month;
-
-            var minDate = new DateTime(year, month, 1);
-            var maxDate = minDate.AddMonths(1);
-            var count = await DataContext.PurchaseOrders
-                        .Where(p => p.OrderDate >= minDate && p.OrderDate < maxDate)
-                        .CountAsync();
-
-            purchaseOrder.PoNr = string.Format("{0}{1:D2}-{2:D4}", (year - 2000), month, count + 1);
             purchaseOrder.OrderDate = DateTime.Today;
+            purchaseOrder.PoNr = await DataContext.CreatePoNr(purchaseOrder.OrderDate);
+            purchaseOrder.Id = 0;
+            purchaseOrder.ApproveDate = null;
+            purchaseOrder.IsApproved = false;
+
             //TODO:Get count of PO at this month
         }
 

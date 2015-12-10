@@ -932,6 +932,26 @@
           <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
+          <Name>IsRepeat</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>ParentPoId</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>ParentPo</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
           <Name>Product</Name>
           <Exclude>false</Exclude>
           <DTOExclusion>false</DTOExclusion>
@@ -956,6 +976,7 @@
           <Exclude>false</Exclude>
           <DTOExclusion>false</DTOExclusion>
           <DataType />
+          <Range>1,1000000</Range>
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
@@ -970,6 +991,7 @@
           <Exclude>false</Exclude>
           <DTOExclusion>false</DTOExclusion>
           <DataType />
+          <Range>1,1000000</Range>
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
@@ -1116,7 +1138,7 @@
           <Exclude>false</Exclude>
           <DTOExclusion>false</DTOExclusion>
           <DataType />
-          <Range>6,1000000</Range>
+          <Range>1,1000000</Range>
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
@@ -1269,6 +1291,19 @@
           <DTOExclusion>false</DTOExclusion>
           <DataType />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>CurrentStepId</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>CurrentStep</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>StartDate</Name>
@@ -1469,17 +1504,18 @@
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
+          <Name>IgnoreInRepeat</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
           <Name>ProcessTemplateId</Name>
           <Exclude>false</Exclude>
           <DTOExclusion>false</DTOExclusion>
           <DataType />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
-        </MetadataPropertySetting>
-        <MetadataPropertySetting>
-          <Name>ProcessTemplate</Name>
-          <Exclude>false</Exclude>
-          <DTOExclusion>false</DTOExclusion>
-          <Required />
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>RequiredWorkDays</Name>
@@ -1489,10 +1525,16 @@
           <Range>0,1000</Range>
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>ProcessTemplate</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <Required />
+        </MetadataPropertySetting>
       </Properties>
     </BaseEntitySetting>
   </EntitySettings>
-  <RenderAllEntities>false</RenderAllEntities>
+  <RenderAllEntities>true</RenderAllEntities>
   <GenerateForDTO>true</GenerateForDTO>
   <UseResourceFiles>true</UseResourceFiles>
 </MetadataCodeEngine>

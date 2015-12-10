@@ -17,7 +17,7 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
 {
     public partial class ProcessTemplatesController : BaseController 
     {
-        protected virtual IQueryable<ProcessTemplate> GetProcessTemplateQuery(QueryParameters qParams)
+        protected virtual async Task<IQueryable<ProcessTemplate>> GetProcessTemplateQuery(QueryParameters qParams)
         {
             var query = GetProcessTemplateQuery();
             if (!string.IsNullOrEmpty(qParams.SearchString))
@@ -29,27 +29,38 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                         select a;
             }
 
-            return query;
+            qParams.TotalCount = await query.CountAsync();
+            return query.Skip(qParams.Skip).Take(qParams.PageSize);
+        }
+
+        protected virtual async Task<List<ProcessTemplateDTO>> GetProcessTemplateDtoList(QueryParameters qParams)
+        {
+            var query = await GetProcessTemplateQuery(qParams);
+            var list = qParams.TotalCount > 0 ? await query.ToListAsync() : new List<ProcessTemplate>();
+            var result = new List<ProcessTemplateDTO>();
+            foreach (var item in list)
+            {
+                result.Add(new ProcessTemplateDTO(item));
+            }
+
+            return result;
         }
 
         [Authorize]
         public async Task<ActionResult> Index(QueryParameters qParams)
         {
-            var query = GetProcessTemplateQuery(qParams);
-            qParams.TotalCount = await query.CountAsync();
-            PutPagerInViewBag(qParams);
+            var query = await GetProcessTemplateQuery(qParams);
             await PutCanUserInViewBag();
-
+			var result = new PagedList<ProcessTemplate>(qParams);
             if (qParams.TotalCount > 0)
             {
-                return View(await query.Skip(qParams.Skip).Take(qParams.PageSize).ToListAsync());
+                result.Items = await query.ToListAsync();
             }
-            else
-            {
-                return View(new List<ProcessTemplate>());   //there isn't any record, so no need to run a query
-            }
+
+            PutPagerInViewBag(result);
+            return View(result.Items);
         }
-        
+
         protected override async Task<bool> CanUserCreate()
         {
             if (!_canUserCreate.HasValue)
@@ -83,6 +94,41 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
         }
         bool? _canUserDelete;
 
+        
+        protected override Task<bool> CanUserSeeRestricted() { return Task.FromResult(true); }
+
+        [Authorize]
+        public async Task<ActionResult> GetProcessTemplateList(QueryParameters qParams)
+        {
+            var result = await GetProcessTemplateDtoList(qParams);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        [Authorize]
+        public async Task<ActionResult> GetProcessTemplatePagedList(QueryParameters qParams)
+        {
+            var items = await GetProcessTemplateDtoList(qParams);
+            var result = new PagedList<ProcessTemplateDTO>(qParams, items);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        [Authorize]
+        public async Task<JsonResult> GetProcessTemplatesForAutoComplete(QueryParameters qParam)
+        {
+            var query = GetProcessTemplateQuery()
+                        .Where(x => x.TemplateName.Contains(qParam.SearchString))
+                        .Take(qParam.PageSize);
+            var list = from x in query
+                       select new
+                       {
+                           id = x.Id,
+                           value = x.TemplateName,
+                           label = x.TemplateName //can be extended as x.Category.CategoryName + "/" + x.TemplateName,
+                       };
+
+            return Json(await list.ToListAsync(), JsonRequestBehavior.AllowGet);
+        }
+
         [Authorize]
         public async Task<ActionResult> Details(int? id)  //GET: /ProcessTemplates/Details/5
         {
@@ -97,7 +143,25 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 return HttpNotFound();
             }
 
+            await PutCanUserInViewBag();
             return View(processTemplate);
+        }
+
+        [Authorize]
+        public async Task<ActionResult> GetProcessTemplate(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ProcessTemplate processTemplate = await FindAsyncProcessTemplate(id.Value);
+
+            if (processTemplate == null)
+            {
+                return HttpNotFound();
+            }
+
+            return Json(new ProcessTemplateDTO(processTemplate), JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
@@ -225,8 +289,37 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
 
+        public new partial class QueryParameters : BaseController.QueryParameters
+        {
+            public QueryParameters() { }
+            public QueryParameters(QueryParameters parameters) : base(parameters)
+            {
+            }
+        }
 
-        //Partial methods
+        public partial class PagedList<T> : QueryParameters
+        {
+            public PagedList() { }
+            public PagedList(QueryParameters parameters) : base(parameters) { }
+            public PagedList(QueryParameters parameters, IEnumerable<T> items) : this(parameters)
+            {
+                Items = items;
+            }
+
+            public IEnumerable<T> Items
+            {
+                set { _items = value; }
+                get
+                {
+                    if (_items == null)
+                    {
+                        _items = new List<T>();
+                    }
+                    return _items;
+                }
+            }
+            IEnumerable<T> _items;
+        }
         partial void OnCreateSaving(ProcessTemplate processTemplate);
         partial void OnCreateSaved(ProcessTemplate processTemplate);
         partial void OnEditSaving(ProcessTemplate processTemplate);

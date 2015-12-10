@@ -97,6 +97,9 @@ function setSelectListID(selectListOpts, selectedId) {
 
 
 function fixDecimalVal(dec) {
+    if (dec == null || dec == '') {
+        return '';
+    }
     var strDec = dec.toFixed(2);
     var decSeperator = getDecimalSeperator();
     if (decSeperator == '.') {

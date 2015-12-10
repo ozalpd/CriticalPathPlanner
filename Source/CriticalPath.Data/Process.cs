@@ -25,6 +25,7 @@ namespace CriticalPath.Data
         public string Description { get; set; }
         public int ProcessTemplateId { get; set; }
         public int PurchaseOrderId { get; set; }
+        public Nullable<int> CurrentStepId { get; set; }
         public System.DateTime StartDate { get; set; }
         public System.DateTime TargetDate { get; set; }
         public Nullable<System.DateTime> ForecastDate { get; set; }
@@ -54,6 +55,7 @@ namespace CriticalPath.Data
         public virtual AspNetUser CancelledUser { get; set; }
         public virtual AspNetUser CreatedUser { get; set; }
         public virtual AspNetUser ModifiedUser { get; set; }
+        public virtual ProcessStep CurrentStep { get; set; }
     	/// <summary>
     	/// Clones all properties in a new Process instance,
     	/// except PrimaryKey(s)
@@ -66,6 +68,7 @@ namespace CriticalPath.Data
             clone.Description = Description;
             clone.ProcessTemplateId = ProcessTemplateId;
             clone.PurchaseOrderId = PurchaseOrderId;
+            clone.CurrentStepId = CurrentStepId;
             clone.StartDate = StartDate;
             clone.TargetDate = TargetDate;
             clone.ForecastDate = ForecastDate;
@@ -109,6 +112,7 @@ namespace CriticalPath.Data
             Description = entity.Description;
             ProcessTemplateId = entity.ProcessTemplateId;
             PurchaseOrderId = entity.PurchaseOrderId;
+            CurrentStepId = entity.CurrentStepId;
             StartDate = entity.StartDate;
             TargetDate = entity.TargetDate;
             ForecastDate = entity.ForecastDate;
@@ -132,6 +136,7 @@ namespace CriticalPath.Data
             entity.Description = Description;
             entity.ProcessTemplateId = ProcessTemplateId;
             entity.PurchaseOrderId = PurchaseOrderId;
+            entity.CurrentStepId = CurrentStepId;
             entity.StartDate = StartDate;
             entity.TargetDate = TargetDate;
             entity.ForecastDate = ForecastDate;
@@ -154,6 +159,7 @@ namespace CriticalPath.Data
         public string Description { get; set; }
         public int ProcessTemplateId { get; set; }
         public int PurchaseOrderId { get; set; }
+        public Nullable<int> CurrentStepId { get; set; }
         public System.DateTime StartDate { get; set; }
         public System.DateTime TargetDate { get; set; }
         public Nullable<System.DateTime> ForecastDate { get; set; }

@@ -124,7 +124,7 @@
 	</data>
 
 	<data name="Discontinue" xml:space="preserve">
-		<value>Discontinue</value>
+		<value>Sonlandır</value>
 	</data>
 
 	<data name="Display" xml:space="preserve">
@@ -185,6 +185,10 @@
 
 	<data name="Remove" xml:space="preserve">
 		<value>Çıkar</value>
+	</data>
+
+	<data name="Repeat" xml:space="preserve">
+		<value>Tekrarla</value>
 	</data>
 
 	<data name="Save" xml:space="preserve">

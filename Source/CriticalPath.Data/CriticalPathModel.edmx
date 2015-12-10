@@ -139,6 +139,7 @@
           <Property Name="IsCompleted" Type="bit" Nullable="false" />
           <Property Name="Cancelled" Type="bit" Nullable="false" />
           <Property Name="ProcessTemplateId" Type="int" Nullable="false" />
+          <Property Name="CurrentStepId" Type="int" />
           <Property Name="StartDate" Type="datetime" Nullable="false" />
           <Property Name="TargetDate" Type="datetime" Nullable="false" />
           <Property Name="ForecastDate" Type="datetime" />
@@ -190,6 +191,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="DisplayOrder" Type="int" Nullable="false" />
+          <Property Name="IgnoreInRepeat" Type="bit" Nullable="false" />
           <Property Name="ProcessTemplateId" Type="int" Nullable="false" />
           <Property Name="RequiredWorkDays" Type="int" Nullable="false" />
           <Property Name="ModifyNr" Type="int" Nullable="false" />
@@ -283,6 +285,8 @@
           <Property Name="PoNr" Type="nvarchar" MaxLength="64" Nullable="false" />
           <Property Name="OrderDate" Type="datetime" Nullable="false" />
           <Property Name="DueDate" Type="datetime" />
+          <Property Name="IsRepeat" Type="bit" Nullable="false" />
+          <Property Name="ParentPoId" Type="int" />
           <Property Name="ProductId" Type="int" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="256" />
           <Property Name="Quantity" Type="int" Nullable="false" />
@@ -537,6 +541,18 @@
             </Principal>
             <Dependent Role="Processes">
               <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Process_CurrentStepId">
+          <End Role="ProcessSteps" Type="Self.ProcessSteps" Multiplicity="0..1" />
+          <End Role="Processes" Type="Self.Processes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProcessSteps">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Processes">
+              <PropertyRef Name="CurrentStepId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -936,6 +952,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_PurchaseOrder_ParentPoId">
+          <End Role="PurchaseOrders" Type="Self.PurchaseOrders" Multiplicity="0..1" />
+          <End Role="PurchaseOrders1" Type="Self.PurchaseOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PurchaseOrders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PurchaseOrders1">
+              <PropertyRef Name="ParentPoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_PurchaseOrder_ProductId">
           <End Role="Products" Type="Self.Products" Multiplicity="1" />
           <End Role="PurchaseOrders" Type="Self.PurchaseOrders" Multiplicity="*" />
@@ -1205,6 +1233,10 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Processes" EntitySet="Processes" />
           </AssociationSet>
+          <AssociationSet Name="FK_Process_CurrentStepId" Association="Self.FK_Process_CurrentStepId">
+            <End Role="ProcessSteps" EntitySet="ProcessSteps" />
+            <End Role="Processes" EntitySet="Processes" />
+          </AssociationSet>
           <AssociationSet Name="FK_Process_ModifierId" Association="Self.FK_Process_ModifierId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="Processes" EntitySet="Processes" />
@@ -1336,6 +1368,10 @@
           <AssociationSet Name="FK_PurchaseOrder_ModifierId" Association="Self.FK_PurchaseOrder_ModifierId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseOrder_ParentPoId" Association="Self.FK_PurchaseOrder_ParentPoId">
+            <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
+            <End Role="PurchaseOrders1" EntitySet="PurchaseOrders" />
           </AssociationSet>
           <AssociationSet Name="FK_PurchaseOrder_ProductId" Association="Self.FK_PurchaseOrder_ProductId">
             <End Role="Products" EntitySet="Products" />
@@ -1659,6 +1695,14 @@
             <End Role="Country" EntitySet="Countries" />
             <End Role="Company" EntitySet="Companies" />
           </AssociationSet>
+          <AssociationSet Name="FK_Process_CurrentStepId" Association="CriticalPathDataModel.FK_Process_CurrentStepId">
+            <End Role="ProcessStep" EntitySet="ProcessSteps" />
+            <End Role="Process" EntitySet="Processes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseOrder_ParentPoId" Association="CriticalPathDataModel.FK_PurchaseOrder_ParentPoId">
+            <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+            <End Role="PurchaseOrder1" EntitySet="PurchaseOrders" />
+          </AssociationSet>
           
         </EntityContainer>
         <EntityType Name="Company" Abstract="true">
@@ -1842,6 +1886,8 @@
           <Property Name="PoNr" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="DueDate" Type="DateTime" Precision="3" />
+          <Property Name="IsRepeat" Type="Boolean" Nullable="false" />
+          <Property Name="ParentPoId" Type="Int32" />
           <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="CustomerId" Type="Int32" Nullable="false" />
           <Property Name="CustomerPoNr" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
@@ -1893,6 +1939,8 @@
           <NavigationProperty Name="RetailCurrency" Relationship="CriticalPathDataModel.FK_PurchaseOrder_RetailCurrencyId" FromRole="PurchaseOrder" ToRole="Currency" />
           <NavigationProperty Name="RoyaltyCurrency" Relationship="CriticalPathDataModel.FK_PurchaseOrder_RoyaltyCurrencyId" FromRole="PurchaseOrder" ToRole="Currency" />
           <NavigationProperty Name="SellingCurrency" Relationship="CriticalPathDataModel.FK_PurchaseOrder_SellingCurrencyId" FromRole="PurchaseOrder" ToRole="Currency" />
+          <NavigationProperty Name="SubOrders" Relationship="CriticalPathDataModel.FK_PurchaseOrder_ParentPoId" FromRole="PurchaseOrder" ToRole="PurchaseOrder1" />
+          <NavigationProperty Name="ParentPo" Relationship="CriticalPathDataModel.FK_PurchaseOrder_ParentPoId" FromRole="PurchaseOrder1" ToRole="PurchaseOrder" />
         </EntityType>
         <Association Name="FK_PurchaseOrder_CustomerId">
           <End Type="CriticalPathDataModel.Customer" Role="Customer" Multiplicity="1" />
@@ -1915,6 +1963,7 @@
           <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="ProcessTemplateId" Type="Int32" Nullable="false" />
           <Property Name="PurchaseOrderId" Type="Int32" Nullable="false" />
+          <Property Name="CurrentStepId" Type="Int32" />
           <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="TargetDate" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="ForecastDate" Type="DateTime" Precision="3" />
@@ -1942,6 +1991,7 @@
           <NavigationProperty Name="CancelledUser" Relationship="CriticalPathDataModel.FK_Process_CancelledUserId" FromRole="Process" ToRole="AspNetUser" />
           <NavigationProperty Name="CreatedUser" Relationship="CriticalPathDataModel.FK_Process_CreatorId" FromRole="Process" ToRole="AspNetUser" />
           <NavigationProperty Name="ModifiedUser" Relationship="CriticalPathDataModel.FK_Process_ModifierId" FromRole="Process" ToRole="AspNetUser" />
+          <NavigationProperty Name="CurrentStep" Relationship="CriticalPathDataModel.FK_Process_CurrentStepId" FromRole="Process" ToRole="ProcessStep" />
         </EntityType>
         <EntityType Name="ProcessStep">
           <Key>
@@ -1983,6 +2033,7 @@
           <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
           <Property Name="ProcessTemplateId" Type="Int32" Nullable="false" />
           <Property Name="RequiredWorkDays" Type="Int32" Nullable="false" />
+          <Property Name="IgnoreInRepeat" Type="Boolean" Nullable="false" />
           <Property Name="ModifyNr" Type="Int32" Nullable="false" />
           <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
@@ -2794,6 +2845,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Process_CurrentStepId">
+          <End Type="CriticalPathDataModel.ProcessStep" Role="ProcessStep" Multiplicity="0..1" />
+          <End Type="CriticalPathDataModel.Process" Role="Process" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProcessStep">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Process">
+              <PropertyRef Name="CurrentStepId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseOrder_ParentPoId">
+          <End Type="CriticalPathDataModel.PurchaseOrder" Role="PurchaseOrder" Multiplicity="0..1" />
+          <End Type="CriticalPathDataModel.PurchaseOrder" Role="PurchaseOrder1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PurchaseOrder">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PurchaseOrder1">
+              <PropertyRef Name="ParentPoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2929,6 +3004,8 @@
           <EntitySetMapping Name="PurchaseOrders">
             <EntityTypeMapping TypeName="CriticalPathDataModel.PurchaseOrder">
               <MappingFragment StoreEntitySet="PurchaseOrders">
+                <ScalarProperty Name="ParentPoId" ColumnName="ParentPoId" />
+                <ScalarProperty Name="IsRepeat" ColumnName="IsRepeat" />
                 <ScalarProperty Name="RetailCurrencyId" ColumnName="RetailCurrencyId" />
                 <ScalarProperty Name="RoyaltyCurrencyId" ColumnName="RoyaltyCurrencyId" />
                 <ScalarProperty Name="BuyingCurrencyId" ColumnName="BuyingCurrencyId" />
@@ -2975,6 +3052,7 @@
           <EntitySetMapping Name="Processes">
             <EntityTypeMapping TypeName="CriticalPathDataModel.Process">
               <MappingFragment StoreEntitySet="Processes">
+                <ScalarProperty Name="CurrentStepId" ColumnName="CurrentStepId" />
                 <ScalarProperty Name="StartDate" ColumnName="StartDate" />
                 <ScalarProperty Name="CancelledUserIp" ColumnName="CancelledUserIp" />
                 <ScalarProperty Name="CancelledUserId" ColumnName="CancelledUserId" />
@@ -3033,6 +3111,7 @@
           <EntitySetMapping Name="ProcessStepTemplates">
             <EntityTypeMapping TypeName="CriticalPathDataModel.ProcessStepTemplate">
               <MappingFragment StoreEntitySet="ProcessStepTemplates">
+                <ScalarProperty Name="IgnoreInRepeat" ColumnName="IgnoreInRepeat" />
                 <ScalarProperty Name="RequiredWorkDays" ColumnName="RequiredWorkDays" />
                 <ScalarProperty Name="CreatorIp" ColumnName="CreatorIp" />
                 <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
