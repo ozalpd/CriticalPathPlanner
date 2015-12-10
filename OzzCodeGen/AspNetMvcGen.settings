@@ -2935,10 +2935,10 @@
       <GenerateController>true</GenerateController>
       <GenerateActionForAutoComplete>true</GenerateActionForAutoComplete>
       <GenerateGetQueryMethod>false</GenerateGetQueryMethod>
-      <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
-      <GenerateIndexAction>true</GenerateIndexAction>
-      <GenerateGetEntityAction>true</GenerateGetEntityAction>
-      <GenerateGetEntityListAction>true</GenerateGetEntityListAction>
+      <GenerateGetDtoQueryMethod>false</GenerateGetDtoQueryMethod>
+      <GenerateIndexAction>false</GenerateIndexAction>
+      <GenerateGetEntityAction>false</GenerateGetEntityAction>
+      <GenerateGetEntityListAction>false</GenerateGetEntityListAction>
       <GenerateCreateAction>false</GenerateCreateAction>
       <GenerateDeleteAction>false</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>

@@ -95,6 +95,15 @@ function setSelectListID(selectListOpts, selectedId) {
     }
 }
 
+function jsonDateToLocaleDateString(jsonDate) {
+    if (jsonDate) {
+        var date = new Date(jsonDate);
+        return date.toLocaleDateString();
+    }
+    else {
+        return '';
+    }
+}
 
 function fixDecimalVal(dec) {
     if (dec == null || dec == '') {

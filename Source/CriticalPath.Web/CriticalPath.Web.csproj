@@ -402,7 +402,6 @@
     <Content Include="Areas\Admin\Views\Countries\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Countries\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Countries\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_agGridScriptsPartial.cshtml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />

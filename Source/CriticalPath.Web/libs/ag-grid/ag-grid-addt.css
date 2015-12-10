@@ -2,10 +2,36 @@
     overflow: visible; /* to make ActionMenu visible */
 }
 
-.ag-body-viewport {
-    -ms-overflow-style: none;
-    overflow: -moz-scrollbars-none;
+.ag-gridContainer {
+    margin-left: -13px;
+    margin-right: -13px;
+    margin-top: -18px;
 }
-    .ag-body-viewport::-webkit-scrollbar {
-        width: 3px;
+
+.container.wGrid {
+    width: 100%;
+}
+
+    .container.wGrid .well.row {
+        margin-left: -13px;
+        margin-right: -13px;
     }
+
+.verticalQuarter {
+    height: 19px;
+}
+
+.verticalHalf {
+    height: 38px;
+    padding-top: 4px;
+}
+
+.verticalQuarter, .verticalHalf {
+    margin: -4px -4px 5px -4px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.wrapText{
+    white-space:normal;
+}

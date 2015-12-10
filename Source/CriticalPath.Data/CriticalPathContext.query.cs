@@ -115,6 +115,48 @@ namespace CriticalPath.Data
                     .ThenByDescending(po => po.Id);
         }
 
+        public override IQueryable<Process> GetProcessQuery()
+        {
+            return base.GetProcessQuery()
+                        .OrderByDescending(p => p.PurchaseOrder.OrderDate)
+                        .ThenByDescending(p => p.PurchaseOrder.ApproveDate)
+                        .ThenByDescending(p => p.ApproveDate);
+        }
+
+        public override IQueryable<ProcessDTO> GetProcessDtoQuery(IQueryable<Process> query)
+        {
+            return from e in query
+                   select new ProcessDTO
+                   {
+                       Id = e.Id,
+                       IsCompleted = e.IsCompleted,
+                       Description = e.Description,
+                       ProcessTemplateId = e.ProcessTemplateId,
+                       PurchaseOrderId = e.PurchaseOrderId,
+                       CurrentStepId = e.CurrentStepId,
+                       StartDate = e.StartDate,
+                       TargetDate = e.TargetDate,
+                       ForecastDate = e.ForecastDate,
+                       RealizedDate = e.RealizedDate,
+                       IsApproved = e.IsApproved,
+                       ApproveDate = e.ApproveDate,
+                       Cancelled = e.Cancelled,
+                       CancelDate = e.CancelDate,
+                       CancellationReason = e.CancellationReason,
+                       PoNr = e.PurchaseOrder.PoNr,
+                       CustomerName = e.PurchaseOrder.Customer.CompanyName,
+                       SupplierName = e.PurchaseOrder.Supplier.CompanyName,
+                       DueDate = e.PurchaseOrder.DueDate,
+                       IsRepeat = e.PurchaseOrder.IsRepeat,
+                       OrderDate = e.PurchaseOrder.OrderDate,
+                       Quantity = e.PurchaseOrder.Quantity,
+                       ProductCode = e.PurchaseOrder.Product.ProductCode,
+                       ProductDescription = e.PurchaseOrder.Product.Description,
+                       ImageUrl = e.PurchaseOrder.Product.ImageUrl,
+                       CategoryName = e.PurchaseOrder.Product.Category.CategoryName,
+                       ParentCategoryName = e.PurchaseOrder.Product.Category.ParentCategory.CategoryName
+                   };
+        }
         public async Task<ProductCategory> FindProductCategory(int id)
         {
             return await GetProductCategoryQuery().FirstOrDefaultAsync(p => p.Id == id);

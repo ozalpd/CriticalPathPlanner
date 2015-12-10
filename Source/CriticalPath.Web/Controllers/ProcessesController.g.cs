@@ -16,100 +16,6 @@ namespace CriticalPath.Web.Controllers
 {
     public partial class ProcessesController : BaseController 
     {
-        protected virtual async Task<List<ProcessDTO>> GetProcessDtoList(QueryParameters qParams)
-        {
-            var query = await GetProcessQuery(qParams);
-            var list = qParams.TotalCount > 0 ? await query.ToListAsync() : new List<Process>();
-            var result = new List<ProcessDTO>();
-            foreach (var item in list)
-            {
-                result.Add(new ProcessDTO(item));
-            }
-
-            return result;
-        }
-
-        [Authorize]
-        public async Task<ActionResult> Index(QueryParameters qParams)
-        {
-            var query = await GetProcessQuery(qParams);
-            await PutCanUserInViewBag();
-			var result = new PagedList<Process>(qParams);
-            if (qParams.TotalCount > 0)
-            {
-                result.Items = await query.ToListAsync();
-            }
-
-            PutPagerInViewBag(result);
-            return View(result.Items);
-        }
-
-        protected override async Task<bool> CanUserCreate()
-        {
-            if (!_canUserCreate.HasValue)
-            {
-                _canUserCreate = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync() ||
-                                    await IsUserClerkAsync());
-            }
-            return _canUserCreate.Value;
-        }
-        bool? _canUserCreate;
-
-        protected override async Task<bool> CanUserEdit()
-        {
-            if (!_canUserEdit.HasValue)
-            {
-                _canUserEdit = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync() ||
-                                    await IsUserClerkAsync());
-            }
-            return _canUserEdit.Value;
-        }
-        bool? _canUserEdit;
-        
-        protected override async Task<bool> CanUserDelete()
-        {
-            if (!_canUserDelete.HasValue)
-            {
-                _canUserDelete = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync());
-            }
-            return _canUserDelete.Value;
-        }
-        bool? _canUserDelete;
-
-        protected override async Task<bool> CanUserSeeRestricted()
-        {
-            if (!_canSeeRestricted.HasValue)
-            {
-                _canSeeRestricted = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync() ||
-                                    await IsUserClerkAsync());
-            }
-            return _canSeeRestricted.Value;
-        }
-        bool? _canSeeRestricted;
-
-        [Authorize]
-        public async Task<ActionResult> GetProcessList(QueryParameters qParams)
-        {
-            var result = await GetProcessDtoList(qParams);
-            return Json(result, JsonRequestBehavior.AllowGet);
-        }
-
-        [Authorize]
-        public async Task<ActionResult> GetProcessPagedList(QueryParameters qParams)
-        {
-            var items = await GetProcessDtoList(qParams);
-            var result = new PagedList<ProcessDTO>(qParams, items);
-            return Json(result, JsonRequestBehavior.AllowGet);
-        }
-
         [Authorize]
         public async Task<JsonResult> GetProcessesForAutoComplete(QueryParameters qParam)
         {
@@ -143,23 +49,6 @@ namespace CriticalPath.Web.Controllers
 
             await PutCanUserInViewBag();
             return View(process);
-        }
-
-        [Authorize]
-        public async Task<ActionResult> GetProcess(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Process process = await FindAsyncProcess(id.Value);
-
-            if (process == null)
-            {
-                return HttpNotFound();
-            }
-
-            return Json(new ProcessDTO(process), JsonRequestBehavior.AllowGet);
         }
 
         [Authorize(Roles = "admin, supervisor, clerk")]

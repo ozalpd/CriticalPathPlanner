@@ -9,6 +9,7 @@ using CriticalPath.Data;
 using CriticalPath.Web.Models;
 using System.Net;
 using System.Web.Mvc;
+using OzzUtils.Web.Mvc;
 
 namespace CriticalPath.Web.Controllers
 {
@@ -45,8 +46,111 @@ namespace CriticalPath.Web.Controllers
             }
 
             qParams.TotalCount = await query.CountAsync();
-            return query;
+            return query.Skip(qParams.Skip).Take(qParams.PageSize);
         }
+
+        protected virtual async Task<List<ProcessDTO>> GetProcessDtoList(QueryParameters qParams)
+        {
+            var query = await GetProcessQuery(qParams);
+            var list = qParams.TotalCount > 0 ? await DataContext.GetProcessDtoQuery(query).ToListAsync() : new List<ProcessDTO>();
+
+            return list;
+        }
+
+        [Authorize]
+        public async Task<ActionResult> GetProcessList(QueryParameters qParams)
+        {
+            var result = await GetProcessDtoList(qParams);
+            return Content(result.ToJson(), "text/json");
+        }
+
+        [Authorize]
+        public async Task<ActionResult> GetProcessPagedList(QueryParameters qParams)
+        {
+            var items = await GetProcessDtoList(qParams);
+            var result = new PagedList<ProcessDTO>(qParams, items);
+            return Content(result.ToJson(), "text/json");
+        }
+
+        [Authorize]
+        public async Task<ActionResult> GetProcess(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Process process = await FindAsyncProcess(id.Value);
+
+            if (process == null)
+            {
+                return HttpNotFound();
+            }
+
+            return Content((new ProcessDTO(process)).ToJson(), "text/json");
+        }
+
+        [Authorize]
+        public async Task<ActionResult> Index(QueryParameters qParams)
+        {
+            var items = await GetProcessDtoList(qParams);
+            await PutCanUserInViewBag();
+            ViewBag.totalCount = qParams.TotalCount;
+            var result = new PagedList<ProcessDTO>(qParams, items);
+            ViewBag.result = result.ToJson();
+
+            return View();
+        }
+
+        protected override async Task<bool> CanUserCreate()
+        {
+            if (!_canUserCreate.HasValue)
+            {
+                _canUserCreate = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync() ||
+                                    await IsUserClerkAsync());
+            }
+            return _canUserCreate.Value;
+        }
+        bool? _canUserCreate;
+
+        protected override async Task<bool> CanUserEdit()
+        {
+            if (!_canUserEdit.HasValue)
+            {
+                _canUserEdit = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync() ||
+                                    await IsUserClerkAsync());
+            }
+            return _canUserEdit.Value;
+        }
+        bool? _canUserEdit;
+
+        protected override async Task<bool> CanUserDelete()
+        {
+            if (!_canUserDelete.HasValue)
+            {
+                _canUserDelete = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync());
+            }
+            return _canUserDelete.Value;
+        }
+        bool? _canUserDelete;
+
+        protected override async Task<bool> CanUserSeeRestricted()
+        {
+            if (!_canSeeRestricted.HasValue)
+            {
+                _canSeeRestricted = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync() ||
+                                    await IsUserClerkAsync());
+            }
+            return _canSeeRestricted.Value;
+        }
+        bool? _canSeeRestricted;
 
         protected override async Task PutCanUserInViewBag()
         {
@@ -157,12 +261,19 @@ namespace CriticalPath.Web.Controllers
 
         async Task OnCreateSaving(Process process)
         {
-            var queryTemplate = GetProcessStepTemplateQuery()
-                                .Where(s => s.ProcessTemplateId == process.ProcessTemplateId)
+            var purchaseOrder = process.PurchaseOrder;
+            if (purchaseOrder == null)
+                purchaseOrder = await FindAsyncPurchaseOrder(process.PurchaseOrderId);
+
+            var query = GetProcessStepTemplateQuery();
+            query = query.Where(s => s.ProcessTemplateId == process.ProcessTemplateId)
                                 .OrderBy(s => s.DisplayOrder);
+            if (purchaseOrder.IsRepeat)
+                query = query.Where(s => !s.IgnoreInRepeat);
+
+            var templates = await query.ToListAsync();
             DateTime startDate = process.StartDate;
-            var templates = await queryTemplate.ToListAsync();
-            foreach (var template in queryTemplate)
+            foreach (var template in query)
             {
                 var step = new ProcessStep()
                 {
@@ -182,6 +293,15 @@ namespace CriticalPath.Web.Controllers
             process.TargetDate = process.PurchaseOrder?.DueDate ?? DateTime.Today.AddDays(42);
             process.StartDate = DateTime.Today;
             return Task.FromResult(default(object));
+        }
+
+        public new partial class QueryParameters
+        {
+            protected override void Constructing()
+            {
+                Page = 1;
+                PageSize = 20;
+            }
         }
     }
 }
