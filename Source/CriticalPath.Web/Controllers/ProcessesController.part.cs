@@ -53,7 +53,18 @@ namespace CriticalPath.Web.Controllers
         {
             var query = await GetProcessQuery(qParams);
             var list = qParams.TotalCount > 0 ? await DataContext.GetProcessDtoQuery(query).ToListAsync() : new List<ProcessDTO>();
-
+            if (list.Count > 0)
+            {
+                var ids = from p in query
+                          select p.Id;
+                var querySteps = GetProcessStepQuery()
+                               .Where(s => ids.Contains(s.ProcessId));
+                var steps = await DataContext.GetProcessStepDtoQuery(querySteps).ToListAsync();
+                foreach (var item in list)
+                {
+                    item.ProcessSteps = steps.Where(s => s.ProcessId == item.Id).ToList();
+                }
+            }
             return list;
         }
 
@@ -61,7 +72,7 @@ namespace CriticalPath.Web.Controllers
         public async Task<ActionResult> GetProcessList(QueryParameters qParams)
         {
             var result = await GetProcessDtoList(qParams);
-            return Content(result.ToJson(), "text/json");
+            return Content(result.ToJson(false), "text/json");
         }
 
         [Authorize]
@@ -69,7 +80,7 @@ namespace CriticalPath.Web.Controllers
         {
             var items = await GetProcessDtoList(qParams);
             var result = new PagedList<ProcessDTO>(qParams, items);
-            return Content(result.ToJson(), "text/json");
+            return Content(result.ToJson(false), "text/json");
         }
 
         [Authorize]
@@ -79,24 +90,44 @@ namespace CriticalPath.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Process process = await FindAsyncProcess(id.Value);
+            var query = GetProcessQuery().Where(p => p.Id == id.Value);
+            var process = await DataContext.GetProcessDtoQuery(query).FirstOrDefaultAsync();
+            var querySteps = GetProcessStepQuery()
+                            .Where(s => s.ProcessId == id.Value)
+                            .OrderBy(s => s.DisplayOrder);
+            process.ProcessSteps = await DataContext.GetProcessStepDtoQuery(querySteps).ToListAsync();
 
             if (process == null)
             {
                 return HttpNotFound();
             }
 
-            return Content((new ProcessDTO(process)).ToJson(), "text/json");
+            return Content(process.ToJson(), "text/json");
         }
 
         [Authorize]
+        //[Route("ProcessStepTemplates/Create/{processTemplateId:int?}")]
         public async Task<ActionResult> Index(QueryParameters qParams)
         {
             var items = await GetProcessDtoList(qParams);
+            int processTemplateId = (qParams.ProcessTemplateId ?? 0) > 0 ? qParams.ProcessTemplateId.Value : items.FirstOrDefault()?.ProcessTemplateId ?? 0;
+            if (processTemplateId > 0)
+            {
+                var query = GetProcessStepTemplateQuery()
+                            .Where(t => t.ProcessTemplateId == processTemplateId)
+                            .OrderBy(t => t.DisplayOrder);
+                var templates = await DataContext.GetProcessStepTemplateDtoQuery(query).ToArrayAsync();
+                ViewBag.templates = templates;
+            }
+            else
+            {
+                ViewBag.templates = new ProcessStepTemplateDTO[0];
+            }
+
             await PutCanUserInViewBag();
             ViewBag.totalCount = qParams.TotalCount;
             var result = new PagedList<ProcessDTO>(qParams, items);
-            ViewBag.result = result.ToJson();
+            ViewBag.result = result.ToJson(false);
 
             return View();
         }

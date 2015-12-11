@@ -50,5 +50,6 @@ namespace CriticalPath.Data
         [Display(ResourceType = typeof(EntityStrings), Name = "SubCategory")]
         public string CategoryName { get; set; }
 
+        public virtual ICollection<ProcessStepDTO> ProcessSteps { get; set; }
     }
 }

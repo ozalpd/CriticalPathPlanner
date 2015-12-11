@@ -2,7 +2,6 @@
 @using CriticalPath.Data
 @using CP.i8n
 @model IEnumerable<ProcessDTO>
-
 @{
     ViewBag.Title = @EntityStrings.Processes;
 
@@ -13,15 +12,18 @@
     bool canSeeRestricted = ViewBag.canSeeRestricted;
     bool canUserApprove = ViewBag.canUserApprove;
 
+    ProcessStepTemplateDTO[] templates = ViewBag.templates as ProcessStepTemplateDTO[];
+    string[] stepRenderers = new string[templates.Length];
+
     var title = EntityStrings.Processes;
 }
 <div class="row well">
     <div class="col-md-8 col-sm-7">
         <h4>@title</h4>
     </div>
-        <div class="col-md-4 col-sm-5">
-            @Html.Partial("_SearchBoxPartial")
-        </div>
+    <div class="col-md-4 col-sm-5">
+        @Html.Partial("_SearchBoxPartial")
+    </div>
 </div>
 <div class="ag-gridContainer">
     <div id="mainGrid" class="ag-style ag-basic" style="width:100%;height:480px;"></div>
@@ -43,142 +45,159 @@
                 columnDefs: init.columnDefs,
                 rowHeight: 76,
                 pageSize: result.pageSize,
-                headerHeight: 32,
+                headerHeight: 48,
                 //groupHeaders: true,
                 rowData: result.Items,
-                pinnedColumnCount: 4,
+                pinnedColumnCount: 9,
                 overlayNoRowsTemplate: '<span class="fontSize150pc">@MessageStrings.NoResults</span>'
             };
 
             function columnDefs(){
                 return[
                      { headerName: '@ActionStrings.Action', field: "Id", width: 60, cellRenderer: actionCellRenderer},
-                     { headerName: '@EntityStrings.PurchaseOrder', field: "PoNr", width: 110, cellRenderer: purchaseOrderCellRenderer },
+                     { headerName: '@EntityStrings.PurchaseOrder', field: "PoNr", width: 110, headerClass: "wrapText", cellRenderer: purchaseOrderCellRenderer },
                      { headerName: '@Html.DisplayNameFor(m => m.ProductCode)', field: "ProductCode", width: 90, cellClass: "wrapText" },
                      { headerName: '@Html.DisplayNameFor(m => m.ProductDescription)', field: "ProductDescription", width: 90, cellClass: "wrapText" },
                      { headerName: '@Html.DisplayNameFor(m => m.CustomerName)', field: "CustomerName", width: 90, cellClass: "wrapText" },
                      { headerName: '@Html.DisplayNameFor(m => m.ParentCategoryName)', field: "ParentCategoryName", width: 90, cellClass: "wrapText" },
                      { headerName: '@Html.DisplayNameFor(m => m.Quantity)', field: "Quantity", width: 80, cellClass:'text-right' },
                      { headerName: '@Html.DisplayNameFor(m => m.SupplierName)', field: "SupplierName", width: 90, cellClass: "wrapText" },
-                     { headerName: '@Html.DisplayNameFor(m => m.ApproveDate)', field: "ApproveDate", width: 80, cellClass:'text-right', cellRenderer: dateCellRenderer },
-                     { headerName: 'Dates', headerGroup:'Dates', field: "StartDate", width: 90, cellRenderer: verticalDateCellLabels },
-                     { headerName: 'Dates', headerGroup:'Dates', field: "TargetDate", width: 90, cellRenderer: verticalDateCellRenderer },
+                     { headerName: '', field: "StartDate", width: 90, cellRenderer: verticalDateCellLabels },
+                     { headerName: 'PO Dates', field: "ApproveDate", width: 90, cellRenderer: verticalDateCellRenderer },
+                     @for (int i = 0; i < templates.Length; i++)
+                     {
+                         stepRenderers[i] = string.Format("stepCellRenderer{0}", templates[i].Id);
+                         @:{ headerName: '@templates[i].Title', headerTooltip: '@templates[i].Title', field: "ProcessSteps", width: 90, cellRenderer: @stepRenderers[i], headerClass: "wrapText" },
+                     }
                 ];
             }
 
-            function purchaseOrderCellRenderer(params){
-                return '<div class="verticalHalf fontSize125pc">' + params.value + '</div>' +
-                    '<div class="verticalQuarter text-right pr10" title="@EntityStrings.OrderDate">' + jsonDateToLocaleDateString(params.data.OrderDate) + '</div>' +
-                    '<div class="verticalQuarter text-right pr10" title="@EntityStrings.DueDate">' + jsonDateToLocaleDateString(params.data.DueDate) + '</div>';
+            @for (int i = 0; i < templates.Length; i++)
+            {
+                @:function @stepRenderers[i] (params){return stepToCell(params.value, @templates[i].Id);}
+            }
+
+                function stepToCell(steps, templateId){
+                    var result = '';
+                    $.each(steps, (function(index, step){
+                        if(step.TemplateId==templateId){
+                            result = '<div class="verticalQuarter text-right ag-row-even" title="@EntityStrings.ApproveDate">' + jsonDateToLocaleDateString(step.ApproveDate) + '</div>' +
+                                '<div class="verticalQuarter text-right ag-row-odd" title="@EntityStrings.TargetDate">' + jsonDateToLocaleDateString(step.TargetDate) + '</div>' +
+                                '<div class="verticalQuarter text-right ag-row-even" title="@EntityStrings.ForecastDate">' + jsonDateToLocaleDateString(step.ForecastDate) + '</div>' +
+                                '<div class="verticalQuarter text-right ag-row-odd" title="@EntityStrings.RealizedDate">' + jsonDateToLocaleDateString(step.RealizedDate) + '</div>';
+                            return false;
+                        }
+                    }));
+                    return result;
+                }
+
+                function purchaseOrderCellRenderer(params){
+                    return '<div class="verticalHalf fontSize125pc">' + params.value + '</div>' +
+                        '<div class="verticalQuarter text-right pr10" title="@EntityStrings.OrderDate">' + jsonDateToLocaleDateString(params.data.OrderDate) + '</div>' +
+                        '<div class="verticalQuarter text-right pr10" title="@EntityStrings.DueDate">' + jsonDateToLocaleDateString(params.data.DueDate) + '</div>';
                     @*'<div class="verticalQuarter" title="@EntityStrings.OrderDate">@EntityStrings.OrderDate <span class="text-right">' + jsonDateToLocaleDateString(params.data.OrderDate) + '</span></div>' +
                     '<div class="verticalQuarter" title="@EntityStrings.DueDate"> @EntityStrings.DueDate <span class="text-right">' + jsonDateToLocaleDateString(params.data.DueDate) + '</span></div>';*@
-            }
-            function verticalDateCellRenderer(params){
-                return '<div class="verticalQuarter text-right ag-row-even">' +  jsonDateToLocaleDateString(params.data.StartDate) + '</div>' +
-                    '<div class="verticalQuarter text-right ag-row-odd">' +  jsonDateToLocaleDateString(params.data.TargetDate) + '</div>' +
-                    '<div class="verticalQuarter text-right ag-row-even">' +  jsonDateToLocaleDateString(params.data.ForecastDate) + '</div>' +
-                    '<div class="verticalQuarter text-right ag-row-odd">' +  jsonDateToLocaleDateString(params.data.RealizedDate) + '</div>';
-            }
-
-            function verticalDateCellLabels(params){
-                return '<div class="verticalQuarter ag-row-even">@EntityStrings.StartDate</div>' +
-                    '<div class="verticalQuarter ag-row-odd">@EntityStrings.TargetDate</div>' +
-                    '<div class="verticalQuarter ag-row-even">@EntityStrings.ForecastDate</div>' +
-                    '<div class="verticalQuarter ag-row-odd">@EntityStrings.RealizedDate</div>';
-            }
-
-            function actionCellRenderer(params) {
-                var isCancelled = params.data.Cancelled==null ? false : params.data.Cancelled;
-                var isApproved = params.data.IsApproved==null ? false : params.data.IsApproved;
-                var isCompleted = params.data.IsCompleted==null ? false : params.data.IsCompleted;
-
-                var actions = '<div class="btn-group" style="margin-top:-3px;">' +
-                    '<button type="button" title="@ActionStrings.Action" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown" onclick="onActionMenuClick(this)">' +
-                    '<span class="glyphicon glyphicon-tasks"></span> <span class="caret"></span>' +
-                    '</button>' +
-                    '<ul class="dropdown-menu mb15" role="menu">' +
-                    '<li><a href="@Url.Action("Details")/' + params.value + '">@ActionStrings.Details</a></li>';
-                @if (canUserEdit)
-                {
-                    @:actions = actions + '<li><a href="@Url.Action("Edit")/' + params.value + '">@ActionStrings.Edit</a></li>';
-                                                                }
-                @if(canUserDelete)
-                {
-                    @:actions = actions + '<li><a href="#deleteConfirm" data-toggle="modal" onclick="setDelete(getObjectById(result.Items,' + params.value + ').PurchaseOrder.PoNr, ' + params.value + ');">@ActionStrings.Delete</a></li>';
-                                                                }
-                @if (canUserApprove)
-                {
-                    @:if(!(isCancelled || isApproved)){
-                                                                                @:actions = actions + '<li><a href="@Url.Action("Approve")/' + params.value + '">@ActionStrings.Approve</a></li>';
-                                                                                @:}
-                                                                }
-                actions = actions + '</ul></div>';
-                var title = '';
-
-                if(isCancelled){
-                    var date = new Date(params.data.CancelDate);
-                    title= '@EntityStrings.CancelDate ' + date.toLocaleDateString();
-                    actions = actions + '<div title="' + title + '">' + boolToGlyphRemoved(isCancelled) + '</div>';
                 }
-                else{
-                    if(isApproved){
-                        var date = new Date(params.data.ApproveDate);
-                        title= '@EntityStrings.ApproveDate ' + date.toLocaleDateString();
+                function verticalDateCellRenderer(params){
+                    return '<div class="verticalQuarter text-right ag-row-even">' +  jsonDateToLocaleDateString(params.data.ApproveDate) + '</div>' +
+                        '<div class="verticalQuarter text-right ag-row-odd">' +  jsonDateToLocaleDateString(params.data.TargetDate) + '</div>' +
+                        '<div class="verticalQuarter text-right ag-row-even">' +  jsonDateToLocaleDateString(params.data.ForecastDate) + '</div>' +
+                        '<div class="verticalQuarter text-right ag-row-odd">' +  jsonDateToLocaleDateString(params.data.RealizedDate) + '</div>';
+                }
+
+                function verticalDateCellLabels(params){
+                    return '<div class="verticalQuarter ag-row-even">@EntityStrings.ApproveDate</div>' +
+                        '<div class="verticalQuarter ag-row-odd">@EntityStrings.TargetDate</div>' +
+                        '<div class="verticalQuarter ag-row-even">@EntityStrings.ForecastDate</div>' +
+                        '<div class="verticalQuarter ag-row-odd">@EntityStrings.RealizedDate</div>';
+                }
+
+                function actionCellRenderer(params) {
+                    var isCancelled = params.data.Cancelled==null ? false : params.data.Cancelled;
+                    var isApproved = params.data.IsApproved==null ? false : params.data.IsApproved;
+                    var isCompleted = params.data.IsCompleted==null ? false : params.data.IsCompleted;
+
+                    var actions = '<div class="btn-group" style="margin-top:-3px;">' +
+                        '<button type="button" title="@ActionStrings.Action" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown" onclick="onActionMenuClick(this)">' +
+                        '<span class="glyphicon glyphicon-tasks"></span> <span class="caret"></span>' +
+                        '</button>' +
+                        '<ul class="dropdown-menu mb15" role="menu">' +
+                        '<li><a href="@Url.Action("Details")/' + params.value + '">@ActionStrings.Details</a></li>';
+                    @if (canUserEdit)
+                    {
+                        @:actions = actions + '<li><a href="@Url.Action("Edit")/' + params.value + '">@ActionStrings.Edit</a></li>';
                     }
-                    actions = actions + '<div title="' + title + '">' + boolToGlyphicon(isApproved) + '</div>';
+                    @if (canUserApprove)
+                    {
+                        @:if(!(isCancelled || isApproved)){actions = actions + '<li><a href="@Url.Action("Approve")/' + params.value + '">@ActionStrings.Approve</a></li>';}
+                    }
+                    actions = actions + '</ul></div>';
+                    var title = '';
+
+                    if(isCancelled){
+                        var date = new Date(params.data.CancelDate);
+                        title= '@EntityStrings.CancelDate ' + date.toLocaleDateString();
+                        actions = actions + '<div title="' + title + '">' + boolToGlyphRemoved(isCancelled) + '</div>';
+                    }
+                    else{
+                        if(isApproved){
+                            var date = new Date(params.data.ApproveDate);
+                            title= '@EntityStrings.ApproveDate ' + date.toLocaleDateString();
+                        }
+                        actions = actions + '<div title="' + title + '">' + boolToGlyphicon(isApproved) + '</div>';
+                    }
+                    if(isCompleted){
+                        var date = new Date(params.data.RealizedDate);
+                        title= '@EntityStrings.RealizedDate ' + date.toLocaleDateString();
+                        actions = actions + '<div title="' + title + '">' + boolToGlyphicon(isCompleted) + '</div>';
+                    }
+                    return actions;
                 }
-                if(isCompleted){
-                    var date = new Date(params.data.RealizedDate);
-                    title= '@EntityStrings.RealizedDate ' + date.toLocaleDateString();
-                    actions = actions + '<div title="' + title + '">' + boolToGlyphicon(isCompleted) + '</div>';
+
+                $('#mainContent').removeClass('body-content').addClass('wGrid');
+                $('#mainFooter').hide();
+                window.addEventListener('resize', onWindowResize);
+
+                function resizeGrid() {
+                    var minHeght = 300;
+                    var rectGrid = document.getElementById("mainGrid").getBoundingClientRect();
+                    var pagerParent = $("#pagerUl").parent();
+                    var pagerHeight = pagerParent!=null ? pagerParent.height() + 20 : 110;
+                    var newHeight = $(window).height() - rectGrid.top - pagerHeight;
+                    if(newHeight < minHeght){
+                        newHeight = minHeght;
+                    }
+                    $('#mainGrid').height(newHeight);
                 }
-                return actions;
+
+                function onWindowResize() {
+                    setTimeout(resizeGrid, 100);
+                }
+
+                $.ajaxSetup({ cache: false });
+                gridOptions = init.gridOptions;
+                // angularGrid is a global function
+                agGridGlobalFunc('#mainGrid', gridOptions);
+
+                setPagerButtons($('#pagerUl'), result.Page, result.PageCount);
+                displayRecordStats(result.Items.length, result.TotalCount);
+                resizeGrid();
             }
 
-            $('#mainContent').removeClass('body-content').addClass('wGrid');
-            $('#mainFooter').hide();
-            window.addEventListener('resize', onWindowResize);
+            function onActionMenuClick(menuBtn){
+                setTimeout(function(){
+                    var menuHeight = 220;
+                    var rectMenu = menuBtn.getBoundingClientRect();
+                    var rectGrid = document.getElementById("mainGrid").getBoundingClientRect();
 
-            function resizeGrid() {
-                var minHeght = 300;
-                var rectGrid = document.getElementById("mainGrid").getBoundingClientRect();
-                var pagerParent = $("#pagerUl").parent();
-                var pagerHeight = pagerParent!=null ? pagerParent.height() + 20 : 110;
-                var newHeight = $(window).height() - rectGrid.top - pagerHeight;
-                if(newHeight < minHeght){
-                    newHeight = minHeght;
-                }
-                $('#mainGrid').height(newHeight);
+                    var diffY = rectGrid.bottom - rectMenu.bottom - menuHeight;
+                    if (diffY < 0) {
+                        var viewport = $('#mainGrid .ag-body-viewport');
+                        var viewportScroll = viewport.scrollTop();
+                        viewport.scrollTop((diffY * -1) + viewportScroll);
+                    }
+                },250);
             }
-
-            function onWindowResize() {
-                setTimeout(resizeGrid, 100);
-            }
-
-            $.ajaxSetup({ cache: false });
-            gridOptions = init.gridOptions;
-            // angularGrid is a global function
-            agGridGlobalFunc('#mainGrid', gridOptions);
-
-            setPagerButtons($('#pagerUl'), result.Page, result.PageCount);
-            displayRecordStats(result.Items.length, result.TotalCount);
-            resizeGrid();
-        }
-
-        function onActionMenuClick(menuBtn){
-            setTimeout(function(){
-                var menuHeight = 220;
-                var rectMenu = menuBtn.getBoundingClientRect();
-                var rectGrid = document.getElementById("mainGrid").getBoundingClientRect();
-
-                var diffY = rectGrid.bottom - rectMenu.bottom - menuHeight;
-                if (diffY < 0) {
-                    var viewport = $('#mainGrid .ag-body-viewport');
-                    var viewportScroll = viewport.scrollTop();
-                    viewport.scrollTop((diffY * -1) + viewportScroll);
-                }
-            },250);
-        }
-        document.addEventListener("DOMContentLoaded", initPage());
+            document.addEventListener("DOMContentLoaded", initPage());
     </script>
 }
