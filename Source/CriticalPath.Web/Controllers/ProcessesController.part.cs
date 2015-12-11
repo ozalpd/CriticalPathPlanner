@@ -106,7 +106,6 @@ namespace CriticalPath.Web.Controllers
         }
 
         [Authorize]
-        //[Route("ProcessStepTemplates/Create/{processTemplateId:int?}")]
         public async Task<ActionResult> Index(QueryParameters qParams)
         {
             var items = await GetProcessDtoList(qParams);
