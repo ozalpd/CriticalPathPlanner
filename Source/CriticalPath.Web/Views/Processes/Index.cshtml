@@ -11,6 +11,7 @@
     bool canUserDelete = ViewBag.canUserDelete;
     bool canSeeRestricted = ViewBag.canSeeRestricted;
     bool canUserApprove = ViewBag.canUserApprove;
+    bool canUserCancelPO = ViewBag.canUserCancelPO;
 
     ProcessStepTemplateDTO[] templates = ViewBag.templates as ProcessStepTemplateDTO[];
     string[] stepRenderers = new string[templates.Length];
@@ -62,7 +63,7 @@
                      { headerName: '@Html.DisplayNameFor(m => m.ParentCategoryName)', field: "ParentCategoryName", width: 90, cellClass: "wrapText" },
                      { headerName: '@Html.DisplayNameFor(m => m.Quantity)', field: "Quantity", width: 80, cellClass:'text-right' },
                      { headerName: '@Html.DisplayNameFor(m => m.SupplierName)', field: "SupplierName", width: 90, cellClass: "wrapText" },
-                     { headerName: '', field: "StartDate", width: 90, cellRenderer: verticalDateCellLabels },
+                     { headerName: '', field: "StartDate", width: 110, cellRenderer: verticalDateCellLabels },
                      { headerName: 'PO Dates', field: "ApproveDate", width: 90, cellRenderer: verticalDateCellRenderer },
                      @for (int i = 0; i < templates.Length; i++)
                      {
@@ -75,129 +76,133 @@
             @for (int i = 0; i < templates.Length; i++)
             {
                 @:function @stepRenderers[i] (params){return stepToCell(params.value, @templates[i].Id);}
+                                    }
+
+            function stepToCell(steps, templateId){
+                var result = '';
+                $.each(steps, (function(index, step){
+                    if(step.TemplateId==templateId){
+                        result = '<div class="verticalQuarter text-right ag-row-even" title="@EntityStrings.ApproveDate">' + jsonDateToLocaleDateString(step.ApproveDate) + '</div>' +
+                            '<div class="verticalQuarter text-right ag-row-odd" title="@EntityStrings.TargetDate">' + jsonDateToLocaleDateString(step.TargetDate) + '</div>' +
+                            '<div class="verticalQuarter text-right ag-row-even" title="@EntityStrings.ForecastDate">' + jsonDateToLocaleDateString(step.ForecastDate) + '</div>' +
+                            '<div class="verticalQuarter text-right ag-row-odd" title="@EntityStrings.RealizedDate">' + jsonDateToLocaleDateString(step.RealizedDate) + '</div>';
+                        return false;
+                    }
+                }));
+                return result;
             }
 
-                function stepToCell(steps, templateId){
-                    var result = '';
-                    $.each(steps, (function(index, step){
-                        if(step.TemplateId==templateId){
-                            result = '<div class="verticalQuarter text-right ag-row-even" title="@EntityStrings.ApproveDate">' + jsonDateToLocaleDateString(step.ApproveDate) + '</div>' +
-                                '<div class="verticalQuarter text-right ag-row-odd" title="@EntityStrings.TargetDate">' + jsonDateToLocaleDateString(step.TargetDate) + '</div>' +
-                                '<div class="verticalQuarter text-right ag-row-even" title="@EntityStrings.ForecastDate">' + jsonDateToLocaleDateString(step.ForecastDate) + '</div>' +
-                                '<div class="verticalQuarter text-right ag-row-odd" title="@EntityStrings.RealizedDate">' + jsonDateToLocaleDateString(step.RealizedDate) + '</div>';
-                            return false;
-                        }
-                    }));
-                    return result;
-                }
-
-                function purchaseOrderCellRenderer(params){
-                    return '<div class="verticalHalf fontSize125pc">' + params.value + '</div>' +
-                        '<div class="verticalQuarter text-right pr10" title="@EntityStrings.OrderDate">' + jsonDateToLocaleDateString(params.data.OrderDate) + '</div>' +
-                        '<div class="verticalQuarter text-right pr10" title="@EntityStrings.DueDate">' + jsonDateToLocaleDateString(params.data.DueDate) + '</div>';
-                    @*'<div class="verticalQuarter" title="@EntityStrings.OrderDate">@EntityStrings.OrderDate <span class="text-right">' + jsonDateToLocaleDateString(params.data.OrderDate) + '</span></div>' +
+            function purchaseOrderCellRenderer(params){
+                return '<div class="verticalHalf fontSize125pc">' + params.value + '</div>' +
+                    '<div class="verticalQuarter text-right pr10" title="@EntityStrings.OrderDate">' + jsonDateToLocaleDateString(params.data.OrderDate) + '</div>' +
+                    '<div class="verticalQuarter text-right pr10" title="@EntityStrings.DueDate">' + jsonDateToLocaleDateString(params.data.DueDate) + '</div>';
+                @*'<div class="verticalQuarter" title="@EntityStrings.OrderDate">@EntityStrings.OrderDate <span class="text-right">' + jsonDateToLocaleDateString(params.data.OrderDate) + '</span></div>' +
                     '<div class="verticalQuarter" title="@EntityStrings.DueDate"> @EntityStrings.DueDate <span class="text-right">' + jsonDateToLocaleDateString(params.data.DueDate) + '</span></div>';*@
-                }
-                function verticalDateCellRenderer(params){
-                    return '<div class="verticalQuarter text-right ag-row-even">' +  jsonDateToLocaleDateString(params.data.ApproveDate) + '</div>' +
-                        '<div class="verticalQuarter text-right ag-row-odd">' +  jsonDateToLocaleDateString(params.data.TargetDate) + '</div>' +
-                        '<div class="verticalQuarter text-right ag-row-even">' +  jsonDateToLocaleDateString(params.data.ForecastDate) + '</div>' +
-                        '<div class="verticalQuarter text-right ag-row-odd">' +  jsonDateToLocaleDateString(params.data.RealizedDate) + '</div>';
-                }
+            }
+            function verticalDateCellRenderer(params){
+                return '<div class="verticalQuarter text-right ag-row-even">' +  jsonDateToLocaleDateString(params.data.ApproveDate) + '</div>' +
+                    '<div class="verticalQuarter text-right ag-row-odd">' +  jsonDateToLocaleDateString(params.data.TargetDate) + '</div>' +
+                    '<div class="verticalQuarter text-right ag-row-even">' +  jsonDateToLocaleDateString(params.data.ForecastDate) + '</div>' +
+                    '<div class="verticalQuarter text-right ag-row-odd">' +  jsonDateToLocaleDateString(params.data.RealizedDate) + '</div>';
+            }
 
-                function verticalDateCellLabels(params){
-                    return '<div class="verticalQuarter ag-row-even">@EntityStrings.ApproveDate</div>' +
-                        '<div class="verticalQuarter ag-row-odd">@EntityStrings.TargetDate</div>' +
-                        '<div class="verticalQuarter ag-row-even">@EntityStrings.ForecastDate</div>' +
-                        '<div class="verticalQuarter ag-row-odd">@EntityStrings.RealizedDate</div>';
-                }
+            function verticalDateCellLabels(params){
+                return '<div class="verticalQuarter ag-row-even">@EntityStrings.ApproveDate</div>' +
+                    '<div class="verticalQuarter ag-row-odd">@EntityStrings.TargetDate</div>' +
+                    '<div class="verticalQuarter ag-row-even">@EntityStrings.ForecastDate</div>' +
+                    '<div class="verticalQuarter ag-row-odd">@EntityStrings.RealizedDate</div>';
+            }
 
-                function actionCellRenderer(params) {
-                    var isCancelled = params.data.Cancelled==null ? false : params.data.Cancelled;
-                    var isApproved = params.data.IsApproved==null ? false : params.data.IsApproved;
-                    var isCompleted = params.data.IsCompleted==null ? false : params.data.IsCompleted;
+            function actionCellRenderer(params) {
+                var isCancelled = params.data.Cancelled==null ? false : params.data.Cancelled;
+                var isApproved = params.data.IsApproved==null ? false : params.data.IsApproved;
+                var isCompleted = params.data.IsCompleted==null ? false : params.data.IsCompleted;
 
-                    var actions = '<div class="btn-group" style="margin-top:-3px;">' +
-                        '<button type="button" title="@ActionStrings.Action" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown" onclick="onActionMenuClick(this)">' +
-                        '<span class="glyphicon glyphicon-tasks"></span> <span class="caret"></span>' +
-                        '</button>' +
-                        '<ul class="dropdown-menu mb15" role="menu">' +
-                        '<li><a href="@Url.Action("Details")/' + params.value + '">@ActionStrings.Details</a></li>';
-                    @if (canUserEdit)
-                    {
+                var actions = '<div class="btn-group" style="margin-top:-3px;">' +
+                    '<button type="button" title="@ActionStrings.Action" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown" onclick="onActionMenuClick(this)">' +
+                    '<span class="glyphicon glyphicon-tasks"></span> <span class="caret"></span>' +
+                    '</button>' +
+                    '<ul class="dropdown-menu mb15" role="menu">' +
+                    '<li><a href="@Url.Action("Details")/' + params.value + '">@ActionStrings.Details</a></li>';
+                @if (canUserEdit)
+                {
                         @:actions = actions + '<li><a href="@Url.Action("Edit")/' + params.value + '">@ActionStrings.Edit</a></li>';
-                    }
-                    @if (canUserApprove)
-                    {
-                        @:if(!(isCancelled || isApproved)){actions = actions + '<li><a href="@Url.Action("Approve")/' + params.value + '">@ActionStrings.Approve</a></li>';}
-                    }
-                    actions = actions + '</ul></div>';
-                    var title = '';
-
-                    if(isCancelled){
-                        var date = new Date(params.data.CancelDate);
-                        title= '@EntityStrings.CancelDate ' + date.toLocaleDateString();
-                        actions = actions + '<div title="' + title + '">' + boolToGlyphRemoved(isCancelled) + '</div>';
-                    }
-                    else{
-                        if(isApproved){
-                            var date = new Date(params.data.ApproveDate);
-                            title= '@EntityStrings.ApproveDate ' + date.toLocaleDateString();
-                        }
-                        actions = actions + '<div title="' + title + '">' + boolToGlyphicon(isApproved) + '</div>';
-                    }
-                    if(isCompleted){
-                        var date = new Date(params.data.RealizedDate);
-                        title= '@EntityStrings.RealizedDate ' + date.toLocaleDateString();
-                        actions = actions + '<div title="' + title + '">' + boolToGlyphicon(isCompleted) + '</div>';
-                    }
-                    return actions;
+                                }
+                @if (canUserCancelPO)
+                {
+                        @:if(!isCancelled){actions = actions + '<li><a href="@Url.Action("CancelPO", "PurchaseOrders", null)/' + params.data.PurchaseOrderId + '">@ActionStrings.CancelPO</a></li>';}
                 }
+                @if (canUserApprove)
+                {
+                    @:if(!(isCancelled || isApproved)){actions = actions + '<li><a href="@Url.Action("Approve")/' + params.value + '">@ActionStrings.Approve</a></li>';}
+                }
+                actions = actions + '</ul></div>';
+                var title = '';
 
-                $('#mainContent').removeClass('body-content').addClass('wGrid');
-                $('#mainFooter').hide();
-                window.addEventListener('resize', onWindowResize);
-
-                function resizeGrid() {
-                    var minHeght = 300;
-                    var rectGrid = document.getElementById("mainGrid").getBoundingClientRect();
-                    var pagerParent = $("#pagerUl").parent();
-                    var pagerHeight = pagerParent!=null ? pagerParent.height() + 20 : 110;
-                    var newHeight = $(window).height() - rectGrid.top - pagerHeight;
-                    if(newHeight < minHeght){
-                        newHeight = minHeght;
+                if(isCancelled){
+                    var date = new Date(params.data.CancelDate);
+                    title= '@EntityStrings.CancelDate ' + date.toLocaleDateString();
+                    actions = actions + '<div title="' + title + '">' + boolToGlyphRemoved(isCancelled) + '</div>';
+                }
+                else{
+                    if(isApproved){
+                        var date = new Date(params.data.ApproveDate);
+                        title= '@EntityStrings.ApproveDate ' + date.toLocaleDateString();
                     }
-                    $('#mainGrid').height(newHeight);
+                    actions = actions + '<div title="' + title + '">' + boolToGlyphicon(isApproved) + '</div>';
                 }
-
-                function onWindowResize() {
-                    setTimeout(resizeGrid, 100);
+                if(isCompleted){
+                    var date = new Date(params.data.RealizedDate);
+                    title= '@EntityStrings.RealizedDate ' + date.toLocaleDateString();
+                    actions = actions + '<div title="' + title + '">' + boolToGlyphicon(isCompleted) + '</div>';
                 }
-
-                $.ajaxSetup({ cache: false });
-                gridOptions = init.gridOptions;
-                // angularGrid is a global function
-                agGridGlobalFunc('#mainGrid', gridOptions);
-
-                setPagerButtons($('#pagerUl'), result.Page, result.PageCount);
-                displayRecordStats(result.Items.length, result.TotalCount);
-                resizeGrid();
+                return actions;
             }
 
-            function onActionMenuClick(menuBtn){
-                setTimeout(function(){
-                    var menuHeight = 220;
-                    var rectMenu = menuBtn.getBoundingClientRect();
-                    var rectGrid = document.getElementById("mainGrid").getBoundingClientRect();
+            $('#mainContent').removeClass('body-content').addClass('wGrid');
+            $('#mainFooter').hide();
+            window.addEventListener('resize', onWindowResize);
 
-                    var diffY = rectGrid.bottom - rectMenu.bottom - menuHeight;
-                    if (diffY < 0) {
-                        var viewport = $('#mainGrid .ag-body-viewport');
-                        var viewportScroll = viewport.scrollTop();
-                        viewport.scrollTop((diffY * -1) + viewportScroll);
-                    }
-                },250);
+            function resizeGrid() {
+                var minHeght = 300;
+                var rectGrid = document.getElementById("mainGrid").getBoundingClientRect();
+                var pagerParent = $("#pagerUl").parent();
+                var pagerHeight = pagerParent!=null ? pagerParent.height() + 20 : 110;
+                var newHeight = $(window).height() - rectGrid.top - pagerHeight;
+                if(newHeight < minHeght){
+                    newHeight = minHeght;
+                }
+                $('#mainGrid').height(newHeight);
             }
-            document.addEventListener("DOMContentLoaded", initPage());
+
+            function onWindowResize() {
+                setTimeout(resizeGrid, 100);
+            }
+
+            $.ajaxSetup({ cache: false });
+            gridOptions = init.gridOptions;
+            // angularGrid is a global function
+            agGridGlobalFunc('#mainGrid', gridOptions);
+
+            setPagerButtons($('#pagerUl'), result.Page, result.PageCount);
+            displayRecordStats(result.Items.length, result.TotalCount);
+            resizeGrid();
+        }
+
+        function onActionMenuClick(menuBtn){
+            setTimeout(function(){
+                var menuHeight = 220;
+                var rectMenu = menuBtn.getBoundingClientRect();
+                var rectGrid = document.getElementById("mainGrid").getBoundingClientRect();
+
+                var diffY = rectGrid.bottom - rectMenu.bottom - menuHeight;
+                if (diffY < 0) {
+                    var viewport = $('#mainGrid .ag-body-viewport');
+                    var viewportScroll = viewport.scrollTop();
+                    viewport.scrollTop((diffY * -1) + viewportScroll);
+                }
+            },250);
+        }
+        document.addEventListener("DOMContentLoaded", initPage());
     </script>
 }

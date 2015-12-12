@@ -185,6 +185,7 @@ namespace CriticalPath.Web.Controllers
         protected override async Task PutCanUserInViewBag()
         {
             ViewBag.canUserApprove = await CanUserApprove();
+            ViewBag.canUserCancelPO = await CanUserCancelPO();
             await base.PutCanUserInViewBag();
         }
 

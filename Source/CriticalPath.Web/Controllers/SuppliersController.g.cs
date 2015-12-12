@@ -16,51 +16,6 @@ namespace CriticalPath.Web.Controllers
 {
     public partial class SuppliersController : BaseCompaniesController 
     {
-        protected virtual async Task<IQueryable<Supplier>> GetSupplierQuery(QueryParameters qParams)
-        {
-            var query = GetSupplierQuery();
-            if (!string.IsNullOrEmpty(qParams.SearchString))
-            {
-                query = from a in query
-                        where
-                            a.CompanyName.Contains(qParams.SearchString) | 
-                            a.SupplierCode.Contains(qParams.SearchString) 
-                        select a;
-            }
-            if (qParams.CountryId != null)
-            {
-                query = query.Where(x => x.CountryId == qParams.CountryId);
-            }
-
-            qParams.TotalCount = await query.CountAsync();
-            return query.Skip(qParams.Skip).Take(qParams.PageSize);
-        }
-
-        [Authorize]
-        public async Task<ActionResult> GetSupplierPagedList(QueryParameters qParams)
-        {
-            var items = await GetSupplierDtoList(qParams);
-            var result = new PagedList<SupplierDTO>(qParams, items);
-            return Json(result, JsonRequestBehavior.AllowGet);
-        }
-
-        [Authorize]
-        public async Task<JsonResult> GetSuppliersForAutoComplete(QueryParameters qParam)
-        {
-            var query = GetSupplierQuery()
-                        .Where(x => x.CompanyName.Contains(qParam.SearchString))
-                        .Take(qParam.PageSize);
-            var list = from x in query
-                       select new
-                       {
-                           id = x.Id,
-                           value = x.CompanyName,
-                           label = x.CompanyName //can be extended as x.Category.CategoryName + "/" + x.CompanyName,
-                       };
-
-            return Json(await list.ToListAsync(), JsonRequestBehavior.AllowGet);
-        }
-
         [Authorize]
         public async Task<ActionResult> Details(int? id)  //GET: /Suppliers/Details/5
         {

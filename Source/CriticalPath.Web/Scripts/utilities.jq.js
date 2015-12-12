@@ -9,7 +9,16 @@
     }
 }
 function decNumbersOnly(evt) {
-    var arrayExceptions = [8, 9, 13, 16, 17, 18, 20, 27, 35, 36, 37, 38, 39, 40, 45, 46, 144, 188, 190];
+    var arrayExceptions = [8, 9, 13, 16, 17, 18, 20, 27, 35, 36, 37, 38, 39, 40, 45, 46, 144];
+    var decimalSeperator = getDecimalSeperator();//Mod 2015.12
+    if (!(evt.target.value.indexOf(decimalSeperator) > -1)) {
+        if (decimalSeperator == '.') {
+            arrayExceptions.push(190);
+        }
+        else if (decimalSeperator == ',') {
+            arrayExceptions.push(188);
+        }
+    }
     return numbersOnly(evt, arrayExceptions);
 }
 function getObjectById(array, id) {
@@ -127,7 +136,7 @@ function fixDecimalVal(dec) {
  */
 function getDecimalSeperator() {
     var sample = $('#decimalSample').val();
-    if (sample != null && sample.indexOf(',') > 0) {
+    if (sample != null && sample.indexOf(',') > -1) {
         return ',';
     }
     else {

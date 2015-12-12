@@ -1,7 +1,7 @@
 @using CriticalPath.Web.Models
 @using CriticalPath.Data
 @using CP.i8n
-@model Product
+@model ProductEditVM
 @{
     ViewBag.Title = EntityStrings.EditProduct;
 }
@@ -9,11 +9,11 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.Id)
-        
+
         @Html.Partial("_ProductCategorySelectPartial", Model)
         <div class="form-group">
             @Html.LabelFor(model => model.ProductCode, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
@@ -30,6 +30,8 @@
             </div>
         </div>
         @Html.Partial("_AllPriceEdit", Model)
+
+        @Html.Partial("_AutoCompleteSupplier")
         @Html.Partial("_SaveButtonsPartial")
     </div>
 }

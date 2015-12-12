@@ -1499,8 +1499,8 @@
       <RolesCanDelete>admin, supervisor</RolesCanDelete>
       <RolesCanSeeRestricted>admin, supervisor, clerk</RolesCanSeeRestricted>
       <GenerateController>true</GenerateController>
-      <GenerateActionForAutoComplete>true</GenerateActionForAutoComplete>
-      <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
+      <GenerateActionForAutoComplete>false</GenerateActionForAutoComplete>
+      <GenerateGetQueryMethod>false</GenerateGetQueryMethod>
       <GenerateGetDtoQueryMethod>false</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>false</GenerateIndexAction>
       <GenerateGetEntityAction>true</GenerateGetEntityAction>
@@ -2029,9 +2029,9 @@
       <GenerateIndexAction>true</GenerateIndexAction>
       <GenerateGetEntityAction>true</GenerateGetEntityAction>
       <GenerateGetEntityListAction>true</GenerateGetEntityListAction>
-      <GenerateCreateAction>true</GenerateCreateAction>
+      <GenerateCreateAction>false</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
-      <GenerateEditAction>true</GenerateEditAction>
+      <GenerateEditAction>false</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
       <IndexViewGeneration>HtmlTableWithButtonsAction</IndexViewGeneration>
       <IndexView>false</IndexView>

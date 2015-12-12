@@ -199,93 +199,6 @@ namespace CriticalPath.Web.Controllers
             return Json(new ProductDTO(product), JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet]
-        [Authorize(Roles = "admin, supervisor, clerk")]
-        public async Task<ActionResult> Create()  //GET: /Products/Create
-        {
-            var product = new Product();
-            await SetProductDefaults(product);
-            await SetProductCategorySelectListAsync(product);
-            ViewBag.SellingCurrencyId = await GetCurrencySelectList(product.SellingCurrencyId);
-            ViewBag.BuyingCurrencyId = await GetCurrencySelectList(product.BuyingCurrencyId ?? 0);
-            ViewBag.RoyaltyCurrencyId = await GetCurrencySelectList(product.RoyaltyCurrencyId ?? 0);
-            ViewBag.RetailCurrencyId = await GetCurrencySelectList(product.RetailCurrencyId ?? 0);
-            return View(product);
-        }
-
-        [HttpPost]
-        [Authorize(Roles = "admin, supervisor, clerk")]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(Product product)  //POST: /Products/Create
-        {
-            DataContext.SetInsertDefaults(product, this);
-
-            if (ModelState.IsValid)
-            {
-                OnCreateSaving(product);
- 
-                DataContext.Products.Add(product);
-                await DataContext.SaveChangesAsync(this);
- 
-                OnCreateSaved(product);
-                return RedirectToAction("Index");
-            }
-
-            await SetProductCategorySelectListAsync(product);
-            ViewBag.SellingCurrencyId = await GetCurrencySelectList(product.SellingCurrencyId);
-            ViewBag.BuyingCurrencyId = await GetCurrencySelectList(product.BuyingCurrencyId ?? 0);
-            ViewBag.RoyaltyCurrencyId = await GetCurrencySelectList(product.RoyaltyCurrencyId ?? 0);
-            ViewBag.RetailCurrencyId = await GetCurrencySelectList(product.RetailCurrencyId ?? 0);
-            return View(product);
-        }
-
-        [Authorize(Roles = "admin, supervisor, clerk")]
-        public async Task<ActionResult> Edit(int? id)  //GET: /Products/Edit/5
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Product product = await FindAsyncProduct(id.Value);
-
-            if (product == null)
-            {
-                return HttpNotFound();
-            }
-
-            await SetProductCategorySelectListAsync(product);
-            ViewBag.SellingCurrencyId = await GetCurrencySelectList(product.SellingCurrencyId);
-            ViewBag.BuyingCurrencyId = await GetCurrencySelectList(product.BuyingCurrencyId ?? 0);
-            ViewBag.RoyaltyCurrencyId = await GetCurrencySelectList(product.RoyaltyCurrencyId ?? 0);
-            ViewBag.RetailCurrencyId = await GetCurrencySelectList(product.RetailCurrencyId ?? 0);
-            return View(product);
-        }
-
-        [Authorize(Roles = "admin, supervisor, clerk")]
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(Product product)  //POST: /Products/Edit/5
-        {
-            DataContext.SetInsertDefaults(product, this);
-
-            if (ModelState.IsValid)
-            {
-                OnEditSaving(product);
- 
-                DataContext.Entry(product).State = EntityState.Modified;
-                await DataContext.SaveChangesAsync(this);
- 
-                OnEditSaved(product);
-                return RedirectToAction("Index");
-            }
-
-            await SetProductCategorySelectListAsync(product);
-            ViewBag.SellingCurrencyId = await GetCurrencySelectList(product.SellingCurrencyId);
-            ViewBag.BuyingCurrencyId = await GetCurrencySelectList(product.BuyingCurrencyId ?? 0);
-            ViewBag.RoyaltyCurrencyId = await GetCurrencySelectList(product.RoyaltyCurrencyId ?? 0);
-            ViewBag.RetailCurrencyId = await GetCurrencySelectList(product.RetailCurrencyId ?? 0);
-            return View(product);
-        }
 
 
         [Authorize(Roles = "admin, supervisor")]
@@ -388,9 +301,5 @@ namespace CriticalPath.Web.Controllers
             }
             IEnumerable<T> _items;
         }
-        partial void OnCreateSaving(Product product);
-        partial void OnCreateSaved(Product product);
-        partial void OnEditSaving(Product product);
-        partial void OnEditSaved(Product product);
     }
 }

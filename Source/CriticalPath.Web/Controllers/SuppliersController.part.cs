@@ -17,6 +17,54 @@ namespace CriticalPath.Web.Controllers
 {
     public partial class SuppliersController
     {
+        protected virtual async Task<IQueryable<Supplier>> GetSupplierQuery(QueryParameters qParams)
+        {
+            var query = GetSupplierQuery();
+            if (!string.IsNullOrEmpty(qParams.SearchString))
+            {
+                query = from a in query
+                        where
+                            a.CompanyName.Contains(qParams.SearchString) |
+                            a.SupplierCode.Contains(qParams.SearchString)
+                        select a;
+            }
+            if (qParams.CountryId != null)
+            {
+                query = query.Where(x => x.CountryId == qParams.CountryId);
+            }
+            qParams.TotalCount = await query.CountAsync();
+            return query.Skip(qParams.Skip).Take(qParams.PageSize);
+        }
+
+        [Authorize]
+        public async Task<JsonResult> GetSuppliersForAutoComplete(QueryParameters qParam)
+        {
+            var query = GetSupplierQuery()
+                        .Where(x => x.CompanyName.Contains(qParam.SearchString))
+                        .Take(qParam.PageSize);
+            if (!string.IsNullOrEmpty(qParam.ExcludedIds))
+            {
+                var parts = qParam.ExcludedIds.Split(',');
+                var ids = new List<int>();
+                for (int i = 0; i < parts.Length; i++)
+                {
+                    int k = 0;
+                    if (int.TryParse(parts[i], out k))
+                        ids.Add(k);
+                }
+                query = query.Where(s => !ids.Contains(s.Id));
+            }
+            var list = from x in query
+                       select new
+                       {
+                           id = x.Id,
+                           value = x.CompanyName,
+                           label = x.CompanyName //can be extended as x.Category.CategoryName + "/" + x.CompanyName,
+                       };
+
+            return Json(await list.ToListAsync(), JsonRequestBehavior.AllowGet);
+        }
+
         protected virtual async Task<List<SupplierDTO>> GetSupplierDtoList(QueryParameters qParams)
         {
             var query = await GetSupplierQuery(qParams);
@@ -124,6 +172,7 @@ namespace CriticalPath.Web.Controllers
         public new partial class QueryParameters : BaseController.QueryParameters
         {
             public int ProductId { get; set; }
+            public string ExcludedIds { get; set; }
         }
     }
 }

@@ -1,0 +1,71 @@
+@using CriticalPath.Web.Models
+@using CriticalPath.Data
+@using CP.i8n
+@using System.Text
+
+@model ProductEditVM
+@{
+    Layout = null;
+    StringBuilder sb = new StringBuilder();
+}
+<style>
+    input + label{text-decoration:line-through;}
+    input:checked + label{text-decoration:none;}
+</style>
+<div class="form-group">
+    @Html.LabelFor(model => model.Suppliers, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+    <div id="supplierCheckboxes" class="col-lg-5 col-md-6 col-sm-7">
+        @foreach (var item in Model.Suppliers.OrderBy(s => s.CompanyName))
+        {
+            sb.Append(item.Id);
+            sb.Append(',');
+            string inputId = string.Format("Supplier{0}", item.Id);
+            <div class="pull-left pr10" style="min-width:25%;">
+                <input id="@inputId" name="SuppliersSelected" value="@item.Id" type="checkbox" checked="checked" class="checkbox-inline">
+                <label class="control-label ml5" for="@inputId">@item.CompanyName</label>
+            </div>
+        }
+    </div>
+</div>
+<div class="form-group">
+    @Html.Label("SupplierName", htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+    <div class="col-lg-5 col-md-6 col-sm-7">
+        @Html.Editor("SupplierName", new { htmlAttributes = new { @class = "form-control ui-autocomplete-input",
+            autocomplete = "off", data_url = Url.Action("GetSuppliersForAutoComplete", "Suppliers") }})
+    </div>
+</div>
+<script type="text/javascript">
+    var suppliers = [@sb.ToString()];
+    $('#SupplierName').autocomplete({
+        minLenght: 1,
+        delay: 500,
+        source: function (request, response) {
+            var url = $(this.element).data('url');
+            $.getJSON(url, { searchString: request.term, pageSize: 25, excludedIds: suppliers.toString() }, function (data) {
+                response(data);
+            });
+        },
+        select: function (event, ui) {
+            var itemId = ui.item.id;
+            if ($.inArray(itemId, suppliers)<0) {
+                $('#supplierCheckboxes').append(
+                '<div class="pull-left pr10" style="min-width:25%;"><input id="Supplier' + itemId + '" name="SuppliersSelected" value="' + itemId + '" type="checkbox" checked="checked" class="checkbox-inline mr5">' +
+                '<label class="control-label ml2" for="Supplier' + itemId + '">' + ui.item.value + '</label></div>');
+                suppliers.push(itemId);
+                $(event.target).val('');
+            }
+        },
+        change: function (event, ui) {
+            if (ui.item == null) {
+                $(event.target).val('');
+            }
+        },
+        open: function (event, ui) {
+            var boxWidth = $('#SupplierName').outerWidth();
+            var minWidth = 300;
+            $(this).autocomplete("widget")
+                .css({ "width": (boxWidth > minWidth ? boxWidth : minWidth) })
+                .addClass('fontSize80pc');
+        }
+    });
+</script>

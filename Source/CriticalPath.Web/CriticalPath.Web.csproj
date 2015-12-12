@@ -231,6 +231,8 @@
     <Compile Include="Models\AppSettings.cs" />
     <Compile Include="Models\DiscontinueCompanyVM.cs" />
     <Compile Include="Models\DiscontinuedVM.cs" />
+    <Compile Include="Models\ProductCreateVM.cs" />
+    <Compile Include="Models\ProductEditVM.cs" />
     <Compile Include="Models\PurchaseOrderCancelVM.cs" />
     <Compile Include="Models\PurchaseOrderCreateVM.cs" />
     <Compile Include="Models\PurchaseOrderEditVM.cs" />
@@ -563,6 +565,7 @@
     <Content Include="Views\PurchaseOrders\_ProductAutoComplete.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\ProcessStepTemplate.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\ProcessTemplate.cshtml" />
+    <Content Include="Views\Products\_AutoCompleteSupplier.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

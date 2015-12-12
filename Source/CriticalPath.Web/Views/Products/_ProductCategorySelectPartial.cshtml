@@ -1,6 +1,6 @@
 ﻿@using CP.i8n
 @using CriticalPath.Data
-@model Product
+@model ProductDTO
 @{
     Layout = null;
 }
@@ -24,7 +24,7 @@
                 targetSelect.empty();
                 targetSelect.append($('<option/>', {
                     value: '',
-                    text: '@ActionStrings.SelectPlease'
+                    text: '@Html.Raw(ActionStrings.SelectPlease)'
                 }));
                 $.each(categories, function (index, category) {
                     targetSelect.append($('<option/>', {

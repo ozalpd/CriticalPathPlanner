@@ -84,15 +84,21 @@ namespace CriticalPath.Web.Controllers
 
         protected async Task SetProductCategorySelectListAsync(ProductDTO product)
         {
-            await SetProductCategorySelectListAsync(product);
+            await SetProductCategorySelectListAsync(product.CategoryId);
         }
 
         protected async Task SetProductCategorySelectListAsync(Product product)
         {
-            var productCategory = product == null ? null : product.Category == null ? null : product.Category;
+            var productCategory = product?.Category == null ? null : product.Category;
             if (productCategory == null && product != null && product.CategoryId > 0)
                 productCategory = await FindAsyncProductCategory(product.CategoryId);
 
+            await SetProductCategorySelectListAsync(productCategory);
+        }
+
+        protected async Task SetProductCategorySelectListAsync(int categoryId)
+        {
+            var productCategory = categoryId > 0 ? await FindAsyncProductCategory(categoryId) : null;
             await SetProductCategorySelectListAsync(productCategory);
         }
 
