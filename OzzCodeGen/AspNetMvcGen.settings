@@ -12,7 +12,7 @@
         <AspNetMvcPropertySetting>
           <Name>Id</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>true</UseInSearch>
+          <UseInSearch>false</UseInSearch>
           <InIndexView>false</InIndexView>
           <InDetailsView>false</InDetailsView>
           <InCreateView>false</InCreateView>
@@ -172,7 +172,7 @@
         <AspNetMvcPropertySetting>
           <Name>CreatorId</Name>
           <Exclude>true</Exclude>
-          <UseInSearch>true</UseInSearch>
+          <UseInSearch>false</UseInSearch>
           <InIndexView>false</InIndexView>
           <InDetailsView>false</InDetailsView>
           <InCreateView>false</InCreateView>
@@ -184,7 +184,7 @@
         <AspNetMvcPropertySetting>
           <Name>CreatorIp</Name>
           <Exclude>true</Exclude>
-          <UseInSearch>true</UseInSearch>
+          <UseInSearch>false</UseInSearch>
           <InIndexView>false</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>false</InCreateView>
@@ -270,7 +270,7 @@
         <AspNetMvcPropertySetting>
           <Name>ModifierId</Name>
           <Exclude>true</Exclude>
-          <UseInSearch>true</UseInSearch>
+          <UseInSearch>false</UseInSearch>
           <InIndexView>false</InIndexView>
           <InDetailsView>false</InDetailsView>
           <InCreateView>false</InCreateView>
@@ -282,7 +282,7 @@
         <AspNetMvcPropertySetting>
           <Name>ModifierIp</Name>
           <Exclude>true</Exclude>
-          <UseInSearch>true</UseInSearch>
+          <UseInSearch>false</UseInSearch>
           <InIndexView>false</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>false</InCreateView>
@@ -344,7 +344,7 @@
         <AspNetMvcPropertySetting>
           <Name>IsApproved</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
+          <UseInSearch>true</UseInSearch>
           <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>false</InCreateView>
@@ -356,7 +356,7 @@
         <AspNetMvcPropertySetting>
           <Name>ApproveDate</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
+          <UseInSearch>true</UseInSearch>
           <InIndexView>false</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>false</InCreateView>
@@ -368,7 +368,7 @@
         <AspNetMvcPropertySetting>
           <Name>ApprovedUserId</Name>
           <Exclude>true</Exclude>
-          <UseInSearch>true</UseInSearch>
+          <UseInSearch>false</UseInSearch>
           <InIndexView>false</InIndexView>
           <InDetailsView>false</InDetailsView>
           <InCreateView>false</InCreateView>
@@ -380,7 +380,7 @@
         <AspNetMvcPropertySetting>
           <Name>ApprovedUserIp</Name>
           <Exclude>true</Exclude>
-          <UseInSearch>true</UseInSearch>
+          <UseInSearch>false</UseInSearch>
           <InIndexView>false</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>false</InCreateView>
@@ -1207,7 +1207,7 @@
         <AspNetMvcPropertySetting>
           <Name>City</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
+          <UseInSearch>true</UseInSearch>
           <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
@@ -1219,7 +1219,7 @@
         <AspNetMvcPropertySetting>
           <Name>State</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
+          <UseInSearch>true</UseInSearch>
           <InIndexView>false</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
@@ -1256,7 +1256,7 @@
           <Name>Contacts</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
-          <InIndexView>true</InIndexView>
+          <InIndexView>false</InIndexView>
           <InDetailsView>false</InDetailsView>
           <InCreateView>false</InCreateView>
           <InEditView>false</InEditView>
@@ -1267,7 +1267,7 @@
         <AspNetMvcPropertySetting>
           <Name>Discontinued</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
+          <UseInSearch>true</UseInSearch>
           <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
@@ -1279,7 +1279,7 @@
         <AspNetMvcPropertySetting>
           <Name>DiscontinueDate</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
+          <UseInSearch>true</UseInSearch>
           <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
@@ -1940,7 +1940,7 @@
         <AspNetMvcPropertySetting>
           <Name>Discontinued</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
+          <UseInSearch>true</UseInSearch>
           <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
@@ -1952,7 +1952,7 @@
         <AspNetMvcPropertySetting>
           <Name>DiscontinueDate</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
+          <UseInSearch>true</UseInSearch>
           <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
@@ -1964,7 +1964,7 @@
         <AspNetMvcPropertySetting>
           <Name>DiscontinueNotes</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>true</UseInSearch>
+          <UseInSearch>false</UseInSearch>
           <InIndexView>false</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
@@ -2063,7 +2063,7 @@
         <AspNetMvcPropertySetting>
           <Name>OrderDate</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
+          <UseInSearch>true</UseInSearch>
           <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
@@ -2075,7 +2075,7 @@
         <AspNetMvcPropertySetting>
           <Name>DueDate</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
+          <UseInSearch>true</UseInSearch>
           <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
@@ -2087,7 +2087,7 @@
         <AspNetMvcPropertySetting>
           <Name>IsRepeat</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
+          <UseInSearch>true</UseInSearch>
           <InIndexView>false</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>false</InCreateView>
@@ -2411,7 +2411,7 @@
         <AspNetMvcPropertySetting>
           <Name>SupplierDueDate</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
+          <UseInSearch>true</UseInSearch>
           <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
@@ -2471,7 +2471,7 @@
         <AspNetMvcPropertySetting>
           <Name>Notes</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>true</UseInSearch>
+          <UseInSearch>false</UseInSearch>
           <InIndexView>false</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
@@ -2483,7 +2483,7 @@
         <AspNetMvcPropertySetting>
           <Name>Cancelled</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
+          <UseInSearch>true</UseInSearch>
           <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
@@ -2495,7 +2495,7 @@
         <AspNetMvcPropertySetting>
           <Name>CancelDate</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
+          <UseInSearch>true</UseInSearch>
           <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
@@ -2507,7 +2507,7 @@
         <AspNetMvcPropertySetting>
           <Name>CancellationReason</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>true</UseInSearch>
+          <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
@@ -2519,7 +2519,7 @@
         <AspNetMvcPropertySetting>
           <Name>CancelledUserIp</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>true</UseInSearch>
+          <UseInSearch>false</UseInSearch>
           <InIndexView>false</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>false</InCreateView>
@@ -2531,7 +2531,7 @@
         <AspNetMvcPropertySetting>
           <Name>CancelledUserId</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>true</UseInSearch>
+          <UseInSearch>false</UseInSearch>
           <InIndexView>false</InIndexView>
           <InDetailsView>false</InDetailsView>
           <InCreateView>false</InCreateView>
@@ -2729,7 +2729,7 @@
         <AspNetMvcPropertySetting>
           <Name>IsCompleted</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
+          <UseInSearch>true</UseInSearch>
           <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>false</InCreateView>
@@ -2741,7 +2741,7 @@
         <AspNetMvcPropertySetting>
           <Name>Cancelled</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
+          <UseInSearch>true</UseInSearch>
           <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>false</InCreateView>
@@ -2801,7 +2801,7 @@
         <AspNetMvcPropertySetting>
           <Name>StartDate</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
+          <UseInSearch>true</UseInSearch>
           <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
@@ -2813,7 +2813,7 @@
         <AspNetMvcPropertySetting>
           <Name>TargetDate</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
+          <UseInSearch>true</UseInSearch>
           <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
@@ -2825,7 +2825,7 @@
         <AspNetMvcPropertySetting>
           <Name>ForecastDate</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
+          <UseInSearch>true</UseInSearch>
           <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
@@ -2837,7 +2837,7 @@
         <AspNetMvcPropertySetting>
           <Name>RealizedDate</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
+          <UseInSearch>true</UseInSearch>
           <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>false</InCreateView>
@@ -2861,7 +2861,7 @@
         <AspNetMvcPropertySetting>
           <Name>CancelDate</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
+          <UseInSearch>true</UseInSearch>
           <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>false</InCreateView>

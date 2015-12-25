@@ -34,7 +34,8 @@
 @section scripts{
     @Scripts.Render("~/js/ag-grid")
     @Html.Partial("_IndexScriptsPartial", "Processes") @* Controller's name *@
-    @Html.Partial("_agGridScriptsPartial", "/Processes/GetProcessPagedList") @* Service url *@
+    @Html.Partial("_agGridScriptsPartial", "/Processes/GetProcessPagedList")   @* Service url *@
+    @Html.Partial("_DateSubmitMessageBox", "/ProcessSteps/SetProcessStepDate") @* Service url *@
     <script type="text/javascript">
         var result = @Html.Raw(ViewBag.result);
         var gridOptions;
@@ -44,7 +45,7 @@
             init.columnDefs = columnDefs();
             init.gridOptions = {
                 columnDefs: init.columnDefs,
-                rowHeight: 76,
+                rowHeight: 57,
                 pageSize: result.pageSize,
                 headerHeight: 48,
                 //groupHeaders: true,
@@ -68,49 +69,56 @@
                      @for (int i = 0; i < templates.Length; i++)
                      {
                          stepRenderers[i] = string.Format("stepCellRenderer{0}", templates[i].Id);
-                         @:{ headerName: '@templates[i].Title', headerTooltip: '@templates[i].Title', field: "ProcessSteps", width: 90, cellRenderer: @stepRenderers[i], headerClass: "wrapText" },
+                         @:{ headerName: '@templates[i].Title', headerTooltip: '@templates[i].Title', field: "ProcessSteps", width: 98, cellRenderer: @stepRenderers[i], headerClass: "wrapText" },
                      }
                 ];
             }
 
             @for (int i = 0; i < templates.Length; i++)
             {
-                @:function @stepRenderers[i] (params){return stepToCell(params.value, @templates[i].Id);}
+                @:function @stepRenderers[i] (params){return stepToCell(params.value, @templates[i].Id, params.data.PoNr);}
                                     }
 
-            function stepToCell(steps, templateId){
+            function stepToCell(steps, templateId, poNr){
                 var result = '';
                 $.each(steps, (function(index, step){
                     if(step.TemplateId==templateId){
-                        result = '<div class="verticalQuarter text-right ag-row-even" title="@EntityStrings.ApproveDate">' + jsonDateToLocaleDateString(step.ApproveDate) + '</div>' +
-                            '<div class="verticalQuarter text-right ag-row-odd" title="@EntityStrings.TargetDate">' + jsonDateToLocaleDateString(step.TargetDate) + '</div>' +
-                            '<div class="verticalQuarter text-right ag-row-even" title="@EntityStrings.ForecastDate">' + jsonDateToLocaleDateString(step.ForecastDate) + '</div>' +
-                            '<div class="verticalQuarter text-right ag-row-odd" title="@EntityStrings.RealizedDate">' + jsonDateToLocaleDateString(step.RealizedDate) + '</div>';
+                        //result = stepDateQrtCell(step.Id, step.ApproveDate, 'row-even', poNr + '/' + step.Title, '@EntityStrings.ApproveDate', 'submitTargetDate(' + step.Id + ')') +
+                        result = stepDateQrtCell(step.Id, step.TargetDate, 'row-even', poNr + '/' + step.Title,'@EntityStrings.TargetDate', 'submitTargetDate(' + step.Id + ')') +
+                           stepDateQrtCell(step.Id, step.ForecastDate, 'row-odd', poNr + '/' + step.Title,'@EntityStrings.ForecastDate', 'submitForecastDate(' + step.Id + ')') +
+                           stepDateQrtCell(step.Id, step.RealizedDate, 'row-even', poNr + '/' + step.Title,'@EntityStrings.RealizedDate', 'submitRealizedDate(' + step.Id + ')');
                         return false;
                     }
                 }));
                 return result;
             }
 
+            function stepDateQrtCell(stepId, jsonDate, clss, modalHeader, title, submitFunction){
+                return '<div class="verticalQuarter ' + clss + '" title="' + title + '"><div class="btn-group inline">' +
+                    '<a href="#dateSubmitModal" data-toggle="modal" onclick="setDateSubmitModal(\'' + modalHeader + '\', \''+ title + '\', \''+ jsonDate + '\', \''+ submitFunction + '\')" class="btn btn-default btn-xxs"><span class="glyphicon glyphicon-pencil"></span></a>' +
+                    '<div class="text-right" style="width:90px;">' +
+                    jsonDateToLocaleDateString(jsonDate) + '</div></div></div>';
+            }
+
             function purchaseOrderCellRenderer(params){
-                return '<div class="verticalHalf fontSize125pc">' + params.value + '</div>' +
+                return '<div class="verticalQuarter fontSize125pc">' + params.value + '</div>' +
                     '<div class="verticalQuarter text-right pr10" title="@EntityStrings.OrderDate">' + jsonDateToLocaleDateString(params.data.OrderDate) + '</div>' +
                     '<div class="verticalQuarter text-right pr10" title="@EntityStrings.DueDate">' + jsonDateToLocaleDateString(params.data.DueDate) + '</div>';
                 @*'<div class="verticalQuarter" title="@EntityStrings.OrderDate">@EntityStrings.OrderDate <span class="text-right">' + jsonDateToLocaleDateString(params.data.OrderDate) + '</span></div>' +
                     '<div class="verticalQuarter" title="@EntityStrings.DueDate"> @EntityStrings.DueDate <span class="text-right">' + jsonDateToLocaleDateString(params.data.DueDate) + '</span></div>';*@
             }
             function verticalDateCellRenderer(params){
-                return '<div class="verticalQuarter text-right ag-row-even">' +  jsonDateToLocaleDateString(params.data.ApproveDate) + '</div>' +
-                    '<div class="verticalQuarter text-right ag-row-odd">' +  jsonDateToLocaleDateString(params.data.TargetDate) + '</div>' +
-                    '<div class="verticalQuarter text-right ag-row-even">' +  jsonDateToLocaleDateString(params.data.ForecastDate) + '</div>' +
-                    '<div class="verticalQuarter text-right ag-row-odd">' +  jsonDateToLocaleDateString(params.data.RealizedDate) + '</div>';
+                //return '<div class="verticalQuarter text-right row-even">' +  jsonDateToLocaleDateString(params.data.ApproveDate) + '</div>' +
+                return    '<div class="verticalQuarter text-right row-even">' +  jsonDateToLocaleDateString(params.data.TargetDate) + '</div>' +
+                    '<div class="verticalQuarter text-right row-odd">' +  jsonDateToLocaleDateString(params.data.ForecastDate) + '</div>' +
+                    '<div class="verticalQuarter text-right row-even">' +  jsonDateToLocaleDateString(params.data.RealizedDate) + '</div>';
             }
 
             function verticalDateCellLabels(params){
-                return '<div class="verticalQuarter ag-row-even">@EntityStrings.ApproveDate</div>' +
-                    '<div class="verticalQuarter ag-row-odd">@EntityStrings.TargetDate</div>' +
-                    '<div class="verticalQuarter ag-row-even">@EntityStrings.ForecastDate</div>' +
-                    '<div class="verticalQuarter ag-row-odd">@EntityStrings.RealizedDate</div>';
+                //return '<div class="verticalQuarter row-even">@EntityStrings.ApproveDate</div>' +
+                return    '<div class="verticalQuarter row-header">@EntityStrings.TargetDate</div>' +
+                    '<div class="verticalQuarter row-header">@EntityStrings.ForecastDate</div>' +
+                    '<div class="verticalQuarter row-header">@EntityStrings.RealizedDate</div>';
             }
 
             function actionCellRenderer(params) {
@@ -127,15 +135,15 @@
                 @if (canUserEdit)
                 {
                         @:actions = actions + '<li><a href="@Url.Action("Edit")/' + params.value + '">@ActionStrings.Edit</a></li>';
-                                }
+                                                                                                }
                 @if (canUserCancelPO)
                 {
                         @:if(!isCancelled){actions = actions + '<li><a href="@Url.Action("CancelPO", "PurchaseOrders", null)/' + params.data.PurchaseOrderId + '">@ActionStrings.CancelPO</a></li>';}
-                }
+                                                                                }
                 @if (canUserApprove)
                 {
-                    @:if(!(isCancelled || isApproved)){actions = actions + '<li><a href="@Url.Action("Approve")/' + params.value + '">@ActionStrings.Approve</a></li>';}
-                }
+                    @:if(!(isCancelled || isApproved)){actions = actions + '<li><a href="@Url.Action("ApproveProcess")/' + params.value + '">@ActionStrings.Approve</a></li>';}
+                                                                                }
                 actions = actions + '</ul></div>';
                 var title = '';
 
@@ -188,6 +196,11 @@
             displayRecordStats(result.Items.length, result.TotalCount);
             resizeGrid();
         }
+
+        function submitTargetDate(id) { submitDate(id, {targetDate:$('#dateInput').val()}); }
+        function submitForecastDate(id) { submitDate(id, {forecastDate:$('#dateInput').val()}); }
+        function submitRealizedDate(id) { submitDate(id, {realizedDate:$('#dateInput').val()}); }
+
 
         function onActionMenuClick(menuBtn){
             setTimeout(function(){

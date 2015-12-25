@@ -221,5 +221,14 @@ namespace OzzIdentity.Resources {
                 return ResourceManager.GetString("SetPassword", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User Name.
+        /// </summary>
+        public static string UserName {
+            get {
+                return ResourceManager.GetString("UserName", resourceCulture);
+            }
+        }
     }
 }

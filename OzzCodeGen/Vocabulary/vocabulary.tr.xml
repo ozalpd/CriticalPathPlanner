@@ -569,6 +569,10 @@
     <Translation>Bize Ulaşın</Translation>
   </Vocab>
   <Vocab>
+    <Name>Continiue</Name>
+    <Translation>Devam Et</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Countries</Name>
     <Translation>Ülkeler</Translation>
   </Vocab>
@@ -1149,6 +1153,10 @@
     <Translation>Yükseklik</Translation>
   </Vocab>
   <Vocab>
+    <Name>Hide</Name>
+    <Translation>Gizle</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Home</Name>
     <Translation>Ana Sayfa</Translation>
   </Vocab>
@@ -1613,6 +1621,10 @@
     <Translation>Kayıt ol</Translation>
   </Vocab>
   <Vocab>
+    <Name>Reject</Name>
+    <Translation>Gönderme</Translation>
+  </Vocab>
+  <Vocab>
     <Name>RelatedRecordsExist</Name>
     <Translation>Bu kayıt {0} adet {1} kaydına sahip.</Translation>
   </Vocab>
@@ -1893,6 +1905,10 @@
     <Translation>Bazen</Translation>
   </Vocab>
   <Vocab>
+    <Name>Start</Name>
+    <Translation>Başlat</Translation>
+  </Vocab>
+  <Vocab>
     <Name>StartDate</Name>
     <Translation>Başlama Tarihi</Translation>
   </Vocab>
@@ -1905,12 +1921,20 @@
     <Translation>Adım Şablonları</Translation>
   </Vocab>
   <Vocab>
+    <Name>Stop</Name>
+    <Translation>Durdur</Translation>
+  </Vocab>
+  <Vocab>
     <Name>SubCategories</Name>
     <Translation>Ürün Grupları</Translation>
   </Vocab>
   <Vocab>
     <Name>SubCategory</Name>
     <Translation>Ürün Grubu</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Submit</Name>
+    <Translation>Gönder</Translation>
   </Vocab>
   <Vocab>
     <Name>Supplier</Name>

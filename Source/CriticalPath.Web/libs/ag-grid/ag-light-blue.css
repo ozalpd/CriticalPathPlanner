@@ -1,43 +1,39 @@
-﻿.ag-body-container{
+﻿.ag-body-container {
     border-bottom: 1px solid #9bc2e6;
 }
+
 .cell-col-0 {
-    overflow: visible;/* to make ActionMenu visible */
+    overflow: visible; /* to make ActionMenu visible */
     border-left: 1px solid #9bc2e6;
 }
 
 .ag-style .ag-root {
-  /*border: 1px solid #9bc2e6;*/
-  font: 10pt Calibri, "Segoe UI", Thonburi, Arial, Verdana, sans-serif;
+    /*border: 1px solid #9bc2e6;*/
+    font: 10pt Calibri, "Segoe UI", Thonburi, Arial, Verdana, sans-serif;
 }
 
 .ag-style .ag-cell {
     border-right: 1px solid #9bc2e6;
     padding: 4px;
 }
+
+.ag-style .ag-pinned-header,
+.ag-style .ag-header-container {
+    font-size: 120%;
+    border-top: 1px solid #9bc2e6;
+    border-bottom: 1px solid #9bc2e6;
+}
+
+.ag-style .row-header,
+.ag-style .ag-pinned-header,
 .ag-style .ag-header-container {
     background-color: #82a5dd;
     background-image: -webkit-linear-gradient(#9bc2e6, #5b9bd5 60%, #5595d0);
     background-image: -o-linear-gradient(#9bc2e6, #5b9bd5 60%, #5595d0);
     background-image: -webkit-gradient(linear, left top, left bottom, from(#9bc2e6), color-stop(60%, #5b9bd5), to(#5595d0));
     background-image: linear-gradient(#9bc2e6, #5b9bd5 60%, #5595d0);
-    border-top: 1px solid #9bc2e6;
-    border-bottom: 1px solid #9bc2e6;
-    color:#fff;
+    color: #fff;
     text-shadow: 1px 1px 3px #004;
-    font-size:120%;
-}
-
-.ag-style .ag-pinned-header {
-    background-color: #82a5dd;
-    background-image: -webkit-linear-gradient(#9bc2e6, #5b9bd5 60%, #5595d0);
-    background-image: -o-linear-gradient(#9bc2e6, #5b9bd5 60%, #5595d0);
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#9bc2e6), color-stop(60%, #5b9bd5), to(#5595d0));
-    background-image: linear-gradient(#9bc2e6, #5b9bd5 60%, #5595d0);
-    border-bottom: 1px solid #9bc2e6;
-    color:#fff;
-    text-shadow: 1px 1px 3px #004;
-    font-size:120%;
 }
 
 .ag-style .ag-header-cell {

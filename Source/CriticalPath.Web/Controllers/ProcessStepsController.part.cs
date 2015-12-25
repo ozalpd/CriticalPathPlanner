@@ -59,5 +59,46 @@ namespace CriticalPath.Web.Controllers
 
             return View(processStep);
         }
+
+        [Authorize(Roles = "admin, supervisor, clerk")]
+        public async Task<ActionResult> SetProcessStepDate(int? id, DateTime? realizedDate, DateTime? targetDate, DateTime? forecastDate)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ProcessStep processStep = await FindAsyncProcessStep(id.Value);
+
+            if (processStep == null)
+            {
+                return HttpNotFound();
+            }
+
+            if (realizedDate.HasValue)
+                processStep.RealizedDate = realizedDate.Value;
+
+            if (targetDate.HasValue)
+                processStep.TargetDate = targetDate.Value;
+
+            if (forecastDate.HasValue)
+                processStep.ForecastDate = forecastDate.Value;
+
+            try
+            {
+                await DataContext.SaveChangesAsync(this);
+            }
+            catch (Exception ex)
+            {
+                var sb = new StringBuilder();
+                sb.Append(MessageStrings.CanNotDelete);
+                sb.Append(processStep.Title);
+                sb.Append("<br/>");
+                AppendExceptionMsg(ex, sb);
+
+                return GetErrorResult(sb, HttpStatusCode.InternalServerError);
+            }
+
+            return new HttpStatusCodeResult(HttpStatusCode.OK);
+        }
     }
 }

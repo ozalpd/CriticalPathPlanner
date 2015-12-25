@@ -105,13 +105,42 @@ function setSelectListID(selectListOpts, selectedId) {
 }
 
 function jsonDateToLocaleDateString(jsonDate) {
-    if (jsonDate) {
+    if (jsonDate != null && jsonDate != '') {
         var date = new Date(jsonDate);
         return date.toLocaleDateString();
     }
     else {
         return '';
     }
+}
+
+function jsonDateToString(jsonDate) {
+    var dateString = '';
+    if (jsonDate != null && jsonDate != '' && jsonDate != "undefined") {
+        var date = new Date(jsonDate);
+        dateString = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+    }
+    return dateString;
+}
+
+function jsonDateToDate(jsonDate) {
+    if (jsonDate != null && jsonDate != '' && jsonDate != "undefined") {
+        return new Date(jsonDate);
+    }
+    else {
+        return new Date();
+    }
+}
+
+function areDaysSame(date1, date2) {
+    if (date1 == null || date1 == '' || date1 == 'undefined' ||
+        date2 == null || date2 == '' || date2 == 'undefined') {
+        return false;
+    }
+
+    var parsed1 = new Date(date1);
+    var parsed2 = new Date(date2);
+    return parsed1.getDate() == parsed2.getDate() && parsed1.getMonth() == parsed2.getMonth() && parsed1.getFullYear() == parsed2.getFullYear();
 }
 
 function fixDecimalVal(dec) {

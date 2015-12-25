@@ -569,6 +569,10 @@
     <Translation>Contact Us</Translation>
   </Vocab>
   <Vocab>
+    <Name>Continiue</Name>
+    <Translation>Continiue</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Countries</Name>
     <Translation>Countries</Translation>
   </Vocab>
@@ -1149,6 +1153,10 @@
     <Translation>Height</Translation>
   </Vocab>
   <Vocab>
+    <Name>Hide</Name>
+    <Translation>Hide</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Home</Name>
     <Translation>Home</Translation>
   </Vocab>
@@ -1613,6 +1621,10 @@
     <Translation>Register</Translation>
   </Vocab>
   <Vocab>
+    <Name>Reject</Name>
+    <Translation>Reject</Translation>
+  </Vocab>
+  <Vocab>
     <Name>RelatedRecordsExist</Name>
     <Translation>This record has {0} related {1}.</Translation>
   </Vocab>
@@ -1893,6 +1905,10 @@
     <Translation>Sometimes</Translation>
   </Vocab>
   <Vocab>
+    <Name>Start</Name>
+    <Translation>Start</Translation>
+  </Vocab>
+  <Vocab>
     <Name>StartDate</Name>
     <Translation>Start Date</Translation>
   </Vocab>
@@ -1905,12 +1921,20 @@
     <Translation>Step Templates</Translation>
   </Vocab>
   <Vocab>
+    <Name>Stop</Name>
+    <Translation>Stop</Translation>
+  </Vocab>
+  <Vocab>
     <Name>SubCategories</Name>
     <Translation>Product Groups</Translation>
   </Vocab>
   <Vocab>
     <Name>SubCategory</Name>
     <Translation>Product Group</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Submit</Name>
+    <Translation>Submit</Translation>
   </Vocab>
   <Vocab>
     <Name>Supplier</Name>

@@ -12,6 +12,10 @@ namespace OzzIdentity.Models
             Email = user.Email;
         }
 
+        [Required(ErrorMessageResourceType = typeof(Resources.ErrorStrings), ErrorMessageResourceName = "RequiredEmail")]
+        [Display(ResourceType = typeof(Resources.TitleStrings), Name = "UserName")]
+        public string UserName { get; set; }
+
         [Required(ErrorMessageResourceType = typeof(Resources.ErrorStrings), ErrorMessageResourceName = "Required")]
         [StringLength(256, ErrorMessageResourceType = typeof(Resources.ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
         [Display(ResourceType = typeof(Resources.TitleStrings), Name = "FirstName")]
@@ -32,7 +36,7 @@ namespace OzzIdentity.Models
         {
             var user = new OzzUser
             {
-                UserName = this.Email,
+                UserName = this.UserName,
                 Email = this.Email,
                 FirstName = this.FirstName,
                 LastName = this.LastName

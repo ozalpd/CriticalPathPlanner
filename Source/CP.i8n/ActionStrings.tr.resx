@@ -111,6 +111,10 @@
 		<value>Klonla</value>
 	</data>
 
+	<data name="Continiue" xml:space="preserve">
+		<value>Devam Et</value>
+	</data>
+
 	<data name="Create" xml:space="preserve">
 		<value>Oluştur</value>
 	</data>
@@ -145,6 +149,10 @@
 
 	<data name="Erase" xml:space="preserve">
 		<value>Tam Sil</value>
+	</data>
+
+	<data name="Hide" xml:space="preserve">
+		<value>Gizle</value>
 	</data>
 
 	<data name="Login" xml:space="preserve">
@@ -183,6 +191,10 @@
 		<value>Kayıt ol</value>
 	</data>
 
+	<data name="Reject" xml:space="preserve">
+		<value>Gönderme</value>
+	</data>
+
 	<data name="Remove" xml:space="preserve">
 		<value>Çıkar</value>
 	</data>
@@ -213,6 +225,18 @@
 
 	<data name="Show" xml:space="preserve">
 		<value>Göster</value>
+	</data>
+
+	<data name="Start" xml:space="preserve">
+		<value>Başlat</value>
+	</data>
+
+	<data name="Stop" xml:space="preserve">
+		<value>Durdur</value>
+	</data>
+
+	<data name="Submit" xml:space="preserve">
+		<value>Gönder</value>
 	</data>
 
 	<data name="Update" xml:space="preserve">

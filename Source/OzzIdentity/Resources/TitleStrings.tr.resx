@@ -171,4 +171,7 @@
   <data name="SetPassword" xml:space="preserve">
     <value>Parola Belirle</value>
   </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Kullanıcı İsmi</value>
+  </data>
 </root>

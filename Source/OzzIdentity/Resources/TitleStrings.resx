@@ -171,4 +171,7 @@
   <data name="SetPassword" xml:space="preserve">
     <value>Set Password</value>
   </data>
+  <data name="UserName" xml:space="preserve">
+    <value>User Name</value>
+  </data>
 </root>

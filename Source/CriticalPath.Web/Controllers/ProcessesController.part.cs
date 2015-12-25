@@ -36,13 +36,69 @@ namespace CriticalPath.Web.Controllers
             {
                 query = query.Where(x => x.PurchaseOrderId == qParams.PurchaseOrderId);
             }
-            //if (qParams.SupplierId != null)
-            //{
-            //    query = query.Where(x => x.PurchaseOrder.SupplierId == qParams.SupplierId);
-            //}
+            if (qParams.SupplierId != null)
+            {
+                query = query.Where(x => x.PurchaseOrder.SupplierId == qParams.SupplierId);
+            }
+            if (qParams.ProductId != null)
+            {
+                query = query.Where(x => x.PurchaseOrder.ProductId == qParams.ProductId);
+            }
+            if (qParams.CustomerId != null)
+            {
+                query = query.Where(x => x.PurchaseOrder.CustomerId == qParams.CustomerId);
+            }
             if (qParams.ProcessTemplateId != null)
             {
                 query = query.Where(x => x.ProcessTemplateId == qParams.ProcessTemplateId);
+            }
+            if (qParams.IsCompleted != null)
+            {
+                query = query.Where(x => x.IsCompleted == qParams.IsCompleted.Value);
+            }
+            if (qParams.Cancelled != null)
+            {
+                query = query.Where(x => x.Cancelled == qParams.Cancelled.Value);
+            }
+            if (qParams.StartDateMin != null)
+            {
+                query = query.Where(x => x.StartDate >= qParams.StartDateMin.Value);
+            }
+            if (qParams.StartDateMax != null)
+            {
+                query = query.Where(x => x.StartDate <= qParams.StartDateMax.Value);
+            }
+            if (qParams.TargetDateMin != null)
+            {
+                query = query.Where(x => x.TargetDate >= qParams.TargetDateMin.Value);
+            }
+            if (qParams.TargetDateMax != null)
+            {
+                query = query.Where(x => x.TargetDate <= qParams.TargetDateMax.Value);
+            }
+            if (qParams.ForecastDateMin != null)
+            {
+                query = query.Where(x => x.ForecastDate >= qParams.ForecastDateMin.Value);
+            }
+            if (qParams.ForecastDateMax != null)
+            {
+                query = query.Where(x => x.ForecastDate <= qParams.ForecastDateMax.Value);
+            }
+            if (qParams.RealizedDateMin != null)
+            {
+                query = query.Where(x => x.RealizedDate >= qParams.RealizedDateMin.Value);
+            }
+            if (qParams.RealizedDateMax != null)
+            {
+                query = query.Where(x => x.RealizedDate <= qParams.RealizedDateMax.Value);
+            }
+            if (qParams.CancelDateMin != null)
+            {
+                query = query.Where(x => x.CancelDate >= qParams.CancelDateMin.Value);
+            }
+            if (qParams.CancelDateMax != null)
+            {
+                query = query.Where(x => x.CancelDate <= qParams.CancelDateMax.Value);
             }
 
             qParams.TotalCount = await query.CountAsync();
@@ -190,7 +246,7 @@ namespace CriticalPath.Web.Controllers
         }
 
         [Authorize(Roles = "admin, supervisor")]
-        public async Task<ActionResult> Approve(int? id)  //GET: /PurchaseOrders/Edit/5
+        public async Task<ActionResult> ApproveProcess(int? id)  //GET: /PurchaseOrders/Edit/5
         {
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -203,13 +259,13 @@ namespace CriticalPath.Web.Controllers
             if (process.IsApproved)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            return View(process);
+            return View("Approve", process);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "admin, supervisor")]
-        public async Task<ActionResult> Approve(ProcessDTO vm)
+        public async Task<ActionResult> ApproveProcess(ProcessDTO vm)
         {
             var process = await FindAsyncProcess(vm.Id);
             if (vm.IsApproved && process != null)
@@ -218,7 +274,7 @@ namespace CriticalPath.Web.Controllers
                 return RedirectToAction("Details", new { id = process.Id });
             }
 
-            return View(process);
+            return View("Approve", process);
         }
 
 
@@ -320,8 +376,8 @@ namespace CriticalPath.Web.Controllers
 
         protected override Task SetProcessDefaults(Process process)
         {
-            //TODO: Get 42 days from an AppSetting, ProcessesController
-            process.TargetDate = process.PurchaseOrder?.DueDate ?? DateTime.Today.AddDays(42);
+            //TODO: Get 39 days from an AppSetting, ProcessesController
+            process.TargetDate = process.PurchaseOrder?.SupplierDueDate ?? DateTime.Today.AddDays(39);
             process.StartDate = DateTime.Today;
             return Task.FromResult(default(object));
         }
@@ -333,6 +389,10 @@ namespace CriticalPath.Web.Controllers
                 Page = 1;
                 PageSize = 20;
             }
+
+            public int? CustomerId { get; set; }
+            public int? ProductId { get; set; }
+            public int? SupplierId { get; set; }
         }
     }
 }

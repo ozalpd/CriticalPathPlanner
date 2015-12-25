@@ -1,0 +1,77 @@
+﻿@using CriticalPath.Web.Models
+@using CriticalPath.Data
+@using CP.i8n
+@model string
+<div class="modal fade" id="dateSubmitModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h2 id="dateSubmitHeader" class="modal-title">@ActionStrings.Submit</h2>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="dateInput" id="dateLabel" class="control-label col-sm-offset-1 col-sm-4">Date</label>
+                    <div class="input-group col-sm-6" id="dateSubmitDiv" data-date="" data-date-format="yyyy.mm.dd">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                        <input type="text" value="" id="dateInput" class="form-control clsDatePicker" autocomplete="off">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">@ActionStrings.Reject</button>
+                <button id="ajxDateSubmit" style="width:70px" class="btn btn-default" disabled="disabled" onclick="submitDate(0);">@ActionStrings.Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+@* Use like below
+    function submitTargetDate(id) {
+            submitDate(id, {targetDate:$('#dateInput').val()});
+        }
+        function submitForecastDate(id) {
+            submitDate(id, {forecastDate:$('#dateInput').val()});
+        }
+        function submitRealizedDate(id) {
+            submitDate(id, {realizedDate:$('#dateInput').val()});
+        }
+*@
+<script type="text/javascript">
+    $('#dateInput').datepicker({ dateFormat: 'yy-mm-dd' });
+    $('#dateInput').on("input change", function (e) {
+        var val = $('#dateInput').datepicker('getDate');
+        if (areDaysSame(e.target.value, val)) {
+            $('#ajxDateSubmit').removeAttr('disabled');
+        }
+        else {
+            $('#ajxDateSubmit').attr('disabled', 'disabled');
+        }
+    });
+    function submitDate(id, options) {
+        $('#dateSubmitModal').modal('hide');
+        var requestUrl = '@Model/' + id;
+        var request = $.get(requestUrl, options, function (data) {
+        }).done(function () {
+            refreshData();
+        });
+        request.success = refreshData;
+        request.error(function (jqXHR, textStatus, errorThrown) {
+            var msgboxMsg = jqXHR.responseText;
+            showMessageBox(errorThrown, msgboxMsg, true);
+        });
+        showMessageBox('@MessageStrings.Loading...', '@MessageStrings.PleaseWait.', false);
+    }
+    function setDateSubmitModal(header, label, jsonDate, submitFunction) {
+        $('#dateLabel').html(label);
+        $('#dateSubmitHeader').html(header);
+        $('#ajxDateSubmit').attr('onclick', submitFunction);
+        $('#ajxDateSubmit').attr('disabled', 'disabled');
+
+        if (jsonDate != null && jsonDate != '' && jsonDate != "undefined") {
+            $('#dateInput').datepicker('setDate', jsonDateToDate(jsonDate));
+        }
+        else {
+            $('#dateInput').val('');
+        }
+    }
+</script>

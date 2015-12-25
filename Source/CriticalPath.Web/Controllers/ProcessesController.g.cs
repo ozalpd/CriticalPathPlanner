@@ -101,6 +101,18 @@ namespace CriticalPath.Web.Controllers
             }
             public int? PurchaseOrderId { get; set; }
             public int? ProcessTemplateId { get; set; }
+            public bool? IsCompleted { get; set; }
+            public bool? Cancelled { get; set; }
+            public DateTime? StartDateMin { get; set; }
+            public DateTime? StartDateMax { get; set; }
+            public DateTime? TargetDateMin { get; set; }
+            public DateTime? TargetDateMax { get; set; }
+            public DateTime? ForecastDateMin { get; set; }
+            public DateTime? ForecastDateMax { get; set; }
+            public DateTime? RealizedDateMin { get; set; }
+            public DateTime? RealizedDateMax { get; set; }
+            public DateTime? CancelDateMin { get; set; }
+            public DateTime? CancelDateMax { get; set; }
         }
 
         public partial class PagedList<T> : QueryParameters

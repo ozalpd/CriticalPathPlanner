@@ -105,3 +105,7 @@ div.accordion .accordion-group .accordion-heading .accordion-toggle {
 .ui-autocomplete {
     position: relative;
 }
+
+.clsDatePicker{
+    z-index:10000 !important;
+}
