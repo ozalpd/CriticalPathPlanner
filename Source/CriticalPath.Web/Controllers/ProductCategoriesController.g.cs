@@ -43,7 +43,7 @@ namespace CriticalPath.Web.Controllers
             PutPagerInViewBag(result);
             return View(result.Items);
         }
-        
+
         protected override async Task<bool> CanUserCreate()
         {
             if (!_canUserCreate.HasValue)
@@ -83,6 +83,9 @@ namespace CriticalPath.Web.Controllers
         bool? _canUserDelete;
 
         
+        protected override Task<bool> CanUserSeeRestricted() { return Task.FromResult(true); }
+
+        
         public async Task<ActionResult> GetProductCategoryList(QueryParameters qParams)
         {
             var result = await GetProductCategoryDtoList(qParams);
@@ -95,6 +98,23 @@ namespace CriticalPath.Web.Controllers
             var items = await GetProductCategoryDtoList(qParams);
             var result = new PagedList<ProductCategoryDTO>(qParams, items);
             return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        
+        public async Task<JsonResult> GetProductCategoriesForAutoComplete(QueryParameters qParam)
+        {
+            var query = GetProductCategoryQuery()
+                        .Where(x => x.CategoryName.Contains(qParam.SearchString))
+                        .Take(qParam.PageSize);
+            var list = from x in query
+                       select new
+                       {
+                           id = x.Id,
+                           value = x.CategoryName,
+                           label = x.CategoryName //can be extended as x.Category.CategoryName + "/" + x.CategoryName,
+                       };
+
+            return Json(await list.ToListAsync(), JsonRequestBehavior.AllowGet);
         }
 
         
@@ -120,13 +140,13 @@ namespace CriticalPath.Web.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return AjaxBadRequest();
             }
             ProductCategory productCategory = await FindAsyncProductCategory(id.Value);
 
             if (productCategory == null)
             {
-                return HttpNotFound();
+                return AjaxNotFound();
             }
 
             return Json(new ProductCategoryDTO(productCategory), JsonRequestBehavior.AllowGet);
@@ -210,13 +230,13 @@ namespace CriticalPath.Web.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return AjaxBadRequest();
             }
             ProductCategory productCategory = await FindAsyncProductCategory(id.Value);
 
             if (productCategory == null)
             {
-                return HttpNotFound();
+                return AjaxNotFound();
             }
 
             int subCategoriesCount = productCategory.SubCategories.Count;
@@ -242,7 +262,7 @@ namespace CriticalPath.Web.Controllers
                     sb.Append("<br/>");
                 }
 
-                return GetErrorResult(sb, HttpStatusCode.BadRequest);
+                return GetAjaxStatusCode(sb, HttpStatusCode.BadRequest);
             }
 
             DataContext.ProductCategories.Remove(productCategory);
@@ -258,7 +278,7 @@ namespace CriticalPath.Web.Controllers
                 sb.Append("<br/>");
                 AppendExceptionMsg(ex, sb);
 
-                return GetErrorResult(sb, HttpStatusCode.InternalServerError);
+                return GetAjaxStatusCode(sb, HttpStatusCode.InternalServerError);
             }
 
             return new HttpStatusCodeResult(HttpStatusCode.OK);

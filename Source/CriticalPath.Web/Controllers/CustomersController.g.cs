@@ -24,12 +24,26 @@ namespace CriticalPath.Web.Controllers
                 query = from a in query
                         where
                             a.CompanyName.Contains(qParams.SearchString) | 
-                            a.CustomerCode.Contains(qParams.SearchString) 
+                            a.CustomerCode.Contains(qParams.SearchString) | 
+                            a.City.Contains(qParams.SearchString) | 
+                            a.State.Contains(qParams.SearchString) 
                         select a;
             }
             if (qParams.CountryId != null)
             {
                 query = query.Where(x => x.CountryId == qParams.CountryId);
+            }
+            if (qParams.Discontinued != null)
+            {
+                query = query.Where(x => x.Discontinued == qParams.Discontinued.Value);
+            }
+            if (qParams.DiscontinueDateMin != null)
+            {
+                query = query.Where(x => x.DiscontinueDate >= qParams.DiscontinueDateMin.Value);
+            }
+            if (qParams.DiscontinueDateMax != null)
+            {
+                query = query.Where(x => x.DiscontinueDate <= qParams.DiscontinueDateMax.Value);
             }
 
             qParams.TotalCount = await query.CountAsync();
@@ -74,13 +88,13 @@ namespace CriticalPath.Web.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return AjaxBadRequest();
             }
             Customer customer = await FindAsyncCustomer(id.Value);
 
             if (customer == null)
             {
-                return HttpNotFound();
+                return AjaxNotFound();
             }
 
             return Json(new CustomerDTO(customer), JsonRequestBehavior.AllowGet);
@@ -164,13 +178,13 @@ namespace CriticalPath.Web.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return AjaxBadRequest();
             }
             Customer customer = await FindAsyncCustomer(id.Value);
 
             if (customer == null)
             {
-                return HttpNotFound();
+                return AjaxNotFound();
             }
 
             int ordersCount = customer.Orders.Count;
@@ -196,7 +210,7 @@ namespace CriticalPath.Web.Controllers
                     sb.Append("<br/>");
                 }
 
-                return GetErrorResult(sb, HttpStatusCode.BadRequest);
+                return GetAjaxStatusCode(sb, HttpStatusCode.BadRequest);
             }
 
             DataContext.Companies.Remove(customer);
@@ -212,7 +226,7 @@ namespace CriticalPath.Web.Controllers
                 sb.Append("<br/>");
                 AppendExceptionMsg(ex, sb);
 
-                return GetErrorResult(sb, HttpStatusCode.InternalServerError);
+                return GetAjaxStatusCode(sb, HttpStatusCode.InternalServerError);
             }
 
             return new HttpStatusCodeResult(HttpStatusCode.OK);
@@ -226,6 +240,9 @@ namespace CriticalPath.Web.Controllers
                 CountryId = parameters.CountryId;
             }
             public int? CountryId { get; set; }
+            public bool? Discontinued { get; set; }
+            public DateTime? DiscontinueDateMin { get; set; }
+            public DateTime? DiscontinueDateMax { get; set; }
         }
 
         public partial class PagedList<T> : QueryParameters

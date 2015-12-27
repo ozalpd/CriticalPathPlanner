@@ -24,8 +24,7 @@ namespace CriticalPath.Web.Controllers
                 query = from a in query
                         where
                             a.ProductCode.Contains(qParams.SearchString) | 
-                            a.Description.Contains(qParams.SearchString) | 
-                            a.DiscontinueNotes.Contains(qParams.SearchString) 
+                            a.Description.Contains(qParams.SearchString) 
                         select a;
             }
             if (qParams.CategoryId != null)
@@ -47,6 +46,18 @@ namespace CriticalPath.Web.Controllers
             if (qParams.RetailCurrencyId != null)
             {
                 query = query.Where(x => x.RetailCurrencyId == qParams.RetailCurrencyId);
+            }
+            if (qParams.Discontinued != null)
+            {
+                query = query.Where(x => x.Discontinued == qParams.Discontinued.Value);
+            }
+            if (qParams.DiscontinueDateMin != null)
+            {
+                query = query.Where(x => x.DiscontinueDate >= qParams.DiscontinueDateMin.Value);
+            }
+            if (qParams.DiscontinueDateMax != null)
+            {
+                query = query.Where(x => x.DiscontinueDate <= qParams.DiscontinueDateMax.Value);
             }
 
             qParams.TotalCount = await query.CountAsync();
@@ -187,13 +198,13 @@ namespace CriticalPath.Web.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return AjaxBadRequest();
             }
             Product product = await FindAsyncProduct(id.Value);
 
             if (product == null)
             {
-                return HttpNotFound();
+                return AjaxNotFound();
             }
 
             return Json(new ProductDTO(product), JsonRequestBehavior.AllowGet);
@@ -206,13 +217,13 @@ namespace CriticalPath.Web.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return AjaxBadRequest();
             }
             Product product = await FindAsyncProduct(id.Value);
 
             if (product == null)
             {
-                return HttpNotFound();
+                return AjaxNotFound();
             }
 
             int purchaseOrdersCount = product.PurchaseOrders.Count;
@@ -238,7 +249,7 @@ namespace CriticalPath.Web.Controllers
                     sb.Append("<br/>");
                 }
 
-                return GetErrorResult(sb, HttpStatusCode.BadRequest);
+                return GetAjaxStatusCode(sb, HttpStatusCode.BadRequest);
             }
 
             DataContext.Products.Remove(product);
@@ -254,7 +265,7 @@ namespace CriticalPath.Web.Controllers
                 sb.Append("<br/>");
                 AppendExceptionMsg(ex, sb);
 
-                return GetErrorResult(sb, HttpStatusCode.InternalServerError);
+                return GetAjaxStatusCode(sb, HttpStatusCode.InternalServerError);
             }
 
             return new HttpStatusCodeResult(HttpStatusCode.OK);
@@ -276,6 +287,9 @@ namespace CriticalPath.Web.Controllers
             public int? BuyingCurrencyId { get; set; }
             public int? RoyaltyCurrencyId { get; set; }
             public int? RetailCurrencyId { get; set; }
+            public bool? Discontinued { get; set; }
+            public DateTime? DiscontinueDateMin { get; set; }
+            public DateTime? DiscontinueDateMax { get; set; }
         }
 
         public partial class PagedList<T> : QueryParameters

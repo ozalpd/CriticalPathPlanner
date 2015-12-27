@@ -63,7 +63,7 @@
                             @if (canUserDelete)
                             {
                                 <li>
-                                    <a href="#deleteConfirm" data-toggle="modal" onclick="setDelete('<b>@(item.CategoryName)</b>', @item.Id);">
+                                    <a href="#deleteConfirm" data-toggle="modal" onclick="setDelete('<b>@(item.CategoryName.Replace("'", "\\'"))</b>', @item.Id);">
                                         @ActionStrings.Delete
                                     </a>
                                 </li>

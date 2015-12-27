@@ -39,13 +39,13 @@ namespace CriticalPath.Web.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return AjaxBadRequest();
             }
             Supplier supplier = await FindAsyncSupplier(id.Value);
 
             if (supplier == null)
             {
-                return HttpNotFound();
+                return AjaxNotFound();
             }
 
             return Json(new SupplierDTO(supplier), JsonRequestBehavior.AllowGet);
@@ -129,13 +129,13 @@ namespace CriticalPath.Web.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return AjaxBadRequest();
             }
             Supplier supplier = await FindAsyncSupplier(id.Value);
 
             if (supplier == null)
             {
-                return HttpNotFound();
+                return AjaxNotFound();
             }
 
             int productsCount = supplier.Products.Count;
@@ -168,7 +168,7 @@ namespace CriticalPath.Web.Controllers
                     sb.Append("<br/>");
                 }
 
-                return GetErrorResult(sb, HttpStatusCode.BadRequest);
+                return GetAjaxStatusCode(sb, HttpStatusCode.BadRequest);
             }
 
             DataContext.Companies.Remove(supplier);
@@ -184,7 +184,7 @@ namespace CriticalPath.Web.Controllers
                 sb.Append("<br/>");
                 AppendExceptionMsg(ex, sb);
 
-                return GetErrorResult(sb, HttpStatusCode.InternalServerError);
+                return GetAjaxStatusCode(sb, HttpStatusCode.InternalServerError);
             }
 
             return new HttpStatusCodeResult(HttpStatusCode.OK);
@@ -198,6 +198,9 @@ namespace CriticalPath.Web.Controllers
                 CountryId = parameters.CountryId;
             }
             public int? CountryId { get; set; }
+            public bool? Discontinued { get; set; }
+            public DateTime? DiscontinueDateMin { get; set; }
+            public DateTime? DiscontinueDateMax { get; set; }
         }
 
         public partial class PagedList<T> : QueryParameters

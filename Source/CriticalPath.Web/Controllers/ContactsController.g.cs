@@ -111,6 +111,23 @@ namespace CriticalPath.Web.Controllers
         }
 
         [Authorize]
+        public async Task<JsonResult> GetContactsForAutoComplete(QueryParameters qParam)
+        {
+            var query = GetContactQuery()
+                        .Where(x => x.FullName.Contains(qParam.SearchString))
+                        .Take(qParam.PageSize);
+            var list = from x in query
+                       select new
+                       {
+                           id = x.Id,
+                           value = x.FullName,
+                           label = x.FullName
+                       };
+
+            return Json(await list.ToListAsync(), JsonRequestBehavior.AllowGet);
+        }
+
+        [Authorize]
         public async Task<ActionResult> Details(int? id)  //GET: /Contacts/Details/5
         {
             if (id == null)
@@ -133,13 +150,13 @@ namespace CriticalPath.Web.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return AjaxBadRequest();
             }
             Contact contact = await FindAsyncContact(id.Value);
 
             if (contact == null)
             {
-                return HttpNotFound();
+                return AjaxNotFound();
             }
 
             return Json(new ContactDTO(contact), JsonRequestBehavior.AllowGet);
@@ -232,13 +249,13 @@ namespace CriticalPath.Web.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return AjaxBadRequest();
             }
             Contact contact = await FindAsyncContact(id.Value);
 
             if (contact == null)
             {
-                return HttpNotFound();
+                return AjaxNotFound();
             }
 
             DataContext.Contacts.Remove(contact);
@@ -254,7 +271,7 @@ namespace CriticalPath.Web.Controllers
                 sb.Append("<br/>");
                 AppendExceptionMsg(ex, sb);
 
-                return GetErrorResult(sb, HttpStatusCode.InternalServerError);
+                return GetAjaxStatusCode(sb, HttpStatusCode.InternalServerError);
             }
 
             return new HttpStatusCodeResult(HttpStatusCode.OK);

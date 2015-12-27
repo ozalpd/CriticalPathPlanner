@@ -150,13 +150,13 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return AjaxBadRequest();
             }
             SizingStandard sizingStandard = await FindAsyncSizingStandard(id.Value);
 
             if (sizingStandard == null)
             {
-                return HttpNotFound();
+                return AjaxNotFound();
             }
 
             int sizingsCount = sizingStandard.Sizings.Count;
@@ -182,7 +182,7 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                     sb.Append("<br/>");
                 }
 
-                return GetErrorResult(sb, HttpStatusCode.BadRequest);
+                return GetAjaxStatusCode(sb, HttpStatusCode.BadRequest);
             }
 
             DataContext.SizingStandards.Remove(sizingStandard);
@@ -198,7 +198,7 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 sb.Append("<br/>");
                 AppendExceptionMsg(ex, sb);
 
-                return GetErrorResult(sb, HttpStatusCode.InternalServerError);
+                return GetAjaxStatusCode(sb, HttpStatusCode.InternalServerError);
             }
 
             return new HttpStatusCodeResult(HttpStatusCode.OK);

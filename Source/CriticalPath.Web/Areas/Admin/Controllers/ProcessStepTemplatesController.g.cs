@@ -126,7 +126,7 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                        {
                            id = x.Id,
                            value = x.Title,
-                           label = x.Title //can be extended as x.Category.CategoryName + "/" + x.Title,
+                           label = x.Title
                        };
 
             return Json(await list.ToListAsync(), JsonRequestBehavior.AllowGet);
@@ -155,13 +155,13 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return AjaxBadRequest();
             }
             ProcessStepTemplate processStepTemplate = await FindAsyncProcessStepTemplate(id.Value);
 
             if (processStepTemplate == null)
             {
-                return HttpNotFound();
+                return AjaxNotFound();
             }
 
             return Json(new ProcessStepTemplateDTO(processStepTemplate), JsonRequestBehavior.AllowGet);
@@ -252,13 +252,13 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return AjaxBadRequest();
             }
             ProcessStepTemplate processStepTemplate = await FindAsyncProcessStepTemplate(id.Value);
 
             if (processStepTemplate == null)
             {
-                return HttpNotFound();
+                return AjaxNotFound();
             }
 
             DataContext.ProcessStepTemplates.Remove(processStepTemplate);
@@ -274,7 +274,7 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 sb.Append("<br/>");
                 AppendExceptionMsg(ex, sb);
 
-                return GetErrorResult(sb, HttpStatusCode.InternalServerError);
+                return GetAjaxStatusCode(sb, HttpStatusCode.InternalServerError);
             }
 
             return new HttpStatusCodeResult(HttpStatusCode.OK);

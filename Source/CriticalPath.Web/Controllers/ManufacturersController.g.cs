@@ -24,7 +24,9 @@ namespace CriticalPath.Web.Controllers
                 query = from a in query
                         where
                             a.CompanyName.Contains(qParams.SearchString) | 
-                            a.ManufacturerCode.Contains(qParams.SearchString) 
+                            a.ManufacturerCode.Contains(qParams.SearchString) | 
+                            a.City.Contains(qParams.SearchString) | 
+                            a.State.Contains(qParams.SearchString) 
                         select a;
             }
             if (qParams.SupplierId != null)
@@ -34,6 +36,18 @@ namespace CriticalPath.Web.Controllers
             if (qParams.CountryId != null)
             {
                 query = query.Where(x => x.CountryId == qParams.CountryId);
+            }
+            if (qParams.Discontinued != null)
+            {
+                query = query.Where(x => x.Discontinued == qParams.Discontinued.Value);
+            }
+            if (qParams.DiscontinueDateMin != null)
+            {
+                query = query.Where(x => x.DiscontinueDate >= qParams.DiscontinueDateMin.Value);
+            }
+            if (qParams.DiscontinueDateMax != null)
+            {
+                query = query.Where(x => x.DiscontinueDate <= qParams.DiscontinueDateMax.Value);
             }
 
             qParams.TotalCount = await query.CountAsync();
@@ -125,6 +139,23 @@ namespace CriticalPath.Web.Controllers
         }
 
         [Authorize]
+        public async Task<JsonResult> GetManufacturersForAutoComplete(QueryParameters qParam)
+        {
+            var query = GetManufacturerQuery()
+                        .Where(x => x.CompanyName.Contains(qParam.SearchString))
+                        .Take(qParam.PageSize);
+            var list = from x in query
+                       select new
+                       {
+                           id = x.Id,
+                           value = x.CompanyName,
+                           label = x.CompanyName
+                       };
+
+            return Json(await list.ToListAsync(), JsonRequestBehavior.AllowGet);
+        }
+
+        [Authorize]
         public async Task<ActionResult> Details(int? id)  //GET: /Manufacturers/Details/5
         {
             if (id == null)
@@ -147,13 +178,13 @@ namespace CriticalPath.Web.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return AjaxBadRequest();
             }
             Manufacturer manufacturer = await FindAsyncManufacturer(id.Value);
 
             if (manufacturer == null)
             {
-                return HttpNotFound();
+                return AjaxNotFound();
             }
 
             return Json(new ManufacturerDTO(manufacturer), JsonRequestBehavior.AllowGet);
@@ -254,13 +285,13 @@ namespace CriticalPath.Web.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return AjaxBadRequest();
             }
             Manufacturer manufacturer = await FindAsyncManufacturer(id.Value);
 
             if (manufacturer == null)
             {
-                return HttpNotFound();
+                return AjaxNotFound();
             }
 
             int contactsCount = manufacturer.Contacts.Count;
@@ -279,7 +310,7 @@ namespace CriticalPath.Web.Controllers
                     sb.Append("<br/>");
                 }
 
-                return GetErrorResult(sb, HttpStatusCode.BadRequest);
+                return GetAjaxStatusCode(sb, HttpStatusCode.BadRequest);
             }
 
             DataContext.Companies.Remove(manufacturer);
@@ -295,7 +326,7 @@ namespace CriticalPath.Web.Controllers
                 sb.Append("<br/>");
                 AppendExceptionMsg(ex, sb);
 
-                return GetErrorResult(sb, HttpStatusCode.InternalServerError);
+                return GetAjaxStatusCode(sb, HttpStatusCode.InternalServerError);
             }
 
             return new HttpStatusCodeResult(HttpStatusCode.OK);
@@ -311,6 +342,9 @@ namespace CriticalPath.Web.Controllers
             }
             public int? SupplierId { get; set; }
             public int? CountryId { get; set; }
+            public bool? Discontinued { get; set; }
+            public DateTime? DiscontinueDateMin { get; set; }
+            public DateTime? DiscontinueDateMax { get; set; }
         }
 
         public partial class PagedList<T> : QueryParameters

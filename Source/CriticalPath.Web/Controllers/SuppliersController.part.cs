@@ -32,6 +32,18 @@ namespace CriticalPath.Web.Controllers
             {
                 query = query.Where(x => x.CountryId == qParams.CountryId);
             }
+            if (qParams.Discontinued != null)
+            {
+                query = query.Where(x => x.Discontinued == qParams.Discontinued.Value);
+            }
+            if (qParams.DiscontinueDateMin != null)
+            {
+                query = query.Where(x => x.DiscontinueDate >= qParams.DiscontinueDateMin.Value);
+            }
+            if (qParams.DiscontinueDateMax != null)
+            {
+                query = query.Where(x => x.DiscontinueDate <= qParams.DiscontinueDateMax.Value);
+            }
             qParams.TotalCount = await query.CountAsync();
             return query.Skip(qParams.Skip).Take(qParams.PageSize);
         }
@@ -59,7 +71,7 @@ namespace CriticalPath.Web.Controllers
                        {
                            id = x.Id,
                            value = x.CompanyName,
-                           label = x.CompanyName //can be extended as x.Category.CategoryName + "/" + x.CompanyName,
+                           label = x.CompanyName
                        };
 
             return Json(await list.ToListAsync(), JsonRequestBehavior.AllowGet);
@@ -71,6 +83,15 @@ namespace CriticalPath.Web.Controllers
             var result = qParams.TotalCount > 0 ? await  DataContext.GetSupplierDtoQuery(query).ToListAsync() : new List<SupplierDTO>();
 
             return result;
+        }
+
+        [Authorize]
+        public async Task<ActionResult> GetSupplierPagedList(QueryParameters qParams)
+        {
+            var items = await GetSupplierDtoList(qParams);
+
+            var result = new PagedList<SupplierDTO>(qParams, items);
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
 
         [Authorize]

@@ -90,12 +90,12 @@ namespace CriticalPath.Web.Controllers
             catch (Exception ex)
             {
                 var sb = new StringBuilder();
-                sb.Append(MessageStrings.CanNotDelete);
+                sb.Append(MessageStrings.UnexpectedError);
                 sb.Append(processStep.Title);
                 sb.Append("<br/>");
                 AppendExceptionMsg(ex, sb);
 
-                return GetErrorResult(sb, HttpStatusCode.InternalServerError);
+                return GetAjaxStatusCode(sb, HttpStatusCode.InternalServerError);
             }
 
             return new HttpStatusCodeResult(HttpStatusCode.OK);
