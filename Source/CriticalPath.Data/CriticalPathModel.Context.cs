@@ -47,6 +47,7 @@ namespace CriticalPath.Data
         public virtual DbSet<FreightTerm> FreightTerms { get; set; }
         public virtual DbSet<Currency> Currencies { get; set; }
         public virtual DbSet<Country> Countries { get; set; }
+        public virtual DbSet<Employee> Employees { get; set; }
     
         /// <summary>
         /// Default query for AspNetUsers
@@ -379,6 +380,42 @@ namespace CriticalPath.Data
                        CurrencyName = e.CurrencyName,
                        CurrencyCode = e.CurrencyCode,
                        CurrencySymbol = e.CurrencySymbol,
+                   };
+        }
+    
+    
+        /// <summary>
+        /// Default query for Employees
+        /// </summary>
+        /// <returns></returns>
+        public virtual IQueryable<Employee> GetEmployeeQuery()
+        {
+            IQueryable<Employee> query = Employees;
+            return query;
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from Employee query
+        /// </summary>
+        /// <param name="query">query to be converted</param>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<EmployeeDTO> GetEmployeeDtoQuery()
+        {
+            return GetEmployeeDtoQuery(GetEmployeeQuery());
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from Employee query
+        /// </summary>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<EmployeeDTO> GetEmployeeDtoQuery(IQueryable<Employee> query)
+        {
+            return from e in query
+                   select new EmployeeDTO
+                   {
+                       Id = e.Id,
+                       IsActive = e.IsActive,
+                       InactivateDate = e.InactivateDate,
                    };
         }
     

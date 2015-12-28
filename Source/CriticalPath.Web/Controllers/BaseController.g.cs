@@ -179,6 +179,27 @@ namespace CriticalPath.Web.Controllers
         }
 
         /// <summary>
+        /// Finds an Employee by PrimaryKey value
+        /// </summary>
+        /// <param name="id">Represents PrimaryKey of Employee.Id</param>
+        /// <returns></returns>
+        protected virtual async Task<Employee> FindAsyncEmployee(int id)
+        {
+            return await GetEmployeeQuery()
+                            .FirstOrDefaultAsync(x => x.Id == id);
+        }
+
+        protected virtual IQueryable<Employee> GetEmployeeQuery()
+        {
+            return DataContext.GetEmployeeQuery();
+        }
+
+        protected virtual Task SetEmployeeDefaults(EmployeeDTO employee)
+        {
+            return Task.FromResult(default(object));
+        }
+
+        /// <summary>
         /// Finds an FreightTerm by PrimaryKey value
         /// </summary>
         /// <param name="id">Represents PrimaryKey of FreightTerm.Id</param>
@@ -548,17 +569,17 @@ namespace CriticalPath.Web.Controllers
             }
         }
 
-        protected virtual ActionResult AjaxBadRequest()
+        protected virtual ActionResult BadRequestTextResult()
         {
-            return GetAjaxStatusCode("HTTP Error 400.0 - Bad Request", HttpStatusCode.BadRequest);
+            return StatusCodeTextResult("HTTP Error 400.0 - Bad Request", HttpStatusCode.BadRequest);
         }
 
-        protected virtual ActionResult AjaxNotFound()
+        protected virtual ActionResult NotFoundTextResult()
         {
-            return GetAjaxStatusCode("HTTP Error 404.0 - Not Found", HttpStatusCode.NotFound);
+            return StatusCodeTextResult("HTTP Error 404.0 - Not Found", HttpStatusCode.NotFound);
         }
 
-        protected virtual ActionResult GetAjaxStatusCode(string content, HttpStatusCode statusCode)
+        protected virtual ActionResult StatusCodeTextResult(string content, HttpStatusCode statusCode)
         {
             Response.StatusCode = (int)statusCode;
             return new ContentResult
@@ -569,7 +590,7 @@ namespace CriticalPath.Web.Controllers
             };
         }
 
-        protected virtual ActionResult GetAjaxStatusCode(StringBuilder sb, HttpStatusCode statusCode)
+        protected virtual ActionResult StatusCodeTextResult(StringBuilder sb, HttpStatusCode statusCode)
         {
             if (HttpContext.IsDebuggingEnabled)
             {

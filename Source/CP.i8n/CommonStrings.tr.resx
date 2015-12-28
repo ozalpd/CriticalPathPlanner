@@ -107,6 +107,10 @@
 		<value>Ad</value>
 	</data>
 
+	<data name="FullName" xml:space="preserve">
+		<value>Tam İsim</value>
+	</data>
+
 	<data name="Home" xml:space="preserve">
 		<value>Ana Sayfa</value>
 	</data>

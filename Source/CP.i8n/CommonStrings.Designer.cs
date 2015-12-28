@@ -169,6 +169,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Full Name.
+        /// </summary>
+        public static string FullName {
+            get {
+                return ResourceManager.GetString("FullName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
         public static string Home {

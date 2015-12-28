@@ -89,6 +89,10 @@
         <AssociationConnector Association="CriticalPathDataModel.FK_Company_CountryId" />
         <AssociationConnector Association="CriticalPathDataModel.FK_Process_CurrentStepId" />
         <AssociationConnector Association="CriticalPathDataModel.FK_PurchaseOrder_ParentPoId" />
+        <EntityTypeShape EntityType="CriticalPathDataModel.Employee" Width="1.5" PointX="15.5" PointY="12.125" />
+        <AssociationConnector Association="CriticalPathDataModel.FK_Employee_AspNetUserId" />
+        <AssociationConnector Association="CriticalPathDataModel.FK_Employee_CreatorId" />
+        <AssociationConnector Association="CriticalPathDataModel.FK_Employee_ModifierId" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

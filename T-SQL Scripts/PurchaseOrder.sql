@@ -71,8 +71,6 @@ Create Nonclustered Index [idx_PurchaseOrders_CustomerId] On [dbo].[PurchaseOrde
 Go
 Create Nonclustered Index [idx_PurchaseOrders_CustomerPoNr] On [dbo].[PurchaseOrders]([CustomerPoNr] Asc)
 Go
-Create Nonclustered Index [idx_PurchaseOrders_SupplierId] On [dbo].[PurchaseOrders]([SupplierId] Asc)
-Go
 Create Nonclustered Index [idx_PurchaseOrders_Cancelled] On [dbo].[PurchaseOrders]([Cancelled] Asc)
 Go
 Create Nonclustered Index [idx_PurchaseOrders_ModifyDate] On [dbo].[PurchaseOrders]([ModifyDate] Desc)

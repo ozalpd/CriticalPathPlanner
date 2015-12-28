@@ -185,6 +185,8 @@
     <Compile Include="Areas\Admin\Controllers\CountriesController.part.cs" />
     <Compile Include="Areas\Admin\Controllers\CurrenciesController.g.cs" />
     <Compile Include="Areas\Admin\Controllers\CurrenciesController.part.cs" />
+    <Compile Include="Areas\Admin\Controllers\EmployeesController.g.cs" />
+    <Compile Include="Areas\Admin\Controllers\EmployeesController.part.cs" />
     <Compile Include="Areas\Admin\Controllers\FreightTermsController.g.cs" />
     <Compile Include="Areas\Admin\Controllers\FreightTermsController.part.cs" />
     <Compile Include="Areas\Admin\Controllers\SetupController.cs" />
@@ -193,6 +195,7 @@
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Areas\Admin\Models\AppSettingVM.cs" />
     <Compile Include="Areas\Admin\Models\CurrencyEditVM.cs" />
+    <Compile Include="Areas\Admin\Models\EmployeeCreateVM.cs" />
     <Compile Include="Areas\Admin\Models\FreightTermEditVM.cs" />
     <Compile Include="Areas\Admin\Models\UserAdminVM.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -404,6 +407,10 @@
     <Content Include="Areas\Admin\Views\Countries\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Countries\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Countries\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Employees\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Employees\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Employees\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Employees\Index.cshtml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
@@ -567,6 +574,7 @@
     <Content Include="Views\Shared\DisplayTemplates\ProcessTemplate.cshtml" />
     <Content Include="Views\Products\_AutoCompleteSupplier.cshtml" />
     <Content Include="Views\Shared\_DateSubmitMessageBox.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Employee.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

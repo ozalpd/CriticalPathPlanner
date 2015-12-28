@@ -44,6 +44,82 @@
           <DataType />
           <Required />
         </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>PhoneNumber</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType>PhoneNumber</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>PhoneNumberConfirmed</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType>PhoneNumber</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>TwoFactorEnabled</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>LockoutEnabled</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>LockoutEndDateUtc</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType>Date</DataType>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>AccessFailedCount</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+      </Properties>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="MetadataEntitySetting">
+      <Name>Employee</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <Properties>
+        <MetadataPropertySetting>
+          <Name>AspNetUserId</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>true</DTOExclusion>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>AspNetUser</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>IsActive</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required />
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>InactivateDate</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType>Date</DataType>
+          <Required />
+        </MetadataPropertySetting>
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="MetadataEntitySetting">
@@ -1534,7 +1610,7 @@
       </Properties>
     </BaseEntitySetting>
   </EntitySettings>
-  <RenderAllEntities>true</RenderAllEntities>
+  <RenderAllEntities>false</RenderAllEntities>
   <GenerateForDTO>true</GenerateForDTO>
   <UseResourceFiles>true</UseResourceFiles>
 </MetadataCodeEngine>

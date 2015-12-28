@@ -68,6 +68,12 @@
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
     <Compile Include="CriticalPathContext.utils.cs" />
+    <Compile Include="Employee.cs">
+      <DependentUpon>CriticalPathModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Metadata\Employee.meta.cs" />
+    <Compile Include="Metadata\EmployeeDTO.meta.cs" />
+    <Compile Include="Parts\EmployeeDTO.part.cs" />
     <Compile Include="Parts\CountryDTO.part.cs" />
     <Compile Include="CriticalPathContext.static.cs" />
     <Compile Include="Currency.cs">

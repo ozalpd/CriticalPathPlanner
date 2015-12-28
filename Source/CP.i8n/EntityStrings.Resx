@@ -59,6 +59,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 
+	<data name="AccessFailedCount" xml:space="preserve">
+		<value>Access Failed Count</value>
+	</data>
+
 	<data name="AddAspNetUser" xml:space="preserve">
 		<value>Add AppUser</value>
 	</data>
@@ -81,6 +85,10 @@
 
 	<data name="AddCustomer" xml:space="preserve">
 		<value>Add Customer</value>
+	</data>
+
+	<data name="AddEmployee" xml:space="preserve">
+		<value>Add Employee</value>
 	</data>
 
 	<data name="AddFreightTerm" xml:space="preserve">
@@ -113,6 +121,10 @@
 
 	<data name="AddNewCustomer" xml:space="preserve">
 		<value>Add New Customer</value>
+	</data>
+
+	<data name="AddNewEmployee" xml:space="preserve">
+		<value>Add New Employee</value>
 	</data>
 
 	<data name="AddNewFreightTerm" xml:space="preserve">
@@ -219,6 +231,10 @@
 		<value>Add/Remove Customer</value>
 	</data>
 
+	<data name="AddRemoveEmployee" xml:space="preserve">
+		<value>Add Remove Employee</value>
+	</data>
+
 	<data name="AddRemoveFreightTerm" xml:space="preserve">
 		<value>Add Remove Freight Term</value>
 	</data>
@@ -313,6 +329,10 @@
 
 	<data name="AspNetUser" xml:space="preserve">
 		<value>AppUser</value>
+	</data>
+
+	<data name="AspNetUserId" xml:space="preserve">
+		<value>Asp Net User Id</value>
 	</data>
 
 	<data name="AspNetUsers" xml:space="preserve">
@@ -467,6 +487,10 @@
 		<value>Created User</value>
 	</data>
 
+	<data name="CreateEmployee" xml:space="preserve">
+		<value>Create Employee</value>
+	</data>
+
 	<data name="CreateFreightTerm" xml:space="preserve">
 		<value>Create Freight Term</value>
 	</data>
@@ -611,6 +635,10 @@
 		<value>Delete Customer</value>
 	</data>
 
+	<data name="DeleteEmployee" xml:space="preserve">
+		<value>Delete Employee</value>
+	</data>
+
 	<data name="DeleteFreightTerm" xml:space="preserve">
 		<value>Delete Freight Term</value>
 	</data>
@@ -727,6 +755,10 @@
 		<value>Edit Customer</value>
 	</data>
 
+	<data name="EditEmployee" xml:space="preserve">
+		<value>Edit Employee</value>
+	</data>
+
 	<data name="EditFreightTerm" xml:space="preserve">
 		<value>Edit Freight Term</value>
 	</data>
@@ -791,6 +823,18 @@
 		<value>Email Work</value>
 	</data>
 
+	<data name="Employee" xml:space="preserve">
+		<value>Employee</value>
+	</data>
+
+	<data name="Employees" xml:space="preserve">
+		<value>Employees</value>
+	</data>
+
+	<data name="EmployeesList" xml:space="preserve">
+		<value>Employees List</value>
+	</data>
+
 	<data name="FirstName" xml:space="preserve">
 		<value>First Name</value>
 	</data>
@@ -827,8 +871,16 @@
 		<value>Image Url</value>
 	</data>
 
+	<data name="InactivateDate" xml:space="preserve">
+		<value>Inactivate Date</value>
+	</data>
+
 	<data name="IncotermCode" xml:space="preserve">
 		<value>Incoterms Code</value>
+	</data>
+
+	<data name="IsActive" xml:space="preserve">
+		<value>Active</value>
 	</data>
 
 	<data name="IsApproved" xml:space="preserve">
@@ -849,6 +901,14 @@
 
 	<data name="LastName" xml:space="preserve">
 		<value>Last Name</value>
+	</data>
+
+	<data name="LockoutEnabled" xml:space="preserve">
+		<value>Lockout Enabled</value>
+	</data>
+
+	<data name="LockoutEndDateUtc" xml:space="preserve">
+		<value>Lockout End Date Utc</value>
 	</data>
 
 	<data name="Manufacturer" xml:space="preserve">
@@ -933,6 +993,14 @@
 
 	<data name="PhoneMobile" xml:space="preserve">
 		<value>Mobile Phone</value>
+	</data>
+
+	<data name="PhoneNumber" xml:space="preserve">
+		<value>Phone Number</value>
+	</data>
+
+	<data name="PhoneNumberConfirmed" xml:space="preserve">
+		<value>Phone Number Confirmed</value>
 	</data>
 
 	<data name="PhoneWork1" xml:space="preserve">
@@ -1085,6 +1153,10 @@
 
 	<data name="RemoveCustomer" xml:space="preserve">
 		<value>Remove Customer</value>
+	</data>
+
+	<data name="RemoveEmployee" xml:space="preserve">
+		<value>Remove Employee</value>
 	</data>
 
 	<data name="RemoveFreightTerm" xml:space="preserve">
@@ -1281,6 +1353,10 @@
 
 	<data name="Title" xml:space="preserve">
 		<value>Title</value>
+	</data>
+
+	<data name="TwoFactorEnabled" xml:space="preserve">
+		<value>Two Factor Enabled</value>
 	</data>
 
 	<data name="TwoLetterIsoCode" xml:space="preserve">

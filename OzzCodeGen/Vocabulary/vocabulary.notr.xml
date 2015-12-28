@@ -9,6 +9,10 @@
     <Translation>About Us</Translation>
   </Vocab>
   <Vocab>
+    <Name>AccessFailedCount</Name>
+    <Translation>Access Failed Count</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Account</Name>
     <Translation>Account</Translation>
   </Vocab>
@@ -49,6 +53,10 @@
     <Translation>Add Customer</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddEmployee</Name>
+    <Translation>Add Employee</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddFreightTerm</Name>
     <Translation>Add Freight Term</Translation>
   </Vocab>
@@ -83,6 +91,10 @@
   <Vocab>
     <Name>AddNewCustomer</Name>
     <Translation>Add New Customer</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewEmployee</Name>
+    <Translation>Add New Employee</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNewFreightTerm</Name>
@@ -223,6 +235,10 @@
   <Vocab>
     <Name>AddRemoveCustomer</Name>
     <Translation>Add/Remove Customer</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveEmployee</Name>
+    <Translation>Add Remove Employee</Translation>
   </Vocab>
   <Vocab>
     <Name>AddRemoveFreightTerm</Name>
@@ -379,6 +395,10 @@
   <Vocab>
     <Name>AspNetUser</Name>
     <Translation>AppUser</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AspNetUserId</Name>
+    <Translation>Asp Net User Id</Translation>
   </Vocab>
   <Vocab>
     <Name>AspNetUsers</Name>
@@ -629,6 +649,10 @@
     <Translation>Created User</Translation>
   </Vocab>
   <Vocab>
+    <Name>CreateEmployee</Name>
+    <Translation>Create Employee</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CreateFreightTerm</Name>
     <Translation>Create Freight Term</Translation>
   </Vocab>
@@ -811,6 +835,10 @@
   <Vocab>
     <Name>DeleteCustomer</Name>
     <Translation>Delete Customer</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteEmployee</Name>
+    <Translation>Delete Employee</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteFreightTerm</Name>
@@ -1001,6 +1029,10 @@
     <Translation>Edit Customer</Translation>
   </Vocab>
   <Vocab>
+    <Name>EditEmployee</Name>
+    <Translation>Edit Employee</Translation>
+  </Vocab>
+  <Vocab>
     <Name>EditFreightTerm</Name>
     <Translation>Edit Freight Term</Translation>
   </Vocab>
@@ -1093,6 +1125,18 @@
     <Translation>Email Work</Translation>
   </Vocab>
   <Vocab>
+    <Name>Employee</Name>
+    <Translation>Employee</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Employees</Name>
+    <Translation>Employees</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EmployeesList</Name>
+    <Translation>Employees List</Translation>
+  </Vocab>
+  <Vocab>
     <Name>EnterKeywordHere</Name>
     <Translation>Enter keyword here</Translation>
   </Vocab>
@@ -1147,6 +1191,10 @@
   <Vocab>
     <Name>FreightTermsList</Name>
     <Translation>Freight Terms List</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>FullName</Name>
+    <Translation>Full Name</Translation>
   </Vocab>
   <Vocab>
     <Name>Height</Name>
@@ -1243,6 +1291,14 @@
   <Vocab>
     <Name>Location</Name>
     <Translation>Location</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>LockoutEnabled</Name>
+    <Translation>Lockout Enabled</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>LockoutEndDateUtc</Name>
+    <Translation>Lockout End Date Utc</Translation>
   </Vocab>
   <Vocab>
     <Name>Login</Name>
@@ -1435,6 +1491,14 @@
   <Vocab>
     <Name>PhoneMobile</Name>
     <Translation>Mobile Phone</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PhoneNumber</Name>
+    <Translation>Phone Number</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PhoneNumberConfirmed</Name>
+    <Translation>Phone Number Confirmed</Translation>
   </Vocab>
   <Vocab>
     <Name>PhoneOther</Name>
@@ -1655,6 +1719,10 @@
   <Vocab>
     <Name>RemoveCustomer</Name>
     <Translation>Remove Customer</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveEmployee</Name>
+    <Translation>Remove Employee</Translation>
   </Vocab>
   <Vocab>
     <Name>RemoveFreightTerm</Name>
@@ -2015,6 +2083,10 @@
   <Vocab>
     <Name>Townships</Name>
     <Translation>Townships</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TwoFactorEnabled</Name>
+    <Translation>Two Factor Enabled</Translation>
   </Vocab>
   <Vocab>
     <Name>TwoLetterIsoCode</Name>

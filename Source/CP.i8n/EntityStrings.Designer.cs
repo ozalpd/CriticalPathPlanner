@@ -61,6 +61,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Access Failed Count.
+        /// </summary>
+        public static string AccessFailedCount {
+            get {
+                return ResourceManager.GetString("AccessFailedCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add AppUser.
         /// </summary>
         public static string AddAspNetUser {
@@ -111,6 +120,15 @@ namespace CP.i8n {
         public static string AddCustomer {
             get {
                 return ResourceManager.GetString("AddCustomer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Employee.
+        /// </summary>
+        public static string AddEmployee {
+            get {
+                return ResourceManager.GetString("AddEmployee", resourceCulture);
             }
         }
         
@@ -183,6 +201,15 @@ namespace CP.i8n {
         public static string AddNewCustomer {
             get {
                 return ResourceManager.GetString("AddNewCustomer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add New Employee.
+        /// </summary>
+        public static string AddNewEmployee {
+            get {
+                return ResourceManager.GetString("AddNewEmployee", resourceCulture);
             }
         }
         
@@ -421,6 +448,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Remove Employee.
+        /// </summary>
+        public static string AddRemoveEmployee {
+            get {
+                return ResourceManager.GetString("AddRemoveEmployee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Remove Freight Term.
         /// </summary>
         public static string AddRemoveFreightTerm {
@@ -633,6 +669,15 @@ namespace CP.i8n {
         public static string AspNetUser {
             get {
                 return ResourceManager.GetString("AspNetUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Asp Net User Id.
+        /// </summary>
+        public static string AspNetUserId {
+            get {
+                return ResourceManager.GetString("AspNetUserId", resourceCulture);
             }
         }
         
@@ -979,6 +1024,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create Employee.
+        /// </summary>
+        public static string CreateEmployee {
+            get {
+                return ResourceManager.GetString("CreateEmployee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create Freight Term.
         /// </summary>
         public static string CreateFreightTerm {
@@ -1303,6 +1357,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete Employee.
+        /// </summary>
+        public static string DeleteEmployee {
+            get {
+                return ResourceManager.GetString("DeleteEmployee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete Freight Term.
         /// </summary>
         public static string DeleteFreightTerm {
@@ -1564,6 +1627,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit Employee.
+        /// </summary>
+        public static string EditEmployee {
+            get {
+                return ResourceManager.GetString("EditEmployee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit Freight Term.
         /// </summary>
         public static string EditFreightTerm {
@@ -1708,6 +1780,33 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Employee.
+        /// </summary>
+        public static string Employee {
+            get {
+                return ResourceManager.GetString("Employee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employees.
+        /// </summary>
+        public static string Employees {
+            get {
+                return ResourceManager.GetString("Employees", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employees List.
+        /// </summary>
+        public static string EmployeesList {
+            get {
+                return ResourceManager.GetString("EmployeesList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to First Name.
         /// </summary>
         public static string FirstName {
@@ -1789,11 +1888,29 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Inactivate Date.
+        /// </summary>
+        public static string InactivateDate {
+            get {
+                return ResourceManager.GetString("InactivateDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Incoterms Code.
         /// </summary>
         public static string IncotermCode {
             get {
                 return ResourceManager.GetString("IncotermCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Active.
+        /// </summary>
+        public static string IsActive {
+            get {
+                return ResourceManager.GetString("IsActive", resourceCulture);
             }
         }
         
@@ -1839,6 +1956,24 @@ namespace CP.i8n {
         public static string LastName {
             get {
                 return ResourceManager.GetString("LastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lockout Enabled.
+        /// </summary>
+        public static string LockoutEnabled {
+            get {
+                return ResourceManager.GetString("LockoutEnabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lockout End Date Utc.
+        /// </summary>
+        public static string LockoutEndDateUtc {
+            get {
+                return ResourceManager.GetString("LockoutEndDateUtc", resourceCulture);
             }
         }
         
@@ -2028,6 +2163,24 @@ namespace CP.i8n {
         public static string PhoneMobile {
             get {
                 return ResourceManager.GetString("PhoneMobile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone Number.
+        /// </summary>
+        public static string PhoneNumber {
+            get {
+                return ResourceManager.GetString("PhoneNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone Number Confirmed.
+        /// </summary>
+        public static string PhoneNumberConfirmed {
+            get {
+                return ResourceManager.GetString("PhoneNumberConfirmed", resourceCulture);
             }
         }
         
@@ -2370,6 +2523,15 @@ namespace CP.i8n {
         public static string RemoveCustomer {
             get {
                 return ResourceManager.GetString("RemoveCustomer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove Employee.
+        /// </summary>
+        public static string RemoveEmployee {
+            get {
+                return ResourceManager.GetString("RemoveEmployee", resourceCulture);
             }
         }
         
@@ -2811,6 +2973,15 @@ namespace CP.i8n {
         public static string Title {
             get {
                 return ResourceManager.GetString("Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Two Factor Enabled.
+        /// </summary>
+        public static string TwoFactorEnabled {
+            get {
+                return ResourceManager.GetString("TwoFactorEnabled", resourceCulture);
             }
         }
         

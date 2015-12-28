@@ -1,0 +1,122 @@
+@using CriticalPath.Web.Models
+@using CriticalPath.Data
+@using CP.i8n
+@model IEnumerable<EmployeeDTO>
+
+@{
+    ViewBag.Title = @EntityStrings.Employees;
+
+    //Authorization Flags
+    bool canUserEdit = ViewBag.canUserEdit;
+    bool canUserCreate = ViewBag.canUserCreate;
+    bool canUserDelete = ViewBag.canUserDelete;
+    bool canSeeRestricted = ViewBag.canSeeRestricted;
+
+	var title = EntityStrings.Employees;
+}
+<div class="row well">
+    <div class="col-md-8 col-sm-7">
+        <h4>@title</h4>
+    </div>
+        <div class="col-md-4 col-sm-5">
+            @Html.Partial("_SearchBoxPartial")
+        </div>
+</div>
+<div id="mainGrid" class="ag-style ag-basic" style="width:100%;height:400px;"></div>
+<nav><ul id="pagerUl" class="pagination"></ul></nav>
+@Html.Partial("_MessageBoxPartial")
+@section scripts{
+    @Scripts.Render("~/js/ag-grid")
+    @Html.Partial("_IndexScriptsPartial", "Employees") @* Controller's name *@
+    @Html.Partial("_agGridScriptsPartial", "/Employees/GetEmployeePagedList") @* Service url *@
+    <script type="text/javascript">
+        var result = @Html.Raw(ViewBag.result);
+        var gridOptions;
+
+        var initPage = function() {
+            var init = this;
+            init.columnDefs = columnDefs();
+            init.gridOptions = {
+                columnDefs: init.columnDefs,
+                rowHeight: 26,
+                pageSize: result.pageSize,
+                headerHeight: 32,
+                rowData: result.Items,
+                overlayNoRowsTemplate: '<span class="fontSize150pc">@MessageStrings.NoResults</span>'
+            };
+
+            function columnDefs(){
+                return[
+                     { headerName: '@ActionStrings.Action', field: "Id", width: 64, cellRenderer: actionCellRenderer},
+                     { headerName: '@Html.DisplayNameFor(m => m.IsActive)', field: "IsActive", width: 180, cellRenderer: activeCellRenderer },
+                     { headerName: '@Html.DisplayNameFor(m => m.UserName)', field: "UserName", width: 180 },
+                     { headerName: '@Html.DisplayNameFor(m => m.FullName)', field: "FullName", width: 180 },
+                ];
+            }
+
+            function actionCellRenderer(params) {
+                var actions = '<div class="btn-group" style="margin-top:-3px;">' +
+                    '<button type="button" title="@ActionStrings.Action" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown" onclick="onActionMenuClick(this)">' +
+                    '<span class="glyphicon glyphicon-tasks"></span> <span class="caret"></span>' +
+                    '</button>' +
+                    '<ul class="dropdown-menu mb15" role="menu">' +
+                    '<li><a href="@Url.Action("Details")/' + params.value + '">@ActionStrings.Details</a></li>' +
+                @if (canUserEdit)
+                {
+                    @:'<li><a href="@Url.Action("Edit")/' + params.value + '">@ActionStrings.Edit</a></li>' +
+                    @:'<li><a href="@(Url.Action("Edit", "Users"))?userName=' + encodeURI(params.data.UserName) + '">@EntityStrings.EditAspNetUser</a></li>' +
+                }
+                @if(canUserDelete)
+                {
+                    @:'<li><a href="#deleteConfirm" data-toggle="modal" onclick="setDelete(getObjectById(result.Items,' + params.value + ').UserName, ' + params.value + ');">@ActionStrings.Delete</a></li>' +
+                }
+                    '</ul></div>';
+
+                return actions;
+            }
+
+            function activeCellRenderer(params) {
+                if(params.value){
+                    return '<span style="font-size:16px;" class="glyphicon glyphicon-check text-success"></span>';
+                }
+                else{
+                    return '<span style="font-size:16px;" class="glyphicon glyphicon-unchecked text-danger"></span>' +
+                        '<span style="vertical-align:top;margin-left:3px;" title="@EntityStrings.InactivateDate">'+ jsonDateToLocaleDateString(params.data.InactivateDate) + '</span>';
+                }
+            }
+
+            function boolCellRenderer(params) {
+                if(params.value){
+                    return '<span style="font-size:16px;" class="glyphicon glyphicon-check text-success"></span>';
+                }
+                else{
+                    return '<span style="font-size:16px;" class="glyphicon glyphicon-unchecked text-danger"></span>';
+                }
+            }
+
+            $.ajaxSetup({ cache: false });
+            gridOptions = init.gridOptions;
+            // angularGrid is a global function
+            agGridGlobalFunc('#mainGrid', gridOptions);
+
+            setPagerButtons($('#pagerUl'), result.Page, result.PageCount);
+            displayRecordStats(result.Items.length, result.TotalCount);
+        }
+
+        function onActionMenuClick(menuBtn){
+            setTimeout(function(){
+                var menuHeight = 220;
+                var rectMenu = menuBtn.getBoundingClientRect();
+                var rectGrid = document.getElementById("mainGrid").getBoundingClientRect();
+
+                var diffY = rectGrid.bottom - rectMenu.bottom - menuHeight;
+                if (diffY < 0) {
+                    var viewport = $('#mainGrid .ag-body-viewport');
+                    var viewportScroll = viewport.scrollTop();
+                    viewport.scrollTop((diffY * -1) + viewportScroll);
+                }
+            },250);
+        }
+        document.addEventListener("DOMContentLoaded", initPage());
+    </script>
+}

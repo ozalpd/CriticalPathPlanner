@@ -9,6 +9,10 @@
     <Translation>Hakkımızda</Translation>
   </Vocab>
   <Vocab>
+    <Name>AccessFailedCount</Name>
+    <Translation>Erişim Hata Sayısı</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Account</Name>
     <Translation>Hesap</Translation>
   </Vocab>
@@ -49,6 +53,10 @@
     <Translation>Müşteri Ekle</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddEmployee</Name>
+    <Translation>Çalışan Ekle</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddFreightTerm</Name>
     <Translation>Nakliye Koşulu Ekle</Translation>
   </Vocab>
@@ -83,6 +91,10 @@
   <Vocab>
     <Name>AddNewCustomer</Name>
     <Translation>Yeni Müşteri Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewEmployee</Name>
+    <Translation>Yeni Çalışan Ekle</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNewFreightTerm</Name>
@@ -223,6 +235,10 @@
   <Vocab>
     <Name>AddRemoveCustomer</Name>
     <Translation>Müşteri Ekle/Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveEmployee</Name>
+    <Translation>Çalışan Ekle/Çıkar</Translation>
   </Vocab>
   <Vocab>
     <Name>AddRemoveFreightTerm</Name>
@@ -378,6 +394,10 @@
   </Vocab>
   <Vocab>
     <Name>AspNetUser</Name>
+    <Translation>Uygulama Kullanıcısı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AspNetUserId</Name>
     <Translation>Uygulama Kullanıcısı</Translation>
   </Vocab>
   <Vocab>
@@ -629,6 +649,10 @@
     <Translation>Oluşturan Kullanıcı</Translation>
   </Vocab>
   <Vocab>
+    <Name>CreateEmployee</Name>
+    <Translation>Çalışan Oluştur</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CreateFreightTerm</Name>
     <Translation>Nakliye Koşulu Oluştur</Translation>
   </Vocab>
@@ -811,6 +835,10 @@
   <Vocab>
     <Name>DeleteCustomer</Name>
     <Translation>Müşteri Sil</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteEmployee</Name>
+    <Translation>Çalışanı Sil</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteFreightTerm</Name>
@@ -1001,6 +1029,10 @@
     <Translation>Müşteriyi Düzenle</Translation>
   </Vocab>
   <Vocab>
+    <Name>EditEmployee</Name>
+    <Translation>Çalışanı Düzenle</Translation>
+  </Vocab>
+  <Vocab>
     <Name>EditFreightTerm</Name>
     <Translation>Nakliye Koşulunu Düzenle</Translation>
   </Vocab>
@@ -1093,6 +1125,18 @@
     <Translation>E-Posta İş</Translation>
   </Vocab>
   <Vocab>
+    <Name>Employee</Name>
+    <Translation>Çalışan</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Employees</Name>
+    <Translation>Çalışanlar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EmployeesList</Name>
+    <Translation>Çalışan Listesi</Translation>
+  </Vocab>
+  <Vocab>
     <Name>EnterKeywordHere</Name>
     <Translation>Arama kelimenizi girin</Translation>
   </Vocab>
@@ -1147,6 +1191,10 @@
   <Vocab>
     <Name>FreightTermsList</Name>
     <Translation>Nakliye Koşul Listesi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>FullName</Name>
+    <Translation>Tam İsim</Translation>
   </Vocab>
   <Vocab>
     <Name>Height</Name>
@@ -1243,6 +1291,14 @@
   <Vocab>
     <Name>Location</Name>
     <Translation>Mevkii</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>LockoutEnabled</Name>
+    <Translation>Hesap Kilitleme Açık</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>LockoutEndDateUtc</Name>
+    <Translation>Hesap Kilidi Sonlanma Tarihi</Translation>
   </Vocab>
   <Vocab>
     <Name>Login</Name>
@@ -1435,6 +1491,14 @@
   <Vocab>
     <Name>PhoneMobile</Name>
     <Translation>Mobil Telefon</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PhoneNumber</Name>
+    <Translation>Telefon Numarası</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PhoneNumberConfirmed</Name>
+    <Translation>Telefon Numarası Doğrulandı</Translation>
   </Vocab>
   <Vocab>
     <Name>PhoneOther</Name>
@@ -1655,6 +1719,10 @@
   <Vocab>
     <Name>RemoveCustomer</Name>
     <Translation>Müşteriyi Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveEmployee</Name>
+    <Translation>Çalışanı Çıkar</Translation>
   </Vocab>
   <Vocab>
     <Name>RemoveFreightTerm</Name>
@@ -2015,6 +2083,10 @@
   <Vocab>
     <Name>Townships</Name>
     <Translation>İlçeler</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>TwoFactorEnabled</Name>
+    <Translation>İki Öğeli Kimlik Doğrulama  </Translation>
   </Vocab>
   <Vocab>
     <Name>TwoLetterIsoCode</Name>

@@ -242,13 +242,13 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
         {
             if (id == null)
             {
-                return AjaxBadRequest();
+                return BadRequestTextResult();
             }
             ProcessTemplate processTemplate = await FindAsyncProcessTemplate(id.Value);
 
             if (processTemplate == null)
             {
-                return AjaxNotFound();
+                return NotFoundTextResult();
             }
 
             int stepTemplatesCount = processTemplate.StepTemplates.Count;
@@ -267,7 +267,7 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                     sb.Append("<br/>");
                 }
 
-                return GetAjaxStatusCode(sb, HttpStatusCode.BadRequest);
+                return StatusCodeTextResult(sb, HttpStatusCode.BadRequest);
             }
 
             DataContext.ProcessTemplates.Remove(processTemplate);
@@ -283,7 +283,7 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 sb.Append("<br/>");
                 AppendExceptionMsg(ex, sb);
 
-                return GetAjaxStatusCode(sb, HttpStatusCode.InternalServerError);
+                return StatusCodeTextResult(sb, HttpStatusCode.InternalServerError);
             }
 
             return new HttpStatusCodeResult(HttpStatusCode.OK);

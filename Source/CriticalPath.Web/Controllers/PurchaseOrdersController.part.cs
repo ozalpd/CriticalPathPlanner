@@ -318,7 +318,7 @@ namespace CriticalPath.Web.Controllers
                 var sb = new StringBuilder();
                 sb.Append(MessageStrings.CanNotDelete);
 
-                return GetAjaxStatusCode(sb, HttpStatusCode.BadRequest);
+                return StatusCodeTextResult(sb, HttpStatusCode.BadRequest);
             }
 
             int sizeRatioCount = purchaseOrder.SizeRatios.Count;
@@ -337,7 +337,7 @@ namespace CriticalPath.Web.Controllers
                     sb.Append("<br/>");
                 }
 
-                return GetAjaxStatusCode(sb, HttpStatusCode.BadRequest);
+                return StatusCodeTextResult(sb, HttpStatusCode.BadRequest);
             }
 
             DataContext.PurchaseOrders.Remove(purchaseOrder);
@@ -353,7 +353,7 @@ namespace CriticalPath.Web.Controllers
                 sb.Append("<br/>");
                 AppendExceptionMsg(ex, sb);
 
-                return GetAjaxStatusCode(sb, HttpStatusCode.InternalServerError);
+                return StatusCodeTextResult(sb, HttpStatusCode.InternalServerError);
             }
 
             return new HttpStatusCodeResult(HttpStatusCode.OK);

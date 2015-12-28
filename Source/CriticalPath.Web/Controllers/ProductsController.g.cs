@@ -198,13 +198,13 @@ namespace CriticalPath.Web.Controllers
         {
             if (id == null)
             {
-                return AjaxBadRequest();
+                return BadRequestTextResult();
             }
             Product product = await FindAsyncProduct(id.Value);
 
             if (product == null)
             {
-                return AjaxNotFound();
+                return NotFoundTextResult();
             }
 
             return Json(new ProductDTO(product), JsonRequestBehavior.AllowGet);
@@ -217,13 +217,13 @@ namespace CriticalPath.Web.Controllers
         {
             if (id == null)
             {
-                return AjaxBadRequest();
+                return BadRequestTextResult();
             }
             Product product = await FindAsyncProduct(id.Value);
 
             if (product == null)
             {
-                return AjaxNotFound();
+                return NotFoundTextResult();
             }
 
             int purchaseOrdersCount = product.PurchaseOrders.Count;
@@ -249,7 +249,7 @@ namespace CriticalPath.Web.Controllers
                     sb.Append("<br/>");
                 }
 
-                return GetAjaxStatusCode(sb, HttpStatusCode.BadRequest);
+                return StatusCodeTextResult(sb, HttpStatusCode.BadRequest);
             }
 
             DataContext.Products.Remove(product);
@@ -265,7 +265,7 @@ namespace CriticalPath.Web.Controllers
                 sb.Append("<br/>");
                 AppendExceptionMsg(ex, sb);
 
-                return GetAjaxStatusCode(sb, HttpStatusCode.InternalServerError);
+                return StatusCodeTextResult(sb, HttpStatusCode.InternalServerError);
             }
 
             return new HttpStatusCodeResult(HttpStatusCode.OK);

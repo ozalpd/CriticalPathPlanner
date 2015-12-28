@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="CriticalPathDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CriticalPathDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AspNetUsers">
           <Key>
             <PropertyRef Name="Id" />
@@ -109,6 +109,22 @@
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="CustomerCode" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="DiscountRate" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AspNetUserId" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="InactivateDate" Type="datetime" />
+          <Property Name="ModifyNr" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifierId" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="ModifierIp" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatorId" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="CreatorIp" Type="varchar" MaxLength="48" Nullable="false" />
         </EntityType>
         <EntityType Name="FreightTerms">
           <Key>
@@ -481,6 +497,42 @@
             </Principal>
             <Dependent Role="Customers">
               <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_AspNetUserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="AspNetUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_CreatorId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_ModifierId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="ModifierId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1163,6 +1215,7 @@
           <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Currencies" EntityType="Self.Currencies" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FreightTerms" EntityType="Self.FreightTerms" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Manufacturers" EntityType="Self.Manufacturers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Processes" EntityType="Self.Processes" Schema="dbo" store:Type="Tables" />
@@ -1212,6 +1265,18 @@
           <AssociationSet Name="FK_Customer_Id" Association="Self.FK_Customer_Id">
             <End Role="Companies" EntitySet="Companies" />
             <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_AspNetUserId" Association="Self.FK_Employee_AspNetUserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_CreatorId" Association="Self.FK_Employee_CreatorId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_ModifierId" Association="Self.FK_Employee_ModifierId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Employees" EntitySet="Employees" />
           </AssociationSet>
           <AssociationSet Name="FK_Manufacturer_Id" Association="Self.FK_Manufacturer_Id">
             <End Role="Companies" EntitySet="Companies" />
@@ -1702,6 +1767,19 @@
           <AssociationSet Name="FK_PurchaseOrder_ParentPoId" Association="CriticalPathDataModel.FK_PurchaseOrder_ParentPoId">
             <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
             <End Role="PurchaseOrder1" EntitySet="PurchaseOrders" />
+          </AssociationSet>
+          <EntitySet Name="Employees" EntityType="CriticalPathDataModel.Employee" />
+          <AssociationSet Name="FK_Employee_AspNetUserId" Association="CriticalPathDataModel.FK_Employee_AspNetUserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_CreatorId" Association="CriticalPathDataModel.FK_Employee_CreatorId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_ModifierId" Association="CriticalPathDataModel.FK_Employee_ModifierId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Employee" EntitySet="Employees" />
           </AssociationSet>
           
         </EntityContainer>
@@ -2869,6 +2947,61 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AspNetUserId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="InactivateDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifyNr" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifierId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="ModifierIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatorId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="CreatorIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="CriticalPathDataModel.FK_Employee_AspNetUserId" FromRole="Employee" ToRole="AspNetUser" />
+          <NavigationProperty Name="CreatedUser" Relationship="CriticalPathDataModel.FK_Employee_CreatorId" FromRole="Employee" ToRole="AspNetUser" />
+          <NavigationProperty Name="ModifiedUser" Relationship="CriticalPathDataModel.FK_Employee_ModifierId" FromRole="Employee" ToRole="AspNetUser" />
+        </EntityType>
+        <Association Name="FK_Employee_AspNetUserId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="AspNetUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_CreatorId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_ModifierId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="ModifierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3255,6 +3388,23 @@
                 <ScalarProperty Name="ThreeLetterIsoCode" ColumnName="ThreeLetterIsoCode" />
                 <ScalarProperty Name="TwoLetterIsoCode" ColumnName="TwoLetterIsoCode" />
                 <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="CriticalPathDataModel.Employee">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="CreatorIp" ColumnName="CreatorIp" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifierIp" ColumnName="ModifierIp" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="ModifyNr" ColumnName="ModifyNr" />
+                <ScalarProperty Name="InactivateDate" ColumnName="InactivateDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="AspNetUserId" ColumnName="AspNetUserId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

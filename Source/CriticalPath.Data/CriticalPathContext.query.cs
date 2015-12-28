@@ -86,6 +86,28 @@ namespace CriticalPath.Data
                    };
         }
 
+        public override IQueryable<Employee> GetEmployeeQuery()
+        {
+            return base.GetEmployeeQuery()
+                    .OrderBy(e => e.AspNetUser.FirstName)
+                    .ThenBy(e => e.AspNetUser.LastName);
+        }
+
+        public override IQueryable<EmployeeDTO> GetEmployeeDtoQuery(IQueryable<Employee> query)
+        {
+            return from e in query
+                   select new EmployeeDTO
+                   {
+                       Id = e.Id,
+                       IsActive = e.IsActive,
+                       InactivateDate = e.InactivateDate,
+                       UserName = e.AspNetUser.UserName,
+                       FirstName = e.AspNetUser.FirstName,
+                       LastName = e.AspNetUser.LastName,
+                       PhoneNumber = e.AspNetUser.PhoneNumber,
+                       Email = e.AspNetUser.Email
+                   };
+        }
 
         public override IQueryable<FreightTerm> GetFreightTermQuery(bool publishedOnly = true)
         {

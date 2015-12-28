@@ -69,6 +69,78 @@
           <UseForCreate>TextBox</UseForCreate>
           <UseForEdit>TextBox</UseForEdit>
         </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>PhoneNumber</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>PhoneNumberConfirmed</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>TwoFactorEnabled</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>LockoutEnabled</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>LockoutEndDateUtc</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>AccessFailedCount</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
       </Properties>
       <ControllerName>AspNetUsers</ControllerName>
       <DataSetName>AspNetUsers</DataSetName>
@@ -98,6 +170,94 @@
       <CreateView>true</CreateView>
       <EditView>true</EditView>
       <BaseControllerName>BaseController</BaseControllerName>
+      <CreateRedirect>"Index"</CreateRedirect>
+      <EditRedirect>"Index"</EditRedirect>
+      <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
+      <Name>Employee</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>true</OverwriteExisting>
+      <Properties>
+        <AspNetMvcPropertySetting>
+          <Name>AspNetUserId</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>false</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
+          <HasValidation>false</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>AspNetUser</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>IsActive</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>InactivateDate</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+      </Properties>
+      <ControllerName>Employees</ControllerName>
+      <DataSetName>Employees</DataSetName>
+      <SaveParameter>this</SaveParameter>
+      <ModelForIndex>EmployeeDTO</ModelForIndex>
+      <ModelForJson>EmployeeDTO</ModelForJson>
+      <ModelForCreate>EmployeeDTO</ModelForCreate>
+      <ModelForEdit>EmployeeDTO</ModelForEdit>
+      <RolesCanView>admin, supervisor</RolesCanView>
+      <RolesCanCreate>admin</RolesCanCreate>
+      <RolesCanEdit>admin</RolesCanEdit>
+      <RolesCanDelete>admin</RolesCanDelete>
+      <RolesCanSeeRestricted>admin, supervisor</RolesCanSeeRestricted>
+      <GenerateController>true</GenerateController>
+      <GenerateActionForAutoComplete>true</GenerateActionForAutoComplete>
+      <GenerateGetQueryMethod>false</GenerateGetQueryMethod>
+      <GenerateGetDtoQueryMethod>false</GenerateGetDtoQueryMethod>
+      <GenerateIndexAction>false</GenerateIndexAction>
+      <GenerateGetEntityAction>true</GenerateGetEntityAction>
+      <GenerateGetEntityListAction>true</GenerateGetEntityListAction>
+      <GenerateCreateAction>false</GenerateCreateAction>
+      <GenerateDeleteAction>true</GenerateDeleteAction>
+      <GenerateEditAction>false</GenerateEditAction>
+      <GenerateDetailsAction>false</GenerateDetailsAction>
+      <IndexViewGeneration>AgGridWithMenuAction</IndexViewGeneration>
+      <IndexView>false</IndexView>
+      <DetailsView>false</DetailsView>
+      <CreateView>false</CreateView>
+      <EditView>false</EditView>
+      <BaseControllerName>BaseController</BaseControllerName>
+      <Area>Admin</Area>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
       <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>

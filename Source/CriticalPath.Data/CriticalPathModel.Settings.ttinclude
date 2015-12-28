@@ -38,6 +38,7 @@ defaultQuerySettings.DtoExclusions
 			"DiscontinuedUserIp",
 			"CancelledUserId",
 			"CancelledUserIp",
+			"AspNetUserId",
             defaultQuerySettings.PublishPropertyName
         });
 

@@ -44,26 +44,26 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             }
         }
 
-        public async Task<ActionResult> Details(string id)
+        public async Task<ActionResult> Details(string id, string userName)
         {
             if (string.IsNullOrEmpty(id))
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            UserAdminVM userVM = await GetUserVM(id);
+            UserAdminVM userVM = await GetUserVM(id, userName);
             if (userVM == null)
                 return HttpNotFound();
 
             return View(userVM);
         }
 
-        public async Task<ActionResult> Edit(string id)
+        public async Task<ActionResult> Edit(string id, string userName)
         {
-            if (string.IsNullOrEmpty(id))
+            if (string.IsNullOrEmpty(id) && string.IsNullOrEmpty(userName))
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            UserAdminVM userVM = await GetUserVM(id);
+            UserAdminVM userVM = await GetUserVM(id, userName);
             if (userVM == null)
                 return HttpNotFound();
 
@@ -101,12 +101,15 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
 
 
 
-        private async Task<UserAdminVM> GetUserVM(string id)
+        private async Task<UserAdminVM> GetUserVM(string id, string userName)
         {
             UserAdminVM userVM = null;
             using (var idContext = new OzzIdentityDbContext())
             {
-                var user = await idContext.Users.FirstOrDefaultAsync(u => u.Id.Equals(id));
+                var user = string.IsNullOrEmpty(id) ? 
+                            await idContext.Users.FirstOrDefaultAsync(u => u.UserName.Equals(userName)):
+                            await idContext.Users.FirstOrDefaultAsync(u => u.Id.Equals(id));
+                
                 if (user == null)
                 {
                     return null;

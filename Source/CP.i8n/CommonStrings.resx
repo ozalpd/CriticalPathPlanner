@@ -107,6 +107,10 @@
 		<value>First Name</value>
 	</data>
 
+	<data name="FullName" xml:space="preserve">
+		<value>Full Name</value>
+	</data>
+
 	<data name="Home" xml:space="preserve">
 		<value>Home</value>
 	</data>
