@@ -54,6 +54,18 @@
                 overlayNoRowsTemplate: '<span class="fontSize150pc">@MessageStrings.NoResults</span>'
             };
 
+            @* Group Open/Close
+                     { headerName: '@ActionStrings.Action', field: "Id", width: 60, cellRenderer: actionCellRenderer},
+                     { headerName: '@EntityStrings.PurchaseOrder', field: "PoNr", width: 110, headerClass: "wrapText", headerGroup: '@ActionStrings.Details ', headerGroupShow: 'closed', cellRenderer: purchaseOrderCellRenderer },
+                     { headerName: '@EntityStrings.PurchaseOrder', field: "PoNr", width: 110, headerClass: "wrapText", headerGroup: '@ActionStrings.Details ', headerGroupShow: 'open', cellRenderer: purchaseOrderCellRenderer },
+                     { headerName: '@Html.DisplayNameFor(m => m.ProductCode)', field: "ProductCode", width: 90, cellClass: "wrapText", headerGroup: '@ActionStrings.Details ', headerGroupShow: 'open' },
+                     { headerName: '@Html.DisplayNameFor(m => m.ProductDescription)', field: "ProductDescription", width: 90, cellClass: "wrapText", headerGroup: '@ActionStrings.Details ', headerGroupShow: 'open' },
+                     { headerName: '@Html.DisplayNameFor(m => m.CustomerName)', field: "CustomerName", width: 90, cellClass: "wrapText", headerGroup: '@ActionStrings.Details ', headerGroupShow: 'open' },
+                     { headerName: '@Html.DisplayNameFor(m => m.ParentCategoryName)', field: "ParentCategoryName", width: 90, headerClass: "wrapText", cellClass: "wrapText", headerGroup: '@ActionStrings.Details ', headerGroupShow: 'open' },
+                     { headerName: '@Html.DisplayNameFor(m => m.Quantity)', field: "Quantity", width: 80, cellClass:'text-right', headerGroup: '@ActionStrings.Details ', headerGroupShow: 'open' },
+                     { headerName: '@Html.DisplayNameFor(m => m.SupplierName)', field: "SupplierName", width: 90, cellClass: "wrapText", headerGroup: '@ActionStrings.Details ', headerGroupShow: 'open' },
+            *@
+
             function columnDefs(){
                 return[
                      { headerName: '@ActionStrings.Action', field: "Id", width: 60, cellRenderer: actionCellRenderer},
@@ -61,7 +73,7 @@
                      { headerName: '@Html.DisplayNameFor(m => m.ProductCode)', field: "ProductCode", width: 90, cellClass: "wrapText" },
                      { headerName: '@Html.DisplayNameFor(m => m.ProductDescription)', field: "ProductDescription", width: 90, cellClass: "wrapText" },
                      { headerName: '@Html.DisplayNameFor(m => m.CustomerName)', field: "CustomerName", width: 90, cellClass: "wrapText" },
-                     { headerName: '@Html.DisplayNameFor(m => m.ParentCategoryName)', field: "ParentCategoryName", width: 90, cellClass: "wrapText" },
+                     { headerName: '@Html.DisplayNameFor(m => m.ParentCategoryName)', field: "ParentCategoryName", width: 90, headerClass: "wrapText", cellClass: "wrapText" },
                      { headerName: '@Html.DisplayNameFor(m => m.Quantity)', field: "Quantity", width: 80, cellClass:'text-right' },
                      { headerName: '@Html.DisplayNameFor(m => m.SupplierName)', field: "SupplierName", width: 90, cellClass: "wrapText" },
                      { headerName: '', field: "StartDate", width: 110, cellRenderer: verticalDateCellLabels },
@@ -77,7 +89,7 @@
             @for (int i = 0; i < templates.Length; i++)
             {
                 @:function @stepRenderers[i] (params){return stepToCell(params.value, @templates[i].Id, params.data.PoNr);}
-                                    }
+                                                            }
 
             function stepToCell(steps, templateId, poNr){
                 var result = '';
@@ -135,15 +147,15 @@
                 @if (canUserEdit)
                 {
                         @:actions = actions + '<li><a href="@Url.Action("Edit")/' + params.value + '">@ActionStrings.Edit</a></li>';
-                                                                                                }
+                                                                                                                                }
                 @if (canUserCancelPO)
                 {
                         @:if(!isCancelled){actions = actions + '<li><a href="@Url.Action("CancelPO", "PurchaseOrders", null)/' + params.data.PurchaseOrderId + '">@ActionStrings.CancelPO</a></li>';}
-                                                                                }
+                                                                                                                }
                 @if (canUserApprove)
                 {
                     @:if(!(isCancelled || isApproved)){actions = actions + '<li><a href="@Url.Action("ApproveProcess")/' + params.value + '">@ActionStrings.Approve</a></li>';}
-                                                                                }
+                                                                                                                }
                 actions = actions + '</ul></div>';
                 var title = '';
 

@@ -1,17 +1,17 @@
 ﻿function boolToGlyphicon(value) {
     if (value) {
-        return '<span style="font-size:150%;" class="glyphicon glyphicon-check text-success"></span>';
+        return '<span style="font-size:16px;" class="glyphicon glyphicon-check text-success"></span>';
     }
     else {
-        return '<span style="font-size:150%;" class="glyphicon glyphicon-unchecked text-danger"></span>';
+        return '<span style="font-size:16px;" class="glyphicon glyphicon-unchecked text-danger"></span>';
     }
 }
 function boolToGlyphRemoved(value) {
     if (value) {
-        return '<span style="font-size:150%;" class="glyphicon glyphicon-remove text-danger"></span>';
+        return '<span style="font-size:16px;" class="glyphicon glyphicon-remove text-danger"></span>';
     }
     else {
-        return '<span style="font-size:150%;" class="glyphicon glyphicon-unchecked text-success"></span>';
+        return '<span style="font-size:16px;" class="glyphicon glyphicon-unchecked text-success"></span>';
     }
 }
 function boolCellRenderer(params) {

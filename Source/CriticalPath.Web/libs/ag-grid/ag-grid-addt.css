@@ -53,7 +53,9 @@
 .wrapText {
     white-space: normal;
 }
-
+.ag-body-container{
+    margin-bottom:100px; /* for dropdown ActionMenu */
+}
 .btn-xxs, .btn-group-xxs > .btn {
     padding: 1px 2px;
     font-size: 12px;
