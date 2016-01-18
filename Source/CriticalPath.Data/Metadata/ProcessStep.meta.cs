@@ -52,7 +52,6 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "Process")]
             public Process Process { get; set; }
 
-            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [DataType(DataType.Date)]
             [Display(ResourceType = typeof(EntityStrings), Name = "TargetDate")]
             public DateTime TargetDate { get; set; }
@@ -71,6 +70,9 @@ namespace CriticalPath.Data
 
             [Display(ResourceType = typeof(EntityStrings), Name = "Template")]
             public ProcessStepTemplate Template { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "Revisions")]
+            public ICollection<ProcessStepRevision> Revisions { get; set; }
 
             [StringLength(48, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [Display(ResourceType = typeof(EntityStrings), Name = "ApprovedUserId")]

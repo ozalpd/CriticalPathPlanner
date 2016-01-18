@@ -1,6 +1,7 @@
 ﻿@using CriticalPath.Data
 @using CP.i8n
 @model Product
+@*    @model IAllPriceCurrency *@
 <div class="row">
     <label class="control-label col-md-2 col-sm-3">
         @Html.DisplayNameFor(model => model.UnitPrice)
@@ -8,6 +9,15 @@
     <div class="col-md-10 col-sm-9">
         @Model.UnitPrice.ToString("0.00")
         @Html.DisplayFor(m => m.SellingCurrency)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3">
+        @Html.DisplayNameFor(model => model.LicensorPrice)
+    </label>
+    <div class="col-md-10 col-sm-9">
+        @(Model.LicensorPrice == null ? "N/A" : Model.BuyingPrice.Value.ToString("#.00"))
+        @Html.DisplayFor(m => m.LicensorCurrency)
     </div>
 </div>
 <div class="row">

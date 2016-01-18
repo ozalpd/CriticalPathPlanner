@@ -172,7 +172,7 @@ namespace CriticalPath.Web.Controllers
                                     .FirstOrDefaultAsync(p => p.Id == purchaseOrder.ProductId);
             }
 
-            int supplierId = purchaseOrder == null ? 0 : purchaseOrder.SupplierId;
+            int supplierId = purchaseOrder == null ? 0 : (purchaseOrder.SupplierId ?? 0);
             await SetSupplierSelectList(purchaseOrder.Product, supplierId);
         }
 

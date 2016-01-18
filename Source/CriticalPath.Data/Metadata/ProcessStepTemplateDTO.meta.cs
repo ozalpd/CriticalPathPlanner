@@ -34,13 +34,22 @@ namespace CriticalPath.Data
             public bool IgnoreInRepeat { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Range(0,100)]
+            [Display(ResourceType = typeof(EntityStrings), Name = "RequiredWorkDays")]
+            public int RequiredWorkDays { get; set; }
+
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [DataType(DataType.Date)]
+            [Range(0,100)]
+            [Display(ResourceType = typeof(EntityStrings), Name = "ReqDaysBeforeDueDate")]
+            public int ReqDaysBeforeDueDate { get; set; }
+
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Display(ResourceType = typeof(EntityStrings), Name = "ProcessTemplateId")]
             public int ProcessTemplateId { get; set; }
 
-            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Range(0,1000)]
-            [Display(ResourceType = typeof(EntityStrings), Name = "RequiredWorkDays")]
-            public int RequiredWorkDays { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "DependedStepId")]
+            public int DependedStepId { get; set; }
 
 		}
 	}

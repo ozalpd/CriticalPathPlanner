@@ -124,6 +124,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Department.
+        /// </summary>
+        public static string AddCustomerDepartment {
+            get {
+                return ResourceManager.GetString("AddCustomerDepartment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Employee.
         /// </summary>
         public static string AddEmployee {
@@ -138,6 +147,15 @@ namespace CP.i8n {
         public static string AddFreightTerm {
             get {
                 return ResourceManager.GetString("AddFreightTerm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Licensor.
+        /// </summary>
+        public static string AddLicensor {
+            get {
+                return ResourceManager.GetString("AddLicensor", resourceCulture);
             }
         }
         
@@ -205,6 +223,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add New Department.
+        /// </summary>
+        public static string AddNewCustomerDepartment {
+            get {
+                return ResourceManager.GetString("AddNewCustomerDepartment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add New Employee.
         /// </summary>
         public static string AddNewEmployee {
@@ -219,6 +246,15 @@ namespace CP.i8n {
         public static string AddNewFreightTerm {
             get {
                 return ResourceManager.GetString("AddNewFreightTerm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add New Licensor.
+        /// </summary>
+        public static string AddNewLicensor {
+            get {
+                return ResourceManager.GetString("AddNewLicensor", resourceCulture);
             }
         }
         
@@ -250,6 +286,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add New Process Step Revision.
+        /// </summary>
+        public static string AddNewProcessStepRevision {
+            get {
+                return ResourceManager.GetString("AddNewProcessStepRevision", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add New Process Step Template.
         /// </summary>
         public static string AddNewProcessStepTemplate {
@@ -277,7 +322,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add New Department/Group.
+        ///   Looks up a localized string similar to Add New Product Category.
         /// </summary>
         public static string AddNewProductCategory {
             get {
@@ -349,6 +394,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Process Step Revision.
+        /// </summary>
+        public static string AddProcessStepRevision {
+            get {
+                return ResourceManager.GetString("AddProcessStepRevision", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Process Step Template.
         /// </summary>
         public static string AddProcessStepTemplate {
@@ -376,7 +430,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add Department/Group.
+        ///   Looks up a localized string similar to Add Product Category.
         /// </summary>
         public static string AddProductCategory {
             get {
@@ -448,6 +502,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Remove Department.
+        /// </summary>
+        public static string AddRemoveCustomerDepartment {
+            get {
+                return ResourceManager.GetString("AddRemoveCustomerDepartment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Remove Employee.
         /// </summary>
         public static string AddRemoveEmployee {
@@ -462,6 +525,15 @@ namespace CP.i8n {
         public static string AddRemoveFreightTerm {
             get {
                 return ResourceManager.GetString("AddRemoveFreightTerm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Remove Licensor.
+        /// </summary>
+        public static string AddRemoveLicensor {
+            get {
+                return ResourceManager.GetString("AddRemoveLicensor", resourceCulture);
             }
         }
         
@@ -493,6 +565,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Remove Process Step Revision.
+        /// </summary>
+        public static string AddRemoveProcessStepRevision {
+            get {
+                return ResourceManager.GetString("AddRemoveProcessStepRevision", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add/Remove Process Step Template.
         /// </summary>
         public static string AddRemoveProcessStepTemplate {
@@ -520,7 +601,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add/Remove Department/Group.
+        ///   Looks up a localized string similar to Add Remove Product Category.
         /// </summary>
         public static string AddRemoveProductCategory {
             get {
@@ -628,6 +709,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to After Steps.
+        /// </summary>
+        public static string AfterSteps {
+            get {
+                return ResourceManager.GetString("AfterSteps", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Approve Date.
         /// </summary>
         public static string ApproveDate {
@@ -700,7 +790,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Buying Currency.
+        ///   Looks up a localized string similar to Factory Currency.
         /// </summary>
         public static string BuyingCurrency {
             get {
@@ -709,7 +799,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Buying Currency.
+        ///   Looks up a localized string similar to Factory Currency.
         /// </summary>
         public static string BuyingCurrencyId {
             get {
@@ -718,7 +808,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Buying Price.
+        ///   Looks up a localized string similar to Factory Price.
         /// </summary>
         public static string BuyingPrice {
             get {
@@ -790,7 +880,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Department/Group.
+        ///   Looks up a localized string similar to Category.
         /// </summary>
         public static string Category {
             get {
@@ -799,7 +889,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Code.
+        ///   Looks up a localized string similar to Category Code.
         /// </summary>
         public static string CategoryCode {
             get {
@@ -808,7 +898,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Department/Group.
+        ///   Looks up a localized string similar to Category.
         /// </summary>
         public static string CategoryId {
             get {
@@ -817,7 +907,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Name.
+        ///   Looks up a localized string similar to Category Name.
         /// </summary>
         public static string CategoryName {
             get {
@@ -1006,6 +1096,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create Customer Department.
+        /// </summary>
+        public static string CreateCustomerDepartment {
+            get {
+                return ResourceManager.GetString("CreateCustomerDepartment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create Date.
         /// </summary>
         public static string CreateDate {
@@ -1042,6 +1141,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create Licensor.
+        /// </summary>
+        public static string CreateLicensor {
+            get {
+                return ResourceManager.GetString("CreateLicensor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create Factory.
         /// </summary>
         public static string CreateManufacturer {
@@ -1065,6 +1173,15 @@ namespace CP.i8n {
         public static string CreateProcessStep {
             get {
                 return ResourceManager.GetString("CreateProcessStep", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create Process Step Revision.
+        /// </summary>
+        public static string CreateProcessStepRevision {
+            get {
+                return ResourceManager.GetString("CreateProcessStepRevision", resourceCulture);
             }
         }
         
@@ -1096,7 +1213,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Create Department/Group.
+        ///   Looks up a localized string similar to Create Product Category.
         /// </summary>
         public static string CreateProductCategory {
             get {
@@ -1258,6 +1375,42 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Customer Department.
+        /// </summary>
+        public static string CustomerDepartment {
+            get {
+                return ResourceManager.GetString("CustomerDepartment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Customer Department.
+        /// </summary>
+        public static string CustomerDepartmentId {
+            get {
+                return ResourceManager.GetString("CustomerDepartmentId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Customer Departments.
+        /// </summary>
+        public static string CustomerDepartments {
+            get {
+                return ResourceManager.GetString("CustomerDepartments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Customer Departments List.
+        /// </summary>
+        public static string CustomerDepartmentsList {
+            get {
+                return ResourceManager.GetString("CustomerDepartmentsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Customer.
         /// </summary>
         public static string CustomerId {
@@ -1357,6 +1510,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete Department.
+        /// </summary>
+        public static string DeleteCustomerDepartment {
+            get {
+                return ResourceManager.GetString("DeleteCustomerDepartment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete Employee.
         /// </summary>
         public static string DeleteEmployee {
@@ -1371,6 +1533,15 @@ namespace CP.i8n {
         public static string DeleteFreightTerm {
             get {
                 return ResourceManager.GetString("DeleteFreightTerm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete Licensor.
+        /// </summary>
+        public static string DeleteLicensor {
+            get {
+                return ResourceManager.GetString("DeleteLicensor", resourceCulture);
             }
         }
         
@@ -1402,6 +1573,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete Process Step Revision.
+        /// </summary>
+        public static string DeleteProcessStepRevision {
+            get {
+                return ResourceManager.GetString("DeleteProcessStepRevision", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete Process Step Template.
         /// </summary>
         public static string DeleteProcessStepTemplate {
@@ -1429,7 +1609,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Delete Department/Group.
+        ///   Looks up a localized string similar to Delete Product Category.
         /// </summary>
         public static string DeleteProductCategory {
             get {
@@ -1479,6 +1659,42 @@ namespace CP.i8n {
         public static string DeleteSupplier {
             get {
                 return ResourceManager.GetString("DeleteSupplier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Department Name.
+        /// </summary>
+        public static string DepartmentName {
+            get {
+                return ResourceManager.GetString("DepartmentName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Departments.
+        /// </summary>
+        public static string Departments {
+            get {
+                return ResourceManager.GetString("Departments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Depended Step.
+        /// </summary>
+        public static string DependedStep {
+            get {
+                return ResourceManager.GetString("DependedStep", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Depended Step Id.
+        /// </summary>
+        public static string DependedStepId {
+            get {
+                return ResourceManager.GetString("DependedStepId", resourceCulture);
             }
         }
         
@@ -1627,6 +1843,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit Department.
+        /// </summary>
+        public static string EditCustomerDepartment {
+            get {
+                return ResourceManager.GetString("EditCustomerDepartment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit Employee.
         /// </summary>
         public static string EditEmployee {
@@ -1641,6 +1866,15 @@ namespace CP.i8n {
         public static string EditFreightTerm {
             get {
                 return ResourceManager.GetString("EditFreightTerm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Licensor.
+        /// </summary>
+        public static string EditLicensor {
+            get {
+                return ResourceManager.GetString("EditLicensor", resourceCulture);
             }
         }
         
@@ -1672,6 +1906,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit Process Step Revision.
+        /// </summary>
+        public static string EditProcessStepRevision {
+            get {
+                return ResourceManager.GetString("EditProcessStepRevision", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit Process Step Template.
         /// </summary>
         public static string EditProcessStepTemplate {
@@ -1699,7 +1942,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit Department/Group.
+        ///   Looks up a localized string similar to Edit Product Category.
         /// </summary>
         public static string EditProductCategory {
             get {
@@ -1951,11 +2194,101 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Kimball Nr.
+        /// </summary>
+        public static string KimballNr {
+            get {
+                return ResourceManager.GetString("KimballNr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Last Name.
         /// </summary>
         public static string LastName {
             get {
                 return ResourceManager.GetString("LastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Licensed.
+        /// </summary>
+        public static string Licensed {
+            get {
+                return ResourceManager.GetString("Licensed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Licensor.
+        /// </summary>
+        public static string Licensor {
+            get {
+                return ResourceManager.GetString("Licensor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Licensor Code.
+        /// </summary>
+        public static string LicensorCode {
+            get {
+                return ResourceManager.GetString("LicensorCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Licensor Currency.
+        /// </summary>
+        public static string LicensorCurrency {
+            get {
+                return ResourceManager.GetString("LicensorCurrency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Licensor Currency Id.
+        /// </summary>
+        public static string LicensorCurrencyId {
+            get {
+                return ResourceManager.GetString("LicensorCurrencyId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Licensor Id.
+        /// </summary>
+        public static string LicensorId {
+            get {
+                return ResourceManager.GetString("LicensorId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Licensor Price.
+        /// </summary>
+        public static string LicensorPrice {
+            get {
+                return ResourceManager.GetString("LicensorPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Licensors.
+        /// </summary>
+        public static string Licensors {
+            get {
+                return ResourceManager.GetString("Licensors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Licensors List.
+        /// </summary>
+        public static string LicensorsList {
+            get {
+                return ResourceManager.GetString("LicensorsList", resourceCulture);
             }
         }
         
@@ -2095,7 +2428,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Department.
+        ///   Looks up a localized string similar to Parent Category.
         /// </summary>
         public static string ParentCategory {
             get {
@@ -2104,7 +2437,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Department.
+        ///   Looks up a localized string similar to Parent Category Id.
         /// </summary>
         public static string ParentCategoryId {
             get {
@@ -2257,6 +2590,42 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Process Step Id.
+        /// </summary>
+        public static string ProcessStepId {
+            get {
+                return ResourceManager.GetString("ProcessStepId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Process Step Revision.
+        /// </summary>
+        public static string ProcessStepRevision {
+            get {
+                return ResourceManager.GetString("ProcessStepRevision", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Process Step Revisions.
+        /// </summary>
+        public static string ProcessStepRevisions {
+            get {
+                return ResourceManager.GetString("ProcessStepRevisions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Process Step Revisions List.
+        /// </summary>
+        public static string ProcessStepRevisionsList {
+            get {
+                return ResourceManager.GetString("ProcessStepRevisionsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Process Steps.
         /// </summary>
         public static string ProcessSteps {
@@ -2347,7 +2716,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Departments/Groups.
+        ///   Looks up a localized string similar to Product Categories.
         /// </summary>
         public static string ProductCategories {
             get {
@@ -2356,7 +2725,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Department/Group List.
+        ///   Looks up a localized string similar to Product Categories List.
         /// </summary>
         public static string ProductCategoriesList {
             get {
@@ -2365,7 +2734,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Department/Group.
+        ///   Looks up a localized string similar to Product Category.
         /// </summary>
         public static string ProductCategory {
             get {
@@ -2374,7 +2743,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Item Nr.
+        ///   Looks up a localized string similar to Style Nr.
         /// </summary>
         public static string ProductCode {
             get {
@@ -2473,6 +2842,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Westend Nr.
+        /// </summary>
+        public static string RefCode {
+            get {
+                return ResourceManager.GetString("RefCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remove AppUser.
         /// </summary>
         public static string RemoveAspNetUser {
@@ -2527,6 +2905,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Remove Department.
+        /// </summary>
+        public static string RemoveCustomerDepartment {
+            get {
+                return ResourceManager.GetString("RemoveCustomerDepartment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remove Employee.
         /// </summary>
         public static string RemoveEmployee {
@@ -2541,6 +2928,15 @@ namespace CP.i8n {
         public static string RemoveFreightTerm {
             get {
                 return ResourceManager.GetString("RemoveFreightTerm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove Licensor.
+        /// </summary>
+        public static string RemoveLicensor {
+            get {
+                return ResourceManager.GetString("RemoveLicensor", resourceCulture);
             }
         }
         
@@ -2572,6 +2968,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Remove Process Step Revision.
+        /// </summary>
+        public static string RemoveProcessStepRevision {
+            get {
+                return ResourceManager.GetString("RemoveProcessStepRevision", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remove Process Step Template.
         /// </summary>
         public static string RemoveProcessStepTemplate {
@@ -2599,7 +3004,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Remove Department/Group.
+        ///   Looks up a localized string similar to Remove Product Category.
         /// </summary>
         public static string RemoveProductCategory {
             get {
@@ -2653,6 +3058,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Required Days Before Due Date.
+        /// </summary>
+        public static string ReqDaysBeforeDueDate {
+            get {
+                return ResourceManager.GetString("ReqDaysBeforeDueDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Required Work Days.
         /// </summary>
         public static string RequiredWorkDays {
@@ -2685,6 +3099,15 @@ namespace CP.i8n {
         public static string RetailPrice {
             get {
                 return ResourceManager.GetString("RetailPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Revisions.
+        /// </summary>
+        public static string Revisions {
+            get {
+                return ResourceManager.GetString("Revisions", resourceCulture);
             }
         }
         
@@ -2860,7 +3283,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Product Groups.
+        ///   Looks up a localized string similar to Sub Categories.
         /// </summary>
         public static string SubCategories {
             get {

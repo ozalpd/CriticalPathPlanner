@@ -109,6 +109,12 @@ namespace CriticalPath.Data
         Nullable<int> RetailCurrencyId { get; set; }
     }
     
+    public interface ILicensorPrice
+    {
+        Nullable<decimal> LicensorPrice { get; set; }
+        Nullable<int> LicensorCurrencyId { get; set; }
+    }
+    
     public interface IRoyaltyFee
     {
         Nullable<decimal> RoyaltyFee { get; set; }
@@ -131,12 +137,33 @@ namespace CriticalPath.Data
     {
         Nullable<decimal> RetailPrice { get; set; }
         Nullable<int> RetailCurrencyId { get; set; }
+        Nullable<decimal> LicensorPrice { get; set; }
+        Nullable<int> LicensorCurrencyId { get; set; }
         Nullable<decimal> RoyaltyFee { get; set; }
         Nullable<int> RoyaltyCurrencyId { get; set; }
         Nullable<decimal> BuyingPrice { get; set; }
         Nullable<int> BuyingCurrencyId { get; set; }
         decimal UnitPrice { get; set; }
         int SellingCurrencyId { get; set; }
+    }
+    
+    public interface IAllPriceCurrency
+    {
+        Nullable<decimal> RetailPrice { get; set; }
+        Nullable<int> RetailCurrencyId { get; set; }
+        Nullable<decimal> LicensorPrice { get; set; }
+        Nullable<int> LicensorCurrencyId { get; set; }
+        Nullable<decimal> RoyaltyFee { get; set; }
+        Nullable<int> RoyaltyCurrencyId { get; set; }
+        Nullable<decimal> BuyingPrice { get; set; }
+        Nullable<int> BuyingCurrencyId { get; set; }
+        decimal UnitPrice { get; set; }
+        int SellingCurrencyId { get; set; }
+        Currency BuyingCurrency { get; set; }
+        Currency RetailCurrency { get; set; }
+        Currency RoyaltyCurrency { get; set; }
+        Currency SellingCurrency { get; set; }
+        Currency LicensorCurrency { get; set; }
     }
     #endregion
 }

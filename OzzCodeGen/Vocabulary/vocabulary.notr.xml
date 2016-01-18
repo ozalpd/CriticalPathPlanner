@@ -53,12 +53,20 @@
     <Translation>Add Customer</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddCustomerDepartment</Name>
+    <Translation>Add Department</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddEmployee</Name>
     <Translation>Add Employee</Translation>
   </Vocab>
   <Vocab>
     <Name>AddFreightTerm</Name>
     <Translation>Add Freight Term</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddLicensor</Name>
+    <Translation>Add Licensor</Translation>
   </Vocab>
   <Vocab>
     <Name>AddManufacturer</Name>
@@ -93,12 +101,20 @@
     <Translation>Add New Customer</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddNewCustomerDepartment</Name>
+    <Translation>Add New Department</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddNewEmployee</Name>
     <Translation>Add New Employee</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNewFreightTerm</Name>
     <Translation>Add New Freight Term</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewLicensor</Name>
+    <Translation>Add New Licensor</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNewManufacturer</Name>
@@ -117,6 +133,10 @@
     <Translation>Add New Process Step</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddNewProcessStepRevision</Name>
+    <Translation>Add New Process Step Revision</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddNewProcessStepTemplate</Name>
     <Translation>Add New Process Step Template</Translation>
   </Vocab>
@@ -130,7 +150,7 @@
   </Vocab>
   <Vocab>
     <Name>AddNewProductCategory</Name>
-    <Translation>Add New Department/Group</Translation>
+    <Translation>Add New Product Category</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNewProductSupplier</Name>
@@ -185,6 +205,10 @@
     <Translation>Add Process Step</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddProcessStepRevision</Name>
+    <Translation>Add Process Step Revision</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddProcessStepTemplate</Name>
     <Translation>Add Process Step Template</Translation>
   </Vocab>
@@ -198,7 +222,7 @@
   </Vocab>
   <Vocab>
     <Name>AddProductCategory</Name>
-    <Translation>Add Department/Group</Translation>
+    <Translation>Add Product Category</Translation>
   </Vocab>
   <Vocab>
     <Name>AddProductSupplier</Name>
@@ -237,12 +261,20 @@
     <Translation>Add/Remove Customer</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddRemoveCustomerDepartment</Name>
+    <Translation>Add Remove Department</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddRemoveEmployee</Name>
     <Translation>Add Remove Employee</Translation>
   </Vocab>
   <Vocab>
     <Name>AddRemoveFreightTerm</Name>
     <Translation>Add Remove Freight Term</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveLicensor</Name>
+    <Translation>Add Remove Licensor</Translation>
   </Vocab>
   <Vocab>
     <Name>AddRemoveManufacturer</Name>
@@ -255,6 +287,10 @@
   <Vocab>
     <Name>AddRemoveProcessStep</Name>
     <Translation>Add/Remove Process Step</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveProcessStepRevision</Name>
+    <Translation>Add Remove Process Step Revision</Translation>
   </Vocab>
   <Vocab>
     <Name>AddRemoveProcessStepTemplate</Name>
@@ -270,7 +306,7 @@
   </Vocab>
   <Vocab>
     <Name>AddRemoveProductCategory</Name>
-    <Translation>Add/Remove Department/Group</Translation>
+    <Translation>Add Remove Product Category</Translation>
   </Vocab>
   <Vocab>
     <Name>AddRemoveProductSupplier</Name>
@@ -349,6 +385,10 @@
     <Translation>Admin</Translation>
   </Vocab>
   <Vocab>
+    <Name>AfterSteps</Name>
+    <Translation>After Steps</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Always</Name>
     <Translation>Always</Translation>
   </Vocab>
@@ -418,15 +458,15 @@
   </Vocab>
   <Vocab>
     <Name>BuyingCurrency</Name>
-    <Translation>Buying Currency</Translation>
+    <Translation>Factory Currency</Translation>
   </Vocab>
   <Vocab>
     <Name>BuyingCurrencyId</Name>
-    <Translation>Buying Currency</Translation>
+    <Translation>Factory Currency</Translation>
   </Vocab>
   <Vocab>
     <Name>BuyingPrice</Name>
-    <Translation>Buying Price</Translation>
+    <Translation>Factory Price</Translation>
   </Vocab>
   <Vocab>
     <Name>Cancel</Name>
@@ -490,23 +530,23 @@
   </Vocab>
   <Vocab>
     <Name>Categories</Name>
-    <Translation>Departments/Groups</Translation>
+    <Translation>Categories</Translation>
   </Vocab>
   <Vocab>
     <Name>Category</Name>
-    <Translation>Department/Group</Translation>
+    <Translation>Category</Translation>
   </Vocab>
   <Vocab>
     <Name>CategoryCode</Name>
-    <Translation>Code</Translation>
+    <Translation>Category Code</Translation>
   </Vocab>
   <Vocab>
     <Name>CategoryId</Name>
-    <Translation>Department/Group</Translation>
+    <Translation>Category</Translation>
   </Vocab>
   <Vocab>
     <Name>CategoryName</Name>
-    <Translation>Name</Translation>
+    <Translation>Category Name</Translation>
   </Vocab>
   <Vocab>
     <Name>ChangePassword</Name>
@@ -641,6 +681,10 @@
     <Translation>Create Customer</Translation>
   </Vocab>
   <Vocab>
+    <Name>CreateCustomerDepartment</Name>
+    <Translation>Create Customer Department</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CreateDate</Name>
     <Translation>Create Date</Translation>
   </Vocab>
@@ -655,6 +699,10 @@
   <Vocab>
     <Name>CreateFreightTerm</Name>
     <Translation>Create Freight Term</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateLicensor</Name>
+    <Translation>Create Licensor</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateManufacturer</Name>
@@ -681,6 +729,10 @@
     <Translation>Create Process Step</Translation>
   </Vocab>
   <Vocab>
+    <Name>CreateProcessStepRevision</Name>
+    <Translation>Create Process Step Revision</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CreateProcessStepTemplate</Name>
     <Translation>Create Process Step Template</Translation>
   </Vocab>
@@ -694,7 +746,7 @@
   </Vocab>
   <Vocab>
     <Name>CreateProductCategory</Name>
-    <Translation>Create Department/Group</Translation>
+    <Translation>Create Product Category</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateProductSupplier</Name>
@@ -785,6 +837,22 @@
     <Translation>Customer Code</Translation>
   </Vocab>
   <Vocab>
+    <Name>CustomerDepartment</Name>
+    <Translation>Customer Department</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CustomerDepartmentId</Name>
+    <Translation>Customer Department</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CustomerDepartments</Name>
+    <Translation>Customer Departments</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CustomerDepartmentsList</Name>
+    <Translation>Customer Departments List</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CustomerId</Name>
     <Translation>Customer</Translation>
   </Vocab>
@@ -837,12 +905,20 @@
     <Translation>Delete Customer</Translation>
   </Vocab>
   <Vocab>
+    <Name>DeleteCustomerDepartment</Name>
+    <Translation>Delete Department</Translation>
+  </Vocab>
+  <Vocab>
     <Name>DeleteEmployee</Name>
     <Translation>Delete Employee</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteFreightTerm</Name>
     <Translation>Delete Freight Term</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteLicensor</Name>
+    <Translation>Delete Licensor</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteManufacturer</Name>
@@ -865,6 +941,10 @@
     <Translation>Delete Process Step</Translation>
   </Vocab>
   <Vocab>
+    <Name>DeleteProcessStepRevision</Name>
+    <Translation>Delete Process Step Revision</Translation>
+  </Vocab>
+  <Vocab>
     <Name>DeleteProcessStepTemplate</Name>
     <Translation>Delete Process Step Template</Translation>
   </Vocab>
@@ -878,7 +958,7 @@
   </Vocab>
   <Vocab>
     <Name>DeleteProductCategory</Name>
-    <Translation>Delete Department/Group</Translation>
+    <Translation>Delete Product Category</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteProductSupplier</Name>
@@ -923,6 +1003,22 @@
   <Vocab>
     <Name>Deleting</Name>
     <Translation>Deleting</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DepartmentName</Name>
+    <Translation>Department Name</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Departments</Name>
+    <Translation>Departments</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DependedStep</Name>
+    <Translation>Depended Step</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DependedStepId</Name>
+    <Translation>Depended Step Id</Translation>
   </Vocab>
   <Vocab>
     <Name>Depth</Name>
@@ -1029,12 +1125,20 @@
     <Translation>Edit Customer</Translation>
   </Vocab>
   <Vocab>
+    <Name>EditCustomerDepartment</Name>
+    <Translation>Edit Department</Translation>
+  </Vocab>
+  <Vocab>
     <Name>EditEmployee</Name>
     <Translation>Edit Employee</Translation>
   </Vocab>
   <Vocab>
     <Name>EditFreightTerm</Name>
     <Translation>Edit Freight Term</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditLicensor</Name>
+    <Translation>Edit Licensor</Translation>
   </Vocab>
   <Vocab>
     <Name>EditManufacturer</Name>
@@ -1057,6 +1161,10 @@
     <Translation>Edit Process Step</Translation>
   </Vocab>
   <Vocab>
+    <Name>EditProcessStepRevision</Name>
+    <Translation>Edit Process Step Revision</Translation>
+  </Vocab>
+  <Vocab>
     <Name>EditProcessStepTemplate</Name>
     <Translation>Edit Process Step Template</Translation>
   </Vocab>
@@ -1070,7 +1178,7 @@
   </Vocab>
   <Vocab>
     <Name>EditProductCategory</Name>
-    <Translation>Edit Department/Group</Translation>
+    <Translation>Edit Product Category</Translation>
   </Vocab>
   <Vocab>
     <Name>EditProductSupplier</Name>
@@ -1273,6 +1381,10 @@
     <Translation>Is Repeat</Translation>
   </Vocab>
   <Vocab>
+    <Name>KimballNr</Name>
+    <Translation>Kimball Nr</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Lastname</Name>
     <Translation>Lastname</Translation>
   </Vocab>
@@ -1283,6 +1395,42 @@
   <Vocab>
     <Name>Latitude</Name>
     <Translation>Latitude</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Licensed</Name>
+    <Translation>Licensed</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Licensor</Name>
+    <Translation>Licensor</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>LicensorCode</Name>
+    <Translation>Licensor Code</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>LicensorCurrency</Name>
+    <Translation>Licensor Currency</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>LicensorCurrencyId</Name>
+    <Translation>Licensor Currency Id</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>LicensorId</Name>
+    <Translation>Licensor Id</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>LicensorPrice</Name>
+    <Translation>Licensor Price</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Licensors</Name>
+    <Translation>Licensors</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>LicensorsList</Name>
+    <Translation>Licensors List</Translation>
   </Vocab>
   <Vocab>
     <Name>Loading</Name>
@@ -1446,15 +1594,15 @@
   </Vocab>
   <Vocab>
     <Name>ParentCategories</Name>
-    <Translation>Departments</Translation>
+    <Translation>Parent Categories</Translation>
   </Vocab>
   <Vocab>
     <Name>ParentCategory</Name>
-    <Translation>Department</Translation>
+    <Translation>Parent Category</Translation>
   </Vocab>
   <Vocab>
     <Name>ParentCategoryId</Name>
-    <Translation>Department</Translation>
+    <Translation>Parent Category Id</Translation>
   </Vocab>
   <Vocab>
     <Name>ParentPo</Name>
@@ -1549,6 +1697,22 @@
     <Translation>Process Step</Translation>
   </Vocab>
   <Vocab>
+    <Name>ProcessStepId</Name>
+    <Translation>Process Step Id</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ProcessStepRevision</Name>
+    <Translation>Process Step Revision</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ProcessStepRevisions</Name>
+    <Translation>Process Step Revisions</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ProcessStepRevisionsList</Name>
+    <Translation>Process Step Revisions List</Translation>
+  </Vocab>
+  <Vocab>
     <Name>ProcessSteps</Name>
     <Translation>Process Steps</Translation>
   </Vocab>
@@ -1590,23 +1754,23 @@
   </Vocab>
   <Vocab>
     <Name>ProductCategories</Name>
-    <Translation>Departments/Groups</Translation>
+    <Translation>Product Categories</Translation>
   </Vocab>
   <Vocab>
     <Name>ProductCategoriesList</Name>
-    <Translation>Department/Group List</Translation>
+    <Translation>Product Categories List</Translation>
   </Vocab>
   <Vocab>
     <Name>ProductCategory</Name>
-    <Translation>Department/Group</Translation>
+    <Translation>Product Category</Translation>
   </Vocab>
   <Vocab>
     <Name>ProductCategoryId</Name>
-    <Translation>Department/Group</Translation>
+    <Translation>Product Category Id</Translation>
   </Vocab>
   <Vocab>
     <Name>ProductCode</Name>
-    <Translation>Item Nr</Translation>
+    <Translation>Style Nr</Translation>
   </Vocab>
   <Vocab>
     <Name>ProductId</Name>
@@ -1681,6 +1845,10 @@
     <Translation>Record</Translation>
   </Vocab>
   <Vocab>
+    <Name>RefCode</Name>
+    <Translation>Westend Nr</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Register</Name>
     <Translation>Register</Translation>
   </Vocab>
@@ -1721,12 +1889,20 @@
     <Translation>Remove Customer</Translation>
   </Vocab>
   <Vocab>
+    <Name>RemoveCustomerDepartment</Name>
+    <Translation>Remove Department</Translation>
+  </Vocab>
+  <Vocab>
     <Name>RemoveEmployee</Name>
     <Translation>Remove Employee</Translation>
   </Vocab>
   <Vocab>
     <Name>RemoveFreightTerm</Name>
     <Translation>Remove Freight Term</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveLicensor</Name>
+    <Translation>Remove Licensor</Translation>
   </Vocab>
   <Vocab>
     <Name>RemoveManufacturer</Name>
@@ -1739,6 +1915,10 @@
   <Vocab>
     <Name>RemoveProcessStep</Name>
     <Translation>Remove Process Step</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveProcessStepRevision</Name>
+    <Translation>Remove Process Step Revision</Translation>
   </Vocab>
   <Vocab>
     <Name>RemoveProcessStepTemplate</Name>
@@ -1754,7 +1934,7 @@
   </Vocab>
   <Vocab>
     <Name>RemoveProductCategory</Name>
-    <Translation>Remove Department/Group</Translation>
+    <Translation>Remove Product Category</Translation>
   </Vocab>
   <Vocab>
     <Name>RemoveProductSupplier</Name>
@@ -1789,6 +1969,10 @@
     <Translation>Repeat</Translation>
   </Vocab>
   <Vocab>
+    <Name>ReqDaysBeforeDueDate</Name>
+    <Translation>Required Days Before Due Date</Translation>
+  </Vocab>
+  <Vocab>
     <Name>RequiredWorkDays</Name>
     <Translation>Required Work Days</Translation>
   </Vocab>
@@ -1803,6 +1987,10 @@
   <Vocab>
     <Name>RetailPrice</Name>
     <Translation>Retail Price</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Revisions</Name>
+    <Translation>Revisions</Translation>
   </Vocab>
   <Vocab>
     <Name>RoyaltyCurrency</Name>
@@ -1994,11 +2182,11 @@
   </Vocab>
   <Vocab>
     <Name>SubCategories</Name>
-    <Translation>Product Groups</Translation>
+    <Translation>Sub Categories</Translation>
   </Vocab>
   <Vocab>
     <Name>SubCategory</Name>
-    <Translation>Product Group</Translation>
+    <Translation>Sub Category</Translation>
   </Vocab>
   <Vocab>
     <Name>Submit</Name>

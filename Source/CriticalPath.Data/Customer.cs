@@ -18,6 +18,7 @@ namespace CriticalPath.Data
         public Customer()
         {
             this.Orders = new HashSet<PurchaseOrder>();
+            this.Departments = new HashSet<CustomerDepartment>();
         }
     
         public string CustomerCode { get; set; }
@@ -25,6 +26,8 @@ namespace CriticalPath.Data
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PurchaseOrder> Orders { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CustomerDepartment> Departments { get; set; }
     	/// <summary>
     	/// Clones all properties in a new Customer instance,
     	/// except PrimaryKey(s)

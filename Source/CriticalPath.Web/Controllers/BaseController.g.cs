@@ -347,6 +347,27 @@ namespace CriticalPath.Web.Controllers
         }
 
         /// <summary>
+        /// Finds an CustomerDepartment by PrimaryKey value
+        /// </summary>
+        /// <param name="id">Represents PrimaryKey of CustomerDepartment.Id</param>
+        /// <returns></returns>
+        protected virtual async Task<CustomerDepartment> FindAsyncCustomerDepartment(int id)
+        {
+            return await GetCustomerDepartmentQuery()
+                            .FirstOrDefaultAsync(x => x.Id == id);
+        }
+
+        protected virtual IQueryable<CustomerDepartment> GetCustomerDepartmentQuery()
+        {
+            return DataContext.GetCustomerDepartmentQuery();
+        }
+
+        protected virtual Task SetCustomerDepartmentDefaults(CustomerDepartment customerDepartment)
+        {
+            return Task.FromResult(default(object));
+        }
+
+        /// <summary>
         /// Finds an Supplier by PrimaryKey value
         /// </summary>
         /// <param name="id">Represents PrimaryKey of Supplier.Id</param>
@@ -363,6 +384,27 @@ namespace CriticalPath.Web.Controllers
         }
 
         protected virtual Task SetSupplierDefaults(Supplier supplier)
+        {
+            return Task.FromResult(default(object));
+        }
+
+        /// <summary>
+        /// Finds an Licensor by PrimaryKey value
+        /// </summary>
+        /// <param name="id">Represents PrimaryKey of Licensor.Id</param>
+        /// <returns></returns>
+        protected virtual async Task<Licensor> FindAsyncLicensor(int id)
+        {
+            return await GetLicensorQuery()
+                            .FirstOrDefaultAsync(x => x.Id == id);
+        }
+
+        protected virtual IQueryable<Licensor> GetLicensorQuery()
+        {
+            return DataContext.GetLicensorQuery();
+        }
+
+        protected virtual Task SetLicensorDefaults(Licensor licensor)
         {
             return Task.FromResult(default(object));
         }
@@ -510,6 +552,27 @@ namespace CriticalPath.Web.Controllers
         }
 
         protected virtual Task SetProcessStepDefaults(ProcessStep processStep)
+        {
+            return Task.FromResult(default(object));
+        }
+
+        /// <summary>
+        /// Finds an ProcessStepRevision by PrimaryKey value
+        /// </summary>
+        /// <param name="id">Represents PrimaryKey of ProcessStepRevision.Id</param>
+        /// <returns></returns>
+        protected virtual async Task<ProcessStepRevision> FindAsyncProcessStepRevision(int id)
+        {
+            return await GetProcessStepRevisionQuery()
+                            .FirstOrDefaultAsync(x => x.Id == id);
+        }
+
+        protected virtual IQueryable<ProcessStepRevision> GetProcessStepRevisionQuery()
+        {
+            return DataContext.GetProcessStepRevisionQuery();
+        }
+
+        protected virtual Task SetProcessStepRevisionDefaults(ProcessStepRevision processStepRevision)
         {
             return Task.FromResult(default(object));
         }

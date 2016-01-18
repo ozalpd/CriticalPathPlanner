@@ -251,7 +251,7 @@ namespace CriticalPath.Web.Controllers
             }
 
             await SetCustomerSelectListAsync(purchaseOrderVM);
-            await SetSupplierSelectList(purchaseOrderVM.SupplierId);
+            await SetSupplierSelectList(purchaseOrderVM.SupplierId ?? 0);
             await SetSectListAsync(purchaseOrderVM);
             return View(purchaseOrderVM);
         }
@@ -290,6 +290,7 @@ namespace CriticalPath.Web.Controllers
         private async Task SetSectListAsync(PurchaseOrderVM poVM)
         {
             ViewBag.SellingCurrencyId = await GetCurrencySelectList(poVM.SellingCurrencyId);
+            ViewBag.LicensorCurrencyId = await GetCurrencySelectList(poVM.LicensorCurrencyId ?? 0);
             ViewBag.BuyingCurrencyId = await GetCurrencySelectList(poVM.BuyingCurrencyId ?? 0);
             ViewBag.RoyaltyCurrencyId = await GetCurrencySelectList(poVM.RoyaltyCurrencyId ?? 0);
             ViewBag.RetailCurrencyId = await GetCurrencySelectList(poVM.RetailCurrencyId ?? 0);
@@ -381,6 +382,7 @@ namespace CriticalPath.Web.Controllers
                 purchaseOrder.BuyingPrice = vm.BuyingPrice;
                 purchaseOrder.RetailPrice = vm.RetailPrice;
                 purchaseOrder.BuyingCurrencyId = vm.BuyingCurrencyId;
+                purchaseOrder.LicensorCurrencyId = vm.LicensorCurrencyId;
                 purchaseOrder.SellingCurrencyId = vm.SellingCurrencyId;
                 purchaseOrder.RetailCurrencyId = vm.RetailCurrencyId;
                 purchaseOrder.RoyaltyCurrencyId = vm.RoyaltyCurrencyId;

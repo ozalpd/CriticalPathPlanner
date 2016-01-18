@@ -12,7 +12,7 @@ namespace CriticalPath.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Product : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate, IDiscontinued, IDiscontinuedUser, IRetailPrice, IRoyaltyFee, IBuyingPrice, ISellingPrice, IAllPrice
+    public partial class Product : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate, IDiscontinued, IDiscontinuedUser, IRetailPrice, ILicensorPrice, IRoyaltyFee, IBuyingPrice, ISellingPrice, IAllPrice
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
@@ -25,9 +25,12 @@ namespace CriticalPath.Data
         public string ProductCode { get; set; }
         public string Description { get; set; }
         public int CategoryId { get; set; }
+        public bool Licensed { get; set; }
         public string ImageUrl { get; set; }
         public decimal UnitPrice { get; set; }
         public int SellingCurrencyId { get; set; }
+        public Nullable<decimal> LicensorPrice { get; set; }
+        public Nullable<int> LicensorCurrencyId { get; set; }
         public Nullable<decimal> BuyingPrice { get; set; }
         public Nullable<int> BuyingCurrencyId { get; set; }
         public Nullable<decimal> RoyaltyFee { get; set; }
@@ -59,6 +62,7 @@ namespace CriticalPath.Data
         public virtual Currency RetailCurrency { get; set; }
         public virtual Currency RoyaltyCurrency { get; set; }
         public virtual Currency SellingCurrency { get; set; }
+        public virtual Currency LicensorCurrency { get; set; }
     	/// <summary>
     	/// Clones all properties in a new Product instance,
     	/// except PrimaryKey(s)
@@ -70,9 +74,12 @@ namespace CriticalPath.Data
             clone.ProductCode = ProductCode;
             clone.Description = Description;
             clone.CategoryId = CategoryId;
+            clone.Licensed = Licensed;
             clone.ImageUrl = ImageUrl;
             clone.UnitPrice = UnitPrice;
             clone.SellingCurrencyId = SellingCurrencyId;
+            clone.LicensorPrice = LicensorPrice;
+            clone.LicensorCurrencyId = LicensorCurrencyId;
             clone.BuyingPrice = BuyingPrice;
             clone.BuyingCurrencyId = BuyingCurrencyId;
             clone.RoyaltyFee = RoyaltyFee;
@@ -113,9 +120,12 @@ namespace CriticalPath.Data
             ProductCode = entity.ProductCode;
             Description = entity.Description;
             CategoryId = entity.CategoryId;
+            Licensed = entity.Licensed;
             ImageUrl = entity.ImageUrl;
             UnitPrice = entity.UnitPrice;
             SellingCurrencyId = entity.SellingCurrencyId;
+            LicensorPrice = entity.LicensorPrice;
+            LicensorCurrencyId = entity.LicensorCurrencyId;
             BuyingPrice = entity.BuyingPrice;
             BuyingCurrencyId = entity.BuyingCurrencyId;
             RoyaltyFee = entity.RoyaltyFee;
@@ -138,9 +148,12 @@ namespace CriticalPath.Data
             entity.ProductCode = ProductCode;
             entity.Description = Description;
             entity.CategoryId = CategoryId;
+            entity.Licensed = Licensed;
             entity.ImageUrl = ImageUrl;
             entity.UnitPrice = UnitPrice;
             entity.SellingCurrencyId = SellingCurrencyId;
+            entity.LicensorPrice = LicensorPrice;
+            entity.LicensorCurrencyId = LicensorCurrencyId;
             entity.BuyingPrice = BuyingPrice;
             entity.BuyingCurrencyId = BuyingCurrencyId;
             entity.RoyaltyFee = RoyaltyFee;
@@ -162,9 +175,12 @@ namespace CriticalPath.Data
         public string ProductCode { get; set; }
         public string Description { get; set; }
         public int CategoryId { get; set; }
+        public bool Licensed { get; set; }
         public string ImageUrl { get; set; }
         public decimal UnitPrice { get; set; }
         public int SellingCurrencyId { get; set; }
+        public Nullable<decimal> LicensorPrice { get; set; }
+        public Nullable<int> LicensorCurrencyId { get; set; }
         public Nullable<decimal> BuyingPrice { get; set; }
         public Nullable<int> BuyingCurrencyId { get; set; }
         public Nullable<decimal> RoyaltyFee { get; set; }

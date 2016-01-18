@@ -1,0 +1,11 @@
+@using CriticalPath.Web.Models
+@using CriticalPath.Data
+@using CP.i8n
+@model Licensor
+@{
+    Layout = null;
+}
+@if (Model != null)
+{
+    <div><a href='/Licensors/Details/@Model.Id'>@Model.CompanyName</a></div>
+}

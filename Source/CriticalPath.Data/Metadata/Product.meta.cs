@@ -44,6 +44,9 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "Category")]
             public ProductCategory Category { get; set; }
 
+            [Display(ResourceType = typeof(EntityStrings), Name = "Licensed")]
+            public bool Licensed { get; set; }
+
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Display(ResourceType = typeof(EntityStrings), Name = "UnitPrice")]
             public decimal UnitPrice { get; set; }
@@ -63,6 +66,15 @@ namespace CriticalPath.Data
 
             [Display(ResourceType = typeof(EntityStrings), Name = "BuyingCurrency")]
             public Currency BuyingCurrency { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "LicensorPrice")]
+            public decimal LicensorPrice { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "LicensorCurrencyId")]
+            public int LicensorCurrencyId { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "LicensorCurrency")]
+            public Currency LicensorCurrency { get; set; }
 
             [Display(ResourceType = typeof(EntityStrings), Name = "RoyaltyFee")]
             public decimal RoyaltyFee { get; set; }

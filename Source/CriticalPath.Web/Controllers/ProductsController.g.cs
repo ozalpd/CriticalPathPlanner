@@ -39,6 +39,10 @@ namespace CriticalPath.Web.Controllers
             {
                 query = query.Where(x => x.BuyingCurrencyId == qParams.BuyingCurrencyId);
             }
+            if (qParams.LicensorCurrencyId != null)
+            {
+                query = query.Where(x => x.LicensorCurrencyId == qParams.LicensorCurrencyId);
+            }
             if (qParams.RoyaltyCurrencyId != null)
             {
                 query = query.Where(x => x.RoyaltyCurrencyId == qParams.RoyaltyCurrencyId);
@@ -169,7 +173,7 @@ namespace CriticalPath.Web.Controllers
                        {
                            id = x.Id,
                            value = x.ProductCode,
-                           label = x.ProductCode //can be extended as x.Category.CategoryName + "/" + x.ProductCode,
+                           label = x.ProductCode
                        };
 
             return Json(await list.ToListAsync(), JsonRequestBehavior.AllowGet);
@@ -211,66 +215,6 @@ namespace CriticalPath.Web.Controllers
         }
 
 
-
-        [Authorize(Roles = "admin, supervisor")]
-        public async Task<ActionResult> Delete(int? id)  //GET: /Products/Delete/5
-        {
-            if (id == null)
-            {
-                return BadRequestTextResult();
-            }
-            Product product = await FindAsyncProduct(id.Value);
-
-            if (product == null)
-            {
-                return NotFoundTextResult();
-            }
-
-            int purchaseOrdersCount = product.PurchaseOrders.Count;
-            int suppliersCount = product.Suppliers.Count;
-            if ((purchaseOrdersCount + suppliersCount) > 0)
-            {
-                var sb = new StringBuilder();
-
-                sb.Append(MessageStrings.CanNotDelete);
-                sb.Append(" <b>");
-                sb.Append(product.ProductCode);
-                sb.Append("</b>.<br/>");
-
-                if (purchaseOrdersCount > 0)
-                {
-                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, purchaseOrdersCount, EntityStrings.PurchaseOrders));
-                    sb.Append("<br/>");
-                }
-
-                if (suppliersCount > 0)
-                {
-                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, suppliersCount, EntityStrings.Suppliers));
-                    sb.Append("<br/>");
-                }
-
-                return StatusCodeTextResult(sb, HttpStatusCode.BadRequest);
-            }
-
-            DataContext.Products.Remove(product);
-            try
-            {
-                await DataContext.SaveChangesAsync(this);
-            }
-            catch (Exception ex)
-            {
-                var sb = new StringBuilder();
-                sb.Append(MessageStrings.CanNotDelete);
-                sb.Append(product.ProductCode);
-                sb.Append("<br/>");
-                AppendExceptionMsg(ex, sb);
-
-                return StatusCodeTextResult(sb, HttpStatusCode.InternalServerError);
-            }
-
-            return new HttpStatusCodeResult(HttpStatusCode.OK);
-        }
-
         public new partial class QueryParameters : BaseController.QueryParameters
         {
             public QueryParameters() { }
@@ -279,12 +223,14 @@ namespace CriticalPath.Web.Controllers
                 CategoryId = parameters.CategoryId;
                 SellingCurrencyId = parameters.SellingCurrencyId;
                 BuyingCurrencyId = parameters.BuyingCurrencyId;
+                LicensorCurrencyId = parameters.LicensorCurrencyId;
                 RoyaltyCurrencyId = parameters.RoyaltyCurrencyId;
                 RetailCurrencyId = parameters.RetailCurrencyId;
             }
             public int? CategoryId { get; set; }
             public int? SellingCurrencyId { get; set; }
             public int? BuyingCurrencyId { get; set; }
+            public int? LicensorCurrencyId { get; set; }
             public int? RoyaltyCurrencyId { get; set; }
             public int? RetailCurrencyId { get; set; }
             public bool? Discontinued { get; set; }

@@ -53,12 +53,20 @@
     <Translation>Müşteri Ekle</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddCustomerDepartment</Name>
+    <Translation>Departman Ekle</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddEmployee</Name>
     <Translation>Çalışan Ekle</Translation>
   </Vocab>
   <Vocab>
     <Name>AddFreightTerm</Name>
     <Translation>Nakliye Koşulu Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddLicensor</Name>
+    <Translation>Lisans Sahibi Ekle</Translation>
   </Vocab>
   <Vocab>
     <Name>AddManufacturer</Name>
@@ -93,12 +101,20 @@
     <Translation>Yeni Müşteri Ekle</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddNewCustomerDepartment</Name>
+    <Translation>Yeni Departman Ekle</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddNewEmployee</Name>
     <Translation>Yeni Çalışan Ekle</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNewFreightTerm</Name>
     <Translation>Yeni Nakliye Koşulu Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewLicensor</Name>
+    <Translation>Yeni Lisans Sahibi Ekle</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNewManufacturer</Name>
@@ -115,6 +131,10 @@
   <Vocab>
     <Name>AddNewProcessStep</Name>
     <Translation>Yeni Süreç Adımı Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewProcessStepRevision</Name>
+    <Translation>Yeni Süreç Adım Tadilatı Ekle</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNewProcessStepTemplate</Name>
@@ -185,6 +205,10 @@
     <Translation>Süreç Adımı Ekle</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddProcessStepRevision</Name>
+    <Translation>Süreç Adım Tadilatı Ekle</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddProcessStepTemplate</Name>
     <Translation>Süreç Adım Şablonu Ekle</Translation>
   </Vocab>
@@ -237,12 +261,20 @@
     <Translation>Müşteri Ekle/Çıkar</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddRemoveCustomerDepartment</Name>
+    <Translation>Departmanı Ekle/Çıkar</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddRemoveEmployee</Name>
     <Translation>Çalışan Ekle/Çıkar</Translation>
   </Vocab>
   <Vocab>
     <Name>AddRemoveFreightTerm</Name>
     <Translation>Nakliye Koşulu Ekle/Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveLicensor</Name>
+    <Translation>Lisans Sahibi Ekle/Çıkar</Translation>
   </Vocab>
   <Vocab>
     <Name>AddRemoveManufacturer</Name>
@@ -255,6 +287,10 @@
   <Vocab>
     <Name>AddRemoveProcessStep</Name>
     <Translation>Süreç Adımı Ekle/Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemoveProcessStepRevision</Name>
+    <Translation>Süreç Adım Tadilatı Ekle</Translation>
   </Vocab>
   <Vocab>
     <Name>AddRemoveProcessStepTemplate</Name>
@@ -349,6 +385,10 @@
     <Translation>Admin</Translation>
   </Vocab>
   <Vocab>
+    <Name>AfterSteps</Name>
+    <Translation>Sonraki Adımlar</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Always</Name>
     <Translation>Her zaman</Translation>
   </Vocab>
@@ -418,15 +458,15 @@
   </Vocab>
   <Vocab>
     <Name>BuyingCurrency</Name>
-    <Translation>Alış Para Birimi</Translation>
+    <Translation>Tedarik Para Birimi</Translation>
   </Vocab>
   <Vocab>
     <Name>BuyingCurrencyId</Name>
-    <Translation>Alış Para Birimi</Translation>
+    <Translation>Tedarik Para Birimi</Translation>
   </Vocab>
   <Vocab>
     <Name>BuyingPrice</Name>
-    <Translation>Alış Fiyatı</Translation>
+    <Translation>Tedarik Fiyatı</Translation>
   </Vocab>
   <Vocab>
     <Name>Cancel</Name>
@@ -494,11 +534,11 @@
   </Vocab>
   <Vocab>
     <Name>Category</Name>
-    <Translation>Departman/Grup</Translation>
+    <Translation>Kategori</Translation>
   </Vocab>
   <Vocab>
     <Name>CategoryCode</Name>
-    <Translation>Kod</Translation>
+    <Translation>Kategori Kodu</Translation>
   </Vocab>
   <Vocab>
     <Name>CategoryId</Name>
@@ -506,7 +546,7 @@
   </Vocab>
   <Vocab>
     <Name>CategoryName</Name>
-    <Translation>İsim</Translation>
+    <Translation>Kategori Adı</Translation>
   </Vocab>
   <Vocab>
     <Name>ChangePassword</Name>
@@ -641,6 +681,10 @@
     <Translation>Müşteri Oluştur</Translation>
   </Vocab>
   <Vocab>
+    <Name>CreateCustomerDepartment</Name>
+    <Translation>Müşteri Departmanı Oluştur</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CreateDate</Name>
     <Translation>Oluşturma Tarihi</Translation>
   </Vocab>
@@ -655,6 +699,10 @@
   <Vocab>
     <Name>CreateFreightTerm</Name>
     <Translation>Nakliye Koşulu Oluştur</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreateLicensor</Name>
+    <Translation>Lisans Sahibi Oluştur</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateManufacturer</Name>
@@ -681,6 +729,10 @@
     <Translation>Süreç Adımı Oluştur</Translation>
   </Vocab>
   <Vocab>
+    <Name>CreateProcessStepRevision</Name>
+    <Translation>Süreç Adım Tadilatı Oluştur</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CreateProcessStepTemplate</Name>
     <Translation>Süreç Adım Şablonu Oluştur</Translation>
   </Vocab>
@@ -694,7 +746,7 @@
   </Vocab>
   <Vocab>
     <Name>CreateProductCategory</Name>
-    <Translation>Departman/Grup Oluştur</Translation>
+    <Translation>Ürün Kategorisi Oluştur</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateProductSupplier</Name>
@@ -785,6 +837,22 @@
     <Translation>Müşteri Kodu</Translation>
   </Vocab>
   <Vocab>
+    <Name>CustomerDepartment</Name>
+    <Translation>Müşteri Departmanı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CustomerDepartmentId</Name>
+    <Translation>Müşteri Departmanı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CustomerDepartments</Name>
+    <Translation>Müşteri Departmanları</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CustomerDepartmentsList</Name>
+    <Translation>Müşteri Departman Listesi</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CustomerId</Name>
     <Translation>Müşteri</Translation>
   </Vocab>
@@ -837,12 +905,20 @@
     <Translation>Müşteri Sil</Translation>
   </Vocab>
   <Vocab>
+    <Name>DeleteCustomerDepartment</Name>
+    <Translation>Departmanı Sil</Translation>
+  </Vocab>
+  <Vocab>
     <Name>DeleteEmployee</Name>
     <Translation>Çalışanı Sil</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteFreightTerm</Name>
     <Translation>Nakliye Koşulunu Sil</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteLicensor</Name>
+    <Translation>Lisans Sahibini Sil</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteManufacturer</Name>
@@ -865,6 +941,10 @@
     <Translation>Süreç Adımını Sil</Translation>
   </Vocab>
   <Vocab>
+    <Name>DeleteProcessStepRevision</Name>
+    <Translation>Süreç Adım Tadilatını Sil</Translation>
+  </Vocab>
+  <Vocab>
     <Name>DeleteProcessStepTemplate</Name>
     <Translation>Süreç Adım Şablonunu Sil</Translation>
   </Vocab>
@@ -878,7 +958,7 @@
   </Vocab>
   <Vocab>
     <Name>DeleteProductCategory</Name>
-    <Translation>Departman/Grup Sil</Translation>
+    <Translation>Ürün Kategorisini Sil</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteProductSupplier</Name>
@@ -923,6 +1003,22 @@
   <Vocab>
     <Name>Deleting</Name>
     <Translation>Siliniyor</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DepartmentName</Name>
+    <Translation>Departman İsmi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Departments</Name>
+    <Translation>Departmanlar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DependedStep</Name>
+    <Translation>Bağlı Adım</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DependedStepId</Name>
+    <Translation>Bağlı Adım</Translation>
   </Vocab>
   <Vocab>
     <Name>Depth</Name>
@@ -1029,12 +1125,20 @@
     <Translation>Müşteriyi Düzenle</Translation>
   </Vocab>
   <Vocab>
+    <Name>EditCustomerDepartment</Name>
+    <Translation>Departmanı Düzenle</Translation>
+  </Vocab>
+  <Vocab>
     <Name>EditEmployee</Name>
     <Translation>Çalışanı Düzenle</Translation>
   </Vocab>
   <Vocab>
     <Name>EditFreightTerm</Name>
     <Translation>Nakliye Koşulunu Düzenle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditLicensor</Name>
+    <Translation>Lisans Sahibini Düzenle</Translation>
   </Vocab>
   <Vocab>
     <Name>EditManufacturer</Name>
@@ -1057,6 +1161,10 @@
     <Translation>Süreç Adımı Düzenle</Translation>
   </Vocab>
   <Vocab>
+    <Name>EditProcessStepRevision</Name>
+    <Translation>Süreç Adım Tadilatını Düzenle</Translation>
+  </Vocab>
+  <Vocab>
     <Name>EditProcessStepTemplate</Name>
     <Translation>Süreç Adım Şablonunu Düzenle</Translation>
   </Vocab>
@@ -1070,7 +1178,7 @@
   </Vocab>
   <Vocab>
     <Name>EditProductCategory</Name>
-    <Translation>Departman/Grup Düzenle</Translation>
+    <Translation>Ürün Kategorisini Düzenle</Translation>
   </Vocab>
   <Vocab>
     <Name>EditProductSupplier</Name>
@@ -1273,6 +1381,10 @@
     <Translation>Tekrar</Translation>
   </Vocab>
   <Vocab>
+    <Name>KimballNr</Name>
+    <Translation>Kimball No</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Lastname</Name>
     <Translation>Soyad</Translation>
   </Vocab>
@@ -1283,6 +1395,42 @@
   <Vocab>
     <Name>Latitude</Name>
     <Translation>Enlem</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Licensed</Name>
+    <Translation>Lisanslı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Licensor</Name>
+    <Translation>Lisans Sahibi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>LicensorCode</Name>
+    <Translation>Lisans Sahibi Kodu</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>LicensorCurrency</Name>
+    <Translation>Lisans Sahibi Para Birimi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>LicensorCurrencyId</Name>
+    <Translation>Lisans Sahibi Para Birimi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>LicensorId</Name>
+    <Translation>Lisans Sahibi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>LicensorPrice</Name>
+    <Translation>Lisans Sahibi Fiyatı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Licensors</Name>
+    <Translation>Lisans Sahipleri</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>LicensorsList</Name>
+    <Translation>Lisans Sahibi Listesi</Translation>
   </Vocab>
   <Vocab>
     <Name>Loading</Name>
@@ -1446,15 +1594,15 @@
   </Vocab>
   <Vocab>
     <Name>ParentCategories</Name>
-    <Translation>Departmanlar</Translation>
+    <Translation>Üst Kategoriler</Translation>
   </Vocab>
   <Vocab>
     <Name>ParentCategory</Name>
-    <Translation>Departman</Translation>
+    <Translation>Üst Kategori</Translation>
   </Vocab>
   <Vocab>
     <Name>ParentCategoryId</Name>
-    <Translation>Departman</Translation>
+    <Translation>Üst Kategori</Translation>
   </Vocab>
   <Vocab>
     <Name>ParentPo</Name>
@@ -1549,6 +1697,22 @@
     <Translation>Süreç Adımı</Translation>
   </Vocab>
   <Vocab>
+    <Name>ProcessStepId</Name>
+    <Translation>Süreç Adımı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ProcessStepRevision</Name>
+    <Translation>Süreç Adım Tadilatı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ProcessStepRevisions</Name>
+    <Translation>Süreç Adım Tadilatları</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ProcessStepRevisionsList</Name>
+    <Translation>Süreç Adım Tadilat Listesi</Translation>
+  </Vocab>
+  <Vocab>
     <Name>ProcessSteps</Name>
     <Translation>Süreç Adımları</Translation>
   </Vocab>
@@ -1598,11 +1762,11 @@
   </Vocab>
   <Vocab>
     <Name>ProductCategory</Name>
-    <Translation>Departman/Grup</Translation>
+    <Translation>Ürün Kategorisi</Translation>
   </Vocab>
   <Vocab>
     <Name>ProductCategoryId</Name>
-    <Translation>Departman/Grup</Translation>
+    <Translation>Ürün Kategorisi</Translation>
   </Vocab>
   <Vocab>
     <Name>ProductCode</Name>
@@ -1681,6 +1845,10 @@
     <Translation>Kayıt</Translation>
   </Vocab>
   <Vocab>
+    <Name>RefCode</Name>
+    <Translation>Westend No</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Register</Name>
     <Translation>Kayıt ol</Translation>
   </Vocab>
@@ -1721,12 +1889,20 @@
     <Translation>Müşteriyi Çıkar</Translation>
   </Vocab>
   <Vocab>
+    <Name>RemoveCustomerDepartment</Name>
+    <Translation>Departmanı Çıkar</Translation>
+  </Vocab>
+  <Vocab>
     <Name>RemoveEmployee</Name>
     <Translation>Çalışanı Çıkar</Translation>
   </Vocab>
   <Vocab>
     <Name>RemoveFreightTerm</Name>
     <Translation>Nakliye Koşulunu Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveLicensor</Name>
+    <Translation>Lisans Sahibini Çıkar</Translation>
   </Vocab>
   <Vocab>
     <Name>RemoveManufacturer</Name>
@@ -1739,6 +1915,10 @@
   <Vocab>
     <Name>RemoveProcessStep</Name>
     <Translation>Süreç Adımını Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveProcessStepRevision</Name>
+    <Translation>Süreç Adım Tadilatını Çıkar</Translation>
   </Vocab>
   <Vocab>
     <Name>RemoveProcessStepTemplate</Name>
@@ -1754,7 +1934,7 @@
   </Vocab>
   <Vocab>
     <Name>RemoveProductCategory</Name>
-    <Translation>Departman/Grup Çıkar</Translation>
+    <Translation>Ürün Kategorisini Çıkar</Translation>
   </Vocab>
   <Vocab>
     <Name>RemoveProductSupplier</Name>
@@ -1789,6 +1969,10 @@
     <Translation>Tekrarla</Translation>
   </Vocab>
   <Vocab>
+    <Name>ReqDaysBeforeDueDate</Name>
+    <Translation>Teslimat Öncesi Gerekli Gün</Translation>
+  </Vocab>
+  <Vocab>
     <Name>RequiredWorkDays</Name>
     <Translation>Gereken İş Günü</Translation>
   </Vocab>
@@ -1803,6 +1987,10 @@
   <Vocab>
     <Name>RetailPrice</Name>
     <Translation>Perakende Fiyatı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Revisions</Name>
+    <Translation>Tadilatlar</Translation>
   </Vocab>
   <Vocab>
     <Name>RoyaltyCurrency</Name>
@@ -1994,11 +2182,11 @@
   </Vocab>
   <Vocab>
     <Name>SubCategories</Name>
-    <Translation>Ürün Grupları</Translation>
+    <Translation>Alt Kategoriler</Translation>
   </Vocab>
   <Vocab>
     <Name>SubCategory</Name>
-    <Translation>Ürün Grubu</Translation>
+    <Translation>Alt Kategori</Translation>
   </Vocab>
   <Vocab>
     <Name>Submit</Name>

@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using System.Net;
@@ -30,6 +29,7 @@ namespace CriticalPath.Web.Controllers
                            label = p.ProductCode + " [" + p.Category.ParentCategory.CategoryName + " / " + p.Category.CategoryName + "]",
                            UnitPrice = p.UnitPrice,
                            SellingCurrencyId = p.SellingCurrencyId,
+                           LicensorCurrencyId = p.LicensorCurrencyId,
                            RoyaltyFee = p.RoyaltyFee,
                            RoyaltyCurrencyId = p.RoyaltyCurrencyId,
                            RetailPrice = p.RetailPrice,
@@ -49,6 +49,7 @@ namespace CriticalPath.Web.Controllers
 
             await SetProductCategorySelectListAsync(product);
             ViewBag.SellingCurrencyId = await GetCurrencySelectList(product.SellingCurrencyId);
+            ViewBag.LicensorCurrencyId = await GetCurrencySelectList(product.LicensorCurrencyId ?? 0);
             ViewBag.BuyingCurrencyId = await GetCurrencySelectList(product.BuyingCurrencyId ?? 0);
             ViewBag.RoyaltyCurrencyId = await GetCurrencySelectList(product.RoyaltyCurrencyId ?? 0);
             ViewBag.RetailCurrencyId = await GetCurrencySelectList(product.RetailCurrencyId ?? 0);
@@ -81,6 +82,7 @@ namespace CriticalPath.Web.Controllers
 
             await SetProductCategorySelectListAsync(vm);
             ViewBag.SellingCurrencyId = await GetCurrencySelectList(vm.SellingCurrencyId);
+            ViewBag.LicensorCurrencyId = await GetCurrencySelectList(vm.LicensorCurrencyId ?? 0);
             ViewBag.BuyingCurrencyId = await GetCurrencySelectList(vm.BuyingCurrencyId ?? 0);
             ViewBag.RoyaltyCurrencyId = await GetCurrencySelectList(vm.RoyaltyCurrencyId ?? 0);
             ViewBag.RetailCurrencyId = await GetCurrencySelectList(vm.RetailCurrencyId ?? 0);
@@ -104,6 +106,7 @@ namespace CriticalPath.Web.Controllers
             await SetProductCategorySelectListAsync(product);
             ViewBag.SellingCurrencyId = await GetCurrencySelectList(product.SellingCurrencyId);
             ViewBag.BuyingCurrencyId = await GetCurrencySelectList(product.BuyingCurrencyId ?? 0);
+            ViewBag.LicensorCurrencyId = await GetCurrencySelectList(product.LicensorCurrencyId ?? 0);
             ViewBag.RoyaltyCurrencyId = await GetCurrencySelectList(product.RoyaltyCurrencyId ?? 0);
             ViewBag.RetailCurrencyId = await GetCurrencySelectList(product.RetailCurrencyId ?? 0);
             return View(new ProductEditVM(product));
@@ -132,6 +135,7 @@ namespace CriticalPath.Web.Controllers
 
             await SetProductCategorySelectListAsync(vm);
             ViewBag.SellingCurrencyId = await GetCurrencySelectList(vm.SellingCurrencyId);
+            ViewBag.LicensorCurrencyId = await GetCurrencySelectList(vm.LicensorCurrencyId ?? 0);
             ViewBag.BuyingCurrencyId = await GetCurrencySelectList(vm.BuyingCurrencyId ?? 0);
             ViewBag.RoyaltyCurrencyId = await GetCurrencySelectList(vm.RoyaltyCurrencyId ?? 0);
             ViewBag.RetailCurrencyId = await GetCurrencySelectList(vm.RetailCurrencyId ?? 0);
@@ -144,26 +148,90 @@ namespace CriticalPath.Web.Controllers
             var product = await GetProductQuery()
                             .Include(p => p.Suppliers)
                             .FirstOrDefaultAsync(p => p.Id == vm.Id);
+            if (vm.SuppliersSelected != null)
+            {
+                var toBeRemoved = new List<Supplier>();
+                foreach (var item in product.Suppliers)
+                {
+                    if (!vm.SuppliersSelected.Contains(item.Id))
+                        toBeRemoved.Add(item);
+                }
+                var suppliers = await GetSupplierQuery()
+                                .Where(s => vm.SuppliersSelected.Contains(s.Id))
+                                .ToListAsync();
+                foreach (var item in suppliers)
+                {
+                    if (!product.Suppliers.Contains(item))
+                        product.Suppliers.Add(item);
+                }
+                foreach (var item in toBeRemoved)
+                {
+                    product.Suppliers.Remove(item);
+                }
+            }
+            await DataContext.SaveChangesAsync(this);
+        }
 
-            var toBeRemoved = new List<Supplier>();
+        [Authorize(Roles = "admin, supervisor")]
+        public async Task<ActionResult> Delete(int? id)  //GET: /Products/Delete/5
+        {
+            if (id == null)
+            {
+                return BadRequestTextResult();
+            }
+            Product product = await FindAsyncProduct(id.Value);
+
+            if (product == null)
+            {
+                return NotFoundTextResult();
+            }
+
+            int purchaseOrdersCount = product.PurchaseOrders.Count;
+            if ((purchaseOrdersCount) > 0)
+            {
+                var sb = new StringBuilder();
+
+                sb.Append(MessageStrings.CanNotDelete);
+                sb.Append(" <b>");
+                sb.Append(product.ProductCode);
+                sb.Append("</b>.<br/>");
+
+                if (purchaseOrdersCount > 0)
+                {
+                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, purchaseOrdersCount, EntityStrings.PurchaseOrders));
+                    sb.Append("<br/>");
+                }
+
+                return StatusCodeTextResult(sb, HttpStatusCode.BadRequest);
+            }
+
+            var suppliers = new List<Supplier>();
             foreach (var item in product.Suppliers)
             {
-                if (!vm.SuppliersSelected.Contains(item.Id))
-                    toBeRemoved.Add(item);
+                suppliers.Add(item);
             }
-            var suppliers = await GetSupplierQuery()
-                            .Where(s => vm.SuppliersSelected.Contains(s.Id))
-                            .ToListAsync();
             foreach (var item in suppliers)
-            {
-                if (!product.Suppliers.Contains(item))
-                    product.Suppliers.Add(item);
-            }
-            foreach (var item in toBeRemoved)
             {
                 product.Suppliers.Remove(item);
             }
-            await DataContext.SaveChangesAsync(this);
+
+            DataContext.Products.Remove(product);
+            try
+            {
+                await DataContext.SaveChangesAsync(this);
+            }
+            catch (Exception ex)
+            {
+                var sb = new StringBuilder();
+                sb.Append(MessageStrings.CanNotDelete);
+                sb.Append(product.ProductCode);
+                sb.Append("<br/>");
+                AppendExceptionMsg(ex, sb);
+
+                return StatusCodeTextResult(sb, HttpStatusCode.InternalServerError);
+            }
+
+            return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
         //Purpose: To set default property values for newly created Product entity
         //protected override async Task SetProductDefaults(Product product) { }

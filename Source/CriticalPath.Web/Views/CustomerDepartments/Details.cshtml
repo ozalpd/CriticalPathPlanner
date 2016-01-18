@@ -1,0 +1,48 @@
+@using CriticalPath.Web.Models
+@using CriticalPath.Data
+@using CP.i8n
+@model CustomerDepartment
+@{
+    ViewBag.Title = EntityStrings.CustomerDepartment;
+
+    //Authorization Flags
+    bool canUserEdit = ViewBag.canUserEdit;
+    bool canUserCreate = ViewBag.canUserCreate;
+    bool canUserDelete = ViewBag.canUserDelete;
+}
+
+<h2>@EntityStrings.CustomerDepartment @ActionStrings.Details</h2>
+
+<div class="row mb5">
+    <div class="col-md-2 col-sm-3 text-right fontWeigthBold">
+        @Html.DisplayNameFor(model => model.DepartmentName)
+    </div>
+    <div class="col-lg-8 col-md-9 col-sm-9">
+        @Html.DisplayFor(m => m.DepartmentName)
+    </div>
+</div>
+<div class="row mb5">
+    <div class="col-md-2 col-sm-3 text-right fontWeigthBold">
+        @Html.DisplayNameFor(model => model.Customer)
+    </div>
+    <div class="col-lg-8 col-md-9 col-sm-9">
+        @Html.DisplayFor(m => m.Customer)
+    </div>
+</div>
+<div class="row mb5">
+    <div class="col-md-2 col-sm-3 text-right fontWeigthBold">
+        @Html.DisplayNameFor(model => model.ModifiedUser)
+    </div>
+    <div class="col-lg-8 col-md-9 col-sm-9">
+        @Html.DisplayFor(m => m.ModifiedUser)
+    </div>
+</div>
+<div class="row mb5">
+    <div class="col-md-2 col-sm-3 text-right fontWeigthBold">
+        @Html.DisplayNameFor(model => model.CreatedUser)
+    </div>
+    <div class="col-lg-8 col-md-9 col-sm-9">
+        @Html.DisplayFor(m => m.CreatedUser)
+    </div>
+</div>
+@Html.Partial("_DetailFormButtonsPartial")

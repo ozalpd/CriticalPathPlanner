@@ -48,6 +48,8 @@ namespace CriticalPath.Data
         public virtual DbSet<Currency> Currencies { get; set; }
         public virtual DbSet<Country> Countries { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
+        public virtual DbSet<CustomerDepartment> CustomerDepartments { get; set; }
+        public virtual DbSet<ProcessStepRevision> ProcessStepRevisions { get; set; }
     
         /// <summary>
         /// Default query for AspNetUsers
@@ -143,6 +145,56 @@ namespace CriticalPath.Data
                        Notes = e.Notes,
                        CustomerCode = e.CustomerCode,
                        DiscountRate = e.DiscountRate,
+                   };
+        }
+    
+    
+        /// <summary>
+        /// Default query for Companies
+        /// </summary>
+        /// <returns></returns>
+        public virtual IQueryable<Licensor> GetLicensorQuery()
+        {
+            IQueryable<Licensor> query = Companies.OrderBy(p => p.CompanyName)
+    														.OfType<Licensor>();
+            return query;
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from Licensor query
+        /// </summary>
+        /// <param name="query">query to be converted</param>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<LicensorDTO> GetLicensorDtoQuery()
+        {
+            return GetLicensorDtoQuery(GetLicensorQuery());
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from Licensor query
+        /// </summary>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<LicensorDTO> GetLicensorDtoQuery(IQueryable<Licensor> query)
+        {
+            return from e in query
+                   select new LicensorDTO
+                   {
+                       Id = e.Id,
+                       CompanyName = e.CompanyName,
+                       Phone1 = e.Phone1,
+                       Phone2 = e.Phone2,
+                       Phone3 = e.Phone3,
+                       Address1 = e.Address1,
+                       Address2 = e.Address2,
+                       ZipCode = e.ZipCode,
+                       City = e.City,
+                       State = e.State,
+                       CountryId = e.CountryId,
+                       Discontinued = e.Discontinued,
+                       DiscontinueDate = e.DiscontinueDate,
+                       DiscontinueNotes = e.DiscontinueNotes,
+                       Notes = e.Notes,
+                       LicensorCode = e.LicensorCode,
                    };
         }
     
@@ -385,6 +437,42 @@ namespace CriticalPath.Data
     
     
         /// <summary>
+        /// Default query for CustomerDepartments
+        /// </summary>
+        /// <returns></returns>
+        public virtual IQueryable<CustomerDepartment> GetCustomerDepartmentQuery()
+        {
+            IQueryable<CustomerDepartment> query = CustomerDepartments.OrderBy(p => p.DepartmentName);
+            return query;
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from CustomerDepartment query
+        /// </summary>
+        /// <param name="query">query to be converted</param>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<CustomerDepartmentDTO> GetCustomerDepartmentDtoQuery()
+        {
+            return GetCustomerDepartmentDtoQuery(GetCustomerDepartmentQuery());
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from CustomerDepartment query
+        /// </summary>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<CustomerDepartmentDTO> GetCustomerDepartmentDtoQuery(IQueryable<CustomerDepartment> query)
+        {
+            return from e in query
+                   select new CustomerDepartmentDTO
+                   {
+                       Id = e.Id,
+                       DepartmentName = e.DepartmentName,
+                       CustomerId = e.CustomerId,
+                   };
+        }
+    
+    
+        /// <summary>
         /// Default query for Employees
         /// </summary>
         /// <returns></returns>
@@ -512,6 +600,45 @@ namespace CriticalPath.Data
     
     
         /// <summary>
+        /// Default query for ProcessStepRevisions
+        /// </summary>
+        /// <returns></returns>
+        public virtual IQueryable<ProcessStepRevision> GetProcessStepRevisionQuery()
+        {
+            IQueryable<ProcessStepRevision> query = ProcessStepRevisions;
+            return query;
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from ProcessStepRevision query
+        /// </summary>
+        /// <param name="query">query to be converted</param>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<ProcessStepRevisionDTO> GetProcessStepRevisionDtoQuery()
+        {
+            return GetProcessStepRevisionDtoQuery(GetProcessStepRevisionQuery());
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from ProcessStepRevision query
+        /// </summary>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<ProcessStepRevisionDTO> GetProcessStepRevisionDtoQuery(IQueryable<ProcessStepRevision> query)
+        {
+            return from e in query
+                   select new ProcessStepRevisionDTO
+                   {
+                       Id = e.Id,
+                       ProcessStepId = e.ProcessStepId,
+                       IsCompleted = e.IsCompleted,
+                       TargetDate = e.TargetDate,
+                       ForecastDate = e.ForecastDate,
+                       RealizedDate = e.RealizedDate,
+                   };
+        }
+    
+    
+        /// <summary>
         /// Default query for ProcessSteps
         /// </summary>
         /// <returns></returns>
@@ -591,6 +718,8 @@ namespace CriticalPath.Data
                        ProcessTemplateId = e.ProcessTemplateId,
                        RequiredWorkDays = e.RequiredWorkDays,
                        IgnoreInRepeat = e.IgnoreInRepeat,
+                       ReqDaysBeforeDueDate = e.ReqDaysBeforeDueDate,
+                       DependedStepId = e.DependedStepId,
                    };
         }
     
@@ -703,9 +832,12 @@ namespace CriticalPath.Data
                        ProductCode = e.ProductCode,
                        Description = e.Description,
                        CategoryId = e.CategoryId,
+                       Licensed = e.Licensed,
                        ImageUrl = e.ImageUrl,
                        UnitPrice = e.UnitPrice,
                        SellingCurrencyId = e.SellingCurrencyId,
+                       LicensorPrice = e.LicensorPrice,
+                       LicensorCurrencyId = e.LicensorCurrencyId,
                        BuyingPrice = e.BuyingPrice,
                        BuyingCurrencyId = e.BuyingCurrencyId,
                        RoyaltyFee = e.RoyaltyFee,
@@ -750,19 +882,25 @@ namespace CriticalPath.Data
                    {
                        Id = e.Id,
                        PoNr = e.PoNr,
+                       RefCode = e.RefCode,
+                       KimballNr = e.KimballNr,
                        OrderDate = e.OrderDate,
                        DueDate = e.DueDate,
                        IsRepeat = e.IsRepeat,
                        ParentPoId = e.ParentPoId,
                        Description = e.Description,
                        CustomerId = e.CustomerId,
+                       CustomerDepartmentId = e.CustomerDepartmentId,
                        CustomerPoNr = e.CustomerPoNr,
+                       LicensorId = e.LicensorId,
                        ProductId = e.ProductId,
                        SizingStandardId = e.SizingStandardId,
                        Quantity = e.Quantity,
                        DiscountRate = e.DiscountRate,
                        UnitPrice = e.UnitPrice,
                        SellingCurrencyId = e.SellingCurrencyId,
+                       LicensorPrice = e.LicensorPrice,
+                       LicensorCurrencyId = e.LicensorCurrencyId,
                        BuyingPrice = e.BuyingPrice,
                        BuyingCurrencyId = e.BuyingCurrencyId,
                        RoyaltyFee = e.RoyaltyFee,

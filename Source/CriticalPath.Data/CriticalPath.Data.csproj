@@ -68,11 +68,23 @@
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
     <Compile Include="CriticalPathContext.utils.cs" />
+    <Compile Include="CustomerDepartment.cs">
+      <DependentUpon>CriticalPathModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Employee.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Licensor.cs">
+      <DependentUpon>CriticalPathModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Metadata\CustomerDepartment.meta.cs" />
+    <Compile Include="Metadata\CustomerDepartmentDTO.meta.cs" />
     <Compile Include="Metadata\Employee.meta.cs" />
     <Compile Include="Metadata\EmployeeDTO.meta.cs" />
+    <Compile Include="Metadata\Licensor.meta.cs" />
+    <Compile Include="Metadata\LicensorDTO.meta.cs" />
+    <Compile Include="Metadata\ProcessStepRevision.meta.cs" />
+    <Compile Include="Metadata\ProcessStepRevisionDTO.meta.cs" />
     <Compile Include="Parts\EmployeeDTO.part.cs" />
     <Compile Include="Parts\CountryDTO.part.cs" />
     <Compile Include="CriticalPathContext.static.cs" />
@@ -153,6 +165,9 @@
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Parts\ProcessStep.part.cs" />
+    <Compile Include="ProcessStepRevision.cs">
+      <DependentUpon>CriticalPathModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="ProcessStepTemplate.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
@@ -162,6 +177,7 @@
     <Compile Include="Product.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Parts\Product.part.cs" />
     <Compile Include="ProductCategory.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
@@ -173,6 +189,7 @@
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Parts\SizingStandardDTO.part.cs" />
+    <Compile Include="Parts\PurchaseOrder.part.cs" />
     <Compile Include="SizeRatio.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>

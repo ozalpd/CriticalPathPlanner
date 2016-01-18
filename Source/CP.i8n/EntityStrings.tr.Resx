@@ -87,12 +87,20 @@
 		<value>Müşteri Ekle</value>
 	</data>
 
+	<data name="AddCustomerDepartment" xml:space="preserve">
+		<value>Departman Ekle</value>
+	</data>
+
 	<data name="AddEmployee" xml:space="preserve">
 		<value>Çalışan Ekle</value>
 	</data>
 
 	<data name="AddFreightTerm" xml:space="preserve">
 		<value>Nakliye Koşulu Ekle</value>
+	</data>
+
+	<data name="AddLicensor" xml:space="preserve">
+		<value>Lisans Sahibi Ekle</value>
 	</data>
 
 	<data name="AddManufacturer" xml:space="preserve">
@@ -123,12 +131,20 @@
 		<value>Yeni Müşteri Ekle</value>
 	</data>
 
+	<data name="AddNewCustomerDepartment" xml:space="preserve">
+		<value>Yeni Departman Ekle</value>
+	</data>
+
 	<data name="AddNewEmployee" xml:space="preserve">
 		<value>Yeni Çalışan Ekle</value>
 	</data>
 
 	<data name="AddNewFreightTerm" xml:space="preserve">
 		<value>Yeni Nakliye Koşulu Ekle</value>
+	</data>
+
+	<data name="AddNewLicensor" xml:space="preserve">
+		<value>Yeni Lisans Sahibi Ekle</value>
 	</data>
 
 	<data name="AddNewManufacturer" xml:space="preserve">
@@ -141,6 +157,10 @@
 
 	<data name="AddNewProcessStep" xml:space="preserve">
 		<value>Yeni Süreç Adımı Ekle</value>
+	</data>
+
+	<data name="AddNewProcessStepRevision" xml:space="preserve">
+		<value>Yeni Süreç Adım Tadilatı Ekle</value>
 	</data>
 
 	<data name="AddNewProcessStepTemplate" xml:space="preserve">
@@ -187,6 +207,10 @@
 		<value>Süreç Adımı Ekle</value>
 	</data>
 
+	<data name="AddProcessStepRevision" xml:space="preserve">
+		<value>Süreç Adım Tadilatı Ekle</value>
+	</data>
+
 	<data name="AddProcessStepTemplate" xml:space="preserve">
 		<value>Süreç Adım Şablonu Ekle</value>
 	</data>
@@ -231,12 +255,20 @@
 		<value>Müşteri Ekle/Çıkar</value>
 	</data>
 
+	<data name="AddRemoveCustomerDepartment" xml:space="preserve">
+		<value>Departmanı Ekle/Çıkar</value>
+	</data>
+
 	<data name="AddRemoveEmployee" xml:space="preserve">
 		<value>Çalışan Ekle/Çıkar</value>
 	</data>
 
 	<data name="AddRemoveFreightTerm" xml:space="preserve">
 		<value>Nakliye Koşulu Ekle/Çıkar</value>
+	</data>
+
+	<data name="AddRemoveLicensor" xml:space="preserve">
+		<value>Lisans Sahibi Ekle/Çıkar</value>
 	</data>
 
 	<data name="AddRemoveManufacturer" xml:space="preserve">
@@ -249,6 +281,10 @@
 
 	<data name="AddRemoveProcessStep" xml:space="preserve">
 		<value>Süreç Adımı Ekle/Çıkar</value>
+	</data>
+
+	<data name="AddRemoveProcessStepRevision" xml:space="preserve">
+		<value>Süreç Adım Tadilatı Ekle</value>
 	</data>
 
 	<data name="AddRemoveProcessStepTemplate" xml:space="preserve">
@@ -311,6 +347,10 @@
 		<value>Tedarikçi Ekle</value>
 	</data>
 
+	<data name="AfterSteps" xml:space="preserve">
+		<value>Sonraki Adımlar</value>
+	</data>
+
 	<data name="ApproveDate" xml:space="preserve">
 		<value>Onay Tarihi</value>
 	</data>
@@ -344,15 +384,15 @@
 	</data>
 
 	<data name="BuyingCurrency" xml:space="preserve">
-		<value>Alış Para Birimi</value>
+		<value>Tedarik Para Birimi</value>
 	</data>
 
 	<data name="BuyingCurrencyId" xml:space="preserve">
-		<value>Alış Para Birimi</value>
+		<value>Tedarik Para Birimi</value>
 	</data>
 
 	<data name="BuyingPrice" xml:space="preserve">
-		<value>Alış Fiyatı</value>
+		<value>Tedarik Fiyatı</value>
 	</data>
 
 	<data name="CancelDate" xml:space="preserve">
@@ -384,11 +424,11 @@
 	</data>
 
 	<data name="Category" xml:space="preserve">
-		<value>Departman/Grup</value>
+		<value>Kategori</value>
 	</data>
 
 	<data name="CategoryCode" xml:space="preserve">
-		<value>Kod</value>
+		<value>Kategori Kodu</value>
 	</data>
 
 	<data name="CategoryId" xml:space="preserve">
@@ -396,7 +436,7 @@
 	</data>
 
 	<data name="CategoryName" xml:space="preserve">
-		<value>İsim</value>
+		<value>Kategori Adı</value>
 	</data>
 
 	<data name="City" xml:space="preserve">
@@ -479,6 +519,10 @@
 		<value>Müşteri Oluştur</value>
 	</data>
 
+	<data name="CreateCustomerDepartment" xml:space="preserve">
+		<value>Müşteri Departmanı Oluştur</value>
+	</data>
+
 	<data name="CreateDate" xml:space="preserve">
 		<value>Oluşturma Tarihi</value>
 	</data>
@@ -495,6 +539,10 @@
 		<value>Nakliye Koşulu Oluştur</value>
 	</data>
 
+	<data name="CreateLicensor" xml:space="preserve">
+		<value>Lisans Sahibi Oluştur</value>
+	</data>
+
 	<data name="CreateManufacturer" xml:space="preserve">
 		<value>Üretici Oluştur</value>
 	</data>
@@ -505,6 +553,10 @@
 
 	<data name="CreateProcessStep" xml:space="preserve">
 		<value>Süreç Adımı Oluştur</value>
+	</data>
+
+	<data name="CreateProcessStepRevision" xml:space="preserve">
+		<value>Süreç Adım Tadilatı Oluştur</value>
 	</data>
 
 	<data name="CreateProcessStepTemplate" xml:space="preserve">
@@ -520,7 +572,7 @@
 	</data>
 
 	<data name="CreateProductCategory" xml:space="preserve">
-		<value>Departman/Grup Oluştur</value>
+		<value>Ürün Kategorisi Oluştur</value>
 	</data>
 
 	<data name="CreatePurchaseOrder" xml:space="preserve">
@@ -591,6 +643,22 @@
 		<value>Müşteri Kodu</value>
 	</data>
 
+	<data name="CustomerDepartment" xml:space="preserve">
+		<value>Müşteri Departmanı</value>
+	</data>
+
+	<data name="CustomerDepartmentId" xml:space="preserve">
+		<value>Müşteri Departmanı</value>
+	</data>
+
+	<data name="CustomerDepartments" xml:space="preserve">
+		<value>Müşteri Departmanları</value>
+	</data>
+
+	<data name="CustomerDepartmentsList" xml:space="preserve">
+		<value>Müşteri Departman Listesi</value>
+	</data>
+
 	<data name="CustomerId" xml:space="preserve">
 		<value>Müşteri</value>
 	</data>
@@ -635,12 +703,20 @@
 		<value>Müşteri Sil</value>
 	</data>
 
+	<data name="DeleteCustomerDepartment" xml:space="preserve">
+		<value>Departmanı Sil</value>
+	</data>
+
 	<data name="DeleteEmployee" xml:space="preserve">
 		<value>Çalışanı Sil</value>
 	</data>
 
 	<data name="DeleteFreightTerm" xml:space="preserve">
 		<value>Nakliye Koşulunu Sil</value>
+	</data>
+
+	<data name="DeleteLicensor" xml:space="preserve">
+		<value>Lisans Sahibini Sil</value>
 	</data>
 
 	<data name="DeleteManufacturer" xml:space="preserve">
@@ -653,6 +729,10 @@
 
 	<data name="DeleteProcessStep" xml:space="preserve">
 		<value>Süreç Adımını Sil</value>
+	</data>
+
+	<data name="DeleteProcessStepRevision" xml:space="preserve">
+		<value>Süreç Adım Tadilatını Sil</value>
 	</data>
 
 	<data name="DeleteProcessStepTemplate" xml:space="preserve">
@@ -668,7 +748,7 @@
 	</data>
 
 	<data name="DeleteProductCategory" xml:space="preserve">
-		<value>Departman/Grup Sil</value>
+		<value>Ürün Kategorisini Sil</value>
 	</data>
 
 	<data name="DeletePurchaseOrder" xml:space="preserve">
@@ -689,6 +769,22 @@
 
 	<data name="DeleteSupplier" xml:space="preserve">
 		<value>Tedarikçiyi Sil</value>
+	</data>
+
+	<data name="DepartmentName" xml:space="preserve">
+		<value>Departman İsmi</value>
+	</data>
+
+	<data name="Departments" xml:space="preserve">
+		<value>Departmanlar</value>
+	</data>
+
+	<data name="DependedStep" xml:space="preserve">
+		<value>Bağlı Adım</value>
+	</data>
+
+	<data name="DependedStepId" xml:space="preserve">
+		<value>Bağlı Adım</value>
 	</data>
 
 	<data name="Description" xml:space="preserve">
@@ -755,12 +851,20 @@
 		<value>Müşteriyi Düzenle</value>
 	</data>
 
+	<data name="EditCustomerDepartment" xml:space="preserve">
+		<value>Departmanı Düzenle</value>
+	</data>
+
 	<data name="EditEmployee" xml:space="preserve">
 		<value>Çalışanı Düzenle</value>
 	</data>
 
 	<data name="EditFreightTerm" xml:space="preserve">
 		<value>Nakliye Koşulunu Düzenle</value>
+	</data>
+
+	<data name="EditLicensor" xml:space="preserve">
+		<value>Lisans Sahibini Düzenle</value>
 	</data>
 
 	<data name="EditManufacturer" xml:space="preserve">
@@ -773,6 +877,10 @@
 
 	<data name="EditProcessStep" xml:space="preserve">
 		<value>Süreç Adımı Düzenle</value>
+	</data>
+
+	<data name="EditProcessStepRevision" xml:space="preserve">
+		<value>Süreç Adım Tadilatını Düzenle</value>
 	</data>
 
 	<data name="EditProcessStepTemplate" xml:space="preserve">
@@ -788,7 +896,7 @@
 	</data>
 
 	<data name="EditProductCategory" xml:space="preserve">
-		<value>Departman/Grup Düzenle</value>
+		<value>Ürün Kategorisini Düzenle</value>
 	</data>
 
 	<data name="EditPurchaseOrder" xml:space="preserve">
@@ -899,8 +1007,48 @@
 		<value>Tekrar</value>
 	</data>
 
+	<data name="KimballNr" xml:space="preserve">
+		<value>Kimball No</value>
+	</data>
+
 	<data name="LastName" xml:space="preserve">
 		<value>Soyad</value>
+	</data>
+
+	<data name="Licensed" xml:space="preserve">
+		<value>Lisanslı</value>
+	</data>
+
+	<data name="Licensor" xml:space="preserve">
+		<value>Lisans Sahibi</value>
+	</data>
+
+	<data name="LicensorCode" xml:space="preserve">
+		<value>Lisans Sahibi Kodu</value>
+	</data>
+
+	<data name="LicensorCurrency" xml:space="preserve">
+		<value>Lisans Sahibi Para Birimi</value>
+	</data>
+
+	<data name="LicensorCurrencyId" xml:space="preserve">
+		<value>Lisans Sahibi Para Birimi</value>
+	</data>
+
+	<data name="LicensorId" xml:space="preserve">
+		<value>Lisans Sahibi</value>
+	</data>
+
+	<data name="LicensorPrice" xml:space="preserve">
+		<value>Lisans Sahibi Fiyatı</value>
+	</data>
+
+	<data name="Licensors" xml:space="preserve">
+		<value>Lisans Sahipleri</value>
+	</data>
+
+	<data name="LicensorsList" xml:space="preserve">
+		<value>Lisans Sahibi Listesi</value>
 	</data>
 
 	<data name="LockoutEnabled" xml:space="preserve">
@@ -964,11 +1112,11 @@
 	</data>
 
 	<data name="ParentCategory" xml:space="preserve">
-		<value>Departman</value>
+		<value>Üst Kategori</value>
 	</data>
 
 	<data name="ParentCategoryId" xml:space="preserve">
-		<value>Departman</value>
+		<value>Üst Kategori</value>
 	</data>
 
 	<data name="ParentPo" xml:space="preserve">
@@ -1035,6 +1183,22 @@
 		<value>Süreç Adımı</value>
 	</data>
 
+	<data name="ProcessStepId" xml:space="preserve">
+		<value>Süreç Adımı</value>
+	</data>
+
+	<data name="ProcessStepRevision" xml:space="preserve">
+		<value>Süreç Adım Tadilatı</value>
+	</data>
+
+	<data name="ProcessStepRevisions" xml:space="preserve">
+		<value>Süreç Adım Tadilatları</value>
+	</data>
+
+	<data name="ProcessStepRevisionsList" xml:space="preserve">
+		<value>Süreç Adım Tadilat Listesi</value>
+	</data>
+
 	<data name="ProcessSteps" xml:space="preserve">
 		<value>Süreç Adımları</value>
 	</data>
@@ -1084,7 +1248,7 @@
 	</data>
 
 	<data name="ProductCategory" xml:space="preserve">
-		<value>Departman/Grup</value>
+		<value>Ürün Kategorisi</value>
 	</data>
 
 	<data name="ProductCode" xml:space="preserve">
@@ -1131,6 +1295,10 @@
 		<value>Gerçekleşme Tarihi</value>
 	</data>
 
+	<data name="RefCode" xml:space="preserve">
+		<value>Westend No</value>
+	</data>
+
 	<data name="RemoveAspNetUser" xml:space="preserve">
 		<value>Uygulama Kullanıcısını Çıkar</value>
 	</data>
@@ -1155,12 +1323,20 @@
 		<value>Müşteriyi Çıkar</value>
 	</data>
 
+	<data name="RemoveCustomerDepartment" xml:space="preserve">
+		<value>Departmanı Çıkar</value>
+	</data>
+
 	<data name="RemoveEmployee" xml:space="preserve">
 		<value>Çalışanı Çıkar</value>
 	</data>
 
 	<data name="RemoveFreightTerm" xml:space="preserve">
 		<value>Nakliye Koşulunu Çıkar</value>
+	</data>
+
+	<data name="RemoveLicensor" xml:space="preserve">
+		<value>Lisans Sahibini Çıkar</value>
 	</data>
 
 	<data name="RemoveManufacturer" xml:space="preserve">
@@ -1173,6 +1349,10 @@
 
 	<data name="RemoveProcessStep" xml:space="preserve">
 		<value>Süreç Adımını Çıkar</value>
+	</data>
+
+	<data name="RemoveProcessStepRevision" xml:space="preserve">
+		<value>Süreç Adım Tadilatını Çıkar</value>
 	</data>
 
 	<data name="RemoveProcessStepTemplate" xml:space="preserve">
@@ -1188,7 +1368,7 @@
 	</data>
 
 	<data name="RemoveProductCategory" xml:space="preserve">
-		<value>Departman/Grup Çıkar</value>
+		<value>Ürün Kategorisini Çıkar</value>
 	</data>
 
 	<data name="RemovePurchaseOrder" xml:space="preserve">
@@ -1211,6 +1391,10 @@
 		<value>Tedarikçiyi Çıkar</value>
 	</data>
 
+	<data name="ReqDaysBeforeDueDate" xml:space="preserve">
+		<value>Teslimat Öncesi Gerekli Gün</value>
+	</data>
+
 	<data name="RequiredWorkDays" xml:space="preserve">
 		<value>Gereken İş Günü</value>
 	</data>
@@ -1225,6 +1409,10 @@
 
 	<data name="RetailPrice" xml:space="preserve">
 		<value>Perakende Fiyatı</value>
+	</data>
+
+	<data name="Revisions" xml:space="preserve">
+		<value>Tadilatlar</value>
 	</data>
 
 	<data name="RoyaltyCurrency" xml:space="preserve">
@@ -1304,7 +1492,7 @@
 	</data>
 
 	<data name="SubCategories" xml:space="preserve">
-		<value>Ürün Grupları</value>
+		<value>Alt Kategoriler</value>
 	</data>
 
 	<data name="Supplier" xml:space="preserve">

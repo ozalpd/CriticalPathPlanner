@@ -34,16 +34,31 @@ namespace CriticalPath.Data
             public bool IgnoreInRepeat { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "ProcessTemplateId")]
-            public int ProcessTemplateId { get; set; }
-
-            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Range(0,1000)]
+            [Range(0,100)]
             [Display(ResourceType = typeof(EntityStrings), Name = "RequiredWorkDays")]
             public int RequiredWorkDays { get; set; }
 
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [DataType(DataType.Date)]
+            [Range(0,100)]
+            [Display(ResourceType = typeof(EntityStrings), Name = "ReqDaysBeforeDueDate")]
+            public int ReqDaysBeforeDueDate { get; set; }
+
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "ProcessTemplateId")]
+            public int ProcessTemplateId { get; set; }
+
             [Display(ResourceType = typeof(EntityStrings), Name = "ProcessTemplate")]
             public ProcessTemplate ProcessTemplate { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "DependedStepId")]
+            public int DependedStepId { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "DependedStep")]
+            public ProcessStepTemplate DependedStep { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "AfterSteps")]
+            public ICollection<ProcessStepTemplate> AfterSteps { get; set; }
 
             [Display(ResourceType = typeof(EntityStrings), Name = "ModifiedUser")]
             public AspNetUser ModifiedUser { get; set; }

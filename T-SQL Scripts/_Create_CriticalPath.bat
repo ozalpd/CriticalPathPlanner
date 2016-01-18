@@ -13,6 +13,7 @@
 @echo .
 @echo 2 - Executing Employee.sql...
 @sqlcmd -S .\SqlExpress -d CriticalPath -E -i Employee.sql
+@sqlcmd -S .\SqlExpress -d CriticalPath -E -i Employees.Data.sql
 
 @echo .
 @echo .
@@ -57,63 +58,78 @@
 
 @echo .
 @echo .
-@echo 11 - Executing Supplier.sql...
+@echo 11 - Executing CustomerDepartment.sql...
+@sqlcmd -S .\SqlExpress -d CriticalPath -E -i CustomerDepartment.sql
+
+@echo .
+@echo .
+@echo 12 - Executing Supplier.sql...
 @sqlcmd -S .\SqlExpress -d CriticalPath -E -i Supplier.sql
 
 @echo .
 @echo .
-@echo 12 - Executing Manufacturer.sql...
+@echo 13 - Executing Licensor.sql...
+@sqlcmd -S .\SqlExpress -d CriticalPath -E -i Licensor.sql
+
+@echo .
+@echo .
+@echo 14 - Executing Manufacturer.sql...
 @sqlcmd -S .\SqlExpress -d CriticalPath -E -i Manufacturer.sql
 
 @echo .
 @echo .
-@echo 13 - Executing ProductCategory.sql...
+@echo 15 - Executing ProductCategory.sql...
 @sqlcmd -S .\SqlExpress -d CriticalPath -E -i ProductCategory.sql
 
 @echo .
 @echo .
-@echo 14 - Executing Product.sql...
+@echo 16 - Executing Product.sql...
 @sqlcmd -S .\SqlExpress -d CriticalPath -E -i Product.sql
 
 @echo .
 @echo .
-@echo 15 - Executing PurchaseOrder.sql...
+@echo 17 - Executing PurchaseOrder.sql...
 @sqlcmd -S .\SqlExpress -d CriticalPath -E -i PurchaseOrder.sql
 
 @echo .
 @echo .
-@echo 16 - Executing SizeRatio.sql...
+@echo 18 - Executing SizeRatio.sql...
 @sqlcmd -S .\SqlExpress -d CriticalPath -E -i SizeRatio.sql
 
 @echo .
 @echo .
-@echo 17 - Executing ProcessTemplate.sql...
+@echo 19 - Executing ProcessTemplate.sql...
 @sqlcmd -S .\SqlExpress -d CriticalPath -E -i ProcessTemplate.sql
 
 @echo .
 @echo .
-@echo 18 - Executing Process.sql...
+@echo 20 - Executing Process.sql...
 @sqlcmd -S .\SqlExpress -d CriticalPath -E -i Process.sql
 
 @echo .
 @echo .
-@echo 19 - Executing ProcessStepTemplate.sql...
+@echo 21 - Executing ProcessStepTemplate.sql...
 @sqlcmd -S .\SqlExpress -d CriticalPath -E -i ProcessStepTemplate.sql
 @sqlcmd -S .\SqlExpress -d CriticalPath -E -i ProcessTemplate-Data.sql
 
 @echo .
 @echo .
-@echo 20 - Executing ProcessStep.sql...
+@echo 22 - Executing ProcessStep.sql...
 @sqlcmd -S .\SqlExpress -d CriticalPath -E -i ProcessStep.sql
 
 @echo .
 @echo .
-@echo 21 - Executing _FinishingSetup.sql...
+@echo 23 - Executing ProcessStepRevision.sql...
+@sqlcmd -S .\SqlExpress -d CriticalPath -E -i ProcessStepRevision.sql
+
+@echo .
+@echo .
+@echo 24 - Executing _FinishingSetup.sql...
 @sqlcmd -S .\SqlExpress -d CriticalPath -E -i _FinishingSetup.sql
 
 @echo .
 @echo .
-@echo 22 - Executing ProductSupplier.sql...
+@echo 25 - Executing ProductSupplier.sql...
 @sqlcmd -S .\SqlExpress -d CriticalPath -E -i ProductSupplier.sql
 
 @echo .

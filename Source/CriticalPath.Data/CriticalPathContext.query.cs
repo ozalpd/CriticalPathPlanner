@@ -20,6 +20,20 @@ namespace CriticalPath.Data
                     .ThenBy(c => c.CountryName);
         }
 
+        public override IQueryable<ProcessStepRevision> GetProcessStepRevisionQuery()
+        {
+            return base.GetProcessStepRevisionQuery().OrderBy(sr => sr.Id);
+        }
+
+        public override IQueryable<CustomerDepartment> GetCustomerDepartmentQuery()
+        {
+            IQueryable<CustomerDepartment> query = CustomerDepartments
+                                    .OrderBy(d => d.CustomerId)
+                                    .ThenBy(d => d.DepartmentName)
+                                    .ThenBy(d => d.Id);
+            return query;
+        }
+
         public override IQueryable<CountryDTO> GetCountryDtoQuery(IQueryable<Country> query)
         {
             return from e in query

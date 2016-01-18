@@ -87,12 +87,20 @@
 		<value>Add Customer</value>
 	</data>
 
+	<data name="AddCustomerDepartment" xml:space="preserve">
+		<value>Add Department</value>
+	</data>
+
 	<data name="AddEmployee" xml:space="preserve">
 		<value>Add Employee</value>
 	</data>
 
 	<data name="AddFreightTerm" xml:space="preserve">
 		<value>Add Freight Term</value>
+	</data>
+
+	<data name="AddLicensor" xml:space="preserve">
+		<value>Add Licensor</value>
 	</data>
 
 	<data name="AddManufacturer" xml:space="preserve">
@@ -123,12 +131,20 @@
 		<value>Add New Customer</value>
 	</data>
 
+	<data name="AddNewCustomerDepartment" xml:space="preserve">
+		<value>Add New Department</value>
+	</data>
+
 	<data name="AddNewEmployee" xml:space="preserve">
 		<value>Add New Employee</value>
 	</data>
 
 	<data name="AddNewFreightTerm" xml:space="preserve">
 		<value>Add New Freight Term</value>
+	</data>
+
+	<data name="AddNewLicensor" xml:space="preserve">
+		<value>Add New Licensor</value>
 	</data>
 
 	<data name="AddNewManufacturer" xml:space="preserve">
@@ -141,6 +157,10 @@
 
 	<data name="AddNewProcessStep" xml:space="preserve">
 		<value>Add New Process Step</value>
+	</data>
+
+	<data name="AddNewProcessStepRevision" xml:space="preserve">
+		<value>Add New Process Step Revision</value>
 	</data>
 
 	<data name="AddNewProcessStepTemplate" xml:space="preserve">
@@ -156,7 +176,7 @@
 	</data>
 
 	<data name="AddNewProductCategory" xml:space="preserve">
-		<value>Add New Department/Group</value>
+		<value>Add New Product Category</value>
 	</data>
 
 	<data name="AddNewPurchaseOrder" xml:space="preserve">
@@ -187,6 +207,10 @@
 		<value>Add Process Step</value>
 	</data>
 
+	<data name="AddProcessStepRevision" xml:space="preserve">
+		<value>Add Process Step Revision</value>
+	</data>
+
 	<data name="AddProcessStepTemplate" xml:space="preserve">
 		<value>Add Process Step Template</value>
 	</data>
@@ -200,7 +224,7 @@
 	</data>
 
 	<data name="AddProductCategory" xml:space="preserve">
-		<value>Add Department/Group</value>
+		<value>Add Product Category</value>
 	</data>
 
 	<data name="AddPurchaseOrder" xml:space="preserve">
@@ -231,12 +255,20 @@
 		<value>Add/Remove Customer</value>
 	</data>
 
+	<data name="AddRemoveCustomerDepartment" xml:space="preserve">
+		<value>Add Remove Department</value>
+	</data>
+
 	<data name="AddRemoveEmployee" xml:space="preserve">
 		<value>Add Remove Employee</value>
 	</data>
 
 	<data name="AddRemoveFreightTerm" xml:space="preserve">
 		<value>Add Remove Freight Term</value>
+	</data>
+
+	<data name="AddRemoveLicensor" xml:space="preserve">
+		<value>Add Remove Licensor</value>
 	</data>
 
 	<data name="AddRemoveManufacturer" xml:space="preserve">
@@ -249,6 +281,10 @@
 
 	<data name="AddRemoveProcessStep" xml:space="preserve">
 		<value>Add/Remove Process Step</value>
+	</data>
+
+	<data name="AddRemoveProcessStepRevision" xml:space="preserve">
+		<value>Add Remove Process Step Revision</value>
 	</data>
 
 	<data name="AddRemoveProcessStepTemplate" xml:space="preserve">
@@ -264,7 +300,7 @@
 	</data>
 
 	<data name="AddRemoveProductCategory" xml:space="preserve">
-		<value>Add/Remove Department/Group</value>
+		<value>Add Remove Product Category</value>
 	</data>
 
 	<data name="AddRemovePurchaseOrder" xml:space="preserve">
@@ -311,6 +347,10 @@
 		<value>Add Supplier</value>
 	</data>
 
+	<data name="AfterSteps" xml:space="preserve">
+		<value>After Steps</value>
+	</data>
+
 	<data name="ApproveDate" xml:space="preserve">
 		<value>Approve Date</value>
 	</data>
@@ -344,15 +384,15 @@
 	</data>
 
 	<data name="BuyingCurrency" xml:space="preserve">
-		<value>Buying Currency</value>
+		<value>Factory Currency</value>
 	</data>
 
 	<data name="BuyingCurrencyId" xml:space="preserve">
-		<value>Buying Currency</value>
+		<value>Factory Currency</value>
 	</data>
 
 	<data name="BuyingPrice" xml:space="preserve">
-		<value>Buying Price</value>
+		<value>Factory Price</value>
 	</data>
 
 	<data name="CancelDate" xml:space="preserve">
@@ -384,19 +424,19 @@
 	</data>
 
 	<data name="Category" xml:space="preserve">
-		<value>Department/Group</value>
+		<value>Category</value>
 	</data>
 
 	<data name="CategoryCode" xml:space="preserve">
-		<value>Code</value>
+		<value>Category Code</value>
 	</data>
 
 	<data name="CategoryId" xml:space="preserve">
-		<value>Department/Group</value>
+		<value>Category</value>
 	</data>
 
 	<data name="CategoryName" xml:space="preserve">
-		<value>Name</value>
+		<value>Category Name</value>
 	</data>
 
 	<data name="City" xml:space="preserve">
@@ -479,6 +519,10 @@
 		<value>Create Customer</value>
 	</data>
 
+	<data name="CreateCustomerDepartment" xml:space="preserve">
+		<value>Create Customer Department</value>
+	</data>
+
 	<data name="CreateDate" xml:space="preserve">
 		<value>Create Date</value>
 	</data>
@@ -495,6 +539,10 @@
 		<value>Create Freight Term</value>
 	</data>
 
+	<data name="CreateLicensor" xml:space="preserve">
+		<value>Create Licensor</value>
+	</data>
+
 	<data name="CreateManufacturer" xml:space="preserve">
 		<value>Create Factory</value>
 	</data>
@@ -505,6 +553,10 @@
 
 	<data name="CreateProcessStep" xml:space="preserve">
 		<value>Create Process Step</value>
+	</data>
+
+	<data name="CreateProcessStepRevision" xml:space="preserve">
+		<value>Create Process Step Revision</value>
 	</data>
 
 	<data name="CreateProcessStepTemplate" xml:space="preserve">
@@ -520,7 +572,7 @@
 	</data>
 
 	<data name="CreateProductCategory" xml:space="preserve">
-		<value>Create Department/Group</value>
+		<value>Create Product Category</value>
 	</data>
 
 	<data name="CreatePurchaseOrder" xml:space="preserve">
@@ -591,6 +643,22 @@
 		<value>Customer Code</value>
 	</data>
 
+	<data name="CustomerDepartment" xml:space="preserve">
+		<value>Customer Department</value>
+	</data>
+
+	<data name="CustomerDepartmentId" xml:space="preserve">
+		<value>Customer Department</value>
+	</data>
+
+	<data name="CustomerDepartments" xml:space="preserve">
+		<value>Customer Departments</value>
+	</data>
+
+	<data name="CustomerDepartmentsList" xml:space="preserve">
+		<value>Customer Departments List</value>
+	</data>
+
 	<data name="CustomerId" xml:space="preserve">
 		<value>Customer</value>
 	</data>
@@ -635,12 +703,20 @@
 		<value>Delete Customer</value>
 	</data>
 
+	<data name="DeleteCustomerDepartment" xml:space="preserve">
+		<value>Delete Department</value>
+	</data>
+
 	<data name="DeleteEmployee" xml:space="preserve">
 		<value>Delete Employee</value>
 	</data>
 
 	<data name="DeleteFreightTerm" xml:space="preserve">
 		<value>Delete Freight Term</value>
+	</data>
+
+	<data name="DeleteLicensor" xml:space="preserve">
+		<value>Delete Licensor</value>
 	</data>
 
 	<data name="DeleteManufacturer" xml:space="preserve">
@@ -653,6 +729,10 @@
 
 	<data name="DeleteProcessStep" xml:space="preserve">
 		<value>Delete Process Step</value>
+	</data>
+
+	<data name="DeleteProcessStepRevision" xml:space="preserve">
+		<value>Delete Process Step Revision</value>
 	</data>
 
 	<data name="DeleteProcessStepTemplate" xml:space="preserve">
@@ -668,7 +748,7 @@
 	</data>
 
 	<data name="DeleteProductCategory" xml:space="preserve">
-		<value>Delete Department/Group</value>
+		<value>Delete Product Category</value>
 	</data>
 
 	<data name="DeletePurchaseOrder" xml:space="preserve">
@@ -689,6 +769,22 @@
 
 	<data name="DeleteSupplier" xml:space="preserve">
 		<value>Delete Supplier</value>
+	</data>
+
+	<data name="DepartmentName" xml:space="preserve">
+		<value>Department Name</value>
+	</data>
+
+	<data name="Departments" xml:space="preserve">
+		<value>Departments</value>
+	</data>
+
+	<data name="DependedStep" xml:space="preserve">
+		<value>Depended Step</value>
+	</data>
+
+	<data name="DependedStepId" xml:space="preserve">
+		<value>Depended Step Id</value>
 	</data>
 
 	<data name="Description" xml:space="preserve">
@@ -755,12 +851,20 @@
 		<value>Edit Customer</value>
 	</data>
 
+	<data name="EditCustomerDepartment" xml:space="preserve">
+		<value>Edit Department</value>
+	</data>
+
 	<data name="EditEmployee" xml:space="preserve">
 		<value>Edit Employee</value>
 	</data>
 
 	<data name="EditFreightTerm" xml:space="preserve">
 		<value>Edit Freight Term</value>
+	</data>
+
+	<data name="EditLicensor" xml:space="preserve">
+		<value>Edit Licensor</value>
 	</data>
 
 	<data name="EditManufacturer" xml:space="preserve">
@@ -773,6 +877,10 @@
 
 	<data name="EditProcessStep" xml:space="preserve">
 		<value>Edit Process Step</value>
+	</data>
+
+	<data name="EditProcessStepRevision" xml:space="preserve">
+		<value>Edit Process Step Revision</value>
 	</data>
 
 	<data name="EditProcessStepTemplate" xml:space="preserve">
@@ -788,7 +896,7 @@
 	</data>
 
 	<data name="EditProductCategory" xml:space="preserve">
-		<value>Edit Department/Group</value>
+		<value>Edit Product Category</value>
 	</data>
 
 	<data name="EditPurchaseOrder" xml:space="preserve">
@@ -899,8 +1007,48 @@
 		<value>Is Repeat</value>
 	</data>
 
+	<data name="KimballNr" xml:space="preserve">
+		<value>Kimball Nr</value>
+	</data>
+
 	<data name="LastName" xml:space="preserve">
 		<value>Last Name</value>
+	</data>
+
+	<data name="Licensed" xml:space="preserve">
+		<value>Licensed</value>
+	</data>
+
+	<data name="Licensor" xml:space="preserve">
+		<value>Licensor</value>
+	</data>
+
+	<data name="LicensorCode" xml:space="preserve">
+		<value>Licensor Code</value>
+	</data>
+
+	<data name="LicensorCurrency" xml:space="preserve">
+		<value>Licensor Currency</value>
+	</data>
+
+	<data name="LicensorCurrencyId" xml:space="preserve">
+		<value>Licensor Currency Id</value>
+	</data>
+
+	<data name="LicensorId" xml:space="preserve">
+		<value>Licensor Id</value>
+	</data>
+
+	<data name="LicensorPrice" xml:space="preserve">
+		<value>Licensor Price</value>
+	</data>
+
+	<data name="Licensors" xml:space="preserve">
+		<value>Licensors</value>
+	</data>
+
+	<data name="LicensorsList" xml:space="preserve">
+		<value>Licensors List</value>
 	</data>
 
 	<data name="LockoutEnabled" xml:space="preserve">
@@ -964,11 +1112,11 @@
 	</data>
 
 	<data name="ParentCategory" xml:space="preserve">
-		<value>Department</value>
+		<value>Parent Category</value>
 	</data>
 
 	<data name="ParentCategoryId" xml:space="preserve">
-		<value>Department</value>
+		<value>Parent Category Id</value>
 	</data>
 
 	<data name="ParentPo" xml:space="preserve">
@@ -1035,6 +1183,22 @@
 		<value>Process Step</value>
 	</data>
 
+	<data name="ProcessStepId" xml:space="preserve">
+		<value>Process Step Id</value>
+	</data>
+
+	<data name="ProcessStepRevision" xml:space="preserve">
+		<value>Process Step Revision</value>
+	</data>
+
+	<data name="ProcessStepRevisions" xml:space="preserve">
+		<value>Process Step Revisions</value>
+	</data>
+
+	<data name="ProcessStepRevisionsList" xml:space="preserve">
+		<value>Process Step Revisions List</value>
+	</data>
+
 	<data name="ProcessSteps" xml:space="preserve">
 		<value>Process Steps</value>
 	</data>
@@ -1076,19 +1240,19 @@
 	</data>
 
 	<data name="ProductCategories" xml:space="preserve">
-		<value>Departments/Groups</value>
+		<value>Product Categories</value>
 	</data>
 
 	<data name="ProductCategoriesList" xml:space="preserve">
-		<value>Department/Group List</value>
+		<value>Product Categories List</value>
 	</data>
 
 	<data name="ProductCategory" xml:space="preserve">
-		<value>Department/Group</value>
+		<value>Product Category</value>
 	</data>
 
 	<data name="ProductCode" xml:space="preserve">
-		<value>Item Nr</value>
+		<value>Style Nr</value>
 	</data>
 
 	<data name="ProductId" xml:space="preserve">
@@ -1131,6 +1295,10 @@
 		<value>Realized Date</value>
 	</data>
 
+	<data name="RefCode" xml:space="preserve">
+		<value>Westend Nr</value>
+	</data>
+
 	<data name="RemoveAspNetUser" xml:space="preserve">
 		<value>Remove AppUser</value>
 	</data>
@@ -1155,12 +1323,20 @@
 		<value>Remove Customer</value>
 	</data>
 
+	<data name="RemoveCustomerDepartment" xml:space="preserve">
+		<value>Remove Department</value>
+	</data>
+
 	<data name="RemoveEmployee" xml:space="preserve">
 		<value>Remove Employee</value>
 	</data>
 
 	<data name="RemoveFreightTerm" xml:space="preserve">
 		<value>Remove Freight Term</value>
+	</data>
+
+	<data name="RemoveLicensor" xml:space="preserve">
+		<value>Remove Licensor</value>
 	</data>
 
 	<data name="RemoveManufacturer" xml:space="preserve">
@@ -1173,6 +1349,10 @@
 
 	<data name="RemoveProcessStep" xml:space="preserve">
 		<value>Remove Process Step</value>
+	</data>
+
+	<data name="RemoveProcessStepRevision" xml:space="preserve">
+		<value>Remove Process Step Revision</value>
 	</data>
 
 	<data name="RemoveProcessStepTemplate" xml:space="preserve">
@@ -1188,7 +1368,7 @@
 	</data>
 
 	<data name="RemoveProductCategory" xml:space="preserve">
-		<value>Remove Department/Group</value>
+		<value>Remove Product Category</value>
 	</data>
 
 	<data name="RemovePurchaseOrder" xml:space="preserve">
@@ -1211,6 +1391,10 @@
 		<value>Remove Supplier</value>
 	</data>
 
+	<data name="ReqDaysBeforeDueDate" xml:space="preserve">
+		<value>Required Days Before Due Date</value>
+	</data>
+
 	<data name="RequiredWorkDays" xml:space="preserve">
 		<value>Required Work Days</value>
 	</data>
@@ -1225,6 +1409,10 @@
 
 	<data name="RetailPrice" xml:space="preserve">
 		<value>Retail Price</value>
+	</data>
+
+	<data name="Revisions" xml:space="preserve">
+		<value>Revisions</value>
 	</data>
 
 	<data name="RoyaltyCurrency" xml:space="preserve">
@@ -1304,7 +1492,7 @@
 	</data>
 
 	<data name="SubCategories" xml:space="preserve">
-		<value>Product Groups</value>
+		<value>Sub Categories</value>
 	</data>
 
 	<data name="Supplier" xml:space="preserve">

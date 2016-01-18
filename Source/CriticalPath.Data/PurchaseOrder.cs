@@ -12,7 +12,7 @@ namespace CriticalPath.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class PurchaseOrder : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate, IIsApproved, IApproval, IHasProduct, ICancelled, ICancellation, IRetailPrice, IRoyaltyFee, IBuyingPrice, ISellingPrice, IAllPrice
+    public partial class PurchaseOrder : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate, IIsApproved, IApproval, IHasProduct, ICancelled, ICancellation, IRetailPrice, ILicensorPrice, IRoyaltyFee, IBuyingPrice, ISellingPrice, IAllPrice
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PurchaseOrder()
@@ -24,19 +24,25 @@ namespace CriticalPath.Data
     
         public int Id { get; set; }
         public string PoNr { get; set; }
+        public string RefCode { get; set; }
+        public string KimballNr { get; set; }
         public System.DateTime OrderDate { get; set; }
         public Nullable<System.DateTime> DueDate { get; set; }
         public bool IsRepeat { get; set; }
         public Nullable<int> ParentPoId { get; set; }
         public string Description { get; set; }
         public int CustomerId { get; set; }
+        public Nullable<int> CustomerDepartmentId { get; set; }
         public string CustomerPoNr { get; set; }
+        public Nullable<int> LicensorId { get; set; }
         public int ProductId { get; set; }
         public int SizingStandardId { get; set; }
         public int Quantity { get; set; }
         public decimal DiscountRate { get; set; }
         public decimal UnitPrice { get; set; }
         public int SellingCurrencyId { get; set; }
+        public Nullable<decimal> LicensorPrice { get; set; }
+        public Nullable<int> LicensorCurrencyId { get; set; }
         public Nullable<decimal> BuyingPrice { get; set; }
         public Nullable<int> BuyingCurrencyId { get; set; }
         public Nullable<decimal> RoyaltyFee { get; set; }
@@ -45,7 +51,7 @@ namespace CriticalPath.Data
         public Nullable<int> RetailCurrencyId { get; set; }
         public int SizeRatioDivisor { get; set; }
         public int FreightTermId { get; set; }
-        public int SupplierId { get; set; }
+        public Nullable<int> SupplierId { get; set; }
         public Nullable<System.DateTime> SupplierDueDate { get; set; }
         public string Notes { get; set; }
         public bool IsApproved { get; set; }
@@ -85,6 +91,9 @@ namespace CriticalPath.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PurchaseOrder> SubOrders { get; set; }
         public virtual PurchaseOrder ParentPo { get; set; }
+        public virtual Currency LicensorCurrency { get; set; }
+        public virtual CustomerDepartment CustomerDepartment { get; set; }
+        public virtual Licensor Licensor { get; set; }
     	/// <summary>
     	/// Clones all properties in a new PurchaseOrder instance,
     	/// except PrimaryKey(s)
@@ -94,19 +103,25 @@ namespace CriticalPath.Data
         {
             var clone = new PurchaseOrder();
             clone.PoNr = PoNr;
+            clone.RefCode = RefCode;
+            clone.KimballNr = KimballNr;
             clone.OrderDate = OrderDate;
             clone.DueDate = DueDate;
             clone.IsRepeat = IsRepeat;
             clone.ParentPoId = ParentPoId;
             clone.Description = Description;
             clone.CustomerId = CustomerId;
+            clone.CustomerDepartmentId = CustomerDepartmentId;
             clone.CustomerPoNr = CustomerPoNr;
+            clone.LicensorId = LicensorId;
             clone.ProductId = ProductId;
             clone.SizingStandardId = SizingStandardId;
             clone.Quantity = Quantity;
             clone.DiscountRate = DiscountRate;
             clone.UnitPrice = UnitPrice;
             clone.SellingCurrencyId = SellingCurrencyId;
+            clone.LicensorPrice = LicensorPrice;
+            clone.LicensorCurrencyId = LicensorCurrencyId;
             clone.BuyingPrice = BuyingPrice;
             clone.BuyingCurrencyId = BuyingCurrencyId;
             clone.RoyaltyFee = RoyaltyFee;
@@ -154,19 +169,25 @@ namespace CriticalPath.Data
         {
             Id = entity.Id;
             PoNr = entity.PoNr;
+            RefCode = entity.RefCode;
+            KimballNr = entity.KimballNr;
             OrderDate = entity.OrderDate;
             DueDate = entity.DueDate;
             IsRepeat = entity.IsRepeat;
             ParentPoId = entity.ParentPoId;
             Description = entity.Description;
             CustomerId = entity.CustomerId;
+            CustomerDepartmentId = entity.CustomerDepartmentId;
             CustomerPoNr = entity.CustomerPoNr;
+            LicensorId = entity.LicensorId;
             ProductId = entity.ProductId;
             SizingStandardId = entity.SizingStandardId;
             Quantity = entity.Quantity;
             DiscountRate = entity.DiscountRate;
             UnitPrice = entity.UnitPrice;
             SellingCurrencyId = entity.SellingCurrencyId;
+            LicensorPrice = entity.LicensorPrice;
+            LicensorCurrencyId = entity.LicensorCurrencyId;
             BuyingPrice = entity.BuyingPrice;
             BuyingCurrencyId = entity.BuyingCurrencyId;
             RoyaltyFee = entity.RoyaltyFee;
@@ -194,19 +215,25 @@ namespace CriticalPath.Data
             var entity = new PurchaseOrder();
             entity.Id = Id;
             entity.PoNr = PoNr;
+            entity.RefCode = RefCode;
+            entity.KimballNr = KimballNr;
             entity.OrderDate = OrderDate;
             entity.DueDate = DueDate;
             entity.IsRepeat = IsRepeat;
             entity.ParentPoId = ParentPoId;
             entity.Description = Description;
             entity.CustomerId = CustomerId;
+            entity.CustomerDepartmentId = CustomerDepartmentId;
             entity.CustomerPoNr = CustomerPoNr;
+            entity.LicensorId = LicensorId;
             entity.ProductId = ProductId;
             entity.SizingStandardId = SizingStandardId;
             entity.Quantity = Quantity;
             entity.DiscountRate = DiscountRate;
             entity.UnitPrice = UnitPrice;
             entity.SellingCurrencyId = SellingCurrencyId;
+            entity.LicensorPrice = LicensorPrice;
+            entity.LicensorCurrencyId = LicensorCurrencyId;
             entity.BuyingPrice = BuyingPrice;
             entity.BuyingCurrencyId = BuyingCurrencyId;
             entity.RoyaltyFee = RoyaltyFee;
@@ -233,19 +260,25 @@ namespace CriticalPath.Data
       
         public int Id { get; set; }
         public string PoNr { get; set; }
+        public string RefCode { get; set; }
+        public string KimballNr { get; set; }
         public System.DateTime OrderDate { get; set; }
         public Nullable<System.DateTime> DueDate { get; set; }
         public bool IsRepeat { get; set; }
         public Nullable<int> ParentPoId { get; set; }
         public string Description { get; set; }
         public int CustomerId { get; set; }
+        public Nullable<int> CustomerDepartmentId { get; set; }
         public string CustomerPoNr { get; set; }
+        public Nullable<int> LicensorId { get; set; }
         public int ProductId { get; set; }
         public int SizingStandardId { get; set; }
         public int Quantity { get; set; }
         public decimal DiscountRate { get; set; }
         public decimal UnitPrice { get; set; }
         public int SellingCurrencyId { get; set; }
+        public Nullable<decimal> LicensorPrice { get; set; }
+        public Nullable<int> LicensorCurrencyId { get; set; }
         public Nullable<decimal> BuyingPrice { get; set; }
         public Nullable<int> BuyingCurrencyId { get; set; }
         public Nullable<decimal> RoyaltyFee { get; set; }
@@ -254,7 +287,7 @@ namespace CriticalPath.Data
         public Nullable<int> RetailCurrencyId { get; set; }
         public int SizeRatioDivisor { get; set; }
         public int FreightTermId { get; set; }
-        public int SupplierId { get; set; }
+        public Nullable<int> SupplierId { get; set; }
         public Nullable<System.DateTime> SupplierDueDate { get; set; }
         public string Notes { get; set; }
         public bool IsApproved { get; set; }

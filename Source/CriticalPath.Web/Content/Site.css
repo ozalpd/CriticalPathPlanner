@@ -102,10 +102,23 @@ div.accordion .accordion-group .accordion-heading .accordion-toggle {
     border: 1px solid #cccccc;
 }
 
+.ag-style .dropdown-menu {
+    font-size: 11px;
+    margin: 1px 0 15px 0;
+}
+
+    .ag-style .dropdown-menu .divider {
+        margin: 6px 0;
+    }
+
+    .ag-style .dropdown-menu > li > a {
+        padding: 2px 10px;
+    }
+
 .ui-autocomplete {
     position: relative;
 }
 
-.clsDatePicker{
-    z-index:10000 !important;
+.clsDatePicker {
+    z-index: 10000 !important;
 }

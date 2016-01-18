@@ -26,6 +26,15 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "CompanyName")]
             public string CompanyName { get; set; }
 
+            [StringLength(64, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "CustomerCode")]
+            public string CustomerCode { get; set; }
+
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "DiscountRate")]
+            public decimal DiscountRate { get; set; }
+
             [StringLength(128, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [DataType(DataType.PhoneNumber)]
             [Display(ResourceType = typeof(EntityStrings), Name = "Phone1")]
@@ -41,17 +50,8 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "Phone3")]
             public string Phone3 { get; set; }
 
-            [StringLength(64, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
-            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "CustomerCode")]
-            public string CustomerCode { get; set; }
-
-            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "DiscountRate")]
-            public decimal DiscountRate { get; set; }
-
-            [Display(ResourceType = typeof(EntityStrings), Name = "Orders")]
-            public ICollection<PurchaseOrder> Orders { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "Contacts")]
+            public ICollection<Contact> Contacts { get; set; }
 
             [StringLength(128, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
@@ -88,8 +88,11 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "Notes")]
             public string Notes { get; set; }
 
-            [Display(ResourceType = typeof(EntityStrings), Name = "Contacts")]
-            public ICollection<Contact> Contacts { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "Orders")]
+            public ICollection<PurchaseOrder> Orders { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "Departments")]
+            public ICollection<CustomerDepartment> Departments { get; set; }
 
             [UIHint("BoolRed")]
             [Display(ResourceType = typeof(EntityStrings), Name = "Discontinued")]

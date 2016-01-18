@@ -204,9 +204,13 @@
     <Compile Include="Controllers\BaseController.part.cs" />
     <Compile Include="Controllers\ContactsController.g.cs" />
     <Compile Include="Controllers\ContactsController.part.cs" />
+    <Compile Include="Controllers\CustomerDepartmentsController.g.cs" />
+    <Compile Include="Controllers\CustomerDepartmentsController.part.cs" />
     <Compile Include="Controllers\CustomersController.g.cs" />
     <Compile Include="Controllers\CustomersController.part.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LicensorsController.g.cs" />
+    <Compile Include="Controllers\LicensorsController.part.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ManufacturersController.g.cs" />
     <Compile Include="Controllers\ManufacturersController.part.cs" />
@@ -575,6 +579,14 @@
     <Content Include="Views\Products\_AutoCompleteSupplier.cshtml" />
     <Content Include="Views\Shared\_DateSubmitMessageBox.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Employee.cshtml" />
+    <Content Include="Views\Licensors\Create.cshtml" />
+    <Content Include="Views\Licensors\Details.cshtml" />
+    <Content Include="Views\Licensors\Edit.cshtml" />
+    <Content Include="Views\Licensors\Index.cshtml" />
+    <Content Include="Views\CustomerDepartments\Create.cshtml" />
+    <Content Include="Views\CustomerDepartments\Details.cshtml" />
+    <Content Include="Views\CustomerDepartments\Edit.cshtml" />
+    <Content Include="Views\CustomerDepartments\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

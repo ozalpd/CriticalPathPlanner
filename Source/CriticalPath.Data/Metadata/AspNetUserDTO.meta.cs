@@ -44,6 +44,29 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "LastName")]
             public string LastName { get; set; }
 
+            [StringLength(256, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
+            [DataType(DataType.PhoneNumber)]
+            [Display(ResourceType = typeof(EntityStrings), Name = "PhoneNumber")]
+            public string PhoneNumber { get; set; }
+
+            [DataType(DataType.PhoneNumber)]
+            [Display(ResourceType = typeof(EntityStrings), Name = "PhoneNumberConfirmed")]
+            public bool PhoneNumberConfirmed { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "TwoFactorEnabled")]
+            public bool TwoFactorEnabled { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "LockoutEnabled")]
+            public bool LockoutEnabled { get; set; }
+
+            [DataType(DataType.Date)]
+            [Display(ResourceType = typeof(EntityStrings), Name = "LockoutEndDateUtc")]
+            public DateTime LockoutEndDateUtc { get; set; }
+
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "AccessFailedCount")]
+            public int AccessFailedCount { get; set; }
+
 		}
 	}
 }

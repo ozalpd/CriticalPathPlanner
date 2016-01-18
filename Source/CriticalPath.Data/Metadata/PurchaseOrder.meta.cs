@@ -33,6 +33,14 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "PoNr")]
             public string PoNr { get; set; }
 
+            [StringLength(32, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "RefCode")]
+            public string RefCode { get; set; }
+
+            [StringLength(32, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "KimballNr")]
+            public string KimballNr { get; set; }
+
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [DataType(DataType.Date)]
             [Display(ResourceType = typeof(EntityStrings), Name = "OrderDate")]
@@ -84,6 +92,15 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "SellingCurrency")]
             public Currency SellingCurrency { get; set; }
 
+            [Display(ResourceType = typeof(EntityStrings), Name = "LicensorPrice")]
+            public decimal LicensorPrice { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "LicensorCurrencyId")]
+            public int LicensorCurrencyId { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "LicensorCurrency")]
+            public Currency LicensorCurrency { get; set; }
+
             [Display(ResourceType = typeof(EntityStrings), Name = "BuyingPrice")]
             public decimal BuyingPrice { get; set; }
 
@@ -118,6 +135,12 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "Customer")]
             public Customer Customer { get; set; }
 
+            [Display(ResourceType = typeof(EntityStrings), Name = "CustomerDepartmentId")]
+            public int CustomerDepartmentId { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "CustomerDepartment")]
+            public CustomerDepartment CustomerDepartment { get; set; }
+
             [StringLength(64, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [Display(ResourceType = typeof(EntityStrings), Name = "CustomerPoNr")]
             public string CustomerPoNr { get; set; }
@@ -129,10 +152,15 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "FreightTerm")]
             public FreightTerm FreightTerm { get; set; }
 
+            [Display(ResourceType = typeof(EntityStrings), Name = "LicensorId")]
+            public int LicensorId { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "Licensor")]
+            public Licensor Licensor { get; set; }
+
             [Display(ResourceType = typeof(EntityStrings), Name = "Supplier")]
             public Supplier Supplier { get; set; }
 
-            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Display(ResourceType = typeof(EntityStrings), Name = "SupplierId")]
             public int SupplierId { get; set; }
 

@@ -18,6 +18,7 @@ namespace CriticalPath.Data
         public ProcessStepTemplate()
         {
             this.ProcessSteps = new HashSet<ProcessStep>();
+            this.AfterSteps = new HashSet<ProcessStepTemplate>();
         }
     
         public int Id { get; set; }
@@ -33,12 +34,17 @@ namespace CriticalPath.Data
         public System.DateTime CreateDate { get; set; }
         public string CreatorId { get; set; }
         public string CreatorIp { get; set; }
+        public int ReqDaysBeforeDueDate { get; set; }
+        public Nullable<int> DependedStepId { get; set; }
     
         public virtual ProcessTemplate ProcessTemplate { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProcessStep> ProcessSteps { get; set; }
         public virtual AspNetUser CreatedUser { get; set; }
         public virtual AspNetUser ModifiedUser { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProcessStepTemplate> AfterSteps { get; set; }
+        public virtual ProcessStepTemplate DependedStep { get; set; }
     	/// <summary>
     	/// Clones all properties in a new ProcessStepTemplate instance,
     	/// except PrimaryKey(s)
@@ -59,6 +65,8 @@ namespace CriticalPath.Data
             clone.CreateDate = CreateDate;
             clone.CreatorId = CreatorId;
             clone.CreatorIp = CreatorIp;
+            clone.ReqDaysBeforeDueDate = ReqDaysBeforeDueDate;
+            clone.DependedStepId = DependedStepId;
     
             Cloning(clone);
     
@@ -83,6 +91,8 @@ namespace CriticalPath.Data
             ProcessTemplateId = entity.ProcessTemplateId;
             RequiredWorkDays = entity.RequiredWorkDays;
             IgnoreInRepeat = entity.IgnoreInRepeat;
+            ReqDaysBeforeDueDate = entity.ReqDaysBeforeDueDate;
+            DependedStepId = entity.DependedStepId;
         
             Initiliazing(entity);
         }
@@ -98,6 +108,8 @@ namespace CriticalPath.Data
             entity.ProcessTemplateId = ProcessTemplateId;
             entity.RequiredWorkDays = RequiredWorkDays;
             entity.IgnoreInRepeat = IgnoreInRepeat;
+            entity.ReqDaysBeforeDueDate = ReqDaysBeforeDueDate;
+            entity.DependedStepId = DependedStepId;
     
             Converting(entity);
     
@@ -112,5 +124,7 @@ namespace CriticalPath.Data
         public int ProcessTemplateId { get; set; }
         public int RequiredWorkDays { get; set; }
         public bool IgnoreInRepeat { get; set; }
+        public int ReqDaysBeforeDueDate { get; set; }
+        public Nullable<int> DependedStepId { get; set; }
     }
 }

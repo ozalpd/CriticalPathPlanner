@@ -62,7 +62,7 @@
                     '<button type="button" title="@ActionStrings.Action" class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown" onclick="onActionMenuClick(this)">' +
                     '<span class="glyphicon glyphicon-tasks"></span> <span class="caret"></span>' +
                     '</button>' +
-                    '<ul class="dropdown-menu mb15" role="menu">' +
+                    '<ul class="dropdown-menu" role="menu">' +
                     '<li><a href="/Customers/Details/' + params.value + '">@ActionStrings.Details</a></li>' +
                 @if (canUserEdit)
                 {
@@ -75,6 +75,12 @@
                 @if (canUserDiscontinue)
                 {
                     @:(params.data.Discontinued ? '' : '<li class="divider"></li><li><a href="/Customers/Discontinue/' + params.value + '">@ActionStrings.Discontinue</a></li>') +
+                }
+                '<li class="divider"></li>' +
+                '<li><a href="/CustomerDepartments/Index/?customerId=' + params.value + '">@EntityStrings.CustomerDepartments</a></li>' +
+                @if (canUserEdit)
+                {
+                    @:'<li><a href="/CustomerDepartments/Create/?customerId=' + params.value + '">@EntityStrings.AddCustomerDepartment</a></li>' +
                 }
                 '<li class="divider"></li>' +
                 @if(canUserAddContact)
@@ -104,7 +110,7 @@
 
         function onActionMenuClick(menuBtn){
             setTimeout(function(){
-                var menuHeight = 320;
+                var menuHeight = 340;
                 var rectMenu = menuBtn.getBoundingClientRect();
                 var rectGrid = document.getElementById("mainGrid").getBoundingClientRect();
 

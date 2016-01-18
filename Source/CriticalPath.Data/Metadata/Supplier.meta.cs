@@ -41,16 +41,8 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "Phone3")]
             public string Phone3 { get; set; }
 
-            [StringLength(64, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
-            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "SupplierCode")]
-            public string SupplierCode { get; set; }
-
-            [Display(ResourceType = typeof(EntityStrings), Name = "Products")]
-            public ICollection<Product> Products { get; set; }
-
-            [Display(ResourceType = typeof(EntityStrings), Name = "Manufacturers")]
-            public ICollection<Manufacturer> Manufacturers { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "Contacts")]
+            public ICollection<Contact> Contacts { get; set; }
 
             [StringLength(128, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
@@ -87,8 +79,16 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "Notes")]
             public string Notes { get; set; }
 
-            [Display(ResourceType = typeof(EntityStrings), Name = "Contacts")]
-            public ICollection<Contact> Contacts { get; set; }
+            [StringLength(64, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "SupplierCode")]
+            public string SupplierCode { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "Products")]
+            public ICollection<Product> Products { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "Manufacturers")]
+            public ICollection<Manufacturer> Manufacturers { get; set; }
 
             [UIHint("BoolRed")]
             [Display(ResourceType = typeof(EntityStrings), Name = "Discontinued")]

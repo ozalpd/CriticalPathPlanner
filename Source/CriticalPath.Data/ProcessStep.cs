@@ -14,6 +14,12 @@ namespace CriticalPath.Data
     
     public partial class ProcessStep : IDisplayOrder, ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate, IIsApproved, IApproval
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ProcessStep()
+        {
+            this.Revisions = new HashSet<ProcessStepRevision>();
+        }
+    
         public int Id { get; set; }
         public string Title { get; set; }
         public bool IsCompleted { get; set; }
@@ -41,6 +47,8 @@ namespace CriticalPath.Data
         public virtual AspNetUser ApprovedUser { get; set; }
         public virtual AspNetUser CreatedUser { get; set; }
         public virtual AspNetUser ModifiedUser { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProcessStepRevision> Revisions { get; set; }
     	/// <summary>
     	/// Clones all properties in a new ProcessStep instance,
     	/// except PrimaryKey(s)
