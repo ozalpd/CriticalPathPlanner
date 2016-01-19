@@ -6,19 +6,19 @@
 }
 @if (Model.Cancelled)
 {
-    <div class="row fontSize150pc">
-        <label class="control-label col-md-2 col-sm-3 text-danger">
+    <div class="row">
+        <label class="control-label col-md-2 col-sm-3 text-danger mb5">
             <span class="approveText">@Html.DisplayNameFor(model => model.Cancelled)</span>
         </label>
-        <div class="col-sm-6">
+        <div class="col-sm-6 fontSize150pc mt5">
             @Html.DisplayFor(m => m.CancelDate)
         </div>
     </div>
     <div class="row">
-        <label class="control-label col-md-2 col-sm-3 fontSize150pc text-danger">
+        <label class="control-label col-md-2 col-sm-3 text-danger mb5">
             @Html.DisplayNameFor(model => model.CancellationReason)
         </label>
-        <div class="col-md-10 col-sm-9">
+        <div class="col-md-10 col-sm-9 mt10">
             @Html.DisplayFor(m => m.CancellationReason)
         </div>
     </div>

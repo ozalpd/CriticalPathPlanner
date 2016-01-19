@@ -1790,8 +1790,8 @@
           <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
           <HasValidation>true</HasValidation>
           <UseForCreate>Standart</UseForCreate>
           <UseForEdit>Standart</UseForEdit>
@@ -1821,10 +1821,10 @@
       <GenerateEditAction>true</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
       <IndexViewGeneration>HtmlTableWithMenuAction</IndexViewGeneration>
-      <IndexView>true</IndexView>
-      <DetailsView>true</DetailsView>
-      <CreateView>true</CreateView>
-      <EditView>true</EditView>
+      <IndexView>false</IndexView>
+      <DetailsView>false</DetailsView>
+      <CreateView>false</CreateView>
+      <EditView>false</EditView>
       <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>

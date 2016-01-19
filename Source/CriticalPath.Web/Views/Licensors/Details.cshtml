@@ -9,168 +9,174 @@
     bool canUserEdit = ViewBag.canUserEdit;
     bool canUserCreate = ViewBag.canUserCreate;
     bool canUserDelete = ViewBag.canUserDelete;
+    bool canSeeRestricted = ViewBag.canSeeRestricted;
 }
 
 <h2>@EntityStrings.Licensor @ActionStrings.Details</h2>
 
-<div class="row mb5">
-    <div class="col-md-2 col-sm-3 text-right fontWeigthBold">
-        @Html.DisplayNameFor(model => model.LicensorCode)
+<div class="form-horizontal">
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.LicensorCode)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+            @Html.DisplayFor(m => m.LicensorCode)
+        </div>
     </div>
-    <div class="col-lg-8 col-md-9 col-sm-9">
-        @Html.DisplayFor(m => m.LicensorCode)
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.PurchaseOrders)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+            @Html.DisplayFor(m => m.PurchaseOrders)
+        </div>
     </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+            @Html.DisplayFor(m => m.CompanyName)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.Phone1)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+            @Html.DisplayFor(m => m.Phone1)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.Phone2)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+            @Html.DisplayFor(m => m.Phone2)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.Phone3)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+            @Html.DisplayFor(m => m.Phone3)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.Address1)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+            @Html.DisplayFor(m => m.Address1)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.Address2)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+            @Html.DisplayFor(m => m.Address2)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.Country)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+            @Html.DisplayFor(m => m.Country)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.City)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+            @Html.DisplayFor(m => m.City)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.State)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+            @Html.DisplayFor(m => m.State)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.ZipCode)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+            @Html.DisplayFor(m => m.ZipCode)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.Notes)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+            @Html.DisplayFor(m => m.Notes)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.Discontinued)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+            @Html.DisplayFor(m => m.Discontinued)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.DiscontinueDate)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+            @Html.DisplayFor(m => m.DiscontinueDate)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.DiscontinueNotes)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+            @Html.DisplayFor(m => m.DiscontinueNotes)
+        </div>
+    </div>
+    @if (canSeeRestricted)
+    {
+        <div class="row mb5">
+            <label class="control-label col-md-2 col-sm-3 mb5">
+                @Html.DisplayNameFor(model => model.DiscontinuedUserIp)
+            </label>
+            <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+                @Html.DisplayFor(m => m.DiscontinuedUserIp)
+            </div>
+        </div>
+        <div class="row mb5">
+            <label class="control-label col-md-2 col-sm-3 mb5">
+                @Html.DisplayNameFor(model => model.DiscontinuedUser)
+            </label>
+            <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+                @Html.DisplayFor(m => m.DiscontinuedUser)
+            </div>
+        </div>
+        <div class="row mb5">
+            <label class="control-label col-md-2 col-sm-3 mb5">
+                @Html.DisplayNameFor(model => model.ModifiedUser)
+            </label>
+            <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+                @Html.DisplayFor(m => m.ModifiedUser)
+            </div>
+        </div>
+        <div class="row mb5">
+            <label class="control-label col-md-2 col-sm-3 mb5">
+                @Html.DisplayNameFor(model => model.CreatedUser)
+            </label>
+            <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+                @Html.DisplayFor(m => m.CreatedUser)
+            </div>
+        </div>
+    }
+    @Html.Partial("_DetailFormButtonsPartial")
 </div>
-<div class="row mb5">
-    <div class="col-md-2 col-sm-3 text-right fontWeigthBold">
-        @Html.DisplayNameFor(model => model.PurchaseOrders)
-    </div>
-    <div class="col-lg-8 col-md-9 col-sm-9">
-        @Html.DisplayFor(m => m.PurchaseOrders)
-    </div>
-</div>
-<div class="row mb5">
-    <div class="col-md-2 col-sm-3 text-right fontWeigthBold">
-        @Html.DisplayNameFor(model => model.CompanyName)
-    </div>
-    <div class="col-lg-8 col-md-9 col-sm-9">
-        @Html.DisplayFor(m => m.CompanyName)
-    </div>
-</div>
-<div class="row mb5">
-    <div class="col-md-2 col-sm-3 text-right fontWeigthBold">
-        @Html.DisplayNameFor(model => model.Phone1)
-    </div>
-    <div class="col-lg-8 col-md-9 col-sm-9">
-        @Html.DisplayFor(m => m.Phone1)
-    </div>
-</div>
-<div class="row mb5">
-    <div class="col-md-2 col-sm-3 text-right fontWeigthBold">
-        @Html.DisplayNameFor(model => model.Phone2)
-    </div>
-    <div class="col-lg-8 col-md-9 col-sm-9">
-        @Html.DisplayFor(m => m.Phone2)
-    </div>
-</div>
-<div class="row mb5">
-    <div class="col-md-2 col-sm-3 text-right fontWeigthBold">
-        @Html.DisplayNameFor(model => model.Phone3)
-    </div>
-    <div class="col-lg-8 col-md-9 col-sm-9">
-        @Html.DisplayFor(m => m.Phone3)
-    </div>
-</div>
-<div class="row mb5">
-    <div class="col-md-2 col-sm-3 text-right fontWeigthBold">
-        @Html.DisplayNameFor(model => model.Address1)
-    </div>
-    <div class="col-lg-8 col-md-9 col-sm-9">
-        @Html.DisplayFor(m => m.Address1)
-    </div>
-</div>
-<div class="row mb5">
-    <div class="col-md-2 col-sm-3 text-right fontWeigthBold">
-        @Html.DisplayNameFor(model => model.Address2)
-    </div>
-    <div class="col-lg-8 col-md-9 col-sm-9">
-        @Html.DisplayFor(m => m.Address2)
-    </div>
-</div>
-<div class="row mb5">
-    <div class="col-md-2 col-sm-3 text-right fontWeigthBold">
-        @Html.DisplayNameFor(model => model.Country)
-    </div>
-    <div class="col-lg-8 col-md-9 col-sm-9">
-        @Html.DisplayFor(m => m.Country)
-    </div>
-</div>
-<div class="row mb5">
-    <div class="col-md-2 col-sm-3 text-right fontWeigthBold">
-        @Html.DisplayNameFor(model => model.City)
-    </div>
-    <div class="col-lg-8 col-md-9 col-sm-9">
-        @Html.DisplayFor(m => m.City)
-    </div>
-</div>
-<div class="row mb5">
-    <div class="col-md-2 col-sm-3 text-right fontWeigthBold">
-        @Html.DisplayNameFor(model => model.State)
-    </div>
-    <div class="col-lg-8 col-md-9 col-sm-9">
-        @Html.DisplayFor(m => m.State)
-    </div>
-</div>
-<div class="row mb5">
-    <div class="col-md-2 col-sm-3 text-right fontWeigthBold">
-        @Html.DisplayNameFor(model => model.ZipCode)
-    </div>
-    <div class="col-lg-8 col-md-9 col-sm-9">
-        @Html.DisplayFor(m => m.ZipCode)
-    </div>
-</div>
-<div class="row mb5">
-    <div class="col-md-2 col-sm-3 text-right fontWeigthBold">
-        @Html.DisplayNameFor(model => model.Notes)
-    </div>
-    <div class="col-lg-8 col-md-9 col-sm-9">
-        @Html.DisplayFor(m => m.Notes)
-    </div>
-</div>
-<div class="row mb5">
-    <div class="col-md-2 col-sm-3 text-right fontWeigthBold">
-        @Html.DisplayNameFor(model => model.Discontinued)
-    </div>
-    <div class="col-lg-8 col-md-9 col-sm-9">
-        @Html.DisplayFor(m => m.Discontinued)
-    </div>
-</div>
-<div class="row mb5">
-    <div class="col-md-2 col-sm-3 text-right fontWeigthBold">
-        @Html.DisplayNameFor(model => model.DiscontinueDate)
-    </div>
-    <div class="col-lg-8 col-md-9 col-sm-9">
-        @Html.DisplayFor(m => m.DiscontinueDate)
-    </div>
-</div>
-<div class="row mb5">
-    <div class="col-md-2 col-sm-3 text-right fontWeigthBold">
-        @Html.DisplayNameFor(model => model.DiscontinueNotes)
-    </div>
-    <div class="col-lg-8 col-md-9 col-sm-9">
-        @Html.DisplayFor(m => m.DiscontinueNotes)
-    </div>
-</div>
-<div class="row mb5">
-    <div class="col-md-2 col-sm-3 text-right fontWeigthBold">
-        @Html.DisplayNameFor(model => model.DiscontinuedUserIp)
-    </div>
-    <div class="col-lg-8 col-md-9 col-sm-9">
-        @Html.DisplayFor(m => m.DiscontinuedUserIp)
-    </div>
-</div>
-<div class="row mb5">
-    <div class="col-md-2 col-sm-3 text-right fontWeigthBold">
-        @Html.DisplayNameFor(model => model.DiscontinuedUser)
-    </div>
-    <div class="col-lg-8 col-md-9 col-sm-9">
-        @Html.DisplayFor(m => m.DiscontinuedUser)
-    </div>
-</div>
-<div class="row mb5">
-    <div class="col-md-2 col-sm-3 text-right fontWeigthBold">
-        @Html.DisplayNameFor(model => model.ModifiedUser)
-    </div>
-    <div class="col-lg-8 col-md-9 col-sm-9">
-        @Html.DisplayFor(m => m.ModifiedUser)
-    </div>
-</div>
-<div class="row mb5">
-    <div class="col-md-2 col-sm-3 text-right fontWeigthBold">
-        @Html.DisplayNameFor(model => model.CreatedUser)
-    </div>
-    <div class="col-lg-8 col-md-9 col-sm-9">
-        @Html.DisplayFor(m => m.CreatedUser)
-    </div>
-</div>
-@Html.Partial("_DetailFormButtonsPartial")

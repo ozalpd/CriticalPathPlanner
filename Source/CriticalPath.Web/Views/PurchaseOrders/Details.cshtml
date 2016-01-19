@@ -12,23 +12,24 @@
     bool canUserApprove = ViewBag.canUserApprove;
     bool canUserCancelPO = ViewBag.canUserCancelPO;
 }
-
-<h2>@EntityStrings.PurchaseOrder @ActionStrings.Details</h2>
-@Html.Partial("PartialDetails")
-<div class="row">
-    <div class="col-sm-6 col-md-offset-2 col-sm-offset-3">
-        @Html.ActionLink(@ActionStrings.BackToIndex, "Index", null, new { @class = "btn btn-default" })
-        @if (canUserEdit)
-        {
-            @Html.ActionLink(@ActionStrings.Edit, "Edit", null, new { id = Model.Id }, new { @class = "btn btn-default" })
-        }
-        @if (canUserCancelPO && !Model.Cancelled)
-        {
-            @Html.ActionLink(@ActionStrings.CancelPO, "CancelPO", null, new { id = Model.Id }, new { @class = "btn btn-danger" })
-        }
-        @if (!Model.IsApproved && canUserApprove && !Model.Cancelled)
-        {
-            @Html.ActionLink(@ActionStrings.Approve, "Approve", null, new { id = Model.Id }, new { @class = "btn btn-success" })
-        }
+<div class="form-horizontal">
+    <h2>@EntityStrings.PurchaseOrder @ActionStrings.Details</h2>
+    @Html.Partial("PartialDetails")
+    <div class="row">
+        <div class="col-sm-6 col-md-offset-2 col-sm-offset-3">
+            @Html.ActionLink(@ActionStrings.BackToIndex, "Index", null, new { @class = "btn btn-default" })
+            @if (canUserEdit)
+            {
+                @Html.ActionLink(@ActionStrings.Edit, "Edit", null, new { id = Model.Id }, new { @class = "btn btn-default" })
+            }
+            @if (canUserCancelPO && !Model.Cancelled)
+            {
+                @Html.ActionLink(@ActionStrings.CancelPO, "CancelPO", null, new { id = Model.Id }, new { @class = "btn btn-danger" })
+            }
+            @if (!Model.IsApproved && canUserApprove && !Model.Cancelled)
+            {
+                @Html.ActionLink(@ActionStrings.Approve, "Approve", null, new { id = Model.Id }, new { @class = "btn btn-success" })
+            }
+        </div>
     </div>
 </div>

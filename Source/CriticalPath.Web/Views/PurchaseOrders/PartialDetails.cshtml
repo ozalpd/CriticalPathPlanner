@@ -5,84 +5,100 @@
 
 @Html.Partial("_ICancellationPartial")
 <div class="row">
-    <label class="control-label col-md-2 col-sm-3">
+    <label class="control-label col-md-2 col-sm-3 mb5">
         @Html.DisplayNameFor(model => model.OrderDate)
     </label>
-    <div class="col-md-10 col-sm-9">
+    <div class="col-md-10 col-sm-9 mt10">
         @Html.DisplayFor(m => m.OrderDate)
     </div>
 </div>
-<div class="row">
-    <label class="control-label col-md-2 col-sm-3">
+<div class="row mb5">
+    <label class="control-label col-md-2 col-sm-3 mb5">
         @Html.DisplayNameFor(model => model.PoNr)
     </label>
-    <div class="col-md-10 col-sm-9">
+    <div class="col-md-10 col-sm-9 mt10">
         @Html.DisplayFor(m => m.PoNr)
     </div>
 </div>
+<div class="row mb5">
+    <label class="control-label col-md-2 col-sm-3 mb5">
+        @Html.DisplayNameFor(model => model.RefCode)
+    </label>
+    <div class="col-md-10 col-sm-9 mt10">
+        @Html.DisplayFor(m => m.RefCode)
+    </div>
+</div>
+<div class="row mb5">
+    <label class="control-label col-md-2 col-sm-3 mb5">
+        @Html.DisplayNameFor(model => model.KimballNr)
+    </label>
+    <div class="col-md-10 col-sm-9 mt10">
+        @Html.DisplayFor(m => m.KimballNr)
+    </div>
+</div>
 <div class="row">
-    <label class="control-label col-md-2 col-sm-3">
+    <label class="control-label col-md-2 col-sm-3 mb5">
         <span class="checkboxText">@Html.DisplayNameFor(model => model.IsApproved)</span>
         @Html.DisplayFor(m => m.IsApproved)
     </label>
-    <div class="col-sm-6">
+    <div class="col-md-10 col-sm-9 mt10">
         @Html.DisplayFor(m => m.ApproveDate)
     </div>
 </div>
 <div class="row">
-    <label class="control-label col-md-2 col-sm-3">
+    <label class="control-label col-md-2 col-sm-3 mb5">
         @Html.DisplayNameFor(model => model.DueDate)
     </label>
-    <div class="col-md-10 col-sm-9">
+    <div class="col-md-10 col-sm-9 mt10">
         @Html.DisplayFor(m => m.DueDate)
     </div>
 </div>
 <div class="row">
-    <label class="control-label col-md-2 col-sm-3">
+    <label class="control-label col-md-2 col-sm-3 mb5">
         @Html.DisplayNameFor(model => model.Customer)
     </label>
-    <div class="col-md-10 col-sm-9 fontSize150pc">
+    <div class="col-md-10 col-sm-9 mt5 fontSize150pc">
         @Html.DisplayFor(m => m.Customer)
     </div>
 </div>
 <div class="row">
-    <label class="control-label col-md-2 col-sm-3">
+    <label class="control-label col-md-2 col-sm-3 mb5">
         @Html.DisplayNameFor(model => model.Product)
     </label>
-    <div class="col-md-10 col-sm-9 fontSize150pc">
+    <div class="col-md-10 col-sm-9 mt5 fontSize150pc">
         @Html.DisplayFor(m => m.Product)
     </div>
 </div>
 <div class="row">
-    <label class="control-label col-md-2 col-sm-3">
+    <label class="control-label col-md-2 col-sm-3 mb5">
         @Html.DisplayNameFor(model => model.Description)
     </label>
-    <div class="col-md-10 col-sm-9">
+    <div class="col-md-10 col-sm-9 mt10">
         @Html.DisplayFor(m => m.Description)
     </div>
 </div>
 <div class="row">
-    <label class="control-label col-md-2 col-sm-3">
+    <label class="control-label col-md-2 col-sm-3 mb5">
         @Html.DisplayNameFor(model => model.Quantity)
     </label>
-    <div class="col-md-10 col-sm-9">
+    <div class="col-md-10 col-sm-9 mt10">
         @Html.DisplayFor(m => m.Quantity)
     </div>
 </div>
 <div class="row">
-    <label class="control-label col-md-2 col-sm-3">
+    <label class="control-label col-md-2 col-sm-3 mb5">
         @Html.DisplayNameFor(model => model.UnitPrice)
     </label>
-    <div class="col-md-10 col-sm-9">
+    <div class="col-md-10 col-sm-9 mt10">
         @Html.DisplayFor(m => m.UnitPrice)
     </div>
 </div>
 @Html.Partial("_PoSizeRatios")
 <div class="row mt15">
-    <label class="control-label col-md-2 col-sm-3">
+    <label class="control-label col-md-2 col-sm-3 mb5">
         @Html.DisplayNameFor(model => model.Notes)
     </label>
-    <div class="col-md-10 col-sm-9">
+    <div class="col-md-10 col-sm-9 mt10">
         @Html.DisplayFor(m => m.Notes)
     </div>
 </div>

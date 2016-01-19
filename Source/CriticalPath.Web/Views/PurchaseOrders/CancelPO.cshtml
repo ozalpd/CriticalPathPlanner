@@ -27,11 +27,9 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Cancelled, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
-            <div class="col-lg-5 col-md-6 col-sm-7">
-                <div class="checkbox">
+            <div class="col-lg-5 col-md-6 col-sm-7 mt5">
                     @Html.EditorFor(model => model.Cancelled)
                     @Html.ValidationMessageFor(model => model.Cancelled, "", new { @class = "text-danger" })
-                </div>
             </div>
         </div>
 

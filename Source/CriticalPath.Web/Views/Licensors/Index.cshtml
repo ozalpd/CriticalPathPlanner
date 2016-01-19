@@ -17,7 +17,7 @@
     int pageSize = ViewBag.pageSize;
     int pageCount = ViewBag.pageCount;
 
-	var title = EntityStrings.Licensors;
+    var title = EntityStrings.Licensors;
 }
 <div class="row well">
     <div class="col-md-8 col-sm-7">
@@ -34,21 +34,19 @@
 </div>
 @if (totalCount > 0)
 {
-	<div id="licensorGridParent" class="table-responsive">
-		<table id="licensorGrid" class="table table-striped table-bordered table-hover">
-			<tr>
-				<th>@ActionStrings.Action</th>
-				<th>@Html.DisplayNameFor(model => model.LicensorCode)</th>
-				<th>@Html.DisplayNameFor(model => model.PurchaseOrders)</th>
-				<th>@Html.DisplayNameFor(model => model.CompanyName)</th>
-				<th>@Html.DisplayNameFor(model => model.Country)</th>
-				<th>@Html.DisplayNameFor(model => model.City)</th>
-				<th>@Html.DisplayNameFor(model => model.Discontinued)</th>
-				<th>@Html.DisplayNameFor(model => model.DiscontinueDate)</th>
-				<th>@Html.DisplayNameFor(model => model.DiscontinueNotes)</th>
-			</tr>
-    @foreach (var item in Model)
-    {
+    <div id="licensorGridParent" class="table-responsive">
+        <table id="licensorGrid" class="table table-striped table-bordered table-hover">
+            <tr>
+                <th>@ActionStrings.Action</th>
+                <th>@Html.DisplayNameFor(model => model.LicensorCode)</th>
+                <th>@Html.DisplayNameFor(model => model.PurchaseOrders)</th>
+                <th>@Html.DisplayNameFor(model => model.CompanyName)</th>
+                <th>@Html.DisplayNameFor(model => model.Country)</th>
+                <th>@Html.DisplayNameFor(model => model.City)</th>
+                <th>@Html.DisplayNameFor(model => model.DiscontinueDate)</th>
+            </tr>
+            @foreach (var item in Model)
+            {
                 <tr>
                     <td>
                         <div class="btn-group">
@@ -71,26 +69,31 @@
                                 }
                                 @if (canUserCreate)
                                 {
-                                <li class="divider"></li>
-                                <li>@Html.ActionLink(EntityStrings.AddContact, "Create", "Contacts", new { companyId = item.Id }, null)</li>
-                                <li>@Html.ActionLink(EntityStrings.Contact, "Index", "Contacts", new { companyId = item.Id }, null)</li>
+                                    <li class="divider"></li>
+                                    <li>@Html.ActionLink(EntityStrings.AddContact, "Create", "Contacts", new { companyId = item.Id }, null)</li>
+                                    <li>@Html.ActionLink(EntityStrings.Contacts, "Index", "Contacts", new { companyId = item.Id }, null)</li>
                                 }
-                        </ul>
-                    </div>
-                </td>
-                <td>@Html.DisplayFor(modelItem => item.LicensorCode)</td>
-                <td>@item.PurchaseOrders.Count</td>
-                <td>@Html.DisplayFor(modelItem => item.CompanyName)</td>
-                <td>@Html.DisplayFor(modelItem => item.Country)</td>
-                <td>@Html.DisplayFor(modelItem => item.City)</td>
-                <td>@Html.DisplayFor(modelItem => item.Discontinued)</td>
-                <td align="right">@Html.DisplayFor(modelItem => item.DiscontinueDate)</td>
-                <td>@Html.DisplayFor(modelItem => item.DiscontinueNotes)</td>
-            </tr>
-	}
-		</table>
-    </div>
-	@Html.Partial("_MessageBoxPartial")
+                            </ul>
+                        </div>
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => item.LicensorCode)</td>
+                    <td>@item.PurchaseOrders.Count</td>
+                    <td>@Html.DisplayFor(modelItem => item.CompanyName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Country)</td>
+                    <td>@Html.DisplayFor(modelItem => item.City)</td>
+                    <td>
+                        @if (item.Discontinued)
+                        {
+                            @Html.DisplayFor(modelItem => item.Discontinued)
+                            @Html.DisplayFor(modelItem => item.DiscontinueDate)
+                        }
+
+                    </td>
+                </tr>
+            }
+        </table>
+  </div>
+    @Html.Partial("_MessageBoxPartial")
 }
 else
 {
@@ -98,7 +101,7 @@ else
 }
 @Html.Partial("_PagerPartial")
 @section scripts{
-	@Html.Partial("_IndexScriptsPartial", "Licensors") @* Controller's name *@
+    @Html.Partial("_IndexScriptsPartial", "Licensors") @* Controller's name *@
     <script type="text/javascript">
         function onActionMenuClick(menuBtn) {
             setTimeout(function () {
