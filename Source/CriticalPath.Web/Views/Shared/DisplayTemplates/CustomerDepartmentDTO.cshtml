@@ -1,11 +1,13 @@
 @using CriticalPath.Web.Models
 @using CriticalPath.Data
 @using CP.i8n
-@model Licensor
+@model CustomerDepartmentDTO
 @{
     Layout = null;
 }
 @if (Model != null)
 {
-    <div>@Model.CompanyName</div>
+    <div>
+        @Model.DepartmentName
+    </div>
 }

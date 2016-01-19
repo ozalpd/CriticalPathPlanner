@@ -587,6 +587,11 @@
     <Content Include="Views\CustomerDepartments\Details.cshtml" />
     <Content Include="Views\CustomerDepartments\Edit.cshtml" />
     <Content Include="Views\CustomerDepartments\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Licensor.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\CustomerDepartment.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\LicensorDTO.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\CustomerDepartmentDTO.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\CurrencyDTO.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

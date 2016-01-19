@@ -95,12 +95,38 @@
             </div>
         }
         <div class="form-group">
+            @Html.LabelFor(model => model.CustomerDepartmentId, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.DropDownListFor(m => m.CustomerDepartmentId, null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.CustomerDepartmentId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
             @Html.LabelFor(model => model.CustomerPoNr, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
             <div class="col-lg-5 col-md-6 col-sm-7">
                 @Html.TextBoxFor(m => m.CustomerPoNr, new { @class = "form-control", autocomplete = "off" })
                 @Html.ValidationMessageFor(m => m.CustomerPoNr, "", new { @class = "text-danger" })
             </div>
         </div>
+
+        @Html.HiddenFor(m => m.LicensorId)
+        <div class="form-group">
+            @Html.LabelFor(m => m.LicensorName, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.EditorFor(m => m.LicensorName, new
+   {
+       htmlAttributes = new
+       {
+           @class = "form-control ui-autocomplete-input",
+           autocomplete = "off",
+           data_url = Url.Action("GetLicensorsForAutoComplete", "Licensors")
+       }
+   })
+                @Html.ValidationMessageFor(m => m.LicensorName, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(m => m.LicensorId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.DiscountRate, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
             <div class="col-lg-2 col-md-3 col-sm-3">
@@ -187,6 +213,22 @@
                 var customerId = ui.item.id;
                 $('#CustomerId').val(customerId);
                 $('#DiscountRate').val(fixDecimalVal(ui.item.DiscountRate));
+                if (customerId != null && customerId != '') {
+                    $.getJSON('/CustomerDepartments/GetCustomerDepartmentList', { customerId: customerId, pageSize: 100 }, function (customerDepartments) {
+                        var targetSelect = $('#CustomerDepartmentId');
+                        targetSelect.empty();
+                        targetSelect.append($('<option/>', {
+                            value: '',
+                            text: '@Html.Raw(ActionStrings.SelectPlease)'
+                        }));
+                        $.each(customerDepartments, function (index, customerDepartment) {
+                            targetSelect.append($('<option/>', {
+                                value: customerDepartment.Id,
+                                text: customerDepartment.DepartmentName
+                            }));
+                        });
+                    });
+                }
             },
             change: function (event, ui) {
                 if (ui.item == null) {
@@ -196,6 +238,34 @@
             },
             open: function (event, ui) {
                 var boxWidth = $('#CustomerName').outerWidth();
+                var minWidth = 300;
+                $(this).autocomplete("widget")
+                    .css({ "width": (boxWidth > minWidth ? boxWidth : minWidth) })
+                    .addClass('fontSize80pc');
+            }
+        });
+
+        $('#LicensorName').autocomplete({
+            minLenght: 1,
+            delay: 500,
+            source: function (request, response) {
+                var url = $(this.element).data('url');
+                $.getJSON(url, { searchString: request.term, pageSize: 25 }, function (data) {
+                    response(data);
+                });
+            },
+            select: function (event, ui) {
+                var itemId = ui.item.id;
+                $('#LicensorId').val(itemId);
+            },
+            change: function (event, ui) {
+                if (ui.item == null) {
+                    $(event.target).val('');
+                    $('#LicensorId').val('');
+                }
+            },
+            open: function (event, ui) {
+                var boxWidth = $('#LicensorName').outerWidth();
                 var minWidth = 300;
                 $(this).autocomplete("widget")
                     .css({ "width": (boxWidth > minWidth ? boxWidth : minWidth) })

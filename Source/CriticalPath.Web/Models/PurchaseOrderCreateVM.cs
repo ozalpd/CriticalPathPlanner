@@ -35,6 +35,9 @@ namespace CriticalPath.Web.Models
         [Display(ResourceType = typeof(EntityStrings), Name = "Customer")]
         public string CustomerName { get; set; }
 
+        [Display(ResourceType = typeof(EntityStrings), Name = "Licensor")]
+        public string LicensorName { get; set; }
+
         [Display(Name = "Repeat of")]
         public string ParentPoNr { get; set; }
     }

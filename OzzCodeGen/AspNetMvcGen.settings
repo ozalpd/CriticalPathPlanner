@@ -3037,7 +3037,7 @@
       <GenerateActionForAutoComplete>true</GenerateActionForAutoComplete>
       <GenerateGetQueryMethod>false</GenerateGetQueryMethod>
       <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
-      <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateIndexAction>false</GenerateIndexAction>
       <GenerateGetEntityAction>true</GenerateGetEntityAction>
       <GenerateGetEntityListAction>true</GenerateGetEntityListAction>
       <GenerateCreateAction>false</GenerateCreateAction>

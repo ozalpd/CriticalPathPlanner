@@ -184,10 +184,10 @@ namespace CriticalPath.Web.Controllers
                 var querySuppliers = DataContext.GetSupplierQuery();
                 suppliers = await querySuppliers.ToListAsync();
             }
-            else if (supplierId == 0)
-            {
-                supplierId = suppliers.FirstOrDefault().Id;
-            }
+            //else if (supplierId == 0)
+            //{
+            //    supplierId = suppliers.FirstOrDefault().Id;
+            //}
             ViewBag.SupplierId = new SelectList(suppliers, "Id", "CompanyName", supplierId);
         }
 
@@ -210,6 +210,24 @@ namespace CriticalPath.Web.Controllers
             var customerList = await query.ToListAsync();
             ViewBag.CustomerId = new SelectList(customerList, "Id", "CompanyName", customerId);
         }
+
+        protected async Task SetCustomerDepartmentSelectListAsync(int customerId, int departmentId)
+        {
+            List<CustomerDepartmentDTO> departmentList;
+            if (customerId > 0)
+            {
+                var query = DataContext
+                            .GetCustomerDepartmentDtoQuery()
+                            .Where(d => d.CustomerId == customerId);
+                departmentList = await query.ToListAsync();
+            }
+            else
+            {
+                departmentList = new List<CustomerDepartmentDTO>();
+            }
+            ViewBag.CustomerDepartmentId = new SelectList(departmentList, "Id", "CompanyName", departmentId);
+        }
+
 
         protected virtual async Task SetFreightTermSelectListAsync(int freightTermId)
         {

@@ -30,72 +30,6 @@ namespace CriticalPath.Web.Controllers
         }
 
         [Authorize]
-        public async Task<ActionResult> Index(QueryParameters qParams)
-        {
-            var query = await GetPurchaseOrderQuery(qParams);
-            await PutCanUserInViewBag();
-			var result = new PagedList<PurchaseOrder>(qParams);
-            if (qParams.TotalCount > 0)
-            {
-                result.Items = await query.ToListAsync();
-            }
-
-            PutPagerInViewBag(result);
-            return View(result.Items);
-        }
-
-        protected override async Task<bool> CanUserCreate()
-        {
-            if (!_canUserCreate.HasValue)
-            {
-                _canUserCreate = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync() ||
-                                    await IsUserClerkAsync());
-            }
-            return _canUserCreate.Value;
-        }
-        bool? _canUserCreate;
-
-        protected override async Task<bool> CanUserEdit()
-        {
-            if (!_canUserEdit.HasValue)
-            {
-                _canUserEdit = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync() ||
-                                    await IsUserClerkAsync());
-            }
-            return _canUserEdit.Value;
-        }
-        bool? _canUserEdit;
-        
-        protected override async Task<bool> CanUserDelete()
-        {
-            if (!_canUserDelete.HasValue)
-            {
-                _canUserDelete = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync());
-            }
-            return _canUserDelete.Value;
-        }
-        bool? _canUserDelete;
-
-        protected override async Task<bool> CanUserSeeRestricted()
-        {
-            if (!_canSeeRestricted.HasValue)
-            {
-                _canSeeRestricted = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync() ||
-                                    await IsUserClerkAsync());
-            }
-            return _canSeeRestricted.Value;
-        }
-        bool? _canSeeRestricted;
-
-        [Authorize]
         public async Task<ActionResult> GetPurchaseOrderList(QueryParameters qParams)
         {
             var result = await GetPurchaseOrderDtoList(qParams);
@@ -121,7 +55,7 @@ namespace CriticalPath.Web.Controllers
                        {
                            id = x.Id,
                            value = x.PoNr,
-                           label = x.PoNr //can be extended as x.Category.CategoryName + "/" + x.PoNr,
+                           label = x.PoNr
                        };
 
             return Json(await list.ToListAsync(), JsonRequestBehavior.AllowGet);
@@ -132,13 +66,13 @@ namespace CriticalPath.Web.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return BadRequestTextResult();
             }
             PurchaseOrder purchaseOrder = await FindAsyncPurchaseOrder(id.Value);
 
             if (purchaseOrder == null)
             {
-                return HttpNotFound();
+                return NotFoundTextResult();
             }
 
             return Json(new PurchaseOrderDTO(purchaseOrder), JsonRequestBehavior.AllowGet);
@@ -152,23 +86,42 @@ namespace CriticalPath.Web.Controllers
             {
                 ProductId = parameters.ProductId;
                 SellingCurrencyId = parameters.SellingCurrencyId;
+                LicensorCurrencyId = parameters.LicensorCurrencyId;
                 BuyingCurrencyId = parameters.BuyingCurrencyId;
                 RoyaltyCurrencyId = parameters.RoyaltyCurrencyId;
                 RetailCurrencyId = parameters.RetailCurrencyId;
                 CustomerId = parameters.CustomerId;
+                CustomerDepartmentId = parameters.CustomerDepartmentId;
                 FreightTermId = parameters.FreightTermId;
+                LicensorId = parameters.LicensorId;
                 SupplierId = parameters.SupplierId;
                 SizingStandardId = parameters.SizingStandardId;
             }
             public int? ProductId { get; set; }
             public int? SellingCurrencyId { get; set; }
+            public int? LicensorCurrencyId { get; set; }
             public int? BuyingCurrencyId { get; set; }
             public int? RoyaltyCurrencyId { get; set; }
             public int? RetailCurrencyId { get; set; }
             public int? CustomerId { get; set; }
+            public int? CustomerDepartmentId { get; set; }
             public int? FreightTermId { get; set; }
+            public int? LicensorId { get; set; }
             public int? SupplierId { get; set; }
             public int? SizingStandardId { get; set; }
+            public bool? IsApproved { get; set; }
+            public bool? IsRepeat { get; set; }
+            public bool? Cancelled { get; set; }
+            public DateTime? ApproveDateMin { get; set; }
+            public DateTime? ApproveDateMax { get; set; }
+            public DateTime? OrderDateMin { get; set; }
+            public DateTime? OrderDateMax { get; set; }
+            public DateTime? DueDateMin { get; set; }
+            public DateTime? DueDateMax { get; set; }
+            public DateTime? SupplierDueDateMin { get; set; }
+            public DateTime? SupplierDueDateMax { get; set; }
+            public DateTime? CancelDateMin { get; set; }
+            public DateTime? CancelDateMax { get; set; }
         }
 
         public partial class PagedList<T> : QueryParameters

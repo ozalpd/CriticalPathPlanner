@@ -59,7 +59,7 @@ namespace CriticalPath.Web.Controllers
         [HttpPost]
         [Authorize(Roles = "admin, supervisor, clerk")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(ProductCreateVM vm)  //POST: /Products/Create
+        public async Task<ActionResult> Create(ProductCreateVM vm)
         {
             if (ModelState.IsValid)
             {
@@ -77,7 +77,7 @@ namespace CriticalPath.Web.Controllers
 
                 await DataContext.SaveChangesAsync(this);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Create", "PurchaseOrders", new { productId=product.Id });
             }
 
             await SetProductCategorySelectListAsync(vm);

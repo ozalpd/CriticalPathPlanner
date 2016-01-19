@@ -23,21 +23,193 @@ namespace CriticalPath.Web.Controllers
                 query = from a in query
                         where
                            a.Product.ProductCode.Contains(qParams.SearchString) |
+                           a.Product.Description.Contains(qParams.SearchString) |
                            a.PoNr.Contains(qParams.SearchString) |
+                           a.RefCode.Contains(qParams.SearchString) |
+                           a.KimballNr.Contains(qParams.SearchString) |
                            a.Description.Contains(qParams.SearchString) |
-                           a.Customer.CompanyName.Contains(qParams.SearchString) |
+                           a.Customer.CompanyName.StartsWith(qParams.SearchString) |
+                           a.CustomerDepartment.DepartmentName.StartsWith(qParams.SearchString) |
+                           a.Licensor.CompanyName.StartsWith(qParams.SearchString) |
                            a.Notes.Contains(qParams.SearchString)
                         select a;
+            }
+            if (qParams.ProductId != null)
+            {
+                query = query.Where(x => x.ProductId == qParams.ProductId);
+            }
+            if (qParams.SellingCurrencyId != null)
+            {
+                query = query.Where(x => x.SellingCurrencyId == qParams.SellingCurrencyId);
+            }
+            if (qParams.LicensorCurrencyId != null)
+            {
+                query = query.Where(x => x.LicensorCurrencyId == qParams.LicensorCurrencyId);
+            }
+            if (qParams.BuyingCurrencyId != null)
+            {
+                query = query.Where(x => x.BuyingCurrencyId == qParams.BuyingCurrencyId);
+            }
+            if (qParams.RoyaltyCurrencyId != null)
+            {
+                query = query.Where(x => x.RoyaltyCurrencyId == qParams.RoyaltyCurrencyId);
+            }
+            if (qParams.RetailCurrencyId != null)
+            {
+                query = query.Where(x => x.RetailCurrencyId == qParams.RetailCurrencyId);
             }
             if (qParams.CustomerId != null)
             {
                 query = query.Where(x => x.CustomerId == qParams.CustomerId);
+            }
+            if (qParams.CustomerDepartmentId != null)
+            {
+                query = query.Where(x => x.CustomerDepartmentId == qParams.CustomerDepartmentId);
+            }
+            if (qParams.FreightTermId != null)
+            {
+                query = query.Where(x => x.FreightTermId == qParams.FreightTermId);
+            }
+            if (qParams.LicensorId != null)
+            {
+                query = query.Where(x => x.LicensorId == qParams.LicensorId);
+            }
+            if (qParams.SupplierId != null)
+            {
+                query = query.Where(x => x.SupplierId == qParams.SupplierId);
+            }
+            if (qParams.SizingStandardId != null)
+            {
+                query = query.Where(x => x.SizingStandardId == qParams.SizingStandardId);
+            }
+            if (qParams.IsApproved != null)
+            {
+                query = query.Where(x => x.IsApproved == qParams.IsApproved.Value);
+            }
+            if (qParams.IsRepeat != null)
+            {
+                query = query.Where(x => x.IsRepeat == qParams.IsRepeat.Value);
+            }
+            if (qParams.Cancelled != null)
+            {
+                query = query.Where(x => x.Cancelled == qParams.Cancelled.Value);
+            }
+            if (qParams.ApproveDateMin != null)
+            {
+                query = query.Where(x => x.ApproveDate >= qParams.ApproveDateMin.Value);
+            }
+            if (qParams.ApproveDateMax != null)
+            {
+                query = query.Where(x => x.ApproveDate <= qParams.ApproveDateMax.Value);
+            }
+            if (qParams.OrderDateMin != null)
+            {
+                query = query.Where(x => x.OrderDate >= qParams.OrderDateMin.Value);
+            }
+            if (qParams.OrderDateMax != null)
+            {
+                query = query.Where(x => x.OrderDate <= qParams.OrderDateMax.Value);
+            }
+            if (qParams.DueDateMin != null)
+            {
+                query = query.Where(x => x.DueDate >= qParams.DueDateMin.Value);
+            }
+            if (qParams.DueDateMax != null)
+            {
+                query = query.Where(x => x.DueDate <= qParams.DueDateMax.Value);
+            }
+            if (qParams.SupplierDueDateMin != null)
+            {
+                query = query.Where(x => x.SupplierDueDate >= qParams.SupplierDueDateMin.Value);
+            }
+            if (qParams.SupplierDueDateMax != null)
+            {
+                query = query.Where(x => x.SupplierDueDate <= qParams.SupplierDueDateMax.Value);
+            }
+            if (qParams.CancelDateMin != null)
+            {
+                query = query.Where(x => x.CancelDate >= qParams.CancelDateMin.Value);
+            }
+            if (qParams.CancelDateMax != null)
+            {
+                query = query.Where(x => x.CancelDate <= qParams.CancelDateMax.Value);
             }
 
             qParams.TotalCount = await query.CountAsync();
 
             return query.Skip(qParams.Skip).Take(qParams.PageSize);
         }
+
+        [Authorize]
+        public async Task<ActionResult> Index(QueryParameters qParams)
+        {
+            if (qParams.Cancelled == null)
+                qParams.Cancelled = false;
+            if (qParams.IsApproved == null)
+                qParams.IsApproved = false;
+
+            var query = await GetPurchaseOrderQuery(qParams);
+            await PutCanUserInViewBag();
+            var result = new PagedList<PurchaseOrder>(qParams);
+            if (qParams.TotalCount > 0)
+            {
+                result.Items = await query.ToListAsync();
+            }
+
+            PutPagerInViewBag(result);
+            return View(result.Items);
+        }
+
+        protected override async Task<bool> CanUserCreate()
+        {
+            if (!_canUserCreate.HasValue)
+            {
+                _canUserCreate = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync() ||
+                                    await IsUserClerkAsync());
+            }
+            return _canUserCreate.Value;
+        }
+        bool? _canUserCreate;
+
+        protected override async Task<bool> CanUserEdit()
+        {
+            if (!_canUserEdit.HasValue)
+            {
+                _canUserEdit = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync() ||
+                                    await IsUserClerkAsync());
+            }
+            return _canUserEdit.Value;
+        }
+        bool? _canUserEdit;
+
+        protected override async Task<bool> CanUserDelete()
+        {
+            if (!_canUserDelete.HasValue)
+            {
+                _canUserDelete = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync());
+            }
+            return _canUserDelete.Value;
+        }
+        bool? _canUserDelete;
+
+        protected override async Task<bool> CanUserSeeRestricted()
+        {
+            if (!_canSeeRestricted.HasValue)
+            {
+                _canSeeRestricted = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync() ||
+                                    await IsUserClerkAsync());
+            }
+            return _canSeeRestricted.Value;
+        }
+        bool? _canSeeRestricted;
 
         protected override async Task PutCanUserInViewBag()
         {
@@ -129,6 +301,7 @@ namespace CriticalPath.Web.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
             var purchaseOrderVM = new PurchaseOrderCancelVM(purchaseOrder);
+            await PutCanUserInViewBag();
             return View(purchaseOrderVM);
         }
 
@@ -214,25 +387,48 @@ namespace CriticalPath.Web.Controllers
         [HttpGet]
         [Authorize(Roles = "admin, supervisor, clerk")]
         [Route("PurchaseOrders/Create/{customerId:int?}")]
-        public async Task<ActionResult> Create(int? customerId)
+        public async Task<ActionResult> Create(int? customerId, int? productId)
         {
-            var purchaseOrderVM = new PurchaseOrderCreateVM();
+            var vm = new PurchaseOrderCreateVM();
             if (customerId != null)
             {
                 var customer = await FindAsyncCustomer(customerId.Value);
                 if (customer == null)
                     return HttpNotFound();
-                purchaseOrderVM.CustomerId = customer.Id;
-                purchaseOrderVM.DiscountRate = customer.DiscountRate;
-                purchaseOrderVM.Customer = new CustomerDTO(customer);
-                purchaseOrderVM.CustomerName = customer.CompanyName;
+                vm.CustomerId = customer.Id;
+                vm.DiscountRate = customer.DiscountRate;
+                vm.Customer = new CustomerDTO(customer);
+                vm.CustomerName = customer.CompanyName;
             }
 
-            await SetPurchaseOrderDefaults(purchaseOrderVM);
+            if (productId != null)
+            {
+                var product = await FindAsyncProduct(productId.Value);
+                if (product == null)
+                    return HttpNotFound();
+
+                vm.ProductId = product.Id;
+                vm.Product = new ProductDTO(product);
+                vm.ProductCode = product.ProductCode;
+                vm.BuyingCurrencyId = product.BuyingCurrencyId;
+                vm.BuyingPrice = product.BuyingPrice;
+                vm.UnitPrice = product.UnitPrice;
+                vm.SellingCurrencyId = product.SellingCurrencyId;
+                vm.RoyaltyFee = product.RoyaltyFee;
+                vm.RoyaltyCurrencyId = product.RoyaltyCurrencyId;
+                vm.LicensorCurrencyId = product.LicensorCurrencyId;
+                vm.LicensorPrice = product.LicensorPrice;
+                vm.RetailCurrencyId = product.RetailCurrencyId;
+                vm.RetailPrice = product.RetailPrice;
+
+                await SetSupplierSelectList(product, 0);
+            }
+
+            await SetPurchaseOrderDefaults(vm);
 
             ViewBag.SupplierId = new SelectList(new List<SupplierDTO>(), "Id", "CompanyName", 0);
-            await SetSectListAsync(purchaseOrderVM);
-            return View(purchaseOrderVM);
+            await SetSectListAsync(vm);
+            return View(vm);
         }
 
         [HttpPost]
@@ -298,6 +494,7 @@ namespace CriticalPath.Web.Controllers
             await SetFreightTermSelectListAsync(poVM.FreightTermId);
             //await SetProductSelectListAsync(poVM.Product);
             await SetSizingStandardSelectListAsync(poVM);
+            await SetCustomerDepartmentSelectListAsync(poVM.CustomerId, poVM.CustomerDepartmentId ?? 0);
         }
 
         [Authorize(Roles = "admin, supervisor")]
@@ -387,6 +584,13 @@ namespace CriticalPath.Web.Controllers
                 purchaseOrder.RetailCurrencyId = vm.RetailCurrencyId;
                 purchaseOrder.RoyaltyCurrencyId = vm.RoyaltyCurrencyId;
 
+                purchaseOrder.LicensorPrice = vm.LicensorPrice;
+                purchaseOrder.LicensorCurrencyId = vm.LicensorCurrencyId;
+                purchaseOrder.RefCode = vm.RefCode;
+                purchaseOrder.KimballNr = vm.KimballNr;
+                //purchaseOrder.LicensorId = vm.LicensorId;
+                //purchaseOrder.CustomerDepartmentId = vm.CustomerDepartmentId;
+
                 int srd = 0;
                 foreach (var item in vm.SizeRatios)
                 {
@@ -422,12 +626,6 @@ namespace CriticalPath.Web.Controllers
             purchaseOrder.IsApproved = false;
 
             //TODO:Get count of PO at this month
-        }
-
-        public new partial class QueryParameters : BaseController.QueryParameters
-        {
-            public bool? IsCancelled { get; set; }
-            public bool? IsApproved { get; set; }
         }
     }
 }
