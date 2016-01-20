@@ -155,8 +155,19 @@ namespace CriticalPath.Web.Controllers
             {
                 result.Items = await query.ToListAsync();
             }
+            ViewBag.FilterPanelExpanded = (qParams.CustomerId.HasValue || qParams.CustomerDepartmentId.HasValue ||
+                                        qParams.DueDateMin.HasValue || qParams.DueDateMax.HasValue || qParams.HideRestricted ||
+                                        qParams.SupplierId.HasValue || qParams.PageSize != 10);
 
+            ViewBag.SizeArray = new int[] { 10, 20, 50, 100 };
+            ViewBag.HideRestricted = qParams.HideRestricted;
             PutPagerInViewBag(result);
+
+            await SetCustomerDepartmentSelectListAsync(qParams.CustomerId ?? 0, qParams.CustomerDepartmentId ?? 0);
+            await SetCustomerSelectListAsync(qParams.CustomerId ?? 0);
+            await SetSupplierSelectList(qParams.SupplierId ?? 0);
+            //SetPageSizeSelectList(qParams.PageSize);
+
             return View(result.Items);
         }
 
@@ -626,6 +637,11 @@ namespace CriticalPath.Web.Controllers
             purchaseOrder.IsApproved = false;
 
             //TODO:Get count of PO at this month
+        }
+
+        public partial class QueryParameters : BaseController.QueryParameters
+        {
+            public bool HideRestricted { get; set; }
         }
     }
 }

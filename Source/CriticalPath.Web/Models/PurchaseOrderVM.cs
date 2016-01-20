@@ -24,10 +24,10 @@ namespace CriticalPath.Web.Models
             SizingStandard = entity.SizingStandard != null ? new SizingStandardDTO(entity.SizingStandard) : null;
 
             SellingCurrency = entity.SellingCurrency != null ? new CurrencyDTO(entity.SellingCurrency) : null;
-            LicensorCurrency = entity.SellingCurrency != null ? new CurrencyDTO(entity.LicensorCurrency) : null;
+            LicensorCurrency = entity.LicensorCurrency != null ? new CurrencyDTO(entity.LicensorCurrency) : null;
             BuyingCurrency = entity.BuyingCurrency != null ? new CurrencyDTO(entity.BuyingCurrency) : null;
             RoyaltyCurrency = entity.RoyaltyCurrency != null ? new CurrencyDTO(entity.RoyaltyCurrency) : null;
-            RetailCurrency = entity.BuyingCurrency != null ? new CurrencyDTO(entity.RetailCurrency) : null;
+            RetailCurrency = entity.RetailCurrency != null ? new CurrencyDTO(entity.RetailCurrency) : null;
         }
 
         [Display(ResourceType = typeof(EntityStrings), Name = "Customer")]

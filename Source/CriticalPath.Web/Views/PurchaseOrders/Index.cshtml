@@ -9,7 +9,7 @@
     bool canUserEdit = ViewBag.canUserEdit;
     bool canUserCreate = ViewBag.canUserCreate;
     bool canUserDelete = ViewBag.canUserDelete;
-    bool canSeeRestricted = ViewBag.canSeeRestricted;
+    bool canSeeRestricted = ViewBag.canSeeRestricted && !ViewBag.HideRestricted;
     bool canUserApprove = ViewBag.canUserApprove;
     bool canUserCancelPO = ViewBag.canUserCancelPO;
 
@@ -18,31 +18,100 @@
     int totalCount = ViewBag.totalCount;
     int pageSize = ViewBag.pageSize;
     int pageCount = ViewBag.pageCount;
+    int grandTotal = 0;
+
+    int[] sizeArray = ViewBag.SizeArray;
+
+    string filterPanelClass = ViewBag.FilterPanelExpanded ? "accordion-body collapse in" : "accordion-body collapse";
+    string filterButtonClass = ViewBag.FilterPanelExpanded ? "glyphicon glyphicon-minus" : "glyphicon glyphicon-plus";
 }
 @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "searchForm" }))
 {
-    <div class="row well">
-        @Html.Hidden("page", page)
-        @Html.Hidden("pageSize", pageSize)
-        <div class="col-sm-5 col-md-6">
-            <h3>@EntityStrings.PurchaseOrders</h3>
-        </div>
-        <div class="col-sm-2 text-right">
-            <div>
-                <label class="control-label mr10">
-                    @EntityStrings.IsApproved
-                </label>
-                @Html.CheckBox("IsApproved")
+    @Html.Hidden("page", page)
+    @*@Html.Hidden("pageSize", pageSize)*@
+    <div class="well hidden-print">
+        <div class="accordion">
+            <div id="filterAccordion" class="accordion-group row">
+                <div class="accordion-heading">
+                    <div class="col-md-4">
+                        <h4>@EntityStrings.PurchaseOrders</h4>
+                    </div>
+                    <div class="col-sm-3 col-md-2">
+                        <div class="checkbox ml20 mt0">
+                            @Html.CheckBox("IsApproved")
+                            @EntityStrings.IsApproved
+                        </div>
+                        <div class="checkbox ml20">
+                            @Html.CheckBox("Cancelled")
+                            @EntityStrings.Cancelled
+                        </div>
+                    </div>
+                    <div class="col-sm-8 col-sm-offset-1 col-md-6 col-md-offset-0">
+                        <div class="input-group">
+                            @Html.TextBox("SearchString", null, new { @class = "form-control", placeholder = MessageStrings.EnterKeywordHere })
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" onclick="getPagedData(1)">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </button>
+                            </span>
+                            <span class="input-group-btn">
+                                <a class="accordion-toggle btn btn-success" data-toggle="collapse"
+                                   data-parent="filterAccordion" href="#filterPanel" onclick="toogleAccordionSign()">
+                                    <span id="filterPanelSign" class="@filterButtonClass"></span>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div>
-                <label class="control-label mr10">
-                    @EntityStrings.Cancelled
-                </label>
-                @Html.CheckBox("Cancelled")
+            <div id="filterPanel" class="@filterPanelClass">
+                <div class="accordion-inner">
+                    <!-- Accordion inner-->
+                    <div class="form-horizontal">
+                        <div class="row mb5">
+                            <div class="col-sm-4">
+
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="checkbox ml20">
+                                    @Html.CheckBox("HideRestricted")
+                                    Hide Restricted Columns
+                                </div>
+                            </div>
+                            <label class="col-sm-3 control-label">
+                                Display Records
+                            </label>
+                            <div class="col-sm-2">
+                                <select id="PageSize" name="PageSize" class="form-control">
+                                    @for (int i = 0; i < sizeArray.Length; i++)
+                                    {
+                                        if (sizeArray[i] == pageSize)
+                                        {
+                                            <option selected="selected" value="@sizeArray[i]">@sizeArray[i]</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@sizeArray[i]">@sizeArray[i]</option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                @Html.DropDownList("CustomerId", null, "All Customers", htmlAttributes: new { @class = "form-control" })
+                            </div>
+                            <div class="col-sm-4">
+                                @Html.DropDownList("CustomerDepartmentId", null, "All Departments", htmlAttributes: new { @class = "form-control" })
+                            </div>
+                            <div class="col-sm-4">
+                                @Html.DropDownList("SupplierId", null, "All Suppliers", htmlAttributes: new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <!--// Accordion inner-->
+                </div>
             </div>
-        </div>
-        <div class="col-md-4 col-sm-5">
-            @Html.Partial("_SearchBoxPartial")
         </div>
     </div>
 }
@@ -50,7 +119,7 @@
 {
     <table class="table table-hover table-striped">
         <tr>
-            <th width="20px">@ActionStrings.Action</th>
+            <th class="hidden-print" width="20px">@ActionStrings.Action</th>
             <th>
                 @Html.DisplayNameFor(model => model.IsApproved)<br />
                 @Html.DisplayNameFor(m => m.Cancelled)
@@ -58,24 +127,25 @@
             <th>@Html.DisplayNameFor(model => model.PoNr)</th>
             <th>@Html.DisplayNameFor(model => model.RefCode)</th>
             <th>@Html.DisplayNameFor(model => model.Product)</th>
+            <th>@Html.DisplayNameFor(model => model.Supplier)</th>
             <th>
                 @Html.DisplayNameFor(model => model.Customer) /<br />
                 @Html.DisplayNameFor(model => model.CustomerDepartment)
             </th>
             <th>@Html.DisplayNameFor(model => model.Licensor)</th>
             <th>@Html.DisplayNameFor(model => model.OrderDate)</th>
+            <th>@Html.DisplayNameFor(model => model.Quantity)</th>
             @if (canSeeRestricted)
             {
                 <th>@Html.DisplayNameFor(model => model.DueDate)</th>
                 <th>@Html.DisplayNameFor(model => model.DiscountRate)</th>
-                <th>@Html.DisplayNameFor(model => model.Quantity)</th>
                 <th>@Html.DisplayNameFor(model => model.UnitPrice)</th>
             }
         </tr>
         @foreach (var item in Model)
         {
             <tr>
-                <td>
+                <td class="hidden-print">
                     <div class="btn-group">
                         <button type="button" title="@ActionStrings.Action" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">
                             <span class="glyphicon glyphicon-tasks"></span> <span class="caret"></span>
@@ -135,6 +205,7 @@
                 <td>@Html.DisplayFor(modelItem => item.PoNr)</td>
                 <td>@Html.DisplayFor(modelItem => item.RefCode)</td>
                 <td>@Html.DisplayFor(modelItem => item.Product)</td>
+                <td>@Html.DisplayFor(modelItem => item.Supplier)</td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Customer)
                     @if (item.CustomerDepartment != null)
@@ -144,29 +215,77 @@
                 </td>
                 <td>@Html.DisplayFor(modelItem => item.Licensor)</td>
                 <td align="right">@Html.DisplayFor(modelItem => item.OrderDate)</td>
+                <td align="right">
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                    @{
+                        grandTotal += item.Quantity;
+                    }
+                </td>
                 @if (canSeeRestricted)
                 {
                     <td align="right">@Html.DisplayFor(modelItem => item.DueDate)</td>
                     <td align="right">@Html.DisplayFor(modelItem => item.DiscountRate)</td>
-                    <td align="right">@Html.DisplayFor(modelItem => item.Quantity)</td>
                     <td align="right">
                         @Html.DisplayFor(modelItem => item.UnitPrice)
                         @Html.DisplayFor(modelItem => item.SellingCurrency)
                     </td>
                 }
             </tr>
-        }
+                        }
+        <tr style="font-weight:bold;background-color:#fff8e8">
+            <td class="hidden-print"></td>
+            <td colspan="6"></td>
+            <td align="right" colspan="2">Grand Total</td>
+            <td align="right">@grandTotal</td>
+            @if (canSeeRestricted)
+            {
+                <td></td>
+                <td></td>
+                <td></td>
+            }
+        </tr>
     </table>
-    if (canUserDelete)
-    {
-        @Html.Partial("_MessageBoxPartial")
-    }
-}
-else
-{
-    <h4>@MessageStrings.NoResults!</h4>
-}
+                        if (canUserDelete)
+                        {
+                            @Html.Partial("_MessageBoxPartial")
+                            }
+                        }
+                        else
+                        {
+                            <h4>@MessageStrings.NoResults!</h4>
+                        }
 @Html.Partial("_PagerPartial")
 @section scripts{
     @Html.Partial("_IndexScriptsPartial", "PurchaseOrders")
+    <script type="text/javascript">
+        $('#CustomerId').change(function () {
+            var customerId = $(this).val();
+            var targetSelect = $('#CustomerDepartmentId');
+            targetSelect.empty();
+            targetSelect.append($('<option/>', {
+                value: '',
+                text: 'All Departments'
+            }));
+            if (customerId != null && customerId != '') {
+                $.getJSON('/CustomerDepartments/GetCustomerDepartmentList', { customerId: customerId, pageSize: 100 }, function (customerDepartments) {
+                    $.each(customerDepartments, function (index, customerDepartment) {
+                        targetSelect.append($('<option/>', {
+                            value: customerDepartment.Id,
+                            text: customerDepartment.DepartmentName
+                        }));
+                    });
+                });
+            }
+        });
+        function toogleAccordionSign() {
+            if ($('#filterPanel').hasClass('in')) {
+                $('#filterPanelSign').removeClass('glyphicon-minus').addClass('glyphicon-plus');
+                console.log('collapsed');
+            }
+            else {
+                $('#filterPanelSign').removeClass('glyphicon-plus').addClass('glyphicon-minus');
+                console.log('expanded');
+            }
+        }
+    </script>
 }

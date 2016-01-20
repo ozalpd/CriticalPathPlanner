@@ -225,9 +225,21 @@ namespace CriticalPath.Web.Controllers
             {
                 departmentList = new List<CustomerDepartmentDTO>();
             }
-            ViewBag.CustomerDepartmentId = new SelectList(departmentList, "Id", "CompanyName", departmentId);
+            ViewBag.CustomerDepartmentId = new SelectList(departmentList, "Id", "DepartmentName", departmentId);
         }
 
+        protected void SetPageSizeSelectList(int pageSize)
+        {
+            int[] sizeArray = { 10, 20, 50, 100 };
+            if (!sizeArray.Contains(pageSize))
+            {
+                pageSize = sizeArray[0];
+            }
+
+            var list = from s in sizeArray
+                       select new { val = s, title = s.ToString() };
+            ViewBag.PageSize = new SelectList(list, "val", "title", pageSize);
+        }
 
         protected virtual async Task SetFreightTermSelectListAsync(int freightTermId)
         {
