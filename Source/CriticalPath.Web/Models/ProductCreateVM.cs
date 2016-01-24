@@ -9,7 +9,7 @@ namespace CriticalPath.Web.Models
         public ProductCreateVM() { }
         public ProductCreateVM(Product entity) : base(entity) { }
 
-        [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+        //[Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
         [Display(ResourceType = typeof(EntityStrings), Name = "Supplier")]
         public string SupplierName { get; set; }
     }

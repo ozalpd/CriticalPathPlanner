@@ -65,6 +65,19 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "Description")]
             public string Description { get; set; }
 
+            [StringLength(256, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "FabricComposition")]
+            public string FabricComposition { get; set; }
+
+            [StringLength(256, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "Colour")]
+            public string Colour { get; set; }
+
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [UIHint("ShipmentHangingFolded")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "ShipmentHangingFolded")]
+            public int ShipmentHangingFolded { get; set; }
+
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Range(1,1000000)]
             [Display(ResourceType = typeof(EntityStrings), Name = "Quantity")]
@@ -83,6 +96,12 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "SellingCurrencyId")]
             public int SellingCurrencyId { get; set; }
 
+            [Display(ResourceType = typeof(EntityStrings), Name = "UnitPrice2")]
+            public decimal UnitPrice2 { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "SellingCurrency2Id")]
+            public int SellingCurrency2Id { get; set; }
+
             [Display(ResourceType = typeof(EntityStrings), Name = "LicensorPrice")]
             public decimal LicensorPrice { get; set; }
 
@@ -94,6 +113,12 @@ namespace CriticalPath.Data
 
             [Display(ResourceType = typeof(EntityStrings), Name = "BuyingCurrencyId")]
             public int BuyingCurrencyId { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "BuyingPrice2")]
+            public decimal BuyingPrice2 { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "BuyingCurrency2Id")]
+            public int BuyingCurrency2Id { get; set; }
 
             [Display(ResourceType = typeof(EntityStrings), Name = "RoyaltyFee")]
             public decimal RoyaltyFee { get; set; }

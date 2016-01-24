@@ -1199,6 +1199,7 @@
           <Name>ShipmentHangingFolded</Name>
           <Exclude>false</Exclude>
           <DTOExclusion>false</DTOExclusion>
+          <UIHint>ShipmentHangingFolded</UIHint>
           <DataType />
           <Range />
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
@@ -1933,7 +1934,7 @@
       </Properties>
     </BaseEntitySetting>
   </EntitySettings>
-  <RenderAllEntities>true</RenderAllEntities>
+  <RenderAllEntities>false</RenderAllEntities>
   <GenerateForDTO>true</GenerateForDTO>
   <UseResourceFiles>true</UseResourceFiles>
 </MetadataCodeEngine>

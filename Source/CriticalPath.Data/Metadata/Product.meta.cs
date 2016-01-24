@@ -58,6 +58,15 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "SellingCurrency")]
             public Currency SellingCurrency { get; set; }
 
+            [Display(ResourceType = typeof(EntityStrings), Name = "UnitPrice2")]
+            public decimal UnitPrice2 { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "SellingCurrency2Id")]
+            public int SellingCurrency2Id { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "SellingCurrency2")]
+            public Currency SellingCurrency2 { get; set; }
+
             [Display(ResourceType = typeof(EntityStrings), Name = "BuyingPrice")]
             public decimal BuyingPrice { get; set; }
 
@@ -66,6 +75,15 @@ namespace CriticalPath.Data
 
             [Display(ResourceType = typeof(EntityStrings), Name = "BuyingCurrency")]
             public Currency BuyingCurrency { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "BuyingPrice2")]
+            public decimal BuyingPrice2 { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "BuyingCurrency2Id")]
+            public int BuyingCurrency2Id { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "BuyingCurrency2")]
+            public Currency BuyingCurrency2 { get; set; }
 
             [Display(ResourceType = typeof(EntityStrings), Name = "LicensorPrice")]
             public decimal LicensorPrice { get; set; }

@@ -27,15 +27,21 @@ namespace CriticalPath.Web.Controllers
                            id = p.Id,
                            value = p.ProductCode,
                            label = p.ProductCode + " [" + p.Category.ParentCategory.CategoryName + " / " + p.Category.CategoryName + "]",
+                           Description = p.Description,
                            UnitPrice = p.UnitPrice,
                            SellingCurrencyId = p.SellingCurrencyId,
+                           UnitPrice2 = p.UnitPrice2,
+                           SellingCurrency2Id = p.SellingCurrency2Id,
+                           LicensorPrice = p.LicensorPrice,
                            LicensorCurrencyId = p.LicensorCurrencyId,
                            RoyaltyFee = p.RoyaltyFee,
                            RoyaltyCurrencyId = p.RoyaltyCurrencyId,
                            RetailPrice = p.RetailPrice,
                            RetailCurrencyId = p.RetailCurrencyId,
                            BuyingPrice = p.BuyingPrice,
-                           BuyingCurrencyId = p.BuyingCurrencyId
+                           BuyingCurrencyId = p.BuyingCurrencyId,
+                           BuyingPrice2 = p.BuyingPrice2,
+                           BuyingCurrency2Id = p.BuyingCurrency2Id
                        };
 
             return Json(await list.ToListAsync(), JsonRequestBehavior.AllowGet);
@@ -48,11 +54,7 @@ namespace CriticalPath.Web.Controllers
             var product = new ProductCreateVM();
 
             await SetProductCategorySelectListAsync(product);
-            ViewBag.SellingCurrencyId = await GetCurrencySelectList(product.SellingCurrencyId);
-            ViewBag.LicensorCurrencyId = await GetCurrencySelectList(product.LicensorCurrencyId ?? 0);
-            ViewBag.BuyingCurrencyId = await GetCurrencySelectList(product.BuyingCurrencyId ?? 0);
-            ViewBag.RoyaltyCurrencyId = await GetCurrencySelectList(product.RoyaltyCurrencyId ?? 0);
-            ViewBag.RetailCurrencyId = await GetCurrencySelectList(product.RetailCurrencyId ?? 0);
+            await SetCurrencySelectLists(product);
             return View(product);
         }
 
@@ -81,11 +83,7 @@ namespace CriticalPath.Web.Controllers
             }
 
             await SetProductCategorySelectListAsync(vm);
-            ViewBag.SellingCurrencyId = await GetCurrencySelectList(vm.SellingCurrencyId);
-            ViewBag.LicensorCurrencyId = await GetCurrencySelectList(vm.LicensorCurrencyId ?? 0);
-            ViewBag.BuyingCurrencyId = await GetCurrencySelectList(vm.BuyingCurrencyId ?? 0);
-            ViewBag.RoyaltyCurrencyId = await GetCurrencySelectList(vm.RoyaltyCurrencyId ?? 0);
-            ViewBag.RetailCurrencyId = await GetCurrencySelectList(vm.RetailCurrencyId ?? 0);
+            await SetCurrencySelectLists(vm);
             return View(vm);
         }
 
@@ -104,12 +102,10 @@ namespace CriticalPath.Web.Controllers
             }
 
             await SetProductCategorySelectListAsync(product);
-            ViewBag.SellingCurrencyId = await GetCurrencySelectList(product.SellingCurrencyId);
-            ViewBag.BuyingCurrencyId = await GetCurrencySelectList(product.BuyingCurrencyId ?? 0);
-            ViewBag.LicensorCurrencyId = await GetCurrencySelectList(product.LicensorCurrencyId ?? 0);
-            ViewBag.RoyaltyCurrencyId = await GetCurrencySelectList(product.RoyaltyCurrencyId ?? 0);
-            ViewBag.RetailCurrencyId = await GetCurrencySelectList(product.RetailCurrencyId ?? 0);
-            return View(new ProductEditVM(product));
+            var vm = new ProductEditVM(product);
+            await SetCurrencySelectLists(vm);
+
+            return View(vm);
         }
 
         [Authorize(Roles = "admin, supervisor, clerk")]
@@ -134,11 +130,7 @@ namespace CriticalPath.Web.Controllers
             }
 
             await SetProductCategorySelectListAsync(vm);
-            ViewBag.SellingCurrencyId = await GetCurrencySelectList(vm.SellingCurrencyId);
-            ViewBag.LicensorCurrencyId = await GetCurrencySelectList(vm.LicensorCurrencyId ?? 0);
-            ViewBag.BuyingCurrencyId = await GetCurrencySelectList(vm.BuyingCurrencyId ?? 0);
-            ViewBag.RoyaltyCurrencyId = await GetCurrencySelectList(vm.RoyaltyCurrencyId ?? 0);
-            ViewBag.RetailCurrencyId = await GetCurrencySelectList(vm.RetailCurrencyId ?? 0);
+            await SetCurrencySelectLists(vm);
 
             return View(vm);
         }
@@ -233,7 +225,5 @@ namespace CriticalPath.Web.Controllers
 
             return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
-        //Purpose: To set default property values for newly created Product entity
-        //protected override async Task SetProductDefaults(Product product) { }
     }
 }

@@ -114,14 +114,14 @@
             @Html.LabelFor(m => m.LicensorName, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
             <div class="col-lg-5 col-md-6 col-sm-7">
                 @Html.EditorFor(m => m.LicensorName, new
-   {
-       htmlAttributes = new
-       {
-           @class = "form-control ui-autocomplete-input",
-           autocomplete = "off",
-           data_url = Url.Action("GetLicensorsForAutoComplete", "Licensors")
-       }
-   })
+           {
+               htmlAttributes = new
+               {
+                   @class = "form-control ui-autocomplete-input",
+                   autocomplete = "off",
+                   data_url = Url.Action("GetLicensorsForAutoComplete", "Licensors")
+               }
+           })
                 @Html.ValidationMessageFor(m => m.LicensorName, "", new { @class = "text-danger" })
                 @Html.ValidationMessageFor(m => m.LicensorId, "", new { @class = "text-danger" })
             </div>
@@ -144,6 +144,14 @@
             </div>
         </div>
 
+        <div class="form-group">
+            @Html.LabelFor(model => model.ShipmentHangingFolded, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.EditorFor(m => m.ShipmentHangingFolded, new { @class = "form-control", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.ShipmentHangingFolded, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
         @if (Model.Product == null)
         {
             @Html.Partial("_ProductAutoComplete")
@@ -159,6 +167,22 @@
                 </div>
             </div>
         }
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Colour, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.TextBoxFor(m => m.Colour, new { @class = "form-control", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.Colour, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.FabricComposition, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.TextBoxFor(m => m.FabricComposition, new { @class = "form-control", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.FabricComposition, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
         @Html.Partial("_AllPriceEdit", Model)
 
         <div class="form-group">
@@ -168,15 +192,7 @@
                 @Html.ValidationMessageFor(m => m.SupplierId, "", new { @class = "text-danger" })
             </div>
         </div>
-        @*
-            <div class="form-group">
-                @Html.LabelFor(model => model.SupplierDueDate, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
-                <div class="col-lg-5 col-md-6 col-sm-7">
-                    @Html.EditorFor(m => m.SupplierDueDate, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(m => m.SupplierDueDate, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        *@
+
         @Html.Partial("_ProductSizingPartial")
 
         <div class="form-group">

@@ -3193,7 +3193,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Selling Currency2.
+        ///   Looks up a localized string similar to Selling Currency 2nd.
         /// </summary>
         public static string SellingCurrency2 {
             get {
@@ -3202,7 +3202,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Selling Currency2Id.
+        ///   Looks up a localized string similar to Selling Currency 2nd.
         /// </summary>
         public static string SellingCurrency2Id {
             get {
@@ -3220,7 +3220,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Shipment Hanging Folded.
+        ///   Looks up a localized string similar to Hanging / Folded.
         /// </summary>
         public static string ShipmentHangingFolded {
             get {
@@ -3499,7 +3499,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unit Price2.
+        ///   Looks up a localized string similar to Unit Price 2nd.
         /// </summary>
         public static string UnitPrice2 {
             get {

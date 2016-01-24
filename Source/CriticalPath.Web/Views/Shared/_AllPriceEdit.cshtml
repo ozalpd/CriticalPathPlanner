@@ -1,4 +1,5 @@
-﻿@using CriticalPath.Data
+﻿@using CriticalPath.Web.Models
+@using CriticalPath.Data
 @using CP.i8n
 @model IAllPrice
 <div class="form-group">
@@ -14,6 +15,22 @@
         @Html.ValidationMessageFor(m => m.SellingCurrencyId, "", new { @class = "text-danger" })
     </div>
 </div>
+@if (AppSettings.Settings.ShowSecondaryPrices)
+{
+    <div class="form-group">
+        @Html.Label(EntityStrings.UnitPrice2, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3 col-xs-12" })
+        <div class="col-lg-2 col-md-3 col-sm-3 col-xs-7">
+            @{ Html.EnableClientValidation(false); }
+            @Html.EditorFor(m => m.UnitPrice2, new { htmlAttributes = new { @class = "form-control text-right", autocomplete = "off" } })
+            @{ Html.EnableClientValidation(true); }
+            @Html.ValidationMessageFor(m => m.UnitPrice2, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-5">
+            @Html.DropDownListFor(m => m.SellingCurrency2Id, null, ActionStrings.SelectCurrency, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.SellingCurrency2Id, "", new { @class = "text-danger" })
+        </div>
+    </div>
+}
 
 <div class="form-group">
     @Html.Label(EntityStrings.LicensorPrice, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3 col-xs-12" })
@@ -42,6 +59,22 @@
         @Html.ValidationMessageFor(m => m.BuyingCurrencyId, "", new { @class = "text-danger" })
     </div>
 </div>
+@if (AppSettings.Settings.ShowSecondaryPrices)
+{
+    <div class="form-group">
+        @Html.Label(EntityStrings.BuyingPrice2, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3 col-xs-12" })
+        <div class="col-lg-2 col-md-3 col-sm-3 col-xs-7">
+            @{ Html.EnableClientValidation(false); }
+            @Html.EditorFor(m => m.BuyingPrice2, new { htmlAttributes = new { @class = "form-control text-right", autocomplete = "off" } })
+            @{ Html.EnableClientValidation(true); }
+            @Html.ValidationMessageFor(m => m.BuyingPrice2, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-5">
+            @Html.DropDownListFor(m => m.BuyingCurrency2Id, null, ActionStrings.SelectCurrency, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.BuyingCurrency2Id, "", new { @class = "text-danger" })
+        </div>
+    </div>
+}
 
 <div class="form-group">
     @Html.Label(EntityStrings.RoyaltyFee, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3 col-xs-12" })
@@ -57,19 +90,23 @@
     </div>
 </div>
 
-<div class="form-group">
-    @Html.Label(EntityStrings.RetailPrice, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3 col-xs-12" })
-    <div class="col-lg-2 col-md-3 col-sm-3 col-xs-7">
-        @{ Html.EnableClientValidation(false); }
-        @Html.EditorFor(m => m.RetailPrice, new { htmlAttributes = new { @class = "form-control text-right", autocomplete = "off" } })
-        @{ Html.EnableClientValidation(true); }
-        @Html.ValidationMessageFor(m => m.RetailPrice, "", new { @class = "text-danger" })
+@if (AppSettings.Settings.ShowRetailPrice)
+{
+    <div class="form-group">
+        @Html.Label(EntityStrings.RetailPrice, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3 col-xs-12" })
+        <div class="col-lg-2 col-md-3 col-sm-3 col-xs-7">
+            @{ Html.EnableClientValidation(false); }
+            @Html.EditorFor(m => m.RetailPrice, new { htmlAttributes = new { @class = "form-control text-right", autocomplete = "off" } })
+            @{ Html.EnableClientValidation(true); }
+            @Html.ValidationMessageFor(m => m.RetailPrice, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-5">
+            @Html.DropDownListFor(m => m.RetailCurrencyId, null, ActionStrings.SelectCurrency, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.RetailCurrencyId, "", new { @class = "text-danger" })
+        </div>
     </div>
-    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-5">
-        @Html.DropDownListFor(m => m.RetailCurrencyId, null, ActionStrings.SelectCurrency, htmlAttributes: new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.RetailCurrencyId, "", new { @class = "text-danger" })
-    </div>
-</div>
+}
+
 <script type="text/javascript">
     $(document).ready(function () {
         $('#UnitPrice').on('keydown', decNumbersOnly);

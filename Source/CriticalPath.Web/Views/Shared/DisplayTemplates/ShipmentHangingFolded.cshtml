@@ -1,0 +1,19 @@
+﻿@using CP.i8n
+@model int
+@switch (Model)
+{
+    case 0:
+        @: @CommonStrings.NotPicked
+        break;
+
+    case 1:
+        @: @CommonStrings.Folded
+        break;
+
+    case 2:
+        @: @CommonStrings.Folded
+        break;
+
+    default:
+        break;
+}

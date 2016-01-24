@@ -1,0 +1,21 @@
+﻿@using CP.i8n
+@model int
+@{
+    string class0 = Model == 0 ? "btn btn-primary active" : "btn btn-primary";
+    string class1 = Model == 1 ? "btn btn-primary active" : "btn btn-primary";
+    string class2 = Model == 2 ? "btn btn-primary active" : "btn btn-primary";
+
+    var htmlField = ViewData.TemplateInfo.HtmlFieldPrefix;
+}
+@Html.HiddenFor(model => model)
+<div class="btn-group" data-toggle="buttons">
+    <label class="@class0">
+        <input type="radio" name="options" id="option1" autocomplete="off" onchange="$('#@htmlField').val(0);"> @CommonStrings.NotPicked
+    </label>
+    <label class="@class1">
+        <input type="radio" name="options" id="option2" autocomplete="off" onchange="$('#@htmlField').val(1);"> @CommonStrings.Folded
+    </label>
+    <label class="@class2">
+        <input type="radio" name="options" id="option3" autocomplete="off" onchange="$('#@htmlField').val(2);"> @CommonStrings.Hanging
+    </label>
+</div>

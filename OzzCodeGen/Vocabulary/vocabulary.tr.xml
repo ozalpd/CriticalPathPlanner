@@ -1577,6 +1577,10 @@
     <Translation>Notlar</Translation>
   </Vocab>
   <Vocab>
+    <Name>NotPicked</Name>
+    <Translation>Seçilmemiş</Translation>
+  </Vocab>
+  <Vocab>
     <Name>NumericIsoCode</Name>
     <Translation>Sayısal ISO Kod</Translation>
   </Vocab>
@@ -2086,7 +2090,7 @@
   </Vocab>
   <Vocab>
     <Name>ShipmentHangingFolded</Name>
-    <Translation>Taşıma Askıda / Katlanmış</Translation>
+    <Translation>Nakliye Askıda / Katlanmış</Translation>
   </Vocab>
   <Vocab>
     <Name>Show</Name>

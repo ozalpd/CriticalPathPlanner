@@ -82,6 +82,17 @@ namespace CriticalPath.Web.Controllers
             ViewBag.CurrencyId = await GetCurrencySelectList(currencyId);
         }
 
+        protected virtual async Task SetCurrencySelectLists(IAllPrice vm)
+        {
+            ViewBag.SellingCurrencyId = await GetCurrencySelectList(vm.SellingCurrencyId);
+            ViewBag.SellingCurrency2Id = await GetCurrencySelectList(vm.SellingCurrency2Id ?? 0);
+            ViewBag.LicensorCurrencyId = await GetCurrencySelectList(vm.LicensorCurrencyId ?? 0);
+            ViewBag.BuyingCurrencyId = await GetCurrencySelectList(vm.BuyingCurrencyId ?? 0);
+            ViewBag.BuyingCurrency2Id = await GetCurrencySelectList(vm.BuyingCurrency2Id ?? 0);
+            ViewBag.RoyaltyCurrencyId = await GetCurrencySelectList(vm.RoyaltyCurrencyId ?? 0);
+            ViewBag.RetailCurrencyId = await GetCurrencySelectList(vm.RetailCurrencyId ?? 0);
+        }
+
         protected async Task SetProductCategorySelectListAsync(ProductDTO product)
         {
             await SetProductCategorySelectListAsync(product.CategoryId);

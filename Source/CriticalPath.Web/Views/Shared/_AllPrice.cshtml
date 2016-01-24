@@ -2,13 +2,19 @@
 @using CP.i8n
 @model Product
 @*    @model IAllPriceCurrency *@
-<div class="row">
+<div class="row mb5">
     <label class="control-label col-md-2 col-sm-3 mb5">
         @Html.DisplayNameFor(model => model.UnitPrice)
     </label>
     <div class="col-lg-8 col-md-9 col-sm-9 mt10">
-        @Model.UnitPrice.ToString("0.00")
-        @Html.DisplayFor(m => m.SellingCurrency)
+        <div class="col-md-2 col-sm-3 col-xs-4 ml0 pl0">
+            @(Model.UnitPrice.ToString("0.00"))
+            @Html.DisplayFor(m => m.SellingCurrency)
+        </div>
+        <div class="col-md-2 col-sm-3 col-xs-4 pl0">
+            @(Model.UnitPrice2 == null ? "N/A" : Model.UnitPrice2.Value.ToString("0.00"))
+            @Html.DisplayFor(m => m.SellingCurrency2)
+        </div>
     </div>
 </div>
 <div class="row">
@@ -16,17 +22,23 @@
         @Html.DisplayNameFor(model => model.LicensorPrice)
     </label>
     <div class="col-lg-8 col-md-9 col-sm-9 mt10">
-        @(Model.LicensorPrice == null ? "N/A" : Model.BuyingPrice.Value.ToString("#.00"))
+        @(Model.LicensorPrice == null ? "N/A" : Model.LicensorPrice.Value.ToString("0.00"))
         @Html.DisplayFor(m => m.LicensorCurrency)
     </div>
 </div>
-<div class="row">
+<div class="row mb5">
     <label class="control-label col-md-2 col-sm-3 mb5">
         @Html.DisplayNameFor(model => model.BuyingPrice)
     </label>
     <div class="col-lg-8 col-md-9 col-sm-9 mt10">
-        @(Model.BuyingPrice == null ? "N/A" : Model.BuyingPrice.Value.ToString("#.00"))
-        @Html.DisplayFor(m => m.BuyingCurrency)
+        <div class="col-md-2 col-sm-3 col-xs-4 ml0 pl0">
+            @(Model.BuyingPrice == null ? "N/A" : Model.BuyingPrice.Value.ToString("0.00"))
+            @Html.DisplayFor(m => m.BuyingCurrency)
+        </div>
+        <div class="col-md-2 col-sm-3 col-xs-4 pl0">
+            @(Model.BuyingPrice2 == null ? "N/A" : Model.BuyingPrice2.Value.ToString("0.00"))
+            @Html.DisplayFor(m => m.BuyingCurrency2)
+        </div>
     </div>
 </div>
 <div class="row">
@@ -34,7 +46,7 @@
         @Html.DisplayNameFor(model => model.RoyaltyFee)
     </label>
     <div class="col-lg-8 col-md-9 col-sm-9 mt10">
-        @(Model.RoyaltyFee == null ? "N/A" : Model.RoyaltyFee.Value.ToString("#.00"))
+        @(Model.RoyaltyFee == null ? "N/A" : Model.RoyaltyFee.Value.ToString("0.00"))
         @Html.DisplayFor(m => m.RoyaltyCurrency)
     </div>
 </div>
@@ -43,7 +55,7 @@
         @Html.DisplayNameFor(model => model.RetailPrice)
     </label>
     <div class="col-lg-8 col-md-9 col-sm-9 mt10">
-        @(Model.RetailPrice == null ? "N/A" : Model.RetailPrice.Value.ToString("#.00"))
+        @(Model.RetailPrice == null ? "N/A" : Model.RetailPrice.Value.ToString("0.00"))
         @Html.DisplayFor(m => m.RetailCurrency)
     </div>
 </div>

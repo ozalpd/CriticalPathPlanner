@@ -131,6 +131,10 @@
 		<value>Last Name</value>
 	</data>
 
+	<data name="NotPicked" xml:space="preserve">
+		<value>Not Picked</value>
+	</data>
+
 	<data name="Record" xml:space="preserve">
 		<value>Record</value>
 	</data>

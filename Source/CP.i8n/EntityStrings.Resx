@@ -1452,11 +1452,11 @@
 	</data>
 
 	<data name="SellingCurrency2" xml:space="preserve">
-		<value>Selling Currency2</value>
+		<value>Selling Currency 2nd</value>
 	</data>
 
 	<data name="SellingCurrency2Id" xml:space="preserve">
-		<value>Selling Currency2Id</value>
+		<value>Selling Currency 2nd</value>
 	</data>
 
 	<data name="SellingCurrencyId" xml:space="preserve">
@@ -1464,7 +1464,7 @@
 	</data>
 
 	<data name="ShipmentHangingFolded" xml:space="preserve">
-		<value>Shipment Hanging Folded</value>
+		<value>Hanging / Folded</value>
 	</data>
 
 	<data name="SizeRatio" xml:space="preserve">
@@ -1588,7 +1588,7 @@
 	</data>
 
 	<data name="UnitPrice2" xml:space="preserve">
-		<value>Unit Price2</value>
+		<value>Unit Price 2nd</value>
 	</data>
 
 	<data name="UserName" xml:space="preserve">

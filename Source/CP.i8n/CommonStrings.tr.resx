@@ -131,6 +131,10 @@
 		<value>Soyad</value>
 	</data>
 
+	<data name="NotPicked" xml:space="preserve">
+		<value>Seçilmemiş</value>
+	</data>
+
 	<data name="Record" xml:space="preserve">
 		<value>Kayıt</value>
 	</data>

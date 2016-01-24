@@ -592,6 +592,9 @@
     <Content Include="Views\Shared\DisplayTemplates\LicensorDTO.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\CustomerDepartmentDTO.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\CurrencyDTO.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\ShipmentHangingFolded.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ShipmentHangingFolded.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\FreightTermDTO.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -1577,6 +1577,10 @@
     <Translation>Notes</Translation>
   </Vocab>
   <Vocab>
+    <Name>NotPicked</Name>
+    <Translation>Not Picked</Translation>
+  </Vocab>
+  <Vocab>
     <Name>NumericIsoCode</Name>
     <Translation>Numeric ISO Code</Translation>
   </Vocab>
@@ -2066,11 +2070,11 @@
   </Vocab>
   <Vocab>
     <Name>SellingCurrency2</Name>
-    <Translation>Selling Currency2</Translation>
+    <Translation>Selling Currency 2nd</Translation>
   </Vocab>
   <Vocab>
     <Name>SellingCurrency2Id</Name>
-    <Translation>Selling Currency2Id</Translation>
+    <Translation>Selling Currency 2nd</Translation>
   </Vocab>
   <Vocab>
     <Name>SellingCurrencyId</Name>
@@ -2086,7 +2090,7 @@
   </Vocab>
   <Vocab>
     <Name>ShipmentHangingFolded</Name>
-    <Translation>Shipment Hanging Folded</Translation>
+    <Translation>Hanging / Folded</Translation>
   </Vocab>
   <Vocab>
     <Name>Show</Name>
@@ -2346,7 +2350,7 @@
   </Vocab>
   <Vocab>
     <Name>UnitPrice2</Name>
-    <Translation>Unit Price2</Translation>
+    <Translation>Unit Price 2nd</Translation>
   </Vocab>
   <Vocab>
     <Name>Update</Name>

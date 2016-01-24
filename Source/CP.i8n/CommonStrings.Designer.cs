@@ -223,6 +223,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Not Picked.
+        /// </summary>
+        public static string NotPicked {
+            get {
+                return ResourceManager.GetString("NotPicked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Record.
         /// </summary>
         public static string Record {

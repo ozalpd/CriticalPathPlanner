@@ -421,16 +421,21 @@ namespace CriticalPath.Web.Controllers
                 vm.ProductId = product.Id;
                 vm.Product = new ProductDTO(product);
                 vm.ProductCode = product.ProductCode;
-                vm.BuyingCurrencyId = product.BuyingCurrencyId;
                 vm.BuyingPrice = product.BuyingPrice;
+                vm.BuyingCurrencyId = product.BuyingCurrencyId;
+                vm.BuyingPrice2 = product.BuyingPrice2;
+                vm.BuyingCurrency2Id = product.BuyingCurrency2Id;
                 vm.UnitPrice = product.UnitPrice;
                 vm.SellingCurrencyId = product.SellingCurrencyId;
+                vm.UnitPrice2 = product.UnitPrice2;
+                vm.SellingCurrency2Id = product.SellingCurrency2Id;
                 vm.RoyaltyFee = product.RoyaltyFee;
                 vm.RoyaltyCurrencyId = product.RoyaltyCurrencyId;
                 vm.LicensorCurrencyId = product.LicensorCurrencyId;
                 vm.LicensorPrice = product.LicensorPrice;
                 vm.RetailCurrencyId = product.RetailCurrencyId;
                 vm.RetailPrice = product.RetailPrice;
+                vm.Description = product.Description;
 
                 await SetSupplierSelectList(product, 0);
             }
@@ -496,12 +501,7 @@ namespace CriticalPath.Web.Controllers
 
         private async Task SetSectListAsync(PurchaseOrderVM poVM)
         {
-            ViewBag.SellingCurrencyId = await GetCurrencySelectList(poVM.SellingCurrencyId);
-            ViewBag.LicensorCurrencyId = await GetCurrencySelectList(poVM.LicensorCurrencyId ?? 0);
-            ViewBag.BuyingCurrencyId = await GetCurrencySelectList(poVM.BuyingCurrencyId ?? 0);
-            ViewBag.RoyaltyCurrencyId = await GetCurrencySelectList(poVM.RoyaltyCurrencyId ?? 0);
-            ViewBag.RetailCurrencyId = await GetCurrencySelectList(poVM.RetailCurrencyId ?? 0);
-
+            await SetCurrencySelectLists(poVM);
             await SetFreightTermSelectListAsync(poVM.FreightTermId);
             //await SetProductSelectListAsync(poVM.Product);
             await SetSizingStandardSelectListAsync(poVM);
@@ -586,12 +586,16 @@ namespace CriticalPath.Web.Controllers
                 purchaseOrder.DiscountRate = vm.DiscountRate;
                 purchaseOrder.FreightTermId = vm.FreightTermId;
                 purchaseOrder.UnitPrice = vm.UnitPrice;
+                purchaseOrder.UnitPrice2 = vm.UnitPrice2;
                 purchaseOrder.RoyaltyFee = vm.RoyaltyFee;
                 purchaseOrder.BuyingPrice = vm.BuyingPrice;
+                purchaseOrder.BuyingPrice2 = vm.BuyingPrice2;
                 purchaseOrder.RetailPrice = vm.RetailPrice;
                 purchaseOrder.BuyingCurrencyId = vm.BuyingCurrencyId;
+                purchaseOrder.BuyingCurrency2Id = vm.BuyingCurrency2Id;
                 purchaseOrder.LicensorCurrencyId = vm.LicensorCurrencyId;
                 purchaseOrder.SellingCurrencyId = vm.SellingCurrencyId;
+                purchaseOrder.SellingCurrency2Id = vm.SellingCurrency2Id;
                 purchaseOrder.RetailCurrencyId = vm.RetailCurrencyId;
                 purchaseOrder.RoyaltyCurrencyId = vm.RoyaltyCurrencyId;
 
@@ -601,6 +605,10 @@ namespace CriticalPath.Web.Controllers
                 purchaseOrder.KimballNr = vm.KimballNr;
                 //purchaseOrder.LicensorId = vm.LicensorId;
                 //purchaseOrder.CustomerDepartmentId = vm.CustomerDepartmentId;
+
+                purchaseOrder.ShipmentHangingFolded = vm.ShipmentHangingFolded;
+                purchaseOrder.Colour = vm.Colour;
+                purchaseOrder.FabricComposition = vm.FabricComposition;
 
                 int srd = 0;
                 foreach (var item in vm.SizeRatios)

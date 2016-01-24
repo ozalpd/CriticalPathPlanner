@@ -111,6 +111,23 @@
     </div>
 </div>
 
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3 mb5">
+        @Html.DisplayNameFor(model => model.FreightTerm)
+    </label>
+    <div class="col-md-10 col-sm-9 mt10">
+        @Html.DisplayFor(m => m.FreightTerm)
+    </div>
+</div>
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3 mb5">
+        @Html.DisplayNameFor(model => model.ShipmentHangingFolded)
+    </label>
+    <div class="col-md-10 col-sm-9 mt10">
+        @Html.DisplayFor(m => m.ShipmentHangingFolded)
+    </div>
+</div>
+
 @if (canSeeRestricted)
 {
     <div class="row mb5">
@@ -126,8 +143,14 @@
             @Html.DisplayNameFor(model => model.UnitPrice)
         </label>
         <div class="col-lg-8 col-md-9 col-sm-9 mt10">
-            @Html.DisplayFor(m => m.UnitPrice)
-            @Html.DisplayFor(m => m.SellingCurrency)
+            <div class="col-md-2 col-sm-3 col-xs-4 ml0 pl0">
+                @Html.DisplayFor(m => m.UnitPrice)
+                @Html.DisplayFor(m => m.SellingCurrency)
+            </div>
+            <div class="col-md-2 col-sm-3 col-xs-4 pl0">
+                @Html.DisplayFor(m => m.UnitPrice2)
+                @Html.DisplayFor(m => m.SellingCurrency2)
+            </div>
         </div>
     </div>
     <div class="row mb5">
@@ -145,8 +168,14 @@
         @Html.DisplayNameFor(model => model.BuyingPrice)
     </label>
     <div class="col-lg-8 col-md-9 col-sm-9 mt10">
-        @Html.DisplayFor(m => m.BuyingPrice)
-        @Html.DisplayFor(m => m.BuyingCurrency)
+        <div class="col-md-2 col-sm-3 col-xs-4 ml0 pl0">
+            @Html.DisplayFor(m => m.BuyingPrice)
+            @Html.DisplayFor(m => m.BuyingCurrency)
+        </div>
+        <div class="col-md-2 col-sm-3 col-xs-4 pl0">
+            @Html.DisplayFor(m => m.BuyingPrice2)
+            @Html.DisplayFor(m => m.BuyingCurrency2)
+        </div>
     </div>
 </div>
 @if (canSeeRestricted)
