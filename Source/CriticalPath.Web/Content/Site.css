@@ -91,6 +91,16 @@ div.accordion .accordion-group .accordion-heading .accordion-toggle {
     min-height: 400px;
 }
 
+.bottom-row {
+    background-color: #faf8f4;
+    height: 40px;
+    font-weight: bold;
+}
+
+    .bottom-row > td {
+        vertical-align: middle !important;
+    }
+
 .form-control[data-val-required] {
     background-color: #fffff8;
     border: 1px solid #f0c4c4;

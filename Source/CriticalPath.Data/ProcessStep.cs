@@ -27,7 +27,7 @@ namespace CriticalPath.Data
         public int DisplayOrder { get; set; }
         public int ProcessId { get; set; }
         public int TemplateId { get; set; }
-        public System.DateTime TargetDate { get; set; }
+        public Nullable<System.DateTime> TargetDate { get; set; }
         public Nullable<System.DateTime> ForecastDate { get; set; }
         public Nullable<System.DateTime> RealizedDate { get; set; }
         public bool IsApproved { get; set; }
@@ -143,7 +143,7 @@ namespace CriticalPath.Data
         public int DisplayOrder { get; set; }
         public int ProcessId { get; set; }
         public int TemplateId { get; set; }
-        public System.DateTime TargetDate { get; set; }
+        public Nullable<System.DateTime> TargetDate { get; set; }
         public Nullable<System.DateTime> ForecastDate { get; set; }
         public Nullable<System.DateTime> RealizedDate { get; set; }
         public bool IsApproved { get; set; }

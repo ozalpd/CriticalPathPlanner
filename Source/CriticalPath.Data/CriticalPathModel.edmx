@@ -222,7 +222,7 @@
           <Property Name="IsCompleted" Type="bit" Nullable="false" />
           <Property Name="DisplayOrder" Type="int" Nullable="false" />
           <Property Name="ProcessId" Type="int" Nullable="false" />
-          <Property Name="TargetDate" Type="datetime" Nullable="false" />
+          <Property Name="TargetDate" Type="datetime" />
           <Property Name="ForecastDate" Type="datetime" />
           <Property Name="RealizedDate" Type="datetime" />
           <Property Name="TemplateId" Type="int" Nullable="false" />
@@ -2470,7 +2470,7 @@
           <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
           <Property Name="ProcessId" Type="Int32" Nullable="false" />
           <Property Name="TemplateId" Type="Int32" Nullable="false" />
-          <Property Name="TargetDate" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="TargetDate" Type="DateTime" Precision="3" />
           <Property Name="ForecastDate" Type="DateTime" Precision="3" />
           <Property Name="RealizedDate" Type="DateTime" Precision="3" />
           <Property Name="IsApproved" Type="Boolean" Nullable="false" />

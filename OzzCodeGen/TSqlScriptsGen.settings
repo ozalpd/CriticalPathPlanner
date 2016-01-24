@@ -2109,6 +2109,7 @@
           <Indexed>true</Indexed>
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
+          <InsertDefault>0</InsertDefault>
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>DisplayOrder</Name>
@@ -2139,7 +2140,7 @@
           <PrimaryKey>false</PrimaryKey>
           <Indexed>true</Indexed>
           <SortDesc>false</SortDesc>
-          <Nullable>false</Nullable>
+          <Nullable>true</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>ForecastDate</Name>

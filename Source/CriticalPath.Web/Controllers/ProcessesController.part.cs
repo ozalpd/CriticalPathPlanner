@@ -359,7 +359,7 @@ namespace CriticalPath.Web.Controllers
                 query = query.Where(s => !s.IgnoreInRepeat);
 
             var templates = await query.ToListAsync();
-            DateTime startDate = process.StartDate;
+            //DateTime startDate = process.StartDate;
             foreach (var template in query)
             {
                 var step = new ProcessStep()
@@ -367,9 +367,9 @@ namespace CriticalPath.Web.Controllers
                     Title = template.Title,
                     DisplayOrder = template.DisplayOrder,
                     TemplateId = template.Id,
-                    TargetDate = template.RequiredWorkDays > 0 ? startDate : process.StartDate
+                    //TargetDate = template.RequiredWorkDays > 0 ? startDate : process.StartDate
                 };
-                startDate =  startDate.AddDays(template.RequiredWorkDays);
+                //startDate =  startDate.AddDays(template.RequiredWorkDays);
                 process.ProcessSteps.Add(step);
             }
         }

@@ -98,7 +98,8 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                     RetailCurrencyId = p.RetailCurrencyId,
                     SellingCurrencyId = p.SellingCurrencyId,
                     SizingStandard = sizingStandard,
-                    SupplierId = p.Suppliers.FirstOrDefault().Id
+                    SupplierId = p.Suppliers.FirstOrDefault().Id,
+                    Description = p.Description
                 };
 
                 int quantity = 0;
@@ -1070,7 +1071,7 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                         SellingCurrency = currencies[countProduct % currencies.Length],
                         RetailCurrency = currencies[(countProduct + 1) % currencies.Length],
                         BuyingCurrency = buyingCurrency,
-                        UnitPrice = GetRandomPrice(5, 25)
+                        UnitPrice = 0.55m * GetRandomPrice(2, 4)
                     };
 
                     prod.BuyingPrice = ((decimal)Math.Ceiling(prod.UnitPrice)) * 0.75m;

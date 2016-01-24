@@ -66,13 +66,16 @@ namespace CriticalPath.Web.Controllers
             if (ModelState.IsValid)
             {
                 var product = vm.ToProduct();
-                var suppliers = await GetSupplierQuery()
-                            .Where(s => vm.SuppliersSelected.Contains(s.Id))
-                            .ToListAsync();
-                foreach (var item in suppliers)
+                if (vm.SuppliersSelected != null && vm.SuppliersSelected.Length > 0)
                 {
-                    if (!product.Suppliers.Contains(item))
-                        product.Suppliers.Add(item);
+                    var suppliers = await GetSupplierQuery()
+                                .Where(s => vm.SuppliersSelected.Contains(s.Id))
+                                .ToListAsync();
+                    foreach (var item in suppliers)
+                    {
+                        if (!product.Suppliers.Contains(item))
+                            product.Suppliers.Add(item);
+                    }
                 }
 
                 DataContext.Products.Add(product);

@@ -26,6 +26,8 @@ namespace CriticalPath.Web.Controllers
                            a.Product.Description.Contains(qParams.SearchString) |
                            a.PoNr.Contains(qParams.SearchString) |
                            a.RefCode.Contains(qParams.SearchString) |
+                           a.FabricComposition.Contains(qParams.SearchString) |
+                           a.Colour.Contains(qParams.SearchString) |
                            a.KimballNr.Contains(qParams.SearchString) |
                            a.Description.Contains(qParams.SearchString) |
                            a.Customer.CompanyName.StartsWith(qParams.SearchString) |
