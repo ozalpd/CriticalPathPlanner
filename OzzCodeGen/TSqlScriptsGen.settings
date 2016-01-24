@@ -1211,6 +1211,27 @@
           <ForeignKeyTable>Currencies</ForeignKeyTable>
         </StorageColumnSetting>
         <StorageColumnSetting>
+          <Name>UnitPrice2</Name>
+          <Exclude>false</Exclude>
+          <DataType>[decimal](18, 4)</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>SellingCurrency2Id</Name>
+          <Exclude>false</Exclude>
+          <DataType>int</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <ForeignKeyTable>Currencies</ForeignKeyTable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
           <Name>BuyingPrice</Name>
           <Exclude>false</Exclude>
           <DataType>[decimal](18, 4)</DataType>
@@ -1222,6 +1243,27 @@
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>BuyingCurrencyId</Name>
+          <Exclude>false</Exclude>
+          <DataType>int</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <ForeignKeyTable>Currencies</ForeignKeyTable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>BuyingPrice2</Name>
+          <Exclude>false</Exclude>
+          <DataType>[decimal](18, 4)</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>BuyingCurrency2Id</Name>
           <Exclude>false</Exclude>
           <DataType>int</DataType>
           <Lenght>0</Lenght>
@@ -1454,6 +1496,37 @@
           <Nullable>true</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
+          <Name>FabricComposition</Name>
+          <Exclude>false</Exclude>
+          <DataType>nVarChar</DataType>
+          <Lenght>256</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>Colour</Name>
+          <Exclude>false</Exclude>
+          <DataType>nVarChar</DataType>
+          <Lenght>256</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>ShipmentHangingFolded</Name>
+          <Exclude>false</Exclude>
+          <DataType>int</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+          <InsertDefault>0</InsertDefault>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
           <Name>Quantity</Name>
           <Exclude>false</Exclude>
           <DataType>int</DataType>
@@ -1496,6 +1569,27 @@
           <ForeignKeyTable>Currencies</ForeignKeyTable>
         </StorageColumnSetting>
         <StorageColumnSetting>
+          <Name>UnitPrice2</Name>
+          <Exclude>false</Exclude>
+          <DataType>[decimal](18, 4)</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>SellingCurrency2Id</Name>
+          <Exclude>false</Exclude>
+          <DataType>int</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <ForeignKeyTable>Currencies</ForeignKeyTable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
           <Name>LicensorPrice</Name>
           <Exclude>false</Exclude>
           <DataType>[decimal](18, 4)</DataType>
@@ -1528,6 +1622,27 @@
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>BuyingCurrencyId</Name>
+          <Exclude>false</Exclude>
+          <DataType>int</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+          <ForeignKeyTable>Currencies</ForeignKeyTable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>BuyingPrice2</Name>
+          <Exclude>false</Exclude>
+          <DataType>[decimal](18, 4)</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>BuyingCurrency2Id</Name>
           <Exclude>false</Exclude>
           <DataType>int</DataType>
           <Lenght>0</Lenght>

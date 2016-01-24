@@ -124,6 +124,15 @@ AutoGenInterfaces.Add(discontinuedUser);
 InterfaceDefinition allPrice = new InterfaceDefinition() { Name = "IAllPrice" };
 InterfaceDefinition allPriceCurrency = new InterfaceDefinition() { Name = "IAllPriceCurrency" };
 
+InterfaceDefinition sellingPrice = new InterfaceDefinition() { Name = "ISellingPrice" };
+sellingPrice.Properties.Add(new InterfaceProperty() { TypeName = "decimal", Name = "UnitPrice" });
+sellingPrice.Properties.Add(new InterfaceProperty() { TypeName = "int", Name = "SellingCurrencyId" });
+sellingPrice.Properties.Add(new InterfaceProperty() { TypeName = "Nullable<decimal>", Name = "UnitPrice2" });
+sellingPrice.Properties.Add(new InterfaceProperty() { TypeName = "Nullable<int>", Name = "SellingCurrency2Id" });
+AutoGenInterfaces.Add(sellingPrice);
+allPrice.Properties.AddRange(sellingPrice.Properties);
+allPriceCurrency.Properties.AddRange(sellingPrice.Properties);
+
 InterfaceDefinition retailPrice = new InterfaceDefinition() { Name = "IRetailPrice" };
 retailPrice.Properties.Add(new InterfaceProperty() { TypeName = "Nullable<decimal>", Name = "RetailPrice" });
 retailPrice.Properties.Add(new InterfaceProperty() { TypeName = "Nullable<int>", Name = "RetailCurrencyId" });
@@ -148,21 +157,18 @@ allPriceCurrency.Properties.AddRange(royalty.Properties);
 InterfaceDefinition buyingPrice = new InterfaceDefinition() { Name = "IBuyingPrice" };
 buyingPrice.Properties.Add(new InterfaceProperty() { TypeName = "Nullable<decimal>", Name = "BuyingPrice" });
 buyingPrice.Properties.Add(new InterfaceProperty() { TypeName = "Nullable<int>", Name = "BuyingCurrencyId" });
+buyingPrice.Properties.Add(new InterfaceProperty() { TypeName = "Nullable<decimal>", Name = "BuyingPrice2" });
+buyingPrice.Properties.Add(new InterfaceProperty() { TypeName = "Nullable<int>", Name = "BuyingCurrency2Id" });
 AutoGenInterfaces.Add(buyingPrice);
 allPrice.Properties.AddRange(buyingPrice.Properties);
 allPriceCurrency.Properties.AddRange(buyingPrice.Properties);
 
-InterfaceDefinition sellingPrice = new InterfaceDefinition() { Name = "ISellingPrice" };
-sellingPrice.Properties.Add(new InterfaceProperty() { TypeName = "decimal", Name = "UnitPrice" });
-sellingPrice.Properties.Add(new InterfaceProperty() { TypeName = "int", Name = "SellingCurrencyId" });
-AutoGenInterfaces.Add(sellingPrice);
-allPrice.Properties.AddRange(sellingPrice.Properties);
-allPriceCurrency.Properties.AddRange(sellingPrice.Properties);
-
+allPriceCurrency.Properties.Add(new InterfaceProperty() { TypeName = "Currency", Name = "SellingCurrency" });
+allPriceCurrency.Properties.Add(new InterfaceProperty() { TypeName = "Currency", Name = "SellingCurrency2" });
 allPriceCurrency.Properties.Add(new InterfaceProperty() { TypeName = "Currency", Name = "BuyingCurrency" });
+allPriceCurrency.Properties.Add(new InterfaceProperty() { TypeName = "Currency", Name = "BuyingCurrency2" });
 allPriceCurrency.Properties.Add(new InterfaceProperty() { TypeName = "Currency", Name = "RetailCurrency" });
 allPriceCurrency.Properties.Add(new InterfaceProperty() { TypeName = "Currency", Name = "RoyaltyCurrency" });
-allPriceCurrency.Properties.Add(new InterfaceProperty() { TypeName = "Currency", Name = "SellingCurrency" });
 allPriceCurrency.Properties.Add(new InterfaceProperty() { TypeName = "Currency", Name = "LicensorCurrency" });
 
 AutoGenInterfaces.Add(allPrice);

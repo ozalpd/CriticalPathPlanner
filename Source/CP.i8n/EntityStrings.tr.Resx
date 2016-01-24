@@ -387,12 +387,24 @@
 		<value>Tedarik Para Birimi</value>
 	</data>
 
+	<data name="BuyingCurrency2" xml:space="preserve">
+		<value>Tedarik Para Birimi 2</value>
+	</data>
+
+	<data name="BuyingCurrency2Id" xml:space="preserve">
+		<value>Tedarik Para Birimi 2</value>
+	</data>
+
 	<data name="BuyingCurrencyId" xml:space="preserve">
 		<value>Tedarik Para Birimi</value>
 	</data>
 
 	<data name="BuyingPrice" xml:space="preserve">
 		<value>Tedarik Fiyatı</value>
+	</data>
+
+	<data name="BuyingPrice2" xml:space="preserve">
+		<value>Tedarik Fiyatı 2</value>
 	</data>
 
 	<data name="CancelDate" xml:space="preserve">
@@ -441,6 +453,10 @@
 
 	<data name="City" xml:space="preserve">
 		<value>Şehir</value>
+	</data>
+
+	<data name="Colour" xml:space="preserve">
+		<value>Renk</value>
 	</data>
 
 	<data name="Companies" xml:space="preserve">
@@ -943,6 +959,10 @@
 		<value>Çalışan Listesi</value>
 	</data>
 
+	<data name="FabricComposition" xml:space="preserve">
+		<value>Kumaş Bileşimi</value>
+	</data>
+
 	<data name="FirstName" xml:space="preserve">
 		<value>Ad</value>
 	</data>
@@ -1431,8 +1451,20 @@
 		<value>Satış Para Birimi</value>
 	</data>
 
+	<data name="SellingCurrency2" xml:space="preserve">
+		<value>Satış Para Birimi 2</value>
+	</data>
+
+	<data name="SellingCurrency2Id" xml:space="preserve">
+		<value>Satış Para Birimi 2</value>
+	</data>
+
 	<data name="SellingCurrencyId" xml:space="preserve">
 		<value>Satış Para Birimi</value>
+	</data>
+
+	<data name="ShipmentHangingFolded" xml:space="preserve">
+		<value>Taşıma Askıda / Katlanmış</value>
 	</data>
 
 	<data name="SizeRatio" xml:space="preserve">
@@ -1553,6 +1585,10 @@
 
 	<data name="UnitPrice" xml:space="preserve">
 		<value>Birim Fiyat</value>
+	</data>
+
+	<data name="UnitPrice2" xml:space="preserve">
+		<value>Birim Fiyat 2</value>
 	</data>
 
 	<data name="UserName" xml:space="preserve">

@@ -303,8 +303,12 @@
           <Property Name="Licensed" Type="bit" Nullable="false" />
           <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="4" Nullable="false" />
           <Property Name="SellingCurrencyId" Type="int" Nullable="false" />
+          <Property Name="UnitPrice2" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="SellingCurrency2Id" Type="int" />
           <Property Name="BuyingPrice" Type="decimal" Precision="18" Scale="4" />
           <Property Name="BuyingCurrencyId" Type="int" />
+          <Property Name="BuyingPrice2" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="BuyingCurrency2Id" Type="int" />
           <Property Name="LicensorPrice" Type="decimal" Precision="18" Scale="4" />
           <Property Name="LicensorCurrencyId" Type="int" />
           <Property Name="RoyaltyFee" Type="decimal" Precision="18" Scale="4" />
@@ -348,14 +352,21 @@
           <Property Name="ParentPoId" Type="int" />
           <Property Name="ProductId" Type="int" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="256" />
+          <Property Name="FabricComposition" Type="nvarchar" MaxLength="256" />
+          <Property Name="Colour" Type="nvarchar" MaxLength="256" />
+          <Property Name="ShipmentHangingFolded" Type="int" Nullable="false" />
           <Property Name="Quantity" Type="int" Nullable="false" />
           <Property Name="DiscountRate" Type="decimal" Precision="18" Scale="4" Nullable="false" />
           <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="4" Nullable="false" />
           <Property Name="SellingCurrencyId" Type="int" Nullable="false" />
+          <Property Name="UnitPrice2" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="SellingCurrency2Id" Type="int" />
           <Property Name="LicensorPrice" Type="decimal" Precision="18" Scale="4" />
           <Property Name="LicensorCurrencyId" Type="int" />
           <Property Name="BuyingPrice" Type="decimal" Precision="18" Scale="4" />
           <Property Name="BuyingCurrencyId" Type="int" />
+          <Property Name="BuyingPrice2" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="BuyingCurrency2Id" Type="int" />
           <Property Name="RoyaltyFee" Type="decimal" Precision="18" Scale="4" />
           <Property Name="RoyaltyCurrencyId" Type="int" />
           <Property Name="RetailPrice" Type="decimal" Precision="18" Scale="4" />
@@ -907,6 +918,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Product_BuyingCurrency2Id">
+          <End Role="Currencies" Type="Self.Currencies" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Currencies">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="BuyingCurrency2Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Product_BuyingCurrencyId">
           <End Role="Currencies" Type="Self.Currencies" Multiplicity="0..1" />
           <End Role="Products" Type="Self.Products" Multiplicity="*" />
@@ -1003,6 +1026,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Product_SellingCurrency2Id">
+          <End Role="Currencies" Type="Self.Currencies" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Currencies">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="SellingCurrency2Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Product_SellingCurrencyId">
           <End Role="Currencies" Type="Self.Currencies" Multiplicity="1" />
           <End Role="Products" Type="Self.Products" Multiplicity="*" />
@@ -1072,6 +1107,18 @@
             </Principal>
             <Dependent Role="PurchaseOrders">
               <PropertyRef Name="ApprovedUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseOrder_BuyingCurrency2Id">
+          <End Role="Currencies" Type="Self.Currencies" Multiplicity="0..1" />
+          <End Role="PurchaseOrders" Type="Self.PurchaseOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Currencies">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PurchaseOrders">
+              <PropertyRef Name="BuyingCurrency2Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1228,6 +1275,18 @@
             </Principal>
             <Dependent Role="PurchaseOrders">
               <PropertyRef Name="RoyaltyCurrencyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseOrder_SellingCurrency2Id">
+          <End Role="Currencies" Type="Self.Currencies" Multiplicity="0..1" />
+          <End Role="PurchaseOrders" Type="Self.PurchaseOrders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Currencies">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PurchaseOrders">
+              <PropertyRef Name="SellingCurrency2Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1568,6 +1627,10 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="ProcessTemplates" EntitySet="ProcessTemplates" />
           </AssociationSet>
+          <AssociationSet Name="FK_Product_BuyingCurrency2Id" Association="Self.FK_Product_BuyingCurrency2Id">
+            <End Role="Currencies" EntitySet="Currencies" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
           <AssociationSet Name="FK_Product_BuyingCurrencyId" Association="Self.FK_Product_BuyingCurrencyId">
             <End Role="Currencies" EntitySet="Currencies" />
             <End Role="Products" EntitySet="Products" />
@@ -1600,6 +1663,10 @@
             <End Role="Currencies" EntitySet="Currencies" />
             <End Role="Products" EntitySet="Products" />
           </AssociationSet>
+          <AssociationSet Name="FK_Product_SellingCurrency2Id" Association="Self.FK_Product_SellingCurrency2Id">
+            <End Role="Currencies" EntitySet="Currencies" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
           <AssociationSet Name="FK_Product_SellingCurrencyId" Association="Self.FK_Product_SellingCurrencyId">
             <End Role="Currencies" EntitySet="Currencies" />
             <End Role="Products" EntitySet="Products" />
@@ -1622,6 +1689,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_PurchaseOrder_ApprovedUserId" Association="Self.FK_PurchaseOrder_ApprovedUserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseOrder_BuyingCurrency2Id" Association="Self.FK_PurchaseOrder_BuyingCurrency2Id">
+            <End Role="Currencies" EntitySet="Currencies" />
             <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
           </AssociationSet>
           <AssociationSet Name="FK_PurchaseOrder_BuyingCurrencyId" Association="Self.FK_PurchaseOrder_BuyingCurrencyId">
@@ -1673,6 +1744,10 @@
             <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
           </AssociationSet>
           <AssociationSet Name="FK_PurchaseOrder_RoyaltyCurrencyId" Association="Self.FK_PurchaseOrder_RoyaltyCurrencyId">
+            <End Role="Currencies" EntitySet="Currencies" />
+            <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseOrder_SellingCurrency2Id" Association="Self.FK_PurchaseOrder_SellingCurrency2Id">
             <End Role="Currencies" EntitySet="Currencies" />
             <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
           </AssociationSet>
@@ -2049,6 +2124,22 @@
             <End Role="ProcessStep" EntitySet="ProcessSteps" />
             <End Role="ProcessStepRevision" EntitySet="ProcessStepRevisions" />
           </AssociationSet>
+          <AssociationSet Name="FK_Product_BuyingCurrency2Id" Association="CriticalPathDataModel.FK_Product_BuyingCurrency2Id">
+            <End Role="Currency" EntitySet="Currencies" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_SellingCurrency2Id" Association="CriticalPathDataModel.FK_Product_SellingCurrency2Id">
+            <End Role="Currency" EntitySet="Currencies" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseOrder_BuyingCurrency2Id" Association="CriticalPathDataModel.FK_PurchaseOrder_BuyingCurrency2Id">
+            <End Role="Currency" EntitySet="Currencies" />
+            <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PurchaseOrder_SellingCurrency2Id" Association="CriticalPathDataModel.FK_PurchaseOrder_SellingCurrency2Id">
+            <End Role="Currency" EntitySet="Currencies" />
+            <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+          </AssociationSet>
           
         </EntityContainer>
         <EntityType Name="Company" Abstract="true">
@@ -2185,10 +2276,14 @@
           <Property Name="ImageUrl" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="UnitPrice" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
           <Property Name="SellingCurrencyId" Type="Int32" Nullable="false" />
+          <Property Name="UnitPrice2" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="SellingCurrency2Id" Type="Int32" />
           <Property Name="LicensorPrice" Type="Decimal" Precision="18" Scale="4" />
           <Property Name="LicensorCurrencyId" Type="Int32" />
           <Property Name="BuyingPrice" Type="Decimal" Precision="18" Scale="4" />
           <Property Name="BuyingCurrencyId" Type="Int32" />
+          <Property Name="BuyingPrice2" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="BuyingCurrency2Id" Type="Int32" />
           <Property Name="RoyaltyFee" Type="Decimal" Precision="18" Scale="4" />
           <Property Name="RoyaltyCurrencyId" Type="Int32" />
           <Property Name="RetailPrice" Type="Decimal" Precision="18" Scale="4" />
@@ -2206,15 +2301,17 @@
           <Property Name="CreatorId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
           <Property Name="CreatorIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Category" Relationship="CriticalPathDataModel.FK_Product_CategoryId" FromRole="Product" ToRole="ProductCategory" />
-          <NavigationProperty Name="PurchaseOrders" Relationship="CriticalPathDataModel.FK_PurchaseOrder_ProductId" FromRole="Product" ToRole="PurchaseOrder" />
-          <NavigationProperty Name="Suppliers" Relationship="CriticalPathDataModel.ProductsSuppliers" FromRole="Product" ToRole="Supplier" />
-          <NavigationProperty Name="DiscontinuedUser" Relationship="CriticalPathDataModel.FK_Product_DiscontinuedUserId" FromRole="Product" ToRole="AspNetUser" />
           <NavigationProperty Name="ModifiedUser" Relationship="CriticalPathDataModel.FK_Product_ModifierId" FromRole="Product" ToRole="AspNetUser" />
           <NavigationProperty Name="CreatedUser" Relationship="CriticalPathDataModel.FK_Product_CreatorId" FromRole="Product" ToRole="AspNetUser" />
+          <NavigationProperty Name="DiscontinuedUser" Relationship="CriticalPathDataModel.FK_Product_DiscontinuedUserId" FromRole="Product" ToRole="AspNetUser" />
+          <NavigationProperty Name="PurchaseOrders" Relationship="CriticalPathDataModel.FK_PurchaseOrder_ProductId" FromRole="Product" ToRole="PurchaseOrder" />
+          <NavigationProperty Name="Suppliers" Relationship="CriticalPathDataModel.ProductsSuppliers" FromRole="Product" ToRole="Supplier" />
           <NavigationProperty Name="BuyingCurrency" Relationship="CriticalPathDataModel.FK_Product_BuyingCurrencyId" FromRole="Product" ToRole="Currency" />
+          <NavigationProperty Name="BuyingCurrency2" Relationship="CriticalPathDataModel.FK_Product_BuyingCurrency2Id" FromRole="Product" ToRole="Currency" />
           <NavigationProperty Name="RetailCurrency" Relationship="CriticalPathDataModel.FK_Product_RetailCurrencyId" FromRole="Product" ToRole="Currency" />
           <NavigationProperty Name="RoyaltyCurrency" Relationship="CriticalPathDataModel.FK_Product_RoyaltyCurrencyId" FromRole="Product" ToRole="Currency" />
           <NavigationProperty Name="SellingCurrency" Relationship="CriticalPathDataModel.FK_Product_SellingCurrencyId" FromRole="Product" ToRole="Currency" />
+          <NavigationProperty Name="SellingCurrency2" Relationship="CriticalPathDataModel.FK_Product_SellingCurrency2Id" FromRole="Product" ToRole="Currency" />
           <NavigationProperty Name="LicensorCurrency" Relationship="CriticalPathDataModel.FK_Product_LicensorCurrencyId" FromRole="Product" ToRole="Currency" />
         </EntityType>
         <Association Name="FK_Product_CategoryId">
@@ -2248,14 +2345,21 @@
           <Property Name="LicensorId" Type="Int32" />
           <Property Name="ProductId" Type="Int32" Nullable="false" />
           <Property Name="SizingStandardId" Type="Int32" Nullable="false" />
+          <Property Name="FabricComposition" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Colour" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="ShipmentHangingFolded" Type="Int32" Nullable="false" />
           <Property Name="Quantity" Type="Int32" Nullable="false" />
           <Property Name="DiscountRate" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
           <Property Name="UnitPrice" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
           <Property Name="SellingCurrencyId" Type="Int32" Nullable="false" />
+          <Property Name="UnitPrice2" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="SellingCurrency2Id" Type="Int32" />
           <Property Name="LicensorPrice" Type="Decimal" Precision="18" Scale="4" />
           <Property Name="LicensorCurrencyId" Type="Int32" />
           <Property Name="BuyingPrice" Type="Decimal" Precision="18" Scale="4" />
           <Property Name="BuyingCurrencyId" Type="Int32" />
+          <Property Name="BuyingPrice2" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="BuyingCurrency2Id" Type="Int32" />
           <Property Name="RoyaltyFee" Type="Decimal" Precision="18" Scale="4" />
           <Property Name="RoyaltyCurrencyId" Type="Int32" />
           <Property Name="RetailPrice" Type="Decimal" Precision="18" Scale="4" />
@@ -2281,26 +2385,28 @@
           <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CreatorId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
           <Property Name="CreatorIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Customer" Relationship="CriticalPathDataModel.FK_PurchaseOrder_CustomerId" FromRole="PurchaseOrder" ToRole="Customer" />
-          <NavigationProperty Name="Processes" Relationship="CriticalPathDataModel.FK_Process_PurchaseOrderId" FromRole="PurchaseOrder" ToRole="Process" />
           <NavigationProperty Name="Product" Relationship="CriticalPathDataModel.FK_PurchaseOrder_ProductId" FromRole="PurchaseOrder" ToRole="Product" />
+          <NavigationProperty Name="ParentPo" Relationship="CriticalPathDataModel.FK_PurchaseOrder_ParentPoId" FromRole="PurchaseOrder1" ToRole="PurchaseOrder" />
+          <NavigationProperty Name="SubOrders" Relationship="CriticalPathDataModel.FK_PurchaseOrder_ParentPoId" FromRole="PurchaseOrder" ToRole="PurchaseOrder1" />
+          <NavigationProperty Name="Customer" Relationship="CriticalPathDataModel.FK_PurchaseOrder_CustomerId" FromRole="PurchaseOrder" ToRole="Customer" />
+          <NavigationProperty Name="CustomerDepartment" Relationship="CriticalPathDataModel.FK_PurchaseOrder_CustomerDepartmentId" FromRole="PurchaseOrder" ToRole="CustomerDepartment" />
+          <NavigationProperty Name="Licensor" Relationship="CriticalPathDataModel.FK_PurchaseOrder_LicensorId" FromRole="PurchaseOrder" ToRole="Licensor" />
           <NavigationProperty Name="SizeRatios" Relationship="CriticalPathDataModel.FK_SizeRatio_PurchaseOrderId" FromRole="PurchaseOrder" ToRole="SizeRatio" />
           <NavigationProperty Name="SizingStandard" Relationship="CriticalPathDataModel.FK_PurchaseOrder_SizingStandardId" FromRole="PurchaseOrder" ToRole="SizingStandard" />
+          <NavigationProperty Name="FreightTerm" Relationship="CriticalPathDataModel.FK_PurchaseOrder_FreightTermId" FromRole="PurchaseOrder" ToRole="FreightTerm" />
+          <NavigationProperty Name="Supplier" Relationship="CriticalPathDataModel.FK_PurchaseOrder_SupplierId" FromRole="PurchaseOrder" ToRole="Supplier" />
+          <NavigationProperty Name="BuyingCurrency" Relationship="CriticalPathDataModel.FK_PurchaseOrder_BuyingCurrencyId" FromRole="PurchaseOrder" ToRole="Currency" />
+          <NavigationProperty Name="BuyingCurrency2" Relationship="CriticalPathDataModel.FK_PurchaseOrder_BuyingCurrency2Id" FromRole="PurchaseOrder" ToRole="Currency" />
+          <NavigationProperty Name="LicensorCurrency" Relationship="CriticalPathDataModel.FK_PurchaseOrder_LicensorCurrencyId" FromRole="PurchaseOrder" ToRole="Currency" />
+          <NavigationProperty Name="RetailCurrency" Relationship="CriticalPathDataModel.FK_PurchaseOrder_RetailCurrencyId" FromRole="PurchaseOrder" ToRole="Currency" />
+          <NavigationProperty Name="RoyaltyCurrency" Relationship="CriticalPathDataModel.FK_PurchaseOrder_RoyaltyCurrencyId" FromRole="PurchaseOrder" ToRole="Currency" />
+          <NavigationProperty Name="SellingCurrency" Relationship="CriticalPathDataModel.FK_PurchaseOrder_SellingCurrencyId" FromRole="PurchaseOrder" ToRole="Currency" />
+          <NavigationProperty Name="SellingCurrency2" Relationship="CriticalPathDataModel.FK_PurchaseOrder_SellingCurrency2Id" FromRole="PurchaseOrder" ToRole="Currency" />
+          <NavigationProperty Name="Processes" Relationship="CriticalPathDataModel.FK_Process_PurchaseOrderId" FromRole="PurchaseOrder" ToRole="Process" />
           <NavigationProperty Name="ApprovedUser" Relationship="CriticalPathDataModel.FK_PurchaseOrder_ApprovedUserId" FromRole="PurchaseOrder" ToRole="AspNetUser" />
           <NavigationProperty Name="CreatedUser" Relationship="CriticalPathDataModel.FK_PurchaseOrder_CreatorId" FromRole="PurchaseOrder" ToRole="AspNetUser" />
           <NavigationProperty Name="CancelledUser" Relationship="CriticalPathDataModel.FK_PurchaseOrder_CancelledUserId" FromRole="PurchaseOrder" ToRole="AspNetUser" />
           <NavigationProperty Name="ModifiedUser" Relationship="CriticalPathDataModel.FK_PurchaseOrder_ModifierId" FromRole="PurchaseOrder" ToRole="AspNetUser" />
-          <NavigationProperty Name="FreightTerm" Relationship="CriticalPathDataModel.FK_PurchaseOrder_FreightTermId" FromRole="PurchaseOrder" ToRole="FreightTerm" />
-          <NavigationProperty Name="Supplier" Relationship="CriticalPathDataModel.FK_PurchaseOrder_SupplierId" FromRole="PurchaseOrder" ToRole="Supplier" />
-          <NavigationProperty Name="BuyingCurrency" Relationship="CriticalPathDataModel.FK_PurchaseOrder_BuyingCurrencyId" FromRole="PurchaseOrder" ToRole="Currency" />
-          <NavigationProperty Name="RetailCurrency" Relationship="CriticalPathDataModel.FK_PurchaseOrder_RetailCurrencyId" FromRole="PurchaseOrder" ToRole="Currency" />
-          <NavigationProperty Name="RoyaltyCurrency" Relationship="CriticalPathDataModel.FK_PurchaseOrder_RoyaltyCurrencyId" FromRole="PurchaseOrder" ToRole="Currency" />
-          <NavigationProperty Name="SellingCurrency" Relationship="CriticalPathDataModel.FK_PurchaseOrder_SellingCurrencyId" FromRole="PurchaseOrder" ToRole="Currency" />
-          <NavigationProperty Name="SubOrders" Relationship="CriticalPathDataModel.FK_PurchaseOrder_ParentPoId" FromRole="PurchaseOrder" ToRole="PurchaseOrder1" />
-          <NavigationProperty Name="ParentPo" Relationship="CriticalPathDataModel.FK_PurchaseOrder_ParentPoId" FromRole="PurchaseOrder1" ToRole="PurchaseOrder" />
-          <NavigationProperty Name="LicensorCurrency" Relationship="CriticalPathDataModel.FK_PurchaseOrder_LicensorCurrencyId" FromRole="PurchaseOrder" ToRole="Currency" />
-          <NavigationProperty Name="CustomerDepartment" Relationship="CriticalPathDataModel.FK_PurchaseOrder_CustomerDepartmentId" FromRole="PurchaseOrder" ToRole="CustomerDepartment" />
-          <NavigationProperty Name="Licensor" Relationship="CriticalPathDataModel.FK_PurchaseOrder_LicensorId" FromRole="PurchaseOrder" ToRole="Licensor" />
         </EntityType>
         <Association Name="FK_PurchaseOrder_CustomerId">
           <End Type="CriticalPathDataModel.Customer" Role="Customer" Multiplicity="1" />
@@ -3449,6 +3555,54 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Product_BuyingCurrency2Id">
+          <End Type="CriticalPathDataModel.Currency" Role="Currency" Multiplicity="0..1" />
+          <End Type="CriticalPathDataModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Currency">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="BuyingCurrency2Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_SellingCurrency2Id">
+          <End Type="CriticalPathDataModel.Currency" Role="Currency" Multiplicity="0..1" />
+          <End Type="CriticalPathDataModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Currency">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="SellingCurrency2Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseOrder_BuyingCurrency2Id">
+          <End Type="CriticalPathDataModel.Currency" Role="Currency" Multiplicity="0..1" />
+          <End Type="CriticalPathDataModel.PurchaseOrder" Role="PurchaseOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Currency">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PurchaseOrder">
+              <PropertyRef Name="BuyingCurrency2Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PurchaseOrder_SellingCurrency2Id">
+          <End Type="CriticalPathDataModel.Currency" Role="Currency" Multiplicity="0..1" />
+          <End Type="CriticalPathDataModel.PurchaseOrder" Role="PurchaseOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Currency">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PurchaseOrder">
+              <PropertyRef Name="SellingCurrency2Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3559,6 +3713,10 @@
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="CriticalPathDataModel.Product">
               <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="BuyingCurrency2Id" ColumnName="BuyingCurrency2Id" />
+                <ScalarProperty Name="BuyingPrice2" ColumnName="BuyingPrice2" />
+                <ScalarProperty Name="SellingCurrency2Id" ColumnName="SellingCurrency2Id" />
+                <ScalarProperty Name="UnitPrice2" ColumnName="UnitPrice2" />
                 <ScalarProperty Name="LicensorCurrencyId" ColumnName="LicensorCurrencyId" />
                 <ScalarProperty Name="LicensorPrice" ColumnName="LicensorPrice" />
                 <ScalarProperty Name="Licensed" ColumnName="Licensed" />
@@ -3593,6 +3751,13 @@
           <EntitySetMapping Name="PurchaseOrders">
             <EntityTypeMapping TypeName="CriticalPathDataModel.PurchaseOrder">
               <MappingFragment StoreEntitySet="PurchaseOrders">
+                <ScalarProperty Name="BuyingCurrency2Id" ColumnName="BuyingCurrency2Id" />
+                <ScalarProperty Name="BuyingPrice2" ColumnName="BuyingPrice2" />
+                <ScalarProperty Name="SellingCurrency2Id" ColumnName="SellingCurrency2Id" />
+                <ScalarProperty Name="UnitPrice2" ColumnName="UnitPrice2" />
+                <ScalarProperty Name="ShipmentHangingFolded" ColumnName="ShipmentHangingFolded" />
+                <ScalarProperty Name="Colour" ColumnName="Colour" />
+                <ScalarProperty Name="FabricComposition" ColumnName="FabricComposition" />
                 <ScalarProperty Name="LicensorId" ColumnName="LicensorId" />
                 <ScalarProperty Name="CustomerDepartmentId" ColumnName="CustomerDepartmentId" />
                 <ScalarProperty Name="LicensorCurrencyId" ColumnName="LicensorCurrencyId" />

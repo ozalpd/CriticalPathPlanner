@@ -457,8 +457,20 @@
     <Translation>Bu kayıtla ilişkili başka kayıtlar mevcut.</Translation>
   </Vocab>
   <Vocab>
+    <Name>Brushed</Name>
+    <Translation>Brushed</Translation>
+  </Vocab>
+  <Vocab>
     <Name>BuyingCurrency</Name>
     <Translation>Tedarik Para Birimi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>BuyingCurrency2</Name>
+    <Translation>Tedarik Para Birimi 2</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>BuyingCurrency2Id</Name>
+    <Translation>Tedarik Para Birimi 2</Translation>
   </Vocab>
   <Vocab>
     <Name>BuyingCurrencyId</Name>
@@ -467,6 +479,10 @@
   <Vocab>
     <Name>BuyingPrice</Name>
     <Translation>Tedarik Fiyatı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>BuyingPrice2</Name>
+    <Translation>Tedarik Fiyatı 2</Translation>
   </Vocab>
   <Vocab>
     <Name>Cancel</Name>
@@ -579,6 +595,10 @@
   <Vocab>
     <Name>Code</Name>
     <Translation>Kod</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Colour</Name>
+    <Translation>Renk</Translation>
   </Vocab>
   <Vocab>
     <Name>Command</Name>
@@ -1257,6 +1277,10 @@
     <Translation>Yayın Bitiş Tarihi</Translation>
   </Vocab>
   <Vocab>
+    <Name>FabricComposition</Name>
+    <Translation>Kumaş Bileşimi</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Fast</Name>
     <Translation>Hızlı</Translation>
   </Vocab>
@@ -1271,6 +1295,10 @@
   <Vocab>
     <Name>FirstName</Name>
     <Translation>Ad</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Folded</Name>
+    <Translation>Katlanmış</Translation>
   </Vocab>
   <Vocab>
     <Name>ForecastDate</Name>
@@ -1303,6 +1331,10 @@
   <Vocab>
     <Name>FullName</Name>
     <Translation>Tam İsim</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Hanging</Name>
+    <Translation>Askıda</Translation>
   </Vocab>
   <Vocab>
     <Name>Height</Name>
@@ -2033,6 +2065,14 @@
     <Translation>Satış Para Birimi</Translation>
   </Vocab>
   <Vocab>
+    <Name>SellingCurrency2</Name>
+    <Translation>Satış Para Birimi 2</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SellingCurrency2Id</Name>
+    <Translation>Satış Para Birimi 2</Translation>
+  </Vocab>
+  <Vocab>
     <Name>SellingCurrencyId</Name>
     <Translation>Satış Para Birimi</Translation>
   </Vocab>
@@ -2043,6 +2083,10 @@
   <Vocab>
     <Name>Setup</Name>
     <Translation>Kurulum</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ShipmentHangingFolded</Name>
+    <Translation>Taşıma Askıda / Katlanmış</Translation>
   </Vocab>
   <Vocab>
     <Name>Show</Name>
@@ -2285,6 +2329,10 @@
     <Translation>Silinemez</Translation>
   </Vocab>
   <Vocab>
+    <Name>Unbrushed</Name>
+    <Translation>Unbrushed</Translation>
+  </Vocab>
+  <Vocab>
     <Name>UnexpectedError</Name>
     <Translation>Beklenmedik Hata</Translation>
   </Vocab>
@@ -2295,6 +2343,10 @@
   <Vocab>
     <Name>UnitPrice</Name>
     <Translation>Birim Fiyat</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>UnitPrice2</Name>
+    <Translation>Birim Fiyat 2</Translation>
   </Vocab>
   <Vocab>
     <Name>Update</Name>

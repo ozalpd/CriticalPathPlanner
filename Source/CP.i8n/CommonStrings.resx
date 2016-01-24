@@ -91,6 +91,10 @@
 		<value>Application Settings</value>
 	</data>
 
+	<data name="Brushed" xml:space="preserve">
+		<value>Brushed</value>
+	</data>
+
 	<data name="CancelPurchaseOrder" xml:space="preserve">
 		<value>Cancel Purchase Order</value>
 	</data>
@@ -107,8 +111,16 @@
 		<value>First Name</value>
 	</data>
 
+	<data name="Folded" xml:space="preserve">
+		<value>Folded</value>
+	</data>
+
 	<data name="FullName" xml:space="preserve">
 		<value>Full Name</value>
+	</data>
+
+	<data name="Hanging" xml:space="preserve">
+		<value>Hanging</value>
 	</data>
 
 	<data name="Home" xml:space="preserve">
@@ -129,6 +141,10 @@
 
 	<data name="Setup" xml:space="preserve">
 		<value>Setup</value>
+	</data>
+
+	<data name="Unbrushed" xml:space="preserve">
+		<value>Unbrushed</value>
 	</data>
 
 	<data name="User" xml:space="preserve">

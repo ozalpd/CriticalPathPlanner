@@ -133,6 +133,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Brushed.
+        /// </summary>
+        public static string Brushed {
+            get {
+                return ResourceManager.GetString("Brushed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel Purchase Order.
         /// </summary>
         public static string CancelPurchaseOrder {
@@ -169,11 +178,29 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Folded.
+        /// </summary>
+        public static string Folded {
+            get {
+                return ResourceManager.GetString("Folded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Full Name.
         /// </summary>
         public static string FullName {
             get {
                 return ResourceManager.GetString("FullName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hanging.
+        /// </summary>
+        public static string Hanging {
+            get {
+                return ResourceManager.GetString("Hanging", resourceCulture);
             }
         }
         
@@ -219,6 +246,15 @@ namespace CP.i8n {
         public static string Setup {
             get {
                 return ResourceManager.GetString("Setup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unbrushed.
+        /// </summary>
+        public static string Unbrushed {
+            get {
+                return ResourceManager.GetString("Unbrushed", resourceCulture);
             }
         }
         

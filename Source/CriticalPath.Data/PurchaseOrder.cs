@@ -12,14 +12,14 @@ namespace CriticalPath.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class PurchaseOrder : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate, IIsApproved, IApproval, IHasProduct, ICancelled, ICancellation, IRetailPrice, ILicensorPrice, IRoyaltyFee, IBuyingPrice, ISellingPrice, IAllPrice
+    public partial class PurchaseOrder : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate, IIsApproved, IApproval, IHasProduct, ICancelled, ICancellation, ISellingPrice, IRetailPrice, ILicensorPrice, IRoyaltyFee, IBuyingPrice, IAllPrice
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PurchaseOrder()
         {
-            this.Processes = new HashSet<Process>();
-            this.SizeRatios = new HashSet<SizeRatio>();
             this.SubOrders = new HashSet<PurchaseOrder>();
+            this.SizeRatios = new HashSet<SizeRatio>();
+            this.Processes = new HashSet<Process>();
         }
     
         public int Id { get; set; }
@@ -37,14 +37,21 @@ namespace CriticalPath.Data
         public Nullable<int> LicensorId { get; set; }
         public int ProductId { get; set; }
         public int SizingStandardId { get; set; }
+        public string FabricComposition { get; set; }
+        public string Colour { get; set; }
+        public int ShipmentHangingFolded { get; set; }
         public int Quantity { get; set; }
         public decimal DiscountRate { get; set; }
         public decimal UnitPrice { get; set; }
         public int SellingCurrencyId { get; set; }
+        public Nullable<decimal> UnitPrice2 { get; set; }
+        public Nullable<int> SellingCurrency2Id { get; set; }
         public Nullable<decimal> LicensorPrice { get; set; }
         public Nullable<int> LicensorCurrencyId { get; set; }
         public Nullable<decimal> BuyingPrice { get; set; }
         public Nullable<int> BuyingCurrencyId { get; set; }
+        public Nullable<decimal> BuyingPrice2 { get; set; }
+        public Nullable<int> BuyingCurrency2Id { get; set; }
         public Nullable<decimal> RoyaltyFee { get; set; }
         public Nullable<int> RoyaltyCurrencyId { get; set; }
         public Nullable<decimal> RetailPrice { get; set; }
@@ -71,29 +78,31 @@ namespace CriticalPath.Data
         public string CreatorId { get; set; }
         public string CreatorIp { get; set; }
     
-        public virtual Customer Customer { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Process> Processes { get; set; }
         public virtual Product Product { get; set; }
+        public virtual PurchaseOrder ParentPo { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PurchaseOrder> SubOrders { get; set; }
+        public virtual Customer Customer { get; set; }
+        public virtual CustomerDepartment CustomerDepartment { get; set; }
+        public virtual Licensor Licensor { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SizeRatio> SizeRatios { get; set; }
         public virtual SizingStandard SizingStandard { get; set; }
+        public virtual FreightTerm FreightTerm { get; set; }
+        public virtual Supplier Supplier { get; set; }
+        public virtual Currency BuyingCurrency { get; set; }
+        public virtual Currency BuyingCurrency2 { get; set; }
+        public virtual Currency LicensorCurrency { get; set; }
+        public virtual Currency RetailCurrency { get; set; }
+        public virtual Currency RoyaltyCurrency { get; set; }
+        public virtual Currency SellingCurrency { get; set; }
+        public virtual Currency SellingCurrency2 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Process> Processes { get; set; }
         public virtual AspNetUser ApprovedUser { get; set; }
         public virtual AspNetUser CreatedUser { get; set; }
         public virtual AspNetUser CancelledUser { get; set; }
         public virtual AspNetUser ModifiedUser { get; set; }
-        public virtual FreightTerm FreightTerm { get; set; }
-        public virtual Supplier Supplier { get; set; }
-        public virtual Currency BuyingCurrency { get; set; }
-        public virtual Currency RetailCurrency { get; set; }
-        public virtual Currency RoyaltyCurrency { get; set; }
-        public virtual Currency SellingCurrency { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PurchaseOrder> SubOrders { get; set; }
-        public virtual PurchaseOrder ParentPo { get; set; }
-        public virtual Currency LicensorCurrency { get; set; }
-        public virtual CustomerDepartment CustomerDepartment { get; set; }
-        public virtual Licensor Licensor { get; set; }
     	/// <summary>
     	/// Clones all properties in a new PurchaseOrder instance,
     	/// except PrimaryKey(s)
@@ -116,14 +125,21 @@ namespace CriticalPath.Data
             clone.LicensorId = LicensorId;
             clone.ProductId = ProductId;
             clone.SizingStandardId = SizingStandardId;
+            clone.FabricComposition = FabricComposition;
+            clone.Colour = Colour;
+            clone.ShipmentHangingFolded = ShipmentHangingFolded;
             clone.Quantity = Quantity;
             clone.DiscountRate = DiscountRate;
             clone.UnitPrice = UnitPrice;
             clone.SellingCurrencyId = SellingCurrencyId;
+            clone.UnitPrice2 = UnitPrice2;
+            clone.SellingCurrency2Id = SellingCurrency2Id;
             clone.LicensorPrice = LicensorPrice;
             clone.LicensorCurrencyId = LicensorCurrencyId;
             clone.BuyingPrice = BuyingPrice;
             clone.BuyingCurrencyId = BuyingCurrencyId;
+            clone.BuyingPrice2 = BuyingPrice2;
+            clone.BuyingCurrency2Id = BuyingCurrency2Id;
             clone.RoyaltyFee = RoyaltyFee;
             clone.RoyaltyCurrencyId = RoyaltyCurrencyId;
             clone.RetailPrice = RetailPrice;
@@ -182,14 +198,21 @@ namespace CriticalPath.Data
             LicensorId = entity.LicensorId;
             ProductId = entity.ProductId;
             SizingStandardId = entity.SizingStandardId;
+            FabricComposition = entity.FabricComposition;
+            Colour = entity.Colour;
+            ShipmentHangingFolded = entity.ShipmentHangingFolded;
             Quantity = entity.Quantity;
             DiscountRate = entity.DiscountRate;
             UnitPrice = entity.UnitPrice;
             SellingCurrencyId = entity.SellingCurrencyId;
+            UnitPrice2 = entity.UnitPrice2;
+            SellingCurrency2Id = entity.SellingCurrency2Id;
             LicensorPrice = entity.LicensorPrice;
             LicensorCurrencyId = entity.LicensorCurrencyId;
             BuyingPrice = entity.BuyingPrice;
             BuyingCurrencyId = entity.BuyingCurrencyId;
+            BuyingPrice2 = entity.BuyingPrice2;
+            BuyingCurrency2Id = entity.BuyingCurrency2Id;
             RoyaltyFee = entity.RoyaltyFee;
             RoyaltyCurrencyId = entity.RoyaltyCurrencyId;
             RetailPrice = entity.RetailPrice;
@@ -228,14 +251,21 @@ namespace CriticalPath.Data
             entity.LicensorId = LicensorId;
             entity.ProductId = ProductId;
             entity.SizingStandardId = SizingStandardId;
+            entity.FabricComposition = FabricComposition;
+            entity.Colour = Colour;
+            entity.ShipmentHangingFolded = ShipmentHangingFolded;
             entity.Quantity = Quantity;
             entity.DiscountRate = DiscountRate;
             entity.UnitPrice = UnitPrice;
             entity.SellingCurrencyId = SellingCurrencyId;
+            entity.UnitPrice2 = UnitPrice2;
+            entity.SellingCurrency2Id = SellingCurrency2Id;
             entity.LicensorPrice = LicensorPrice;
             entity.LicensorCurrencyId = LicensorCurrencyId;
             entity.BuyingPrice = BuyingPrice;
             entity.BuyingCurrencyId = BuyingCurrencyId;
+            entity.BuyingPrice2 = BuyingPrice2;
+            entity.BuyingCurrency2Id = BuyingCurrency2Id;
             entity.RoyaltyFee = RoyaltyFee;
             entity.RoyaltyCurrencyId = RoyaltyCurrencyId;
             entity.RetailPrice = RetailPrice;
@@ -273,14 +303,21 @@ namespace CriticalPath.Data
         public Nullable<int> LicensorId { get; set; }
         public int ProductId { get; set; }
         public int SizingStandardId { get; set; }
+        public string FabricComposition { get; set; }
+        public string Colour { get; set; }
+        public int ShipmentHangingFolded { get; set; }
         public int Quantity { get; set; }
         public decimal DiscountRate { get; set; }
         public decimal UnitPrice { get; set; }
         public int SellingCurrencyId { get; set; }
+        public Nullable<decimal> UnitPrice2 { get; set; }
+        public Nullable<int> SellingCurrency2Id { get; set; }
         public Nullable<decimal> LicensorPrice { get; set; }
         public Nullable<int> LicensorCurrencyId { get; set; }
         public Nullable<decimal> BuyingPrice { get; set; }
         public Nullable<int> BuyingCurrencyId { get; set; }
+        public Nullable<decimal> BuyingPrice2 { get; set; }
+        public Nullable<int> BuyingCurrency2Id { get; set; }
         public Nullable<decimal> RoyaltyFee { get; set; }
         public Nullable<int> RoyaltyCurrencyId { get; set; }
         public Nullable<decimal> RetailPrice { get; set; }

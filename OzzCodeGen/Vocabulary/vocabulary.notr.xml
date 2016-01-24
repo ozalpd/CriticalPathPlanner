@@ -457,16 +457,32 @@
     <Translation>This record has some relations.</Translation>
   </Vocab>
   <Vocab>
+    <Name>Brushed</Name>
+    <Translation>Brushed</Translation>
+  </Vocab>
+  <Vocab>
     <Name>BuyingCurrency</Name>
-    <Translation>Factory Currency</Translation>
+    <Translation>Buying Currency</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>BuyingCurrency2</Name>
+    <Translation>Buying Currency 2nd</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>BuyingCurrency2Id</Name>
+    <Translation>Buying Currency 2nd</Translation>
   </Vocab>
   <Vocab>
     <Name>BuyingCurrencyId</Name>
-    <Translation>Factory Currency</Translation>
+    <Translation>Buying Currency</Translation>
   </Vocab>
   <Vocab>
     <Name>BuyingPrice</Name>
-    <Translation>Factory Price</Translation>
+    <Translation>Buying Price</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>BuyingPrice2</Name>
+    <Translation>Buying Price 2nd</Translation>
   </Vocab>
   <Vocab>
     <Name>Cancel</Name>
@@ -579,6 +595,10 @@
   <Vocab>
     <Name>Code</Name>
     <Translation>Code</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Colour</Name>
+    <Translation>Colour</Translation>
   </Vocab>
   <Vocab>
     <Name>Command</Name>
@@ -1257,6 +1277,10 @@
     <Translation>Expire Date</Translation>
   </Vocab>
   <Vocab>
+    <Name>FabricComposition</Name>
+    <Translation>Fabric Composition</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Fast</Name>
     <Translation>Fast</Translation>
   </Vocab>
@@ -1271,6 +1295,10 @@
   <Vocab>
     <Name>FirstName</Name>
     <Translation>First Name</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Folded</Name>
+    <Translation>Folded</Translation>
   </Vocab>
   <Vocab>
     <Name>ForecastDate</Name>
@@ -1303,6 +1331,10 @@
   <Vocab>
     <Name>FullName</Name>
     <Translation>Full Name</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Hanging</Name>
+    <Translation>Hanging</Translation>
   </Vocab>
   <Vocab>
     <Name>Height</Name>
@@ -2033,6 +2065,14 @@
     <Translation>Selling Currency</Translation>
   </Vocab>
   <Vocab>
+    <Name>SellingCurrency2</Name>
+    <Translation>Selling Currency2</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SellingCurrency2Id</Name>
+    <Translation>Selling Currency2Id</Translation>
+  </Vocab>
+  <Vocab>
     <Name>SellingCurrencyId</Name>
     <Translation>Selling Currency</Translation>
   </Vocab>
@@ -2043,6 +2083,10 @@
   <Vocab>
     <Name>Setup</Name>
     <Translation>Setup</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ShipmentHangingFolded</Name>
+    <Translation>Shipment Hanging Folded</Translation>
   </Vocab>
   <Vocab>
     <Name>Show</Name>
@@ -2285,6 +2329,10 @@
     <Translation>Unable to Delete</Translation>
   </Vocab>
   <Vocab>
+    <Name>Unbrushed</Name>
+    <Translation>Unbrushed</Translation>
+  </Vocab>
+  <Vocab>
     <Name>UnexpectedError</Name>
     <Translation>Unexpected Error</Translation>
   </Vocab>
@@ -2295,6 +2343,10 @@
   <Vocab>
     <Name>UnitPrice</Name>
     <Translation>Unit Price</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>UnitPrice2</Name>
+    <Translation>Unit Price2</Translation>
   </Vocab>
   <Vocab>
     <Name>Update</Name>

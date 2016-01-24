@@ -790,7 +790,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Factory Currency.
+        ///   Looks up a localized string similar to Buying Currency.
         /// </summary>
         public static string BuyingCurrency {
             get {
@@ -799,7 +799,25 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Factory Currency.
+        ///   Looks up a localized string similar to Buying Currency 2nd.
+        /// </summary>
+        public static string BuyingCurrency2 {
+            get {
+                return ResourceManager.GetString("BuyingCurrency2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Buying Currency 2nd.
+        /// </summary>
+        public static string BuyingCurrency2Id {
+            get {
+                return ResourceManager.GetString("BuyingCurrency2Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Buying Currency.
         /// </summary>
         public static string BuyingCurrencyId {
             get {
@@ -808,11 +826,20 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Factory Price.
+        ///   Looks up a localized string similar to Buying Price.
         /// </summary>
         public static string BuyingPrice {
             get {
                 return ResourceManager.GetString("BuyingPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Buying Price 2nd.
+        /// </summary>
+        public static string BuyingPrice2 {
+            get {
+                return ResourceManager.GetString("BuyingPrice2", resourceCulture);
             }
         }
         
@@ -921,6 +948,15 @@ namespace CP.i8n {
         public static string City {
             get {
                 return ResourceManager.GetString("City", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Colour.
+        /// </summary>
+        public static string Colour {
+            get {
+                return ResourceManager.GetString("Colour", resourceCulture);
             }
         }
         
@@ -2050,6 +2086,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fabric Composition.
+        /// </summary>
+        public static string FabricComposition {
+            get {
+                return ResourceManager.GetString("FabricComposition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to First Name.
         /// </summary>
         public static string FirstName {
@@ -3148,11 +3193,38 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Selling Currency2.
+        /// </summary>
+        public static string SellingCurrency2 {
+            get {
+                return ResourceManager.GetString("SellingCurrency2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selling Currency2Id.
+        /// </summary>
+        public static string SellingCurrency2Id {
+            get {
+                return ResourceManager.GetString("SellingCurrency2Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Selling Currency.
         /// </summary>
         public static string SellingCurrencyId {
             get {
                 return ResourceManager.GetString("SellingCurrencyId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shipment Hanging Folded.
+        /// </summary>
+        public static string ShipmentHangingFolded {
+            get {
+                return ResourceManager.GetString("ShipmentHangingFolded", resourceCulture);
             }
         }
         
@@ -3423,6 +3495,15 @@ namespace CP.i8n {
         public static string UnitPrice {
             get {
                 return ResourceManager.GetString("UnitPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unit Price2.
+        /// </summary>
+        public static string UnitPrice2 {
+            get {
+                return ResourceManager.GetString("UnitPrice2", resourceCulture);
             }
         }
         

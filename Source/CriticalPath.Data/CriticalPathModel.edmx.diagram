@@ -5,13 +5,13 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="e6b03672b606419ea6f4ffff6f898068" Name="Diagram1" ZoomLevel="80">
-        <EntityTypeShape EntityType="CriticalPathDataModel.AspNetUser" Width="7.625" PointX="8" PointY="11.125" />
+        <EntityTypeShape EntityType="CriticalPathDataModel.AspNetUser" Width="7.625" PointX="8" PointY="13.375" />
         <EntityTypeShape EntityType="CriticalPathDataModel.Process" Width="2.25" PointX="0.5" PointY="0.5" />
         <EntityTypeShape EntityType="CriticalPathDataModel.ProcessStep" Width="2" PointX="3.625" PointY="1" />
         <EntityTypeShape EntityType="CriticalPathDataModel.ProcessStepTemplate" Width="1.875" PointX="3" PointY="8.875" />
         <EntityTypeShape EntityType="CriticalPathDataModel.ProcessTemplate" Width="1.75" PointX="0.5" PointY="8.875" />
         <EntityTypeShape EntityType="CriticalPathDataModel.PurchaseOrder" Width="2.125" PointX="19.375" PointY="1.375" />
-        <EntityTypeShape EntityType="CriticalPathDataModel.Contact" Width="1.625" PointX="25.25" PointY="11.125" />
+        <EntityTypeShape EntityType="CriticalPathDataModel.Contact" Width="1.625" PointX="27.5" PointY="3.375" />
         <EntityTypeShape EntityType="CriticalPathDataModel.Company" Width="1.625" PointX="25.125" PointY="3.25" />
         <InheritanceConnector EntityType="CriticalPathDataModel.Customer" />
         <InheritanceConnector EntityType="CriticalPathDataModel.Supplier" />
@@ -107,6 +107,10 @@
         <EntityTypeShape EntityType="CriticalPathDataModel.ProcessStepRevision" Width="1.75" PointX="6.125" PointY="1" />
         <AssociationConnector Association="CriticalPathDataModel.FK_ProcessStepRevision_CreatorId" />
         <AssociationConnector Association="CriticalPathDataModel.FK_ProcessStepRevision_ProcessStepId" />
+        <AssociationConnector Association="CriticalPathDataModel.FK_Product_BuyingCurrency2Id" />
+        <AssociationConnector Association="CriticalPathDataModel.FK_Product_SellingCurrency2Id" />
+        <AssociationConnector Association="CriticalPathDataModel.FK_PurchaseOrder_BuyingCurrency2Id" />
+        <AssociationConnector Association="CriticalPathDataModel.FK_PurchaseOrder_SellingCurrency2Id" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
