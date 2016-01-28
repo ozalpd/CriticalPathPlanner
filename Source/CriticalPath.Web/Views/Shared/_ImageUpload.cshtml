@@ -1,0 +1,98 @@
+﻿@using CP.i8n
+@using CriticalPath.Data
+@using CriticalPath.Web.Models
+@model ImageUploadViewModel
+@{
+    string multiUpload = Model.MultiUpload ? "multiple upload" : "upload";
+    bool alwaysShowDropdown = true;
+}
+<div ng-app="fileUploadModule">
+    <div ng-controller="fileUploadCtrl">
+        <input type="text" name='@Model.PropertyName' value="{{selected}}" class="form-control mb10" />
+
+        <div class="control-group">
+            <div class="controls">
+                <span class="btn btn-lg btn-success fileinput-button">
+                    <br />&nbsp;
+                    <i class="glyphicon glyphicon-plus"></i>
+                    <input type="file" name="file" data-url='@Model.UploadUrl' @Html.Raw(multiUpload) />
+                    <span>
+                        &nbsp;@ActionStrings.AddFiles&nbsp;<br />
+                        &nbsp;
+                    </span>
+                </span>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" class="btn btn-primary pull-left" ng-disabled="!files.length" ng-click="upload()">
+                    <i class="glyphicon glyphicon-upload"></i>
+                    &nbsp;@ActionStrings.Upload &nbsp;
+                </button>
+            </div>
+        </div>
+
+        <div>
+            <table class="table table-striped" ng-show="files.length">
+                <tr>
+                    <th></th>
+                    <th>@CommonStrings.FileName</th>
+                    <th>@CommonStrings.FileSize</th>
+                    <th>@CommonStrings.FileModifyDate</th>
+                </tr>
+                <tr ng-repeat="file in files">
+                    <td>
+                        <button class="btn btn-sm btn-danger" title="Remove file" ng-click="removeFile(file)" type="button">
+                            <i class="glyphicon glyphicon-remove"></i>
+                        </button>
+                    </td>
+                    <td>{{file.name}}</td>
+                    <td>{{file.size | formatFileSize}}</td>
+                    <td>
+                        {{file.lastModifiedDate.toLocaleDateString()}}
+                        {{file.lastModifiedDate.toLocaleTimeString()}}
+                    </td>
+                </tr>
+            </table>
+            <span class="text-warning" ng-show="!files.length">@CommonStrings.NoFilesSelected</span>
+        </div>
+
+        <div class="progress" ng-show="percentage">
+            <div class="bar" style="width:{{percentage}}%;"></div>
+        </div>
+
+        <div ng-show="uploadedFiles.length">
+            @if (alwaysShowDropdown || Model.MultiUpload)
+            {
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            @ActionStrings.SelectImage <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li ng-repeat="u in uploadedFiles">
+                                <button class="btn btn-link" title="Select image" ng-click="setSelected(u)" type="button">
+                                    <img src='@Model.ThumbFolderUrl/{{u}}' alt="" width="72" />
+                                </button>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            }
+            <div class="clearfix"></div>
+            <div>
+                <h4>@CommonStrings.SelectedNewImage</h4>
+                <img src='@Model.ImageFolderUrl/{{selected}}' alt="" width="192" ng-show="selected" /><br />
+                {{selected}}
+            </div>
+        </div>
+    </div>
+</div>
+@if (!string.IsNullOrEmpty(Model.ImageName))
+{
+    <div class="clearfix"></div>
+    <div>
+        <h4>@CommonStrings.CurrentImage</h4>
+        <img src='@Model.ImageFolderUrl/@Model.ImageName' alt="" width="192" /><br />
+        @Model.ImageName
+    </div>
+}

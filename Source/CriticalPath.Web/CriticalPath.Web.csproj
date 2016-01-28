@@ -50,6 +50,10 @@
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="ImageResizer, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ImageResizer.4.0.4\lib\net45\ImageResizer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -208,6 +212,7 @@
     <Compile Include="Controllers\CustomerDepartmentsController.part.cs" />
     <Compile Include="Controllers\CustomersController.g.cs" />
     <Compile Include="Controllers\CustomersController.part.cs" />
+    <Compile Include="Controllers\FilesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LicensorsController.g.cs" />
     <Compile Include="Controllers\LicensorsController.part.cs" />
@@ -238,6 +243,7 @@
     <Compile Include="Models\AppSettings.cs" />
     <Compile Include="Models\DiscontinueCompanyVM.cs" />
     <Compile Include="Models\DiscontinuedVM.cs" />
+    <Compile Include="Models\ImageUploadViewModel.cs" />
     <Compile Include="Models\ProductCreateVM.cs" />
     <Compile Include="Models\ProductEditVM.cs" />
     <Compile Include="Models\PurchaseOrderCancelVM.cs" />
@@ -415,7 +421,12 @@
     <Content Include="Areas\Admin\Views\Employees\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Employees\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Employees\Index.cshtml" />
+    <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\angular.min.js.map" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
+    <Content Include="Scripts\App\fileUpload.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
     <Content Include="Scripts\respond.js" />
@@ -595,8 +606,11 @@
     <Content Include="Views\Shared\EditorTemplates\ShipmentHangingFolded.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\ShipmentHangingFolded.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\FreightTermDTO.cshtml" />
+    <Content Include="Views\Shared\_ImageUpload.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Files\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

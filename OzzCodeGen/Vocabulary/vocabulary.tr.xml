@@ -61,6 +61,10 @@
     <Translation>Çalışan Ekle</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddFiles</Name>
+    <Translation>Dosya Ekle</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddFreightTerm</Name>
     <Translation>Nakliye Koşulu Ekle</Translation>
   </Vocab>
@@ -841,6 +845,10 @@
     <Translation>Döviz Sembolü</Translation>
   </Vocab>
   <Vocab>
+    <Name>CurrentImage</Name>
+    <Translation>Mevcut Resim</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CurrentStep</Name>
     <Translation>Güncel Adım</Translation>
   </Vocab>
@@ -1293,6 +1301,18 @@
     <Translation>Kadın</Translation>
   </Vocab>
   <Vocab>
+    <Name>FileModifyDate</Name>
+    <Translation>Dosya Düzenleme Tarihi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>FileName</Name>
+    <Translation>Dosya Adı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>FileSize</Name>
+    <Translation>Dosya Boyu</Translation>
+  </Vocab>
+  <Vocab>
     <Name>FirstName</Name>
     <Translation>Ad</Translation>
   </Vocab>
@@ -1563,6 +1583,10 @@
   <Vocab>
     <Name>No</Name>
     <Translation>Hayır</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>NoFilesSelected</Name>
+    <Translation>Hiç Dosya Seçilmemiş!</Translation>
   </Vocab>
   <Vocab>
     <Name>NoResults</Name>
@@ -2061,6 +2085,14 @@
     <Translation>Para Birimini Seçiniz</Translation>
   </Vocab>
   <Vocab>
+    <Name>SelectedNewImage</Name>
+    <Translation>Seçili Resim</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SelectImage</Name>
+    <Translation>Resim Seç</Translation>
+  </Vocab>
+  <Vocab>
     <Name>SelectPlease</Name>
     <Translation>Lütfen Seçiniz</Translation>
   </Vocab>
@@ -2355,6 +2387,10 @@
   <Vocab>
     <Name>Update</Name>
     <Translation>Güncelle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Upload</Name>
+    <Translation>Yükle</Translation>
   </Vocab>
   <Vocab>
     <Name>User</Name>

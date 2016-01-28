@@ -25,6 +25,27 @@ namespace CriticalPath.Web.Models
             //TODO: Load settings from DB
         }
 
+
+        public int MaxImageHeight
+        {
+            get { return 800; }
+        }
+
+        public int MaxImageWidht
+        {
+            get { return 800; }
+        }
+
+        public int MaxThumbHeight
+        {
+            get { return 80; }
+        }
+
+        public int MaxThumbWidht
+        {
+            get { return 80; }
+        }
+
         public bool ShowRetailPrice
         {
             get { return false; }
@@ -33,6 +54,15 @@ namespace CriticalPath.Web.Models
         public bool ShowSecondaryPrices
         {
             get { return true; }
+        }
+
+        public static class Urls
+        {
+            public static string BigImageUpload = "/Files/BigImageUpload";
+            public static string ImageUpload = "/Files/ImageUpload";
+            public static string ProductImages = "/ProductFiles/Images";
+            public static string ThumbImages = "/ProductFiles/Thumbs";
+            public static string TempUploads = "/TempUploads";
         }
 
         public string SelectedTheme
@@ -54,7 +84,7 @@ namespace CriticalPath.Web.Models
 
 
 
-        //TODO: Load themed from DB
+        //TODO: Load themes from DB
         public static string[] Themes =
         {
             "~/Content/Slate",

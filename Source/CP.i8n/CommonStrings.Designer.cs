@@ -160,11 +160,47 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Current Image.
+        /// </summary>
+        public static string CurrentImage {
+            get {
+                return ResourceManager.GetString("CurrentImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
         public static string Email {
             get {
                 return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File Modify Date.
+        /// </summary>
+        public static string FileModifyDate {
+            get {
+                return ResourceManager.GetString("FileModifyDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File Name.
+        /// </summary>
+        public static string FileName {
+            get {
+                return ResourceManager.GetString("FileName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File Size.
+        /// </summary>
+        public static string FileSize {
+            get {
+                return ResourceManager.GetString("FileSize", resourceCulture);
             }
         }
         
@@ -223,6 +259,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No Files Selected!.
+        /// </summary>
+        public static string NoFilesSelected {
+            get {
+                return ResourceManager.GetString("NoFilesSelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Not Picked.
         /// </summary>
         public static string NotPicked {
@@ -237,6 +282,15 @@ namespace CP.i8n {
         public static string Record {
             get {
                 return ResourceManager.GetString("Record", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selected New Image.
+        /// </summary>
+        public static string SelectedNewImage {
+            get {
+                return ResourceManager.GetString("SelectedNewImage", resourceCulture);
             }
         }
         

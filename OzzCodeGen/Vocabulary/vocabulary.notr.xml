@@ -61,6 +61,10 @@
     <Translation>Add Employee</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddFiles</Name>
+    <Translation>Add Files</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddFreightTerm</Name>
     <Translation>Add Freight Term</Translation>
   </Vocab>
@@ -841,6 +845,10 @@
     <Translation>Currency Symbol</Translation>
   </Vocab>
   <Vocab>
+    <Name>CurrentImage</Name>
+    <Translation>Current Image</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CurrentStep</Name>
     <Translation>Current Step</Translation>
   </Vocab>
@@ -1293,6 +1301,18 @@
     <Translation>Female</Translation>
   </Vocab>
   <Vocab>
+    <Name>FileModifyDate</Name>
+    <Translation>File Modify Date</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>FileName</Name>
+    <Translation>File Name</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>FileSize</Name>
+    <Translation>File Size</Translation>
+  </Vocab>
+  <Vocab>
     <Name>FirstName</Name>
     <Translation>First Name</Translation>
   </Vocab>
@@ -1563,6 +1583,10 @@
   <Vocab>
     <Name>No</Name>
     <Translation>No</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>NoFilesSelected</Name>
+    <Translation>No Files Selected!</Translation>
   </Vocab>
   <Vocab>
     <Name>NoResults</Name>
@@ -2061,6 +2085,14 @@
     <Translation>Select Currency</Translation>
   </Vocab>
   <Vocab>
+    <Name>SelectedNewImage</Name>
+    <Translation>Selected New Image</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>SelectImage</Name>
+    <Translation>Select Image</Translation>
+  </Vocab>
+  <Vocab>
     <Name>SelectPlease</Name>
     <Translation>Please Select</Translation>
   </Vocab>
@@ -2355,6 +2387,10 @@
   <Vocab>
     <Name>Update</Name>
     <Translation>Update</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Upload</Name>
+    <Translation>Upload</Translation>
   </Vocab>
   <Vocab>
     <Name>User</Name>

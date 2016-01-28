@@ -71,6 +71,10 @@
 		<value>Ekle</value>
 	</data>
 
+	<data name="AddFiles" xml:space="preserve">
+		<value>Dosya Ekle</value>
+	</data>
+
 	<data name="AddNew" xml:space="preserve">
 		<value>Yeni Ekle</value>
 	</data>
@@ -219,6 +223,10 @@
 		<value>Para Birimini Seçiniz</value>
 	</data>
 
+	<data name="SelectImage" xml:space="preserve">
+		<value>Resim Seç</value>
+	</data>
+
 	<data name="SelectPlease" xml:space="preserve">
 		<value>Lütfen Seçiniz</value>
 	</data>
@@ -241,6 +249,10 @@
 
 	<data name="Update" xml:space="preserve">
 		<value>Güncelle</value>
+	</data>
+
+	<data name="Upload" xml:space="preserve">
+		<value>Yükle</value>
 	</data>
 
 	<data name="Yes" xml:space="preserve">

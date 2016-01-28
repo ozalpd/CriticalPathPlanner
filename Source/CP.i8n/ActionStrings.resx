@@ -71,6 +71,10 @@
 		<value>Add</value>
 	</data>
 
+	<data name="AddFiles" xml:space="preserve">
+		<value>Add Files</value>
+	</data>
+
 	<data name="AddNew" xml:space="preserve">
 		<value>Add New</value>
 	</data>
@@ -219,6 +223,10 @@
 		<value>Select Currency</value>
 	</data>
 
+	<data name="SelectImage" xml:space="preserve">
+		<value>Select Image</value>
+	</data>
+
 	<data name="SelectPlease" xml:space="preserve">
 		<value>Please Select</value>
 	</data>
@@ -241,6 +249,10 @@
 
 	<data name="Update" xml:space="preserve">
 		<value>Update</value>
+	</data>
+
+	<data name="Upload" xml:space="preserve">
+		<value>Upload</value>
 	</data>
 
 	<data name="Yes" xml:space="preserve">

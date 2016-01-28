@@ -29,6 +29,9 @@ namespace CriticalPath.Web
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+                        "~/Scripts/angular.min.js"));
+
             bundles.Add(new StyleBundle("~/Content/themes").Include(
                         "~/Content/themes/base/core.css",
                         //"~/Content/themes/base/resizable.css",
