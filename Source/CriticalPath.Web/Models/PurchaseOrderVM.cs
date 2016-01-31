@@ -19,8 +19,13 @@ namespace CriticalPath.Web.Models
             base.Constructing(entity);
             Customer = entity.Customer != null ? new CustomerDTO(entity.Customer) : null;
             CustomerDepartment = entity.CustomerDepartment != null ? new CustomerDepartmentDTO(entity.CustomerDepartment) : null;
-            Licensor = entity.Licensor != null ? new LicensorDTO(entity.Licensor) : null;
+            
             Product = entity.Product != null ? new ProductDTO(entity.Product) : null;
+            if(entity.Licensor != null)
+            {
+                Licensor = new LicensorDTO(entity.Licensor);
+                LicensorName = Licensor.CompanyName;
+            }
 
             SizingStandard = entity.SizingStandard != null ? new SizingStandardDTO(entity.SizingStandard) : null;
 
@@ -35,6 +40,43 @@ namespace CriticalPath.Web.Models
             RetailCurrency = entity.RetailCurrency != null ? new CurrencyDTO(entity.RetailCurrency) : null;
         }
 
+
+        public string ProductImage
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(_productImage) &&
+                    (Product == null || String.IsNullOrEmpty(Product.ImageUrl)))
+                {
+                    return AppSettings.Urls.NoImageAvailable;
+                }
+                else if (string.IsNullOrEmpty(_productImage))
+                {
+                    _productImage = string.Format("{0}/{1}", AppSettings.Urls.ProductImages, Product.ImageUrl);
+                }
+                return _productImage;
+            }
+        }
+        private string _productImage;
+
+        public string ProductThumb
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(_productThumb) &&
+                    (Product == null || String.IsNullOrEmpty(Product.ImageUrl)))
+                {
+                    return AppSettings.Urls.NoImageAvailable;
+                }
+                else if (string.IsNullOrEmpty(_productThumb))
+                {
+                    _productThumb = string.Format("{0}/{1}", AppSettings.Urls.ThumbImages, Product.ImageUrl);
+                }
+                return _productThumb;
+            }
+        }
+        private string _productThumb;
+
         [Display(ResourceType = typeof(EntityStrings), Name = "Customer")]
         public CustomerDTO Customer { get; set; }
 
@@ -43,6 +85,9 @@ namespace CriticalPath.Web.Models
 
         [Display(ResourceType = typeof(EntityStrings), Name = "Licensor")]
         public LicensorDTO Licensor { get; set; }
+
+        [Display(ResourceType = typeof(EntityStrings), Name = "Licensor")]
+        public string LicensorName { get; set; }
 
         [Display(ResourceType = typeof(EntityStrings), Name = "Product")]
         public ProductDTO Product { get; set; }

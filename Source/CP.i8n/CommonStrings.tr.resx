@@ -179,6 +179,10 @@
 		<value>Seçilmemiş</value>
 	</data>
 
+	<data name="ProductImage" xml:space="preserve">
+		<value>Product Image</value>
+	</data>
+
 	<data name="Record" xml:space="preserve">
 		<value>Kayıt</value>
 	</data>

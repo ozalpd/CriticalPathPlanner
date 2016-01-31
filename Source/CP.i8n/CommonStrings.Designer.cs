@@ -331,6 +331,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Product Image.
+        /// </summary>
+        public static string ProductImage {
+            get {
+                return ResourceManager.GetString("ProductImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Record.
         /// </summary>
         public static string Record {

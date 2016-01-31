@@ -61,11 +61,14 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                                 .Take(50)
                                 .ToArrayAsync();
 
-            var products = await DataContext.Products
+            var list = await DataContext.Products
                             .OrderByDescending(p => p.RoyaltyFee)
-                            .ThenBy(p => p.ProductCode)
+                            .ThenByDescending(p => p.UnitPrice)
                             .Take(50)
-                            .ToArrayAsync();
+                            .ToListAsync();
+            var products = list.OrderBy(p => p.RoyaltyFee)
+                            .ThenBy(p => p.UnitPrice)
+                            .ToArray();
 
             Random rnd = new Random(DateTime.Now.Millisecond);
             var terms = await DataContext.FreightTerms.Where(f => f.IsPublished).ToArrayAsync();
@@ -1064,7 +1067,7 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 DataContext.ProductCategories.Add(catg);
                 countCatg++;
                 Random rnd = new Random();
-                int countProduct = rnd.Next(5, 13);
+                int countProduct = rnd.Next(1, 3);
                 var lipsums = Text.LipsumSentences;
                 for (int i = 0; i < countProduct; i++)
                 {

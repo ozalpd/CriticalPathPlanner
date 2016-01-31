@@ -8,7 +8,7 @@
 }
 <div ng-app="fileUploadModule">
     <div ng-controller="fileUploadCtrl">
-        <input type="text" name='@Model.PropertyName' value="{{selected}}" class="form-control mb10" />
+        <input type="hidden" name='@Model.PropertyName' value="{{selected}}" class="form-control mb10" />
 
         <div class="control-group">
             <div class="controls">
@@ -82,7 +82,6 @@
             <div>
                 <h4>@CommonStrings.SelectedNewImage</h4>
                 <img src='@Model.ImageFolderUrl/{{selected}}' alt="" width="192" ng-show="selected" /><br />
-                {{selected}}
             </div>
         </div>
     </div>

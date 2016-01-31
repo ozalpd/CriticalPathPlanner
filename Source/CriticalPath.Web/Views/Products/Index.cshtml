@@ -38,6 +38,7 @@
         <table id="productGrid" class="table table-striped table-bordered table-hover">
             <tr>
                 <th>@ActionStrings.Action</th>
+                <th>@CommonStrings.ProductImage</th>
                 <th>@Html.DisplayNameFor(model => model.ProductCode)</th>
                 <th>@Html.DisplayNameFor(model => model.Description)</th>
                 <th>@Html.DisplayNameFor(model => model.Category)</th>
@@ -68,6 +69,19 @@
                                 }
                             </ul>
                         </div>
+                    </td>
+                    <td>
+                        @if (string.IsNullOrEmpty(item.ImageUrl))
+                        {
+                            <span class="text-danger">No Image</span>
+                        }
+                        else
+                        {
+                            <label class="btn pt0 pb0 pl0 pr0" style="max-height:53px;overflow:hidden;"
+                                   onclick="showImage('@Html.Encode(item.ProductCode)', '@AppSettings.Urls.ProductImages/@item.ImageUrl', false)">
+                                <img src="@AppSettings.Urls.ThumbImages/@item.ImageUrl" style="width:40px;" />
+                            </label>
+                        }
                     </td>
                     <td>@Html.DisplayFor(modelItem => item.ProductCode)</td>
                     <td>@Html.DisplayFor(modelItem => item.Description)</td>

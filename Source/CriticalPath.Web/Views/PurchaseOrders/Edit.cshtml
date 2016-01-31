@@ -206,8 +206,15 @@
             <label class="control-label col-lg-2 col-md-3 col-sm-3">
                 @Html.DisplayNameFor(model => model.Product.ProductCode)
             </label>
-            <div class="col-lg-5 col-md-6 col-sm-7">
+            <div class="col-lg-4 col-md-5 col-sm-5">
                 @Html.TextBoxFor(m => m.Product.ProductCode, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+            <div class="col-xs-12 visible-xs mb5 mt5"></div>
+            <div class="col-sm-2 col-md-1 pl0">
+                <label class="btn pt0 pb0 pl0 pr0" style="max-height:53px;margin-top:-5px;overflow:hidden;"
+                       onclick="showImage('@Html.Encode(Model.Product.ProductCode)', '@Model.ProductImage', false)">
+                    <img src='@Model.ProductThumb' style="margin-top:-5px;width:100%" class="pull-right" />
+                </label>
             </div>
         </div>
 
@@ -291,7 +298,9 @@
         @Html.Partial("_SaveButtonsPartial")
     </div>
 </form>
+@Html.Partial("_MessageBoxPartial")
 @section Scripts
 {
     @Scripts.Render("~/bundles/jqueryval")
+    @Html.Partial("_IndexScriptsPartial", "PurchaseOrders")
 }

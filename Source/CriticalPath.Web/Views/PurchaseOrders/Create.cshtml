@@ -190,10 +190,9 @@
                 {
                     <div class="col-xs-12 visible-xs mb5 mt5"></div>
                     <div class="col-sm-2 col-md-1 pl0">
-                        @* TODO: make a partial view *@
                         <label class="btn pt0 pb0 pl0 pr0" style="max-height:53px;margin-top:-5px;overflow:hidden;"
-                               onclick="showImage('@Html.Encode(Model.Product.ProductCode)', '@AppSettings.Urls.ProductImages/@Model.Product.ImageUrl', false)">
-                            <img src='@AppSettings.Urls.ThumbImages/@Model.Product.ImageUrl' alt='@Model.ProductCode' style="margin-top:-5px;width:100%" class="pull-right" />
+                               onclick="showImage('@Html.Encode(Model.Product.ProductCode)', '@Model.ProductImage', false)">
+                            <img src='@Model.ProductThumb' alt='@Model.ProductCode' style="margin-top:-5px;width:100%" class="pull-right" />
                         </label>
                     </div>
                 }

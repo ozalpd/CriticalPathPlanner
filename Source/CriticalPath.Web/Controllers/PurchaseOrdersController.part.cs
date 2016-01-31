@@ -686,9 +686,12 @@ namespace CriticalPath.Web.Controllers
             purchaseOrder.ApproveDate = null;
             purchaseOrder.IsApproved = false;
 
-            purchaseOrder.DesignerId = await GetEmployeeId();
-            purchaseOrder.Merchandiser1Id = await GetEmployeeId();
-            purchaseOrder.Merchandiser2Id = await GetEmployeeId();
+            if (!purchaseOrder.DesignerId.HasValue)
+                purchaseOrder.DesignerId = await GetEmployeeId();
+            if (!purchaseOrder.Merchandiser1Id.HasValue)
+                purchaseOrder.Merchandiser1Id = await GetEmployeeId();
+            if (!purchaseOrder.Merchandiser2Id.HasValue)
+                purchaseOrder.Merchandiser2Id = await GetEmployeeId();
 
             //TODO:Get count of PO at this month
         }

@@ -326,7 +326,7 @@ namespace CriticalPath.Web.Controllers
                 await DataContext.SaveChangesAsync(this);
 
                 await OnCreateSaved(process);
-                return RedirectToAction("Index", "ProcessSteps", new { processId = process.Id, pageSize = process.ProcessSteps.Count });
+                return RedirectToAction("Index");
             }
 
             await SetProcessTemplateSelectList(process);

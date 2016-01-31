@@ -5,7 +5,6 @@
 <script type="text/javascript">
     function setDelete(item, id) {
         $('#deleteText').html('@MessageStrings.YouAreAboutToDelete ' + item + '.<br/>@MessageStrings.AreYouSure?');
-        @*$('#deleteButton').attr('href', '/@Model/Delete/' + id);*@
         $('#ajxDelete').attr('onclick', 'ajaxDelete(' + id + ')');
     }
     function ajaxDelete(id) {

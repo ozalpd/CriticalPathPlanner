@@ -1949,6 +1949,10 @@
     <Translation>Product</Translation>
   </Vocab>
   <Vocab>
+    <Name>ProductImage</Name>
+    <Translation>Product Image</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Products</Name>
     <Translation>Products</Translation>
   </Vocab>

@@ -105,11 +105,20 @@
         @Html.DisplayFor(m => m.Licensor)
     </div>
 </div>
+
+<div class="row">
+    <label class="control-label col-md-2 col-sm-3 mb5">
+        @CommonStrings.ProductImage
+    </label>
+    <div class="col-lg-4 col-md-5 col-sm-5">
+        <img src='@Model.ProductImage' style="width:100%" />
+    </div>
+</div>
 <div class="row">
     <label class="control-label col-md-2 col-sm-3 mb5">
         @Html.DisplayNameFor(model => model.Product)
     </label>
-    <div class="col-md-10 col-sm-9 mt5 fontSize150pc">
+    <div class="col-md-10 col-sm-9 mt10 fontSize125pc">
         @Html.DisplayFor(m => m.Product)
     </div>
 </div>

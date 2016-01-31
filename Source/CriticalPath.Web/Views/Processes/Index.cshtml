@@ -70,7 +70,7 @@
                 return[
                      { headerName: '@ActionStrings.Action', field: "Id", width: 60, cellRenderer: actionCellRenderer},
                      { headerName: '@EntityStrings.PurchaseOrder', field: "PoNr", width: 110, headerClass: "wrapText", cellRenderer: purchaseOrderCellRenderer },
-                     { headerName: '@Html.DisplayNameFor(m => m.ProductCode)', field: "ProductCode", width: 90, cellClass: "wrapText" },
+                     { headerName: '@Html.DisplayNameFor(m => m.ProductCode)', field: "ProductCode", width: 90, cellRenderer:productCellRenderer, cellClass: "wrapText" },
                      { headerName: '@Html.DisplayNameFor(m => m.ProductDescription)', field: "ProductDescription", width: 90, cellClass: "wrapText" },
                      { headerName: '@Html.DisplayNameFor(m => m.CustomerName)', field: "CustomerName", width: 90, cellClass: "wrapText" },
                      { headerName: '@Html.DisplayNameFor(m => m.ParentCategoryName)', field: "ParentCategoryName", width: 90, headerClass: "wrapText", cellClass: "wrapText" },
@@ -110,6 +110,16 @@
                     '<a href="#dateSubmitModal" data-toggle="modal" onclick="setDateSubmitModal(\'' + modalHeader + '\', \''+ title + '\', \''+ jsonDate + '\', \''+ submitFunction + '\')" class="btn btn-default btn-xxs"><span class="glyphicon glyphicon-pencil"></span></a>' +
                     '<div class="text-right" style="width:90px;">' +
                     jsonDateToLocaleDateString(jsonDate) + '</div></div></div>';
+            }
+
+            function productCellRenderer(params){
+                var img = '';
+                if(params.data.ImageUrl!=null && params.data.ImageUrl!=''){
+                    img = '<label class="btn pt0 pb0 pl0 pr0" style="max-height:36px;overflow:hidden;" onclick="showImage(\''+ params.value + '\', \'' +
+                        '@AppSettings.Urls.ProductImages/' + params.data.ImageUrl + '\', false)">' +
+                        '<img src="@AppSettings.Urls.ThumbImages/' + params.data.ImageUrl + '" style="width:60px;margin-top:-8px;" /></label>';
+                }
+                return img + '<div class="verticalQuarter fontSize125pc">' + params.value + '</div>';
             }
 
             function purchaseOrderCellRenderer(params){

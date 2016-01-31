@@ -180,6 +180,11 @@
                                     </a>
                                 </li>
                             }
+                            @if (!item.IsApproved && canUserEdit)
+                            {
+                                <li class="divider"></li>
+                                <li>@Html.ActionLink(EntityStrings.EditProduct, "Edit", "Products", new { id = item.ProductId }, null)</li>
+                            }
                             @if (canUserCreate)
                             {
                                 <li class="divider"></li>
@@ -226,6 +231,13 @@
                     <td align="right">@Html.DisplayFor(modelItem => item.DueDate)</td>
                 }
                 <td>
+                    @if (!string.IsNullOrEmpty(item.Product?.ImageUrl))
+                    {
+                        <label class="btn pt0 pb0 pl0 pr0" style="max-height:53px;overflow:hidden;"
+                               onclick="showImage('@Html.Encode(item.Product.ProductCode)', '@AppSettings.Urls.ProductImages/@item.Product.ImageUrl', false)">
+                            <img src="@AppSettings.Urls.ThumbImages/@item.Product.ImageUrl" style="width:40px;" />
+                        </label>
+                    }
                     @Html.DisplayFor(modelItem => item.Product)
                 </td>
                 <td>

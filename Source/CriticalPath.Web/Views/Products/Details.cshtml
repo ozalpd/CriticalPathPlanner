@@ -33,10 +33,17 @@
     </div>
     <div class="row">
         <label class="control-label col-md-2 col-sm-3 mb5">
-            @Html.DisplayNameFor(model => model.ImageUrl)
+            @CommonStrings.CurrentImage
         </label>
         <div class="col-lg-8 col-md-9 col-sm-9 mt10">
-            @Html.DisplayFor(m => m.ImageUrl)
+            @if (string.IsNullOrEmpty(Model.ImageUrl))
+            {
+                <img src="@AppSettings.Urls.NoImageAvailable" style="width:40%;border:2px solid black" />
+            }
+            else
+            {
+                <img src="@AppSettings.Urls.ProductImages/@Model.ImageUrl" alt="@Model.Description" style="width:75%" />
+            }
         </div>
     </div>
     <div class="row">
