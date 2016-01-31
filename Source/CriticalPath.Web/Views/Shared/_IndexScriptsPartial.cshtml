@@ -23,6 +23,10 @@
             showMessageBox(errorThrown, msgboxMsg, true);
         });
     }
+    function showImage(title, imgUrl, cancelButton) {
+        var innerHtml = "<img src='" + imgUrl + "' style='width:100%;' />";
+        showMessageBox(title, innerHtml, cancelButton);
+    }
     function showMessageBox(title, text, cancelButton) {
         if (cancelButton) {
             $('#messageBoxCancelButton').show();

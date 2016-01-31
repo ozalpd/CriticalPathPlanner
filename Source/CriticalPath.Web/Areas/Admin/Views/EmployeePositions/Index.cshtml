@@ -1,0 +1,100 @@
+@using CriticalPath.Web.Models
+@using CriticalPath.Data
+@using CP.i8n
+@model IEnumerable<EmployeePosition>
+@{
+    ViewBag.Title = @EntityStrings.EmployeePositions;
+
+    //Authorization Flags
+    bool canUserEdit = ViewBag.canUserEdit;
+    bool canUserCreate = ViewBag.canUserCreate;
+    bool canUserDelete = ViewBag.canUserDelete;
+    bool canSeeRestricted = ViewBag.canSeeRestricted;
+
+    //Records & Pager
+    int page = ViewBag.page;
+    int totalCount = ViewBag.totalCount;
+    int pageSize = ViewBag.pageSize;
+    int pageCount = ViewBag.pageCount;
+
+    var title = EntityStrings.EmployeePositions;
+}
+<div class="row well hidden-print">
+    <div class="col-md-8 col-sm-7">
+        <h4>@title</h4>
+    </div>
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "searchForm" }))
+    {
+        @Html.Hidden("page", page)
+        @Html.Hidden("pageSize", pageSize)
+        <div class="col-md-4 col-sm-5">
+            @Html.Partial("_SearchBoxPartial")
+        </div>
+    }
+</div>
+@if (totalCount > 0)
+{
+    <div id="employeePositionGridParent" class="table-responsive">
+        <table id="employeePositionGrid" class="table table-striped table-bordered table-hover">
+            <tr>
+                <th class="hidden-print" width="20px">@ActionStrings.Action</th>
+                <th>@Html.DisplayNameFor(model => model.Position)</th>
+                <th>@Html.DisplayNameFor(model => model.AppDefault)</th>
+            </tr>
+    @foreach (var item in Model)
+    {
+                <tr>
+                    <td class="hidden-print">
+                        <div class="btn-group">
+                            <button type="button" title="@ActionStrings.Action" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown" onclick='onActionMenuClick(this)'>
+                                <span class="glyphicon glyphicon-tasks"></span> <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>@Html.ActionLink(ActionStrings.Details, "Details", new { id = item.Id })</li>
+                                @if (canUserEdit && !item.AppDefault)
+                                {
+                                    <li>@Html.ActionLink(ActionStrings.Edit, "Edit", new { id = item.Id })</li>
+                                }
+                                @if (canUserDelete && !item.AppDefault)
+                                {
+                                    <li>
+                                        <a href="#deleteConfirm" data-toggle="modal" onclick="setDelete('<b>@Html.Encode(item.Position)</b>', @item.Id);">
+                                            @ActionStrings.Delete
+                                        </a>
+                                    </li>
+                                }
+                        </ul>
+                    </div>
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.Position)</td>
+                <td>@Html.DisplayFor(modelItem => item.AppDefault)</td>
+            </tr>
+    }
+        </table>
+    </div>
+}
+else
+{
+    <h4>@MessageStrings.NoResults!</h4>
+}
+@Html.Partial("_PagerPartial")
+@Html.Partial("_MessageBoxPartial")
+@section scripts{
+    @Html.Partial("_IndexScriptsPartial", "EmployeePositions") @* Controller's name *@
+    <script type="text/javascript">
+        function onActionMenuClick(menuBtn) {
+            setTimeout(function () {
+                var menuHeight = 160;
+                var rectMenu = menuBtn.getBoundingClientRect();
+                var rectGrid = document.getElementById("employeePositionGrid").getBoundingClientRect();
+                var diffY = rectGrid.bottom - rectMenu.bottom - menuHeight;
+
+                if (diffY < 0) {
+                    var viewport = $('#employeePositionGridParent');
+                    var viewportScroll = viewport.scrollTop();
+                    viewport.scrollTop((diffY * -1) + viewportScroll);
+                }
+            }, 250);
+        }
+    </script>
+}

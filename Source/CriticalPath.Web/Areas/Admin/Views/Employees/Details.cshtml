@@ -13,56 +13,66 @@
 
 <h2>@EntityStrings.Employee @ActionStrings.Details</h2>
 
-@if (!Model.IsActive)
-{ <div class="row text-danger mb20">
-        <label class="col-md-2 col-sm-3 text-right fontWeigthBold">
+<div class="form-horizontal mb20">
+    @if (!Model.IsActive)
+    { <div class="row text-danger mb20">
+        <label class="control-label col-md-2 col-sm-3 mb5">
             @Html.DisplayNameFor(model => model.InactivateDate)
         </label>
-        <div class="col-md-10 col-sm-9 fontSize125pc">
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10 fontSize125pc">
             @Html.DisplayFor(m => m.InactivateDate)
         </div>
     </div>
-}
+    }
 
-<div class="row mb10">
-    <div class="col-md-2 col-sm-3 text-right fontWeigthBold">
-        @Html.DisplayNameFor(model => model.UserName)
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.UserName)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+            @Html.DisplayFor(m => m.UserName)
+        </div>
     </div>
-    <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.UserName)
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.FirstName)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+            @Html.DisplayFor(m => m.FirstName)
+        </div>
     </div>
-</div>
-<div class="row mb10">
-    <div class="col-md-2 col-sm-3 text-right fontWeigthBold">
-        @Html.DisplayNameFor(model => model.FirstName)
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.LastName)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+            @Html.DisplayFor(m => m.LastName)
+        </div>
     </div>
-    <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.FirstName)
-    </div>
-</div>
-<div class="row mb10">
-    <div class="col-md-2 col-sm-3 text-right fontWeigthBold">
-        @Html.DisplayNameFor(model => model.LastName)
-    </div>
-    <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.LastName)
-    </div>
-</div>
-<div class="row mb10">
-    <div class="col-md-2 col-sm-3 text-right fontWeigthBold">
-        @Html.DisplayNameFor(model => model.Email)
-    </div>
-    <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.Email)
-    </div>
-</div>
-<div class="row mb10">
-    <div class="col-md-2 col-sm-3 text-right fontWeigthBold">
-        @Html.DisplayNameFor(model => model.PhoneNumber)
-    </div>
-    <div class="col-md-10 col-sm-9">
-        @Html.DisplayFor(m => m.PhoneNumber)
-    </div>
-</div>
 
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.Position)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+            @Html.DisplayFor(m => m.Position)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.Email)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+            @Html.DisplayFor(m => m.Email)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+            @Html.DisplayFor(m => m.PhoneNumber)
+        </div>
+    </div>
+</div>
 @Html.Partial("_DetailFormButtonsPartial")

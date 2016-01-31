@@ -17,14 +17,14 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
 {
     public partial class EmployeesController : BaseController 
     {
-        [Authorize(Roles = "admin, supervisor")]
+        [Authorize(Roles = "admin, supervisor, clerk")]
         public async Task<ActionResult> GetEmployeeList(QueryParameters qParams)
         {
             var result = await GetEmployeeDtoList(qParams);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
-        [Authorize(Roles = "admin, supervisor")]
+        [Authorize(Roles = "admin, supervisor, clerk")]
         public async Task<ActionResult> GetEmployeePagedList(QueryParameters qParams)
         {
             var items = await GetEmployeeDtoList(qParams);
@@ -32,7 +32,7 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
-        [Authorize(Roles = "admin, supervisor")]
+        [Authorize(Roles = "admin, supervisor, clerk")]
         public async Task<JsonResult> GetEmployeesForAutoComplete(QueryParameters qParam)
         {
             var query = GetEmployeeQuery()
@@ -49,7 +49,7 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             return Json(await list.ToListAsync(), JsonRequestBehavior.AllowGet);
         }
 
-        [Authorize(Roles = "admin, supervisor")]
+        [Authorize(Roles = "admin, supervisor, clerk")]
         public async Task<ActionResult> GetEmployee(int? id)
         {
             if (id == null)
@@ -67,46 +67,14 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
         }
 
 
-
-        [Authorize(Roles = "admin")]
-        public async Task<ActionResult> Delete(int? id)  //GET: /Employees/Delete/5
-        {
-            if (id == null)
-            {
-                return BadRequestTextResult();
-            }
-            Employee employee = await FindAsyncEmployee(id.Value);
-
-            if (employee == null)
-            {
-                return NotFoundTextResult();
-            }
-
-            DataContext.Employees.Remove(employee);
-            try
-            {
-                await DataContext.SaveChangesAsync(this);
-            }
-            catch (Exception ex)
-            {
-                var sb = new StringBuilder();
-                sb.Append(MessageStrings.CanNotDelete);
-                sb.Append(employee.AspNetUser.UserName);
-                sb.Append("<br/>");
-                AppendExceptionMsg(ex, sb);
-
-                return StatusCodeTextResult(sb, HttpStatusCode.InternalServerError);
-            }
-
-            return new HttpStatusCodeResult(HttpStatusCode.OK);
-        }
-
         public new partial class QueryParameters : BaseController.QueryParameters
         {
             public QueryParameters() { }
             public QueryParameters(QueryParameters parameters) : base(parameters)
             {
+                PositionId = parameters.PositionId;
             }
+            public int? PositionId { get; set; }
             public bool? IsActive { get; set; }
             public DateTime? InactivateDateMin { get; set; }
             public DateTime? InactivateDateMax { get; set; }

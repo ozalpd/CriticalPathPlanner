@@ -14,8 +14,11 @@ namespace CriticalPath.Web.Controllers
         {
             var filename = string.Format("{0}.{1}", Guid.NewGuid(), jpg);
 
-            ResizeImage(file, AppSettings.Urls.ProductImages, filename, jpg);
-            ResizeImage(file, AppSettings.Urls.ThumbImages, filename, jpg);
+            var settings = GetResizeSettings(AppSettings.Settings.MaxImageWidht, AppSettings.Settings.MaxImageHeight, jpg);
+            ResizeImage(file, AppSettings.Urls.ProductImages, filename, settings);
+
+            settings = GetResizeSettings(AppSettings.Settings.MaxThumbWidht, AppSettings.Settings.MaxThumbHeight, jpg);
+            ResizeImage(file, AppSettings.Urls.ThumbImages, filename, settings);
 
             return new ContentResult
             {
@@ -25,11 +28,9 @@ namespace CriticalPath.Web.Controllers
             };
         }
 
-        protected virtual void ResizeImage(HttpPostedFileBase sourceFile, string targetFolder, string targetName, string format)
+        protected virtual void ResizeImage(HttpPostedFileBase sourceFile, string targetFolder, string targetName, Instructions settings)
         {
             var target = string.Format("~{0}/{1}", targetFolder, targetName);
-
-            var settings = GetResizeSettings(AppSettings.Settings.MaxImageWidht, AppSettings.Settings.MaxImageHeight, format);
 
             ImageJob job = new ImageJob(sourceFile, target, settings);
             job.CreateParentDirectory = true;

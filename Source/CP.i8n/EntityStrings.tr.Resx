@@ -95,6 +95,10 @@
 		<value>Çalışan Ekle</value>
 	</data>
 
+	<data name="AddEmployeePosition" xml:space="preserve">
+		<value>İş Pozisyonu Ekle</value>
+	</data>
+
 	<data name="AddFreightTerm" xml:space="preserve">
 		<value>Nakliye Koşulu Ekle</value>
 	</data>
@@ -137,6 +141,10 @@
 
 	<data name="AddNewEmployee" xml:space="preserve">
 		<value>Yeni Çalışan Ekle</value>
+	</data>
+
+	<data name="AddNewEmployeePosition" xml:space="preserve">
+		<value>Yeni İş Pozisyonu Ekle</value>
 	</data>
 
 	<data name="AddNewFreightTerm" xml:space="preserve">
@@ -263,6 +271,10 @@
 		<value>Çalışan Ekle/Çıkar</value>
 	</data>
 
+	<data name="AddRemoveEmployeePosition" xml:space="preserve">
+		<value>İş Pozisyonu Ekle/Çıkar</value>
+	</data>
+
 	<data name="AddRemoveFreightTerm" xml:space="preserve">
 		<value>Nakliye Koşulu Ekle/Çıkar</value>
 	</data>
@@ -349,6 +361,10 @@
 
 	<data name="AfterSteps" xml:space="preserve">
 		<value>Sonraki Adımlar</value>
+	</data>
+
+	<data name="AppDefault" xml:space="preserve">
+		<value>Uyg.Varsayılanı</value>
 	</data>
 
 	<data name="ApproveDate" xml:space="preserve">
@@ -551,6 +567,10 @@
 		<value>Çalışan Oluştur</value>
 	</data>
 
+	<data name="CreateEmployeePosition" xml:space="preserve">
+		<value>İş Pozisyonu Oluştur</value>
+	</data>
+
 	<data name="CreateFreightTerm" xml:space="preserve">
 		<value>Nakliye Koşulu Oluştur</value>
 	</data>
@@ -691,6 +711,10 @@
 		<value>Müşteri Listesi</value>
 	</data>
 
+	<data name="DefaultJobPositions" xml:space="preserve">
+		<value>Default Job Positions</value>
+	</data>
+
 	<data name="DefaultTitle" xml:space="preserve">
 		<value>Varsayılan Başlık</value>
 	</data>
@@ -725,6 +749,10 @@
 
 	<data name="DeleteEmployee" xml:space="preserve">
 		<value>Çalışanı Sil</value>
+	</data>
+
+	<data name="DeleteEmployeePosition" xml:space="preserve">
+		<value>İş Pozisyonunu Sil</value>
 	</data>
 
 	<data name="DeleteFreightTerm" xml:space="preserve">
@@ -807,6 +835,14 @@
 		<value>Açıklama</value>
 	</data>
 
+	<data name="Designer" xml:space="preserve">
+		<value>Tasarımcı</value>
+	</data>
+
+	<data name="DesignerId" xml:space="preserve">
+		<value>Tasarımcı</value>
+	</data>
+
 	<data name="Discontinued" xml:space="preserve">
 		<value>Sonlandırıldı</value>
 	</data>
@@ -873,6 +909,10 @@
 
 	<data name="EditEmployee" xml:space="preserve">
 		<value>Çalışanı Düzenle</value>
+	</data>
+
+	<data name="EditEmployeePosition" xml:space="preserve">
+		<value>İş Pozisyonunu Düzenle</value>
 	</data>
 
 	<data name="EditFreightTerm" xml:space="preserve">
@@ -951,6 +991,18 @@
 		<value>Çalışan</value>
 	</data>
 
+	<data name="EmployeePosition" xml:space="preserve">
+		<value>İş Pozisyonu</value>
+	</data>
+
+	<data name="EmployeePositions" xml:space="preserve">
+		<value>İş Pozisyonları</value>
+	</data>
+
+	<data name="EmployeePositionsList" xml:space="preserve">
+		<value>İş Pozisyonu Listesi</value>
+	</data>
+
 	<data name="Employees" xml:space="preserve">
 		<value>Çalışanlar</value>
 	</data>
@@ -960,7 +1012,7 @@
 	</data>
 
 	<data name="FabricComposition" xml:space="preserve">
-		<value>Kumaş Bileşimi</value>
+		<value>Kumaş İçeriği</value>
 	</data>
 
 	<data name="FirstName" xml:space="preserve">
@@ -985,6 +1037,10 @@
 
 	<data name="FreightTermsList" xml:space="preserve">
 		<value>Nakliye Koşul Listesi</value>
+	</data>
+
+	<data name="HangerSticker" xml:space="preserve">
+		<value>Askı Sticker</value>
 	</data>
 
 	<data name="Id" xml:space="preserve">
@@ -1029,6 +1085,10 @@
 
 	<data name="KimballNr" xml:space="preserve">
 		<value>Kimball No</value>
+	</data>
+
+	<data name="Labelling" xml:space="preserve">
+		<value>Karton Etiket</value>
 	</data>
 
 	<data name="LastName" xml:space="preserve">
@@ -1093,6 +1153,26 @@
 
 	<data name="ManufacturersList" xml:space="preserve">
 		<value>Üretici Listesi</value>
+	</data>
+
+	<data name="Merchandiser" xml:space="preserve">
+		<value>Satış Temsilcisi</value>
+	</data>
+
+	<data name="Merchandiser1" xml:space="preserve">
+		<value>Satış Temsilcisi 1</value>
+	</data>
+
+	<data name="Merchandiser1Id" xml:space="preserve">
+		<value>Satış Temsilcisi 1</value>
+	</data>
+
+	<data name="Merchandiser2" xml:space="preserve">
+		<value>Satış Temsilcisi 2</value>
+	</data>
+
+	<data name="Merchandiser2Id" xml:space="preserve">
+		<value>Satış Temsilcisi 2</value>
 	</data>
 
 	<data name="ModifiedUser" xml:space="preserve">
@@ -1181,6 +1261,18 @@
 
 	<data name="PoNr" xml:space="preserve">
 		<value>Sipariş Kodu</value>
+	</data>
+
+	<data name="Position" xml:space="preserve">
+		<value>Pozisyon</value>
+	</data>
+
+	<data name="PositionId" xml:space="preserve">
+		<value>Pozisyon</value>
+	</data>
+
+	<data name="Print" xml:space="preserve">
+		<value>Yazdır</value>
 	</data>
 
 	<data name="Process" xml:space="preserve">
@@ -1349,6 +1441,10 @@
 
 	<data name="RemoveEmployee" xml:space="preserve">
 		<value>Çalışanı Çıkar</value>
+	</data>
+
+	<data name="RemoveEmployeePosition" xml:space="preserve">
+		<value>İş Pozisyonunu Çıkar</value>
 	</data>
 
 	<data name="RemoveFreightTerm" xml:space="preserve">
@@ -1593,6 +1689,14 @@
 
 	<data name="UserName" xml:space="preserve">
 		<value>Kullanıcı Adı</value>
+	</data>
+
+	<data name="WashingInstructions" xml:space="preserve">
+		<value>Yıkama Talimatı</value>
+	</data>
+
+	<data name="WoovenLabel" xml:space="preserve">
+		<value>Ense Etiket</value>
 	</data>
 
 	<data name="ZipCode" xml:space="preserve">

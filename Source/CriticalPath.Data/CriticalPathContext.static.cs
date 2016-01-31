@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace CriticalPath.Data
@@ -37,14 +38,7 @@ namespace CriticalPath.Data
         public async Task<List<CurrencyDTO>> GetCurrencyDtoList()
         {
             if (_currencyDtos == null)
-            {
-                var list = await GetCurrencyQuery().ToListAsync();
-                _currencyDtos = new List<CurrencyDTO>();
-                foreach (var item in list)
-                {
-                    _currencyDtos.Add(new CurrencyDTO(item));
-                }
-            }
+                await RefreshCurrencyDtoList();
 
             return _currencyDtos;
         }
@@ -52,26 +46,69 @@ namespace CriticalPath.Data
 
         public async Task RefreshCurrencyDtoList()
         {
-            var list = await GetCurrencyQuery().ToListAsync();
-            var Currencys = new List<CurrencyDTO>();
-            foreach (var item in list)
+            var list = await GetCurrencyDtoQuery().ToListAsync();
+            _currencyDtos = list;
+        }
+
+        public async Task<List<EmployeePositionDTO>> GetEmployeePositionDtoList()
+        {
+            if (_employeePositionDtos == null)
+                await RefreshEmployeePositionDtoList();
+
+            return _employeePositionDtos;
+        }
+        static List<EmployeePositionDTO> _employeePositionDtos;
+
+        public async Task RefreshEmployeePositionDtoList()
+        {
+            var list = await GetEmployeePositionDtoQuery().ToListAsync();
+            _employeePositionDtos = list;
+        }
+
+        public async Task<List<EmployeeDTO>> GetDesignerDtoList()
+        {
+            if (_designerDtos == null)
             {
-                Currencys.Add(new CurrencyDTO(item));
+                await RefreshDesignerDtoList();
             }
-            _currencyDtos = Currencys;
+
+            return _designerDtos;
+        }
+        static List<EmployeeDTO> _designerDtos;
+
+        public async Task RefreshDesignerDtoList()
+        {
+            var query = GetEmployeeQuery()
+                        .Where(e => e.PositionId == (int)DefaultJobPositions.Designer);
+
+            var list = await GetEmployeeDtoQuery(query).ToListAsync();
+            _designerDtos = list;
+        }
+
+        public async Task<List<EmployeeDTO>> GetMerchandiserDtoList()
+        {
+            if (_merchandiserDtos == null)
+            {
+                await RefreshMerchandiserDtoList();
+            }
+
+            return _merchandiserDtos;
+        }
+        static List<EmployeeDTO> _merchandiserDtos;
+
+        public async Task RefreshMerchandiserDtoList()
+        {
+            var query = GetEmployeeQuery()
+                        .Where(e => e.PositionId == (int)DefaultJobPositions.Merchandiser);
+
+            var list = await GetEmployeeDtoQuery(query).ToListAsync();
+            _merchandiserDtos = list;
         }
 
         public async Task<List<FreightTermDTO>> GetFreightTermDtoList()
         {
             if (_freightTermDtos == null)
-            {
-                var list = await GetFreightTermQuery().ToListAsync();
-                _freightTermDtos = new List<FreightTermDTO>();
-                foreach (var item in list)
-                {
-                    _freightTermDtos.Add(new FreightTermDTO(item));
-                }
-            }
+                 _freightTermDtos = await GetFreightTermDtoQuery().ToListAsync();
 
             return _freightTermDtos;
         }
@@ -79,26 +116,14 @@ namespace CriticalPath.Data
 
         public async Task RefreshFreightTermDtoList()
         {
-            var list = await GetFreightTermQuery().ToListAsync();
-            var FreightTerms = new List<FreightTermDTO>();
-            foreach (var item in list)
-            {
-                FreightTerms.Add(new FreightTermDTO(item));
-            }
-            _freightTermDtos = FreightTerms;
+            var list = await GetFreightTermDtoQuery().ToListAsync();
+            _freightTermDtos = list;
         }
 
         public async Task<List<SizingStandardDTO>> GetSizingStandardDtoList()
         {
             if (_sizingStandardDtos == null)
-            {
-                var list = await GetSizingStandardQuery().ToListAsync();
-                _sizingStandardDtos = new List<SizingStandardDTO>();
-                foreach (var item in list)
-                {
-                    _sizingStandardDtos.Add(new SizingStandardDTO(item));
-                }
-            }
+                await RefreshSizingStandardDtoList();
 
             return _sizingStandardDtos;
         }

@@ -84,10 +84,15 @@ namespace CriticalPath.Web.Controllers
             public QueryParameters() { }
             public QueryParameters(QueryParameters parameters) : base(parameters)
             {
+                DesignerId = parameters.DesignerId;
+                Merchandiser1Id = parameters.Merchandiser1Id;
+                Merchandiser2Id = parameters.Merchandiser2Id;
                 ProductId = parameters.ProductId;
                 SellingCurrencyId = parameters.SellingCurrencyId;
+                SellingCurrency2Id = parameters.SellingCurrency2Id;
                 LicensorCurrencyId = parameters.LicensorCurrencyId;
                 BuyingCurrencyId = parameters.BuyingCurrencyId;
+                BuyingCurrency2Id = parameters.BuyingCurrency2Id;
                 RoyaltyCurrencyId = parameters.RoyaltyCurrencyId;
                 RetailCurrencyId = parameters.RetailCurrencyId;
                 CustomerId = parameters.CustomerId;
@@ -97,10 +102,15 @@ namespace CriticalPath.Web.Controllers
                 SupplierId = parameters.SupplierId;
                 SizingStandardId = parameters.SizingStandardId;
             }
+            public int? DesignerId { get; set; }
+            public int? Merchandiser1Id { get; set; }
+            public int? Merchandiser2Id { get; set; }
             public int? ProductId { get; set; }
             public int? SellingCurrencyId { get; set; }
+            public int? SellingCurrency2Id { get; set; }
             public int? LicensorCurrencyId { get; set; }
             public int? BuyingCurrencyId { get; set; }
+            public int? BuyingCurrency2Id { get; set; }
             public int? RoyaltyCurrencyId { get; set; }
             public int? RetailCurrencyId { get; set; }
             public int? CustomerId { get; set; }

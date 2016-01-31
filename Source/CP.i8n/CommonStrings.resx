@@ -75,6 +75,30 @@
 		<value>Admin</value>
 	</data>
 
+	<data name="AllCustomers" xml:space="preserve">
+		<value>All Customers</value>
+	</data>
+
+	<data name="AllDepartments" xml:space="preserve">
+		<value>All Departments</value>
+	</data>
+
+	<data name="AllDesigners" xml:space="preserve">
+		<value>All Designers</value>
+	</data>
+
+	<data name="AllMerchandisers" xml:space="preserve">
+		<value>All Merchandisers</value>
+	</data>
+
+	<data name="AllPositions" xml:space="preserve">
+		<value>All Positions</value>
+	</data>
+
+	<data name="AllSuppliers" xml:space="preserve">
+		<value>All Suppliers</value>
+	</data>
+
 	<data name="ApplicationBriefName" xml:space="preserve">
 		<value>CP</value>
 	</data>
@@ -173,6 +197,10 @@
 
 	<data name="Unbrushed" xml:space="preserve">
 		<value>Unbrushed</value>
+	</data>
+
+	<data name="Unmarked" xml:space="preserve">
+		<value>Unmarked</value>
 	</data>
 
 	<data name="User" xml:space="preserve">

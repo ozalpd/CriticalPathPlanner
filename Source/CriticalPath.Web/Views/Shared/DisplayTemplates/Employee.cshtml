@@ -7,5 +7,5 @@
 }
 @if (Model != null)
 {
-    <div><a href='/Employees/Details/@Model.Id'>@Model.AspNetUser.UserName</a></div>
+    <div>@Model.AspNetUser.FirstName @Model.AspNetUser.LastName</div>
 }

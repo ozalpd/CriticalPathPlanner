@@ -61,6 +61,10 @@
     <Translation>Çalışan Ekle</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddEmployeePosition</Name>
+    <Translation>İş Pozisyonu Ekle</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddFiles</Name>
     <Translation>Dosya Ekle</Translation>
   </Vocab>
@@ -111,6 +115,10 @@
   <Vocab>
     <Name>AddNewEmployee</Name>
     <Translation>Yeni Çalışan Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewEmployeePosition</Name>
+    <Translation>Yeni İş Pozisyonu Ekle</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNewFreightTerm</Name>
@@ -273,6 +281,10 @@
     <Translation>Çalışan Ekle/Çıkar</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddRemoveEmployeePosition</Name>
+    <Translation>İş Pozisyonu Ekle/Çıkar</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddRemoveFreightTerm</Name>
     <Translation>Nakliye Koşulu Ekle/Çıkar</Translation>
   </Vocab>
@@ -393,8 +405,36 @@
     <Translation>Sonraki Adımlar</Translation>
   </Vocab>
   <Vocab>
+    <Name>AllCustomers</Name>
+    <Translation>Tüm Müşteriler</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AllDepartments</Name>
+    <Translation>Tüm Departmanlar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AllDesigners</Name>
+    <Translation>Tüm Tasarımcılar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AllMerchandisers</Name>
+    <Translation>Tüm Satış Temsilcileri</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AllPositions</Name>
+    <Translation>Tüm Pozisyonlar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AllSuppliers</Name>
+    <Translation>Tüm Tedarikçiler</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Always</Name>
     <Translation>Her zaman</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AppDefault</Name>
+    <Translation>Uyg.Varsayılanı</Translation>
   </Vocab>
   <Vocab>
     <Name>ApplicationBriefName</Name>
@@ -462,7 +502,7 @@
   </Vocab>
   <Vocab>
     <Name>Brushed</Name>
-    <Translation>Brushed</Translation>
+    <Translation>Fırçalı</Translation>
   </Vocab>
   <Vocab>
     <Name>BuyingCurrency</Name>
@@ -721,6 +761,10 @@
     <Translation>Çalışan Oluştur</Translation>
   </Vocab>
   <Vocab>
+    <Name>CreateEmployeePosition</Name>
+    <Translation>İş Pozisyonu Oluştur</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CreateFreightTerm</Name>
     <Translation>Nakliye Koşulu Oluştur</Translation>
   </Vocab>
@@ -901,6 +945,10 @@
     <Translation>Tarihi</Translation>
   </Vocab>
   <Vocab>
+    <Name>DefaultJobPositions</Name>
+    <Translation>Default Job Positions</Translation>
+  </Vocab>
+  <Vocab>
     <Name>DefaultTitle</Name>
     <Translation>Varsayılan Başlık</Translation>
   </Vocab>
@@ -939,6 +987,10 @@
   <Vocab>
     <Name>DeleteEmployee</Name>
     <Translation>Çalışanı Sil</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteEmployeePosition</Name>
+    <Translation>İş Pozisyonunu Sil</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteFreightTerm</Name>
@@ -1057,6 +1109,14 @@
     <Translation>Açıklama</Translation>
   </Vocab>
   <Vocab>
+    <Name>Designer</Name>
+    <Translation>Tasarımcı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DesignerId</Name>
+    <Translation>Tasarımcı</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Details</Name>
     <Translation>Detay</Translation>
   </Vocab>
@@ -1159,6 +1219,10 @@
   <Vocab>
     <Name>EditEmployee</Name>
     <Translation>Çalışanı Düzenle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditEmployeePosition</Name>
+    <Translation>İş Pozisyonunu Düzenle</Translation>
   </Vocab>
   <Vocab>
     <Name>EditFreightTerm</Name>
@@ -1265,6 +1329,18 @@
     <Translation>Çalışan</Translation>
   </Vocab>
   <Vocab>
+    <Name>EmployeePosition</Name>
+    <Translation>İş Pozisyonu</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EmployeePositions</Name>
+    <Translation>İş Pozisyonları</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EmployeePositionsList</Name>
+    <Translation>İş Pozisyonu Listesi</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Employees</Name>
     <Translation>Çalışanlar</Translation>
   </Vocab>
@@ -1286,7 +1362,7 @@
   </Vocab>
   <Vocab>
     <Name>FabricComposition</Name>
-    <Translation>Kumaş Bileşimi</Translation>
+    <Translation>Kumaş İçeriği</Translation>
   </Vocab>
   <Vocab>
     <Name>Fast</Name>
@@ -1351,6 +1427,10 @@
   <Vocab>
     <Name>FullName</Name>
     <Translation>Tam İsim</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>HangerSticker</Name>
+    <Translation>Askı Sticker</Translation>
   </Vocab>
   <Vocab>
     <Name>Hanging</Name>
@@ -1435,6 +1515,10 @@
   <Vocab>
     <Name>KimballNr</Name>
     <Translation>Kimball No</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Labelling</Name>
+    <Translation>Karton Etiket</Translation>
   </Vocab>
   <Vocab>
     <Name>Lastname</Name>
@@ -1551,6 +1635,26 @@
   <Vocab>
     <Name>ManufacturersList</Name>
     <Translation>Üretici Listesi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Merchandiser</Name>
+    <Translation>Satış Temsilcisi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Merchandiser1</Name>
+    <Translation>Satış Temsilcisi 1</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Merchandiser1Id</Name>
+    <Translation>Satış Temsilcisi 1</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Merchandiser2</Name>
+    <Translation>Satış Temsilcisi 2</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Merchandiser2Id</Name>
+    <Translation>Satış Temsilcisi 2</Translation>
   </Vocab>
   <Vocab>
     <Name>ModifiedUser</Name>
@@ -1731,6 +1835,14 @@
   <Vocab>
     <Name>PoNr</Name>
     <Translation>Sipariş Kodu</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Position</Name>
+    <Translation>Pozisyon</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PositionId</Name>
+    <Translation>Pozisyon</Translation>
   </Vocab>
   <Vocab>
     <Name>Print</Name>
@@ -1955,6 +2067,10 @@
   <Vocab>
     <Name>RemoveEmployee</Name>
     <Translation>Çalışanı Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveEmployeePosition</Name>
+    <Translation>İş Pozisyonunu Çıkar</Translation>
   </Vocab>
   <Vocab>
     <Name>RemoveFreightTerm</Name>
@@ -2366,7 +2482,7 @@
   </Vocab>
   <Vocab>
     <Name>Unbrushed</Name>
-    <Translation>Unbrushed</Translation>
+    <Translation>Fırçasız</Translation>
   </Vocab>
   <Vocab>
     <Name>UnexpectedError</Name>
@@ -2383,6 +2499,10 @@
   <Vocab>
     <Name>UnitPrice2</Name>
     <Translation>Birim Fiyat 2</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Unmarked</Name>
+    <Translation>İşaretsiz</Translation>
   </Vocab>
   <Vocab>
     <Name>Update</Name>
@@ -2405,8 +2525,16 @@
     <Translation>Kullanıcılar</Translation>
   </Vocab>
   <Vocab>
+    <Name>WashingInstructions</Name>
+    <Translation>Yıkama Talimatı</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Width</Name>
     <Translation>Genişlik</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>WoovenLabel</Name>
+    <Translation>Ense Etiket</Translation>
   </Vocab>
   <Vocab>
     <Name>Yes</Name>

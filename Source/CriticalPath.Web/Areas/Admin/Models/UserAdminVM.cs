@@ -1,11 +1,6 @@
 ﻿using CriticalPath.Web.Models;
 using OzzIdentity.Models;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CriticalPath.Web.Areas.Admin.Models
 {
@@ -19,9 +14,6 @@ namespace CriticalPath.Web.Areas.Admin.Models
         }
 
         public string Id { get; set; }
-
-        [Display(Name = "User Name")]
-        public string UserName { get; set; }
 
         [Display(Name = "Admin")]
         public bool IsUserAdmin { get; set; }

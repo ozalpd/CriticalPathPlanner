@@ -74,6 +74,10 @@
     <Compile Include="Employee.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="EmployeePosition.cs">
+      <DependentUpon>CriticalPathModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Enums.cs" />
     <Compile Include="Licensor.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
@@ -81,6 +85,8 @@
     <Compile Include="Metadata\CustomerDepartmentDTO.meta.cs" />
     <Compile Include="Metadata\Employee.meta.cs" />
     <Compile Include="Metadata\EmployeeDTO.meta.cs" />
+    <Compile Include="Metadata\EmployeePosition.meta.cs" />
+    <Compile Include="Metadata\EmployeePositionDTO.meta.cs" />
     <Compile Include="Metadata\Licensor.meta.cs" />
     <Compile Include="Metadata\LicensorDTO.meta.cs" />
     <Compile Include="Metadata\ProcessStepRevision.meta.cs" />

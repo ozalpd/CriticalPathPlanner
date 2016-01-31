@@ -44,6 +44,29 @@
                 @Html.DisplayFor(m => m.OrderDate)
             </div>
         </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DesignerId, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.DropDownListFor(m => m.DesignerId, null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.DesignerId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Merchandiser1Id, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.DropDownListFor(m => m.Merchandiser1Id, null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Merchandiser1Id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Merchandiser2Id, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.DropDownListFor(m => m.Merchandiser2Id, null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Merchandiser2Id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.Customer, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
             <div class="col-lg-5 col-md-6 col-sm-7">
@@ -88,6 +111,13 @@
                 @Html.ValidationMessageFor(m => m.ShipmentHangingFolded, "", new { @class = "text-danger" })
             </div>
         </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.HangerSticker, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.EditorFor(m => m.HangerSticker, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                @Html.ValidationMessageFor(m => m.HangerSticker, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Product.ProductCode, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
@@ -96,6 +126,14 @@
             </div>
         </div>
 
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FabricComposition, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.TextBoxFor(m => m.FabricComposition, new { @class = "form-control", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.FabricComposition, "", new { @class = "text-danger" })
+            </div>
+        </div>
         <div class="form-group">
             @Html.LabelFor(model => model.Colour, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
             <div class="col-lg-5 col-md-6 col-sm-7">
@@ -104,10 +142,31 @@
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.FabricComposition, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            @Html.LabelFor(model => model.Print, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
             <div class="col-lg-5 col-md-6 col-sm-7">
-                @Html.TextBoxFor(m => m.FabricComposition, new { @class = "form-control", autocomplete = "off" })
-                @Html.ValidationMessageFor(m => m.FabricComposition, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.Print, new { @class = "form-control", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.Print, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Labelling, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.TextBoxFor(m => m.Labelling, new { @class = "form-control", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.Labelling, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.WoovenLabel, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.EditorFor(m => m.WoovenLabel, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                @Html.ValidationMessageFor(m => m.WoovenLabel, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.WashingInstructions, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.TextBoxFor(m => m.WashingInstructions, new { @class = "form-control", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.WashingInstructions, "", new { @class = "text-danger" })
             </div>
         </div>
 

@@ -75,6 +75,30 @@
 		<value>Admin</value>
 	</data>
 
+	<data name="AllCustomers" xml:space="preserve">
+		<value>Tüm Müşteriler</value>
+	</data>
+
+	<data name="AllDepartments" xml:space="preserve">
+		<value>Tüm Departmanlar</value>
+	</data>
+
+	<data name="AllDesigners" xml:space="preserve">
+		<value>Tüm Tasarımcılar</value>
+	</data>
+
+	<data name="AllMerchandisers" xml:space="preserve">
+		<value>Tüm Satış Temsilcileri</value>
+	</data>
+
+	<data name="AllPositions" xml:space="preserve">
+		<value>Tüm Pozisyonlar</value>
+	</data>
+
+	<data name="AllSuppliers" xml:space="preserve">
+		<value>Tüm Tedarikçiler</value>
+	</data>
+
 	<data name="ApplicationBriefName" xml:space="preserve">
 		<value>CP</value>
 	</data>
@@ -92,7 +116,7 @@
 	</data>
 
 	<data name="Brushed" xml:space="preserve">
-		<value>Brushed</value>
+		<value>Fırçalı</value>
 	</data>
 
 	<data name="CancelPurchaseOrder" xml:space="preserve">
@@ -172,7 +196,11 @@
 	</data>
 
 	<data name="Unbrushed" xml:space="preserve">
-		<value>Unbrushed</value>
+		<value>Fırçasız</value>
+	</data>
+
+	<data name="Unmarked" xml:space="preserve">
+		<value>İşaretsiz</value>
 	</data>
 
 	<data name="User" xml:space="preserve">

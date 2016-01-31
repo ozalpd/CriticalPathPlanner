@@ -1,5 +1,7 @@
-﻿using System;
+﻿using CP.i8n;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +27,15 @@ namespace CriticalPath.Data
             {
                 SizeRatios.Add(new SizeRatioDTO(rate));
             }
+
+            if (entity.Designer?.AspNetUser != null)
+                DesignerName = string.Format("{0} {1}", entity.Designer.AspNetUser.FirstName, entity.Designer.AspNetUser.LastName);
+
+            if (entity.Merchandiser1?.AspNetUser != null)
+                Merchandiser1Name = string.Format("{0} {1}", entity.Merchandiser1.AspNetUser.FirstName, entity.Merchandiser1.AspNetUser.LastName);
+
+            if (entity.Merchandiser2?.AspNetUser != null)
+                Merchandiser2Name = string.Format("{0} {1}", entity.Merchandiser2.AspNetUser.FirstName, entity.Merchandiser2.AspNetUser.LastName);
         }
 
         partial void Converting(PurchaseOrder entity)
@@ -53,5 +64,15 @@ namespace CriticalPath.Data
             _sizeRatios = new List<SizeRatioDTO>();
         }
 
+
+
+        [Display(ResourceType = typeof(EntityStrings), Name = "Designer")]
+        public string DesignerName { get; set; }
+
+        [Display(ResourceType = typeof(EntityStrings), Name = "Merchandiser1")]
+        public string Merchandiser1Name { get; set; }
+
+        [Display(ResourceType = typeof(EntityStrings), Name = "Merchandiser2")]
+        public string Merchandiser2Name { get; set; }
     }
 }

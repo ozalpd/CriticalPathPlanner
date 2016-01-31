@@ -30,6 +30,9 @@ namespace CriticalPath.Data
         public Nullable<System.DateTime> DueDate { get; set; }
         public bool IsRepeat { get; set; }
         public Nullable<int> ParentPoId { get; set; }
+        public Nullable<int> DesignerId { get; set; }
+        public Nullable<int> Merchandiser1Id { get; set; }
+        public Nullable<int> Merchandiser2Id { get; set; }
         public string Description { get; set; }
         public int CustomerId { get; set; }
         public Nullable<int> CustomerDepartmentId { get; set; }
@@ -39,7 +42,12 @@ namespace CriticalPath.Data
         public int SizingStandardId { get; set; }
         public string FabricComposition { get; set; }
         public string Colour { get; set; }
+        public string Print { get; set; }
         public int ShipmentHangingFolded { get; set; }
+        public bool HangerSticker { get; set; }
+        public string Labelling { get; set; }
+        public string WoovenLabel { get; set; }
+        public string WashingInstructions { get; set; }
         public int Quantity { get; set; }
         public decimal DiscountRate { get; set; }
         public decimal UnitPrice { get; set; }
@@ -85,6 +93,9 @@ namespace CriticalPath.Data
         public virtual Customer Customer { get; set; }
         public virtual CustomerDepartment CustomerDepartment { get; set; }
         public virtual Licensor Licensor { get; set; }
+        public virtual Employee Designer { get; set; }
+        public virtual Employee Merchandiser1 { get; set; }
+        public virtual Employee Merchandiser2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SizeRatio> SizeRatios { get; set; }
         public virtual SizingStandard SizingStandard { get; set; }
@@ -118,6 +129,9 @@ namespace CriticalPath.Data
             clone.DueDate = DueDate;
             clone.IsRepeat = IsRepeat;
             clone.ParentPoId = ParentPoId;
+            clone.DesignerId = DesignerId;
+            clone.Merchandiser1Id = Merchandiser1Id;
+            clone.Merchandiser2Id = Merchandiser2Id;
             clone.Description = Description;
             clone.CustomerId = CustomerId;
             clone.CustomerDepartmentId = CustomerDepartmentId;
@@ -127,7 +141,12 @@ namespace CriticalPath.Data
             clone.SizingStandardId = SizingStandardId;
             clone.FabricComposition = FabricComposition;
             clone.Colour = Colour;
+            clone.Print = Print;
             clone.ShipmentHangingFolded = ShipmentHangingFolded;
+            clone.HangerSticker = HangerSticker;
+            clone.Labelling = Labelling;
+            clone.WoovenLabel = WoovenLabel;
+            clone.WashingInstructions = WashingInstructions;
             clone.Quantity = Quantity;
             clone.DiscountRate = DiscountRate;
             clone.UnitPrice = UnitPrice;
@@ -191,6 +210,9 @@ namespace CriticalPath.Data
             DueDate = entity.DueDate;
             IsRepeat = entity.IsRepeat;
             ParentPoId = entity.ParentPoId;
+            DesignerId = entity.DesignerId;
+            Merchandiser1Id = entity.Merchandiser1Id;
+            Merchandiser2Id = entity.Merchandiser2Id;
             Description = entity.Description;
             CustomerId = entity.CustomerId;
             CustomerDepartmentId = entity.CustomerDepartmentId;
@@ -200,7 +222,12 @@ namespace CriticalPath.Data
             SizingStandardId = entity.SizingStandardId;
             FabricComposition = entity.FabricComposition;
             Colour = entity.Colour;
+            Print = entity.Print;
             ShipmentHangingFolded = entity.ShipmentHangingFolded;
+            HangerSticker = entity.HangerSticker;
+            Labelling = entity.Labelling;
+            WoovenLabel = entity.WoovenLabel;
+            WashingInstructions = entity.WashingInstructions;
             Quantity = entity.Quantity;
             DiscountRate = entity.DiscountRate;
             UnitPrice = entity.UnitPrice;
@@ -244,6 +271,9 @@ namespace CriticalPath.Data
             entity.DueDate = DueDate;
             entity.IsRepeat = IsRepeat;
             entity.ParentPoId = ParentPoId;
+            entity.DesignerId = DesignerId;
+            entity.Merchandiser1Id = Merchandiser1Id;
+            entity.Merchandiser2Id = Merchandiser2Id;
             entity.Description = Description;
             entity.CustomerId = CustomerId;
             entity.CustomerDepartmentId = CustomerDepartmentId;
@@ -253,7 +283,12 @@ namespace CriticalPath.Data
             entity.SizingStandardId = SizingStandardId;
             entity.FabricComposition = FabricComposition;
             entity.Colour = Colour;
+            entity.Print = Print;
             entity.ShipmentHangingFolded = ShipmentHangingFolded;
+            entity.HangerSticker = HangerSticker;
+            entity.Labelling = Labelling;
+            entity.WoovenLabel = WoovenLabel;
+            entity.WashingInstructions = WashingInstructions;
             entity.Quantity = Quantity;
             entity.DiscountRate = DiscountRate;
             entity.UnitPrice = UnitPrice;
@@ -296,6 +331,9 @@ namespace CriticalPath.Data
         public Nullable<System.DateTime> DueDate { get; set; }
         public bool IsRepeat { get; set; }
         public Nullable<int> ParentPoId { get; set; }
+        public Nullable<int> DesignerId { get; set; }
+        public Nullable<int> Merchandiser1Id { get; set; }
+        public Nullable<int> Merchandiser2Id { get; set; }
         public string Description { get; set; }
         public int CustomerId { get; set; }
         public Nullable<int> CustomerDepartmentId { get; set; }
@@ -305,7 +343,12 @@ namespace CriticalPath.Data
         public int SizingStandardId { get; set; }
         public string FabricComposition { get; set; }
         public string Colour { get; set; }
+        public string Print { get; set; }
         public int ShipmentHangingFolded { get; set; }
+        public bool HangerSticker { get; set; }
+        public string Labelling { get; set; }
+        public string WoovenLabel { get; set; }
+        public string WashingInstructions { get; set; }
         public int Quantity { get; set; }
         public decimal DiscountRate { get; set; }
         public decimal UnitPrice { get; set; }

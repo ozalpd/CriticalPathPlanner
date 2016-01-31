@@ -59,6 +59,27 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "ParentPo")]
             public PurchaseOrder ParentPo { get; set; }
 
+            [Display(ResourceType = typeof(EntityStrings), Name = "Designer")]
+            public Employee Designer { get; set; }
+
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "DesignerId")]
+            public int DesignerId { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "Merchandiser1")]
+            public Employee Merchandiser1 { get; set; }
+
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "Merchandiser1Id")]
+            public int Merchandiser1Id { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "Merchandiser2")]
+            public Employee Merchandiser2 { get; set; }
+
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "Merchandiser2Id")]
+            public int Merchandiser2Id { get; set; }
+
             [Display(ResourceType = typeof(EntityStrings), Name = "Product")]
             public Product Product { get; set; }
 
@@ -79,10 +100,29 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "Colour")]
             public string Colour { get; set; }
 
+            [StringLength(256, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "Print")]
+            public string Print { get; set; }
+
+            [StringLength(128, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "Labelling")]
+            public string Labelling { get; set; }
+
+            [StringLength(128, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "WoovenLabel")]
+            public string WoovenLabel { get; set; }
+
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [UIHint("ShipmentHangingFolded")]
             [Display(ResourceType = typeof(EntityStrings), Name = "ShipmentHangingFolded")]
             public int ShipmentHangingFolded { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "HangerSticker")]
+            public bool HangerSticker { get; set; }
+
+            [StringLength(128, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "WashingInstructions")]
+            public string WashingInstructions { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Range(1,1000000)]

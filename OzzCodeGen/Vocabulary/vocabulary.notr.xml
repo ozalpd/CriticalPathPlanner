@@ -61,6 +61,10 @@
     <Translation>Add Employee</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddEmployeePosition</Name>
+    <Translation>Add Employee Position</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddFiles</Name>
     <Translation>Add Files</Translation>
   </Vocab>
@@ -111,6 +115,10 @@
   <Vocab>
     <Name>AddNewEmployee</Name>
     <Translation>Add New Employee</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewEmployeePosition</Name>
+    <Translation>Add New Employee Position</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNewFreightTerm</Name>
@@ -273,6 +281,10 @@
     <Translation>Add Remove Employee</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddRemoveEmployeePosition</Name>
+    <Translation>Add Remove Employee Position</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddRemoveFreightTerm</Name>
     <Translation>Add Remove Freight Term</Translation>
   </Vocab>
@@ -393,8 +405,36 @@
     <Translation>After Steps</Translation>
   </Vocab>
   <Vocab>
+    <Name>AllCustomers</Name>
+    <Translation>All Customers</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AllDepartments</Name>
+    <Translation>All Departments</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AllDesigners</Name>
+    <Translation>All Designers</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AllMerchandisers</Name>
+    <Translation>All Merchandisers</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AllPositions</Name>
+    <Translation>All Positions</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AllSuppliers</Name>
+    <Translation>All Suppliers</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Always</Name>
     <Translation>Always</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AppDefault</Name>
+    <Translation>App Default</Translation>
   </Vocab>
   <Vocab>
     <Name>ApplicationBriefName</Name>
@@ -721,6 +761,10 @@
     <Translation>Create Employee</Translation>
   </Vocab>
   <Vocab>
+    <Name>CreateEmployeePosition</Name>
+    <Translation>Create Employee Position</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CreateFreightTerm</Name>
     <Translation>Create Freight Term</Translation>
   </Vocab>
@@ -854,7 +898,7 @@
   </Vocab>
   <Vocab>
     <Name>CurrentStepId</Name>
-    <Translation>Current Step Id</Translation>
+    <Translation>Current Step</Translation>
   </Vocab>
   <Vocab>
     <Name>Customer</Name>
@@ -901,6 +945,10 @@
     <Translation>Date</Translation>
   </Vocab>
   <Vocab>
+    <Name>DefaultJobPositions</Name>
+    <Translation>Default Job Positions</Translation>
+  </Vocab>
+  <Vocab>
     <Name>DefaultTitle</Name>
     <Translation>Default Title</Translation>
   </Vocab>
@@ -939,6 +987,10 @@
   <Vocab>
     <Name>DeleteEmployee</Name>
     <Translation>Delete Employee</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeleteEmployeePosition</Name>
+    <Translation>Delete Employee Position</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteFreightTerm</Name>
@@ -1046,7 +1098,7 @@
   </Vocab>
   <Vocab>
     <Name>DependedStepId</Name>
-    <Translation>Depended Step Id</Translation>
+    <Translation>Depended Step</Translation>
   </Vocab>
   <Vocab>
     <Name>Depth</Name>
@@ -1055,6 +1107,14 @@
   <Vocab>
     <Name>Description</Name>
     <Translation>Description</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Designer</Name>
+    <Translation>Designer</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DesignerId</Name>
+    <Translation>Designer</Translation>
   </Vocab>
   <Vocab>
     <Name>Details</Name>
@@ -1161,6 +1221,10 @@
     <Translation>Edit Employee</Translation>
   </Vocab>
   <Vocab>
+    <Name>EditEmployeePosition</Name>
+    <Translation>Edit Employee Position</Translation>
+  </Vocab>
+  <Vocab>
     <Name>EditFreightTerm</Name>
     <Translation>Edit Freight Term</Translation>
   </Vocab>
@@ -1265,6 +1329,18 @@
     <Translation>Employee</Translation>
   </Vocab>
   <Vocab>
+    <Name>EmployeePosition</Name>
+    <Translation>Employee Position</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EmployeePositions</Name>
+    <Translation>Employee Positions</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EmployeePositionsList</Name>
+    <Translation>Employee Positions List</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Employees</Name>
     <Translation>Employees</Translation>
   </Vocab>
@@ -1353,6 +1429,10 @@
     <Translation>Full Name</Translation>
   </Vocab>
   <Vocab>
+    <Name>HangerSticker</Name>
+    <Translation>Hanger Sticker</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Hanging</Name>
     <Translation>Hanging</Translation>
   </Vocab>
@@ -1437,6 +1517,10 @@
     <Translation>Kimball Nr</Translation>
   </Vocab>
   <Vocab>
+    <Name>Labelling</Name>
+    <Translation>Labelling</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Lastname</Name>
     <Translation>Lastname</Translation>
   </Vocab>
@@ -1466,11 +1550,11 @@
   </Vocab>
   <Vocab>
     <Name>LicensorCurrencyId</Name>
-    <Translation>Licensor Currency Id</Translation>
+    <Translation>Licensor Currency</Translation>
   </Vocab>
   <Vocab>
     <Name>LicensorId</Name>
-    <Translation>Licensor Id</Translation>
+    <Translation>Licensor</Translation>
   </Vocab>
   <Vocab>
     <Name>LicensorPrice</Name>
@@ -1551,6 +1635,26 @@
   <Vocab>
     <Name>ManufacturersList</Name>
     <Translation>Factories List</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Merchandiser</Name>
+    <Translation>Merchandiser</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Merchandiser1</Name>
+    <Translation>Merchandiser 1</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Merchandiser1Id</Name>
+    <Translation>Merchandiser 1</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Merchandiser2</Name>
+    <Translation>Merchandiser 2</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Merchandiser2Id</Name>
+    <Translation>Merchandiser 2</Translation>
   </Vocab>
   <Vocab>
     <Name>ModifiedUser</Name>
@@ -1662,15 +1766,15 @@
   </Vocab>
   <Vocab>
     <Name>ParentCategoryId</Name>
-    <Translation>Parent Category Id</Translation>
+    <Translation>Parent Category</Translation>
   </Vocab>
   <Vocab>
     <Name>ParentPo</Name>
-    <Translation>Parent Po</Translation>
+    <Translation>Parent P.O.</Translation>
   </Vocab>
   <Vocab>
     <Name>ParentPoId</Name>
-    <Translation>Parent Po Id</Translation>
+    <Translation>Parent P.O.</Translation>
   </Vocab>
   <Vocab>
     <Name>Password</Name>
@@ -1682,15 +1786,15 @@
   </Vocab>
   <Vocab>
     <Name>Phone1</Name>
-    <Translation>Phone1</Translation>
+    <Translation>Phone 1</Translation>
   </Vocab>
   <Vocab>
     <Name>Phone2</Name>
-    <Translation>Phone2</Translation>
+    <Translation>Phone 2</Translation>
   </Vocab>
   <Vocab>
     <Name>Phone3</Name>
-    <Translation>Phone3</Translation>
+    <Translation>Phone 3</Translation>
   </Vocab>
   <Vocab>
     <Name>PhoneHome</Name>
@@ -1718,11 +1822,11 @@
   </Vocab>
   <Vocab>
     <Name>PhoneWork1</Name>
-    <Translation>Phone Work1</Translation>
+    <Translation>Phone Work 1</Translation>
   </Vocab>
   <Vocab>
     <Name>PhoneWork2</Name>
-    <Translation>Phone Work2</Translation>
+    <Translation>Phone Work 2</Translation>
   </Vocab>
   <Vocab>
     <Name>PleaseWait</Name>
@@ -1731,6 +1835,14 @@
   <Vocab>
     <Name>PoNr</Name>
     <Translation>P.O. Nr.</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Position</Name>
+    <Translation>Position</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>PositionId</Name>
+    <Translation>Position</Translation>
   </Vocab>
   <Vocab>
     <Name>Print</Name>
@@ -1758,7 +1870,7 @@
   </Vocab>
   <Vocab>
     <Name>ProcessStepId</Name>
-    <Translation>Process Step Id</Translation>
+    <Translation>Process Step</Translation>
   </Vocab>
   <Vocab>
     <Name>ProcessStepRevision</Name>
@@ -1826,7 +1938,7 @@
   </Vocab>
   <Vocab>
     <Name>ProductCategoryId</Name>
-    <Translation>Product Category Id</Translation>
+    <Translation>Product Category</Translation>
   </Vocab>
   <Vocab>
     <Name>ProductCode</Name>
@@ -1955,6 +2067,10 @@
   <Vocab>
     <Name>RemoveEmployee</Name>
     <Translation>Remove Employee</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemoveEmployeePosition</Name>
+    <Translation>Remove Employee Position</Translation>
   </Vocab>
   <Vocab>
     <Name>RemoveFreightTerm</Name>
@@ -2385,6 +2501,10 @@
     <Translation>Unit Price 2nd</Translation>
   </Vocab>
   <Vocab>
+    <Name>Unmarked</Name>
+    <Translation>Unmarked</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Update</Name>
     <Translation>Update</Translation>
   </Vocab>
@@ -2405,8 +2525,16 @@
     <Translation>Users</Translation>
   </Vocab>
   <Vocab>
+    <Name>WashingInstructions</Name>
+    <Translation>Washing Instructions</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Width</Name>
     <Translation>Width</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>WoovenLabel</Name>
+    <Translation>Wooven Label</Translation>
   </Vocab>
   <Vocab>
     <Name>Yes</Name>

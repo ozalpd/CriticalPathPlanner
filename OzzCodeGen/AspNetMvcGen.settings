@@ -227,6 +227,30 @@
           <UseForCreate>Standart</UseForCreate>
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>PositionId</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>false</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>DropDownList</UseForCreate>
+          <UseForEdit>DropDownList</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>Position</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
       </Properties>
       <ControllerName>Employees</ControllerName>
       <DataSetName>Employees</DataSetName>
@@ -235,7 +259,7 @@
       <ModelForJson>EmployeeDTO</ModelForJson>
       <ModelForCreate>EmployeeDTO</ModelForCreate>
       <ModelForEdit>EmployeeDTO</ModelForEdit>
-      <RolesCanView>admin, supervisor</RolesCanView>
+      <RolesCanView>admin, supervisor, clerk</RolesCanView>
       <RolesCanCreate>admin</RolesCanCreate>
       <RolesCanEdit>admin</RolesCanEdit>
       <RolesCanDelete>admin</RolesCanDelete>
@@ -248,7 +272,7 @@
       <GenerateGetEntityAction>true</GenerateGetEntityAction>
       <GenerateGetEntityListAction>true</GenerateGetEntityListAction>
       <GenerateCreateAction>false</GenerateCreateAction>
-      <GenerateDeleteAction>true</GenerateDeleteAction>
+      <GenerateDeleteAction>false</GenerateDeleteAction>
       <GenerateEditAction>false</GenerateEditAction>
       <GenerateDetailsAction>false</GenerateDetailsAction>
       <IndexViewGeneration>AgGridWithMenuAction</IndexViewGeneration>
@@ -256,6 +280,69 @@
       <DetailsView>false</DetailsView>
       <CreateView>false</CreateView>
       <EditView>false</EditView>
+      <BaseControllerName>BaseController</BaseControllerName>
+      <Area>Admin</Area>
+      <CreateRedirect>"Index"</CreateRedirect>
+      <EditRedirect>"Index"</EditRedirect>
+      <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
+      <Name>EmployeePosition</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>true</OverwriteExisting>
+      <Properties>
+        <AspNetMvcPropertySetting>
+          <Name>Position</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>AppDefault</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+      </Properties>
+      <ControllerName>EmployeePositions</ControllerName>
+      <DataSetName>EmployeePositions</DataSetName>
+      <SaveParameter>this</SaveParameter>
+      <ModelForIndex>EmployeePosition</ModelForIndex>
+      <ModelForJson>EmployeePositionDTO</ModelForJson>
+      <ModelForCreate>EmployeePosition</ModelForCreate>
+      <ModelForEdit>EmployeePositionDTO</ModelForEdit>
+      <RolesCanView>admin, supervisor, clerk</RolesCanView>
+      <RolesCanCreate>admin</RolesCanCreate>
+      <RolesCanEdit>admin</RolesCanEdit>
+      <RolesCanDelete>admin</RolesCanDelete>
+      <GenerateController>true</GenerateController>
+      <GenerateActionForAutoComplete>false</GenerateActionForAutoComplete>
+      <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
+      <GenerateGetDtoQueryMethod>false</GenerateGetDtoQueryMethod>
+      <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateGetEntityAction>false</GenerateGetEntityAction>
+      <GenerateGetEntityListAction>false</GenerateGetEntityListAction>
+      <GenerateCreateAction>true</GenerateCreateAction>
+      <GenerateDeleteAction>false</GenerateDeleteAction>
+      <GenerateEditAction>false</GenerateEditAction>
+      <GenerateDetailsAction>true</GenerateDetailsAction>
+      <IndexViewGeneration>HtmlTableWithMenuAction</IndexViewGeneration>
+      <IndexView>false</IndexView>
+      <DetailsView>false</DetailsView>
+      <CreateView>true</CreateView>
+      <EditView>true</EditView>
       <BaseControllerName>BaseController</BaseControllerName>
       <Area>Admin</Area>
       <CreateRedirect>"Index"</CreateRedirect>
@@ -2576,6 +2663,78 @@
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
+          <Name>Designer</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>DesignerId</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>false</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>DropDownList</UseForCreate>
+          <UseForEdit>DropDownList</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>Merchandiser1</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>Merchandiser1Id</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>false</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>DropDownList</UseForCreate>
+          <UseForEdit>DropDownList</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>Merchandiser2</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>Merchandiser2Id</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>false</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>DropDownList</UseForCreate>
+          <UseForEdit>DropDownList</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
           <Name>Product</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
@@ -2636,6 +2795,42 @@
           <UseForEdit>TextBox</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
+          <Name>Print</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>Labelling</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>WoovenLabel</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
           <Name>ShipmentHangingFolded</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
@@ -2646,6 +2841,30 @@
           <HasValidation>true</HasValidation>
           <UseForCreate>Standart</UseForCreate>
           <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>HangerSticker</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>WashingInstructions</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
           <Name>Quantity</Name>

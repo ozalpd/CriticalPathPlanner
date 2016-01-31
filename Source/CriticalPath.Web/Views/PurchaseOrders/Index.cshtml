@@ -56,7 +56,7 @@
                             </span>
                             <span class="input-group-btn">
                                 <a class="accordion-toggle btn btn-success" data-toggle="collapse"
-                                   data-parent="filterAccordion" href="#filterPanel" onclick="toogleAccordionSign()">
+                                   data-parent="filterAccordion" href="#filterPanel" onclick='toogleAccordionSign()'>
                                     <span id="filterPanelSign" class="@filterButtonClass"></span>
                                 </a>
                             </span>
@@ -97,15 +97,25 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row mb5">
                             <div class="col-sm-4">
-                                @Html.DropDownList("CustomerId", null, "All Customers", htmlAttributes: new { @class = "form-control" })
+                                @Html.DropDownList("CustomerId", null, CommonStrings.AllCustomers, htmlAttributes: new { @class = "form-control" })
                             </div>
                             <div class="col-sm-4">
-                                @Html.DropDownList("CustomerDepartmentId", null, "All Departments", htmlAttributes: new { @class = "form-control" })
+                                @Html.DropDownList("CustomerDepartmentId", null, CommonStrings.AllDepartments, htmlAttributes: new { @class = "form-control" })
                             </div>
                             <div class="col-sm-4">
-                                @Html.DropDownList("SupplierId", null, "All Suppliers", htmlAttributes: new { @class = "form-control" })
+                                @Html.DropDownList("SupplierId", null, CommonStrings.AllSuppliers, htmlAttributes: new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="row mb5">
+                            <div class="col-sm-4">
+                            </div>
+                            <div class="col-sm-4">
+                                @Html.DropDownList("MerchandiserId", null, CommonStrings.AllMerchandisers, htmlAttributes: new { @class = "form-control" })
+                            </div>
+                            <div class="col-sm-4">
+                                @Html.DropDownList("DesignerId", null, CommonStrings.AllDesigners, htmlAttributes: new { @class = "form-control" })
                             </div>
                         </div>
                     </div>
@@ -133,6 +143,8 @@
                 @Html.DisplayNameFor(model => model.PoNr)<br />
                 @Html.DisplayNameFor(model => model.RefCode)
             </th>
+            <th>@Html.DisplayNameFor(model => model.Designer)</th>
+            <th>@EntityStrings.Merchandiser</th>
             <th>@Html.DisplayNameFor(model => model.Supplier)</th>
             <th>
                 @Html.DisplayNameFor(model => model.Customer)<br />
@@ -223,6 +235,11 @@
                         <br />@Html.DisplayFor(modelItem => item.RefCode)
                     }
                 </td>
+                <td>@Html.DisplayFor(modelItem => item.Designer)</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Merchandiser1)
+                    @Html.DisplayFor(modelItem => item.Merchandiser2)
+                </td>
                 <td>@Html.DisplayFor(modelItem => item.Supplier)</td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Customer)
@@ -268,15 +285,15 @@
             }
         </tr>
     </table>
-    if (canUserDelete)
-    {
-        @Html.Partial("_MessageBoxPartial")
-    }
-}
-else
-{
-    <h4>@MessageStrings.NoResults!</h4>
-}
+                        if (canUserDelete)
+                        {
+                            @Html.Partial("_MessageBoxPartial")
+                            }
+                        }
+                        else
+                        {
+                            <h4>@MessageStrings.NoResults!</h4>
+                        }
 @Html.Partial("_PagerPartial")
 @section scripts{
     @Html.Partial("_IndexScriptsPartial", "PurchaseOrders")

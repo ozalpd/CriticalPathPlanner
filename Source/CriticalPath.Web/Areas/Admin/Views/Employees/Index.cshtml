@@ -12,15 +12,18 @@
     bool canUserDelete = ViewBag.canUserDelete;
     bool canSeeRestricted = ViewBag.canSeeRestricted;
 
-	var title = EntityStrings.Employees;
+    var title = EntityStrings.Employees;
 }
 <div class="row well">
-    <div class="col-md-8 col-sm-7">
+    <div class="col-sm-4">
         <h4>@title</h4>
     </div>
-        <div class="col-md-4 col-sm-5">
-            @Html.Partial("_SearchBoxPartial")
-        </div>
+    <div class="col-sm-4">
+        @Html.DropDownList("PositionId", null, CommonStrings.AllPositions, htmlAttributes: new { @class = "form-control" })
+    </div>
+    <div class="col-md-4 col-sm-5">
+        @Html.Partial("_SearchBoxPartial")
+    </div>
 </div>
 <div id="mainGrid" class="ag-style ag-basic" style="width:100%;height:400px;"></div>
 <nav><ul id="pagerUl" class="pagination"></ul></nav>
@@ -28,7 +31,6 @@
 @section scripts{
     @Scripts.Render("~/js/ag-grid")
     @Html.Partial("_IndexScriptsPartial", "Employees") @* Controller's name *@
-    @Html.Partial("_agGridScriptsPartial", "/Employees/GetEmployeePagedList") @* Service url *@
     <script type="text/javascript">
         var result = @Html.Raw(ViewBag.result);
         var gridOptions;
@@ -48,10 +50,11 @@
             function columnDefs(){
                 return[
                      { headerName: '@ActionStrings.Action', field: "Id", width: 64, cellRenderer: actionCellRenderer},
-                     { headerName: '@Html.DisplayNameFor(m => m.IsActive)', field: "IsActive", width: 180, cellRenderer: activeCellRenderer },
-                     { headerName: '@Html.DisplayNameFor(m => m.UserName)', field: "UserName", width: 180 },
+                     { headerName: '@Html.DisplayNameFor(m => m.UserName)', field: "UserName", width: 120 },
                      { headerName: '@Html.DisplayNameFor(m => m.FullName)', field: "FullName", width: 180 },
+                     { headerName: '@Html.DisplayNameFor(m => m.Position)', field: "Position", width: 180 },
                      { headerName: '@Html.DisplayNameFor(m => m.Email)', field: "Email", width: 180 },
+                     { headerName: '@Html.DisplayNameFor(m => m.IsActive)', field: "IsActive", width: 180, cellRenderer: activeCellRenderer },
                 ];
             }
 
@@ -117,6 +120,38 @@
                     viewport.scrollTop((diffY * -1) + viewportScroll);
                 }
             },250);
+        }
+        function refreshData() {
+            getPagedData(result.Page);
+        }
+
+        function getPagedData(page) {
+            var searchString = $('#SearchString').val();
+            var url = '/Employees/GetEmployeePagedList';
+            var positionId = $('#PositionId').val();
+            showMessageBox('Loading...',
+                '<div style="width:100%;padding:32px;text-align:center;">' +
+                '<img src="/images/busy.gif" alt="Loading..." width="96" height="96" align="middle"/>' +
+                '</div>');
+            $.getJSON(url, {
+                pageSize: result.PageSize,
+                page: page,
+                searchString: searchString,
+                positionId: positionId,
+                cache: false
+            },
+                function (data) {
+                    result = data;
+                    hideMessageBox();
+                    gridOptions.api.setRowData(result.Items);
+                    setPagerButtons($('#pagerUl'), result.Page, result.PageCount);
+                    displayRecordStats(result.Items.length, result.TotalCount);
+                }).fail(function (jqXHR, textStatus, errorThrown) {
+                    var msgboxMsg = jqXHR.responseText;
+                    showMessageBox(textStatus, msgboxMsg, true);
+                }).always(function (jqXHR) {
+
+                });
         }
         document.addEventListener("DOMContentLoaded", initPage());
     </script>

@@ -17,6 +17,7 @@ namespace CriticalPath.Data
         public int Id { get; set; }
         public string AspNetUserId { get; set; }
         public bool IsActive { get; set; }
+        public Nullable<int> PositionId { get; set; }
         public Nullable<System.DateTime> InactivateDate { get; set; }
         public int ModifyNr { get; set; }
         public System.DateTime ModifyDate { get; set; }
@@ -27,6 +28,7 @@ namespace CriticalPath.Data
         public string CreatorIp { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
+        public virtual EmployeePosition Position { get; set; }
         public virtual AspNetUser CreatedUser { get; set; }
         public virtual AspNetUser ModifiedUser { get; set; }
     	/// <summary>
@@ -39,6 +41,7 @@ namespace CriticalPath.Data
             var clone = new Employee();
             clone.AspNetUserId = AspNetUserId;
             clone.IsActive = IsActive;
+            clone.PositionId = PositionId;
             clone.InactivateDate = InactivateDate;
             clone.ModifyNr = ModifyNr;
             clone.ModifyDate = ModifyDate;
@@ -67,6 +70,7 @@ namespace CriticalPath.Data
         {
             Id = entity.Id;
             IsActive = entity.IsActive;
+            PositionId = entity.PositionId;
             InactivateDate = entity.InactivateDate;
         
             Initiliazing(entity);
@@ -79,6 +83,7 @@ namespace CriticalPath.Data
             var entity = new Employee();
             entity.Id = Id;
             entity.IsActive = IsActive;
+            entity.PositionId = PositionId;
             entity.InactivateDate = InactivateDate;
     
             Converting(entity);
@@ -90,6 +95,7 @@ namespace CriticalPath.Data
       
         public int Id { get; set; }
         public bool IsActive { get; set; }
+        public Nullable<int> PositionId { get; set; }
         public Nullable<System.DateTime> InactivateDate { get; set; }
     }
 }

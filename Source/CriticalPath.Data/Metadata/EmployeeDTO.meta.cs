@@ -28,6 +28,9 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "InactivateDate")]
             public DateTime InactivateDate { get; set; }
 
+            [Display(ResourceType = typeof(EntityStrings), Name = "PositionId")]
+            public int PositionId { get; set; }
+
 		}
 	}
 }

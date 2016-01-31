@@ -189,6 +189,8 @@
     <Compile Include="Areas\Admin\Controllers\CountriesController.part.cs" />
     <Compile Include="Areas\Admin\Controllers\CurrenciesController.g.cs" />
     <Compile Include="Areas\Admin\Controllers\CurrenciesController.part.cs" />
+    <Compile Include="Areas\Admin\Controllers\EmployeePositionsController.g.cs" />
+    <Compile Include="Areas\Admin\Controllers\EmployeePositionsController.part.cs" />
     <Compile Include="Areas\Admin\Controllers\EmployeesController.g.cs" />
     <Compile Include="Areas\Admin\Controllers\EmployeesController.part.cs" />
     <Compile Include="Areas\Admin\Controllers\FreightTermsController.g.cs" />
@@ -263,6 +265,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Default\bootstrap.min.css" />
     <Content Include="Content\Default\darker.css" />
+    <Content Include="Content\fileupload.css" />
     <Content Include="Content\NavbarColors-Blue.css" />
     <Content Include="Content\Cosmo\bootstrap.min.css" />
     <Content Include="Content\Darkly\bootstrap.min.css" />
@@ -392,6 +395,7 @@
     <Content Include="Areas\Admin\Views\Shared\_SaveButtonsPartial.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_SearchBoxPartial.cshtml" />
     <Content Include="images\busy.gif" />
+    <Content Include="images\no_image_available.svg" />
     <Content Include="libs\ag-grid\ag-dark-blue.css" />
     <Content Include="libs\ag-grid\ag-grid-addt.css" />
     <Content Include="libs\ag-grid\ag-grid.css" />
@@ -425,10 +429,15 @@
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Areas\Admin\Views\EmployeePositions\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\EmployeePositions\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\EmployeePositions\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\EmployeePositions\Index.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\App\fileUpload.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
+    <Content Include="libs\jquery.fileupload.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />

@@ -35,8 +35,6 @@
 
     @Styles.Render(AppSettings.Settings.SelectedTheme)
     @Styles.Render("~/css/ag-grid")
-
-
     @*
         @Styles.Render("~/Content/Slate")
 
@@ -44,6 +42,7 @@
         @Styles.Render("~/Content/themes")
     *@
     @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("styles", required: false)
 </head>
 <body>
     @Scripts.Render("~/bundles/jquery")

@@ -72,6 +72,9 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             var orderDate = DateTime.Now.Date.AddDays(-52);
             var sizingStandard = await DataContext.SizingStandards.OrderByDescending(s => s.Sizings.Count).FirstOrDefaultAsync();
 
+            var designers = (await DataContext.GetDesignerDtoList()).ToArray();
+            var merchandisers = (await DataContext.GetMerchandiserDtoList()).ToArray();
+
             for (int i = 0; i < products.Length; i++)
             {
                 orderDate =  orderDate.AddDays(1);
@@ -99,7 +102,10 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                     SellingCurrencyId = p.SellingCurrencyId,
                     SizingStandard = sizingStandard,
                     SupplierId = p.Suppliers.FirstOrDefault().Id,
-                    Description = p.Description
+                    Description = p.Description,
+                    DesignerId = designers[i % designers.Length].Id,
+                    Merchandiser1Id = merchandisers[i % merchandisers.Length].Id,
+                    Merchandiser2Id = merchandisers[(i + 3) % merchandisers.Length].Id
                 };
 
                 int quantity = 0;

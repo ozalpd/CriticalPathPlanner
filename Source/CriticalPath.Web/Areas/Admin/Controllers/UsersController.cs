@@ -30,6 +30,14 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                             select a;
                 }
                 qParams.TotalCount = await query.CountAsync();
+                query = query
+                        .OrderBy(u => u.UserName)
+                        .ThenBy(u => u.FirstName)
+                        .ThenBy(u => u.LastName)
+                        .ThenBy(u => u.Id)
+                        .Skip(qParams.Skip)
+                        .Take(qParams.PageSize);
+
                 PutPagerInViewBag(qParams);
 
                 var users = qParams.TotalCount > 0 ? await query.ToListAsync() : new List<OzzUser>();

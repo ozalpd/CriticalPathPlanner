@@ -20,6 +20,11 @@ namespace CriticalPath.Data
                 Email = employee.AspNetUser.Email;
                 PhoneNumber = employee.AspNetUser.PhoneNumber;
             }
+
+            if (employee.Position != null)
+            {
+                Position = employee.Position.Position;
+            }
         }
 
         [StringLength(256, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
@@ -44,6 +49,10 @@ namespace CriticalPath.Data
                 return string.Format("{0} {1}", FirstName, LastName);
             }
         }
+
+        [Display(ResourceType = typeof(EntityStrings), Name = "Position")]
+        public string Position { get; set; }
+
 
         [StringLength(128, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
         [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]

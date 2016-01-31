@@ -97,6 +97,60 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All Customers.
+        /// </summary>
+        public static string AllCustomers {
+            get {
+                return ResourceManager.GetString("AllCustomers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All Departments.
+        /// </summary>
+        public static string AllDepartments {
+            get {
+                return ResourceManager.GetString("AllDepartments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All Designers.
+        /// </summary>
+        public static string AllDesigners {
+            get {
+                return ResourceManager.GetString("AllDesigners", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All Merchandisers.
+        /// </summary>
+        public static string AllMerchandisers {
+            get {
+                return ResourceManager.GetString("AllMerchandisers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All Positions.
+        /// </summary>
+        public static string AllPositions {
+            get {
+                return ResourceManager.GetString("AllPositions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All Suppliers.
+        /// </summary>
+        public static string AllSuppliers {
+            get {
+                return ResourceManager.GetString("AllSuppliers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CP.
         /// </summary>
         public static string ApplicationBriefName {
@@ -318,6 +372,15 @@ namespace CP.i8n {
         public static string Unbrushed {
             get {
                 return ResourceManager.GetString("Unbrushed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unmarked.
+        /// </summary>
+        public static string Unmarked {
+            get {
+                return ResourceManager.GetString("Unmarked", resourceCulture);
             }
         }
         

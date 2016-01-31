@@ -118,9 +118,15 @@ namespace CriticalPath.Data
                        UserName = e.AspNetUser.UserName,
                        FirstName = e.AspNetUser.FirstName,
                        LastName = e.AspNetUser.LastName,
+                       Position = e.Position.Position,
                        PhoneNumber = e.AspNetUser.PhoneNumber,
                        Email = e.AspNetUser.Email
                    };
+        }
+
+        public override IQueryable<EmployeePosition> GetEmployeePositionQuery()
+        {
+            return base.GetEmployeePositionQuery().OrderByDescending(p => p.AppDefault).ThenBy(p => p.Position);
         }
 
         public override IQueryable<FreightTerm> GetFreightTermQuery(bool publishedOnly = true)
@@ -149,6 +155,69 @@ namespace CriticalPath.Data
                     .ThenByDescending(po => po.ApproveDate)
                     .ThenBy(po => po.PoNr)
                     .ThenByDescending(po => po.Id);
+        }
+
+        public override IQueryable<PurchaseOrderDTO> GetPurchaseOrderDtoQuery(IQueryable<PurchaseOrder> query)
+        {
+            return from e in query
+                   select new PurchaseOrderDTO
+                   {
+                       Id = e.Id,
+                       PoNr = e.PoNr,
+                       RefCode = e.RefCode,
+                       KimballNr = e.KimballNr,
+                       OrderDate = e.OrderDate,
+                       DueDate = e.DueDate,
+                       IsRepeat = e.IsRepeat,
+                       ParentPoId = e.ParentPoId,
+                       DesignerId = e.DesignerId,
+                       Merchandiser1Id = e.Merchandiser1Id,
+                       Merchandiser2Id = e.Merchandiser2Id,
+                       Description = e.Description,
+                       CustomerId = e.CustomerId,
+                       CustomerDepartmentId = e.CustomerDepartmentId,
+                       CustomerPoNr = e.CustomerPoNr,
+                       LicensorId = e.LicensorId,
+                       ProductId = e.ProductId,
+                       SizingStandardId = e.SizingStandardId,
+                       FabricComposition = e.FabricComposition,
+                       Colour = e.Colour,
+                       Print = e.Print,
+                       ShipmentHangingFolded = e.ShipmentHangingFolded,
+                       HangerSticker = e.HangerSticker,
+                       Labelling = e.Labelling,
+                       WoovenLabel = e.WoovenLabel,
+                       WashingInstructions = e.WashingInstructions,
+                       Quantity = e.Quantity,
+                       DiscountRate = e.DiscountRate,
+                       UnitPrice = e.UnitPrice,
+                       SellingCurrencyId = e.SellingCurrencyId,
+                       UnitPrice2 = e.UnitPrice2,
+                       SellingCurrency2Id = e.SellingCurrency2Id,
+                       LicensorPrice = e.LicensorPrice,
+                       LicensorCurrencyId = e.LicensorCurrencyId,
+                       BuyingPrice = e.BuyingPrice,
+                       BuyingCurrencyId = e.BuyingCurrencyId,
+                       BuyingPrice2 = e.BuyingPrice2,
+                       BuyingCurrency2Id = e.BuyingCurrency2Id,
+                       RoyaltyFee = e.RoyaltyFee,
+                       RoyaltyCurrencyId = e.RoyaltyCurrencyId,
+                       RetailPrice = e.RetailPrice,
+                       RetailCurrencyId = e.RetailCurrencyId,
+                       SizeRatioDivisor = e.SizeRatioDivisor,
+                       FreightTermId = e.FreightTermId,
+                       SupplierId = e.SupplierId,
+                       SupplierDueDate = e.SupplierDueDate,
+                       Notes = e.Notes,
+                       IsApproved = e.IsApproved,
+                       ApproveDate = e.ApproveDate,
+                       Cancelled = e.Cancelled,
+                       CancelDate = e.CancelDate,
+                       CancellationReason = e.CancellationReason,
+                       DesignerName = e.Designer.AspNetUser.FirstName + " " + e.Designer.AspNetUser.LastName,
+                       Merchandiser1Name = e.Merchandiser1.AspNetUser.FirstName + " " + e.Merchandiser1.AspNetUser.LastName,
+                       Merchandiser2Name = e.Merchandiser2.AspNetUser.FirstName + " " + e.Merchandiser2.AspNetUser.LastName
+                   };
         }
 
         public override IQueryable<Process> GetProcessQuery()

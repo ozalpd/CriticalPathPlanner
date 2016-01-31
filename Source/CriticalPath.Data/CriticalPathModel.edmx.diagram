@@ -4,8 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e6b03672b606419ea6f4ffff6f898068" Name="Diagram1" ZoomLevel="80">
-        <EntityTypeShape EntityType="CriticalPathDataModel.AspNetUser" Width="7.625" PointX="8" PointY="13.375" />
+      <Diagram DiagramId="e6b03672b606419ea6f4ffff6f898068" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="CriticalPathDataModel.AspNetUser" Width="7.625" PointX="7.875" PointY="15.875" />
         <EntityTypeShape EntityType="CriticalPathDataModel.Process" Width="2.25" PointX="0.5" PointY="0.5" />
         <EntityTypeShape EntityType="CriticalPathDataModel.ProcessStep" Width="2" PointX="3.625" PointY="1" />
         <EntityTypeShape EntityType="CriticalPathDataModel.ProcessStepTemplate" Width="1.875" PointX="3" PointY="8.875" />
@@ -89,7 +89,7 @@
         <AssociationConnector Association="CriticalPathDataModel.FK_Company_CountryId" />
         <AssociationConnector Association="CriticalPathDataModel.FK_Process_CurrentStepId" />
         <AssociationConnector Association="CriticalPathDataModel.FK_PurchaseOrder_ParentPoId" />
-        <EntityTypeShape EntityType="CriticalPathDataModel.Employee" Width="1.5" PointX="17.25" PointY="12.125" />
+        <EntityTypeShape EntityType="CriticalPathDataModel.Employee" Width="1.5" PointX="14" PointY="22.25" />
         <AssociationConnector Association="CriticalPathDataModel.FK_Employee_AspNetUserId" />
         <AssociationConnector Association="CriticalPathDataModel.FK_Employee_CreatorId" />
         <AssociationConnector Association="CriticalPathDataModel.FK_Employee_ModifierId" />
@@ -111,6 +111,12 @@
         <AssociationConnector Association="CriticalPathDataModel.FK_Product_SellingCurrency2Id" />
         <AssociationConnector Association="CriticalPathDataModel.FK_PurchaseOrder_BuyingCurrency2Id" />
         <AssociationConnector Association="CriticalPathDataModel.FK_PurchaseOrder_SellingCurrency2Id" />
+        <EntityTypeShape EntityType="CriticalPathDataModel.EmployeePosition" Width="1.75" PointX="11.625" PointY="22.25" />
+        <AssociationConnector Association="CriticalPathDataModel.FK_EmployeePosition_CreatorId" />
+        <AssociationConnector Association="CriticalPathDataModel.FK_Employee_PositionId" />
+        <AssociationConnector Association="CriticalPathDataModel.FK_PurchaseOrder_DesignerId" />
+        <AssociationConnector Association="CriticalPathDataModel.FK_PurchaseOrder_Merchandiser1Id" />
+        <AssociationConnector Association="CriticalPathDataModel.FK_PurchaseOrder_Merchandiser2Id" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

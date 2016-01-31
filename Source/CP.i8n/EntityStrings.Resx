@@ -95,6 +95,10 @@
 		<value>Add Employee</value>
 	</data>
 
+	<data name="AddEmployeePosition" xml:space="preserve">
+		<value>Add Employee Position</value>
+	</data>
+
 	<data name="AddFreightTerm" xml:space="preserve">
 		<value>Add Freight Term</value>
 	</data>
@@ -137,6 +141,10 @@
 
 	<data name="AddNewEmployee" xml:space="preserve">
 		<value>Add New Employee</value>
+	</data>
+
+	<data name="AddNewEmployeePosition" xml:space="preserve">
+		<value>Add New Employee Position</value>
 	</data>
 
 	<data name="AddNewFreightTerm" xml:space="preserve">
@@ -263,6 +271,10 @@
 		<value>Add Remove Employee</value>
 	</data>
 
+	<data name="AddRemoveEmployeePosition" xml:space="preserve">
+		<value>Add Remove Employee Position</value>
+	</data>
+
 	<data name="AddRemoveFreightTerm" xml:space="preserve">
 		<value>Add Remove Freight Term</value>
 	</data>
@@ -349,6 +361,10 @@
 
 	<data name="AfterSteps" xml:space="preserve">
 		<value>After Steps</value>
+	</data>
+
+	<data name="AppDefault" xml:space="preserve">
+		<value>App Default</value>
 	</data>
 
 	<data name="ApproveDate" xml:space="preserve">
@@ -551,6 +567,10 @@
 		<value>Create Employee</value>
 	</data>
 
+	<data name="CreateEmployeePosition" xml:space="preserve">
+		<value>Create Employee Position</value>
+	</data>
+
 	<data name="CreateFreightTerm" xml:space="preserve">
 		<value>Create Freight Term</value>
 	</data>
@@ -648,7 +668,7 @@
 	</data>
 
 	<data name="CurrentStepId" xml:space="preserve">
-		<value>Current Step Id</value>
+		<value>Current Step</value>
 	</data>
 
 	<data name="Customer" xml:space="preserve">
@@ -691,6 +711,10 @@
 		<value>Customers List</value>
 	</data>
 
+	<data name="DefaultJobPositions" xml:space="preserve">
+		<value>Default Job Positions</value>
+	</data>
+
 	<data name="DefaultTitle" xml:space="preserve">
 		<value>Default Title</value>
 	</data>
@@ -725,6 +749,10 @@
 
 	<data name="DeleteEmployee" xml:space="preserve">
 		<value>Delete Employee</value>
+	</data>
+
+	<data name="DeleteEmployeePosition" xml:space="preserve">
+		<value>Delete Employee Position</value>
 	</data>
 
 	<data name="DeleteFreightTerm" xml:space="preserve">
@@ -800,11 +828,19 @@
 	</data>
 
 	<data name="DependedStepId" xml:space="preserve">
-		<value>Depended Step Id</value>
+		<value>Depended Step</value>
 	</data>
 
 	<data name="Description" xml:space="preserve">
 		<value>Description</value>
+	</data>
+
+	<data name="Designer" xml:space="preserve">
+		<value>Designer</value>
+	</data>
+
+	<data name="DesignerId" xml:space="preserve">
+		<value>Designer</value>
 	</data>
 
 	<data name="Discontinued" xml:space="preserve">
@@ -873,6 +909,10 @@
 
 	<data name="EditEmployee" xml:space="preserve">
 		<value>Edit Employee</value>
+	</data>
+
+	<data name="EditEmployeePosition" xml:space="preserve">
+		<value>Edit Employee Position</value>
 	</data>
 
 	<data name="EditFreightTerm" xml:space="preserve">
@@ -951,6 +991,18 @@
 		<value>Employee</value>
 	</data>
 
+	<data name="EmployeePosition" xml:space="preserve">
+		<value>Employee Position</value>
+	</data>
+
+	<data name="EmployeePositions" xml:space="preserve">
+		<value>Employee Positions</value>
+	</data>
+
+	<data name="EmployeePositionsList" xml:space="preserve">
+		<value>Employee Positions List</value>
+	</data>
+
 	<data name="Employees" xml:space="preserve">
 		<value>Employees</value>
 	</data>
@@ -985,6 +1037,10 @@
 
 	<data name="FreightTermsList" xml:space="preserve">
 		<value>Freight Terms List</value>
+	</data>
+
+	<data name="HangerSticker" xml:space="preserve">
+		<value>Hanger Sticker</value>
 	</data>
 
 	<data name="Id" xml:space="preserve">
@@ -1031,6 +1087,10 @@
 		<value>Kimball Nr</value>
 	</data>
 
+	<data name="Labelling" xml:space="preserve">
+		<value>Labelling</value>
+	</data>
+
 	<data name="LastName" xml:space="preserve">
 		<value>Last Name</value>
 	</data>
@@ -1052,11 +1112,11 @@
 	</data>
 
 	<data name="LicensorCurrencyId" xml:space="preserve">
-		<value>Licensor Currency Id</value>
+		<value>Licensor Currency</value>
 	</data>
 
 	<data name="LicensorId" xml:space="preserve">
-		<value>Licensor Id</value>
+		<value>Licensor</value>
 	</data>
 
 	<data name="LicensorPrice" xml:space="preserve">
@@ -1093,6 +1153,26 @@
 
 	<data name="ManufacturersList" xml:space="preserve">
 		<value>Factories List</value>
+	</data>
+
+	<data name="Merchandiser" xml:space="preserve">
+		<value>Merchandiser</value>
+	</data>
+
+	<data name="Merchandiser1" xml:space="preserve">
+		<value>Merchandiser 1</value>
+	</data>
+
+	<data name="Merchandiser1Id" xml:space="preserve">
+		<value>Merchandiser 1</value>
+	</data>
+
+	<data name="Merchandiser2" xml:space="preserve">
+		<value>Merchandiser 2</value>
+	</data>
+
+	<data name="Merchandiser2Id" xml:space="preserve">
+		<value>Merchandiser 2</value>
 	</data>
 
 	<data name="ModifiedUser" xml:space="preserve">
@@ -1136,27 +1216,27 @@
 	</data>
 
 	<data name="ParentCategoryId" xml:space="preserve">
-		<value>Parent Category Id</value>
+		<value>Parent Category</value>
 	</data>
 
 	<data name="ParentPo" xml:space="preserve">
-		<value>Parent Po</value>
+		<value>Parent P.O.</value>
 	</data>
 
 	<data name="ParentPoId" xml:space="preserve">
-		<value>Parent Po Id</value>
+		<value>Parent P.O.</value>
 	</data>
 
 	<data name="Phone1" xml:space="preserve">
-		<value>Phone1</value>
+		<value>Phone 1</value>
 	</data>
 
 	<data name="Phone2" xml:space="preserve">
-		<value>Phone2</value>
+		<value>Phone 2</value>
 	</data>
 
 	<data name="Phone3" xml:space="preserve">
-		<value>Phone3</value>
+		<value>Phone 3</value>
 	</data>
 
 	<data name="PhoneMobile" xml:space="preserve">
@@ -1172,15 +1252,27 @@
 	</data>
 
 	<data name="PhoneWork1" xml:space="preserve">
-		<value>Phone Work1</value>
+		<value>Phone Work 1</value>
 	</data>
 
 	<data name="PhoneWork2" xml:space="preserve">
-		<value>Phone Work2</value>
+		<value>Phone Work 2</value>
 	</data>
 
 	<data name="PoNr" xml:space="preserve">
 		<value>P.O. Nr.</value>
+	</data>
+
+	<data name="Position" xml:space="preserve">
+		<value>Position</value>
+	</data>
+
+	<data name="PositionId" xml:space="preserve">
+		<value>Position</value>
+	</data>
+
+	<data name="Print" xml:space="preserve">
+		<value>Print</value>
 	</data>
 
 	<data name="Process" xml:space="preserve">
@@ -1204,7 +1296,7 @@
 	</data>
 
 	<data name="ProcessStepId" xml:space="preserve">
-		<value>Process Step Id</value>
+		<value>Process Step</value>
 	</data>
 
 	<data name="ProcessStepRevision" xml:space="preserve">
@@ -1349,6 +1441,10 @@
 
 	<data name="RemoveEmployee" xml:space="preserve">
 		<value>Remove Employee</value>
+	</data>
+
+	<data name="RemoveEmployeePosition" xml:space="preserve">
+		<value>Remove Employee Position</value>
 	</data>
 
 	<data name="RemoveFreightTerm" xml:space="preserve">
@@ -1593,6 +1689,14 @@
 
 	<data name="UserName" xml:space="preserve">
 		<value>UserName</value>
+	</data>
+
+	<data name="WashingInstructions" xml:space="preserve">
+		<value>Washing Instructions</value>
+	</data>
+
+	<data name="WoovenLabel" xml:space="preserve">
+		<value>Wooven Label</value>
 	</data>
 
 	<data name="ZipCode" xml:space="preserve">

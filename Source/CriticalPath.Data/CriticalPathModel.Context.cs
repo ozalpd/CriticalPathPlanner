@@ -50,6 +50,7 @@ namespace CriticalPath.Data
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<CustomerDepartment> CustomerDepartments { get; set; }
         public virtual DbSet<ProcessStepRevision> ProcessStepRevisions { get; set; }
+        public virtual DbSet<EmployeePosition> EmployeePositions { get; set; }
     
         /// <summary>
         /// Default query for AspNetUsers
@@ -473,6 +474,42 @@ namespace CriticalPath.Data
     
     
         /// <summary>
+        /// Default query for EmployeePositions
+        /// </summary>
+        /// <returns></returns>
+        public virtual IQueryable<EmployeePosition> GetEmployeePositionQuery()
+        {
+            IQueryable<EmployeePosition> query = EmployeePositions;
+            return query;
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from EmployeePosition query
+        /// </summary>
+        /// <param name="query">query to be converted</param>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<EmployeePositionDTO> GetEmployeePositionDtoQuery()
+        {
+            return GetEmployeePositionDtoQuery(GetEmployeePositionQuery());
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from EmployeePosition query
+        /// </summary>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<EmployeePositionDTO> GetEmployeePositionDtoQuery(IQueryable<EmployeePosition> query)
+        {
+            return from e in query
+                   select new EmployeePositionDTO
+                   {
+                       Id = e.Id,
+                       Position = e.Position,
+                       AppDefault = e.AppDefault,
+                   };
+        }
+    
+    
+        /// <summary>
         /// Default query for Employees
         /// </summary>
         /// <returns></returns>
@@ -503,6 +540,7 @@ namespace CriticalPath.Data
                    {
                        Id = e.Id,
                        IsActive = e.IsActive,
+                       PositionId = e.PositionId,
                        InactivateDate = e.InactivateDate,
                    };
         }
@@ -717,8 +755,8 @@ namespace CriticalPath.Data
                        DisplayOrder = e.DisplayOrder,
                        ProcessTemplateId = e.ProcessTemplateId,
                        RequiredWorkDays = e.RequiredWorkDays,
-                       IgnoreInRepeat = e.IgnoreInRepeat,
                        ReqDaysBeforeDueDate = e.ReqDaysBeforeDueDate,
+                       IgnoreInRepeat = e.IgnoreInRepeat,
                        DependedStepId = e.DependedStepId,
                    };
         }
@@ -892,6 +930,9 @@ namespace CriticalPath.Data
                        DueDate = e.DueDate,
                        IsRepeat = e.IsRepeat,
                        ParentPoId = e.ParentPoId,
+                       DesignerId = e.DesignerId,
+                       Merchandiser1Id = e.Merchandiser1Id,
+                       Merchandiser2Id = e.Merchandiser2Id,
                        Description = e.Description,
                        CustomerId = e.CustomerId,
                        CustomerDepartmentId = e.CustomerDepartmentId,
@@ -901,7 +942,12 @@ namespace CriticalPath.Data
                        SizingStandardId = e.SizingStandardId,
                        FabricComposition = e.FabricComposition,
                        Colour = e.Colour,
+                       Print = e.Print,
                        ShipmentHangingFolded = e.ShipmentHangingFolded,
+                       HangerSticker = e.HangerSticker,
+                       Labelling = e.Labelling,
+                       WoovenLabel = e.WoovenLabel,
+                       WashingInstructions = e.WashingInstructions,
                        Quantity = e.Quantity,
                        DiscountRate = e.DiscountRate,
                        UnitPrice = e.UnitPrice,

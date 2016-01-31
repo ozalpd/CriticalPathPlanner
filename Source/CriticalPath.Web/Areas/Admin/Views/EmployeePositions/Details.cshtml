@@ -1,0 +1,54 @@
+@using CriticalPath.Web.Models
+@using CriticalPath.Data
+@using CP.i8n
+@model EmployeePosition
+@{
+    ViewBag.Title = EntityStrings.EmployeePosition;
+
+    //Authorization Flags
+    bool canUserEdit = ViewBag.canUserEdit;
+    bool canUserCreate = ViewBag.canUserCreate;
+    bool canUserDelete = ViewBag.canUserDelete;
+    bool canSeeRestricted = ViewBag.canSeeRestricted;
+}
+
+<h2>@EntityStrings.EmployeePosition @ActionStrings.Details</h2>
+
+<div class="form-horizontal">
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.Position)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+            @Html.DisplayFor(m => m.Position)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.AppDefault)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+            @Html.DisplayFor(m => m.AppDefault)
+        </div>
+    </div>
+    @if (canSeeRestricted)
+    {
+        <div class="row mb5">
+            <label class="control-label col-md-2 col-sm-3 mb5">
+                @Html.DisplayNameFor(model => model.CreatedUser)
+            </label>
+            <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+                @Html.DisplayFor(m => m.CreatedUser)
+            </div>
+        </div>
+    }
+    <div class="row">
+        <div class="col-md-6">
+            @if (canUserEdit && !Model.AppDefault)
+            {
+                @Html.ActionLink(@ActionStrings.Edit, "Edit", null, new { id = Model.Id }, new { @class = "btn btn-default" })
+            }
+            @Html.ActionLink(@ActionStrings.BackToIndex, "Index", null, new { @class = "btn btn-default" })
+        </div>
+    </div>
+</div>

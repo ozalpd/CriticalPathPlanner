@@ -7,6 +7,7 @@ CREATE TABLE [dbo].[Employees](
     [AspNetUserId] [VarChar](48) Not Null Constraint FK_Employee_AspNetUserId Foreign Key References [dbo].[AspNetUsers]([Id]),
     [IsActive] [bit] Not Null,
     [InactivateDate] [DateTime] Null,
+    [PositionId] [int] Null Constraint FK_Employee_PositionId Foreign Key References [dbo].[EmployeePositions]([Id]),
     [ModifyNr] [int] Not Null Default 1,
     [ModifyDate] [DateTime] Not Null Default GetDate(),
     [ModifierId] [VarChar](48) Not Null Constraint FK_Employee_ModifierId Foreign Key References [dbo].[AspNetUsers]([Id]),

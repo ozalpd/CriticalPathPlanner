@@ -40,6 +40,22 @@ namespace CriticalPath.Web.Controllers
             {
                 query = query.Where(x => x.ProductId == qParams.ProductId);
             }
+            if (qParams.DesignerId != null)
+            {
+                query = query.Where(x => x.DesignerId == qParams.DesignerId);
+            }
+            if (qParams.MerchandiserId != null)
+            {
+                query = query.Where(x => x.Merchandiser1Id == qParams.MerchandiserId | x.Merchandiser2Id == qParams.MerchandiserId);
+            }
+            if (qParams.Merchandiser1Id != null)
+            {
+                query = query.Where(x => x.Merchandiser1Id == qParams.Merchandiser1Id);
+            }
+            if (qParams.Merchandiser2Id != null)
+            {
+                query = query.Where(x => x.Merchandiser2Id == qParams.Merchandiser2Id);
+            }
             if (qParams.SellingCurrencyId != null)
             {
                 query = query.Where(x => x.SellingCurrencyId == qParams.SellingCurrencyId);
@@ -159,6 +175,7 @@ namespace CriticalPath.Web.Controllers
             }
             ViewBag.FilterPanelExpanded = (qParams.CustomerId.HasValue || qParams.CustomerDepartmentId.HasValue ||
                                         qParams.DueDateMin.HasValue || qParams.DueDateMax.HasValue || qParams.HideRestricted ||
+                                        qParams.MerchandiserId.HasValue || qParams.DesignerId.HasValue || 
                                         qParams.SupplierId.HasValue || qParams.PageSize != 10);
 
             ViewBag.SizeArray = new int[] { 10, 20, 50, 100 };
@@ -168,6 +185,12 @@ namespace CriticalPath.Web.Controllers
             await SetCustomerDepartmentSelectListAsync(qParams.CustomerId ?? 0, qParams.CustomerDepartmentId ?? 0);
             await SetCustomerSelectListAsync(qParams.CustomerId ?? 0);
             await SetSupplierSelectList(qParams.SupplierId ?? 0);
+
+            var designers = await DataContext.GetDesignerDtoList();
+            ViewBag.DesignerId = new SelectList(designers, "Id", "FullName", qParams.DesignerId ?? 0);
+            var merchandisers = await DataContext.GetMerchandiserDtoList();
+            ViewBag.MerchandiserId = new SelectList(merchandisers, "Id", "FullName", qParams.MerchandiserId ?? 0);
+
             //SetPageSizeSelectList(qParams.PageSize);
 
             return View(result.Items);
@@ -446,6 +469,7 @@ namespace CriticalPath.Web.Controllers
 
             ViewBag.SupplierId = new SelectList(new List<SupplierDTO>(), "Id", "CompanyName", 0);
             await SetSectListAsync(vm);
+
             return View(vm);
         }
 
@@ -501,13 +525,20 @@ namespace CriticalPath.Web.Controllers
             return RedirectToAction("Details", new { id = vm.Id });
         }
 
-        private async Task SetSectListAsync(PurchaseOrderVM poVM)
+        private async Task SetSectListAsync(PurchaseOrderVM vm)
         {
-            await SetCurrencySelectLists(poVM);
-            await SetFreightTermSelectListAsync(poVM.FreightTermId);
+            await SetCurrencySelectLists(vm);
+            await SetFreightTermSelectListAsync(vm.FreightTermId);
             //await SetProductSelectListAsync(poVM.Product);
-            await SetSizingStandardSelectListAsync(poVM);
-            await SetCustomerDepartmentSelectListAsync(poVM.CustomerId, poVM.CustomerDepartmentId ?? 0);
+            await SetSizingStandardSelectListAsync(vm);
+            await SetCustomerDepartmentSelectListAsync(vm.CustomerId, vm.CustomerDepartmentId ?? 0);
+
+            var designers = await DataContext.GetDesignerDtoList();
+            ViewBag.DesignerId = new SelectList(designers, "Id", "FullName", vm.DesignerId ?? 0);
+            var merchandisers = await DataContext.GetMerchandiserDtoList();
+            ViewBag.Merchandiser1Id = new SelectList(merchandisers, "Id", "FullName", vm.Merchandiser1Id ?? 0);
+            ViewBag.Merchandiser2Id = new SelectList(merchandisers, "Id", "FullName", vm.Merchandiser2Id ?? 0);
+
         }
 
         [Authorize(Roles = "admin, supervisor")]
@@ -611,6 +642,15 @@ namespace CriticalPath.Web.Controllers
                 purchaseOrder.ShipmentHangingFolded = vm.ShipmentHangingFolded;
                 purchaseOrder.Colour = vm.Colour;
                 purchaseOrder.FabricComposition = vm.FabricComposition;
+                purchaseOrder.Print = vm.Print;
+                purchaseOrder.Labelling = vm.Labelling;
+                purchaseOrder.WoovenLabel = vm.WoovenLabel;
+                purchaseOrder.HangerSticker = vm.HangerSticker;
+                purchaseOrder.WashingInstructions = vm.WashingInstructions;
+
+                purchaseOrder.DesignerId = vm.DesignerId;
+                purchaseOrder.Merchandiser1Id = vm.Merchandiser1Id;
+                purchaseOrder.Merchandiser2Id = vm.Merchandiser2Id;
 
                 int srd = 0;
                 foreach (var item in vm.SizeRatios)
@@ -646,12 +686,17 @@ namespace CriticalPath.Web.Controllers
             purchaseOrder.ApproveDate = null;
             purchaseOrder.IsApproved = false;
 
+            purchaseOrder.DesignerId = await GetEmployeeId();
+            purchaseOrder.Merchandiser1Id = await GetEmployeeId();
+            purchaseOrder.Merchandiser2Id = await GetEmployeeId();
+
             //TODO:Get count of PO at this month
         }
 
         public partial class QueryParameters : BaseController.QueryParameters
         {
             public bool HideRestricted { get; set; }
+            public int? MerchandiserId { get; set; }
         }
     }
 }

@@ -200,6 +200,27 @@ namespace CriticalPath.Web.Controllers
         }
 
         /// <summary>
+        /// Finds an EmployeePosition by PrimaryKey value
+        /// </summary>
+        /// <param name="id">Represents PrimaryKey of EmployeePosition.Id</param>
+        /// <returns></returns>
+        protected virtual async Task<EmployeePosition> FindAsyncEmployeePosition(int id)
+        {
+            return await GetEmployeePositionQuery()
+                            .FirstOrDefaultAsync(x => x.Id == id);
+        }
+
+        protected virtual IQueryable<EmployeePosition> GetEmployeePositionQuery()
+        {
+            return DataContext.GetEmployeePositionQuery();
+        }
+
+        protected virtual Task SetEmployeePositionDefaults(EmployeePosition employeePosition)
+        {
+            return Task.FromResult(default(object));
+        }
+
+        /// <summary>
         /// Finds an FreightTerm by PrimaryKey value
         /// </summary>
         /// <param name="id">Represents PrimaryKey of FreightTerm.Id</param>

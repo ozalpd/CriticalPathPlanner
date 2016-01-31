@@ -31,12 +31,17 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                         where
                             a.AspNetUser.UserName.Contains(qParams.SearchString) ||
                             a.AspNetUser.FirstName.Contains(qParams.SearchString) ||
-                            a.AspNetUser.LastName.Contains(qParams.SearchString)
+                            a.AspNetUser.LastName.Contains(qParams.SearchString) ||
+                            a.Position.Position.Contains(qParams.SearchString)
                         select a;
             }
             if (qParams.IsActive != null)
             {
                 query = query.Where(x => x.IsActive == qParams.IsActive.Value);
+            }
+            if ((qParams.PositionId ?? 0) > 0)
+            {
+                query = query.Where(x => x.PositionId == qParams.PositionId.Value);
             }
             if (qParams.InactivateDateMin != null)
             {
@@ -66,6 +71,8 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
         {
             var items = await GetEmployeeDtoList(qParams);
             ViewBag.totalCount = qParams.TotalCount;
+
+            await SetEmployeePositionSelectListAsync(qParams.PositionId ?? 0);
             await PutCanUserInViewBag();
             var result = new PagedList<EmployeeDTO>(qParams, items);
             ViewBag.result = result.ToJson();
@@ -125,19 +132,20 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
         {
             var vm = new EmployeeCreateVM();
             await SetEmployeeDefaults(vm);
+            await SetEmployeePositionSelectListAsync(vm.PositionId ?? 0);
             return View(vm);
         }
 
         [HttpPost]
         [Authorize(Roles = "admin")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(EmployeeCreateVM employeeVM)
+        public async Task<ActionResult> Create(EmployeeCreateVM vm)
         {
             if (ModelState.IsValid)
             {
-                var entity = employeeVM.ToEmployee();
+                var entity = vm.ToEmployee();
                 //TODO: Implement password reset and send a password recovery mail
-                var user = employeeVM.ToUser();
+                var user = vm.ToUser();
                 IdentityResult result = await CreateUserUnique(user, "Dnm!2345");
                 if (result.Succeeded)
                 {
@@ -155,11 +163,15 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                         user.UserName,
                         result.Errors));
                 }
+
+                await DataContext.RefreshDesignerDtoList();
+                await DataContext.RefreshMerchandiserDtoList();
+
                 return RedirectToAction("Details", new { id = entity.Id });
-                //return RedirectToAction("Index");
             }
 
-            return View(employeeVM);
+            await SetEmployeePositionSelectListAsync(vm.PositionId ?? 0);
+            return View(vm);
         }
 
         private async Task<IdentityResult> CreateUserUnique(OzzUser user, string password)
@@ -205,7 +217,7 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             }
 
             var employeeDTO = new EmployeeDTO(employee);
-            SetSelectLists(employee);
+            await SetEmployeePositionSelectListAsync(employeeDTO.PositionId ?? 0);
             return View(employeeDTO);
         }
 
@@ -233,6 +245,7 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                     user.LockoutEndDateUtc = null;
                 }
                 employee.IsActive = vm.IsActive;
+                employee.PositionId = vm.PositionId;
                 user.FirstName = vm.FirstName;
                 user.LastName = vm.LastName;
                 user.Email = vm.Email;
@@ -240,12 +253,54 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
 
                 await UserManager.UpdateAsync(user);
                 await DataContext.SaveChangesAsync(this);
+
+                await DataContext.RefreshDesignerDtoList();
+                await DataContext.RefreshMerchandiserDtoList();
+
                 return RedirectToAction("Details", new { id = vm.Id });
             }
 
-            SetSelectLists(vm.ToEmployee());
+            await SetEmployeePositionSelectListAsync(vm.PositionId ?? 0);
             return View(vm);
         }
+
+
+        [Authorize(Roles = "admin")]
+        public async Task<ActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return BadRequestTextResult();
+            }
+            Employee employee = await FindAsyncEmployee(id.Value);
+
+            if (employee == null)
+            {
+                return NotFoundTextResult();
+            }
+
+            DataContext.Employees.Remove(employee);
+            try
+            {
+                await DataContext.SaveChangesAsync(this);
+
+                await DataContext.RefreshDesignerDtoList();
+                await DataContext.RefreshMerchandiserDtoList();
+            }
+            catch (Exception ex)
+            {
+                var sb = new StringBuilder();
+                sb.Append(MessageStrings.CanNotDelete);
+                sb.Append(employee.AspNetUser.UserName);
+                sb.Append("<br/>");
+                AppendExceptionMsg(ex, sb);
+
+                return StatusCodeTextResult(sb, HttpStatusCode.InternalServerError);
+            }
+
+            return new HttpStatusCodeResult(HttpStatusCode.OK);
+        }
+
 
         [Authorize(Roles = "admin, supervisor")]
         public async Task<ActionResult> Details(int? id)
@@ -264,8 +319,5 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             await PutCanUserInViewBag();
             return View(new EmployeeDTO(employee));
         }
-
-        //Purpose: To set default property values for newly created Employee entity
-        //protected override async Task SetEmployeeDefaults(Employee employee) { }
     }
 }

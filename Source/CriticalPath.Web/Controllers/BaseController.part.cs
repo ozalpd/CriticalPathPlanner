@@ -51,6 +51,21 @@ namespace CriticalPath.Web.Controllers
             await DataContext.SaveChangesAsync(this);
         }
 
+        /// <summary>
+        /// Gets current user's EmployeeId. If current user is not an employee returns null.
+        /// </summary>
+        /// <returns></returns>
+        protected async Task<int?> GetEmployeeId()
+        {
+            var query = DataContext.Employees.Where(e => e.AspNetUserId == UserID);
+            var employee = await query.FirstOrDefaultAsync();
+
+            if (employee == null)
+                return null;
+
+            return employee.Id;
+        }
+
         protected virtual void SetDiscontinuedUser(IDiscontinuedUser entity)
         {
             entity.DiscontinuedUserId = UserID;
@@ -250,6 +265,12 @@ namespace CriticalPath.Web.Controllers
             var list = from s in sizeArray
                        select new { val = s, title = s.ToString() };
             ViewBag.PageSize = new SelectList(list, "val", "title", pageSize);
+        }
+
+        protected virtual async Task SetEmployeePositionSelectListAsync(int positionId)
+        {
+            var list = await DataContext.GetEmployeePositionDtoList();
+            ViewBag.PositionId = new SelectList(list, "Id", "Position", positionId);
         }
 
         protected virtual async Task SetFreightTermSelectListAsync(int freightTermId)
