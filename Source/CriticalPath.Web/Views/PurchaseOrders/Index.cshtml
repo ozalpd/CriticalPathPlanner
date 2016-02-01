@@ -287,7 +287,7 @@
             {
                 <td></td>
             }
-            <td></td>
+            <td colspan="3"></td>
             <td align="right" colspan="2">Total Quantities</td>
             <td align="right">@grandTotal.ToString("###,###")</td>
             @if (canSeeRestricted)
@@ -297,16 +297,13 @@
             }
         </tr>
     </table>
-                        if (canUserDelete)
-                        {
-                            @Html.Partial("_MessageBoxPartial")
-                            }
-                        }
-                        else
-                        {
-                            <h4>@MessageStrings.NoResults!</h4>
-                        }
+}
+else
+{
+    <h4>@MessageStrings.NoResults!</h4>
+}
 @Html.Partial("_PagerPartial")
+@Html.Partial("_MessageBoxPartial")
 @section scripts{
     @Html.Partial("_IndexScriptsPartial", "PurchaseOrders")
     <script type="text/javascript">

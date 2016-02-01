@@ -529,7 +529,6 @@
     <Content Include="Views\Shared\DisplayTemplates\Contact.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Customer.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Supplier.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\OrderItem.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Process.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\ProcessStep.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\ProcessStepTemplate.cshtml" />

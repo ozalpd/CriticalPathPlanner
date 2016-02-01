@@ -61,8 +61,8 @@ namespace CriticalPath.Web.Models
             public static string BigImageUpload = "/Files/BigImageUpload";
             public static string ImageUpload = "/Files/ImageUpload";
             public static string NoImageAvailable = "/images/no_image_found.png";
-            public static string ProductImages = "/ProductFiles/Images";
-            public static string ThumbImages = "/ProductFiles/Thumbs";
+            public static string ProductImages = "/AttachedFiles/Images";
+            public static string ThumbImages = "/AttachedFiles/Thumbs";
             public static string TempUploads = "/TempUploads";
         }
 

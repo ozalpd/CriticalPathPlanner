@@ -1,6 +1,6 @@
 ﻿namespace CriticalPath.Data
 {
-    public partial class Contact
+    public partial class ContactDTO
     {
         public string FullName
         {
