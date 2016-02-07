@@ -51,6 +51,8 @@ namespace CriticalPath.Data
         public virtual DbSet<CustomerDepartment> CustomerDepartments { get; set; }
         public virtual DbSet<ProcessStepRevision> ProcessStepRevisions { get; set; }
         public virtual DbSet<EmployeePosition> EmployeePositions { get; set; }
+        public virtual DbSet<POAttachment> POAttachments { get; set; }
+        public virtual DbSet<POImage> POImages { get; set; }
     
         /// <summary>
         /// Default query for AspNetUsers
@@ -585,6 +587,84 @@ namespace CriticalPath.Data
                        Id = e.Id,
                        IncotermCode = e.IncotermCode,
                        Description = e.Description,
+                   };
+        }
+    
+    
+        /// <summary>
+        /// Default query for POAttachments
+        /// </summary>
+        /// <returns></returns>
+        public virtual IQueryable<POAttachment> GetPOAttachmentQuery()
+        {
+            IQueryable<POAttachment> query = POAttachments.OrderBy(p => p.DisplayOrder);
+            return query;
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from POAttachment query
+        /// </summary>
+        /// <param name="query">query to be converted</param>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<POAttachmentDTO> GetPOAttachmentDtoQuery()
+        {
+            return GetPOAttachmentDtoQuery(GetPOAttachmentQuery());
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from POAttachment query
+        /// </summary>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<POAttachmentDTO> GetPOAttachmentDtoQuery(IQueryable<POAttachment> query)
+        {
+            return from e in query
+                   select new POAttachmentDTO
+                   {
+                       Id = e.Id,
+                       PurchaseOrderId = e.PurchaseOrderId,
+                       FileUrl = e.FileUrl,
+                       FileTitle = e.FileTitle,
+                       FileName = e.FileName,
+                       FileType = e.FileType,
+                       DisplayOrder = e.DisplayOrder,
+                   };
+        }
+    
+    
+        /// <summary>
+        /// Default query for POImages
+        /// </summary>
+        /// <returns></returns>
+        public virtual IQueryable<POImage> GetPOImageQuery()
+        {
+            IQueryable<POImage> query = POImages.OrderBy(p => p.DisplayOrder);
+            return query;
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from POImage query
+        /// </summary>
+        /// <param name="query">query to be converted</param>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<POImageDTO> GetPOImageDtoQuery()
+        {
+            return GetPOImageDtoQuery(GetPOImageQuery());
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from POImage query
+        /// </summary>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<POImageDTO> GetPOImageDtoQuery(IQueryable<POImage> query)
+        {
+            return from e in query
+                   select new POImageDTO
+                   {
+                       Id = e.Id,
+                       PurchaseOrderId = e.PurchaseOrderId,
+                       ImageUrl = e.ImageUrl,
+                       ImageTitle = e.ImageTitle,
+                       DisplayOrder = e.DisplayOrder,
                    };
         }
     

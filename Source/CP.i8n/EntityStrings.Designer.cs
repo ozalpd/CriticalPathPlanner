@@ -286,6 +286,24 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add New P.O. Attachment.
+        /// </summary>
+        public static string AddNewPOAttachment {
+            get {
+                return ResourceManager.GetString("AddNewPOAttachment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add New P.O. Image.
+        /// </summary>
+        public static string AddNewPOImage {
+            get {
+                return ResourceManager.GetString("AddNewPOImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add New Process.
         /// </summary>
         public static string AddNewProcess {
@@ -390,6 +408,24 @@ namespace CP.i8n {
         public static string AddNewSupplier {
             get {
                 return ResourceManager.GetString("AddNewSupplier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add P.O. Attachment.
+        /// </summary>
+        public static string AddPOAttachment {
+            get {
+                return ResourceManager.GetString("AddPOAttachment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add P.O. Image.
+        /// </summary>
+        public static string AddPOImage {
+            get {
+                return ResourceManager.GetString("AddPOImage", resourceCulture);
             }
         }
         
@@ -570,6 +606,24 @@ namespace CP.i8n {
         public static string AddRemoveManufacturer {
             get {
                 return ResourceManager.GetString("AddRemoveManufacturer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Remove P.O. Attachment.
+        /// </summary>
+        public static string AddRemovePOAttachment {
+            get {
+                return ResourceManager.GetString("AddRemovePOAttachment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Remove P.O. Image.
+        /// </summary>
+        public static string AddRemovePOImage {
+            get {
+                return ResourceManager.GetString("AddRemovePOImage", resourceCulture);
             }
         }
         
@@ -822,6 +876,15 @@ namespace CP.i8n {
         public static string AspNetUsersList {
             get {
                 return ResourceManager.GetString("AspNetUsersList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Attachments.
+        /// </summary>
+        public static string Attachments {
+            get {
+                return ResourceManager.GetString("Attachments", resourceCulture);
             }
         }
         
@@ -1240,6 +1303,24 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create P.O. Attachment.
+        /// </summary>
+        public static string CreatePOAttachment {
+            get {
+                return ResourceManager.GetString("CreatePOAttachment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create P.O. Image.
+        /// </summary>
+        public static string CreatePOImage {
+            get {
+                return ResourceManager.GetString("CreatePOImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create Process.
         /// </summary>
         public static string CreateProcess {
@@ -1654,6 +1735,24 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete P.O. Attachment.
+        /// </summary>
+        public static string DeletePOAttachment {
+            get {
+                return ResourceManager.GetString("DeletePOAttachment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete P.O. Image.
+        /// </summary>
+        public static string DeletePOImage {
+            get {
+                return ResourceManager.GetString("DeletePOImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete Process.
         /// </summary>
         public static string DeleteProcess {
@@ -2014,6 +2113,24 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit P.O. Attachment.
+        /// </summary>
+        public static string EditPOAttachment {
+            get {
+                return ResourceManager.GetString("EditPOAttachment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit P.O. Image.
+        /// </summary>
+        public static string EditPOImage {
+            get {
+                return ResourceManager.GetString("EditPOImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit Process.
         /// </summary>
         public static string EditProcess {
@@ -2212,6 +2329,42 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to File Name.
+        /// </summary>
+        public static string FileName {
+            get {
+                return ResourceManager.GetString("FileName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File Title.
+        /// </summary>
+        public static string FileTitle {
+            get {
+                return ResourceManager.GetString("FileTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File Type.
+        /// </summary>
+        public static string FileType {
+            get {
+                return ResourceManager.GetString("FileType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File Url.
+        /// </summary>
+        public static string FileUrl {
+            get {
+                return ResourceManager.GetString("FileUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to First Name.
         /// </summary>
         public static string FirstName {
@@ -2289,6 +2442,24 @@ namespace CP.i8n {
         public static string IgnoreInRepeat {
             get {
                 return ResourceManager.GetString("IgnoreInRepeat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Images.
+        /// </summary>
+        public static string Images {
+            get {
+                return ResourceManager.GetString("Images", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Image Title.
+        /// </summary>
+        public static string ImageTitle {
+            get {
+                return ResourceManager.GetString("ImageTitle", resourceCulture);
             }
         }
         
@@ -2761,6 +2932,60 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to P.O. Attachment.
+        /// </summary>
+        public static string POAttachment {
+            get {
+                return ResourceManager.GetString("POAttachment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to P.O. Attachments.
+        /// </summary>
+        public static string POAttachments {
+            get {
+                return ResourceManager.GetString("POAttachments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to P.O. Attachments List.
+        /// </summary>
+        public static string POAttachmentsList {
+            get {
+                return ResourceManager.GetString("POAttachmentsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to P.O. Image.
+        /// </summary>
+        public static string POImage {
+            get {
+                return ResourceManager.GetString("POImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to P.O. Images.
+        /// </summary>
+        public static string POImages {
+            get {
+                return ResourceManager.GetString("POImages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to P.O. Images List.
+        /// </summary>
+        public static string POImagesList {
+            get {
+                return ResourceManager.GetString("POImagesList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to P.O. Nr..
         /// </summary>
         public static string PoNr {
@@ -3207,6 +3432,24 @@ namespace CP.i8n {
         public static string RemoveManufacturer {
             get {
                 return ResourceManager.GetString("RemoveManufacturer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove P.O. Attachment.
+        /// </summary>
+        public static string RemovePOAttachment {
+            get {
+                return ResourceManager.GetString("RemovePOAttachment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove P.O. Image.
+        /// </summary>
+        public static string RemovePOImage {
+            get {
+                return ResourceManager.GetString("RemovePOImage", resourceCulture);
             }
         }
         

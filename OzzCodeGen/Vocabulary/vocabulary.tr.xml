@@ -137,6 +137,14 @@
     <Translation>Yeni Sipariş Kalemi Ekle</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddNewPOAttachment</Name>
+    <Translation>Yeni Sipariş Eklentisi Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewPOImage</Name>
+    <Translation>Yeni Sipariş Resmi Ekle</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddNewProcess</Name>
     <Translation>Yeni Süreç Ekle</Translation>
   </Vocab>
@@ -207,6 +215,14 @@
   <Vocab>
     <Name>AddOrderItem</Name>
     <Translation>Sipariş Kalemi Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddPOAttachment</Name>
+    <Translation>Sipariş Eklentisi Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddPOImage</Name>
+    <Translation>Sipariş Resmi Ekle</Translation>
   </Vocab>
   <Vocab>
     <Name>AddProcess</Name>
@@ -295,6 +311,14 @@
   <Vocab>
     <Name>AddRemoveManufacturer</Name>
     <Translation>Üretici Ekle/Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemovePOAttachment</Name>
+    <Translation>Sipariş Eklentisi Ekle/Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemovePOImage</Name>
+    <Translation>Sipariş Resmi Ekle/Çıkar</Translation>
   </Vocab>
   <Vocab>
     <Name>AddRemoveProcess</Name>
@@ -491,6 +515,10 @@
   <Vocab>
     <Name>AspNetUsersList</Name>
     <Translation>Uygulama Kullanıcısı Listesi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Attachments</Name>
+    <Translation>Eklentiler</Translation>
   </Vocab>
   <Vocab>
     <Name>BackToIndex</Name>
@@ -789,6 +817,14 @@
     <Translation>Sipariş Kalemi Oluştur</Translation>
   </Vocab>
   <Vocab>
+    <Name>CreatePOAttachment</Name>
+    <Translation>Sipariş Eklentisi Oluştur</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreatePOImage</Name>
+    <Translation>Sipariş Resmi Oluştur</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CreateProcess</Name>
     <Translation>Süreç Başlat</Translation>
   </Vocab>
@@ -1011,6 +1047,14 @@
   <Vocab>
     <Name>DeleteOrderItem</Name>
     <Translation>Sipariş Kalemini Sil</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeletePOAttachment</Name>
+    <Translation>Sipariş Eklentisini Sil</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeletePOImage</Name>
+    <Translation>Sipariş Resmini Sil</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteProcess</Name>
@@ -1245,6 +1289,14 @@
     <Translation>Sipariş Kalemini Düzenle</Translation>
   </Vocab>
   <Vocab>
+    <Name>EditPOAttachment</Name>
+    <Translation>Sipariş Eklentisini Düzenle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditPOImage</Name>
+    <Translation>Sipariş Resmini Düzenle</Translation>
+  </Vocab>
+  <Vocab>
     <Name>EditProcess</Name>
     <Translation>Süreci Düzenle</Translation>
   </Vocab>
@@ -1389,6 +1441,18 @@
     <Translation>Dosya Boyu</Translation>
   </Vocab>
   <Vocab>
+    <Name>FileTitle</Name>
+    <Translation>Dosya Başlığı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>FileType</Name>
+    <Translation>Dosya Türü</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>FileUrl</Name>
+    <Translation>Dosya Yolu</Translation>
+  </Vocab>
+  <Vocab>
     <Name>FirstName</Name>
     <Translation>Ad</Translation>
   </Vocab>
@@ -1471,6 +1535,14 @@
   <Vocab>
     <Name>ImageFiles</Name>
     <Translation>Resim Dosyaları</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Images</Name>
+    <Translation>Resimler</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ImageTitle</Name>
+    <Translation>Resim Başlığı</Translation>
   </Vocab>
   <Vocab>
     <Name>ImageUrl</Name>
@@ -1833,6 +1905,30 @@
     <Translation>Lütfen Bekleyin</Translation>
   </Vocab>
   <Vocab>
+    <Name>POAttachment</Name>
+    <Translation>Sipariş Eklentisi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>POAttachments</Name>
+    <Translation>Sipariş Eklentileri</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>POAttachmentsList</Name>
+    <Translation>Sipariş Eklenti Listesi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>POImage</Name>
+    <Translation>Sipariş Resmi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>POImages</Name>
+    <Translation>Sipariş Resimleri</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>POImagesList</Name>
+    <Translation>Sipariş Resim Listesi</Translation>
+  </Vocab>
+  <Vocab>
     <Name>PoNr</Name>
     <Translation>Sipariş Kodu</Translation>
   </Vocab>
@@ -1950,7 +2046,7 @@
   </Vocab>
   <Vocab>
     <Name>ProductImage</Name>
-    <Translation>Product Image</Translation>
+    <Translation>Ürün Resmi</Translation>
   </Vocab>
   <Vocab>
     <Name>Products</Name>
@@ -2087,6 +2183,14 @@
   <Vocab>
     <Name>RemoveManufacturer</Name>
     <Translation>Üreticiyi Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemovePOAttachment</Name>
+    <Translation>Sipariş Eklentisini Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemovePOImage</Name>
+    <Translation>Sipariş Resmini Çıkar</Translation>
   </Vocab>
   <Vocab>
     <Name>RemoveProcess</Name>

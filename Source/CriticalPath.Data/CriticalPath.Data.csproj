@@ -64,6 +64,10 @@
     <Compile Include="Contact.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Metadata\POAttachment.meta.cs" />
+    <Compile Include="Metadata\POAttachmentDTO.meta.cs" />
+    <Compile Include="Metadata\POImage.meta.cs" />
+    <Compile Include="Metadata\POImageDTO.meta.cs" />
     <Compile Include="Parts\ContactDTO.part.cs" />
     <Compile Include="Country.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
@@ -165,6 +169,12 @@
     <Compile Include="Parts\ProcessDTO.part.cs" />
     <Compile Include="Parts\ProcessStepDTO.part.cs" />
     <Compile Include="Parts\ProcessTemplateDTO.part.cs" />
+    <Compile Include="POAttachment.cs">
+      <DependentUpon>CriticalPathModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="POImage.cs">
+      <DependentUpon>CriticalPathModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Process.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>

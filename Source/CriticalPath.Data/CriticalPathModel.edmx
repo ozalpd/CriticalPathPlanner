@@ -177,6 +177,42 @@
           <Property Name="ManufacturerCode" Type="nvarchar" MaxLength="64" Nullable="false" />
           <Property Name="SupplierId" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="POAttachments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PurchaseOrderId" Type="int" Nullable="false" />
+          <Property Name="FileUrl" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="FileTitle" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="FileType" Type="nvarchar" MaxLength="16" Nullable="false" />
+          <Property Name="DisplayOrder" Type="int" Nullable="false" />
+          <Property Name="ModifyNr" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifierId" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="ModifierIp" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatorId" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="CreatorIp" Type="varchar" MaxLength="48" Nullable="false" />
+        </EntityType>
+        <EntityType Name="POImages">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PurchaseOrderId" Type="int" Nullable="false" />
+          <Property Name="ImageUrl" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="ImageTitle" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="DisplayOrder" Type="int" Nullable="false" />
+          <Property Name="ModifyNr" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifierId" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="ModifierIp" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatorId" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="CreatorIp" Type="varchar" MaxLength="48" Nullable="false" />
+        </EntityType>
         <EntityType Name="Processes">
           <Key>
             <PropertyRef Name="Id" />
@@ -707,6 +743,78 @@
             </Principal>
             <Dependent Role="Manufacturers">
               <PropertyRef Name="SupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POAttachment_CreatorId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="POAttachments" Type="Self.POAttachments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="POAttachments">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POAttachment_ModifierId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="POAttachments" Type="Self.POAttachments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="POAttachments">
+              <PropertyRef Name="ModifierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POAttachment_PurchaseOrderId">
+          <End Role="PurchaseOrders" Type="Self.PurchaseOrders" Multiplicity="1" />
+          <End Role="POAttachments" Type="Self.POAttachments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PurchaseOrders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="POAttachments">
+              <PropertyRef Name="PurchaseOrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POImage_CreatorId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="POImages" Type="Self.POImages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="POImages">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POImage_ModifierId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="POImages" Type="Self.POImages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="POImages">
+              <PropertyRef Name="ModifierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POImage_PurchaseOrderId">
+          <End Role="PurchaseOrders" Type="Self.PurchaseOrders" Multiplicity="1" />
+          <End Role="POImages" Type="Self.POImages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PurchaseOrders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="POImages">
+              <PropertyRef Name="PurchaseOrderId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1539,6 +1647,8 @@
           <EntitySet Name="FreightTerms" EntityType="Self.FreightTerms" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Licensors" EntityType="Self.Licensors" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Manufacturers" EntityType="Self.Manufacturers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="POAttachments" EntityType="Self.POAttachments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="POImages" EntityType="Self.POImages" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Processes" EntityType="Self.Processes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProcessStepRevisions" EntityType="Self.ProcessStepRevisions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProcessSteps" EntityType="Self.ProcessSteps" Schema="dbo" store:Type="Tables" />
@@ -1631,6 +1741,30 @@
           <AssociationSet Name="FK_Manufacturer_SupplierId" Association="Self.FK_Manufacturer_SupplierId">
             <End Role="Suppliers" EntitySet="Suppliers" />
             <End Role="Manufacturers" EntitySet="Manufacturers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POAttachment_CreatorId" Association="Self.FK_POAttachment_CreatorId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="POAttachments" EntitySet="POAttachments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POAttachment_ModifierId" Association="Self.FK_POAttachment_ModifierId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="POAttachments" EntitySet="POAttachments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POAttachment_PurchaseOrderId" Association="Self.FK_POAttachment_PurchaseOrderId">
+            <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
+            <End Role="POAttachments" EntitySet="POAttachments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POImage_CreatorId" Association="Self.FK_POImage_CreatorId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="POImages" EntitySet="POImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POImage_ModifierId" Association="Self.FK_POImage_ModifierId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="POImages" EntitySet="POImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POImage_PurchaseOrderId" Association="Self.FK_POImage_PurchaseOrderId">
+            <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
+            <End Role="POImages" EntitySet="POImages" />
           </AssociationSet>
           <AssociationSet Name="FK_Process_ApprovedUserId" Association="Self.FK_Process_ApprovedUserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -2262,6 +2396,32 @@
             <End Role="Employee" EntitySet="Employees" />
             <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
           </AssociationSet>
+          <EntitySet Name="POAttachments" EntityType="CriticalPathDataModel.POAttachment" />
+          <EntitySet Name="POImages" EntityType="CriticalPathDataModel.POImage" />
+          <AssociationSet Name="FK_POAttachment_CreatorId" Association="CriticalPathDataModel.FK_POAttachment_CreatorId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="POAttachment" EntitySet="POAttachments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POAttachment_ModifierId" Association="CriticalPathDataModel.FK_POAttachment_ModifierId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="POAttachment" EntitySet="POAttachments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POImage_CreatorId" Association="CriticalPathDataModel.FK_POImage_CreatorId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="POImage" EntitySet="POImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POImage_ModifierId" Association="CriticalPathDataModel.FK_POImage_ModifierId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="POImage" EntitySet="POImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POAttachment_PurchaseOrderId" Association="CriticalPathDataModel.FK_POAttachment_PurchaseOrderId">
+            <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+            <End Role="POAttachment" EntitySet="POAttachments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POImage_PurchaseOrderId" Association="CriticalPathDataModel.FK_POImage_PurchaseOrderId">
+            <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+            <End Role="POImage" EntitySet="POImages" />
+          </AssociationSet>
           
         </EntityContainer>
         <EntityType Name="Company" Abstract="true">
@@ -2540,6 +2700,8 @@
           <NavigationProperty Name="CreatedUser" Relationship="CriticalPathDataModel.FK_PurchaseOrder_CreatorId" FromRole="PurchaseOrder" ToRole="AspNetUser" />
           <NavigationProperty Name="CancelledUser" Relationship="CriticalPathDataModel.FK_PurchaseOrder_CancelledUserId" FromRole="PurchaseOrder" ToRole="AspNetUser" />
           <NavigationProperty Name="ModifiedUser" Relationship="CriticalPathDataModel.FK_PurchaseOrder_ModifierId" FromRole="PurchaseOrder" ToRole="AspNetUser" />
+          <NavigationProperty Name="Attachments" Relationship="CriticalPathDataModel.FK_POAttachment_PurchaseOrderId" FromRole="PurchaseOrder" ToRole="POAttachment" />
+          <NavigationProperty Name="Images" Relationship="CriticalPathDataModel.FK_POImage_PurchaseOrderId" FromRole="PurchaseOrder" ToRole="POImage" />
         </EntityType>
         <Association Name="FK_PurchaseOrder_CustomerId">
           <End Type="CriticalPathDataModel.Customer" Role="Customer" Multiplicity="1" />
@@ -3810,6 +3972,120 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="POAttachment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PurchaseOrderId" Type="Int32" Nullable="false" />
+          <Property Name="FileUrl" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="FileTitle" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="FileName" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="FileType" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+          <Property Name="ModifyNr" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifierId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="ModifierIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatorId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="CreatorIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CreatedUser" Relationship="CriticalPathDataModel.FK_POAttachment_CreatorId" FromRole="POAttachment" ToRole="AspNetUser" />
+          <NavigationProperty Name="ModifiedUser" Relationship="CriticalPathDataModel.FK_POAttachment_ModifierId" FromRole="POAttachment" ToRole="AspNetUser" />
+          <NavigationProperty Name="PurchaseOrder" Relationship="CriticalPathDataModel.FK_POAttachment_PurchaseOrderId" FromRole="POAttachment" ToRole="PurchaseOrder" />
+        </EntityType>
+        <EntityType Name="POImage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PurchaseOrderId" Type="Int32" Nullable="false" />
+          <Property Name="ImageUrl" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="ImageTitle" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+          <Property Name="ModifyNr" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifierId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="ModifierIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatorId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="CreatorIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CreatedUser" Relationship="CriticalPathDataModel.FK_POImage_CreatorId" FromRole="POImage" ToRole="AspNetUser" />
+          <NavigationProperty Name="ModifiedUser" Relationship="CriticalPathDataModel.FK_POImage_ModifierId" FromRole="POImage" ToRole="AspNetUser" />
+          <NavigationProperty Name="PurchaseOrder" Relationship="CriticalPathDataModel.FK_POImage_PurchaseOrderId" FromRole="POImage" ToRole="PurchaseOrder" />
+        </EntityType>
+        <Association Name="FK_POAttachment_CreatorId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.POAttachment" Role="POAttachment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="POAttachment">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POAttachment_ModifierId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.POAttachment" Role="POAttachment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="POAttachment">
+              <PropertyRef Name="ModifierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POImage_CreatorId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.POImage" Role="POImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="POImage">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POImage_ModifierId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.POImage" Role="POImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="POImage">
+              <PropertyRef Name="ModifierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POAttachment_PurchaseOrderId">
+          <End Type="CriticalPathDataModel.PurchaseOrder" Role="PurchaseOrder" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.POAttachment" Role="POAttachment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PurchaseOrder">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="POAttachment">
+              <PropertyRef Name="PurchaseOrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POImage_PurchaseOrderId">
+          <End Type="CriticalPathDataModel.PurchaseOrder" Role="PurchaseOrder" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.POImage" Role="POImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PurchaseOrder">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="POImage">
+              <PropertyRef Name="PurchaseOrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -4293,6 +4569,44 @@
                 <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
                 <ScalarProperty Name="AppDefault" ColumnName="AppDefault" />
                 <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="POAttachments">
+            <EntityTypeMapping TypeName="CriticalPathDataModel.POAttachment">
+              <MappingFragment StoreEntitySet="POAttachments">
+                <ScalarProperty Name="CreatorIp" ColumnName="CreatorIp" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifierIp" ColumnName="ModifierIp" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="ModifyNr" ColumnName="ModifyNr" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="FileType" ColumnName="FileType" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="FileTitle" ColumnName="FileTitle" />
+                <ScalarProperty Name="FileUrl" ColumnName="FileUrl" />
+                <ScalarProperty Name="PurchaseOrderId" ColumnName="PurchaseOrderId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="POImages">
+            <EntityTypeMapping TypeName="CriticalPathDataModel.POImage">
+              <MappingFragment StoreEntitySet="POImages">
+                <ScalarProperty Name="CreatorIp" ColumnName="CreatorIp" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifierIp" ColumnName="ModifierIp" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="ModifyNr" ColumnName="ModifyNr" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="ImageTitle" ColumnName="ImageTitle" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="PurchaseOrderId" ColumnName="PurchaseOrderId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -159,6 +159,14 @@
 		<value>Add New Factory</value>
 	</data>
 
+	<data name="AddNewPOAttachment" xml:space="preserve">
+		<value>Add New P.O. Attachment</value>
+	</data>
+
+	<data name="AddNewPOImage" xml:space="preserve">
+		<value>Add New P.O. Image</value>
+	</data>
+
 	<data name="AddNewProcess" xml:space="preserve">
 		<value>Add New Process</value>
 	</data>
@@ -205,6 +213,14 @@
 
 	<data name="AddNewSupplier" xml:space="preserve">
 		<value>Add New Supplier</value>
+	</data>
+
+	<data name="AddPOAttachment" xml:space="preserve">
+		<value>Add P.O. Attachment</value>
+	</data>
+
+	<data name="AddPOImage" xml:space="preserve">
+		<value>Add P.O. Image</value>
 	</data>
 
 	<data name="AddProcess" xml:space="preserve">
@@ -285,6 +301,14 @@
 
 	<data name="AddRemoveManufacturer" xml:space="preserve">
 		<value>Add Remove Factory</value>
+	</data>
+
+	<data name="AddRemovePOAttachment" xml:space="preserve">
+		<value>Add Remove P.O. Attachment</value>
+	</data>
+
+	<data name="AddRemovePOImage" xml:space="preserve">
+		<value>Add Remove P.O. Image</value>
 	</data>
 
 	<data name="AddRemoveProcess" xml:space="preserve">
@@ -397,6 +421,10 @@
 
 	<data name="AspNetUsersList" xml:space="preserve">
 		<value>AppUsers List</value>
+	</data>
+
+	<data name="Attachments" xml:space="preserve">
+		<value>Attachments</value>
 	</data>
 
 	<data name="BuyingCurrency" xml:space="preserve">
@@ -583,6 +611,14 @@
 		<value>Create Factory</value>
 	</data>
 
+	<data name="CreatePOAttachment" xml:space="preserve">
+		<value>Create P.O. Attachment</value>
+	</data>
+
+	<data name="CreatePOImage" xml:space="preserve">
+		<value>Create P.O. Image</value>
+	</data>
+
 	<data name="CreateProcess" xml:space="preserve">
 		<value>Create Process</value>
 	</data>
@@ -767,6 +803,14 @@
 		<value>Delete Factory</value>
 	</data>
 
+	<data name="DeletePOAttachment" xml:space="preserve">
+		<value>Delete P.O. Attachment</value>
+	</data>
+
+	<data name="DeletePOImage" xml:space="preserve">
+		<value>Delete P.O. Image</value>
+	</data>
+
 	<data name="DeleteProcess" xml:space="preserve">
 		<value>Delete Process</value>
 	</data>
@@ -927,6 +971,14 @@
 		<value>Edit Factory</value>
 	</data>
 
+	<data name="EditPOAttachment" xml:space="preserve">
+		<value>Edit P.O. Attachment</value>
+	</data>
+
+	<data name="EditPOImage" xml:space="preserve">
+		<value>Edit P.O. Image</value>
+	</data>
+
 	<data name="EditProcess" xml:space="preserve">
 		<value>Edit Process</value>
 	</data>
@@ -1015,6 +1067,22 @@
 		<value>Fabric Composition</value>
 	</data>
 
+	<data name="FileName" xml:space="preserve">
+		<value>File Name</value>
+	</data>
+
+	<data name="FileTitle" xml:space="preserve">
+		<value>File Title</value>
+	</data>
+
+	<data name="FileType" xml:space="preserve">
+		<value>File Type</value>
+	</data>
+
+	<data name="FileUrl" xml:space="preserve">
+		<value>File Url</value>
+	</data>
+
 	<data name="FirstName" xml:space="preserve">
 		<value>First Name</value>
 	</data>
@@ -1049,6 +1117,14 @@
 
 	<data name="IgnoreInRepeat" xml:space="preserve">
 		<value>Ignore In Repeat</value>
+	</data>
+
+	<data name="Images" xml:space="preserve">
+		<value>Images</value>
+	</data>
+
+	<data name="ImageTitle" xml:space="preserve">
+		<value>Image Title</value>
 	</data>
 
 	<data name="ImageUrl" xml:space="preserve">
@@ -1259,6 +1335,30 @@
 		<value>Phone Work 2</value>
 	</data>
 
+	<data name="POAttachment" xml:space="preserve">
+		<value>P.O. Attachment</value>
+	</data>
+
+	<data name="POAttachments" xml:space="preserve">
+		<value>P.O. Attachments</value>
+	</data>
+
+	<data name="POAttachmentsList" xml:space="preserve">
+		<value>P.O. Attachments List</value>
+	</data>
+
+	<data name="POImage" xml:space="preserve">
+		<value>P.O. Image</value>
+	</data>
+
+	<data name="POImages" xml:space="preserve">
+		<value>P.O. Images</value>
+	</data>
+
+	<data name="POImagesList" xml:space="preserve">
+		<value>P.O. Images List</value>
+	</data>
+
 	<data name="PoNr" xml:space="preserve">
 		<value>P.O. Nr.</value>
 	</data>
@@ -1457,6 +1557,14 @@
 
 	<data name="RemoveManufacturer" xml:space="preserve">
 		<value>Remove Factory</value>
+	</data>
+
+	<data name="RemovePOAttachment" xml:space="preserve">
+		<value>Remove P.O. Attachment</value>
+	</data>
+
+	<data name="RemovePOImage" xml:space="preserve">
+		<value>Remove P.O. Image</value>
 	</data>
 
 	<data name="RemoveProcess" xml:space="preserve">

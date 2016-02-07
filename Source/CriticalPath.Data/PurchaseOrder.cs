@@ -20,6 +20,8 @@ namespace CriticalPath.Data
             this.SubOrders = new HashSet<PurchaseOrder>();
             this.SizeRatios = new HashSet<SizeRatio>();
             this.Processes = new HashSet<Process>();
+            this.Attachments = new HashSet<POAttachment>();
+            this.Images = new HashSet<POImage>();
         }
     
         public int Id { get; set; }
@@ -114,6 +116,10 @@ namespace CriticalPath.Data
         public virtual AspNetUser CreatedUser { get; set; }
         public virtual AspNetUser CancelledUser { get; set; }
         public virtual AspNetUser ModifiedUser { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<POAttachment> Attachments { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<POImage> Images { get; set; }
     	/// <summary>
     	/// Clones all properties in a new PurchaseOrder instance,
     	/// except PrimaryKey(s)

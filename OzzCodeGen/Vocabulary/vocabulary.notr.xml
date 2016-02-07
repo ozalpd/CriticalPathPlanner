@@ -137,6 +137,14 @@
     <Translation>Add New Order Item</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddNewPOAttachment</Name>
+    <Translation>Add New P.O. Attachment</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddNewPOImage</Name>
+    <Translation>Add New P.O. Image</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddNewProcess</Name>
     <Translation>Add New Process</Translation>
   </Vocab>
@@ -207,6 +215,14 @@
   <Vocab>
     <Name>AddOrderItem</Name>
     <Translation>Add Order Item</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddPOAttachment</Name>
+    <Translation>Add P.O. Attachment</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddPOImage</Name>
+    <Translation>Add P.O. Image</Translation>
   </Vocab>
   <Vocab>
     <Name>AddProcess</Name>
@@ -295,6 +311,14 @@
   <Vocab>
     <Name>AddRemoveManufacturer</Name>
     <Translation>Add Remove Factory</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemovePOAttachment</Name>
+    <Translation>Add Remove P.O. Attachment</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemovePOImage</Name>
+    <Translation>Add Remove P.O. Image</Translation>
   </Vocab>
   <Vocab>
     <Name>AddRemoveProcess</Name>
@@ -491,6 +515,10 @@
   <Vocab>
     <Name>AspNetUsersList</Name>
     <Translation>AppUsers List</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Attachments</Name>
+    <Translation>Attachments</Translation>
   </Vocab>
   <Vocab>
     <Name>BackToIndex</Name>
@@ -789,6 +817,14 @@
     <Translation>Create Order Item</Translation>
   </Vocab>
   <Vocab>
+    <Name>CreatePOAttachment</Name>
+    <Translation>Create P.O. Attachment</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>CreatePOImage</Name>
+    <Translation>Create P.O. Image</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CreateProcess</Name>
     <Translation>Create Process</Translation>
   </Vocab>
@@ -1011,6 +1047,14 @@
   <Vocab>
     <Name>DeleteOrderItem</Name>
     <Translation>Delete Order Item</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeletePOAttachment</Name>
+    <Translation>Delete P.O. Attachment</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeletePOImage</Name>
+    <Translation>Delete P.O. Image</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteProcess</Name>
@@ -1245,6 +1289,14 @@
     <Translation>Edit Order Item</Translation>
   </Vocab>
   <Vocab>
+    <Name>EditPOAttachment</Name>
+    <Translation>Edit P.O. Attachment</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditPOImage</Name>
+    <Translation>Edit P.O. Image</Translation>
+  </Vocab>
+  <Vocab>
     <Name>EditProcess</Name>
     <Translation>Edit Process</Translation>
   </Vocab>
@@ -1389,6 +1441,18 @@
     <Translation>File Size</Translation>
   </Vocab>
   <Vocab>
+    <Name>FileTitle</Name>
+    <Translation>File Title</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>FileType</Name>
+    <Translation>File Type</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>FileUrl</Name>
+    <Translation>File Url</Translation>
+  </Vocab>
+  <Vocab>
     <Name>FirstName</Name>
     <Translation>First Name</Translation>
   </Vocab>
@@ -1471,6 +1535,14 @@
   <Vocab>
     <Name>ImageFiles</Name>
     <Translation>Image Files</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Images</Name>
+    <Translation>Images</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ImageTitle</Name>
+    <Translation>Image Title</Translation>
   </Vocab>
   <Vocab>
     <Name>ImageUrl</Name>
@@ -1833,6 +1905,30 @@
     <Translation>Please Wait</Translation>
   </Vocab>
   <Vocab>
+    <Name>POAttachment</Name>
+    <Translation>P.O. Attachment</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>POAttachments</Name>
+    <Translation>P.O. Attachments</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>POAttachmentsList</Name>
+    <Translation>P.O. Attachments List</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>POImage</Name>
+    <Translation>P.O. Image</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>POImages</Name>
+    <Translation>P.O. Images</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>POImagesList</Name>
+    <Translation>P.O. Images List</Translation>
+  </Vocab>
+  <Vocab>
     <Name>PoNr</Name>
     <Translation>P.O. Nr.</Translation>
   </Vocab>
@@ -2087,6 +2183,14 @@
   <Vocab>
     <Name>RemoveManufacturer</Name>
     <Translation>Remove Factory</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemovePOAttachment</Name>
+    <Translation>Remove P.O. Attachment</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemovePOImage</Name>
+    <Translation>Remove P.O. Image</Translation>
   </Vocab>
   <Vocab>
     <Name>RemoveProcess</Name>

@@ -281,6 +281,12 @@ namespace CriticalPath.Data
             [Display(ResourceType = typeof(EntityStrings), Name = "CancelledUser")]
             public AspNetUser CancelledUser { get; set; }
 
+            [Display(ResourceType = typeof(EntityStrings), Name = "Images")]
+            public ICollection<POImage> Images { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "Attachments")]
+            public ICollection<POAttachment> Attachments { get; set; }
+
             [StringLength(48, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
             [Display(ResourceType = typeof(EntityStrings), Name = "ApprovedUserId")]
             public string ApprovedUserId { get; set; }
