@@ -16,7 +16,7 @@
     int pageSize = ViewBag.pageSize;
     int pageCount = ViewBag.pageCount;
 
-	var title = EntityStrings.ProcessSteps;
+    var title = EntityStrings.ProcessSteps;
 }
 <div class="row well">
     <div class="col-md-8 col-sm-7">
@@ -42,8 +42,8 @@
             <th width="94px">@Html.DisplayNameFor(model => model.ForecastDate)</th>
             <th colspan="2">@Html.DisplayNameFor(model => model.IsCompleted)</th>
         </tr>
-    @foreach (var item in Model)
-    {
+        @foreach (var item in Model)
+        {
             <tr>
                 <td>
                     <div class="btn-group">
@@ -74,18 +74,15 @@
                 <td>@Html.DisplayFor(modelItem => item.IsCompleted)</td>
                 <td align="right">@Html.DisplayFor(modelItem => item.RealizedDate)</td>
             </tr>
-    }
+        }
     </table>
-    @Html.Partial("_PagerPartial")
-    if (canUserDelete)
-    {
-        @Html.Partial("_MessageBoxPartial")
-    }
 }
 else
 {
     <h4>@MessageStrings.NoResults!</h4>
 }
+@Html.Partial("_PagerPartial")
+@Html.Partial("_MessageBoxPartial")
 @section scripts{
     @Html.Partial("_IndexScriptsPartial", "ProcessSteps")
 }

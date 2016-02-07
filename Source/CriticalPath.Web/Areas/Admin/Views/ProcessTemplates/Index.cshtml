@@ -82,16 +82,13 @@
             </tr>
         }
     </table>
-    @Html.Partial("_PagerPartial")
-    if (canUserDelete)
-    {
-        @Html.Partial("_MessageBoxPartial")
-    }
 }
 else
 {
     <h4>@MessageStrings.NoResults!</h4>
 }
+@Html.Partial("_PagerPartial")
+@Html.Partial("_MessageBoxPartial")
 @section scripts{
     @Html.Partial("_IndexScriptsPartial", "ProcessTemplates")
 }

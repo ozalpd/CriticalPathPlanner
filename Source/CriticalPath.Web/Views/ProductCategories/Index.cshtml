@@ -16,7 +16,7 @@
     int pageSize = ViewBag.pageSize;
     int pageCount = ViewBag.pageCount;
 
-	var title = EntityStrings.ProductCategories;
+    var title = EntityStrings.ProductCategories;
 }
 <div class="row well">
     <div class="col-md-4 visible-lg visible-md">
@@ -36,73 +36,72 @@
 </div>
 @if (totalCount > 0)
 {
-	<div id="productCategoryGridParent" class="table-responsive">
-		<table id="productCategoryGrid" class="table table-striped table-bordered table-hover">
-			<tr>
-				<th width="60">@ActionStrings.Action</th>
-                <th>@Html.DisplayNameFor(model => model.ParentCategory)</th>
-				<th>@Html.DisplayNameFor(model => model.CategoryName)</th>
-				<th>@Html.DisplayNameFor(model => model.CategoryCode)</th>
-				<th>@Html.DisplayNameFor(model => model.SubCategories)</th>
-				<th>@Html.DisplayNameFor(model => model.Products)</th>
-			</tr>
-    @foreach (var item in Model)
-    {
+    <div id="productCategoryGridParent" class="table-responsive">
+        <table id="productCategoryGrid" class="table table-striped table-bordered table-hover">
             <tr>
-                <td>
-                    <div class="btn-group">
-                        <button type="button" title="@ActionStrings.Action" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown" onclick="onActionMenuClick(this);">
-                            <span class="glyphicon glyphicon-tasks"></span> <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" role="menu">
-                            <li>@Html.ActionLink(ActionStrings.Details, "Details", new { id = item.Id })</li>
-                            @if (canUserEdit)
-                            {
-                                <li>@Html.ActionLink(ActionStrings.Edit, "Edit", new { id = item.Id })</li>
-                            }
-                            @if (canUserDelete)
-                            {
-                                <li>
-                                    <a href="#deleteConfirm" data-toggle="modal" onclick="setDelete('<b>@(item.CategoryName.Replace("'", "\\'"))</b>', @item.Id);">
-                                        @ActionStrings.Delete
-                                    </a>
-                                </li>
-                            }
-                        </ul>
-                    </div>
-                </td>
-                <td>@Html.DisplayFor(modelItem => item.ParentCategory)</td>
-                <td>@Html.DisplayFor(modelItem => item.CategoryName)</td>
-                <td>@Html.DisplayFor(modelItem => item.CategoryCode)</td>
-                <td>@item.SubCategories.Count</td>
-                <td>@item.Products.Count</td>
+                <th width="60">@ActionStrings.Action</th>
+                <th>@Html.DisplayNameFor(model => model.ParentCategory)</th>
+                <th>@Html.DisplayNameFor(model => model.CategoryName)</th>
+                <th>@Html.DisplayNameFor(model => model.CategoryCode)</th>
+                <th>@Html.DisplayNameFor(model => model.SubCategories)</th>
+                <th>@Html.DisplayNameFor(model => model.Products)</th>
             </tr>
-	}
-		</table>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" title="@ActionStrings.Action" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown" onclick="onActionMenuClick(this);">
+                                <span class="glyphicon glyphicon-tasks"></span> <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>@Html.ActionLink(ActionStrings.Details, "Details", new { id = item.Id })</li>
+                                @if (canUserEdit)
+                                {
+                                    <li>@Html.ActionLink(ActionStrings.Edit, "Edit", new { id = item.Id })</li>
+                                }
+                                @if (canUserDelete)
+                                {
+                                    <li>
+                                        <a href="#deleteConfirm" data-toggle="modal" onclick="setDelete('<b>@(item.CategoryName.Replace("'", "\\'"))</b>', @item.Id);">
+                                            @ActionStrings.Delete
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => item.ParentCategory)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CategoryName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CategoryCode)</td>
+                    <td>@item.SubCategories.Count</td>
+                    <td>@item.Products.Count</td>
+                </tr>}
+        </table>
     </div>
-	@Html.Partial("_PagerPartial")
-	@Html.Partial("_MessageBoxPartial")
-	@section scripts{
-		@Html.Partial("_IndexScriptsPartial", "ProductCategories") @* Controller's name *@
-        <script type="text/javascript">
-            function onActionMenuClick(menuBtn) {
-                setTimeout(function () {
-                    var menuHeight = 120;
-                    var rectMenu = menuBtn.getBoundingClientRect();
-                    var rectGrid = document.getElementById("productCategoryGrid").getBoundingClientRect();
-                    var diffY = rectGrid.bottom - rectMenu.bottom - menuHeight;
-
-                    if (diffY < 0) {
-                        var viewport = $('#productCategoryGridParent');
-                        var viewportScroll = viewport.scrollTop();
-                        viewport.scrollTop((diffY * -1) + viewportScroll);
-                    }
-                }, 250);
-            }
-        </script>
-	}
 }
 else
 {
     <h4>@MessageStrings.NoResults!</h4>
+}
+@Html.Partial("_PagerPartial")
+@Html.Partial("_MessageBoxPartial")
+@section scripts{
+    @Html.Partial("_IndexScriptsPartial", "ProductCategories") @* Controller's name *@
+    <script type="text/javascript">
+        function onActionMenuClick(menuBtn) {
+            setTimeout(function () {
+                var menuHeight = 120;
+                var rectMenu = menuBtn.getBoundingClientRect();
+                var rectGrid = document.getElementById("productCategoryGrid").getBoundingClientRect();
+                var diffY = rectGrid.bottom - rectMenu.bottom - menuHeight;
+
+                if (diffY < 0) {
+                    var viewport = $('#productCategoryGridParent');
+                    var viewportScroll = viewport.scrollTop();
+                    viewport.scrollTop((diffY * -1) + viewportScroll);
+                }
+            }, 250);
+        }
+    </script>
 }

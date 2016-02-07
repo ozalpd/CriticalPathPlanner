@@ -60,8 +60,8 @@
                             }
                             @if (canUserDelete)
                             {
-                                <a href="#deleteConfirm" data-toggle="modal" title="@ActionStrings.Delete" onclick="setDelete('<b>@(item.IncotermCode)</b>', @item.Id);" >
-                                <span class="glyphicon glyphicon-trash ml5"></span>
+                                <a href="#deleteConfirm" data-toggle="modal" title="@ActionStrings.Delete" onclick="setDelete('<b>@(item.IncotermCode)</b>', @item.Id);">
+                                    <span class="glyphicon glyphicon-trash ml5"></span>
                                 </a>
                             }
                         </td>
@@ -70,13 +70,13 @@
             }
         </table>
     </div>
-            @Html.Partial("_PagerPartial")
-            @Html.Partial("_MessageBoxPartial")
-            @section scripts{
-                @Html.Partial("_IndexScriptsPartial", "FreightTerms") @* Controller's name *@
-            }
 }
 else
 {
     <h4>@MessageStrings.NoResults!</h4>
+}
+@Html.Partial("_PagerPartial")
+@Html.Partial("_MessageBoxPartial")
+@section scripts{
+    @Html.Partial("_IndexScriptsPartial", "FreightTerms") @* Controller's name *@
 }

@@ -57,13 +57,13 @@
                     {
                         <td>
                             @if (canUserEdit)
-                        {
+                            {
                                 <a href='@Url.Action("Edit", new { id = item.Id })' title="@ActionStrings.Edit"><span class="glyphicon glyphicon-edit ml5"></span></a>
                             }
                             @if (canUserDelete)
-                        {
-                                <a href="#deleteConfirm" data-toggle="modal" title="@ActionStrings.Delete" onclick="setDelete('<b>@(item.CurrencyCode)</b>', @item.Id);" >
-                                <span class="glyphicon glyphicon-trash ml5"></span>
+                            {
+                                <a href="#deleteConfirm" data-toggle="modal" title="@ActionStrings.Delete" onclick="setDelete('<b>@(item.CurrencyCode)</b>', @item.Id);">
+                                    <span class="glyphicon glyphicon-trash ml5"></span>
                                 </a>
                             }
                         </td>
@@ -71,14 +71,14 @@
                 </tr>
             }
         </table>
-  </div>
-    @Html.Partial("_PagerPartial")
-    @Html.Partial("_MessageBoxPartial")
-    @section scripts{
-        @Html.Partial("_IndexScriptsPartial", "Currencies") @* Controller's name *@
-    }
+    </div>
 }
 else
 {
     <h4>@MessageStrings.NoResults!</h4>
+}
+@Html.Partial("_PagerPartial")
+@Html.Partial("_MessageBoxPartial")
+@section scripts{
+    @Html.Partial("_IndexScriptsPartial", "Currencies") @* Controller's name *@
 }

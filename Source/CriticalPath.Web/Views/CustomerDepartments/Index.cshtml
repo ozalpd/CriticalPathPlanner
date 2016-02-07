@@ -17,7 +17,7 @@
     int pageSize = ViewBag.pageSize;
     int pageCount = ViewBag.pageCount;
 
-	var title = EntityStrings.CustomerDepartments;
+    var title = EntityStrings.CustomerDepartments;
 }
 <div class="row well">
     <div class="col-md-8 col-sm-7">
@@ -34,15 +34,15 @@
 </div>
 @if (totalCount > 0)
 {
-	<div id="customerDepartmentGridParent" class="table-responsive">
-		<table id="customerDepartmentGrid" class="table table-striped table-bordered table-hover">
-			<tr>
-				<th>@ActionStrings.Action</th>
-				<th>@Html.DisplayNameFor(model => model.DepartmentName)</th>
-				<th>@Html.DisplayNameFor(model => model.Customer)</th>
-			</tr>
-    @foreach (var item in Model)
-    {
+    <div id="customerDepartmentGridParent" class="table-responsive">
+        <table id="customerDepartmentGrid" class="table table-striped table-bordered table-hover">
+            <tr>
+                <th>@ActionStrings.Action</th>
+                <th>@Html.DisplayNameFor(model => model.DepartmentName)</th>
+                <th>@Html.DisplayNameFor(model => model.Customer)</th>
+            </tr>
+            @foreach (var item in Model)
+            {
                 <tr>
                     <td>
                         <div class="btn-group">
@@ -63,24 +63,23 @@
                                         </a>
                                     </li>
                                 }
-                        </ul>
-                    </div>
-                </td>
-                <td>@Html.DisplayFor(modelItem => item.DepartmentName)</td>
-                <td>@Html.DisplayFor(modelItem => item.Customer)</td>
-            </tr>
-	}
-		</table>
+                            </ul>
+                        </div>
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => item.DepartmentName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Customer)</td>
+                </tr>}
+        </table>
     </div>
-	@Html.Partial("_MessageBoxPartial")
 }
 else
 {
     <h4>@MessageStrings.NoResults!</h4>
 }
+@Html.Partial("_MessageBoxPartial")
 @Html.Partial("_PagerPartial")
 @section scripts{
-	@Html.Partial("_IndexScriptsPartial", "CustomerDepartments") @* Controller's name *@
+    @Html.Partial("_IndexScriptsPartial", "CustomerDepartments") @* Controller's name *@
     <script type="text/javascript">
         function onActionMenuClick(menuBtn) {
             setTimeout(function () {

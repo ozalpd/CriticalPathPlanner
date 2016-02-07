@@ -40,8 +40,8 @@
             <th>@Html.DisplayNameFor(model => model.EmailWork)</th>
             <th>@Html.DisplayNameFor(model => model.EmailHome)</th>
         </tr>
-    @foreach (var item in Model)
-    {
+        @foreach (var item in Model)
+        {
             <tr>
                 <td>
                     <div class="btn-group">
@@ -71,18 +71,15 @@
                 <td>@Html.DisplayFor(modelItem => item.EmailWork)</td>
                 <td>@Html.DisplayFor(modelItem => item.EmailHome)</td>
             </tr>
-    }
+        }
     </table>
-    @Html.Partial("_PagerPartial")
-    if (canUserDelete)
-    {
-        @Html.Partial("_MessageBoxPartial")
-    }
 }
 else
 {
     <h4>@MessageStrings.NoResults!</h4>
 }
+@Html.Partial("_PagerPartial")
+@Html.Partial("_MessageBoxPartial")
 @section scripts{
     @Html.Partial("_IndexScriptsPartial", "Contacts")
 }

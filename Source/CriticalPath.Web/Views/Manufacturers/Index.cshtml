@@ -100,30 +100,30 @@
                 </tr>
             }
         </table>
-  </div>
-    @Html.Partial("_PagerPartial")
-    @Html.Partial("_MessageBoxPartial")
-    @section scripts{
-        @Html.Partial("_IndexScriptsPartial", "Manufacturers") @* Controller's name *@
-        <script type="text/javascript">
-            function onActionMenuClick(menuBtn) {
-                setTimeout(function () {
-                    var menuHeight = 160;
-                    var rectMenu = menuBtn.getBoundingClientRect();
-                    var rectGrid = document.getElementById("manufacturerGrid").getBoundingClientRect();
-                    var diffY = rectGrid.bottom - rectMenu.bottom - menuHeight;
-
-                    if (diffY < 0) {
-                        var viewport = $('#manufacturerGridParent');
-                        var viewportScroll = viewport.scrollTop();
-                        viewport.scrollTop((diffY * -1) + viewportScroll);
-                    }
-                }, 250);
-            }
-        </script>
-    }
+    </div>
 }
 else
 {
     <h4>@MessageStrings.NoResults!</h4>
+}
+@Html.Partial("_PagerPartial")
+@Html.Partial("_MessageBoxPartial")
+@section scripts{
+    @Html.Partial("_IndexScriptsPartial", "Manufacturers") @* Controller's name *@
+    <script type="text/javascript">
+        function onActionMenuClick(menuBtn) {
+            setTimeout(function () {
+                var menuHeight = 160;
+                var rectMenu = menuBtn.getBoundingClientRect();
+                var rectGrid = document.getElementById("manufacturerGrid").getBoundingClientRect();
+                var diffY = rectGrid.bottom - rectMenu.bottom - menuHeight;
+
+                if (diffY < 0) {
+                    var viewport = $('#manufacturerGridParent');
+                    var viewportScroll = viewport.scrollTop();
+                    viewport.scrollTop((diffY * -1) + viewportScroll);
+                }
+            }, 250);
+        }
+    </script>
 }
