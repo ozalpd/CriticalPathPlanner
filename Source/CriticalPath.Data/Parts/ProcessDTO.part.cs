@@ -78,6 +78,9 @@ namespace CriticalPath.Data
         [Display(ResourceType = typeof(EntityStrings), Name = "Customer")]
         public string CustomerName { get; set; }
 
+        [Display(ResourceType = typeof(EntityStrings), Name = "DepartmentName")]
+        public string DepartmentName { get; set; }
+
         [Display(ResourceType = typeof(EntityStrings), Name = "Supplier")]
         public string SupplierName { get; set; }
 

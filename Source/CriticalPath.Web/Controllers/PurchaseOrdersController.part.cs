@@ -309,7 +309,7 @@ namespace CriticalPath.Web.Controllers
             if (purchaseOrder == null)
                 return new HttpStatusCodeResult(HttpStatusCode.NotFound);
 
-            PutVmToPO(vm, purchaseOrder, true);
+            await PutVmToPO(vm, purchaseOrder, true);
 
             if (vm.IsApproved)
             {
@@ -520,7 +520,7 @@ namespace CriticalPath.Web.Controllers
         public async Task<ActionResult> Edit(PurchaseOrderEditVM vm)
         {
             PurchaseOrder purchaseOrder = await FindAsyncPurchaseOrder(vm.Id);
-            PutVmToPO(vm, purchaseOrder, false);
+            await PutVmToPO(vm, purchaseOrder, false);
             await DataContext.SaveChangesAsync(this);
             return RedirectToAction("Details", new { id = vm.Id });
         }
@@ -601,7 +601,7 @@ namespace CriticalPath.Web.Controllers
             return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
 
-        private void PutVmToPO(PurchaseOrderVM vm, PurchaseOrder purchaseOrder, bool isApproving)
+        private async Task PutVmToPO(PurchaseOrderVM vm, PurchaseOrder purchaseOrder, bool isApproving)
         {
             purchaseOrder.CustomerPoNr = vm.CustomerPoNr;
             purchaseOrder.Description = vm.Description;
@@ -612,10 +612,15 @@ namespace CriticalPath.Web.Controllers
             {
                 purchaseOrder.DueDate = vm.DueDate;
             }
+            if (!purchaseOrder.IsApproved || isApproving || await IsUserSupervisorAsync() || await IsUserAdminAsync())
+            {
+                purchaseOrder.Quantity = vm.Quantity > 0 ? vm.Quantity : purchaseOrder.Quantity;
+                purchaseOrder.CustomerDepartmentId = vm.CustomerDepartmentId;
+
+            }
             if (!purchaseOrder.IsApproved || isApproving)
             {
                 purchaseOrder.CustomerId = vm.CustomerId > 0 ? vm.CustomerId : purchaseOrder.CustomerId;
-                purchaseOrder.Quantity = vm.Quantity > 0 ? vm.Quantity : purchaseOrder.Quantity;
                 purchaseOrder.DiscountRate = vm.DiscountRate;
                 purchaseOrder.FreightTermId = vm.FreightTermId;
                 purchaseOrder.UnitPrice = vm.UnitPrice;
@@ -637,7 +642,6 @@ namespace CriticalPath.Web.Controllers
                 purchaseOrder.RefCode = vm.RefCode;
                 purchaseOrder.KimballNr = vm.KimballNr;
                 //purchaseOrder.LicensorId = vm.LicensorId;
-                //purchaseOrder.CustomerDepartmentId = vm.CustomerDepartmentId;
 
                 purchaseOrder.ShipmentHangingFolded = vm.ShipmentHangingFolded;
                 purchaseOrder.Colour = vm.Colour;

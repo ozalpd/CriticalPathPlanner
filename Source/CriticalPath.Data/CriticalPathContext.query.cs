@@ -223,9 +223,8 @@ namespace CriticalPath.Data
         public override IQueryable<Process> GetProcessQuery()
         {
             return base.GetProcessQuery()
-                        .OrderByDescending(p => p.PurchaseOrder.OrderDate)
-                        .ThenByDescending(p => p.PurchaseOrder.ApproveDate)
-                        .ThenByDescending(p => p.ApproveDate);
+                        .OrderBy(p => p.PurchaseOrder.DueDate)
+                        .ThenByDescending(p => p.PurchaseOrder.PoNr);
         }
 
         public override IQueryable<ProcessDTO> GetProcessDtoQuery(IQueryable<Process> query)
@@ -250,6 +249,7 @@ namespace CriticalPath.Data
                        CancellationReason = e.CancellationReason,
                        PoNr = e.PurchaseOrder.PoNr,
                        CustomerName = e.PurchaseOrder.Customer.CompanyName,
+                       DepartmentName = e.PurchaseOrder.CustomerDepartment.DepartmentName,
                        SupplierName = e.PurchaseOrder.Supplier.CompanyName,
                        DueDate = e.PurchaseOrder.DueDate,
                        IsRepeat = e.PurchaseOrder.IsRepeat,

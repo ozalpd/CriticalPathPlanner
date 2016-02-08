@@ -14,7 +14,8 @@
     bool canUserCancelPO = ViewBag.canUserCancelPO;
 
     ProcessStepTemplateDTO[] templates = ViewBag.templates as ProcessStepTemplateDTO[];
-    string[] stepRenderers = new string[templates.Length];
+    int stepsCount = templates.Length;
+    string[] stepRenderers = new string[stepsCount];
 
     var title = EntityStrings.Processes;
 }
@@ -72,10 +73,9 @@
                      { headerName: '@EntityStrings.PurchaseOrder', field: "PoNr", width: 110, headerClass: "wrapText", cellRenderer: purchaseOrderCellRenderer },
                      { headerName: '@Html.DisplayNameFor(m => m.ProductCode)', field: "ProductCode", width: 90, cellRenderer:productCellRenderer, cellClass: "wrapText" },
                      { headerName: '@Html.DisplayNameFor(m => m.ProductDescription)', field: "ProductDescription", width: 90, cellClass: "wrapText" },
-                     { headerName: '@Html.DisplayNameFor(m => m.CustomerName)', field: "CustomerName", width: 90, cellClass: "wrapText" },
-                     { headerName: '@Html.DisplayNameFor(m => m.ParentCategoryName)', field: "ParentCategoryName", width: 90, headerClass: "wrapText", cellClass: "wrapText" },
+                     { headerName: '@EntityStrings.Customer @EntityStrings.DepartmentName', field: "CustomerName", width: 90, headerClass: "wrapText", cellRenderer:customerCellRenderer, cellClass: "wrapText" },
+                     { headerName: '@Html.DisplayNameFor(m => m.SupplierName)', field: "SupplierName", width: 90, cellRenderer:supplierCellRenderer, cellClass: "wrapText" },
                      { headerName: '@Html.DisplayNameFor(m => m.Quantity)', field: "Quantity", width: 80, cellClass:'text-right' },
-                     { headerName: '@Html.DisplayNameFor(m => m.SupplierName)', field: "SupplierName", width: 90, cellClass: "wrapText" },
                      { headerName: '', field: "StartDate", width: 110, cellRenderer: verticalDateCellLabels },
                      { headerName: 'PO Dates', field: "ApproveDate", width: 90, cellRenderer: verticalDateCellRenderer },
                      @for (int i = 0; i < templates.Length; i++)
@@ -88,10 +88,10 @@
 
             @for (int i = 0; i < templates.Length; i++)
             {
-                @:function @stepRenderers[i] (params){return stepToCell(params.value, @templates[i].Id, params.data.PoNr);}
-                        }
+                @:function @stepRenderers[i] (params){return stepToCell(params.value, @templates[i].Id, params);}
+            }
 
-            function stepToCell(steps, templateId, poNr){
+            function stepToCell(steps, templateId, params){
                 var result = '';
                 $.each(steps, (function(index, step){
                     if(step.TemplateId==templateId){
@@ -99,10 +99,10 @@
                         var hasRealizedDate = step.RealizedDate!=null && step.RealizedDate!='';
                         var realCls = hasRealizedDate ? 'row-even' : 'bg-danger';
 
-                        //result = stepDateQrtCell(step.Id, step.ApproveDate, 'row-even', poNr + '/' + step.Title, '@EntityStrings.ApproveDate', 'submitTargetDate(' + step.Id + ')') +
-                        result = stepDateQrtCell(step.Id, step.TargetDate, 'row-even', poNr + '/' + step.Title,'@EntityStrings.TargetDate', 'submitTargetDate(' + step.Id + ')', !hasTargetDate) +
-                           stepDateQrtCell(step.Id, step.ForecastDate, 'row-odd', poNr + '/' + step.Title,'@EntityStrings.ForecastDate', 'submitForecastDate(' + step.Id + ')', (hasTargetDate && !hasRealizedDate)) +
-                           stepDateQrtCell(step.Id, step.RealizedDate, realCls, poNr + '/' + step.Title,'@EntityStrings.RealizedDate', 'submitRealizedDate(' + step.Id + ')', (hasTargetDate && !hasRealizedDate));
+                        //result = stepDateQrtCell(step.Id, step.ApproveDate, 'row-even', params.data.PoNr + '/' + step.Title, '@EntityStrings.ApproveDate', 'submitTargetDate(' + step.Id + ')') +
+                        result = stepDateQrtCell(step.Id, step.TargetDate, 'row-even', params.data.PoNr + '/' + step.Title,'@EntityStrings.TargetDate', 'submitTargetDate(' + step.Id + ')', !hasTargetDate) +
+                           stepDateQrtCell(step.Id, step.ForecastDate, 'row-odd', params.data.PoNr + '/' + step.Title,'@EntityStrings.ForecastDate', 'submitForecastDate(' + step.Id + ')', (hasTargetDate && !hasRealizedDate)) +
+                           stepDateQrtCell(step.Id, step.RealizedDate, realCls, params.data.PoNr + '/' + step.Title,'@EntityStrings.RealizedDate', 'submitRealizedDate(' + step.Id + ')', (hasTargetDate && !hasRealizedDate));
                         return false;
                     }
                 }));
@@ -128,11 +128,36 @@
             function productCellRenderer(params){
                 var img = '';
                 if(params.data.ImageUrl!=null && params.data.ImageUrl!=''){
-                    img = '<label class="btn pt0 pb0 pl0 pr0" style="max-height:36px;overflow:hidden;" onclick="showImage(\''+ params.value + '\', \'' +
-                        '@AppSettings.Urls.ProductImages/' + params.data.ImageUrl + '\', false)">' +
+                    img = '<label class="btn pt0 pb0 pl0 pr0 mb2" style="max-height:36px;overflow:hidden;" onclick="showImage(\''+ params.value + '\', \'' +
+                        '@AppSettings.Urls.ProductImages/' + params.data.ImageUrl + '\', false)" title="' + params.data.ProductDescription + '">' +
                         '<img src="@AppSettings.Urls.ThumbImages/' + params.data.ImageUrl + '" style="width:60px;margin-top:-8px;" /></label>';
                 }
-                return img + '<div class="verticalQuarter fontSize125pc">' + params.value + '</div>';
+                return img + '<div class="verticalQuarter" title="' + params.data.ProductDescription + '">' + params.value + '</div>';
+            }
+
+            function customerCellRenderer(params){
+                var cell = '<div class="verticalHalf">' + params.value + '</div>';
+                if(params.data.DepartmentName!=null && params.data.DepartmentName!=''){
+                    cell = cell + '<div class="verticalQuarter">' + params.data.DepartmentName + '</div>';
+                }
+                return cell;
+            }
+
+            function supplierCellRenderer(params){
+                var cell = '<div class="verticalHalf">' + params.value + '</div>';
+                var stepsCount = @stepsCount;
+                var stepDivWidth = 100/stepsCount;
+
+                cell = cell + '<div class="verticalQuarter">';
+                $.each(params.data.ProcessSteps, (function(index, step){
+                        var hasTargetDate = step.TargetDate!=null && step.TargetDate!='';
+                        var hasRealizedDate = step.RealizedDate!=null && step.RealizedDate!='';
+                        var realCls = hasRealizedDate ? 'bg-success' : 'bg-danger text-danger';
+                    //border: 1px solid #fff;
+                        cell = cell + '<div class="' + realCls + ' pull-left" style="width:' + stepDivWidth + '%;min-height:14px;"></div>';    
+                }));
+                cell = cell + '</div>';
+                return cell;
             }
 
             function purchaseOrderCellRenderer(params){
@@ -169,17 +194,18 @@
                     '<li><a href="@Url.Action("Details")/' + params.value + '">@ActionStrings.Details</a></li>';
                 @if (canUserEdit)
                 {
-                        @:actions = actions + '<li><a href="@Url.Action("Edit")/' + params.value + '">@ActionStrings.Edit</a></li>';
-                        @:actions = actions + '<li><a href="@Url.Action("Edit", "Products", null)/' + params.data.ProductId + '">@EntityStrings.EditProduct</a></li>';
-                                                                                                                                                }
+                    @:actions = actions + '<li><a href="@Url.Action("Edit")/' + params.value + '">@EntityStrings.EditProcess</a></li>';
+                    @:actions = actions + '<li><a href="@Url.Action("Edit", "PurchaseOrders", null)/' + params.data.PurchaseOrderId + '">@EntityStrings.EditPurchaseOrder</a></li>';
+                    @:actions = actions + '<li><a href="@Url.Action("Edit", "Products", null)/' + params.data.ProductId + '">@EntityStrings.EditProduct</a></li>';
+                }
                 @if (canUserCancelPO)
                 {
-                        @:if(!isCancelled){actions = actions + '<li><a href="@Url.Action("CancelPO", "PurchaseOrders", null)/' + params.data.PurchaseOrderId + '">@ActionStrings.CancelPO</a></li>';}
-                                                                                                                                }
+                    @:if(!isCancelled){actions = actions + '<li><a href="@Url.Action("CancelPO", "PurchaseOrders", null)/' + params.data.PurchaseOrderId + '">@ActionStrings.CancelPO</a></li>';}
+                }
                 @if (canUserApprove)
                 {
                     @:if(!(isCancelled || isApproved)){actions = actions + '<li><a href="@Url.Action("ApproveProcess")/' + params.value + '">@ActionStrings.Approve</a></li>';}
-                                                                                                                                }
+                }
                 actions = actions + '</ul></div>';
                 var title = '';
 
