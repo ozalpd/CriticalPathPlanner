@@ -28,22 +28,22 @@ namespace CriticalPath.Web.Models
 
         public int MaxImageHeight
         {
-            get { return 800; }
+            get { return 1200; }
         }
 
         public int MaxImageWidht
         {
-            get { return 800; }
+            get { return 1200; }
         }
 
         public int MaxThumbHeight
         {
-            get { return 80; }
+            get { return 120; }
         }
 
         public int MaxThumbWidht
         {
-            get { return 80; }
+            get { return 120; }
         }
 
         public bool ShowRetailPrice

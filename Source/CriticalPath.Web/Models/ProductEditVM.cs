@@ -22,6 +22,17 @@ namespace CriticalPath.Web.Models
             }
         }
 
+        public override Product ToProduct()
+        {
+            var product = base.ToProduct();
+            if (!string.IsNullOrEmpty(ChangedImageFile))
+            {
+                product.ImageUrl = ChangedImageFile;
+            }
+            return product;
+        }
+        public string ChangedImageFile { get; set; }
+
         [Display(ResourceType = typeof(EntityStrings), Name = "Suppliers")]
         public virtual ICollection<SupplierDTO> Suppliers
         {

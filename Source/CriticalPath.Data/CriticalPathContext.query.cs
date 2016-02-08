@@ -259,7 +259,8 @@ namespace CriticalPath.Data
                        ProductDescription = e.PurchaseOrder.Product.Description,
                        ImageUrl = e.PurchaseOrder.Product.ImageUrl,
                        CategoryName = e.PurchaseOrder.Product.Category.CategoryName,
-                       ParentCategoryName = e.PurchaseOrder.Product.Category.ParentCategory.CategoryName
+                       ParentCategoryName = e.PurchaseOrder.Product.Category.ParentCategory.CategoryName,
+                       ProductId = e.PurchaseOrder.ProductId
                    };
         }
         public async Task<ProductCategory> FindProductCategory(int id)

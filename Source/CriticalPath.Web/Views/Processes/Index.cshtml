@@ -89,27 +89,40 @@
             @for (int i = 0; i < templates.Length; i++)
             {
                 @:function @stepRenderers[i] (params){return stepToCell(params.value, @templates[i].Id, params.data.PoNr);}
-            }
+                        }
 
             function stepToCell(steps, templateId, poNr){
                 var result = '';
                 $.each(steps, (function(index, step){
                     if(step.TemplateId==templateId){
+                        var hasTargetDate = step.TargetDate!=null && step.TargetDate!='';
+                        var hasRealizedDate = step.RealizedDate!=null && step.RealizedDate!='';
+                        var realCls = hasRealizedDate ? 'row-even' : 'bg-danger';
+
                         //result = stepDateQrtCell(step.Id, step.ApproveDate, 'row-even', poNr + '/' + step.Title, '@EntityStrings.ApproveDate', 'submitTargetDate(' + step.Id + ')') +
-                        result = stepDateQrtCell(step.Id, step.TargetDate, 'row-even', poNr + '/' + step.Title,'@EntityStrings.TargetDate', 'submitTargetDate(' + step.Id + ')') +
-                           stepDateQrtCell(step.Id, step.ForecastDate, 'row-odd', poNr + '/' + step.Title,'@EntityStrings.ForecastDate', 'submitForecastDate(' + step.Id + ')') +
-                           stepDateQrtCell(step.Id, step.RealizedDate, 'row-even', poNr + '/' + step.Title,'@EntityStrings.RealizedDate', 'submitRealizedDate(' + step.Id + ')');
+                        result = stepDateQrtCell(step.Id, step.TargetDate, 'row-even', poNr + '/' + step.Title,'@EntityStrings.TargetDate', 'submitTargetDate(' + step.Id + ')', !hasTargetDate) +
+                           stepDateQrtCell(step.Id, step.ForecastDate, 'row-odd', poNr + '/' + step.Title,'@EntityStrings.ForecastDate', 'submitForecastDate(' + step.Id + ')', (hasTargetDate && !hasRealizedDate)) +
+                           stepDateQrtCell(step.Id, step.RealizedDate, realCls, poNr + '/' + step.Title,'@EntityStrings.RealizedDate', 'submitRealizedDate(' + step.Id + ')', (hasTargetDate && !hasRealizedDate));
                         return false;
                     }
                 }));
                 return result;
             }
 
-            function stepDateQrtCell(stepId, jsonDate, clss, modalHeader, title, submitFunction){
-                return '<div class="verticalQuarter ' + clss + '" title="' + title + '"><div class="btn-group inline">' +
-                    '<a href="#dateSubmitModal" data-toggle="modal" onclick="setDateSubmitModal(\'' + modalHeader + '\', \''+ title + '\', \''+ jsonDate + '\', \''+ submitFunction + '\')" class="btn btn-default btn-xxs"><span class="glyphicon glyphicon-pencil"></span></a>' +
+            function stepDateQrtCell(stepId, jsonDate, clss, modalHeader, title, submitFunction, enabled){
+                var cell = '<div class="verticalQuarter ' + clss + '" title="' + title + '"><div class="btn-group inline"><a ';
+                if(enabled){
+                    cell = cell + 'href="#dateSubmitModal" data-toggle="modal" onclick="setDateSubmitModal(\'' +
+                        modalHeader + '\', \''+ title + '\', \''+ jsonDate + '\', \''+ submitFunction + '\')" class="btn btn-default btn-xxs">';
+                }
+                else{
+                    cell = cell  + ' class="btn btn-default btn-xxs disabled">';
+                }
+                cell = cell  + '<span class="glyphicon glyphicon-pencil"></span></a>' +
                     '<div class="text-right" style="width:90px;">' +
                     jsonDateToLocaleDateString(jsonDate) + '</div></div></div>';
+
+                return cell;
             }
 
             function productCellRenderer(params){
@@ -157,15 +170,16 @@
                 @if (canUserEdit)
                 {
                         @:actions = actions + '<li><a href="@Url.Action("Edit")/' + params.value + '">@ActionStrings.Edit</a></li>';
-                                                                                                                                }
+                        @:actions = actions + '<li><a href="@Url.Action("Edit", "Products", null)/' + params.data.ProductId + '">@EntityStrings.EditProduct</a></li>';
+                                                                                                                                                }
                 @if (canUserCancelPO)
                 {
                         @:if(!isCancelled){actions = actions + '<li><a href="@Url.Action("CancelPO", "PurchaseOrders", null)/' + params.data.PurchaseOrderId + '">@ActionStrings.CancelPO</a></li>';}
-                                                                                                                }
+                                                                                                                                }
                 @if (canUserApprove)
                 {
                     @:if(!(isCancelled || isApproved)){actions = actions + '<li><a href="@Url.Action("ApproveProcess")/' + params.value + '">@ActionStrings.Approve</a></li>';}
-                                                                                                                }
+                                                                                                                                }
                 actions = actions + '</ul></div>';
                 var title = '';
 
