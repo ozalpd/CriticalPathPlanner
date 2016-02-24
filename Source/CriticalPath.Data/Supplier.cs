@@ -23,6 +23,7 @@ namespace CriticalPath.Data
         }
     
         public string SupplierCode { get; set; }
+        public int Capacity { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Products { get; set; }
@@ -62,6 +63,7 @@ namespace CriticalPath.Data
             clone.CreatorId = CreatorId;
             clone.CreatorIp = CreatorIp;
             clone.SupplierCode = SupplierCode;
+            clone.Capacity = Capacity;
     
             Cloning(clone);
     
@@ -96,6 +98,7 @@ namespace CriticalPath.Data
             DiscontinueNotes = entity.DiscontinueNotes;
             Notes = entity.Notes;
             SupplierCode = entity.SupplierCode;
+            Capacity = entity.Capacity;
         
             Initiliazing(entity);
         }
@@ -121,6 +124,7 @@ namespace CriticalPath.Data
             entity.DiscontinueNotes = DiscontinueNotes;
             entity.Notes = Notes;
             entity.SupplierCode = SupplierCode;
+            entity.Capacity = Capacity;
     
             Converting(entity);
     
@@ -145,5 +149,6 @@ namespace CriticalPath.Data
         public string DiscontinueNotes { get; set; }
         public string Notes { get; set; }
         public string SupplierCode { get; set; }
+        public int Capacity { get; set; }
     }
 }

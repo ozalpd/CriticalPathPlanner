@@ -787,6 +787,13 @@
           <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
+          <Name>Capacity</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
           <Name>Products</Name>
           <Exclude>false</Exclude>
           <DTOExclusion>false</DTOExclusion>
@@ -827,6 +834,13 @@
       <Properties>
         <MetadataPropertySetting>
           <Name>ManufacturerCode</Name>
+          <Exclude>false</Exclude>
+          <DTOExclusion>false</DTOExclusion>
+          <DataType />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
+        </MetadataPropertySetting>
+        <MetadataPropertySetting>
+          <Name>Capacity</Name>
           <Exclude>false</Exclude>
           <DTOExclusion>false</DTOExclusion>
           <DataType />

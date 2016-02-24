@@ -613,6 +613,10 @@
     <Translation>Silinemiyor</Translation>
   </Vocab>
   <Vocab>
+    <Name>Capacity</Name>
+    <Translation>Kapasite</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Caption</Name>
     <Translation>Etiket</Translation>
   </Vocab>

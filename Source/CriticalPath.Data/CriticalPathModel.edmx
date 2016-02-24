@@ -175,6 +175,7 @@
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="ManufacturerCode" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="Capacity" Type="int" Nullable="false" />
           <Property Name="SupplierId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="POAttachments">
@@ -505,6 +506,7 @@
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="SupplierCode" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Capacity" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_Company_CountryId">
           <End Role="Countries" Type="Self.Countries" Multiplicity="1" />
@@ -2497,6 +2499,7 @@
         </EntityType>
         <EntityType Name="Supplier" BaseType="CriticalPathDataModel.Company">
           <Property Name="SupplierCode" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Capacity" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Products" Relationship="CriticalPathDataModel.ProductsSuppliers" FromRole="Supplier" ToRole="Product" />
           <NavigationProperty Name="Manufacturers" Relationship="CriticalPathDataModel.FK_Manufacturer_SupplierId" FromRole="Supplier" ToRole="Manufacturer" />
           <NavigationProperty Name="PurchaseOrders" Relationship="CriticalPathDataModel.FK_PurchaseOrder_SupplierId" FromRole="Supplier" ToRole="PurchaseOrder" />
@@ -3432,6 +3435,7 @@
         </Association>
         <EntityType Name="Manufacturer" BaseType="CriticalPathDataModel.Company">
           <Property Name="ManufacturerCode" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="Capacity" Type="Int32" Nullable="false" />
           <Property Name="SupplierId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Supplier" Relationship="CriticalPathDataModel.FK_Manufacturer_SupplierId" FromRole="Manufacturer" ToRole="Supplier" />
         </EntityType>
@@ -4130,12 +4134,14 @@
             </EntityTypeMapping>
             <EntityTypeMapping TypeName="IsTypeOf(CriticalPathDataModel.Supplier)">
               <MappingFragment StoreEntitySet="Suppliers">
+                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="SupplierCode" ColumnName="SupplierCode" />
               </MappingFragment>
             </EntityTypeMapping>
             <EntityTypeMapping TypeName="IsTypeOf(CriticalPathDataModel.Manufacturer)">
               <MappingFragment StoreEntitySet="Manufacturers">
+                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ManufacturerCode" ColumnName="ManufacturerCode" />
                 <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />

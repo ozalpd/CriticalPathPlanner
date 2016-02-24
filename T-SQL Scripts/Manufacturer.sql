@@ -5,6 +5,7 @@ GO
 CREATE TABLE [dbo].[Manufacturers](
     [Id] [int] Not Null Constraint FK_Manufacturer_Id Foreign Key References [dbo].[Companies]([Id]),
     [ManufacturerCode] [nVarChar](64) Not Null,
+    [Capacity] [int] Not Null Default 0,
     [SupplierId] [int] Not Null Constraint FK_Manufacturer_SupplierId Foreign Key References [dbo].[Suppliers]([Id]),
   CONSTRAINT [PK_Manufacturers] PRIMARY KEY CLUSTERED ([Id] ASC)
   WITH (PAD_INDEX  = OFF,

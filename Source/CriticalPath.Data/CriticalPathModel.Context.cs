@@ -248,6 +248,7 @@ namespace CriticalPath.Data
                        DiscontinueNotes = e.DiscontinueNotes,
                        Notes = e.Notes,
                        ManufacturerCode = e.ManufacturerCode,
+                       Capacity = e.Capacity,
                        SupplierId = e.SupplierId,
                    };
         }
@@ -299,6 +300,7 @@ namespace CriticalPath.Data
                        DiscontinueNotes = e.DiscontinueNotes,
                        Notes = e.Notes,
                        SupplierCode = e.SupplierCode,
+                       Capacity = e.Capacity,
                    };
         }
     

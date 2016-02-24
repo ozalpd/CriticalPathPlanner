@@ -1066,6 +1066,18 @@
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
         </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>Capacity</Name>
+          <Exclude>false</Exclude>
+          <DataType>int</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+          <InsertDefault>0</InsertDefault>
+          <UpdateDefault>0</UpdateDefault>
+        </StorageColumnSetting>
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
@@ -1113,6 +1125,18 @@
           <Indexed>false</Indexed>
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>Capacity</Name>
+          <Exclude>false</Exclude>
+          <DataType>int</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+          <InsertDefault>0</InsertDefault>
+          <UpdateDefault>0</UpdateDefault>
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>SupplierId</Name>

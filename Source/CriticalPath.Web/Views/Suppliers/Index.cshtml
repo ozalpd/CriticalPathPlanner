@@ -45,10 +45,11 @@
             };
 
             function columnDefs(){
-                return[
+                return [
                      { headerName: '@ActionStrings.Action', field: "Id", width: 64, cellRenderer: actionCellRenderer },
                      { headerName: '@Html.DisplayNameFor(m => m.CompanyName)', field: "CompanyName", width: 300 },
                      { headerName: '@Html.DisplayNameFor(m => m.SupplierCode)', field: "SupplierCode", width: 160 },
+                     { headerName: '@Html.DisplayNameFor(m => m.Capacity)', field: "Capacity", width: 90, cellClass: "text-right" },
                      { headerName: '@Html.DisplayNameFor(m => m.City)', field: "City", width: 112 },
                      { headerName: '@Html.DisplayNameFor(m => m.Country)', field: "Country", width: 112 },
                      { headerName: '@Html.DisplayNameFor(m => m.Discontinued)', field: "Discontinued", width: 112, cellRenderer: discontinueCellRenderer }

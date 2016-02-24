@@ -85,6 +85,10 @@ namespace CriticalPath.Data
             public string ManufacturerCode { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "Capacity")]
+            public int Capacity { get; set; }
+
+            [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [Display(ResourceType = typeof(EntityStrings), Name = "SupplierId")]
             public int SupplierId { get; set; }
 

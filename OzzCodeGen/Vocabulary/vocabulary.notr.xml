@@ -613,6 +613,10 @@
     <Translation>Can not delete</Translation>
   </Vocab>
   <Vocab>
+    <Name>Capacity</Name>
+    <Translation>Capacity</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Caption</Name>
     <Translation>Caption</Translation>
   </Vocab>

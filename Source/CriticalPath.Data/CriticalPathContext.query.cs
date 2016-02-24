@@ -96,7 +96,8 @@ namespace CriticalPath.Data
                        DiscontinueNotes = e.DiscontinueNotes,
                        Notes = e.Notes,
                        SupplierCode = e.SupplierCode,
-                       Country = e.Country.CountryName
+                       Country = e.Country.CountryName,
+                       Capacity = e.Capacity
                    };
         }
 

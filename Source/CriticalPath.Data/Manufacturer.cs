@@ -15,6 +15,7 @@ namespace CriticalPath.Data
     public partial class Manufacturer : Company
     {
         public string ManufacturerCode { get; set; }
+        public int Capacity { get; set; }
         public int SupplierId { get; set; }
     
         public virtual Supplier Supplier { get; set; }
@@ -50,6 +51,7 @@ namespace CriticalPath.Data
             clone.CreatorId = CreatorId;
             clone.CreatorIp = CreatorIp;
             clone.ManufacturerCode = ManufacturerCode;
+            clone.Capacity = Capacity;
             clone.SupplierId = SupplierId;
     
             Cloning(clone);
@@ -85,6 +87,7 @@ namespace CriticalPath.Data
             DiscontinueNotes = entity.DiscontinueNotes;
             Notes = entity.Notes;
             ManufacturerCode = entity.ManufacturerCode;
+            Capacity = entity.Capacity;
             SupplierId = entity.SupplierId;
         
             Initiliazing(entity);
@@ -111,6 +114,7 @@ namespace CriticalPath.Data
             entity.DiscontinueNotes = DiscontinueNotes;
             entity.Notes = Notes;
             entity.ManufacturerCode = ManufacturerCode;
+            entity.Capacity = Capacity;
             entity.SupplierId = SupplierId;
     
             Converting(entity);
@@ -136,6 +140,7 @@ namespace CriticalPath.Data
         public string DiscontinueNotes { get; set; }
         public string Notes { get; set; }
         public string ManufacturerCode { get; set; }
+        public int Capacity { get; set; }
         public int SupplierId { get; set; }
     }
 }
