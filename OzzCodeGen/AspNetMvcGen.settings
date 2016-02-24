@@ -3504,7 +3504,7 @@
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>POImage</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
+      <OverwriteExisting>true</OverwriteExisting>
       <Properties>
         <AspNetMvcPropertySetting>
           <Name>PurchaseOrderId</Name>
@@ -3569,11 +3569,12 @@
       </Properties>
       <ControllerName>POImages</ControllerName>
       <DataSetName>POImages</DataSetName>
+      <StrongDependedForeignKey>PurchaseOrderId</StrongDependedForeignKey>
       <SaveParameter>this</SaveParameter>
       <ModelForIndex>POImage</ModelForIndex>
       <ModelForJson>POImageDTO</ModelForJson>
-      <ModelForCreate>POImage</ModelForCreate>
-      <ModelForEdit>POImage</ModelForEdit>
+      <ModelForCreate>POImageDTO</ModelForCreate>
+      <ModelForEdit>POImageDTO</ModelForEdit>
       <RolesCanView>users</RolesCanView>
       <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
@@ -3585,24 +3586,24 @@
       <GenerateIndexAction>true</GenerateIndexAction>
       <GenerateGetEntityAction>true</GenerateGetEntityAction>
       <GenerateGetEntityListAction>true</GenerateGetEntityListAction>
-      <GenerateCreateAction>true</GenerateCreateAction>
+      <GenerateCreateAction>false</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
-      <GenerateEditAction>true</GenerateEditAction>
+      <GenerateEditAction>false</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
-      <IndexViewGeneration>HtmlTableWithButtonsAction</IndexViewGeneration>
+      <IndexViewGeneration>HtmlTableWithMenuAction</IndexViewGeneration>
       <IndexView>true</IndexView>
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
       <EditView>true</EditView>
       <BaseControllerName>BaseController</BaseControllerName>
-      <CreateRedirect>"Index"</CreateRedirect>
+      <CreateRedirect>"Create"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
       <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>POAttachment</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
+      <OverwriteExisting>true</OverwriteExisting>
       <Properties>
         <AspNetMvcPropertySetting>
           <Name>PurchaseOrderId</Name>
@@ -3711,7 +3712,7 @@
       <GenerateDeleteAction>true</GenerateDeleteAction>
       <GenerateEditAction>true</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
-      <IndexViewGeneration>HtmlTableWithButtonsAction</IndexViewGeneration>
+      <IndexViewGeneration>HtmlTableWithMenuAction</IndexViewGeneration>
       <IndexView>true</IndexView>
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>

@@ -38,6 +38,15 @@ namespace CriticalPath.Web.Models
             BuyingCurrency2 = entity.BuyingCurrency2 != null ? new CurrencyDTO(entity.BuyingCurrency2) : null;
             RoyaltyCurrency = entity.RoyaltyCurrency != null ? new CurrencyDTO(entity.RoyaltyCurrency) : null;
             RetailCurrency = entity.RetailCurrency != null ? new CurrencyDTO(entity.RetailCurrency) : null;
+
+            Images = new List<POImageDTO>();
+            if (entity.Images != null)
+            {
+                foreach (var item in entity.Images)
+                {
+                    Images.Add(new POImageDTO(item));
+                }
+            }
         }
 
 
@@ -76,6 +85,8 @@ namespace CriticalPath.Web.Models
             }
         }
         private string _productThumb;
+
+        public ICollection<POImageDTO> Images { get; set; }
 
         [Display(ResourceType = typeof(EntityStrings), Name = "Customer")]
         public CustomerDTO Customer { get; set; }

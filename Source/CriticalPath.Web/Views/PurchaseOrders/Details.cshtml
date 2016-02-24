@@ -15,21 +15,25 @@
 <div class="form-horizontal">
     <h2>@EntityStrings.PurchaseOrder @ActionStrings.Details</h2>
     @Html.Partial("PartialDetails")
-    <div class="row">
-        <div class="col-sm-6 col-md-offset-2 col-sm-offset-3">
-            @Html.ActionLink(@ActionStrings.BackToIndex, "Index", null, new { @class = "btn btn-default" })
+    <div class="row mt20">
+        <div class="col-sm-9 col-md-offset-2 col-sm-offset-3">
+            @Html.ActionLink(@ActionStrings.BackToIndex, "Index", null, new { @class = "btn btn-default mr5 mt5" })
             @if (canUserEdit)
             {
-                @Html.ActionLink(@ActionStrings.Edit, "Edit", null, new { id = Model.Id }, new { @class = "btn btn-default" })
+                @Html.ActionLink(@ActionStrings.Edit, "Edit", null, new { id = Model.Id }, new { @class = "btn btn-default mr5 mt5" })
+                @Html.ActionLink(EntityStrings.EditProduct, "Edit", "Products", new { id = Model.ProductId }, new { @class = "btn btn-info mr5 mt5" })
+                @Html.ActionLink(EntityStrings.AddPOImage, "Create", "POImages", new { purchaseOrderId = Model.Id }, new { @class = "btn btn-info mr5 mt5" })
             }
             @if (canUserCancelPO && !Model.Cancelled)
             {
-                @Html.ActionLink(@ActionStrings.CancelPO, "CancelPO", null, new { id = Model.Id }, new { @class = "btn btn-danger" })
+                @Html.ActionLink(@ActionStrings.CancelPO, "CancelPO", null, new { id = Model.Id }, new { @class = "btn btn-danger mr5 mt5" })
             }
             @if (!Model.IsApproved && canUserApprove && !Model.Cancelled)
             {
-                @Html.ActionLink(@ActionStrings.Approve, "Approve", null, new { id = Model.Id }, new { @class = "btn btn-success" })
+                @Html.ActionLink(@ActionStrings.Approve, "Approve", null, new { id = Model.Id }, new { @class = "btn btn-success mt5" })
             }
         </div>
     </div>
 </div>
+@Html.Partial("_MessageBoxPartial")
+@Html.Partial("_IndexScriptsPartial", "PurchaseOrders")

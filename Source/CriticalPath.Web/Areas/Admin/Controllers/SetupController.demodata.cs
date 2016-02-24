@@ -185,7 +185,7 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             foreach (var item in Suppliers)
             {
                 item.CountryId = 90;
-
+                item.Capacity = Randomizer.RandomNr(9, 19) * 1000;
                 DataContext.Companies.Add(item);
                 sb.Append("Supplier: ");
                 sb.Append(item.CompanyName);

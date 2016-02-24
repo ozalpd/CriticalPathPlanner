@@ -221,6 +221,8 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ManufacturersController.g.cs" />
     <Compile Include="Controllers\ManufacturersController.part.cs" />
+    <Compile Include="Controllers\POImagesController.g.cs" />
+    <Compile Include="Controllers\POImagesController.part.cs" />
     <Compile Include="Controllers\ProcessesController.g.cs" />
     <Compile Include="Controllers\ProcessesController.part.cs" />
     <Compile Include="Controllers\ProcessStepsController.g.cs" />
@@ -246,6 +248,7 @@
     <Compile Include="Models\DiscontinueCompanyVM.cs" />
     <Compile Include="Models\DiscontinuedVM.cs" />
     <Compile Include="Models\ImageUploadViewModel.cs" />
+    <Compile Include="Models\POImageVM.cs" />
     <Compile Include="Models\ProductCreateVM.cs" />
     <Compile Include="Models\ProductEditVM.cs" />
     <Compile Include="Models\PurchaseOrderCancelVM.cs" />
@@ -615,6 +618,12 @@
     <Content Include="Views\Shared\DisplayTemplates\ShipmentHangingFolded.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\FreightTermDTO.cshtml" />
     <Content Include="Views\Shared\_ImageUpload.cshtml" />
+    <Content Include="Views\POImages\Create.cshtml" />
+    <Content Include="Views\POImages\Details.cshtml" />
+    <Content Include="Views\POImages\Edit.cshtml" />
+    <Content Include="Views\POImages\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\POImage.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\POImageDTO.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Files\" />

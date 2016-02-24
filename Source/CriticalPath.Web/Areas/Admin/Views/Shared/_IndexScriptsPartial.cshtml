@@ -22,6 +22,10 @@
             showMessageBox(errorThrown, msgboxMsg, true);
         });
     }
+    function showImage(title, imgUrl, cancelButton) {
+        var innerHtml = "<img src='" + imgUrl + "' class='img-responsive center-block' />";
+        showMessageBox(title, innerHtml, cancelButton);
+    }
     function showMessageBox(title, text, cancelButton) {
         if (cancelButton) {
             $('#messageBoxCancelButton').show();

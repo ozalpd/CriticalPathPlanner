@@ -1,0 +1,16 @@
+@using CriticalPath.Web.Models
+@using CriticalPath.Data
+@using CP.i8n
+@model POImage
+@{
+    Layout = null;
+}
+@if (Model != null)
+{
+<div>
+    <label class="btn pt0 pb0 pl0 pr0" style="max-height:53px;overflow:hidden;"
+           onclick="showImage('@Html.Encode(Model.ProductCode)', '@AppSettings.Urls.ProductImages/@Model.ImageUrl', false)">
+        <img src="@AppSettings.Urls.ThumbImages/@Model.ImageUrl" style="width:40px;" />
+    </label>
+</div>
+}

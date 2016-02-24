@@ -154,7 +154,7 @@
                         var hasRealizedDate = step.RealizedDate!=null && step.RealizedDate!='';
                         var realCls = hasRealizedDate ? 'bg-success' : 'bg-danger text-danger';
                     //border: 1px solid #fff;
-                        cell = cell + '<div class="' + realCls + ' pull-left" style="width:' + stepDivWidth + '%;min-height:14px;"></div>';    
+                        cell = cell + '<div class="' + realCls + ' pull-left" style="width:' + stepDivWidth + '%;min-height:14px;"></div>';
                 }));
                 cell = cell + '</div>';
                 return cell;
@@ -196,6 +196,7 @@
                 {
                     @:actions = actions + '<li><a href="@Url.Action("Edit")/' + params.value + '">@EntityStrings.EditProcess</a></li>';
                     @:actions = actions + '<li><a href="@Url.Action("Edit", "PurchaseOrders", null)/' + params.data.PurchaseOrderId + '">@EntityStrings.EditPurchaseOrder</a></li>';
+                    @:actions = actions + '<li><a href="@Url.Action("Create", "POImages", null)/?PurchaseOrderId=' + params.data.PurchaseOrderId + '">@EntityStrings.AddPOImage</a></li>';
                     @:actions = actions + '<li><a href="@Url.Action("Edit", "Products", null)/' + params.data.ProductId + '">@EntityStrings.EditProduct</a></li>';
                 }
                 @if (canUserCancelPO)
