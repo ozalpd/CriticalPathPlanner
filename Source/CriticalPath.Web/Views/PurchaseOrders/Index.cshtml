@@ -16,11 +16,8 @@
     //Records & Pager
     int page = ViewBag.page;
     int totalCount = ViewBag.totalCount;
-    int pageSize = ViewBag.pageSize;
     int pageCount = ViewBag.pageCount;
     int grandTotal = 0;
-
-    int[] sizeArray = ViewBag.SizeArray;
 
     string filterPanelClass = ViewBag.FilterPanelExpanded ? "accordion-body collapse in" : "accordion-body collapse";
     string filterButtonClass = ViewBag.FilterPanelExpanded ? "glyphicon glyphicon-minus" : "glyphicon glyphicon-plus";
@@ -28,7 +25,6 @@
 @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "searchForm" }))
 {
     @Html.Hidden("page", page)
-    @*@Html.Hidden("pageSize", pageSize)*@
     <div class="well hidden-print">
         <div class="accordion">
             <div id="filterAccordion" class="accordion-group row">
@@ -78,24 +74,7 @@
                                     Hide Restricted Columns
                                 </div>
                             </div>
-                            <label class="col-sm-3 control-label">
-                                Display Records
-                            </label>
-                            <div class="col-sm-2">
-                                <select id="PageSize" name="PageSize" class="form-control">
-                                    @for (int i = 0; i < sizeArray.Length; i++)
-                                    {
-                                        if (sizeArray[i] == pageSize)
-                                        {
-                                            <option selected="selected" value="@sizeArray[i]">@sizeArray[i]</option>
-                                        }
-                                        else
-                                        {
-                                            <option value="@sizeArray[i]">@sizeArray[i]</option>
-                                        }
-                                    }
-                                </select>
-                            </div>
+                            @Html.Partial("_PageSizeSelect")
                         </div>
                         <div class="row mb5">
                             <div class="col-sm-4">

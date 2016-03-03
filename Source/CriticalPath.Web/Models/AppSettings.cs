@@ -56,6 +56,11 @@ namespace CriticalPath.Web.Models
             get { return true; }
         }
 
+        public int[] PageSizeArray
+        {
+            get { return new int[] { 10, 20, 50, 100 }; }
+        }
+
         public static class Urls
         {
             public static string BigImageUpload = "/Files/BigImageUpload";

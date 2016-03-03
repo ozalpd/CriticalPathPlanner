@@ -1213,6 +1213,10 @@
     <Translation>Display Order</Translation>
   </Vocab>
   <Vocab>
+    <Name>DisplayRecords</Name>
+    <Translation>Display Records</Translation>
+  </Vocab>
+  <Vocab>
     <Name>District</Name>
     <Translation>District</Translation>
   </Vocab>

@@ -178,7 +178,6 @@ namespace CriticalPath.Web.Controllers
                                         qParams.MerchandiserId.HasValue || qParams.DesignerId.HasValue || 
                                         qParams.SupplierId.HasValue || qParams.PageSize != 10);
 
-            ViewBag.SizeArray = new int[] { 10, 20, 50, 100 };
             ViewBag.HideRestricted = qParams.HideRestricted;
             PutPagerInViewBag(result);
 

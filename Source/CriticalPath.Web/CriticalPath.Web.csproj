@@ -624,6 +624,7 @@
     <Content Include="Views\POImages\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\POImage.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\POImageDTO.cshtml" />
+    <Content Include="Views\Shared\_PageSizeSelect.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Files\" />

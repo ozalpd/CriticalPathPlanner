@@ -1,0 +1,24 @@
+﻿@using CriticalPath.Web.Models
+@using CP.i8n
+@{ 
+    int[] sizeArray = AppSettings.Settings.PageSizeArray;
+    int pageSize = ViewBag.pageSize ?? 10;
+}
+<label class="col-sm-3 control-label">
+    @ActionStrings.DisplayRecords
+</label>
+<div class="col-sm-2">
+    <select id="PageSize" name="PageSize" class="form-control">
+        @for (int i = 0; i < sizeArray.Length; i++)
+        {
+            if (sizeArray[i] == pageSize)
+            {
+                <option selected="selected" value="@sizeArray[i]">@sizeArray[i]</option>
+            }
+            else
+            {
+                <option value="@sizeArray[i]">@sizeArray[i]</option>
+            }
+        }
+    </select>
+</div>

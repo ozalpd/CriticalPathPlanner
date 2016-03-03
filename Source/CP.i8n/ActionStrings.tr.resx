@@ -143,6 +143,10 @@
 		<value>Tümünü Göster</value>
 	</data>
 
+	<data name="DisplayRecords" xml:space="preserve">
+		<value>Kayıtları Göster</value>
+	</data>
+
 	<data name="Duplicate" xml:space="preserve">
 		<value>Çoğalt</value>
 	</data>

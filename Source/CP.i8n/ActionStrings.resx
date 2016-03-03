@@ -143,6 +143,10 @@
 		<value>Display All</value>
 	</data>
 
+	<data name="DisplayRecords" xml:space="preserve">
+		<value>Display Records</value>
+	</data>
+
 	<data name="Duplicate" xml:space="preserve">
 		<value>Duplicate</value>
 	</data>

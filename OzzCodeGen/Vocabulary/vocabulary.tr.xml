@@ -1213,6 +1213,10 @@
     <Translation>Gösterim Sırası</Translation>
   </Vocab>
   <Vocab>
+    <Name>DisplayRecords</Name>
+    <Translation>Kayıtları Göster</Translation>
+  </Vocab>
+  <Vocab>
     <Name>District</Name>
     <Translation>Mahalle</Translation>
   </Vocab>
