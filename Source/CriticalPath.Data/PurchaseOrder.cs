@@ -18,7 +18,7 @@ namespace CriticalPath.Data
         public PurchaseOrder()
         {
             this.SubOrders = new HashSet<PurchaseOrder>();
-            this.SizeRatios = new HashSet<SizeRatio>();
+            this.SizeRatios = new HashSet<POSizeRatio>();
             this.Processes = new HashSet<Process>();
             this.Attachments = new HashSet<POAttachment>();
             this.Images = new HashSet<POImage>();
@@ -99,7 +99,7 @@ namespace CriticalPath.Data
         public virtual Employee Merchandiser1 { get; set; }
         public virtual Employee Merchandiser2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SizeRatio> SizeRatios { get; set; }
+        public virtual ICollection<POSizeRatio> SizeRatios { get; set; }
         public virtual SizingStandard SizingStandard { get; set; }
         public virtual FreightTerm FreightTerm { get; set; }
         public virtual Supplier Supplier { get; set; }

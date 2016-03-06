@@ -13,8 +13,8 @@ using CP.i8n;
 
 namespace CriticalPath.Data
 {
-    [MetadataTypeAttribute(typeof(SizeRatioDTO.SizeRatioMetadata))]
-    public partial class SizeRatioDTO
+    [MetadataTypeAttribute(typeof(POSizeRatioDTO.SizeRatioMetadata))]
+    public partial class POSizeRatioDTO
 	{
         internal sealed partial class SizeRatioMetadata
 		{

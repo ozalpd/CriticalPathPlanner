@@ -562,18 +562,18 @@ namespace CriticalPath.Web.Controllers
         /// </summary>
         /// <param name="id">Represents PrimaryKey of SizeRatio.Id</param>
         /// <returns></returns>
-        protected virtual async Task<SizeRatio> FindAsyncSizeRatio(int id)
+        protected virtual async Task<POSizeRatio> FindAsyncSizeRatio(int id)
         {
-            return await GetSizeRatioQuery()
+            return await GetPOSizeRatioQuery()
                             .FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        protected virtual IQueryable<SizeRatio> GetSizeRatioQuery()
+        protected virtual IQueryable<POSizeRatio> GetPOSizeRatioQuery()
         {
-            return DataContext.GetSizeRatioQuery();
+            return DataContext.GetPOSizeRatioQuery();
         }
 
-        protected virtual Task SetSizeRatioDefaults(SizeRatio sizeRatio)
+        protected virtual Task SetSizeRatioDefaults(POSizeRatio sizeRatio)
         {
             return Task.FromResult(default(object));
         }

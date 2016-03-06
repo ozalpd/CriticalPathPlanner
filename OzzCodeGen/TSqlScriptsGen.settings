@@ -2139,13 +2139,13 @@
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
-      <Name>SizeRatio</Name>
+      <Name>POSizeRatio</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
       <InheritedEntity>IModified</InheritedEntity>
       <UseInheritance>false</UseInheritance>
       <SchemaName>dbo</SchemaName>
-      <TableName>SizeRatios</TableName>
+      <TableName>POSizeRatios</TableName>
       <ModifyTrack>false</ModifyTrack>
       <StoredProcs>false</StoredProcs>
       <CustomStoredProcs>false</CustomStoredProcs>

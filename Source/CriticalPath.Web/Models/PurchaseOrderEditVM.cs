@@ -23,7 +23,7 @@ namespace CriticalPath.Web.Models
                 {
                     var ratio = rates.FirstOrDefault(r => r.Caption.Equals(item.Caption));
                     if (ratio == null)
-                        ratio = new SizeRatio()
+                        ratio = new POSizeRatio()
                         {
                             Caption = item.Caption,
                             DisplayOrder = item.DisplayOrder
@@ -96,7 +96,7 @@ namespace CriticalPath.Web.Models
         }
 
         #region Long Helper Methods GetSizeRate PutSizeRate
-        protected SizeRatioDTO GetSizeRate(int rateNr)
+        protected POSizeRatioDTO GetSizeRate(int rateNr)
         {
             int id = 0;
             int rate = 0;
@@ -186,7 +186,7 @@ namespace CriticalPath.Web.Models
             }
             else
             {
-                return new SizeRatioDTO()
+                return new POSizeRatioDTO()
                 {
                     Id = id,
                     Caption = caption,
@@ -197,7 +197,7 @@ namespace CriticalPath.Web.Models
             }
         }
 
-        protected void PutSizeRate(int rateNr, SizeRatio rate)
+        protected void PutSizeRate(int rateNr, POSizeRatio rate)
         {
             switch (rateNr)
             {

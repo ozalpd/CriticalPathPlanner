@@ -109,8 +109,8 @@
 
 @echo .
 @echo .
-@echo 21 - Executing SizeRatio.sql...
-@sqlcmd -S .\SqlExpress -d CriticalPath -E -i SizeRatio.sql
+@echo 21 - Executing POSizeRatio.sql...
+@sqlcmd -S .\SqlExpress -d CriticalPath -E -i POSizeRatio.sql
 
 @echo .
 @echo .

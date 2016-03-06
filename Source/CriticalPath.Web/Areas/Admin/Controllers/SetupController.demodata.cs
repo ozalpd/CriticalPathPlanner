@@ -120,7 +120,7 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                     if (ratio > 20)
                     {
                         quantity += ratio * 20;
-                        po.SizeRatios.Add(new SizeRatio()
+                        po.SizeRatios.Add(new POSizeRatio()
                         {
                             Caption = item.Caption,
                             DisplayOrder = item.DisplayOrder,

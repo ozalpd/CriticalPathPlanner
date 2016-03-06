@@ -25,7 +25,7 @@ namespace CriticalPath.Data
         {
             foreach (var rate in entity.SizeRatios)
             {
-                SizeRatios.Add(new SizeRatioDTO(rate));
+                SizeRatios.Add(new POSizeRatioDTO(rate));
             }
 
             if (entity.Designer?.AspNetUser != null)
@@ -42,12 +42,12 @@ namespace CriticalPath.Data
         {
             foreach (var rate in SizeRatios)
             {
-                entity.SizeRatios.Add(rate.ToSizeRatio());
+                entity.SizeRatios.Add(rate.ToPOSizeRatio());
             }
         }
 
 
-        public ICollection<SizeRatioDTO> SizeRatios
+        public ICollection<POSizeRatioDTO> SizeRatios
         {
             set { _sizeRatios = value; }
             get
@@ -57,11 +57,11 @@ namespace CriticalPath.Data
                 return _sizeRatios;
             }
         }
-        private ICollection<SizeRatioDTO> _sizeRatios;
+        private ICollection<POSizeRatioDTO> _sizeRatios;
 
         protected virtual void InitSizeRatios()
         {
-            _sizeRatios = new List<SizeRatioDTO>();
+            _sizeRatios = new List<POSizeRatioDTO>();
         }
 
 

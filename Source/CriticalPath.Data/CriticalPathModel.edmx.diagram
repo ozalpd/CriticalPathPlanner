@@ -10,7 +10,7 @@
         <EntityTypeShape EntityType="CriticalPathDataModel.ProcessStep" Width="2" PointX="3.625" PointY="1" />
         <EntityTypeShape EntityType="CriticalPathDataModel.ProcessStepTemplate" Width="1.875" PointX="3" PointY="8.875" />
         <EntityTypeShape EntityType="CriticalPathDataModel.ProcessTemplate" Width="1.75" PointX="0.5" PointY="8.875" />
-        <EntityTypeShape EntityType="CriticalPathDataModel.PurchaseOrder" Width="2.125" PointX="19.375" PointY="1.375" />
+        <EntityTypeShape EntityType="CriticalPathDataModel.PurchaseOrder" Width="2.125" PointX="19.875" PointY="1.375" />
         <EntityTypeShape EntityType="CriticalPathDataModel.Contact" Width="1.625" PointX="27.625" PointY="6.25" />
         <EntityTypeShape EntityType="CriticalPathDataModel.Company" Width="1.625" PointX="25.25" PointY="3.25" />
         <InheritanceConnector EntityType="CriticalPathDataModel.Customer" />
@@ -20,7 +20,7 @@
         <EntityTypeShape EntityType="CriticalPathDataModel.ProductCategory" Width="1.625" PointX="9.125" PointY="1.75" />
         <EntityTypeShape EntityType="CriticalPathDataModel.SizingStandard" Width="1.625" PointX="15.25" PointY="4.625" />
         <EntityTypeShape EntityType="CriticalPathDataModel.Sizing" Width="1.5" PointX="13.375" PointY="4.375" />
-        <EntityTypeShape EntityType="CriticalPathDataModel.SizeRatio" Width="1.625" PointX="17.125" PointY="7.375" />
+        <EntityTypeShape EntityType="CriticalPathDataModel.POSizeRatio" Width="1.625" PointX="17.375" PointY="7.375" />
         <EntityTypeShape EntityType="CriticalPathDataModel.Product" Width="1.875" PointX="11.125" PointY="0.875" />
         <AssociationConnector Association="CriticalPathDataModel.FK_Process_PurchaseOrderId" />
         <AssociationConnector Association="CriticalPathDataModel.FK_PurchaseOrder_ProductId" />
@@ -65,15 +65,15 @@
         <AssociationConnector Association="CriticalPathDataModel.FK_PurchaseOrder_CustomerId" />
         <AssociationConnector Association="CriticalPathDataModel.FK_PurchaseOrder_SizingStandardId" />
         <AssociationConnector Association="CriticalPathDataModel.FK_Sizing_SizingStandardId" />
-        <AssociationConnector Association="CriticalPathDataModel.FK_SizeRatio_PurchaseOrderId" />
-        <AssociationConnector Association="CriticalPathDataModel.FK_SizeRatio_SizingId" />
-        <AssociationConnector Association="CriticalPathDataModel.FK_SizeRatio_CreatorId" />
-        <AssociationConnector Association="CriticalPathDataModel.FK_SizeRatio_ModifierId" />
+        <AssociationConnector Association="CriticalPathDataModel.FK_POSizeRatio_PurchaseOrderId" />
+        <AssociationConnector Association="CriticalPathDataModel.FK_POSizeRatio_SizingId" />
+        <AssociationConnector Association="CriticalPathDataModel.FK_POSizeRatio_CreatorId" />
+        <AssociationConnector Association="CriticalPathDataModel.FK_POSizeRatio_ModifierId" />
         <AssociationConnector Association="CriticalPathDataModel.ProductsSuppliers" />
         <EntityTypeShape EntityType="CriticalPathDataModel.Manufacturer" Width="1.75" PointX="25.875" PointY="0.5" />
         <AssociationConnector Association="CriticalPathDataModel.FK_Manufacturer_SupplierId" />
         <InheritanceConnector EntityType="CriticalPathDataModel.Manufacturer" />
-        <EntityTypeShape EntityType="CriticalPathDataModel.FreightTerm" Width="1.5" PointX="17.25" PointY="4.125" />
+        <EntityTypeShape EntityType="CriticalPathDataModel.FreightTerm" Width="1.5" PointX="17.375" PointY="4.125" />
         <AssociationConnector Association="CriticalPathDataModel.FK_PurchaseOrder_FreightTermId" />
         <AssociationConnector Association="CriticalPathDataModel.FK_PurchaseOrder_SupplierId" />
         <EntityTypeShape EntityType="CriticalPathDataModel.Currency" Width="1.5" PointX="17.25" PointY="1.375" />

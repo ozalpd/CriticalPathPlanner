@@ -668,12 +668,12 @@ namespace CriticalPath.Web.Controllers
                         }
                         else
                         {
-                            DataContext.SizeRatios.Remove(sizeRatio);
+                            DataContext.POSizeRatios.Remove(sizeRatio);
                         }
                     }
                     else
                     {
-                        purchaseOrder.SizeRatios.Add(item.ToSizeRatio());
+                        purchaseOrder.SizeRatios.Add(item.ToPOSizeRatio());
                     }
                     srd += item.Rate;
                 }

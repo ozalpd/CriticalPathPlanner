@@ -3471,7 +3471,7 @@
           <DisplayOrder>846800</DisplayOrder>
           <DisplayName>Size Ratios</DisplayName>
           <Editable>true</Editable>
-          <TypeName>ICollection&lt;SizeRatio&gt;</TypeName>
+          <TypeName>ICollection&lt;POSizeRatio&gt;</TypeName>
           <IsClientComputed>false</IsClientComputed>
           <IsServerComputed>false</IsServerComputed>
           <IsStoreGenerated>false</IsStoreGenerated>
@@ -3823,7 +3823,7 @@
       </Properties>
     </EntityDefinition>
     <EntityDefinition>
-      <Name>SizeRatio</Name>
+      <Name>POSizeRatio</Name>
       <EntitySource />
       <NamespaceName>CriticalPath</NamespaceName>
       <DisplayOrder>25</DisplayOrder>

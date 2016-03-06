@@ -176,6 +176,9 @@
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Parts\POImageDTO.part.cs" />
+    <Compile Include="POSizeRatio.cs">
+      <DependentUpon>CriticalPathModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Process.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
@@ -208,9 +211,6 @@
     </Compile>
     <Compile Include="Parts\SizingStandardDTO.part.cs" />
     <Compile Include="Parts\PurchaseOrder.part.cs" />
-    <Compile Include="SizeRatio.cs">
-      <DependentUpon>CriticalPathModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Sizing.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>

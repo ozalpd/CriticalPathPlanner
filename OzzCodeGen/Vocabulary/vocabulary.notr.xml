@@ -145,6 +145,10 @@
     <Translation>Add New P.O. Image</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddNewPOSizeRatio</Name>
+    <Translation>Add New POSize Ratio</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddNewProcess</Name>
     <Translation>Add New Process</Translation>
   </Vocab>
@@ -223,6 +227,10 @@
   <Vocab>
     <Name>AddPOImage</Name>
     <Translation>Add P.O. Image</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddPOSizeRatio</Name>
+    <Translation>Add POSize Ratio</Translation>
   </Vocab>
   <Vocab>
     <Name>AddProcess</Name>
@@ -319,6 +327,10 @@
   <Vocab>
     <Name>AddRemovePOImage</Name>
     <Translation>Add Remove P.O. Image</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemovePOSizeRatio</Name>
+    <Translation>Add Remove POSize Ratio</Translation>
   </Vocab>
   <Vocab>
     <Name>AddRemoveProcess</Name>
@@ -829,6 +841,10 @@
     <Translation>Create P.O. Image</Translation>
   </Vocab>
   <Vocab>
+    <Name>CreatePOSizeRatio</Name>
+    <Translation>Create POSize Ratio</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CreateProcess</Name>
     <Translation>Create Process</Translation>
   </Vocab>
@@ -1059,6 +1075,10 @@
   <Vocab>
     <Name>DeletePOImage</Name>
     <Translation>Delete P.O. Image</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeletePOSizeRatio</Name>
+    <Translation>Delete POSize Ratio</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteProcess</Name>
@@ -1303,6 +1323,10 @@
   <Vocab>
     <Name>EditPOImage</Name>
     <Translation>Edit P.O. Image</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditPOSizeRatio</Name>
+    <Translation>Edit POSize Ratio</Translation>
   </Vocab>
   <Vocab>
     <Name>EditProcess</Name>
@@ -1949,6 +1973,18 @@
     <Translation>Position</Translation>
   </Vocab>
   <Vocab>
+    <Name>POSizeRatio</Name>
+    <Translation>POSize Ratio</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>POSizeRatios</Name>
+    <Translation>POSize Ratios</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>POSizeRatiosList</Name>
+    <Translation>POSize Ratios List</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Print</Name>
     <Translation>Print</Translation>
   </Vocab>
@@ -2199,6 +2235,10 @@
   <Vocab>
     <Name>RemovePOImage</Name>
     <Translation>Remove P.O. Image</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemovePOSizeRatio</Name>
+    <Translation>Remove POSize Ratio</Translation>
   </Vocab>
   <Vocab>
     <Name>RemoveProcess</Name>

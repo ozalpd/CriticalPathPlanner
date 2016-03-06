@@ -1748,7 +1748,7 @@
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="MetadataEntitySetting">
-      <Name>SizeRatio</Name>
+      <Name>POSizeRatio</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
       <Properties>

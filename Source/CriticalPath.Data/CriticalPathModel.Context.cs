@@ -40,7 +40,7 @@ namespace CriticalPath.Data
         public virtual DbSet<ProcessStep> ProcessSteps { get; set; }
         public virtual DbSet<ProcessStepTemplate> ProcessStepTemplates { get; set; }
         public virtual DbSet<ProcessTemplate> ProcessTemplates { get; set; }
-        public virtual DbSet<SizeRatio> SizeRatios { get; set; }
+        public virtual DbSet<POSizeRatio> POSizeRatios { get; set; }
         public virtual DbSet<SizingStandard> SizingStandards { get; set; }
         public virtual DbSet<Sizing> Sizings { get; set; }
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
@@ -672,6 +672,44 @@ namespace CriticalPath.Data
     
     
         /// <summary>
+        /// Default query for POSizeRatios
+        /// </summary>
+        /// <returns></returns>
+        public virtual IQueryable<POSizeRatio> GetPOSizeRatioQuery()
+        {
+            IQueryable<POSizeRatio> query = POSizeRatios.OrderBy(p => p.DisplayOrder);
+            return query;
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from POSizeRatio query
+        /// </summary>
+        /// <param name="query">query to be converted</param>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<POSizeRatioDTO> GetPOSizeRatioDtoQuery()
+        {
+            return GetPOSizeRatioDtoQuery(GetPOSizeRatioQuery());
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from POSizeRatio query
+        /// </summary>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<POSizeRatioDTO> GetPOSizeRatioDtoQuery(IQueryable<POSizeRatio> query)
+        {
+            return from e in query
+                   select new POSizeRatioDTO
+                   {
+                       Id = e.Id,
+                       DisplayOrder = e.DisplayOrder,
+                       Caption = e.Caption,
+                       Rate = e.Rate,
+                       PurchaseOrderId = e.PurchaseOrderId,
+                   };
+        }
+    
+    
+        /// <summary>
         /// Default query for Processes
         /// </summary>
         /// <returns></returns>
@@ -1056,44 +1094,6 @@ namespace CriticalPath.Data
                        Cancelled = e.Cancelled,
                        CancelDate = e.CancelDate,
                        CancellationReason = e.CancellationReason,
-                   };
-        }
-    
-    
-        /// <summary>
-        /// Default query for SizeRatios
-        /// </summary>
-        /// <returns></returns>
-        public virtual IQueryable<SizeRatio> GetSizeRatioQuery()
-        {
-            IQueryable<SizeRatio> query = SizeRatios.OrderBy(p => p.DisplayOrder);
-            return query;
-        }
-    
-        /// <summary>
-        /// Gets a lighter data transfer object query from SizeRatio query
-        /// </summary>
-        /// <param name="query">query to be converted</param>
-        /// <returns>Converted data transfer object query</returns>
-        public virtual IQueryable<SizeRatioDTO> GetSizeRatioDtoQuery()
-        {
-            return GetSizeRatioDtoQuery(GetSizeRatioQuery());
-        }
-    
-        /// <summary>
-        /// Gets a lighter data transfer object query from SizeRatio query
-        /// </summary>
-        /// <returns>Converted data transfer object query</returns>
-        public virtual IQueryable<SizeRatioDTO> GetSizeRatioDtoQuery(IQueryable<SizeRatio> query)
-        {
-            return from e in query
-                   select new SizeRatioDTO
-                   {
-                       Id = e.Id,
-                       DisplayOrder = e.DisplayOrder,
-                       Caption = e.Caption,
-                       Rate = e.Rate,
-                       PurchaseOrderId = e.PurchaseOrderId,
                    };
         }
     

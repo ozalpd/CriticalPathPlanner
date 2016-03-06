@@ -3723,7 +3723,7 @@
       <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
-      <Name>SizeRatio</Name>
+      <Name>POSizeRatio</Name>
       <Exclude>false</Exclude>
       <OverwriteExisting>false</OverwriteExisting>
       <Properties>

@@ -167,6 +167,10 @@
 		<value>Add New P.O. Image</value>
 	</data>
 
+	<data name="AddNewPOSizeRatio" xml:space="preserve">
+		<value>Add New POSize Ratio</value>
+	</data>
+
 	<data name="AddNewProcess" xml:space="preserve">
 		<value>Add New Process</value>
 	</data>
@@ -199,10 +203,6 @@
 		<value>Add New Purchase Order</value>
 	</data>
 
-	<data name="AddNewSizeRatio" xml:space="preserve">
-		<value>Add New Size Ratio</value>
-	</data>
-
 	<data name="AddNewSizing" xml:space="preserve">
 		<value>Add New Sizing</value>
 	</data>
@@ -221,6 +221,10 @@
 
 	<data name="AddPOImage" xml:space="preserve">
 		<value>Add P.O. Image</value>
+	</data>
+
+	<data name="AddPOSizeRatio" xml:space="preserve">
+		<value>Add POSize Ratio</value>
 	</data>
 
 	<data name="AddProcess" xml:space="preserve">
@@ -311,6 +315,10 @@
 		<value>Add Remove P.O. Image</value>
 	</data>
 
+	<data name="AddRemovePOSizeRatio" xml:space="preserve">
+		<value>Add Remove POSize Ratio</value>
+	</data>
+
 	<data name="AddRemoveProcess" xml:space="preserve">
 		<value>Add/Remove Process</value>
 	</data>
@@ -343,10 +351,6 @@
 		<value>Add/Remove Purchase Order</value>
 	</data>
 
-	<data name="AddRemoveSizeRatio" xml:space="preserve">
-		<value>Add Remove Size Ratio</value>
-	</data>
-
 	<data name="AddRemoveSizing" xml:space="preserve">
 		<value>Add/Remove Sizing</value>
 	</data>
@@ -365,10 +369,6 @@
 
 	<data name="Address2" xml:space="preserve">
 		<value>Address Line 2</value>
-	</data>
-
-	<data name="AddSizeRatio" xml:space="preserve">
-		<value>Add Size Ratio</value>
 	</data>
 
 	<data name="AddSizing" xml:space="preserve">
@@ -623,6 +623,10 @@
 		<value>Create P.O. Image</value>
 	</data>
 
+	<data name="CreatePOSizeRatio" xml:space="preserve">
+		<value>Create POSize Ratio</value>
+	</data>
+
 	<data name="CreateProcess" xml:space="preserve">
 		<value>Create Process</value>
 	</data>
@@ -653,10 +657,6 @@
 
 	<data name="CreatePurchaseOrder" xml:space="preserve">
 		<value>Create Purchase Order</value>
-	</data>
-
-	<data name="CreateSizeRatio" xml:space="preserve">
-		<value>Create Size Ratio</value>
 	</data>
 
 	<data name="CreateSizing" xml:space="preserve">
@@ -815,6 +815,10 @@
 		<value>Delete P.O. Image</value>
 	</data>
 
+	<data name="DeletePOSizeRatio" xml:space="preserve">
+		<value>Delete POSize Ratio</value>
+	</data>
+
 	<data name="DeleteProcess" xml:space="preserve">
 		<value>Delete Process</value>
 	</data>
@@ -845,10 +849,6 @@
 
 	<data name="DeletePurchaseOrder" xml:space="preserve">
 		<value>Delete Purchase Order</value>
-	</data>
-
-	<data name="DeleteSizeRatio" xml:space="preserve">
-		<value>Delete Size Ratio</value>
 	</data>
 
 	<data name="DeleteSizing" xml:space="preserve">
@@ -983,6 +983,10 @@
 		<value>Edit P.O. Image</value>
 	</data>
 
+	<data name="EditPOSizeRatio" xml:space="preserve">
+		<value>Edit POSize Ratio</value>
+	</data>
+
 	<data name="EditProcess" xml:space="preserve">
 		<value>Edit Process</value>
 	</data>
@@ -1013,10 +1017,6 @@
 
 	<data name="EditPurchaseOrder" xml:space="preserve">
 		<value>Edit Purchase Order</value>
-	</data>
-
-	<data name="EditSizeRatio" xml:space="preserve">
-		<value>Edit Size Ratio</value>
 	</data>
 
 	<data name="EditSizing" xml:space="preserve">
@@ -1375,6 +1375,18 @@
 		<value>Position</value>
 	</data>
 
+	<data name="POSizeRatio" xml:space="preserve">
+		<value>POSize Ratio</value>
+	</data>
+
+	<data name="POSizeRatios" xml:space="preserve">
+		<value>POSize Ratios</value>
+	</data>
+
+	<data name="POSizeRatiosList" xml:space="preserve">
+		<value>POSize Ratios List</value>
+	</data>
+
 	<data name="Print" xml:space="preserve">
 		<value>Print</value>
 	</data>
@@ -1571,6 +1583,10 @@
 		<value>Remove P.O. Image</value>
 	</data>
 
+	<data name="RemovePOSizeRatio" xml:space="preserve">
+		<value>Remove POSize Ratio</value>
+	</data>
+
 	<data name="RemoveProcess" xml:space="preserve">
 		<value>Remove Process</value>
 	</data>
@@ -1601,10 +1617,6 @@
 
 	<data name="RemovePurchaseOrder" xml:space="preserve">
 		<value>Remove Purchase Order</value>
-	</data>
-
-	<data name="RemoveSizeRatio" xml:space="preserve">
-		<value>Remove Size Ratio</value>
 	</data>
 
 	<data name="RemoveSizing" xml:space="preserve">
@@ -1675,20 +1687,12 @@
 		<value>Hanging / Folded</value>
 	</data>
 
-	<data name="SizeRatio" xml:space="preserve">
-		<value>Size Ratio</value>
-	</data>
-
 	<data name="SizeRatioDivisor" xml:space="preserve">
 		<value>Size Ratio Divisor</value>
 	</data>
 
 	<data name="SizeRatios" xml:space="preserve">
 		<value>Size Ratios</value>
-	</data>
-
-	<data name="SizeRatiosList" xml:space="preserve">
-		<value>Size Ratios List</value>
 	</data>
 
 	<data name="Sizing" xml:space="preserve">

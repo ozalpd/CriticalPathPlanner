@@ -12,7 +12,7 @@ namespace CriticalPath.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class SizeRatio : IDisplayOrder, ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate
+    public partial class POSizeRatio : IDisplayOrder, ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate
     {
         public int Id { get; set; }
         public int DisplayOrder { get; set; }
@@ -31,13 +31,13 @@ namespace CriticalPath.Data
         public virtual AspNetUser CreatedUser { get; set; }
         public virtual AspNetUser ModifiedUser { get; set; }
     	/// <summary>
-    	/// Clones all properties in a new SizeRatio instance,
+    	/// Clones all properties in a new POSizeRatio instance,
     	/// except PrimaryKey(s)
     	/// </summary>
-    	/// <returns>New SizeRatio instance</returns>
-        public SizeRatio Clone()
+    	/// <returns>New POSizeRatio instance</returns>
+        public POSizeRatio Clone()
         {
-            var clone = new SizeRatio();
+            var clone = new POSizeRatio();
             clone.DisplayOrder = DisplayOrder;
             clone.Caption = Caption;
             clone.Rate = Rate;
@@ -55,17 +55,17 @@ namespace CriticalPath.Data
             return clone;
         }
     
-    	// Use below function in a partial class file (eg. SizeRatio.part.cs)
+    	// Use below function in a partial class file (eg. POSizeRatio.part.cs)
     	// to add more complexity to clone
-        partial void Cloning(SizeRatio clone);
+        partial void Cloning(POSizeRatio clone);
     }
     
-    //Data Transfer Object type for SizeRatio
-    public partial class SizeRatioDTO
+    //Data Transfer Object type for POSizeRatio
+    public partial class POSizeRatioDTO
     {
-        public SizeRatioDTO() { }
+        public POSizeRatioDTO() { }
     
-        public SizeRatioDTO(SizeRatio entity)
+        public POSizeRatioDTO(POSizeRatio entity)
         {
             Id = entity.Id;
             DisplayOrder = entity.DisplayOrder;
@@ -76,11 +76,11 @@ namespace CriticalPath.Data
             Initiliazing(entity);
         }
     
-        partial void Initiliazing(SizeRatio entity);
+        partial void Initiliazing(POSizeRatio entity);
         
-        public virtual SizeRatio ToSizeRatio()
+        public virtual POSizeRatio ToPOSizeRatio()
         {
-            var entity = new SizeRatio();
+            var entity = new POSizeRatio();
             entity.Id = Id;
             entity.DisplayOrder = DisplayOrder;
             entity.Caption = Caption;
@@ -92,7 +92,7 @@ namespace CriticalPath.Data
             return entity;
         }
     
-        partial void Converting(SizeRatio entity);
+        partial void Converting(POSizeRatio entity);
       
         public int Id { get; set; }
         public int DisplayOrder { get; set; }

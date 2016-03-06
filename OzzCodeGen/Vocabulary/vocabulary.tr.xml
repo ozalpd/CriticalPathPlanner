@@ -145,6 +145,10 @@
     <Translation>Yeni Sipariş Resmi Ekle</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddNewPOSizeRatio</Name>
+    <Translation>Yeni Assorti Ekle</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddNewProcess</Name>
     <Translation>Yeni Süreç Ekle</Translation>
   </Vocab>
@@ -223,6 +227,10 @@
   <Vocab>
     <Name>AddPOImage</Name>
     <Translation>Sipariş Resmi Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddPOSizeRatio</Name>
+    <Translation>Assorti Ekle</Translation>
   </Vocab>
   <Vocab>
     <Name>AddProcess</Name>
@@ -319,6 +327,10 @@
   <Vocab>
     <Name>AddRemovePOImage</Name>
     <Translation>Sipariş Resmi Ekle/Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemovePOSizeRatio</Name>
+    <Translation>Assorti Ekle/Çıkar</Translation>
   </Vocab>
   <Vocab>
     <Name>AddRemoveProcess</Name>
@@ -829,6 +841,10 @@
     <Translation>Sipariş Resmi Oluştur</Translation>
   </Vocab>
   <Vocab>
+    <Name>CreatePOSizeRatio</Name>
+    <Translation>Assorti Oluştur</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CreateProcess</Name>
     <Translation>Süreç Başlat</Translation>
   </Vocab>
@@ -1059,6 +1075,10 @@
   <Vocab>
     <Name>DeletePOImage</Name>
     <Translation>Sipariş Resmini Sil</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeletePOSizeRatio</Name>
+    <Translation>Assortiyi Sil</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteProcess</Name>
@@ -1303,6 +1323,10 @@
   <Vocab>
     <Name>EditPOImage</Name>
     <Translation>Sipariş Resmini Düzenle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditPOSizeRatio</Name>
+    <Translation>Assortiyi Düzenle</Translation>
   </Vocab>
   <Vocab>
     <Name>EditProcess</Name>
@@ -1949,6 +1973,18 @@
     <Translation>Pozisyon</Translation>
   </Vocab>
   <Vocab>
+    <Name>POSizeRatio</Name>
+    <Translation>Assorti</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>POSizeRatios</Name>
+    <Translation>Assortiler</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>POSizeRatiosList</Name>
+    <Translation>Assorti Listesi</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Print</Name>
     <Translation>Yazdır</Translation>
   </Vocab>
@@ -2199,6 +2235,10 @@
   <Vocab>
     <Name>RemovePOImage</Name>
     <Translation>Sipariş Resmini Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>RemovePOSizeRatio</Name>
+    <Translation>Assortiyi Çıkar</Translation>
   </Vocab>
   <Vocab>
     <Name>RemoveProcess</Name>

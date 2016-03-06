@@ -304,6 +304,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add New POSize Ratio.
+        /// </summary>
+        public static string AddNewPOSizeRatio {
+            get {
+                return ResourceManager.GetString("AddNewPOSizeRatio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add New Process.
         /// </summary>
         public static string AddNewProcess {
@@ -376,15 +385,6 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add New Size Ratio.
-        /// </summary>
-        public static string AddNewSizeRatio {
-            get {
-                return ResourceManager.GetString("AddNewSizeRatio", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Add New Sizing.
         /// </summary>
         public static string AddNewSizing {
@@ -426,6 +426,15 @@ namespace CP.i8n {
         public static string AddPOImage {
             get {
                 return ResourceManager.GetString("AddPOImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add POSize Ratio.
+        /// </summary>
+        public static string AddPOSizeRatio {
+            get {
+                return ResourceManager.GetString("AddPOSizeRatio", resourceCulture);
             }
         }
         
@@ -628,6 +637,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Remove POSize Ratio.
+        /// </summary>
+        public static string AddRemovePOSizeRatio {
+            get {
+                return ResourceManager.GetString("AddRemovePOSizeRatio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add/Remove Process.
         /// </summary>
         public static string AddRemoveProcess {
@@ -700,15 +718,6 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add Remove Size Ratio.
-        /// </summary>
-        public static string AddRemoveSizeRatio {
-            get {
-                return ResourceManager.GetString("AddRemoveSizeRatio", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Add/Remove Sizing.
         /// </summary>
         public static string AddRemoveSizing {
@@ -750,15 +759,6 @@ namespace CP.i8n {
         public static string Address2 {
             get {
                 return ResourceManager.GetString("Address2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Add Size Ratio.
-        /// </summary>
-        public static string AddSizeRatio {
-            get {
-                return ResourceManager.GetString("AddSizeRatio", resourceCulture);
             }
         }
         
@@ -1330,6 +1330,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create POSize Ratio.
+        /// </summary>
+        public static string CreatePOSizeRatio {
+            get {
+                return ResourceManager.GetString("CreatePOSizeRatio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create Process.
         /// </summary>
         public static string CreateProcess {
@@ -1398,15 +1407,6 @@ namespace CP.i8n {
         public static string CreatePurchaseOrder {
             get {
                 return ResourceManager.GetString("CreatePurchaseOrder", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Create Size Ratio.
-        /// </summary>
-        public static string CreateSizeRatio {
-            get {
-                return ResourceManager.GetString("CreateSizeRatio", resourceCulture);
             }
         }
         
@@ -1762,6 +1762,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete POSize Ratio.
+        /// </summary>
+        public static string DeletePOSizeRatio {
+            get {
+                return ResourceManager.GetString("DeletePOSizeRatio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete Process.
         /// </summary>
         public static string DeleteProcess {
@@ -1830,15 +1839,6 @@ namespace CP.i8n {
         public static string DeletePurchaseOrder {
             get {
                 return ResourceManager.GetString("DeletePurchaseOrder", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Delete Size Ratio.
-        /// </summary>
-        public static string DeleteSizeRatio {
-            get {
-                return ResourceManager.GetString("DeleteSizeRatio", resourceCulture);
             }
         }
         
@@ -2140,6 +2140,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit POSize Ratio.
+        /// </summary>
+        public static string EditPOSizeRatio {
+            get {
+                return ResourceManager.GetString("EditPOSizeRatio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit Process.
         /// </summary>
         public static string EditProcess {
@@ -2208,15 +2217,6 @@ namespace CP.i8n {
         public static string EditPurchaseOrder {
             get {
                 return ResourceManager.GetString("EditPurchaseOrder", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Edit Size Ratio.
-        /// </summary>
-        public static string EditSizeRatio {
-            get {
-                return ResourceManager.GetString("EditSizeRatio", resourceCulture);
             }
         }
         
@@ -3022,6 +3022,33 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to POSize Ratio.
+        /// </summary>
+        public static string POSizeRatio {
+            get {
+                return ResourceManager.GetString("POSizeRatio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to POSize Ratios.
+        /// </summary>
+        public static string POSizeRatios {
+            get {
+                return ResourceManager.GetString("POSizeRatios", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to POSize Ratios List.
+        /// </summary>
+        public static string POSizeRatiosList {
+            get {
+                return ResourceManager.GetString("POSizeRatiosList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Print.
         /// </summary>
         public static string Print {
@@ -3463,6 +3490,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Remove POSize Ratio.
+        /// </summary>
+        public static string RemovePOSizeRatio {
+            get {
+                return ResourceManager.GetString("RemovePOSizeRatio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remove Process.
         /// </summary>
         public static string RemoveProcess {
@@ -3531,15 +3567,6 @@ namespace CP.i8n {
         public static string RemovePurchaseOrder {
             get {
                 return ResourceManager.GetString("RemovePurchaseOrder", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Remove Size Ratio.
-        /// </summary>
-        public static string RemoveSizeRatio {
-            get {
-                return ResourceManager.GetString("RemoveSizeRatio", resourceCulture);
             }
         }
         
@@ -3697,15 +3724,6 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Size Ratio.
-        /// </summary>
-        public static string SizeRatio {
-            get {
-                return ResourceManager.GetString("SizeRatio", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Size Ratio Divisor.
         /// </summary>
         public static string SizeRatioDivisor {
@@ -3720,15 +3738,6 @@ namespace CP.i8n {
         public static string SizeRatios {
             get {
                 return ResourceManager.GetString("SizeRatios", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Size Ratios List.
-        /// </summary>
-        public static string SizeRatiosList {
-            get {
-                return ResourceManager.GetString("SizeRatiosList", resourceCulture);
             }
         }
         

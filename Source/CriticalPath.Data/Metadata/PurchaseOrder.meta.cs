@@ -252,7 +252,7 @@ namespace CriticalPath.Data
             public int SizeRatioDivisor { get; set; }
 
             [Display(ResourceType = typeof(EntityStrings), Name = "SizeRatios")]
-            public ICollection<SizeRatio> SizeRatios { get; set; }
+            public ICollection<POSizeRatio> SizeRatios { get; set; }
 
             [DataType(DataType.MultilineText)]
             [Display(ResourceType = typeof(EntityStrings), Name = "Notes")]
