@@ -69,7 +69,7 @@
 
             function columnDefs(){
                 return[
-                     { headerName: '@ActionStrings.Action', field: "Id", width: 60, cellRenderer: actionCellRenderer},
+                     { headerName: '@ActionStrings.Action', field: "Id", width: 60, cellRenderer: actionCellRenderer, headerClass:"hidden-print", cellClass:"hidden-print"},
                      { headerName: '@EntityStrings.PurchaseOrder', field: "PoNr", width: 110, headerClass: "wrapText", cellRenderer: purchaseOrderCellRenderer },
                      { headerName: '@Html.DisplayNameFor(m => m.ProductCode)', field: "ProductCode", width: 90, cellRenderer:productCellRenderer, cellClass: "wrapText" },
                      { headerName: '@Html.DisplayNameFor(m => m.ProductDescription)', field: "ProductDescription", width: 90, cellClass: "wrapText" },
