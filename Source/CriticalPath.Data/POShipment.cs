@@ -16,7 +16,7 @@ namespace CriticalPath.Data
     {
         public int Id { get; set; }
         public string ShippingNr { get; set; }
-        public Nullable<System.DateTime> ShippingDate { get; set; }
+        public System.DateTime ShippingDate { get; set; }
         public string DeliveryNr { get; set; }
         public Nullable<System.DateTime> DeliveryDate { get; set; }
         public string DestinationNr { get; set; }
@@ -129,7 +129,7 @@ namespace CriticalPath.Data
       
         public int Id { get; set; }
         public string ShippingNr { get; set; }
-        public Nullable<System.DateTime> ShippingDate { get; set; }
+        public System.DateTime ShippingDate { get; set; }
         public string DeliveryNr { get; set; }
         public Nullable<System.DateTime> DeliveryDate { get; set; }
         public string DestinationNr { get; set; }

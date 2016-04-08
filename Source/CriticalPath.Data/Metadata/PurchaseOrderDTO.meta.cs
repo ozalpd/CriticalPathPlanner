@@ -38,8 +38,8 @@ namespace CriticalPath.Data
             public string RefCode { get; set; }
 
             [StringLength(32, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "CustomerRefNo")]
-            public string CustomerRefNo { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "CustomerRefNr")]
+            public string CustomerRefNr { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [DataType(DataType.Date)]
@@ -212,6 +212,21 @@ namespace CriticalPath.Data
             [DataType(DataType.MultilineText)]
             [Display(ResourceType = typeof(EntityStrings), Name = "CancellationReason")]
             public string CancellationReason { get; set; }
+
+            [Display(ResourceType = typeof(EntityStrings), Name = "Closed")]
+            public bool Closed { get; set; }
+
+            [StringLength(48, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "ClosedUserIp")]
+            public string ClosedUserIp { get; set; }
+
+            [StringLength(48, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "ClosedUserId")]
+            public string ClosedUserId { get; set; }
+
+            [StringLength(256, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
+            [Display(ResourceType = typeof(EntityStrings), Name = "InitialComments")]
+            public string InitialComments { get; set; }
 
 		}
 	}

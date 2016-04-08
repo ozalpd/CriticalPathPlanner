@@ -71,6 +71,7 @@ namespace CriticalPath.Data
         public int FreightTermId { get; set; }
         public Nullable<int> SupplierId { get; set; }
         public Nullable<System.DateTime> SupplierDueDate { get; set; }
+        public string InitialComments { get; set; }
         public string Notes { get; set; }
         public bool IsApproved { get; set; }
         public Nullable<System.DateTime> ApproveDate { get; set; }
@@ -81,6 +82,9 @@ namespace CriticalPath.Data
         public string CancellationReason { get; set; }
         public string CancelledUserId { get; set; }
         public string CancelledUserIp { get; set; }
+        public bool Closed { get; set; }
+        public string ClosedUserIp { get; set; }
+        public string ClosedUserId { get; set; }
         public int ModifyNr { get; set; }
         public System.DateTime ModifyDate { get; set; }
         public string ModifierId { get; set; }
@@ -88,10 +92,6 @@ namespace CriticalPath.Data
         public System.DateTime CreateDate { get; set; }
         public string CreatorId { get; set; }
         public string CreatorIp { get; set; }
-        public bool Closed { get; set; }
-        public string ClosedUserIp { get; set; }
-        public string ClosedUserId { get; set; }
-        public string InitialComments { get; set; }
     
         public virtual Product Product { get; set; }
         public virtual PurchaseOrder ParentPo { get; set; }
@@ -180,6 +180,7 @@ namespace CriticalPath.Data
             clone.FreightTermId = FreightTermId;
             clone.SupplierId = SupplierId;
             clone.SupplierDueDate = SupplierDueDate;
+            clone.InitialComments = InitialComments;
             clone.Notes = Notes;
             clone.IsApproved = IsApproved;
             clone.ApproveDate = ApproveDate;
@@ -190,6 +191,9 @@ namespace CriticalPath.Data
             clone.CancellationReason = CancellationReason;
             clone.CancelledUserId = CancelledUserId;
             clone.CancelledUserIp = CancelledUserIp;
+            clone.Closed = Closed;
+            clone.ClosedUserIp = ClosedUserIp;
+            clone.ClosedUserId = ClosedUserId;
             clone.ModifyNr = ModifyNr;
             clone.ModifyDate = ModifyDate;
             clone.ModifierId = ModifierId;
@@ -197,10 +201,6 @@ namespace CriticalPath.Data
             clone.CreateDate = CreateDate;
             clone.CreatorId = CreatorId;
             clone.CreatorIp = CreatorIp;
-            clone.Closed = Closed;
-            clone.ClosedUserIp = ClosedUserIp;
-            clone.ClosedUserId = ClosedUserId;
-            clone.InitialComments = InitialComments;
     
             Cloning(clone);
     
@@ -265,6 +265,7 @@ namespace CriticalPath.Data
             FreightTermId = entity.FreightTermId;
             SupplierId = entity.SupplierId;
             SupplierDueDate = entity.SupplierDueDate;
+            InitialComments = entity.InitialComments;
             Notes = entity.Notes;
             IsApproved = entity.IsApproved;
             ApproveDate = entity.ApproveDate;
@@ -274,7 +275,6 @@ namespace CriticalPath.Data
             Closed = entity.Closed;
             ClosedUserIp = entity.ClosedUserIp;
             ClosedUserId = entity.ClosedUserId;
-            InitialComments = entity.InitialComments;
         
             Initiliazing(entity);
         }
@@ -330,6 +330,7 @@ namespace CriticalPath.Data
             entity.FreightTermId = FreightTermId;
             entity.SupplierId = SupplierId;
             entity.SupplierDueDate = SupplierDueDate;
+            entity.InitialComments = InitialComments;
             entity.Notes = Notes;
             entity.IsApproved = IsApproved;
             entity.ApproveDate = ApproveDate;
@@ -339,7 +340,6 @@ namespace CriticalPath.Data
             entity.Closed = Closed;
             entity.ClosedUserIp = ClosedUserIp;
             entity.ClosedUserId = ClosedUserId;
-            entity.InitialComments = InitialComments;
     
             Converting(entity);
     
@@ -394,6 +394,7 @@ namespace CriticalPath.Data
         public int FreightTermId { get; set; }
         public Nullable<int> SupplierId { get; set; }
         public Nullable<System.DateTime> SupplierDueDate { get; set; }
+        public string InitialComments { get; set; }
         public string Notes { get; set; }
         public bool IsApproved { get; set; }
         public Nullable<System.DateTime> ApproveDate { get; set; }
@@ -403,6 +404,5 @@ namespace CriticalPath.Data
         public bool Closed { get; set; }
         public string ClosedUserIp { get; set; }
         public string ClosedUserId { get; set; }
-        public string InitialComments { get; set; }
     }
 }

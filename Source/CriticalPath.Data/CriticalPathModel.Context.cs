@@ -1135,6 +1135,7 @@ namespace CriticalPath.Data
                        FreightTermId = e.FreightTermId,
                        SupplierId = e.SupplierId,
                        SupplierDueDate = e.SupplierDueDate,
+                       InitialComments = e.InitialComments,
                        Notes = e.Notes,
                        IsApproved = e.IsApproved,
                        ApproveDate = e.ApproveDate,
@@ -1144,7 +1145,6 @@ namespace CriticalPath.Data
                        Closed = e.Closed,
                        ClosedUserIp = e.ClosedUserIp,
                        ClosedUserId = e.ClosedUserId,
-                       InitialComments = e.InitialComments,
                    };
         }
     

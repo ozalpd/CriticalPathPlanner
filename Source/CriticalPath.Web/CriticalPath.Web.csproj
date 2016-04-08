@@ -223,6 +223,8 @@
     <Compile Include="Controllers\ManufacturersController.part.cs" />
     <Compile Include="Controllers\POImagesController.g.cs" />
     <Compile Include="Controllers\POImagesController.part.cs" />
+    <Compile Include="Controllers\POShipmentsController.g.cs" />
+    <Compile Include="Controllers\POShipmentsController.part.cs" />
     <Compile Include="Controllers\ProcessesController.g.cs" />
     <Compile Include="Controllers\ProcessesController.part.cs" />
     <Compile Include="Controllers\ProcessStepsController.g.cs" />
@@ -625,6 +627,11 @@
     <Content Include="Views\Shared\DisplayTemplates\POImage.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\POImageDTO.cshtml" />
     <Content Include="Views\Shared\_PageSizeSelect.cshtml" />
+    <Content Include="Views\POShipments\Create.cshtml" />
+    <Content Include="Views\POShipments\Details.cshtml" />
+    <Content Include="Views\POShipments\Edit.cshtml" />
+    <Content Include="Views\POShipments\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\POShipment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Files\" />

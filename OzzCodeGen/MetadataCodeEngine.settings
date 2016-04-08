@@ -1839,7 +1839,7 @@
           <Exclude>false</Exclude>
           <DTOExclusion>false</DTOExclusion>
           <DataType>Date</DataType>
-          <Required />
+          <Required>ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required"</Required>
         </MetadataPropertySetting>
         <MetadataPropertySetting>
           <Name>DeliveryNr</Name>

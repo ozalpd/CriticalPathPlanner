@@ -220,7 +220,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ShippingNr" Type="nvarchar" MaxLength="32" Nullable="false" />
-          <Property Name="ShippingDate" Type="datetime" />
+          <Property Name="ShippingDate" Type="datetime" Nullable="false" />
           <Property Name="DeliveryNr" Type="nvarchar" MaxLength="32" />
           <Property Name="DeliveryDate" Type="datetime" />
           <Property Name="DestinationNr" Type="nvarchar" MaxLength="32" />
@@ -2772,6 +2772,7 @@
           <Property Name="FreightTermId" Type="Int32" Nullable="false" />
           <Property Name="SupplierId" Type="Int32" />
           <Property Name="SupplierDueDate" Type="DateTime" Precision="3" />
+          <Property Name="InitialComments" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="IsApproved" Type="Boolean" Nullable="false" />
           <Property Name="ApproveDate" Type="DateTime" Precision="3" />
@@ -2782,6 +2783,9 @@
           <Property Name="CancellationReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="CancelledUserId" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
           <Property Name="CancelledUserIp" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="Closed" Type="Boolean" Nullable="false" />
+          <Property Name="ClosedUserIp" Type="String" MaxLength="48" FixedLength="false" Unicode="true" />
+          <Property Name="ClosedUserId" Type="String" MaxLength="48" FixedLength="false" Unicode="true" />
           <Property Name="ModifyNr" Type="Int32" Nullable="false" />
           <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
@@ -2816,10 +2820,6 @@
           <NavigationProperty Name="ModifiedUser" Relationship="CriticalPathDataModel.FK_PurchaseOrder_ModifierId" FromRole="PurchaseOrder" ToRole="AspNetUser" />
           <NavigationProperty Name="Attachments" Relationship="CriticalPathDataModel.FK_POAttachment_PurchaseOrderId" FromRole="PurchaseOrder" ToRole="POAttachment" />
           <NavigationProperty Name="Images" Relationship="CriticalPathDataModel.FK_POImage_PurchaseOrderId" FromRole="PurchaseOrder" ToRole="POImage" />
-          <Property Name="Closed" Type="Boolean" Nullable="false" />
-          <Property Name="ClosedUserIp" Type="String" MaxLength="48" FixedLength="false" Unicode="true" />
-          <Property Name="ClosedUserId" Type="String" MaxLength="48" FixedLength="false" Unicode="true" />
-          <Property Name="InitialComments" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Shipments" Relationship="CriticalPathDataModel.FK_POShipment_PurchaseOrderId" FromRole="PurchaseOrder" ToRole="POShipment" />
         </EntityType>
         <Association Name="FK_PurchaseOrder_CustomerId">
@@ -4213,7 +4213,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ShippingNr" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
-          <Property Name="ShippingDate" Type="DateTime" Precision="3" />
+          <Property Name="ShippingDate" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="DeliveryNr" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
           <Property Name="DeliveryDate" Type="DateTime" Precision="3" />
           <Property Name="DestinationNr" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />

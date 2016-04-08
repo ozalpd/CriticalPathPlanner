@@ -2263,7 +2263,7 @@
           <PrimaryKey>false</PrimaryKey>
           <Indexed>true</Indexed>
           <SortDesc>false</SortDesc>
-          <Nullable>true</Nullable>
+          <Nullable>false</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
           <Name>DeliveryNr</Name>

@@ -131,6 +131,7 @@
             </th>
             <th>@Html.DisplayNameFor(model => model.Licensor)</th>
             <th>@Html.DisplayNameFor(model => model.Quantity)</th>
+            <th>@Html.DisplayNameFor(model => model.Shipments)</th>
             @if (canSeeRestricted)
             {
                 <th>@Html.DisplayNameFor(model => model.DiscountRate)</th>
@@ -163,7 +164,9 @@
                             {
                                 <li class="divider"></li>
                                 <li>@Html.ActionLink(EntityStrings.AddPOImage, "Create", "POImages", new { purchaseOrderId = item.Id }, null)</li>
+                                <li>@Html.ActionLink(EntityStrings.AddPOShipment, "Create", "POShipments", new { purchaseOrderId = item.Id }, null)</li>
                             }
+                            <li>@Html.ActionLink(EntityStrings.POShipmentsList, "Index", "POShipments", new { purchaseOrderId = item.Id }, null)</li>
                             @if (canUserCreate)
                             {
                                 <li class="divider"></li>
@@ -251,6 +254,12 @@
                         grandTotal += item.Quantity;
                     }
                 </td>
+                <td>
+                    @foreach (var shipment in item.Shipments.OrderBy(s => s.ShippingDate))
+                    {
+                        @Html.DisplayFor(modelShipment => shipment)
+                    }
+                </td>
                 @if (canSeeRestricted)
                 {
                     <td align="right">@Html.DisplayFor(modelItem => item.DiscountRate)</td>
@@ -281,11 +290,11 @@
             }
         </tr>
     </table>
-}
-else
-{
-    <h4>@MessageStrings.NoResults!</h4>
-}
+                        }
+                        else
+                        {
+                            <h4>@MessageStrings.NoResults!</h4>
+                        }
 @Html.Partial("_PagerPartial")
 @Html.Partial("_MessageBoxPartial")
 @section scripts{

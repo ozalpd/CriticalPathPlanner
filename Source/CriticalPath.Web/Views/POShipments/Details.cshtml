@@ -1,0 +1,137 @@
+@using CriticalPath.Web.Models
+@using CriticalPath.Data
+@using CP.i8n
+@model POShipment
+@{
+    ViewBag.Title = EntityStrings.POShipment;
+
+    //Authorization Flags
+    bool canUserEdit = ViewBag.canUserEdit;
+    bool canUserCreate = ViewBag.canUserCreate;
+    bool canUserDelete = ViewBag.canUserDelete;
+    bool canSeeRestricted = ViewBag.canSeeRestricted;
+}
+
+<h2>@EntityStrings.POShipment @ActionStrings.Details</h2>
+
+<div class="form-horizontal">
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.ShippingNr)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+            @Html.DisplayFor(m => m.ShippingNr)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.ShippingDate)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+            @Html.DisplayFor(m => m.ShippingDate)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.DeliveryNr)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+            @Html.DisplayFor(m => m.DeliveryNr)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.DeliveryDate)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+            @Html.DisplayFor(m => m.DeliveryDate)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.DestinationNr)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+            @Html.DisplayFor(m => m.DestinationNr)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.RefCode)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+            @Html.DisplayFor(m => m.RefCode)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.CustomerRefNr)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+            @Html.DisplayFor(m => m.CustomerRefNr)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.Quantity)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+            @Html.DisplayFor(m => m.Quantity)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.IsShipped)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+            @Html.DisplayFor(m => m.IsShipped)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.IsDelivered)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+            @Html.DisplayFor(m => m.IsDelivered)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.PurchaseOrder)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+            @Html.DisplayFor(m => m.PurchaseOrder)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.FreightTerm)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+            @Html.DisplayFor(m => m.FreightTerm)
+        </div>
+    </div>
+    @if (canSeeRestricted)
+    {
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.ModifiedUser)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+            @Html.DisplayFor(m => m.ModifiedUser)
+        </div>
+    </div>
+    }
+    @if (canSeeRestricted)
+    {
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.CreatedUser)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt10">
+            @Html.DisplayFor(m => m.CreatedUser)
+        </div>
+    </div>
+    }
+@Html.Partial("_DetailFormButtonsPartial")
+</div>

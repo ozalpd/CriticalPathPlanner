@@ -137,6 +137,14 @@ namespace CriticalPath.Data
                     .ThenBy(ft => ft.IncotermCode);
         }
 
+        public override IQueryable<POShipment> GetPOShipmentQuery()
+        {
+            return base.GetPOShipmentQuery()
+                .OrderBy(s => s.ShippingDate)
+                .ThenBy(s => s.PurchaseOrderId)
+                .ThenBy(s => s.Id);
+        }
+
         public override IQueryable<ProductCategory> GetProductCategoryQuery()
         {
             return base.GetProductCategoryQuery()

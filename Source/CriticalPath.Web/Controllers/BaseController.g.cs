@@ -30,7 +30,7 @@ namespace CriticalPath.Web.Controllers
             protected virtual void Constructing()
             {
                 Page = 1;
-                PageSize = 10;
+                PageSize = 20;
             }
 
             public QueryParameters(QueryParameters parameters)
@@ -558,11 +558,11 @@ namespace CriticalPath.Web.Controllers
         }
 
         /// <summary>
-        /// Finds an SizeRatio by PrimaryKey value
+        /// Finds an POSizeRatio by PrimaryKey value
         /// </summary>
-        /// <param name="id">Represents PrimaryKey of SizeRatio.Id</param>
+        /// <param name="id">Represents PrimaryKey of POSizeRatio.Id</param>
         /// <returns></returns>
-        protected virtual async Task<POSizeRatio> FindAsyncSizeRatio(int id)
+        protected virtual async Task<POSizeRatio> FindAsyncPOSizeRatio(int id)
         {
             return await GetPOSizeRatioQuery()
                             .FirstOrDefaultAsync(x => x.Id == id);
@@ -573,7 +573,28 @@ namespace CriticalPath.Web.Controllers
             return DataContext.GetPOSizeRatioQuery();
         }
 
-        protected virtual Task SetSizeRatioDefaults(POSizeRatio sizeRatio)
+        protected virtual Task SetPOSizeRatioDefaults(POSizeRatio pOSizeRatio)
+        {
+            return Task.FromResult(default(object));
+        }
+
+        /// <summary>
+        /// Finds an POShipment by PrimaryKey value
+        /// </summary>
+        /// <param name="id">Represents PrimaryKey of POShipment.Id</param>
+        /// <returns></returns>
+        protected virtual async Task<POShipment> FindAsyncPOShipment(int id)
+        {
+            return await GetPOShipmentQuery()
+                            .FirstOrDefaultAsync(x => x.Id == id);
+        }
+
+        protected virtual IQueryable<POShipment> GetPOShipmentQuery()
+        {
+            return DataContext.GetPOShipmentQuery();
+        }
+
+        protected virtual Task SetPOShipmentDefaults(POShipmentDTO pOShipment)
         {
             return Task.FromResult(default(object));
         }

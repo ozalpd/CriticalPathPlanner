@@ -122,6 +122,7 @@ namespace CriticalPath.Web.Controllers
             public bool? IsApproved { get; set; }
             public bool? IsRepeat { get; set; }
             public bool? Cancelled { get; set; }
+            public bool? Closed { get; set; }
             public DateTime? ApproveDateMin { get; set; }
             public DateTime? ApproveDateMax { get; set; }
             public DateTime? OrderDateMin { get; set; }

@@ -5,7 +5,7 @@ GO
 CREATE TABLE [dbo].[POShipments](
     [Id] [int] Identity(1,1) Not Null,
     [ShippingNr] [nVarChar](32) Not Null,
-    [ShippingDate] [DateTime] Null,
+    [ShippingDate] [DateTime] Not Null,
     [DeliveryNr] [nVarChar](32) Null,
     [DeliveryDate] [DateTime] Null,
     [DestinationNr] [nVarChar](32) Null,

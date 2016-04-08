@@ -80,7 +80,7 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
 
             for (int i = 0; i < products.Length; i++)
             {
-                orderDate =  orderDate.AddDays(1);
+                orderDate = orderDate.AddDays(1);
                 int year = orderDate.Year;
                 int month = orderDate.Month;
 
@@ -415,7 +415,7 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
         private Supplier[] MockSuppliers()
         {
             Supplier[] suppliers = {
-                
+
                 new Supplier()
                 {
                     CompanyName = "Exozent",
@@ -1048,6 +1048,31 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
         }
         int suppliersAdded = 0;
 
+        private string[] images = {
+            "0091745a-8e70-4824-9a53-db31f9861f01.jpg",
+            "0f36b549-9f37-413c-97d3-470a425a521e.jpg",
+            "1c50a6b4-d96f-4b83-a062-d6aeaedc106c.jpg",
+            "21282f68-c89d-4a39-80cf-d29961358955.jpg",
+            "21dd510e-79fc-4f99-bd7d-d0451df1cc69.jpg",
+            "43483770-6a69-4601-959f-986ea96d6604.jpg",
+            "77e51de7-c1df-49c2-a598-d0dace40b071.jpg",
+            "7ce74cc5-bb93-461f-9d96-7d4a69c845d7.jpg",
+            "7d361070-d683-4b84-98fc-6d7f2058a6da.jpg",
+            "8e8c4412-0e7e-4f77-82fe-18bdb1074240.jpg",
+            "9049adf0-6fba-462c-895f-4968ae182e75.jpg",
+            "b2ca1003-a122-4813-87ce-6685ea80b412.jpg",
+            "b527ccce-a9ab-4427-b90f-67ad59443ad3.jpg",
+            "bbcf1675-ea6b-408c-973c-9f3c6601de60.jpg",
+            "bc72e3df-a98e-44ba-976c-68286598d9a7.jpg",
+            "c790568d-eab1-4680-929c-1120d986b588.jpg",
+            "cf47356a-d94c-41f7-aedf-cd784207cc1a.jpg",
+            "d291157d-e170-4b5c-bc3f-7311460e595e.jpg",
+            "df77f58a-f8c3-4d1f-b354-ef4cdaf71132.jpg",
+            "e7ee2313-1981-4ff4-924c-890582b34d3f.jpg",
+            "f3f28922-782b-428b-b788-d847cbc1b1cb.jpg"
+        };
+
+
         private int AddCategory(ProductCategory parentCatg, string[] subCategories, Supplier[] suppliers,
            Currency[] currencies, StringBuilder sb, int countCatg)
         {
@@ -1080,7 +1105,8 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                         SellingCurrency = currencies[countProduct % currencies.Length],
                         RetailCurrency = currencies[(countProduct + 1) % currencies.Length],
                         BuyingCurrency = buyingCurrency,
-                        UnitPrice = 0.55m * GetRandomPrice(2, 4)
+                        UnitPrice = 0.55m * GetRandomPrice(2, 4),
+                        ImageUrl = images[(countCatg + i) % images.Length]
                     };
 
                     prod.BuyingPrice = ((decimal)Math.Ceiling(prod.UnitPrice)) * 0.75m;

@@ -3445,7 +3445,7 @@
         <AspNetMvcPropertySetting>
           <Name>Closed</Name>
           <Exclude>false</Exclude>
-          <UseInSearch>false</UseInSearch>
+          <UseInSearch>true</UseInSearch>
           <InIndexView>true</InIndexView>
           <InDetailsView>true</InDetailsView>
           <InCreateView>true</InCreateView>
@@ -3848,13 +3848,13 @@
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
       </Properties>
-      <ControllerName>SizeRatios</ControllerName>
-      <DataSetName>SizeRatios</DataSetName>
+      <ControllerName>POSizeRatios</ControllerName>
+      <DataSetName>POSizeRatios</DataSetName>
       <SaveParameter>this</SaveParameter>
-      <ModelForIndex>SizeRatio</ModelForIndex>
-      <ModelForJson>SizeRatioDTO</ModelForJson>
-      <ModelForCreate>SizeRatio</ModelForCreate>
-      <ModelForEdit>SizeRatio</ModelForEdit>
+      <ModelForIndex>POSizeRatio</ModelForIndex>
+      <ModelForJson>POSizeRatioDTO</ModelForJson>
+      <ModelForCreate>POSizeRatio</ModelForCreate>
+      <ModelForEdit>POSizeRatio</ModelForEdit>
       <RolesCanView>users</RolesCanView>
       <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
@@ -3883,7 +3883,7 @@
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>POShipment</Name>
       <Exclude>false</Exclude>
-      <OverwriteExisting>false</OverwriteExisting>
+      <OverwriteExisting>true</OverwriteExisting>
       <Properties>
         <AspNetMvcPropertySetting>
           <Name>ShippingNr</Name>
@@ -4014,8 +4014,8 @@
           <InCreateView>true</InCreateView>
           <InEditView>true</InEditView>
           <HasValidation>true</HasValidation>
-          <UseForCreate>DropDownList</UseForCreate>
-          <UseForEdit>DropDownList</UseForEdit>
+          <UseForCreate>HiddenInput</UseForCreate>
+          <UseForEdit>HiddenInput</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
           <Name>PurchaseOrder</Name>
@@ -4056,11 +4056,12 @@
       </Properties>
       <ControllerName>POShipments</ControllerName>
       <DataSetName>POShipments</DataSetName>
+      <StrongDependedForeignKey>PurchaseOrderId</StrongDependedForeignKey>
       <SaveParameter>this</SaveParameter>
       <ModelForIndex>POShipment</ModelForIndex>
       <ModelForJson>POShipmentDTO</ModelForJson>
-      <ModelForCreate>POShipment</ModelForCreate>
-      <ModelForEdit>POShipment</ModelForEdit>
+      <ModelForCreate>POShipmentDTO</ModelForCreate>
+      <ModelForEdit>POShipmentDTO</ModelForEdit>
       <RolesCanView>users</RolesCanView>
       <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
       <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
@@ -4072,11 +4073,11 @@
       <GenerateIndexAction>true</GenerateIndexAction>
       <GenerateGetEntityAction>true</GenerateGetEntityAction>
       <GenerateGetEntityListAction>true</GenerateGetEntityListAction>
-      <GenerateCreateAction>true</GenerateCreateAction>
+      <GenerateCreateAction>false</GenerateCreateAction>
       <GenerateDeleteAction>true</GenerateDeleteAction>
-      <GenerateEditAction>true</GenerateEditAction>
+      <GenerateEditAction>false</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
-      <IndexViewGeneration>HtmlTableWithButtonsAction</IndexViewGeneration>
+      <IndexViewGeneration>HtmlTableWithMenuAction</IndexViewGeneration>
       <IndexView>true</IndexView>
       <DetailsView>true</DetailsView>
       <CreateView>true</CreateView>
@@ -4084,7 +4085,7 @@
       <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
-      <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
+      <FillSelectListsMethod>await SetFreightTermSelectListAsync(vm.FreightTermId)</FillSelectListsMethod>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
       <Name>Process</Name>

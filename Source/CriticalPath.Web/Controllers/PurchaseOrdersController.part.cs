@@ -108,6 +108,10 @@ namespace CriticalPath.Web.Controllers
             {
                 query = query.Where(x => x.IsRepeat == qParams.IsRepeat.Value);
             }
+            if (qParams.Closed != null)
+            {
+                query = query.Where(x => x.Closed == qParams.Closed.Value);
+            }
             if (qParams.Cancelled != null)
             {
                 query = query.Where(x => x.Cancelled == qParams.Cancelled.Value);
@@ -176,7 +180,7 @@ namespace CriticalPath.Web.Controllers
             ViewBag.FilterPanelExpanded = (qParams.CustomerId.HasValue || qParams.CustomerDepartmentId.HasValue ||
                                         qParams.DueDateMin.HasValue || qParams.DueDateMax.HasValue || qParams.HideRestricted ||
                                         qParams.MerchandiserId.HasValue || qParams.DesignerId.HasValue || 
-                                        qParams.SupplierId.HasValue || qParams.PageSize != 10);
+                                        qParams.SupplierId.HasValue || qParams.PageSize != 20);
 
             ViewBag.HideRestricted = qParams.HideRestricted;
             PutPagerInViewBag(result);

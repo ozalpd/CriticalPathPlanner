@@ -69,6 +69,8 @@
     <Compile Include="Metadata\POAttachmentDTO.meta.cs" />
     <Compile Include="Metadata\POImage.meta.cs" />
     <Compile Include="Metadata\POImageDTO.meta.cs" />
+    <Compile Include="Metadata\POShipment.meta.cs" />
+    <Compile Include="Metadata\POShipmentDTO.meta.cs" />
     <Compile Include="Parts\ContactDTO.part.cs" />
     <Compile Include="Country.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
