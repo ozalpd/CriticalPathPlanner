@@ -14,19 +14,10 @@ namespace CriticalPath.Data
     
     public partial class FreightTerm
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public FreightTerm()
-        {
-            this.PurchaseOrders = new HashSet<PurchaseOrder>();
-        }
-    
         public int Id { get; set; }
         public string IncotermCode { get; set; }
         public string Description { get; set; }
         public bool IsPublished { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PurchaseOrder> PurchaseOrders { get; set; }
     	/// <summary>
     	/// Clones all properties in a new FreightTerm instance,
     	/// except PrimaryKey(s)

@@ -145,6 +145,10 @@
     <Translation>Add New P.O. Image</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddNewPOShipment</Name>
+    <Translation>Add New POShipment</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddNewPOSizeRatio</Name>
     <Translation>Add New POSize Ratio</Translation>
   </Vocab>
@@ -227,6 +231,10 @@
   <Vocab>
     <Name>AddPOImage</Name>
     <Translation>Add P.O. Image</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddPOShipment</Name>
+    <Translation>Add POShipment</Translation>
   </Vocab>
   <Vocab>
     <Name>AddPOSizeRatio</Name>
@@ -327,6 +335,10 @@
   <Vocab>
     <Name>AddRemovePOImage</Name>
     <Translation>Add Remove P.O. Image</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemovePOShipment</Name>
+    <Translation>Add Remove POShipment</Translation>
   </Vocab>
   <Vocab>
     <Name>AddRemovePOSizeRatio</Name>
@@ -546,27 +558,27 @@
   </Vocab>
   <Vocab>
     <Name>BuyingCurrency</Name>
-    <Translation>Buying Currency</Translation>
+    <Translation>Factory Price Currency</Translation>
   </Vocab>
   <Vocab>
     <Name>BuyingCurrency2</Name>
-    <Translation>Buying Currency 2nd</Translation>
+    <Translation>Factory Price Currency 2nd</Translation>
   </Vocab>
   <Vocab>
     <Name>BuyingCurrency2Id</Name>
-    <Translation>Buying Currency 2nd</Translation>
+    <Translation>Factory Price Currency 2nd</Translation>
   </Vocab>
   <Vocab>
     <Name>BuyingCurrencyId</Name>
-    <Translation>Buying Currency</Translation>
+    <Translation>Factory Price Currency</Translation>
   </Vocab>
   <Vocab>
     <Name>BuyingPrice</Name>
-    <Translation>Buying Price</Translation>
+    <Translation>Factory Price</Translation>
   </Vocab>
   <Vocab>
     <Name>BuyingPrice2</Name>
-    <Translation>Buying Price 2nd</Translation>
+    <Translation>Factory Price 2nd</Translation>
   </Vocab>
   <Vocab>
     <Name>Cancel</Name>
@@ -679,6 +691,18 @@
   <Vocab>
     <Name>Clone</Name>
     <Translation>Clone</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Closed</Name>
+    <Translation>Closed</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ClosedUserId</Name>
+    <Translation>Closed User Id</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ClosedUserIp</Name>
+    <Translation>Closed User Ip</Translation>
   </Vocab>
   <Vocab>
     <Name>Code</Name>
@@ -841,6 +865,10 @@
     <Translation>Create P.O. Image</Translation>
   </Vocab>
   <Vocab>
+    <Name>CreatePOShipment</Name>
+    <Translation>Create POShipment</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CreatePOSizeRatio</Name>
     <Translation>Create POSize Ratio</Translation>
   </Vocab>
@@ -989,6 +1017,10 @@
     <Translation>Customer's P.O. Nr.</Translation>
   </Vocab>
   <Vocab>
+    <Name>CustomerRefNr</Name>
+    <Translation>Kimball Nr</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Customers</Name>
     <Translation>Customers</Translation>
   </Vocab>
@@ -1077,6 +1109,10 @@
     <Translation>Delete P.O. Image</Translation>
   </Vocab>
   <Vocab>
+    <Name>DeletePOShipment</Name>
+    <Translation>Delete POShipment</Translation>
+  </Vocab>
+  <Vocab>
     <Name>DeletePOSizeRatio</Name>
     <Translation>Delete POSize Ratio</Translation>
   </Vocab>
@@ -1153,6 +1189,14 @@
     <Translation>Deleting</Translation>
   </Vocab>
   <Vocab>
+    <Name>DeliveryDate</Name>
+    <Translation>Delivery Date</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeliveryNr</Name>
+    <Translation>Delivery Nr</Translation>
+  </Vocab>
+  <Vocab>
     <Name>DepartmentName</Name>
     <Translation>Department Name</Translation>
   </Vocab>
@@ -1183,6 +1227,10 @@
   <Vocab>
     <Name>DesignerId</Name>
     <Translation>Designer</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DestinationNr</Name>
+    <Translation>Destination Nr</Translation>
   </Vocab>
   <Vocab>
     <Name>Details</Name>
@@ -1323,6 +1371,10 @@
   <Vocab>
     <Name>EditPOImage</Name>
     <Translation>Edit P.O. Image</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditPOShipment</Name>
+    <Translation>Edit POShipment</Translation>
   </Vocab>
   <Vocab>
     <Name>EditPOSizeRatio</Name>
@@ -1597,6 +1649,10 @@
     <Translation>Index</Translation>
   </Vocab>
   <Vocab>
+    <Name>InitialComments</Name>
+    <Translation>Initial Comments</Translation>
+  </Vocab>
+  <Vocab>
     <Name>IsActive</Name>
     <Translation>Active</Translation>
   </Vocab>
@@ -1609,6 +1665,10 @@
     <Translation>Completed</Translation>
   </Vocab>
   <Vocab>
+    <Name>IsDelivered</Name>
+    <Translation>Is Delivered</Translation>
+  </Vocab>
+  <Vocab>
     <Name>IsPublished</Name>
     <Translation>Is Published</Translation>
   </Vocab>
@@ -1617,8 +1677,8 @@
     <Translation>Is Repeat</Translation>
   </Vocab>
   <Vocab>
-    <Name>KimballNr</Name>
-    <Translation>Kimball Nr</Translation>
+    <Name>IsShipped</Name>
+    <Translation>Is Shipped</Translation>
   </Vocab>
   <Vocab>
     <Name>Labelling</Name>
@@ -1662,7 +1722,7 @@
   </Vocab>
   <Vocab>
     <Name>LicensorPrice</Name>
-    <Translation>Licensor Price</Translation>
+    <Translation>Licensor Price (Net)</Translation>
   </Vocab>
   <Vocab>
     <Name>Licensors</Name>
@@ -1965,6 +2025,18 @@
     <Translation>P.O. Nr.</Translation>
   </Vocab>
   <Vocab>
+    <Name>POShipment</Name>
+    <Translation>POShipment</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>POShipments</Name>
+    <Translation>POShipments</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>POShipmentsList</Name>
+    <Translation>POShipments List</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Position</Name>
     <Translation>Position</Translation>
   </Vocab>
@@ -2237,6 +2309,10 @@
     <Translation>Remove P.O. Image</Translation>
   </Vocab>
   <Vocab>
+    <Name>RemovePOShipment</Name>
+    <Translation>Remove POShipment</Translation>
+  </Vocab>
+  <Vocab>
     <Name>RemovePOSizeRatio</Name>
     <Translation>Remove POSize Ratio</Translation>
   </Vocab>
@@ -2395,6 +2471,18 @@
   <Vocab>
     <Name>ShipmentHangingFolded</Name>
     <Translation>Hanging / Folded</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Shipments</Name>
+    <Translation>Shipments</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ShippingDate</Name>
+    <Translation>Shipping Date</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ShippingNr</Name>
+    <Translation>Shipping Nr</Translation>
   </Vocab>
   <Vocab>
     <Name>Show</Name>
@@ -2650,11 +2738,11 @@
   </Vocab>
   <Vocab>
     <Name>UnitPrice</Name>
-    <Translation>Unit Price</Translation>
+    <Translation>Unit (Gross) Price</Translation>
   </Vocab>
   <Vocab>
     <Name>UnitPrice2</Name>
-    <Translation>Unit Price 2nd</Translation>
+    <Translation>Unit (Gross) Price 2nd</Translation>
   </Vocab>
   <Vocab>
     <Name>Unmarked</Name>
@@ -2689,8 +2777,8 @@
     <Translation>Width</Translation>
   </Vocab>
   <Vocab>
-    <Name>WoovenLabel</Name>
-    <Translation>Wooven Label</Translation>
+    <Name>WovenLabel</Name>
+    <Translation>Woven Label</Translation>
   </Vocab>
   <Vocab>
     <Name>Yes</Name>

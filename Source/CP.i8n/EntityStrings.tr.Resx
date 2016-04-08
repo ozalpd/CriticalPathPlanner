@@ -167,6 +167,10 @@
 		<value>Yeni Sipariş Resmi Ekle</value>
 	</data>
 
+	<data name="AddNewPOShipment" xml:space="preserve">
+		<value>Yeni Nakliye Ekle</value>
+	</data>
+
 	<data name="AddNewPOSizeRatio" xml:space="preserve">
 		<value>Yeni Assorti Ekle</value>
 	</data>
@@ -221,6 +225,10 @@
 
 	<data name="AddPOImage" xml:space="preserve">
 		<value>Sipariş Resmi Ekle</value>
+	</data>
+
+	<data name="AddPOShipment" xml:space="preserve">
+		<value>Nakliye Ekle</value>
 	</data>
 
 	<data name="AddPOSizeRatio" xml:space="preserve">
@@ -313,6 +321,10 @@
 
 	<data name="AddRemovePOImage" xml:space="preserve">
 		<value>Sipariş Resmi Ekle/Çıkar</value>
+	</data>
+
+	<data name="AddRemovePOShipment" xml:space="preserve">
+		<value>Nakliye Ekle/Çıkar</value>
 	</data>
 
 	<data name="AddRemovePOSizeRatio" xml:space="preserve">
@@ -503,6 +515,18 @@
 		<value>Şehir</value>
 	</data>
 
+	<data name="Closed" xml:space="preserve">
+		<value>Kapanmış</value>
+	</data>
+
+	<data name="ClosedUserId" xml:space="preserve">
+		<value>Kapatan Kullanıcı ID</value>
+	</data>
+
+	<data name="ClosedUserIp" xml:space="preserve">
+		<value>Kapatan Kullanıcı IP</value>
+	</data>
+
 	<data name="Colour" xml:space="preserve">
 		<value>Renk</value>
 	</data>
@@ -621,6 +645,10 @@
 
 	<data name="CreatePOImage" xml:space="preserve">
 		<value>Sipariş Resmi Oluştur</value>
+	</data>
+
+	<data name="CreatePOShipment" xml:space="preserve">
+		<value>Nakliye Oluştur</value>
 	</data>
 
 	<data name="CreatePOSizeRatio" xml:space="preserve">
@@ -743,6 +771,10 @@
 		<value>Müşterinin Sipariş Kodu</value>
 	</data>
 
+	<data name="CustomerRefNr" xml:space="preserve">
+		<value>Kimball No</value>
+	</data>
+
 	<data name="Customers" xml:space="preserve">
 		<value>Müşteriler</value>
 	</data>
@@ -815,6 +847,10 @@
 		<value>Sipariş Resmini Sil</value>
 	</data>
 
+	<data name="DeletePOShipment" xml:space="preserve">
+		<value>Nakliyeyi Sil</value>
+	</data>
+
 	<data name="DeletePOSizeRatio" xml:space="preserve">
 		<value>Assortiyi Sil</value>
 	</data>
@@ -863,6 +899,14 @@
 		<value>Tedarikçiyi Sil</value>
 	</data>
 
+	<data name="DeliveryDate" xml:space="preserve">
+		<value>Teslim Tarihi</value>
+	</data>
+
+	<data name="DeliveryNr" xml:space="preserve">
+		<value>Teslimat No</value>
+	</data>
+
 	<data name="DepartmentName" xml:space="preserve">
 		<value>Departman İsmi</value>
 	</data>
@@ -889,6 +933,10 @@
 
 	<data name="DesignerId" xml:space="preserve">
 		<value>Tasarımcı</value>
+	</data>
+
+	<data name="DestinationNr" xml:space="preserve">
+		<value>Destination Nr</value>
 	</data>
 
 	<data name="Discontinued" xml:space="preserve">
@@ -981,6 +1029,10 @@
 
 	<data name="EditPOImage" xml:space="preserve">
 		<value>Sipariş Resmini Düzenle</value>
+	</data>
+
+	<data name="EditPOShipment" xml:space="preserve">
+		<value>Nakliyeyi Düzenle</value>
 	</data>
 
 	<data name="EditPOSizeRatio" xml:space="preserve">
@@ -1143,6 +1195,10 @@
 		<value>Incoterms Kodu</value>
 	</data>
 
+	<data name="InitialComments" xml:space="preserve">
+		<value>Başlangıç Yorumları</value>
+	</data>
+
 	<data name="IsActive" xml:space="preserve">
 		<value>Aktif</value>
 	</data>
@@ -1155,6 +1211,10 @@
 		<value>Bitti</value>
 	</data>
 
+	<data name="IsDelivered" xml:space="preserve">
+		<value>Teslim Edildi</value>
+	</data>
+
 	<data name="IsPublished" xml:space="preserve">
 		<value>Yayında</value>
 	</data>
@@ -1163,8 +1223,8 @@
 		<value>Tekrar</value>
 	</data>
 
-	<data name="KimballNr" xml:space="preserve">
-		<value>Kimball No</value>
+	<data name="IsShipped" xml:space="preserve">
+		<value>Yola Çıktı</value>
 	</data>
 
 	<data name="Labelling" xml:space="preserve">
@@ -1200,7 +1260,7 @@
 	</data>
 
 	<data name="LicensorPrice" xml:space="preserve">
-		<value>Lisans Sahibi Fiyatı</value>
+		<value>Lisans Sahibi Fiyatı (Net)</value>
 	</data>
 
 	<data name="Licensors" xml:space="preserve">
@@ -1365,6 +1425,18 @@
 
 	<data name="PoNr" xml:space="preserve">
 		<value>Sipariş Kodu</value>
+	</data>
+
+	<data name="POShipment" xml:space="preserve">
+		<value>Nakliye</value>
+	</data>
+
+	<data name="POShipments" xml:space="preserve">
+		<value>Nakliyeler</value>
+	</data>
+
+	<data name="POShipmentsList" xml:space="preserve">
+		<value>Nakliye Listesi</value>
 	</data>
 
 	<data name="Position" xml:space="preserve">
@@ -1583,6 +1655,10 @@
 		<value>Sipariş Resmini Çıkar</value>
 	</data>
 
+	<data name="RemovePOShipment" xml:space="preserve">
+		<value>Nakliyeyi Çıkar</value>
+	</data>
+
 	<data name="RemovePOSizeRatio" xml:space="preserve">
 		<value>Assortiyi Çıkar</value>
 	</data>
@@ -1685,6 +1761,18 @@
 
 	<data name="ShipmentHangingFolded" xml:space="preserve">
 		<value>Nakliye Askıda / Katlanmış</value>
+	</data>
+
+	<data name="Shipments" xml:space="preserve">
+		<value>Nakliyeler</value>
+	</data>
+
+	<data name="ShippingDate" xml:space="preserve">
+		<value>Nakliye Tarihi</value>
+	</data>
+
+	<data name="ShippingNr" xml:space="preserve">
+		<value>Nakliye No</value>
 	</data>
 
 	<data name="SizeRatioDivisor" xml:space="preserve">
@@ -1796,11 +1884,11 @@
 	</data>
 
 	<data name="UnitPrice" xml:space="preserve">
-		<value>Birim Fiyat</value>
+		<value>Birim (Brüt) Fiyat</value>
 	</data>
 
 	<data name="UnitPrice2" xml:space="preserve">
-		<value>Birim Fiyat 2</value>
+		<value>Birim (Brüt) Fiyat 2</value>
 	</data>
 
 	<data name="UserName" xml:space="preserve">
@@ -1811,7 +1899,7 @@
 		<value>Yıkama Talimatı</value>
 	</data>
 
-	<data name="WoovenLabel" xml:space="preserve">
+	<data name="WovenLabel" xml:space="preserve">
 		<value>Ense Etiket</value>
 	</data>
 

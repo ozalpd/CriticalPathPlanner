@@ -1494,7 +1494,7 @@
           <Nullable>true</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>KimballNr</Name>
+          <Name>CustomerRefNr</Name>
           <Exclude>false</Exclude>
           <DataType>nVarChar</DataType>
           <Lenght>32</Lenght>
@@ -1639,7 +1639,7 @@
           <Nullable>true</Nullable>
         </StorageColumnSetting>
         <StorageColumnSetting>
-          <Name>WoovenLabel</Name>
+          <Name>WovenLabel</Name>
           <Exclude>false</Exclude>
           <DataType>nVarChar</DataType>
           <Lenght>128</Lenght>
@@ -2006,6 +2006,46 @@
           <Nullable>true</Nullable>
           <ForeignKeyTable>AspNetUsers</ForeignKeyTable>
         </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>Closed</Name>
+          <Exclude>false</Exclude>
+          <DataType>bit</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>ClosedUserIp</Name>
+          <Exclude>false</Exclude>
+          <DataType>nVarChar</DataType>
+          <Lenght>48</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>ClosedUserId</Name>
+          <Exclude>false</Exclude>
+          <DataType>nVarChar</DataType>
+          <Lenght>48</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>InitialComments</Name>
+          <Exclude>false</Exclude>
+          <DataType>nVarChar</DataType>
+          <Lenght>256</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
       </Properties>
     </BaseEntitySetting>
     <BaseEntitySetting xsi:type="StorageEntitySetting">
@@ -2190,6 +2230,142 @@
           <SortDesc>false</SortDesc>
           <Nullable>false</Nullable>
           <ForeignKeyTable>PurchaseOrders</ForeignKeyTable>
+        </StorageColumnSetting>
+      </Properties>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="StorageEntitySetting">
+      <Name>POShipment</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <InheritedEntity>IModified</InheritedEntity>
+      <UseInheritance>false</UseInheritance>
+      <SchemaName>dbo</SchemaName>
+      <TableName>POShipments</TableName>
+      <ModifyTrack>false</ModifyTrack>
+      <StoredProcs>false</StoredProcs>
+      <CustomStoredProcs>false</CustomStoredProcs>
+      <Properties>
+        <StorageColumnSetting>
+          <Name>ShippingNr</Name>
+          <Exclude>false</Exclude>
+          <DataType>nVarChar</DataType>
+          <Lenght>32</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>true</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>ShippingDate</Name>
+          <Exclude>false</Exclude>
+          <DataType>DateTime</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>true</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>DeliveryNr</Name>
+          <Exclude>false</Exclude>
+          <DataType>nVarChar</DataType>
+          <Lenght>32</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>true</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>DeliveryDate</Name>
+          <Exclude>false</Exclude>
+          <DataType>DateTime</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>true</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>DestinationNr</Name>
+          <Exclude>false</Exclude>
+          <DataType>nVarChar</DataType>
+          <Lenght>32</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>true</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>RefCode</Name>
+          <Exclude>false</Exclude>
+          <DataType>nVarChar</DataType>
+          <Lenght>32</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>CustomerRefNr</Name>
+          <Exclude>false</Exclude>
+          <DataType>nVarChar</DataType>
+          <Lenght>32</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>true</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>Quantity</Name>
+          <Exclude>false</Exclude>
+          <DataType>int</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>IsShipped</Name>
+          <Exclude>false</Exclude>
+          <DataType>bit</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>true</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>IsDelivered</Name>
+          <Exclude>false</Exclude>
+          <DataType>bit</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>true</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>PurchaseOrderId</Name>
+          <Exclude>false</Exclude>
+          <DataType>int</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>true</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+          <ForeignKeyTable>PurchaseOrders</ForeignKeyTable>
+        </StorageColumnSetting>
+        <StorageColumnSetting>
+          <Name>FreightTermId</Name>
+          <Exclude>false</Exclude>
+          <DataType>int</DataType>
+          <Lenght>0</Lenght>
+          <PrimaryKey>false</PrimaryKey>
+          <Indexed>false</Indexed>
+          <SortDesc>false</SortDesc>
+          <Nullable>false</Nullable>
+          <ForeignKeyTable>FreightTerms</ForeignKeyTable>
         </StorageColumnSetting>
       </Properties>
     </BaseEntitySetting>

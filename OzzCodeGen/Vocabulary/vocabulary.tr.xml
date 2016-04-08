@@ -145,6 +145,10 @@
     <Translation>Yeni Sipariş Resmi Ekle</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddNewPOShipment</Name>
+    <Translation>Yeni Nakliye Ekle</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddNewPOSizeRatio</Name>
     <Translation>Yeni Assorti Ekle</Translation>
   </Vocab>
@@ -227,6 +231,10 @@
   <Vocab>
     <Name>AddPOImage</Name>
     <Translation>Sipariş Resmi Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddPOShipment</Name>
+    <Translation>Nakliye Ekle</Translation>
   </Vocab>
   <Vocab>
     <Name>AddPOSizeRatio</Name>
@@ -327,6 +335,10 @@
   <Vocab>
     <Name>AddRemovePOImage</Name>
     <Translation>Sipariş Resmi Ekle/Çıkar</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddRemovePOShipment</Name>
+    <Translation>Nakliye Ekle/Çıkar</Translation>
   </Vocab>
   <Vocab>
     <Name>AddRemovePOSizeRatio</Name>
@@ -681,6 +693,18 @@
     <Translation>Klonla</Translation>
   </Vocab>
   <Vocab>
+    <Name>Closed</Name>
+    <Translation>Kapanmış</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ClosedUserId</Name>
+    <Translation>Kapatan Kullanıcı ID</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ClosedUserIp</Name>
+    <Translation>Kapatan Kullanıcı IP</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Code</Name>
     <Translation>Kod</Translation>
   </Vocab>
@@ -841,6 +865,10 @@
     <Translation>Sipariş Resmi Oluştur</Translation>
   </Vocab>
   <Vocab>
+    <Name>CreatePOShipment</Name>
+    <Translation>Nakliye Oluştur</Translation>
+  </Vocab>
+  <Vocab>
     <Name>CreatePOSizeRatio</Name>
     <Translation>Assorti Oluştur</Translation>
   </Vocab>
@@ -989,6 +1017,10 @@
     <Translation>Müşterinin Sipariş Kodu</Translation>
   </Vocab>
   <Vocab>
+    <Name>CustomerRefNr</Name>
+    <Translation>Kimball No</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Customers</Name>
     <Translation>Müşteriler</Translation>
   </Vocab>
@@ -1077,6 +1109,10 @@
     <Translation>Sipariş Resmini Sil</Translation>
   </Vocab>
   <Vocab>
+    <Name>DeletePOShipment</Name>
+    <Translation>Nakliyeyi Sil</Translation>
+  </Vocab>
+  <Vocab>
     <Name>DeletePOSizeRatio</Name>
     <Translation>Assortiyi Sil</Translation>
   </Vocab>
@@ -1153,6 +1189,14 @@
     <Translation>Siliniyor</Translation>
   </Vocab>
   <Vocab>
+    <Name>DeliveryDate</Name>
+    <Translation>Teslim Tarihi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DeliveryNr</Name>
+    <Translation>Teslimat No</Translation>
+  </Vocab>
+  <Vocab>
     <Name>DepartmentName</Name>
     <Translation>Departman İsmi</Translation>
   </Vocab>
@@ -1183,6 +1227,10 @@
   <Vocab>
     <Name>DesignerId</Name>
     <Translation>Tasarımcı</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>DestinationNr</Name>
+    <Translation>Destination Nr</Translation>
   </Vocab>
   <Vocab>
     <Name>Details</Name>
@@ -1323,6 +1371,10 @@
   <Vocab>
     <Name>EditPOImage</Name>
     <Translation>Sipariş Resmini Düzenle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>EditPOShipment</Name>
+    <Translation>Nakliyeyi Düzenle</Translation>
   </Vocab>
   <Vocab>
     <Name>EditPOSizeRatio</Name>
@@ -1597,6 +1649,10 @@
     <Translation>Indeks</Translation>
   </Vocab>
   <Vocab>
+    <Name>InitialComments</Name>
+    <Translation>Başlangıç Yorumları</Translation>
+  </Vocab>
+  <Vocab>
     <Name>IsActive</Name>
     <Translation>Aktif</Translation>
   </Vocab>
@@ -1609,6 +1665,10 @@
     <Translation>Bitti</Translation>
   </Vocab>
   <Vocab>
+    <Name>IsDelivered</Name>
+    <Translation>Teslim Edildi</Translation>
+  </Vocab>
+  <Vocab>
     <Name>IsPublished</Name>
     <Translation>Yayında</Translation>
   </Vocab>
@@ -1617,8 +1677,8 @@
     <Translation>Tekrar</Translation>
   </Vocab>
   <Vocab>
-    <Name>KimballNr</Name>
-    <Translation>Kimball No</Translation>
+    <Name>IsShipped</Name>
+    <Translation>Yola Çıktı</Translation>
   </Vocab>
   <Vocab>
     <Name>Labelling</Name>
@@ -1662,7 +1722,7 @@
   </Vocab>
   <Vocab>
     <Name>LicensorPrice</Name>
-    <Translation>Lisans Sahibi Fiyatı</Translation>
+    <Translation>Lisans Sahibi Fiyatı (Net)</Translation>
   </Vocab>
   <Vocab>
     <Name>Licensors</Name>
@@ -1965,6 +2025,18 @@
     <Translation>Sipariş Kodu</Translation>
   </Vocab>
   <Vocab>
+    <Name>POShipment</Name>
+    <Translation>Nakliye</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>POShipments</Name>
+    <Translation>Nakliyeler</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>POShipmentsList</Name>
+    <Translation>Nakliye Listesi</Translation>
+  </Vocab>
+  <Vocab>
     <Name>Position</Name>
     <Translation>Pozisyon</Translation>
   </Vocab>
@@ -2237,6 +2309,10 @@
     <Translation>Sipariş Resmini Çıkar</Translation>
   </Vocab>
   <Vocab>
+    <Name>RemovePOShipment</Name>
+    <Translation>Nakliyeyi Çıkar</Translation>
+  </Vocab>
+  <Vocab>
     <Name>RemovePOSizeRatio</Name>
     <Translation>Assortiyi Çıkar</Translation>
   </Vocab>
@@ -2395,6 +2471,18 @@
   <Vocab>
     <Name>ShipmentHangingFolded</Name>
     <Translation>Nakliye Askıda / Katlanmış</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Shipments</Name>
+    <Translation>Nakliyeler</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ShippingDate</Name>
+    <Translation>Nakliye Tarihi</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>ShippingNr</Name>
+    <Translation>Nakliye No</Translation>
   </Vocab>
   <Vocab>
     <Name>Show</Name>
@@ -2650,11 +2738,11 @@
   </Vocab>
   <Vocab>
     <Name>UnitPrice</Name>
-    <Translation>Birim Fiyat</Translation>
+    <Translation>Birim (Brüt) Fiyat</Translation>
   </Vocab>
   <Vocab>
     <Name>UnitPrice2</Name>
-    <Translation>Birim Fiyat 2</Translation>
+    <Translation>Birim (Brüt) Fiyat 2</Translation>
   </Vocab>
   <Vocab>
     <Name>Unmarked</Name>
@@ -2689,7 +2777,7 @@
     <Translation>Genişlik</Translation>
   </Vocab>
   <Vocab>
-    <Name>WoovenLabel</Name>
+    <Name>WovenLabel</Name>
     <Translation>Ense Etiket</Translation>
   </Vocab>
   <Vocab>

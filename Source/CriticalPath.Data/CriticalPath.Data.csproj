@@ -177,6 +177,9 @@
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Parts\POImageDTO.part.cs" />
+    <Compile Include="POShipment.cs">
+      <DependentUpon>CriticalPathModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="POSizeRatio.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>

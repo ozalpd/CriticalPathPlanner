@@ -167,6 +167,10 @@
 		<value>Add New P.O. Image</value>
 	</data>
 
+	<data name="AddNewPOShipment" xml:space="preserve">
+		<value>Add New POShipment</value>
+	</data>
+
 	<data name="AddNewPOSizeRatio" xml:space="preserve">
 		<value>Add New POSize Ratio</value>
 	</data>
@@ -221,6 +225,10 @@
 
 	<data name="AddPOImage" xml:space="preserve">
 		<value>Add P.O. Image</value>
+	</data>
+
+	<data name="AddPOShipment" xml:space="preserve">
+		<value>Add POShipment</value>
 	</data>
 
 	<data name="AddPOSizeRatio" xml:space="preserve">
@@ -313,6 +321,10 @@
 
 	<data name="AddRemovePOImage" xml:space="preserve">
 		<value>Add Remove P.O. Image</value>
+	</data>
+
+	<data name="AddRemovePOShipment" xml:space="preserve">
+		<value>Add Remove POShipment</value>
 	</data>
 
 	<data name="AddRemovePOSizeRatio" xml:space="preserve">
@@ -428,27 +440,27 @@
 	</data>
 
 	<data name="BuyingCurrency" xml:space="preserve">
-		<value>Buying Currency</value>
+		<value>Factory Price Currency</value>
 	</data>
 
 	<data name="BuyingCurrency2" xml:space="preserve">
-		<value>Buying Currency 2nd</value>
+		<value>Factory Price Currency 2nd</value>
 	</data>
 
 	<data name="BuyingCurrency2Id" xml:space="preserve">
-		<value>Buying Currency 2nd</value>
+		<value>Factory Price Currency 2nd</value>
 	</data>
 
 	<data name="BuyingCurrencyId" xml:space="preserve">
-		<value>Buying Currency</value>
+		<value>Factory Price Currency</value>
 	</data>
 
 	<data name="BuyingPrice" xml:space="preserve">
-		<value>Buying Price</value>
+		<value>Factory Price</value>
 	</data>
 
 	<data name="BuyingPrice2" xml:space="preserve">
-		<value>Buying Price 2nd</value>
+		<value>Factory Price 2nd</value>
 	</data>
 
 	<data name="CancelDate" xml:space="preserve">
@@ -501,6 +513,18 @@
 
 	<data name="City" xml:space="preserve">
 		<value>City</value>
+	</data>
+
+	<data name="Closed" xml:space="preserve">
+		<value>Closed</value>
+	</data>
+
+	<data name="ClosedUserId" xml:space="preserve">
+		<value>Closed User Id</value>
+	</data>
+
+	<data name="ClosedUserIp" xml:space="preserve">
+		<value>Closed User Ip</value>
 	</data>
 
 	<data name="Colour" xml:space="preserve">
@@ -623,6 +647,10 @@
 		<value>Create P.O. Image</value>
 	</data>
 
+	<data name="CreatePOShipment" xml:space="preserve">
+		<value>Create POShipment</value>
+	</data>
+
 	<data name="CreatePOSizeRatio" xml:space="preserve">
 		<value>Create POSize Ratio</value>
 	</data>
@@ -743,6 +771,10 @@
 		<value>Customer's P.O. Nr.</value>
 	</data>
 
+	<data name="CustomerRefNr" xml:space="preserve">
+		<value>Kimball Nr</value>
+	</data>
+
 	<data name="Customers" xml:space="preserve">
 		<value>Customers</value>
 	</data>
@@ -815,6 +847,10 @@
 		<value>Delete P.O. Image</value>
 	</data>
 
+	<data name="DeletePOShipment" xml:space="preserve">
+		<value>Delete POShipment</value>
+	</data>
+
 	<data name="DeletePOSizeRatio" xml:space="preserve">
 		<value>Delete POSize Ratio</value>
 	</data>
@@ -863,6 +899,14 @@
 		<value>Delete Supplier</value>
 	</data>
 
+	<data name="DeliveryDate" xml:space="preserve">
+		<value>Delivery Date</value>
+	</data>
+
+	<data name="DeliveryNr" xml:space="preserve">
+		<value>Delivery Nr</value>
+	</data>
+
 	<data name="DepartmentName" xml:space="preserve">
 		<value>Department Name</value>
 	</data>
@@ -889,6 +933,10 @@
 
 	<data name="DesignerId" xml:space="preserve">
 		<value>Designer</value>
+	</data>
+
+	<data name="DestinationNr" xml:space="preserve">
+		<value>Destination Nr</value>
 	</data>
 
 	<data name="Discontinued" xml:space="preserve">
@@ -981,6 +1029,10 @@
 
 	<data name="EditPOImage" xml:space="preserve">
 		<value>Edit P.O. Image</value>
+	</data>
+
+	<data name="EditPOShipment" xml:space="preserve">
+		<value>Edit POShipment</value>
 	</data>
 
 	<data name="EditPOSizeRatio" xml:space="preserve">
@@ -1143,6 +1195,10 @@
 		<value>Incoterms Code</value>
 	</data>
 
+	<data name="InitialComments" xml:space="preserve">
+		<value>Initial Comments</value>
+	</data>
+
 	<data name="IsActive" xml:space="preserve">
 		<value>Active</value>
 	</data>
@@ -1155,6 +1211,10 @@
 		<value>Completed</value>
 	</data>
 
+	<data name="IsDelivered" xml:space="preserve">
+		<value>Is Delivered</value>
+	</data>
+
 	<data name="IsPublished" xml:space="preserve">
 		<value>Is Published</value>
 	</data>
@@ -1163,8 +1223,8 @@
 		<value>Is Repeat</value>
 	</data>
 
-	<data name="KimballNr" xml:space="preserve">
-		<value>Kimball Nr</value>
+	<data name="IsShipped" xml:space="preserve">
+		<value>Is Shipped</value>
 	</data>
 
 	<data name="Labelling" xml:space="preserve">
@@ -1200,7 +1260,7 @@
 	</data>
 
 	<data name="LicensorPrice" xml:space="preserve">
-		<value>Licensor Price</value>
+		<value>Licensor Price (Net)</value>
 	</data>
 
 	<data name="Licensors" xml:space="preserve">
@@ -1365,6 +1425,18 @@
 
 	<data name="PoNr" xml:space="preserve">
 		<value>P.O. Nr.</value>
+	</data>
+
+	<data name="POShipment" xml:space="preserve">
+		<value>POShipment</value>
+	</data>
+
+	<data name="POShipments" xml:space="preserve">
+		<value>POShipments</value>
+	</data>
+
+	<data name="POShipmentsList" xml:space="preserve">
+		<value>POShipments List</value>
 	</data>
 
 	<data name="Position" xml:space="preserve">
@@ -1583,6 +1655,10 @@
 		<value>Remove P.O. Image</value>
 	</data>
 
+	<data name="RemovePOShipment" xml:space="preserve">
+		<value>Remove POShipment</value>
+	</data>
+
 	<data name="RemovePOSizeRatio" xml:space="preserve">
 		<value>Remove POSize Ratio</value>
 	</data>
@@ -1685,6 +1761,18 @@
 
 	<data name="ShipmentHangingFolded" xml:space="preserve">
 		<value>Hanging / Folded</value>
+	</data>
+
+	<data name="Shipments" xml:space="preserve">
+		<value>Shipments</value>
+	</data>
+
+	<data name="ShippingDate" xml:space="preserve">
+		<value>Shipping Date</value>
+	</data>
+
+	<data name="ShippingNr" xml:space="preserve">
+		<value>Shipping Nr</value>
 	</data>
 
 	<data name="SizeRatioDivisor" xml:space="preserve">
@@ -1796,11 +1884,11 @@
 	</data>
 
 	<data name="UnitPrice" xml:space="preserve">
-		<value>Unit Price</value>
+		<value>Unit (Gross) Price</value>
 	</data>
 
 	<data name="UnitPrice2" xml:space="preserve">
-		<value>Unit Price 2nd</value>
+		<value>Unit (Gross) Price 2nd</value>
 	</data>
 
 	<data name="UserName" xml:space="preserve">
@@ -1811,8 +1899,8 @@
 		<value>Washing Instructions</value>
 	</data>
 
-	<data name="WoovenLabel" xml:space="preserve">
-		<value>Wooven Label</value>
+	<data name="WovenLabel" xml:space="preserve">
+		<value>Woven Label</value>
 	</data>
 
 	<data name="ZipCode" xml:space="preserve">

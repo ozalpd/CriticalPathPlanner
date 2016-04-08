@@ -38,8 +38,8 @@ namespace CriticalPath.Data
             public string RefCode { get; set; }
 
             [StringLength(32, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "KimballNr")]
-            public string KimballNr { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "CustomerRefNo")]
+            public string CustomerRefNo { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [DataType(DataType.Date)]
@@ -109,8 +109,8 @@ namespace CriticalPath.Data
             public string Labelling { get; set; }
 
             [StringLength(128, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MaxLeght")]
-            [Display(ResourceType = typeof(EntityStrings), Name = "WoovenLabel")]
-            public string WoovenLabel { get; set; }
+            [Display(ResourceType = typeof(EntityStrings), Name = "WovenLabel")]
+            public string WovenLabel { get; set; }
 
             [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
             [UIHint("ShipmentHangingFolded")]

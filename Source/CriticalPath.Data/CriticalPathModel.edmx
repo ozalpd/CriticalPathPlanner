@@ -214,6 +214,48 @@
           <Property Name="CreatorId" Type="varchar" MaxLength="48" Nullable="false" />
           <Property Name="CreatorIp" Type="varchar" MaxLength="48" Nullable="false" />
         </EntityType>
+        <EntityType Name="POShipments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ShippingNr" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="ShippingDate" Type="datetime" />
+          <Property Name="DeliveryNr" Type="nvarchar" MaxLength="32" />
+          <Property Name="DeliveryDate" Type="datetime" />
+          <Property Name="DestinationNr" Type="nvarchar" MaxLength="32" />
+          <Property Name="RefCode" Type="nvarchar" MaxLength="32" />
+          <Property Name="CustomerRefNr" Type="nvarchar" MaxLength="32" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="IsShipped" Type="bit" Nullable="false" />
+          <Property Name="IsDelivered" Type="bit" Nullable="false" />
+          <Property Name="PurchaseOrderId" Type="int" Nullable="false" />
+          <Property Name="FreightTermId" Type="int" Nullable="false" />
+          <Property Name="ModifyNr" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifierId" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="ModifierIp" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatorId" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="CreatorIp" Type="varchar" MaxLength="48" Nullable="false" />
+        </EntityType>
+        <EntityType Name="POSizeRatios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DisplayOrder" Type="int" Nullable="false" />
+          <Property Name="Caption" Type="nvarchar" MaxLength="16" Nullable="false" />
+          <Property Name="Rate" Type="int" Nullable="false" />
+          <Property Name="PurchaseOrderId" Type="int" Nullable="false" />
+          <Property Name="ModifyNr" Type="int" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifierId" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="ModifierIp" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatorId" Type="varchar" MaxLength="48" Nullable="false" />
+          <Property Name="CreatorIp" Type="varchar" MaxLength="48" Nullable="false" />
+        </EntityType>
         <EntityType Name="Processes">
           <Key>
             <PropertyRef Name="Id" />
@@ -394,7 +436,7 @@
           <Property Name="ApproveDate" Type="datetime" />
           <Property Name="PoNr" Type="nvarchar" MaxLength="64" Nullable="false" />
           <Property Name="RefCode" Type="nvarchar" MaxLength="32" />
-          <Property Name="KimballNr" Type="nvarchar" MaxLength="32" />
+          <Property Name="CustomerRefNr" Type="nvarchar" MaxLength="32" />
           <Property Name="OrderDate" Type="datetime" Nullable="false" />
           <Property Name="DueDate" Type="datetime" />
           <Property Name="IsRepeat" Type="bit" Nullable="false" />
@@ -408,7 +450,7 @@
           <Property Name="Colour" Type="nvarchar" MaxLength="256" />
           <Property Name="Print" Type="nvarchar" MaxLength="256" />
           <Property Name="Labelling" Type="nvarchar" MaxLength="128" />
-          <Property Name="WoovenLabel" Type="nvarchar" MaxLength="128" />
+          <Property Name="WovenLabel" Type="nvarchar" MaxLength="128" />
           <Property Name="ShipmentHangingFolded" Type="int" Nullable="false" />
           <Property Name="HangerSticker" Type="bit" Nullable="false" />
           <Property Name="WashingInstructions" Type="nvarchar" MaxLength="128" />
@@ -443,25 +485,12 @@
           <Property Name="CancellationReason" Type="nvarchar(max)" />
           <Property Name="CancelledUserIp" Type="varchar" MaxLength="48" />
           <Property Name="CancelledUserId" Type="varchar" MaxLength="48" />
+          <Property Name="Closed" Type="bit" Nullable="false" />
+          <Property Name="ClosedUserIp" Type="nvarchar" MaxLength="48" />
+          <Property Name="ClosedUserId" Type="nvarchar" MaxLength="48" />
+          <Property Name="InitialComments" Type="nvarchar" MaxLength="256" />
           <Property Name="ApprovedUserId" Type="varchar" MaxLength="48" />
           <Property Name="ApprovedUserIp" Type="varchar" MaxLength="48" />
-          <Property Name="ModifyNr" Type="int" Nullable="false" />
-          <Property Name="ModifyDate" Type="datetime" Nullable="false" />
-          <Property Name="ModifierId" Type="varchar" MaxLength="48" Nullable="false" />
-          <Property Name="ModifierIp" Type="varchar" MaxLength="48" Nullable="false" />
-          <Property Name="CreateDate" Type="datetime" Nullable="false" />
-          <Property Name="CreatorId" Type="varchar" MaxLength="48" Nullable="false" />
-          <Property Name="CreatorIp" Type="varchar" MaxLength="48" Nullable="false" />
-        </EntityType>
-        <EntityType Name="POSizeRatios">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DisplayOrder" Type="int" Nullable="false" />
-          <Property Name="Caption" Type="nvarchar" MaxLength="16" Nullable="false" />
-          <Property Name="Rate" Type="int" Nullable="false" />
-          <Property Name="PurchaseOrderId" Type="int" Nullable="false" />
           <Property Name="ModifyNr" Type="int" Nullable="false" />
           <Property Name="ModifyDate" Type="datetime" Nullable="false" />
           <Property Name="ModifierId" Type="varchar" MaxLength="48" Nullable="false" />
@@ -816,6 +845,90 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="POImages">
+              <PropertyRef Name="PurchaseOrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POShipment_CreatorId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="POShipments" Type="Self.POShipments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="POShipments">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POShipment_FreightTermId">
+          <End Role="FreightTerms" Type="Self.FreightTerms" Multiplicity="1" />
+          <End Role="POShipments" Type="Self.POShipments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FreightTerms">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="POShipments">
+              <PropertyRef Name="FreightTermId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POShipment_ModifierId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="POShipments" Type="Self.POShipments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="POShipments">
+              <PropertyRef Name="ModifierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POShipment_PurchaseOrderId">
+          <End Role="PurchaseOrders" Type="Self.PurchaseOrders" Multiplicity="1" />
+          <End Role="POShipments" Type="Self.POShipments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PurchaseOrders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="POShipments">
+              <PropertyRef Name="PurchaseOrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POSizeRatio_CreatorId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="POSizeRatios" Type="Self.POSizeRatios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="POSizeRatios">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POSizeRatio_ModifierId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="POSizeRatios" Type="Self.POSizeRatios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="POSizeRatios">
+              <PropertyRef Name="ModifierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POSizeRatio_PurchaseOrderId">
+          <End Role="PurchaseOrders" Type="Self.PurchaseOrders" Multiplicity="1" />
+          <End Role="POSizeRatios" Type="Self.POSizeRatios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PurchaseOrders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="POSizeRatios">
               <PropertyRef Name="PurchaseOrderId" />
             </Dependent>
           </ReferentialConstraint>
@@ -1516,42 +1629,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_POSizeRatio_CreatorId">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
-          <End Role="POSizeRatios" Type="Self.POSizeRatios" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="POSizeRatios">
-              <PropertyRef Name="CreatorId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_POSizeRatio_ModifierId">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
-          <End Role="POSizeRatios" Type="Self.POSizeRatios" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="POSizeRatios">
-              <PropertyRef Name="ModifierId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_POSizeRatio_PurchaseOrderId">
-          <End Role="PurchaseOrders" Type="Self.PurchaseOrders" Multiplicity="1" />
-          <End Role="POSizeRatios" Type="Self.POSizeRatios" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PurchaseOrders">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="POSizeRatios">
-              <PropertyRef Name="PurchaseOrderId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Sizing_CreatorId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
           <End Role="Sizings" Type="Self.Sizings" Multiplicity="*" />
@@ -1651,6 +1728,8 @@
           <EntitySet Name="Manufacturers" EntityType="Self.Manufacturers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="POAttachments" EntityType="Self.POAttachments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="POImages" EntityType="Self.POImages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="POShipments" EntityType="Self.POShipments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="POSizeRatios" EntityType="Self.POSizeRatios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Processes" EntityType="Self.Processes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProcessStepRevisions" EntityType="Self.ProcessStepRevisions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProcessSteps" EntityType="Self.ProcessSteps" Schema="dbo" store:Type="Tables" />
@@ -1660,7 +1739,6 @@
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductsSuppliers" EntityType="Self.ProductsSuppliers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PurchaseOrders" EntityType="Self.PurchaseOrders" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="POSizeRatios" EntityType="Self.POSizeRatios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sizings" EntityType="Self.Sizings" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SizingStandards" EntityType="Self.SizingStandards" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Suppliers" EntityType="Self.Suppliers" Schema="dbo" store:Type="Tables" />
@@ -1767,6 +1845,34 @@
           <AssociationSet Name="FK_POImage_PurchaseOrderId" Association="Self.FK_POImage_PurchaseOrderId">
             <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
             <End Role="POImages" EntitySet="POImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POShipment_CreatorId" Association="Self.FK_POShipment_CreatorId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="POShipments" EntitySet="POShipments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POShipment_FreightTermId" Association="Self.FK_POShipment_FreightTermId">
+            <End Role="FreightTerms" EntitySet="FreightTerms" />
+            <End Role="POShipments" EntitySet="POShipments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POShipment_ModifierId" Association="Self.FK_POShipment_ModifierId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="POShipments" EntitySet="POShipments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POShipment_PurchaseOrderId" Association="Self.FK_POShipment_PurchaseOrderId">
+            <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
+            <End Role="POShipments" EntitySet="POShipments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POSizeRatio_CreatorId" Association="Self.FK_POSizeRatio_CreatorId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="POSizeRatios" EntitySet="POSizeRatios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POSizeRatio_ModifierId" Association="Self.FK_POSizeRatio_ModifierId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="POSizeRatios" EntitySet="POSizeRatios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POSizeRatio_PurchaseOrderId" Association="Self.FK_POSizeRatio_PurchaseOrderId">
+            <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
+            <End Role="POSizeRatios" EntitySet="POSizeRatios" />
           </AssociationSet>
           <AssociationSet Name="FK_Process_ApprovedUserId" Association="Self.FK_Process_ApprovedUserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -1999,18 +2105,6 @@
           <AssociationSet Name="FK_PurchaseOrder_SupplierId" Association="Self.FK_PurchaseOrder_SupplierId">
             <End Role="Suppliers" EntitySet="Suppliers" />
             <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_POSizeRatio_CreatorId" Association="Self.FK_POSizeRatio_CreatorId">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="POSizeRatios" EntitySet="POSizeRatios" />
-          </AssociationSet>
-          <AssociationSet Name="FK_POSizeRatio_ModifierId" Association="Self.FK_POSizeRatio_ModifierId">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="POSizeRatios" EntitySet="POSizeRatios" />
-          </AssociationSet>
-          <AssociationSet Name="FK_POSizeRatio_PurchaseOrderId" Association="Self.FK_POSizeRatio_PurchaseOrderId">
-            <End Role="PurchaseOrders" EntitySet="PurchaseOrders" />
-            <End Role="POSizeRatios" EntitySet="POSizeRatios" />
           </AssociationSet>
           <AssociationSet Name="FK_Sizing_CreatorId" Association="Self.FK_Sizing_CreatorId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -2424,6 +2518,23 @@
             <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
             <End Role="POImage" EntitySet="POImages" />
           </AssociationSet>
+          <EntitySet Name="POShipments" EntityType="CriticalPathDataModel.POShipment" />
+          <AssociationSet Name="FK_POShipment_CreatorId" Association="CriticalPathDataModel.FK_POShipment_CreatorId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="POShipment" EntitySet="POShipments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POShipment_ModifierId" Association="CriticalPathDataModel.FK_POShipment_ModifierId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="POShipment" EntitySet="POShipments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POShipment_FreightTermId" Association="CriticalPathDataModel.FK_POShipment_FreightTermId">
+            <End Role="FreightTerm" EntitySet="FreightTerms" />
+            <End Role="POShipment" EntitySet="POShipments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POShipment_PurchaseOrderId" Association="CriticalPathDataModel.FK_POShipment_PurchaseOrderId">
+            <End Role="PurchaseOrder" EntitySet="PurchaseOrders" />
+            <End Role="POShipment" EntitySet="POShipments" />
+          </AssociationSet>
           
         </EntityContainer>
         <EntityType Name="Company" Abstract="true">
@@ -2618,7 +2729,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PoNr" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="RefCode" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
-          <Property Name="KimballNr" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerRefNr" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
           <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="DueDate" Type="DateTime" Precision="3" />
           <Property Name="IsRepeat" Type="Boolean" Nullable="false" />
@@ -2639,7 +2750,7 @@
           <Property Name="ShipmentHangingFolded" Type="Int32" Nullable="false" />
           <Property Name="HangerSticker" Type="Boolean" Nullable="false" />
           <Property Name="Labelling" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="WoovenLabel" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="WovenLabel" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="WashingInstructions" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="Quantity" Type="Int32" Nullable="false" />
           <Property Name="DiscountRate" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
@@ -2705,6 +2816,11 @@
           <NavigationProperty Name="ModifiedUser" Relationship="CriticalPathDataModel.FK_PurchaseOrder_ModifierId" FromRole="PurchaseOrder" ToRole="AspNetUser" />
           <NavigationProperty Name="Attachments" Relationship="CriticalPathDataModel.FK_POAttachment_PurchaseOrderId" FromRole="PurchaseOrder" ToRole="POAttachment" />
           <NavigationProperty Name="Images" Relationship="CriticalPathDataModel.FK_POImage_PurchaseOrderId" FromRole="PurchaseOrder" ToRole="POImage" />
+          <Property Name="Closed" Type="Boolean" Nullable="false" />
+          <Property Name="ClosedUserIp" Type="String" MaxLength="48" FixedLength="false" Unicode="true" />
+          <Property Name="ClosedUserId" Type="String" MaxLength="48" FixedLength="false" Unicode="true" />
+          <Property Name="InitialComments" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Shipments" Relationship="CriticalPathDataModel.FK_POShipment_PurchaseOrderId" FromRole="PurchaseOrder" ToRole="POShipment" />
         </EntityType>
         <Association Name="FK_PurchaseOrder_CustomerId">
           <End Type="CriticalPathDataModel.Customer" Role="Customer" Multiplicity="1" />
@@ -3032,6 +3148,8 @@
           <NavigationProperty Name="ApprovedPurchaseOrders" Relationship="CriticalPathDataModel.FK_PurchaseOrder_ApprovedUserId" FromRole="AspNetUser" ToRole="PurchaseOrder" />
           <NavigationProperty Name="CancelledPurchaseOrders" Relationship="CriticalPathDataModel.FK_PurchaseOrder_CancelledUserId" FromRole="AspNetUser" ToRole="PurchaseOrder" />
           <NavigationProperty Name="ProcessStepRevisions" Relationship="CriticalPathDataModel.FK_ProcessStepRevision_CreatorId" FromRole="AspNetUser" ToRole="ProcessStepRevision" />
+          <NavigationProperty Name="POShipments" Relationship="CriticalPathDataModel.FK_POShipment_CreatorId" FromRole="AspNetUser" ToRole="POShipment" />
+          <NavigationProperty Name="POShipments1" Relationship="CriticalPathDataModel.FK_POShipment_ModifierId" FromRole="AspNetUser" ToRole="POShipment" />
         </EntityType>
         <Association Name="FK_Company_CreatorId">
           <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
@@ -3458,7 +3576,6 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IncotermCode" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="PurchaseOrders" Relationship="CriticalPathDataModel.FK_PurchaseOrder_FreightTermId" FromRole="FreightTerm" ToRole="PurchaseOrder" />
           <Property Name="IsPublished" Type="Boolean" Nullable="false" />
         </EntityType>
         <Association Name="FK_PurchaseOrder_FreightTermId">
@@ -4090,6 +4207,83 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="POShipment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShippingNr" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="ShippingDate" Type="DateTime" Precision="3" />
+          <Property Name="DeliveryNr" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="DeliveryDate" Type="DateTime" Precision="3" />
+          <Property Name="DestinationNr" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="RefCode" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerRefNr" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="IsShipped" Type="Boolean" Nullable="false" />
+          <Property Name="IsDelivered" Type="Boolean" Nullable="false" />
+          <Property Name="PurchaseOrderId" Type="Int32" Nullable="false" />
+          <Property Name="FreightTermId" Type="Int32" Nullable="false" />
+          <Property Name="ModifyNr" Type="Int32" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifierId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="ModifierIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatorId" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="CreatorIp" Type="String" Nullable="false" MaxLength="48" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CreatedUser" Relationship="CriticalPathDataModel.FK_POShipment_CreatorId" FromRole="POShipment" ToRole="AspNetUser" />
+          <NavigationProperty Name="ModifiedUser" Relationship="CriticalPathDataModel.FK_POShipment_ModifierId" FromRole="POShipment" ToRole="AspNetUser" />
+          <NavigationProperty Name="FreightTerm" Relationship="CriticalPathDataModel.FK_POShipment_FreightTermId" FromRole="POShipment" ToRole="FreightTerm" />
+          <NavigationProperty Name="PurchaseOrder" Relationship="CriticalPathDataModel.FK_POShipment_PurchaseOrderId" FromRole="POShipment" ToRole="PurchaseOrder" />
+        </EntityType>
+        <Association Name="FK_POShipment_CreatorId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.POShipment" Role="POShipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="POShipment">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POShipment_ModifierId">
+          <End Type="CriticalPathDataModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.POShipment" Role="POShipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="POShipment">
+              <PropertyRef Name="ModifierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POShipment_FreightTermId">
+          <End Type="CriticalPathDataModel.FreightTerm" Role="FreightTerm" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.POShipment" Role="POShipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FreightTerm">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="POShipment">
+              <PropertyRef Name="FreightTermId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POShipment_PurchaseOrderId">
+          <End Type="CriticalPathDataModel.PurchaseOrder" Role="PurchaseOrder" Multiplicity="1" />
+          <End Type="CriticalPathDataModel.POShipment" Role="POShipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PurchaseOrder">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="POShipment">
+              <PropertyRef Name="PurchaseOrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -4240,9 +4434,13 @@
           <EntitySetMapping Name="PurchaseOrders">
             <EntityTypeMapping TypeName="CriticalPathDataModel.PurchaseOrder">
               <MappingFragment StoreEntitySet="PurchaseOrders">
+                <ScalarProperty Name="InitialComments" ColumnName="InitialComments" />
+                <ScalarProperty Name="ClosedUserId" ColumnName="ClosedUserId" />
+                <ScalarProperty Name="ClosedUserIp" ColumnName="ClosedUserIp" />
+                <ScalarProperty Name="Closed" ColumnName="Closed" />
                 <ScalarProperty Name="WashingInstructions" ColumnName="WashingInstructions" />
                 <ScalarProperty Name="HangerSticker" ColumnName="HangerSticker" />
-                <ScalarProperty Name="WoovenLabel" ColumnName="WoovenLabel" />
+                <ScalarProperty Name="WovenLabel" ColumnName="WovenLabel" />
                 <ScalarProperty Name="Labelling" ColumnName="Labelling" />
                 <ScalarProperty Name="Print" ColumnName="Print" />
                 <ScalarProperty Name="Merchandiser2Id" ColumnName="Merchandiser2Id" />
@@ -4259,7 +4457,7 @@
                 <ScalarProperty Name="CustomerDepartmentId" ColumnName="CustomerDepartmentId" />
                 <ScalarProperty Name="LicensorCurrencyId" ColumnName="LicensorCurrencyId" />
                 <ScalarProperty Name="LicensorPrice" ColumnName="LicensorPrice" />
-                <ScalarProperty Name="KimballNr" ColumnName="KimballNr" />
+                <ScalarProperty Name="CustomerRefNr" ColumnName="CustomerRefNr" />
                 <ScalarProperty Name="RefCode" ColumnName="RefCode" />
                 <ScalarProperty Name="ParentPoId" ColumnName="ParentPoId" />
                 <ScalarProperty Name="IsRepeat" ColumnName="IsRepeat" />
@@ -4613,6 +4811,32 @@
                 <ScalarProperty Name="ImageTitle" ColumnName="ImageTitle" />
                 <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
                 <ScalarProperty Name="PurchaseOrderId" ColumnName="PurchaseOrderId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="POShipments">
+            <EntityTypeMapping TypeName="CriticalPathDataModel.POShipment">
+              <MappingFragment StoreEntitySet="POShipments">
+                <ScalarProperty Name="CreatorIp" ColumnName="CreatorIp" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifierIp" ColumnName="ModifierIp" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="ModifyNr" ColumnName="ModifyNr" />
+                <ScalarProperty Name="FreightTermId" ColumnName="FreightTermId" />
+                <ScalarProperty Name="PurchaseOrderId" ColumnName="PurchaseOrderId" />
+                <ScalarProperty Name="IsDelivered" ColumnName="IsDelivered" />
+                <ScalarProperty Name="IsShipped" ColumnName="IsShipped" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="CustomerRefNr" ColumnName="CustomerRefNr" />
+                <ScalarProperty Name="RefCode" ColumnName="RefCode" />
+                <ScalarProperty Name="DestinationNr" ColumnName="DestinationNr" />
+                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="DeliveryNr" ColumnName="DeliveryNr" />
+                <ScalarProperty Name="ShippingDate" ColumnName="ShippingDate" />
+                <ScalarProperty Name="ShippingNr" ColumnName="ShippingNr" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

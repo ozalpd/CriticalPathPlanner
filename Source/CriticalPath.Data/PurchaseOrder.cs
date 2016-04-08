@@ -22,12 +22,13 @@ namespace CriticalPath.Data
             this.Processes = new HashSet<Process>();
             this.Attachments = new HashSet<POAttachment>();
             this.Images = new HashSet<POImage>();
+            this.Shipments = new HashSet<POShipment>();
         }
     
         public int Id { get; set; }
         public string PoNr { get; set; }
         public string RefCode { get; set; }
-        public string KimballNr { get; set; }
+        public string CustomerRefNr { get; set; }
         public System.DateTime OrderDate { get; set; }
         public Nullable<System.DateTime> DueDate { get; set; }
         public bool IsRepeat { get; set; }
@@ -48,7 +49,7 @@ namespace CriticalPath.Data
         public int ShipmentHangingFolded { get; set; }
         public bool HangerSticker { get; set; }
         public string Labelling { get; set; }
-        public string WoovenLabel { get; set; }
+        public string WovenLabel { get; set; }
         public string WashingInstructions { get; set; }
         public int Quantity { get; set; }
         public decimal DiscountRate { get; set; }
@@ -87,6 +88,10 @@ namespace CriticalPath.Data
         public System.DateTime CreateDate { get; set; }
         public string CreatorId { get; set; }
         public string CreatorIp { get; set; }
+        public bool Closed { get; set; }
+        public string ClosedUserIp { get; set; }
+        public string ClosedUserId { get; set; }
+        public string InitialComments { get; set; }
     
         public virtual Product Product { get; set; }
         public virtual PurchaseOrder ParentPo { get; set; }
@@ -120,6 +125,8 @@ namespace CriticalPath.Data
         public virtual ICollection<POAttachment> Attachments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<POImage> Images { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<POShipment> Shipments { get; set; }
     	/// <summary>
     	/// Clones all properties in a new PurchaseOrder instance,
     	/// except PrimaryKey(s)
@@ -130,7 +137,7 @@ namespace CriticalPath.Data
             var clone = new PurchaseOrder();
             clone.PoNr = PoNr;
             clone.RefCode = RefCode;
-            clone.KimballNr = KimballNr;
+            clone.CustomerRefNr = CustomerRefNr;
             clone.OrderDate = OrderDate;
             clone.DueDate = DueDate;
             clone.IsRepeat = IsRepeat;
@@ -151,7 +158,7 @@ namespace CriticalPath.Data
             clone.ShipmentHangingFolded = ShipmentHangingFolded;
             clone.HangerSticker = HangerSticker;
             clone.Labelling = Labelling;
-            clone.WoovenLabel = WoovenLabel;
+            clone.WovenLabel = WovenLabel;
             clone.WashingInstructions = WashingInstructions;
             clone.Quantity = Quantity;
             clone.DiscountRate = DiscountRate;
@@ -190,6 +197,10 @@ namespace CriticalPath.Data
             clone.CreateDate = CreateDate;
             clone.CreatorId = CreatorId;
             clone.CreatorIp = CreatorIp;
+            clone.Closed = Closed;
+            clone.ClosedUserIp = ClosedUserIp;
+            clone.ClosedUserId = ClosedUserId;
+            clone.InitialComments = InitialComments;
     
             Cloning(clone);
     
@@ -211,7 +222,7 @@ namespace CriticalPath.Data
             Id = entity.Id;
             PoNr = entity.PoNr;
             RefCode = entity.RefCode;
-            KimballNr = entity.KimballNr;
+            CustomerRefNr = entity.CustomerRefNr;
             OrderDate = entity.OrderDate;
             DueDate = entity.DueDate;
             IsRepeat = entity.IsRepeat;
@@ -232,7 +243,7 @@ namespace CriticalPath.Data
             ShipmentHangingFolded = entity.ShipmentHangingFolded;
             HangerSticker = entity.HangerSticker;
             Labelling = entity.Labelling;
-            WoovenLabel = entity.WoovenLabel;
+            WovenLabel = entity.WovenLabel;
             WashingInstructions = entity.WashingInstructions;
             Quantity = entity.Quantity;
             DiscountRate = entity.DiscountRate;
@@ -260,6 +271,10 @@ namespace CriticalPath.Data
             Cancelled = entity.Cancelled;
             CancelDate = entity.CancelDate;
             CancellationReason = entity.CancellationReason;
+            Closed = entity.Closed;
+            ClosedUserIp = entity.ClosedUserIp;
+            ClosedUserId = entity.ClosedUserId;
+            InitialComments = entity.InitialComments;
         
             Initiliazing(entity);
         }
@@ -272,7 +287,7 @@ namespace CriticalPath.Data
             entity.Id = Id;
             entity.PoNr = PoNr;
             entity.RefCode = RefCode;
-            entity.KimballNr = KimballNr;
+            entity.CustomerRefNr = CustomerRefNr;
             entity.OrderDate = OrderDate;
             entity.DueDate = DueDate;
             entity.IsRepeat = IsRepeat;
@@ -293,7 +308,7 @@ namespace CriticalPath.Data
             entity.ShipmentHangingFolded = ShipmentHangingFolded;
             entity.HangerSticker = HangerSticker;
             entity.Labelling = Labelling;
-            entity.WoovenLabel = WoovenLabel;
+            entity.WovenLabel = WovenLabel;
             entity.WashingInstructions = WashingInstructions;
             entity.Quantity = Quantity;
             entity.DiscountRate = DiscountRate;
@@ -321,6 +336,10 @@ namespace CriticalPath.Data
             entity.Cancelled = Cancelled;
             entity.CancelDate = CancelDate;
             entity.CancellationReason = CancellationReason;
+            entity.Closed = Closed;
+            entity.ClosedUserIp = ClosedUserIp;
+            entity.ClosedUserId = ClosedUserId;
+            entity.InitialComments = InitialComments;
     
             Converting(entity);
     
@@ -332,7 +351,7 @@ namespace CriticalPath.Data
         public int Id { get; set; }
         public string PoNr { get; set; }
         public string RefCode { get; set; }
-        public string KimballNr { get; set; }
+        public string CustomerRefNr { get; set; }
         public System.DateTime OrderDate { get; set; }
         public Nullable<System.DateTime> DueDate { get; set; }
         public bool IsRepeat { get; set; }
@@ -353,7 +372,7 @@ namespace CriticalPath.Data
         public int ShipmentHangingFolded { get; set; }
         public bool HangerSticker { get; set; }
         public string Labelling { get; set; }
-        public string WoovenLabel { get; set; }
+        public string WovenLabel { get; set; }
         public string WashingInstructions { get; set; }
         public int Quantity { get; set; }
         public decimal DiscountRate { get; set; }
@@ -381,5 +400,9 @@ namespace CriticalPath.Data
         public bool Cancelled { get; set; }
         public Nullable<System.DateTime> CancelDate { get; set; }
         public string CancellationReason { get; set; }
+        public bool Closed { get; set; }
+        public string ClosedUserIp { get; set; }
+        public string ClosedUserId { get; set; }
+        public string InitialComments { get; set; }
     }
 }

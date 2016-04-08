@@ -114,38 +114,43 @@
 
 @echo .
 @echo .
-@echo 22 - Executing ProcessTemplate.sql...
+@echo 22 - Executing POShipment.sql...
+@sqlcmd -S .\SqlExpress -d CriticalPath -E -i POShipment.sql
+
+@echo .
+@echo .
+@echo 23 - Executing ProcessTemplate.sql...
 @sqlcmd -S .\SqlExpress -d CriticalPath -E -i ProcessTemplate.sql
 
 @echo .
 @echo .
-@echo 23 - Executing Process.sql...
+@echo 24 - Executing Process.sql...
 @sqlcmd -S .\SqlExpress -d CriticalPath -E -i Process.sql
 
 @echo .
 @echo .
-@echo 24 - Executing ProcessStepTemplate.sql...
+@echo 25 - Executing ProcessStepTemplate.sql...
 @sqlcmd -S .\SqlExpress -d CriticalPath -E -i ProcessStepTemplate.sql
 @sqlcmd -S .\SqlExpress -d CriticalPath -E -i ProcessTemplate-Data.sql
 
 @echo .
 @echo .
-@echo 25 - Executing ProcessStep.sql...
+@echo 26 - Executing ProcessStep.sql...
 @sqlcmd -S .\SqlExpress -d CriticalPath -E -i ProcessStep.sql
 
 @echo .
 @echo .
-@echo 26 - Executing ProcessStepRevision.sql...
+@echo 27 - Executing ProcessStepRevision.sql...
 @sqlcmd -S .\SqlExpress -d CriticalPath -E -i ProcessStepRevision.sql
 
 @echo .
 @echo .
-@echo 27 - Executing _FinishingSetup.sql...
+@echo 28 - Executing _FinishingSetup.sql...
 @sqlcmd -S .\SqlExpress -d CriticalPath -E -i _FinishingSetup.sql
 
 @echo .
 @echo .
-@echo 28 - Executing ProductSupplier.sql...
+@echo 29 - Executing ProductSupplier.sql...
 @sqlcmd -S .\SqlExpress -d CriticalPath -E -i ProductSupplier.sql
 
 @echo .

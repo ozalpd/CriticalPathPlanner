@@ -28,7 +28,7 @@ namespace CriticalPath.Web.Controllers
                            a.RefCode.Contains(qParams.SearchString) |
                            a.FabricComposition.Contains(qParams.SearchString) |
                            a.Colour.Contains(qParams.SearchString) |
-                           a.KimballNr.Contains(qParams.SearchString) |
+                           a.CustomerRefNr.Contains(qParams.SearchString) |
                            a.Description.Contains(qParams.SearchString) |
                            a.Customer.CompanyName.StartsWith(qParams.SearchString) |
                            a.CustomerDepartment.DepartmentName.StartsWith(qParams.SearchString) |
@@ -639,7 +639,7 @@ namespace CriticalPath.Web.Controllers
                 purchaseOrder.LicensorPrice = vm.LicensorPrice;
                 purchaseOrder.LicensorCurrencyId = vm.LicensorCurrencyId;
                 purchaseOrder.RefCode = vm.RefCode;
-                purchaseOrder.KimballNr = vm.KimballNr;
+                purchaseOrder.CustomerRefNr = vm.CustomerRefNr;
                 //purchaseOrder.LicensorId = vm.LicensorId;
 
                 purchaseOrder.ShipmentHangingFolded = vm.ShipmentHangingFolded;
@@ -647,7 +647,7 @@ namespace CriticalPath.Web.Controllers
                 purchaseOrder.FabricComposition = vm.FabricComposition;
                 purchaseOrder.Print = vm.Print;
                 purchaseOrder.Labelling = vm.Labelling;
-                purchaseOrder.WoovenLabel = vm.WoovenLabel;
+                purchaseOrder.WovenLabel = vm.WovenLabel;
                 purchaseOrder.HangerSticker = vm.HangerSticker;
                 purchaseOrder.WashingInstructions = vm.WashingInstructions;
 

@@ -304,6 +304,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add New POShipment.
+        /// </summary>
+        public static string AddNewPOShipment {
+            get {
+                return ResourceManager.GetString("AddNewPOShipment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add New POSize Ratio.
         /// </summary>
         public static string AddNewPOSizeRatio {
@@ -426,6 +435,15 @@ namespace CP.i8n {
         public static string AddPOImage {
             get {
                 return ResourceManager.GetString("AddPOImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add POShipment.
+        /// </summary>
+        public static string AddPOShipment {
+            get {
+                return ResourceManager.GetString("AddPOShipment", resourceCulture);
             }
         }
         
@@ -633,6 +651,15 @@ namespace CP.i8n {
         public static string AddRemovePOImage {
             get {
                 return ResourceManager.GetString("AddRemovePOImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Remove POShipment.
+        /// </summary>
+        public static string AddRemovePOShipment {
+            get {
+                return ResourceManager.GetString("AddRemovePOShipment", resourceCulture);
             }
         }
         
@@ -889,7 +916,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Buying Currency.
+        ///   Looks up a localized string similar to Factory Price Currency.
         /// </summary>
         public static string BuyingCurrency {
             get {
@@ -898,7 +925,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Buying Currency 2nd.
+        ///   Looks up a localized string similar to Factory Price Currency 2nd.
         /// </summary>
         public static string BuyingCurrency2 {
             get {
@@ -907,7 +934,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Buying Currency 2nd.
+        ///   Looks up a localized string similar to Factory Price Currency 2nd.
         /// </summary>
         public static string BuyingCurrency2Id {
             get {
@@ -916,7 +943,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Buying Currency.
+        ///   Looks up a localized string similar to Factory Price Currency.
         /// </summary>
         public static string BuyingCurrencyId {
             get {
@@ -925,7 +952,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Buying Price.
+        ///   Looks up a localized string similar to Factory Price.
         /// </summary>
         public static string BuyingPrice {
             get {
@@ -934,7 +961,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Buying Price 2nd.
+        ///   Looks up a localized string similar to Factory Price 2nd.
         /// </summary>
         public static string BuyingPrice2 {
             get {
@@ -1056,6 +1083,33 @@ namespace CP.i8n {
         public static string City {
             get {
                 return ResourceManager.GetString("City", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Closed.
+        /// </summary>
+        public static string Closed {
+            get {
+                return ResourceManager.GetString("Closed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Closed User Id.
+        /// </summary>
+        public static string ClosedUserId {
+            get {
+                return ResourceManager.GetString("ClosedUserId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Closed User Ip.
+        /// </summary>
+        public static string ClosedUserIp {
+            get {
+                return ResourceManager.GetString("ClosedUserIp", resourceCulture);
             }
         }
         
@@ -1330,6 +1384,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create POShipment.
+        /// </summary>
+        public static string CreatePOShipment {
+            get {
+                return ResourceManager.GetString("CreatePOShipment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create POSize Ratio.
         /// </summary>
         public static string CreatePOSizeRatio {
@@ -1600,6 +1663,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Kimball Nr.
+        /// </summary>
+        public static string CustomerRefNr {
+            get {
+                return ResourceManager.GetString("CustomerRefNr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Customers.
         /// </summary>
         public static string Customers {
@@ -1762,6 +1834,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete POShipment.
+        /// </summary>
+        public static string DeletePOShipment {
+            get {
+                return ResourceManager.GetString("DeletePOShipment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete POSize Ratio.
         /// </summary>
         public static string DeletePOSizeRatio {
@@ -1870,6 +1951,24 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delivery Date.
+        /// </summary>
+        public static string DeliveryDate {
+            get {
+                return ResourceManager.GetString("DeliveryDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delivery Nr.
+        /// </summary>
+        public static string DeliveryNr {
+            get {
+                return ResourceManager.GetString("DeliveryNr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Department Name.
         /// </summary>
         public static string DepartmentName {
@@ -1929,6 +2028,15 @@ namespace CP.i8n {
         public static string DesignerId {
             get {
                 return ResourceManager.GetString("DesignerId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Destination Nr.
+        /// </summary>
+        public static string DestinationNr {
+            get {
+                return ResourceManager.GetString("DestinationNr", resourceCulture);
             }
         }
         
@@ -2136,6 +2244,15 @@ namespace CP.i8n {
         public static string EditPOImage {
             get {
                 return ResourceManager.GetString("EditPOImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit POShipment.
+        /// </summary>
+        public static string EditPOShipment {
+            get {
+                return ResourceManager.GetString("EditPOShipment", resourceCulture);
             }
         }
         
@@ -2500,6 +2617,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Initial Comments.
+        /// </summary>
+        public static string InitialComments {
+            get {
+                return ResourceManager.GetString("InitialComments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Active.
         /// </summary>
         public static string IsActive {
@@ -2527,6 +2653,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Is Delivered.
+        /// </summary>
+        public static string IsDelivered {
+            get {
+                return ResourceManager.GetString("IsDelivered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Is Published.
         /// </summary>
         public static string IsPublished {
@@ -2545,11 +2680,11 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kimball Nr.
+        ///   Looks up a localized string similar to Is Shipped.
         /// </summary>
-        public static string KimballNr {
+        public static string IsShipped {
             get {
-                return ResourceManager.GetString("KimballNr", resourceCulture);
+                return ResourceManager.GetString("IsShipped", resourceCulture);
             }
         }
         
@@ -2626,7 +2761,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Licensor Price.
+        ///   Looks up a localized string similar to Licensor Price (Net).
         /// </summary>
         public static string LicensorPrice {
             get {
@@ -3000,6 +3135,33 @@ namespace CP.i8n {
         public static string PoNr {
             get {
                 return ResourceManager.GetString("PoNr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to POShipment.
+        /// </summary>
+        public static string POShipment {
+            get {
+                return ResourceManager.GetString("POShipment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to POShipments.
+        /// </summary>
+        public static string POShipments {
+            get {
+                return ResourceManager.GetString("POShipments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to POShipments List.
+        /// </summary>
+        public static string POShipmentsList {
+            get {
+                return ResourceManager.GetString("POShipmentsList", resourceCulture);
             }
         }
         
@@ -3490,6 +3652,15 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Remove POShipment.
+        /// </summary>
+        public static string RemovePOShipment {
+            get {
+                return ResourceManager.GetString("RemovePOShipment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remove POSize Ratio.
         /// </summary>
         public static string RemovePOSizeRatio {
@@ -3720,6 +3891,33 @@ namespace CP.i8n {
         public static string ShipmentHangingFolded {
             get {
                 return ResourceManager.GetString("ShipmentHangingFolded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shipments.
+        /// </summary>
+        public static string Shipments {
+            get {
+                return ResourceManager.GetString("Shipments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shipping Date.
+        /// </summary>
+        public static string ShippingDate {
+            get {
+                return ResourceManager.GetString("ShippingDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shipping Nr.
+        /// </summary>
+        public static string ShippingNr {
+            get {
+                return ResourceManager.GetString("ShippingNr", resourceCulture);
             }
         }
         
@@ -3967,7 +4165,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unit Price.
+        ///   Looks up a localized string similar to Unit (Gross) Price.
         /// </summary>
         public static string UnitPrice {
             get {
@@ -3976,7 +4174,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unit Price 2nd.
+        ///   Looks up a localized string similar to Unit (Gross) Price 2nd.
         /// </summary>
         public static string UnitPrice2 {
             get {
@@ -4003,11 +4201,11 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wooven Label.
+        ///   Looks up a localized string similar to Woven Label.
         /// </summary>
-        public static string WoovenLabel {
+        public static string WovenLabel {
             get {
-                return ResourceManager.GetString("WoovenLabel", resourceCulture);
+                return ResourceManager.GetString("WovenLabel", resourceCulture);
             }
         }
         

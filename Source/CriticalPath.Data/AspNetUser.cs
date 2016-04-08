@@ -27,6 +27,8 @@ namespace CriticalPath.Data
             this.ApprovedPurchaseOrders = new HashSet<PurchaseOrder>();
             this.CancelledPurchaseOrders = new HashSet<PurchaseOrder>();
             this.ProcessStepRevisions = new HashSet<ProcessStepRevision>();
+            this.POShipments = new HashSet<POShipment>();
+            this.POShipments1 = new HashSet<POShipment>();
         }
     
         public string Id { get; set; }
@@ -64,6 +66,10 @@ namespace CriticalPath.Data
         public virtual ICollection<PurchaseOrder> CancelledPurchaseOrders { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProcessStepRevision> ProcessStepRevisions { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<POShipment> POShipments { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<POShipment> POShipments1 { get; set; }
     	/// <summary>
     	/// Clones all properties in a new AspNetUser instance,
     	/// except PrimaryKey(s)

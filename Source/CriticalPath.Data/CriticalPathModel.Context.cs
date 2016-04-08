@@ -53,6 +53,7 @@ namespace CriticalPath.Data
         public virtual DbSet<EmployeePosition> EmployeePositions { get; set; }
         public virtual DbSet<POAttachment> POAttachments { get; set; }
         public virtual DbSet<POImage> POImages { get; set; }
+        public virtual DbSet<POShipment> POShipments { get; set; }
     
         /// <summary>
         /// Default query for AspNetUsers
@@ -672,6 +673,52 @@ namespace CriticalPath.Data
     
     
         /// <summary>
+        /// Default query for POShipments
+        /// </summary>
+        /// <returns></returns>
+        public virtual IQueryable<POShipment> GetPOShipmentQuery()
+        {
+            IQueryable<POShipment> query = POShipments;
+            return query;
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from POShipment query
+        /// </summary>
+        /// <param name="query">query to be converted</param>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<POShipmentDTO> GetPOShipmentDtoQuery()
+        {
+            return GetPOShipmentDtoQuery(GetPOShipmentQuery());
+        }
+    
+        /// <summary>
+        /// Gets a lighter data transfer object query from POShipment query
+        /// </summary>
+        /// <returns>Converted data transfer object query</returns>
+        public virtual IQueryable<POShipmentDTO> GetPOShipmentDtoQuery(IQueryable<POShipment> query)
+        {
+            return from e in query
+                   select new POShipmentDTO
+                   {
+                       Id = e.Id,
+                       ShippingNr = e.ShippingNr,
+                       ShippingDate = e.ShippingDate,
+                       DeliveryNr = e.DeliveryNr,
+                       DeliveryDate = e.DeliveryDate,
+                       DestinationNr = e.DestinationNr,
+                       RefCode = e.RefCode,
+                       CustomerRefNr = e.CustomerRefNr,
+                       Quantity = e.Quantity,
+                       IsShipped = e.IsShipped,
+                       IsDelivered = e.IsDelivered,
+                       PurchaseOrderId = e.PurchaseOrderId,
+                       FreightTermId = e.FreightTermId,
+                   };
+        }
+    
+    
+        /// <summary>
         /// Default query for POSizeRatios
         /// </summary>
         /// <returns></returns>
@@ -1045,7 +1092,7 @@ namespace CriticalPath.Data
                        Id = e.Id,
                        PoNr = e.PoNr,
                        RefCode = e.RefCode,
-                       KimballNr = e.KimballNr,
+                       CustomerRefNr = e.CustomerRefNr,
                        OrderDate = e.OrderDate,
                        DueDate = e.DueDate,
                        IsRepeat = e.IsRepeat,
@@ -1066,7 +1113,7 @@ namespace CriticalPath.Data
                        ShipmentHangingFolded = e.ShipmentHangingFolded,
                        HangerSticker = e.HangerSticker,
                        Labelling = e.Labelling,
-                       WoovenLabel = e.WoovenLabel,
+                       WovenLabel = e.WovenLabel,
                        WashingInstructions = e.WashingInstructions,
                        Quantity = e.Quantity,
                        DiscountRate = e.DiscountRate,
@@ -1094,6 +1141,10 @@ namespace CriticalPath.Data
                        Cancelled = e.Cancelled,
                        CancelDate = e.CancelDate,
                        CancellationReason = e.CancellationReason,
+                       Closed = e.Closed,
+                       ClosedUserIp = e.ClosedUserIp,
+                       ClosedUserId = e.ClosedUserId,
+                       InitialComments = e.InitialComments,
                    };
         }
     

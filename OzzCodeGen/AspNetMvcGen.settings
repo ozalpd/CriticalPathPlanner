@@ -2615,7 +2615,7 @@
           <UseForEdit>TextBox</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>KimballNr</Name>
+          <Name>CustomerRefNr</Name>
           <Exclude>false</Exclude>
           <UseInSearch>true</UseInSearch>
           <InIndexView>true</InIndexView>
@@ -2843,7 +2843,7 @@
           <UseForEdit>TextBox</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
-          <Name>WoovenLabel</Name>
+          <Name>WovenLabel</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>
@@ -3443,6 +3443,42 @@
           <UseForEdit>Standart</UseForEdit>
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
+          <Name>Closed</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>ClosedUserIp</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>ClosedUserId</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>false</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
           <Name>Images</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
@@ -3456,6 +3492,30 @@
         </AspNetMvcPropertySetting>
         <AspNetMvcPropertySetting>
           <Name>Attachments</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>InitialComments</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>Shipments</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>true</InIndexView>
@@ -3815,6 +3875,212 @@
       <DetailsView>false</DetailsView>
       <CreateView>false</CreateView>
       <EditView>false</EditView>
+      <BaseControllerName>BaseController</BaseControllerName>
+      <CreateRedirect>"Index"</CreateRedirect>
+      <EditRedirect>"Index"</EditRedirect>
+      <FillSelectListsMethod>SetSelectLists</FillSelectListsMethod>
+    </BaseEntitySetting>
+    <BaseEntitySetting xsi:type="AspNetMvcEntitySetting">
+      <Name>POShipment</Name>
+      <Exclude>false</Exclude>
+      <OverwriteExisting>false</OverwriteExisting>
+      <Properties>
+        <AspNetMvcPropertySetting>
+          <Name>ShippingNr</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>ShippingDate</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>DeliveryNr</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>DeliveryDate</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>DestinationNr</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>RefCode</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>CustomerRefNr</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>true</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>TextBox</UseForCreate>
+          <UseForEdit>TextBox</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>Quantity</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>IsShipped</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>IsDelivered</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>PurchaseOrderId</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>false</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>DropDownList</UseForCreate>
+          <UseForEdit>DropDownList</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>PurchaseOrder</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>FreightTermId</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>false</InIndexView>
+          <InDetailsView>false</InDetailsView>
+          <InCreateView>true</InCreateView>
+          <InEditView>true</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>DropDownList</UseForCreate>
+          <UseForEdit>DropDownList</UseForEdit>
+        </AspNetMvcPropertySetting>
+        <AspNetMvcPropertySetting>
+          <Name>FreightTerm</Name>
+          <Exclude>false</Exclude>
+          <UseInSearch>false</UseInSearch>
+          <InIndexView>true</InIndexView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
+          <HasValidation>true</HasValidation>
+          <UseForCreate>Standart</UseForCreate>
+          <UseForEdit>Standart</UseForEdit>
+        </AspNetMvcPropertySetting>
+      </Properties>
+      <ControllerName>POShipments</ControllerName>
+      <DataSetName>POShipments</DataSetName>
+      <SaveParameter>this</SaveParameter>
+      <ModelForIndex>POShipment</ModelForIndex>
+      <ModelForJson>POShipmentDTO</ModelForJson>
+      <ModelForCreate>POShipment</ModelForCreate>
+      <ModelForEdit>POShipment</ModelForEdit>
+      <RolesCanView>users</RolesCanView>
+      <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
+      <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
+      <RolesCanDelete>admin, supervisor</RolesCanDelete>
+      <GenerateController>true</GenerateController>
+      <GenerateActionForAutoComplete>true</GenerateActionForAutoComplete>
+      <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
+      <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
+      <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateGetEntityAction>true</GenerateGetEntityAction>
+      <GenerateGetEntityListAction>true</GenerateGetEntityListAction>
+      <GenerateCreateAction>true</GenerateCreateAction>
+      <GenerateDeleteAction>true</GenerateDeleteAction>
+      <GenerateEditAction>true</GenerateEditAction>
+      <GenerateDetailsAction>true</GenerateDetailsAction>
+      <IndexViewGeneration>HtmlTableWithButtonsAction</IndexViewGeneration>
+      <IndexView>true</IndexView>
+      <DetailsView>true</DetailsView>
+      <CreateView>true</CreateView>
+      <EditView>true</EditView>
       <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
