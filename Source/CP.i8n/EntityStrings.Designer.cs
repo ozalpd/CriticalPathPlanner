@@ -304,7 +304,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add New POShipment.
+        ///   Looks up a localized string similar to Add New Shipment.
         /// </summary>
         public static string AddNewPOShipment {
             get {
@@ -439,7 +439,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add POShipment.
+        ///   Looks up a localized string similar to Add Shipment.
         /// </summary>
         public static string AddPOShipment {
             get {
@@ -655,7 +655,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add Remove POShipment.
+        ///   Looks up a localized string similar to Add Remove Shipment.
         /// </summary>
         public static string AddRemovePOShipment {
             get {
@@ -1384,7 +1384,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Create POShipment.
+        ///   Looks up a localized string similar to Create Shipment.
         /// </summary>
         public static string CreatePOShipment {
             get {
@@ -1834,7 +1834,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Delete POShipment.
+        ///   Looks up a localized string similar to Delete Shipment.
         /// </summary>
         public static string DeletePOShipment {
             get {
@@ -2248,7 +2248,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit POShipment.
+        ///   Looks up a localized string similar to Edit Shipment.
         /// </summary>
         public static string EditPOShipment {
             get {
@@ -2653,7 +2653,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Is Delivered.
+        ///   Looks up a localized string similar to Delivered.
         /// </summary>
         public static string IsDelivered {
             get {
@@ -2680,7 +2680,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Is Shipped.
+        ///   Looks up a localized string similar to Shipped.
         /// </summary>
         public static string IsShipped {
             get {
@@ -3139,7 +3139,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to POShipment.
+        ///   Looks up a localized string similar to P.O. Shipment.
         /// </summary>
         public static string POShipment {
             get {
@@ -3148,7 +3148,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to POShipments.
+        ///   Looks up a localized string similar to P.O. Shipments.
         /// </summary>
         public static string POShipments {
             get {
@@ -3157,7 +3157,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to POShipments List.
+        ///   Looks up a localized string similar to P.O. Shipments List.
         /// </summary>
         public static string POShipmentsList {
             get {
@@ -3652,7 +3652,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Remove POShipment.
+        ///   Looks up a localized string similar to Remove Shipment.
         /// </summary>
         public static string RemovePOShipment {
             get {

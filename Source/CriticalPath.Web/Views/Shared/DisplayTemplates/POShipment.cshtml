@@ -7,12 +7,12 @@
 }
 @if (Model != null)
 {
-    <div style="min-width:152px;">
+    <div style="min-width:160px;">
         <span class="fontSize60pc">
             @Html.DisplayFor(m => m.IsShipped)
             @Html.DisplayFor(m => m.IsDelivered)
         </span>
         @Html.DisplayFor(m => m.ShippingDate) |
-        <div class="pull-right">@Model.Quantity</div>
+        <div class="pull-right">@Model.Quantity.ToString("###,###")</div>
     </div>
 }

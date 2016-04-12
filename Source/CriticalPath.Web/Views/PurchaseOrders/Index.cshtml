@@ -106,7 +106,7 @@
 }
 @if (totalCount > 0)
 {
-    <table class="table table-hover table-striped">
+    <table class="table table-striped table-bordered table-hover">
         <tr>
             <th class="hidden-print" width="20px">@ActionStrings.Action</th>
             <th title="Order Date / Cancel Status / Approve Status">
@@ -249,16 +249,31 @@
                 </td>
                 <td>@Html.DisplayFor(modelItem => item.Licensor)</td>
                 <td align="right">
-                    @Html.DisplayFor(modelItem => item.Quantity)
+                    @item.Quantity.ToString("###,###")
                     @{
                         grandTotal += item.Quantity;
                     }
                 </td>
                 <td>
-                    @foreach (var shipment in item.Shipments.OrderBy(s => s.ShippingDate))
+                    @if (item.Shipments.Any())
                     {
-                        @Html.DisplayFor(modelShipment => shipment)
+                        int total = 0;
+                        int shipped = 0;
+                        int delivered = 0;
+                        foreach (var shipment in item.Shipments.OrderBy(s => s.ShippingDate))
+                        {
+                            total += shipment.Quantity;
+                            shipped = shipment.IsShipped ? shipped + shipment.Quantity : shipped;
+                            delivered = shipment.IsDelivered ? delivered + shipment.Quantity : delivered;
+                            @Html.DisplayFor(modelShipment => shipment)
+                        }
+                        <div>
+                            <div title="Total Shipped" class="pull-left text-right" style="width:54px">@shipped.ToString("###,###") |</div>
+                            <div title="Total Delivered" class="pull-left text-right" style="width:53px">@delivered.ToString("###,###") |</div>
+                            <div title="Shipments Total" class="pull-right">@total.ToString("###,###")</div>
+                        </div>
                     }
+
                 </td>
                 @if (canSeeRestricted)
                 {

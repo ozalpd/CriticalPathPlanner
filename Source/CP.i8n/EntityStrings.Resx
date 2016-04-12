@@ -168,7 +168,7 @@
 	</data>
 
 	<data name="AddNewPOShipment" xml:space="preserve">
-		<value>Add New POShipment</value>
+		<value>Add New Shipment</value>
 	</data>
 
 	<data name="AddNewPOSizeRatio" xml:space="preserve">
@@ -228,7 +228,7 @@
 	</data>
 
 	<data name="AddPOShipment" xml:space="preserve">
-		<value>Add POShipment</value>
+		<value>Add Shipment</value>
 	</data>
 
 	<data name="AddPOSizeRatio" xml:space="preserve">
@@ -324,7 +324,7 @@
 	</data>
 
 	<data name="AddRemovePOShipment" xml:space="preserve">
-		<value>Add Remove POShipment</value>
+		<value>Add Remove Shipment</value>
 	</data>
 
 	<data name="AddRemovePOSizeRatio" xml:space="preserve">
@@ -648,7 +648,7 @@
 	</data>
 
 	<data name="CreatePOShipment" xml:space="preserve">
-		<value>Create POShipment</value>
+		<value>Create Shipment</value>
 	</data>
 
 	<data name="CreatePOSizeRatio" xml:space="preserve">
@@ -848,7 +848,7 @@
 	</data>
 
 	<data name="DeletePOShipment" xml:space="preserve">
-		<value>Delete POShipment</value>
+		<value>Delete Shipment</value>
 	</data>
 
 	<data name="DeletePOSizeRatio" xml:space="preserve">
@@ -1032,7 +1032,7 @@
 	</data>
 
 	<data name="EditPOShipment" xml:space="preserve">
-		<value>Edit POShipment</value>
+		<value>Edit Shipment</value>
 	</data>
 
 	<data name="EditPOSizeRatio" xml:space="preserve">
@@ -1212,7 +1212,7 @@
 	</data>
 
 	<data name="IsDelivered" xml:space="preserve">
-		<value>Is Delivered</value>
+		<value>Delivered</value>
 	</data>
 
 	<data name="IsPublished" xml:space="preserve">
@@ -1224,7 +1224,7 @@
 	</data>
 
 	<data name="IsShipped" xml:space="preserve">
-		<value>Is Shipped</value>
+		<value>Shipped</value>
 	</data>
 
 	<data name="Labelling" xml:space="preserve">
@@ -1428,15 +1428,15 @@
 	</data>
 
 	<data name="POShipment" xml:space="preserve">
-		<value>POShipment</value>
+		<value>P.O. Shipment</value>
 	</data>
 
 	<data name="POShipments" xml:space="preserve">
-		<value>POShipments</value>
+		<value>P.O. Shipments</value>
 	</data>
 
 	<data name="POShipmentsList" xml:space="preserve">
-		<value>POShipments List</value>
+		<value>P.O. Shipments List</value>
 	</data>
 
 	<data name="Position" xml:space="preserve">
@@ -1656,7 +1656,7 @@
 	</data>
 
 	<data name="RemovePOShipment" xml:space="preserve">
-		<value>Remove POShipment</value>
+		<value>Remove Shipment</value>
 	</data>
 
 	<data name="RemovePOSizeRatio" xml:space="preserve">

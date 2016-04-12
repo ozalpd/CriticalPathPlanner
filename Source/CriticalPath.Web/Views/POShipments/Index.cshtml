@@ -18,6 +18,10 @@
     int pageCount = ViewBag.pageCount;
 
     var title = EntityStrings.POShipments;
+
+    int total = 0;
+    int shipped = 0;
+    int delivered = 0;
 }
 <div class="row well hidden-print">
     <div class="col-md-8 col-sm-7">
@@ -51,8 +55,11 @@
                 <th>@Html.DisplayNameFor(model => model.PurchaseOrder)</th>
                 <th>@Html.DisplayNameFor(model => model.FreightTerm)</th>
             </tr>
-    @foreach (var item in Model)
-    {
+            @foreach (var item in Model)
+            {
+                total += item.Quantity;
+                shipped = item.IsShipped ? shipped + item.Quantity : shipped;
+                delivered = item.IsDelivered ? delivered + item.Quantity : delivered;
                 <tr>
                     <td class="hidden-print">
                         <div class="btn-group">
@@ -73,23 +80,34 @@
                                         </a>
                                     </li>
                                 }
-                        </ul>
-                    </div>
+                            </ul>
+                        </div>
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => item.ShippingNr)</td>
+                    <td align="right">@Html.DisplayFor(modelItem => item.ShippingDate)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DeliveryNr)</td>
+                    <td align="right">@Html.DisplayFor(modelItem => item.DeliveryDate)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DestinationNr)</td>
+                    <td>@Html.DisplayFor(modelItem => item.RefCode)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CustomerRefNr)</td>
+                    <td align="right">@item.Quantity.ToString("###,###")</td>
+                    <td>@Html.DisplayFor(modelItem => item.IsShipped)</td>
+                    <td>@Html.DisplayFor(modelItem => item.IsDelivered)</td>
+                    <td>@Html.DisplayFor(modelItem => item.PurchaseOrder)</td>
+                    <td>@Html.DisplayFor(modelItem => item.FreightTerm)</td>
+                </tr>
+            }
+            <tr class="bottom-row">
+                <td class="hidden-print"></td>
+                <td colspan="5">
+                    Total Records: @totalCount
+                    Seen: @Model.Count()
                 </td>
-                <td>@Html.DisplayFor(modelItem => item.ShippingNr)</td>
-                <td align="right">@Html.DisplayFor(modelItem => item.ShippingDate)</td>
-                <td>@Html.DisplayFor(modelItem => item.DeliveryNr)</td>
-                <td align="right">@Html.DisplayFor(modelItem => item.DeliveryDate)</td>
-                <td>@Html.DisplayFor(modelItem => item.DestinationNr)</td>
-                <td>@Html.DisplayFor(modelItem => item.RefCode)</td>
-                <td>@Html.DisplayFor(modelItem => item.CustomerRefNr)</td>
-                <td align="right">@Html.DisplayFor(modelItem => item.Quantity)</td>
-                <td>@Html.DisplayFor(modelItem => item.IsShipped)</td>
-                <td>@Html.DisplayFor(modelItem => item.IsDelivered)</td>
-                <td>@Html.DisplayFor(modelItem => item.PurchaseOrder)</td>
-                <td>@Html.DisplayFor(modelItem => item.FreightTerm)</td>
+                <td align="right" colspan="2">Total Quantities</td>
+                <td class="text-right">@total.ToString("###,###")</td>
+                <td class="text-right">@shipped.ToString("###,###")</td>
+                <td class="text-right">@delivered.ToString("###,###")</td>
             </tr>
-    }
         </table>
     </div>
 }

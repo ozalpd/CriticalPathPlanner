@@ -146,7 +146,7 @@
   </Vocab>
   <Vocab>
     <Name>AddNewPOShipment</Name>
-    <Translation>Add New POShipment</Translation>
+    <Translation>Add New Shipment</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNewPOSizeRatio</Name>
@@ -234,7 +234,7 @@
   </Vocab>
   <Vocab>
     <Name>AddPOShipment</Name>
-    <Translation>Add POShipment</Translation>
+    <Translation>Add Shipment</Translation>
   </Vocab>
   <Vocab>
     <Name>AddPOSizeRatio</Name>
@@ -338,7 +338,7 @@
   </Vocab>
   <Vocab>
     <Name>AddRemovePOShipment</Name>
-    <Translation>Add Remove POShipment</Translation>
+    <Translation>Add Remove Shipment</Translation>
   </Vocab>
   <Vocab>
     <Name>AddRemovePOSizeRatio</Name>
@@ -866,7 +866,7 @@
   </Vocab>
   <Vocab>
     <Name>CreatePOShipment</Name>
-    <Translation>Create POShipment</Translation>
+    <Translation>Create Shipment</Translation>
   </Vocab>
   <Vocab>
     <Name>CreatePOSizeRatio</Name>
@@ -1110,7 +1110,7 @@
   </Vocab>
   <Vocab>
     <Name>DeletePOShipment</Name>
-    <Translation>Delete POShipment</Translation>
+    <Translation>Delete Shipment</Translation>
   </Vocab>
   <Vocab>
     <Name>DeletePOSizeRatio</Name>
@@ -1374,7 +1374,7 @@
   </Vocab>
   <Vocab>
     <Name>EditPOShipment</Name>
-    <Translation>Edit POShipment</Translation>
+    <Translation>Edit Shipment</Translation>
   </Vocab>
   <Vocab>
     <Name>EditPOSizeRatio</Name>
@@ -1666,7 +1666,7 @@
   </Vocab>
   <Vocab>
     <Name>IsDelivered</Name>
-    <Translation>Is Delivered</Translation>
+    <Translation>Delivered</Translation>
   </Vocab>
   <Vocab>
     <Name>IsPublished</Name>
@@ -1678,7 +1678,7 @@
   </Vocab>
   <Vocab>
     <Name>IsShipped</Name>
-    <Translation>Is Shipped</Translation>
+    <Translation>Shipped</Translation>
   </Vocab>
   <Vocab>
     <Name>Labelling</Name>
@@ -2026,15 +2026,15 @@
   </Vocab>
   <Vocab>
     <Name>POShipment</Name>
-    <Translation>POShipment</Translation>
+    <Translation>P.O. Shipment</Translation>
   </Vocab>
   <Vocab>
     <Name>POShipments</Name>
-    <Translation>POShipments</Translation>
+    <Translation>P.O. Shipments</Translation>
   </Vocab>
   <Vocab>
     <Name>POShipmentsList</Name>
-    <Translation>POShipments List</Translation>
+    <Translation>P.O. Shipments List</Translation>
   </Vocab>
   <Vocab>
     <Name>Position</Name>
@@ -2310,7 +2310,7 @@
   </Vocab>
   <Vocab>
     <Name>RemovePOShipment</Name>
-    <Translation>Remove POShipment</Translation>
+    <Translation>Remove Shipment</Translation>
   </Vocab>
   <Vocab>
     <Name>RemovePOSizeRatio</Name>
