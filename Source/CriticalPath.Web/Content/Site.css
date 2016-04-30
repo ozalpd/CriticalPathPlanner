@@ -132,3 +132,96 @@ div.accordion .accordion-group .accordion-heading .accordion-toggle {
 .clsDatePicker {
     z-index: 10000 !important;
 }
+
+.modal-header-success {
+    color: #fff;
+    padding: 9px 15px;
+    border-bottom: 1px solid #eee;
+    background-color: #5cb85c;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.modal-header-warning {
+    color: #fff;
+    padding: 9px 15px;
+    border-bottom: 1px solid #eee;
+    background-color: #f0ad4e;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.modal-header-danger {
+    color: #fff;
+    padding: 9px 15px;
+    border-bottom: 1px solid #eee;
+    background-color: #d9534f;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.modal-header-info {
+    color: #fff;
+    padding: 9px 15px;
+    border-bottom: 1px solid #eee;
+    background-color: #5bc0de;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.modal-header-primary {
+    color: #fff;
+    padding: 9px 15px;
+    border-bottom: 1px solid #eee;
+    background-color: #428bca;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+div.modal-body .form-horizontal {
+    max-height: 75vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+@media screen and (max-height: 600px) {
+    div#dataInputModal .modal-header {
+        display: none;
+    }
+}
+@media screen and (min-height:601px) and (max-height: 640px) {
+    div#dataInputModal .modal-header {
+        padding:0 15px;
+    }
+    div#dataInputModal .modal-header button.close{
+        margin-top:10px;
+    }
+}
+@media screen and (min-height:641) and (max-height: 700px) {
+    div#dataInputModal .modal-header {
+        padding:8px 15px;
+    }
+    div#dataInputModal .modal-header button.close{
+        margin-top:12px;
+    }
+}
