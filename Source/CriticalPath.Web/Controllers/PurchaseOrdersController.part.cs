@@ -498,7 +498,7 @@ namespace CriticalPath.Web.Controllers
         }
 
         [Authorize(Roles = "admin, supervisor, clerk")]
-        public async Task<ActionResult> Edit(int? id)
+        public async Task<ActionResult> Edit(int? id, bool? modal)
         {
             if (id == null)
             {
@@ -512,19 +512,28 @@ namespace CriticalPath.Web.Controllers
             }
 
             await SetSupplierSelectList(purchaseOrder);
-            var purchaseOrderVM = new PurchaseOrderEditVM(purchaseOrder);
-            await SetSectListAsync(purchaseOrderVM);
-            return View(purchaseOrderVM);
+            var vm = new PurchaseOrderEditVM(purchaseOrder);
+            await SetSectListAsync(vm);
+            if (modal ?? false)
+            {
+                ViewBag.Modal = true;
+                return PartialView("_Edit", vm);
+            }
+            return View(vm);
         }
 
         [Authorize(Roles = "admin, supervisor, clerk")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(PurchaseOrderEditVM vm)
+        public async Task<ActionResult> Edit(PurchaseOrderEditVM vm, bool? modal)
         {
             PurchaseOrder purchaseOrder = await FindAsyncPurchaseOrder(vm.Id);
             await PutVmToPO(vm, purchaseOrder, false);
             await DataContext.SaveChangesAsync(this);
+            if (modal ?? false)
+            {
+                return Json(new { saved = true });
+            }
             return RedirectToAction("Details", new { id = vm.Id });
         }
 

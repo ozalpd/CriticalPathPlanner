@@ -92,7 +92,7 @@ div.accordion .accordion-group .accordion-heading .accordion-toggle {
 }
 
 .bottom-row {
-    background-color: #faf8f4;
+    background-color: #faf8f0;
     height: 40px;
     font-weight: bold;
 }
@@ -130,7 +130,11 @@ div.accordion .accordion-group .accordion-heading .accordion-toggle {
 }
 
 .clsDatePicker {
-    z-index: 10000 !important;
+    z-index: 22051 !important;
+}
+
+.navbar-fixed-top, .navbar-fixed-bottom {
+    z-index: 22501 !important;
 }
 
 .modal-header-success {
@@ -199,29 +203,43 @@ div.accordion .accordion-group .accordion-heading .accordion-toggle {
 }
 
 div.modal-body .form-horizontal {
-    max-height: 75vh;
+    max-height: 70vh;
     overflow-y: scroll;
     overflow-x: hidden;
 }
+
+.thumbInListWrapper {
+    max-height: 50px;
+    overflow: hidden;
+}
+
+    .thumbInListWrapper img {
+        margin-top: -9px;
+        width: 40px;
+    }
 
 @media screen and (max-height: 600px) {
     div#dataInputModal .modal-header {
         display: none;
     }
 }
+
 @media screen and (min-height:601px) and (max-height: 640px) {
     div#dataInputModal .modal-header {
-        padding:0 15px;
+        padding: 0 15px;
     }
-    div#dataInputModal .modal-header button.close{
-        margin-top:10px;
-    }
+
+        div#dataInputModal .modal-header button.close {
+            margin-top: 10px;
+        }
 }
+
 @media screen and (min-height:641) and (max-height: 700px) {
     div#dataInputModal .modal-header {
-        padding:8px 15px;
+        padding: 8px 15px;
     }
-    div#dataInputModal .modal-header button.close{
-        margin-top:12px;
-    }
+
+        div#dataInputModal .modal-header button.close {
+            margin-top: 12px;
+        }
 }

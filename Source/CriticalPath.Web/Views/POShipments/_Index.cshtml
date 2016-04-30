@@ -1,0 +1,135 @@
+@using CriticalPath.Web.Models
+@using CriticalPath.Data
+@using CP.i8n
+@model IEnumerable<POShipment>
+@{
+    ViewBag.Title = @EntityStrings.POShipments;
+
+    //Authorization Flags
+    bool canUserEdit = ViewBag.canUserEdit;
+    bool canUserCreate = ViewBag.canUserCreate;
+    bool canUserDelete = ViewBag.canUserDelete;
+    bool canSeeRestricted = ViewBag.canSeeRestricted;
+
+    //Records & Pager
+    int page = ViewBag.page;
+    int totalCount = ViewBag.totalCount;
+    int pageSize = ViewBag.pageSize;
+    int pageCount = ViewBag.pageCount;
+
+    var title = EntityStrings.POShipments;
+
+    bool modal = ViewBag.Modal ?? false;
+
+    int shipped = 0;
+    int delivered = 0;
+    int totalQuantity = 0;
+}
+@if (totalCount > 0)
+{
+    <table id="pOShipmentGrid" class="table table-striped table-bordered table-hover">
+        <tr>
+            @if (modal && canUserEdit)
+            {
+                <th class="hidden-print" width="20px"></th>
+            }
+            else if (!modal)
+            {
+                <th class="hidden-print" width="20px">@ActionStrings.Action</th>
+            }
+            <th>@Html.DisplayNameFor(model => model.ShippingNr)</th>
+            <th>@Html.DisplayNameFor(model => model.ShippingDate)</th>
+            <th>@Html.DisplayNameFor(model => model.DeliveryNr)</th>
+            <th>@Html.DisplayNameFor(model => model.DeliveryDate)</th>
+            <th>@Html.DisplayNameFor(model => model.DestinationNr)</th>
+            <th>@Html.DisplayNameFor(model => model.RefCode)</th>
+            <th>@Html.DisplayNameFor(model => model.CustomerRefNr)</th>
+            <th>@Html.DisplayNameFor(model => model.Quantity)</th>
+            <th>@Html.DisplayNameFor(model => model.IsShipped)</th>
+            <th>@Html.DisplayNameFor(model => model.IsDelivered)</th>
+            @if (!modal)
+                {
+                <th>@Html.DisplayNameFor(model => model.PurchaseOrder)</th>
+            }
+            <th>@Html.DisplayNameFor(model => model.FreightTerm)</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            totalQuantity += item.Quantity;
+            shipped = item.IsShipped ? shipped + item.Quantity : shipped;
+            delivered = item.IsDelivered ? delivered + item.Quantity : delivered;
+            <tr>
+                @if (modal && canUserEdit)
+                {
+                    <td class="hidden-print">
+                        <a href='@Url.Action("Edit", new { id = item.Id })' input-modal='@EntityStrings.EditPOShipment' title="@ActionStrings.Edit"><span class="glyphicon glyphicon-edit ml5"></span></a>
+                    </td>
+                }
+                else if (!modal)
+                    {
+                    <td class="hidden-print">
+                        <div class="btn-group">
+                            <button type="button" title="@ActionStrings.Action" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown" onclick='onActionMenuClick(this)'>
+                                <span class="glyphicon glyphicon-tasks"></span> <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>@Html.ActionLink(ActionStrings.Details, "Details", new { id = item.Id }, new { input_modal = ActionStrings.Details })</li>
+                                @if (canUserEdit)
+                                {
+                                    <li>@Html.ActionLink(ActionStrings.Edit, "Edit", new { id = item.Id }, new { input_modal = EntityStrings.EditPOShipment })</li>
+                                }
+                                @if (canUserDelete)
+                                {
+                                    <li>
+                                        <a href="#deleteConfirm" data-toggle="modal" onclick="setDelete('<b>@Html.Encode(item.ShippingNr)</b>', @item.Id);">
+                                            @ActionStrings.Delete
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </td>
+                }
+                <td>@Html.DisplayFor(modelItem => item.ShippingNr)</td>
+                <td align="right">@Html.DisplayFor(modelItem => item.ShippingDate)</td>
+                <td>@Html.DisplayFor(modelItem => item.DeliveryNr)</td>
+                <td align="right">@Html.DisplayFor(modelItem => item.DeliveryDate)</td>
+                <td>@Html.DisplayFor(modelItem => item.DestinationNr)</td>
+                <td>@Html.DisplayFor(modelItem => item.RefCode)</td>
+                <td>@Html.DisplayFor(modelItem => item.CustomerRefNr)</td>
+                <td align="right">@Html.DisplayFor(modelItem => item.Quantity)</td>
+                <td>@Html.DisplayFor(modelItem => item.IsShipped)</td>
+                <td>@Html.DisplayFor(modelItem => item.IsDelivered)</td>
+                @if (!modal)
+                    {
+                    <td>@Html.DisplayFor(modelItem => item.PurchaseOrder)</td>
+                }
+                <td>@Html.DisplayFor(modelItem => item.FreightTerm)</td>
+            </tr>
+        }
+        <tr class="bottom-row">
+            @{
+                int colSpan = (modal && canUserEdit) || !modal ? 6 : 5;
+            }
+            <td colspan="@colSpan">
+                Total Records: @totalCount
+                Seen: @Model.Count()
+            </td>
+            <td colspan="2">Total:</td>
+            <td align="right">@totalQuantity</td>
+            <td align="right">@shipped</td>
+            <td align="right">@delivered</td>
+        </tr>
+    </table>
+}
+else
+{
+    <h4>@MessageStrings.NoResults!</h4>
+}
+@Html.Partial("_PagerPartial")
+@if (modal)
+{
+    <script type="text/javascript">
+        setActionLinks();
+    </script>
+}

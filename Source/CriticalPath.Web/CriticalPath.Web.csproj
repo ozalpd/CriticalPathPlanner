@@ -632,6 +632,13 @@
     <Content Include="Views\POShipments\Edit.cshtml" />
     <Content Include="Views\POShipments\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\POShipment.cshtml" />
+    <Content Include="Views\POShipments\_Create.cshtml" />
+    <Content Include="Views\POShipments\_Details.cshtml" />
+    <Content Include="Views\POShipments\_Edit.cshtml" />
+    <Content Include="Views\PurchaseOrders\_Create.cshtml" />
+    <Content Include="Views\PurchaseOrders\_Details.cshtml" />
+    <Content Include="Views\PurchaseOrders\_Edit.cshtml" />
+    <Content Include="Views\POShipments\_Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Files\" />

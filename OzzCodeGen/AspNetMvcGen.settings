@@ -167,8 +167,11 @@
       <IndexViewGeneration>HtmlTableWithButtonsAction</IndexViewGeneration>
       <IndexView>true</IndexView>
       <DetailsView>true</DetailsView>
+      <DetailsPartialView>true</DetailsPartialView>
       <CreateView>true</CreateView>
+      <CreatePartialView>true</CreatePartialView>
       <EditView>true</EditView>
+      <EditPartialView>true</EditPartialView>
       <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
@@ -278,8 +281,11 @@
       <IndexViewGeneration>AgGridWithMenuAction</IndexViewGeneration>
       <IndexView>false</IndexView>
       <DetailsView>false</DetailsView>
+      <DetailsPartialView>true</DetailsPartialView>
       <CreateView>false</CreateView>
+      <CreatePartialView>true</CreatePartialView>
       <EditView>false</EditView>
+      <EditPartialView>true</EditPartialView>
       <BaseControllerName>BaseController</BaseControllerName>
       <Area>Admin</Area>
       <CreateRedirect>"Index"</CreateRedirect>
@@ -341,8 +347,11 @@
       <IndexViewGeneration>HtmlTableWithMenuAction</IndexViewGeneration>
       <IndexView>false</IndexView>
       <DetailsView>false</DetailsView>
+      <DetailsPartialView>true</DetailsPartialView>
       <CreateView>true</CreateView>
+      <CreatePartialView>true</CreatePartialView>
       <EditView>true</EditView>
+      <EditPartialView>true</EditPartialView>
       <BaseControllerName>BaseController</BaseControllerName>
       <Area>Admin</Area>
       <CreateRedirect>"Index"</CreateRedirect>
@@ -392,8 +401,11 @@
       <IndexViewGeneration>HtmlTableWithButtonsAction</IndexViewGeneration>
       <IndexView>false</IndexView>
       <DetailsView>false</DetailsView>
+      <DetailsPartialView>true</DetailsPartialView>
       <CreateView>false</CreateView>
+      <CreatePartialView>true</CreatePartialView>
       <EditView>false</EditView>
+      <EditPartialView>true</EditPartialView>
       <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
@@ -478,8 +490,11 @@
       <IndexViewGeneration>HtmlTableWithButtonsAction</IndexViewGeneration>
       <IndexView>false</IndexView>
       <DetailsView>false</DetailsView>
+      <DetailsPartialView>true</DetailsPartialView>
       <CreateView>false</CreateView>
+      <CreatePartialView>true</CreatePartialView>
       <EditView>false</EditView>
+      <EditPartialView>true</EditPartialView>
       <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
@@ -576,8 +591,11 @@
       <IndexViewGeneration>HtmlTableWithButtonsAction</IndexViewGeneration>
       <IndexView>false</IndexView>
       <DetailsView>false</DetailsView>
+      <DetailsPartialView>true</DetailsPartialView>
       <CreateView>false</CreateView>
+      <CreatePartialView>true</CreatePartialView>
       <EditView>false</EditView>
+      <EditPartialView>true</EditPartialView>
       <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
@@ -674,8 +692,11 @@
       <IndexViewGeneration>HtmlTableWithButtonsAction</IndexViewGeneration>
       <IndexView>false</IndexView>
       <DetailsView>false</DetailsView>
+      <DetailsPartialView>true</DetailsPartialView>
       <CreateView>false</CreateView>
+      <CreatePartialView>true</CreatePartialView>
       <EditView>false</EditView>
+      <EditPartialView>true</EditPartialView>
       <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
@@ -748,8 +769,11 @@
       <IndexViewGeneration>HtmlTableWithMenuAction</IndexViewGeneration>
       <IndexView>true</IndexView>
       <DetailsView>false</DetailsView>
+      <DetailsPartialView>true</DetailsPartialView>
       <CreateView>true</CreateView>
+      <CreatePartialView>true</CreatePartialView>
       <EditView>false</EditView>
+      <EditPartialView>true</EditPartialView>
       <BaseControllerName>BaseController</BaseControllerName>
       <Area>Admin</Area>
       <CreateRedirect>"Index"</CreateRedirect>
@@ -835,8 +859,11 @@
       <IndexViewGeneration>HtmlTableWithMenuAction</IndexViewGeneration>
       <IndexView>true</IndexView>
       <DetailsView>false</DetailsView>
+      <DetailsPartialView>true</DetailsPartialView>
       <CreateView>true</CreateView>
+      <CreatePartialView>true</CreatePartialView>
       <EditView>false</EditView>
+      <EditPartialView>true</EditPartialView>
       <BaseControllerName>BaseController</BaseControllerName>
       <Area>Admin</Area>
       <CreateRedirect>"Index"</CreateRedirect>
@@ -947,8 +974,11 @@
       <IndexViewGeneration>AgGridWithMenuAction</IndexViewGeneration>
       <IndexView>false</IndexView>
       <DetailsView>true</DetailsView>
+      <DetailsPartialView>true</DetailsPartialView>
       <CreateView>true</CreateView>
+      <CreatePartialView>true</CreatePartialView>
       <EditView>true</EditView>
+      <EditPartialView>true</EditPartialView>
       <BaseControllerName>BaseController</BaseControllerName>
       <Area>Admin</Area>
       <CreateRedirect>"Index"</CreateRedirect>
@@ -1022,8 +1052,11 @@
       <IndexViewGeneration>HtmlTableWithMenuAction</IndexViewGeneration>
       <IndexView>false</IndexView>
       <DetailsView>false</DetailsView>
+      <DetailsPartialView>true</DetailsPartialView>
       <CreateView>false</CreateView>
+      <CreatePartialView>true</CreatePartialView>
       <EditView>false</EditView>
+      <EditPartialView>true</EditPartialView>
       <BaseControllerName>BaseController</BaseControllerName>
       <Area>Admin</Area>
       <CreateRedirect>"Index"</CreateRedirect>
@@ -1110,8 +1143,11 @@
       <IndexViewGeneration>HtmlTableWithMenuAction</IndexViewGeneration>
       <IndexView>false</IndexView>
       <DetailsView>false</DetailsView>
+      <DetailsPartialView>true</DetailsPartialView>
       <CreateView>false</CreateView>
+      <CreatePartialView>true</CreatePartialView>
       <EditView>false</EditView>
+      <EditPartialView>true</EditPartialView>
       <BaseControllerName>BaseController</BaseControllerName>
       <Area>Admin</Area>
       <CreateRedirect>"Create", "Sizings", new { SizingStandardId = SizingStandardId }</CreateRedirect>
@@ -1343,8 +1379,11 @@
       <IndexViewGeneration>HtmlTableWithMenuAction</IndexViewGeneration>
       <IndexView>false</IndexView>
       <DetailsView>true</DetailsView>
+      <DetailsPartialView>true</DetailsPartialView>
       <CreateView>true</CreateView>
+      <CreatePartialView>true</CreatePartialView>
       <EditView>true</EditView>
+      <EditPartialView>true</EditPartialView>
       <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
@@ -1609,8 +1648,11 @@
       <IndexViewGeneration>HtmlTableWithButtonsAction</IndexViewGeneration>
       <IndexView>false</IndexView>
       <DetailsView>false</DetailsView>
+      <DetailsPartialView>true</DetailsPartialView>
       <CreateView>false</CreateView>
+      <CreatePartialView>true</CreatePartialView>
       <EditView>false</EditView>
+      <EditPartialView>true</EditPartialView>
       <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
@@ -1696,8 +1738,11 @@
       <IndexViewGeneration>HtmlTableWithMenuAction</IndexViewGeneration>
       <IndexView>false</IndexView>
       <DetailsView>true</DetailsView>
+      <DetailsPartialView>true</DetailsPartialView>
       <CreateView>true</CreateView>
+      <CreatePartialView>true</CreatePartialView>
       <EditView>true</EditView>
+      <EditPartialView>true</EditPartialView>
       <BaseControllerName>BaseCompaniesController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
@@ -1772,8 +1817,11 @@
       <IndexViewGeneration>HtmlTableWithMenuAction</IndexViewGeneration>
       <IndexView>true</IndexView>
       <DetailsView>false</DetailsView>
+      <DetailsPartialView>true</DetailsPartialView>
       <CreateView>false</CreateView>
+      <CreatePartialView>true</CreatePartialView>
       <EditView>false</EditView>
+      <EditPartialView>true</EditPartialView>
       <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index", new { customerId = customerDepartment.CustomerId }</CreateRedirect>
       <EditRedirect>"Index", new { customerId = customerDepartment.CustomerId }</EditRedirect>
@@ -1859,8 +1907,11 @@
       <IndexViewGeneration>HtmlTableWithMenuAction</IndexViewGeneration>
       <IndexView>false</IndexView>
       <DetailsView>true</DetailsView>
+      <DetailsPartialView>true</DetailsPartialView>
       <CreateView>true</CreateView>
+      <CreatePartialView>true</CreatePartialView>
       <EditView>true</EditView>
+      <EditPartialView>true</EditPartialView>
       <BaseControllerName>BaseCompaniesController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
@@ -1922,8 +1973,11 @@
       <IndexViewGeneration>HtmlTableWithMenuAction</IndexViewGeneration>
       <IndexView>false</IndexView>
       <DetailsView>false</DetailsView>
+      <DetailsPartialView>true</DetailsPartialView>
       <CreateView>false</CreateView>
+      <CreatePartialView>true</CreatePartialView>
       <EditView>false</EditView>
+      <EditPartialView>true</EditPartialView>
       <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
@@ -2009,8 +2063,11 @@
       <IndexViewGeneration>HtmlTableWithMenuAction</IndexViewGeneration>
       <IndexView>false</IndexView>
       <DetailsView>true</DetailsView>
+      <DetailsPartialView>true</DetailsPartialView>
       <CreateView>true</CreateView>
+      <CreatePartialView>true</CreatePartialView>
       <EditView>true</EditView>
+      <EditPartialView>true</EditPartialView>
       <BaseControllerName>BaseCompaniesController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
@@ -2119,8 +2176,11 @@
       <IndexViewGeneration>HtmlTableWithMenuAction</IndexViewGeneration>
       <IndexView>false</IndexView>
       <DetailsView>true</DetailsView>
+      <DetailsPartialView>true</DetailsPartialView>
       <CreateView>true</CreateView>
+      <CreatePartialView>true</CreatePartialView>
       <EditView>true</EditView>
+      <EditPartialView>true</EditPartialView>
       <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
@@ -2578,8 +2638,11 @@
       <IndexViewGeneration>HtmlTableWithMenuAction</IndexViewGeneration>
       <IndexView>false</IndexView>
       <DetailsView>false</DetailsView>
+      <DetailsPartialView>true</DetailsPartialView>
       <CreateView>false</CreateView>
+      <CreatePartialView>true</CreatePartialView>
       <EditView>false</EditView>
+      <EditPartialView>true</EditPartialView>
       <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
@@ -3554,8 +3617,11 @@
       <IndexViewGeneration>HtmlTableWithMenuAction</IndexViewGeneration>
       <IndexView>false</IndexView>
       <DetailsView>false</DetailsView>
+      <DetailsPartialView>true</DetailsPartialView>
       <CreateView>false</CreateView>
+      <CreatePartialView>true</CreatePartialView>
       <EditView>false</EditView>
+      <EditPartialView>true</EditPartialView>
       <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Details", new { id = entity.Id }</CreateRedirect>
       <EditRedirect>"Details", new { id = entity.Id }</EditRedirect>
@@ -3653,8 +3719,11 @@
       <IndexViewGeneration>HtmlTableWithMenuAction</IndexViewGeneration>
       <IndexView>true</IndexView>
       <DetailsView>true</DetailsView>
+      <DetailsPartialView>true</DetailsPartialView>
       <CreateView>true</CreateView>
+      <CreatePartialView>true</CreatePartialView>
       <EditView>true</EditView>
+      <EditPartialView>true</EditPartialView>
       <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Create"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
@@ -3775,8 +3844,11 @@
       <IndexViewGeneration>HtmlTableWithMenuAction</IndexViewGeneration>
       <IndexView>true</IndexView>
       <DetailsView>true</DetailsView>
+      <DetailsPartialView>true</DetailsPartialView>
       <CreateView>true</CreateView>
+      <CreatePartialView>true</CreatePartialView>
       <EditView>true</EditView>
+      <EditPartialView>true</EditPartialView>
       <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
@@ -3873,8 +3945,11 @@
       <IndexViewGeneration>HtmlTableWithButtonsAction</IndexViewGeneration>
       <IndexView>false</IndexView>
       <DetailsView>false</DetailsView>
+      <DetailsPartialView>true</DetailsPartialView>
       <CreateView>false</CreateView>
+      <CreatePartialView>true</CreatePartialView>
       <EditView>false</EditView>
+      <EditPartialView>true</EditPartialView>
       <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
@@ -4070,7 +4145,7 @@
       <GenerateActionForAutoComplete>true</GenerateActionForAutoComplete>
       <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
       <GenerateGetDtoQueryMethod>true</GenerateGetDtoQueryMethod>
-      <GenerateIndexAction>true</GenerateIndexAction>
+      <GenerateIndexAction>false</GenerateIndexAction>
       <GenerateGetEntityAction>true</GenerateGetEntityAction>
       <GenerateGetEntityListAction>true</GenerateGetEntityListAction>
       <GenerateCreateAction>false</GenerateCreateAction>
@@ -4078,10 +4153,13 @@
       <GenerateEditAction>false</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
       <IndexViewGeneration>HtmlTableWithMenuAction</IndexViewGeneration>
-      <IndexView>true</IndexView>
+      <IndexView>false</IndexView>
       <DetailsView>true</DetailsView>
+      <DetailsPartialView>true</DetailsPartialView>
       <CreateView>true</CreateView>
+      <CreatePartialView>true</CreatePartialView>
       <EditView>true</EditView>
+      <EditPartialView>true</EditPartialView>
       <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
@@ -4348,8 +4426,11 @@
       <IndexViewGeneration>AgGridWithMenuAction</IndexViewGeneration>
       <IndexView>false</IndexView>
       <DetailsView>true</DetailsView>
+      <DetailsPartialView>true</DetailsPartialView>
       <CreateView>false</CreateView>
+      <CreatePartialView>true</CreatePartialView>
       <EditView>false</EditView>
+      <EditPartialView>true</EditPartialView>
       <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index", "ProcessSteps", new { processId = process.Id, pageSize = process.ProcessSteps.Count }</CreateRedirect>
       <EditRedirect>"Details", new { id = process.Id }</EditRedirect>
@@ -4530,8 +4611,11 @@
       <IndexViewGeneration>HtmlTableWithMenuAction</IndexViewGeneration>
       <IndexView>true</IndexView>
       <DetailsView>true</DetailsView>
+      <DetailsPartialView>true</DetailsPartialView>
       <CreateView>false</CreateView>
+      <CreatePartialView>true</CreatePartialView>
       <EditView>true</EditView>
+      <EditPartialView>true</EditPartialView>
       <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
@@ -4641,8 +4725,11 @@
       <IndexViewGeneration>HtmlTableWithButtonsAction</IndexViewGeneration>
       <IndexView>true</IndexView>
       <DetailsView>false</DetailsView>
+      <DetailsPartialView>true</DetailsPartialView>
       <CreateView>false</CreateView>
+      <CreatePartialView>true</CreatePartialView>
       <EditView>false</EditView>
+      <EditPartialView>true</EditPartialView>
       <BaseControllerName>BaseController</BaseControllerName>
       <CreateRedirect>"Index"</CreateRedirect>
       <EditRedirect>"Index"</EditRedirect>
@@ -4716,8 +4803,11 @@
       <IndexViewGeneration>HtmlTableWithMenuAction</IndexViewGeneration>
       <IndexView>false</IndexView>
       <DetailsView>true</DetailsView>
+      <DetailsPartialView>true</DetailsPartialView>
       <CreateView>true</CreateView>
+      <CreatePartialView>true</CreatePartialView>
       <EditView>true</EditView>
+      <EditPartialView>true</EditPartialView>
       <BaseControllerName>BaseController</BaseControllerName>
       <Area>Admin</Area>
       <CreateRedirect>"Create", "ProcessStepTemplates", new { processTemplateId = processTemplate.Id }</CreateRedirect>
@@ -4876,8 +4966,11 @@
       <IndexViewGeneration>HtmlTableWithMenuAction</IndexViewGeneration>
       <IndexView>true</IndexView>
       <DetailsView>true</DetailsView>
+      <DetailsPartialView>true</DetailsPartialView>
       <CreateView>true</CreateView>
+      <CreatePartialView>true</CreatePartialView>
       <EditView>true</EditView>
+      <EditPartialView>true</EditPartialView>
       <BaseControllerName>BaseController</BaseControllerName>
       <Area>Admin</Area>
       <CreateRedirect>"Create", new { processTemplateId = processTemplateId }</CreateRedirect>

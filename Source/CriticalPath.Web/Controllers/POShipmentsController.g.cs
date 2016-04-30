@@ -57,62 +57,6 @@ namespace CriticalPath.Web.Controllers
         }
 
         [Authorize]
-        public async Task<ActionResult> Index(QueryParameters qParams)
-        {
-            var query = await GetPOShipmentQuery(qParams);
-            await PutCanUserInViewBag();
-			var result = new PagedList<POShipment>(qParams);
-            if (qParams.TotalCount > 0)
-            {
-                result.Items = await query.ToListAsync();
-            }
-
-            PutPagerInViewBag(result);
-            return View(result.Items);
-        }
-
-        protected override async Task<bool> CanUserCreate()
-        {
-            if (!_canUserCreate.HasValue)
-            {
-                _canUserCreate = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync() ||
-                                    await IsUserClerkAsync());
-            }
-            return _canUserCreate.Value;
-        }
-        bool? _canUserCreate;
-
-        protected override async Task<bool> CanUserEdit()
-        {
-            if (!_canUserEdit.HasValue)
-            {
-                _canUserEdit = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync() ||
-                                    await IsUserClerkAsync());
-            }
-            return _canUserEdit.Value;
-        }
-        bool? _canUserEdit;
-        
-        protected override async Task<bool> CanUserDelete()
-        {
-            if (!_canUserDelete.HasValue)
-            {
-                _canUserDelete = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync());
-            }
-            return _canUserDelete.Value;
-        }
-        bool? _canUserDelete;
-
-        
-        protected override Task<bool> CanUserSeeRestricted() { return Task.FromResult(true); }
-
-        [Authorize]
         public async Task<ActionResult> GetPOShipmentList(QueryParameters qParams)
         {
             var result = await GetPOShipmentDtoList(qParams);
@@ -131,21 +75,21 @@ namespace CriticalPath.Web.Controllers
         public async Task<JsonResult> GetPOShipmentsForAutoComplete(QueryParameters qParam)
         {
             var query = GetPOShipmentQuery()
-                        .Where(x => x.ModifierId.Contains(qParam.SearchString))
+                        .Where(x => x.ShippingNr.Contains(qParam.SearchString))
                         .Take(qParam.PageSize);
             var list = from x in query
                        select new
                        {
                            id = x.Id,
-                           value = x.ModifierId,
-                           label = x.ModifierId
+                           value = x.ShippingNr,
+                           label = x.ShippingNr
                        };
 
             return Json(await list.ToListAsync(), JsonRequestBehavior.AllowGet);
         }
 
         [Authorize]
-        public async Task<ActionResult> Details(int? id)  //GET: /POShipments/Details/5
+        public async Task<ActionResult> Details(int? id, bool? modal)
         {
             if (id == null)
             {
@@ -159,6 +103,10 @@ namespace CriticalPath.Web.Controllers
             }
 
             await PutCanUserInViewBag();
+            if (modal ?? false)
+            {
+                return PartialView("_Details", pOShipment);
+            }
             return View(pOShipment);
         }
 
@@ -182,7 +130,7 @@ namespace CriticalPath.Web.Controllers
 
 
         [Authorize(Roles = "admin, supervisor")]
-        public async Task<ActionResult> Delete(int? id)  //GET: /POShipments/Delete/5
+        public async Task<ActionResult> Delete(int? id)  //GET: /POShipments
         {
             if (id == null)
             {
@@ -204,7 +152,7 @@ namespace CriticalPath.Web.Controllers
             {
                 var sb = new StringBuilder();
                 sb.Append(MessageStrings.CanNotDelete);
-                sb.Append(pOShipment.ModifierId);
+                sb.Append(pOShipment.ShippingNr);
                 sb.Append("<br/>");
                 AppendExceptionMsg(ex, sb);
 

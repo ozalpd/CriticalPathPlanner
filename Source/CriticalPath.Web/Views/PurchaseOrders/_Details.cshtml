@@ -1,0 +1,585 @@
+@using CriticalPath.Web.Models
+@using CriticalPath.Data
+@using CP.i8n
+@model PurchaseOrder
+@{
+    bool modal = ViewBag.Modal ?? false;
+
+    //Authorization Flags
+    bool canUserEdit = ViewBag.canUserEdit ?? false;
+    bool canUserCreate = ViewBag.canUserCreate ?? false;
+    bool canUserDelete = ViewBag.canUserDelete ?? false;
+    bool canSeeRestricted = ViewBag.canSeeRestricted ?? false;
+}
+<div class="form-horizontal">
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.IsApproved)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.IsApproved)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.ApproveDate)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.ApproveDate)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.PoNr)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.PoNr)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.RefCode)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.RefCode)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.CustomerRefNr)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.CustomerRefNr)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.OrderDate)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.DueDate)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.DueDate)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.IsRepeat)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.IsRepeat)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.ParentPo)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.ParentPo)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.Designer)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.Designer)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.Merchandiser1)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.Merchandiser1)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.Merchandiser2)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.Merchandiser2)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.Product)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.Product)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.Description)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.Description)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.FabricComposition)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.FabricComposition)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.Colour)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.Colour)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.Print)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.Print)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.Labelling)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.Labelling)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.WovenLabel)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.WovenLabel)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.ShipmentHangingFolded)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.ShipmentHangingFolded)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.HangerSticker)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.HangerSticker)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.WashingInstructions)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.WashingInstructions)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.Quantity)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.Quantity)
+        </div>
+    </div>
+    @if (canSeeRestricted)
+    {
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.DiscountRate)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.DiscountRate)
+        </div>
+    </div>
+    }
+    @if (canSeeRestricted)
+    {
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.UnitPrice)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.UnitPrice)
+        </div>
+    </div>
+    }
+    @if (canSeeRestricted)
+    {
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.SellingCurrency)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.SellingCurrency)
+        </div>
+    </div>
+    }
+    @if (canSeeRestricted)
+    {
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.UnitPrice2)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.UnitPrice2)
+        </div>
+    </div>
+    }
+    @if (canSeeRestricted)
+    {
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.SellingCurrency2)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.SellingCurrency2)
+        </div>
+    </div>
+    }
+    @if (canSeeRestricted)
+    {
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.LicensorPrice)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.LicensorPrice)
+        </div>
+    </div>
+    }
+    @if (canSeeRestricted)
+    {
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.LicensorCurrency)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.LicensorCurrency)
+        </div>
+    </div>
+    }
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.BuyingPrice)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.BuyingPrice)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.BuyingCurrency)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.BuyingCurrency)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.BuyingPrice2)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.BuyingPrice2)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.BuyingCurrency2)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.BuyingCurrency2)
+        </div>
+    </div>
+    @if (canSeeRestricted)
+    {
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.RoyaltyFee)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.RoyaltyFee)
+        </div>
+    </div>
+    }
+    @if (canSeeRestricted)
+    {
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.RoyaltyCurrency)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.RoyaltyCurrency)
+        </div>
+    </div>
+    }
+    @if (canSeeRestricted)
+    {
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.RetailPrice)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.RetailPrice)
+        </div>
+    </div>
+    }
+    @if (canSeeRestricted)
+    {
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.RetailCurrency)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.RetailCurrency)
+        </div>
+    </div>
+    }
+    @if (canSeeRestricted)
+    {
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.Customer)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.Customer)
+        </div>
+    </div>
+    }
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.CustomerDepartment)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.CustomerDepartment)
+        </div>
+    </div>
+    @if (canSeeRestricted)
+    {
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.CustomerPoNr)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.CustomerPoNr)
+        </div>
+    </div>
+    }
+    @if (canSeeRestricted)
+    {
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.FreightTerm)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.FreightTerm)
+        </div>
+    </div>
+    }
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.Licensor)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.Licensor)
+        </div>
+    </div>
+    @if (canSeeRestricted)
+    {
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.Supplier)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.Supplier)
+        </div>
+    </div>
+    }
+    @if (canSeeRestricted)
+    {
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.SupplierDueDate)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.SupplierDueDate)
+        </div>
+    </div>
+    }
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.SizingStandard)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.SizingStandard)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.SizeRatioDivisor)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.SizeRatioDivisor)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.SizeRatios)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.SizeRatios)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.Notes)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.Notes)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.Cancelled)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.Cancelled)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.CancelDate)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.CancelDate)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.CancellationReason)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.CancellationReason)
+        </div>
+    </div>
+    @if (canSeeRestricted)
+    {
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.CancelledUserIp)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.CancelledUserIp)
+        </div>
+    </div>
+    }
+    @if (canSeeRestricted)
+    {
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.CancelledUser)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.CancelledUser)
+        </div>
+    </div>
+    }
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.Closed)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.Closed)
+        </div>
+    </div>
+    @if (canSeeRestricted)
+    {
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.ClosedUserIp)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.ClosedUserIp)
+        </div>
+    </div>
+    }
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.Images)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.Images)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.Attachments)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.Attachments)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.InitialComments)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.InitialComments)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.Shipments)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.Shipments)
+        </div>
+    </div>
+    @if (canSeeRestricted)
+    {
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.ApprovedUser)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.ApprovedUser)
+        </div>
+    </div>
+    }
+    @if (canSeeRestricted)
+    {
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.ModifiedUser)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.ModifiedUser)
+        </div>
+    </div>
+    }
+    @if (canSeeRestricted)
+    {
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.CreatedUser)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.CreatedUser)
+        </div>
+    </div>
+    }
+</div>

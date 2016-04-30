@@ -8,7 +8,7 @@
     var reqValRule = reqValidator == null ? null : reqValidator.GetClientValidationRules().FirstOrDefault();
     string reqAttrib = reqValRule == null ? string.Empty : string.Format("data-val-required='{0}'", reqValRule.ErrorMessage);
     var dtpName = "dtp" + htmlField;
-    string dateString = Model.HasValue ? Model.Value.ToString("yyyy.MM.dd") : "";
+    string dateString = Model.HasValue ? Model.Value.ToString("yyyy-MM-dd") : "";
     string viewMode = htmlField.ToLowerInvariant().Contains("birthday") ? ", defaultDate: -15y" : "";
     string divStyle = ViewData.ModelMetadata.IsNullableValueType ?
                         "max-width:300px;" :
@@ -16,7 +16,7 @@
 }
 <div class="input-group date" style='@divStyle' id="@htmlField-div" data-date="@dateString" data-date-format="yyyy.mm.dd" @viewMode>
     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-    <input type="text" value="@dateString" id="@htmlField" name="@htmlField" class="form-control" autocomplete="off" @Html.Raw(reqAttrib)>
+    <input type="text" value="@dateString" id="@htmlField" name="@htmlField" class="form-control clsDatePicker" autocomplete="off" @Html.Raw(reqAttrib)>
     @if (ViewData.ModelMetadata.IsNullableValueType)
     {
         <span class="input-group-btn" style="width:35%;">
@@ -25,5 +25,5 @@
     }
 </div>
 <script>
-   @dtpName = $('#@htmlField').datepicker({dateFormat: "yy.mm.dd" });
+   @dtpName = $('#@htmlField').datepicker({dateFormat: "yy-mm-dd", numberOfMonths: 2 });
 </script>

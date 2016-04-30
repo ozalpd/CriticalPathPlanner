@@ -1,0 +1,410 @@
+@using CriticalPath.Web.Models
+@using CriticalPath.Data
+@using CP.i8n
+@model PurchaseOrderDTO
+@{
+    bool modal = ViewBag.Modal ?? false;
+}
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "dataInputForm" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.Id)
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.PoNr, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.TextBoxFor(m => m.PoNr, new { @class = "form-control", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.PoNr, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.RefCode, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.TextBoxFor(m => m.RefCode, new { @class = "form-control", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.RefCode, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.CustomerRefNr, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.TextBoxFor(m => m.CustomerRefNr, new { @class = "form-control", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.CustomerRefNr, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.OrderDate, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.EditorFor(m => m.OrderDate, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                @Html.ValidationMessageFor(m => m.OrderDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.DueDate, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.EditorFor(m => m.DueDate, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                @Html.ValidationMessageFor(m => m.DueDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.DesignerId, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.DropDownListFor(m => m.DesignerId, null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.DesignerId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Merchandiser1Id, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.DropDownListFor(m => m.Merchandiser1Id, null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Merchandiser1Id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Merchandiser2Id, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.DropDownListFor(m => m.Merchandiser2Id, null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Merchandiser2Id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProductId, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.DropDownListFor(m => m.ProductId, null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ProductId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.TextBoxFor(m => m.Description, new { @class = "form-control", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.FabricComposition, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.TextBoxFor(m => m.FabricComposition, new { @class = "form-control", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.FabricComposition, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Colour, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.TextBoxFor(m => m.Colour, new { @class = "form-control", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.Colour, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Print, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.TextBoxFor(m => m.Print, new { @class = "form-control", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.Print, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Labelling, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.TextBoxFor(m => m.Labelling, new { @class = "form-control", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.Labelling, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.WovenLabel, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.EditorFor(m => m.WovenLabel, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                @Html.ValidationMessageFor(m => m.WovenLabel, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ShipmentHangingFolded, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.EditorFor(m => m.ShipmentHangingFolded, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                @Html.ValidationMessageFor(m => m.ShipmentHangingFolded, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.HangerSticker, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.EditorFor(m => m.HangerSticker, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                @Html.ValidationMessageFor(m => m.HangerSticker, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.WashingInstructions, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.TextBoxFor(m => m.WashingInstructions, new { @class = "form-control", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.WashingInstructions, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Quantity, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.EditorFor(m => m.Quantity, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                @Html.ValidationMessageFor(m => m.Quantity, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.DiscountRate, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.EditorFor(m => m.DiscountRate, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                @Html.ValidationMessageFor(m => m.DiscountRate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.UnitPrice, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.EditorFor(m => m.UnitPrice, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                @Html.ValidationMessageFor(m => m.UnitPrice, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.SellingCurrencyId, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.DropDownListFor(m => m.SellingCurrencyId, null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.SellingCurrencyId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.UnitPrice2, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.EditorFor(m => m.UnitPrice2, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                @Html.ValidationMessageFor(m => m.UnitPrice2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.SellingCurrency2Id, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.DropDownListFor(m => m.SellingCurrency2Id, null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.SellingCurrency2Id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.LicensorPrice, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.EditorFor(m => m.LicensorPrice, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                @Html.ValidationMessageFor(m => m.LicensorPrice, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.LicensorCurrencyId, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.DropDownListFor(m => m.LicensorCurrencyId, null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.LicensorCurrencyId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.BuyingPrice, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.EditorFor(m => m.BuyingPrice, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                @Html.ValidationMessageFor(m => m.BuyingPrice, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.BuyingCurrencyId, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.DropDownListFor(m => m.BuyingCurrencyId, null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.BuyingCurrencyId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.BuyingPrice2, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.EditorFor(m => m.BuyingPrice2, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                @Html.ValidationMessageFor(m => m.BuyingPrice2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.BuyingCurrency2Id, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.DropDownListFor(m => m.BuyingCurrency2Id, null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.BuyingCurrency2Id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.RoyaltyFee, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.EditorFor(m => m.RoyaltyFee, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                @Html.ValidationMessageFor(m => m.RoyaltyFee, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.RoyaltyCurrencyId, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.DropDownListFor(m => m.RoyaltyCurrencyId, null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.RoyaltyCurrencyId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.RetailPrice, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.EditorFor(m => m.RetailPrice, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                @Html.ValidationMessageFor(m => m.RetailPrice, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.RetailCurrencyId, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.DropDownListFor(m => m.RetailCurrencyId, null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.RetailCurrencyId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.CustomerId, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.DropDownListFor(m => m.CustomerId, null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.CustomerId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.CustomerDepartmentId, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.DropDownListFor(m => m.CustomerDepartmentId, null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.CustomerDepartmentId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.CustomerPoNr, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.TextBoxFor(m => m.CustomerPoNr, new { @class = "form-control", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.CustomerPoNr, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.FreightTermId, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.DropDownListFor(m => m.FreightTermId, null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.FreightTermId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.LicensorId, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.DropDownListFor(m => m.LicensorId, null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.LicensorId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.SupplierId, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.DropDownListFor(m => m.SupplierId, null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.SupplierId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.SupplierDueDate, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.EditorFor(m => m.SupplierDueDate, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                @Html.ValidationMessageFor(m => m.SupplierDueDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.SizingStandardId, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.DropDownListFor(m => m.SizingStandardId, null, ActionStrings.SelectPlease, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.SizingStandardId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.SizeRatioDivisor, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.EditorFor(m => m.SizeRatioDivisor, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                @Html.ValidationMessageFor(m => m.SizeRatioDivisor, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.SizeRatios, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.EditorFor(m => m.SizeRatios, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                @Html.ValidationMessageFor(m => m.SizeRatios, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Notes, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-7 col-md-8 col-sm-9">
+                @Html.TextAreaFor(m => m.Notes, 4, 1, new { @class = "form-control", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.Notes, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cancelled, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.EditorFor(m => m.Cancelled, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                @Html.ValidationMessageFor(m => m.Cancelled, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.CancelDate, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.EditorFor(m => m.CancelDate, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                @Html.ValidationMessageFor(m => m.CancelDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.CancellationReason, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.TextBoxFor(m => m.CancellationReason, new { @class = "form-control", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.CancellationReason, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Closed, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.EditorFor(m => m.Closed, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                @Html.ValidationMessageFor(m => m.Closed, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ClosedUserIp, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.TextBoxFor(m => m.ClosedUserIp, new { @class = "form-control", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.ClosedUserIp, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ClosedUserId, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.TextBoxFor(m => m.ClosedUserId, new { @class = "form-control", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.ClosedUserId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Images, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.EditorFor(m => m.Images, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                @Html.ValidationMessageFor(m => m.Images, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Attachments, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.EditorFor(m => m.Attachments, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                @Html.ValidationMessageFor(m => m.Attachments, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.InitialComments, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.TextBoxFor(m => m.InitialComments, new { @class = "form-control", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.InitialComments, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Shipments, htmlAttributes: new { @class = "control-label col-lg-2 col-md-3 col-sm-3" })
+            <div class="col-lg-5 col-md-6 col-sm-7">
+                @Html.EditorFor(m => m.Shipments, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+                @Html.ValidationMessageFor(m => m.Shipments, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @if (modal)
+        {
+            <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+        }
+        else
+        {
+            @Html.Partial("_SaveButtonsPartial")
+        }
+    </div>
+}

@@ -150,7 +150,7 @@
                             <li>@Html.ActionLink(ActionStrings.Details, "Details", new { id = item.Id })</li>
                             @if (canUserEdit)
                             {
-                                <li>@Html.ActionLink(ActionStrings.Edit, "Edit", new { id = item.Id })</li>
+                                <li>@Html.ActionLink(ActionStrings.Edit, "Edit", new { id = item.Id }, new { input_modal = EntityStrings.EditPurchaseOrder })</li>
                             }
                             @if (!item.IsApproved && canUserDelete)
                             {
@@ -164,9 +164,13 @@
                             {
                                 <li class="divider"></li>
                                 <li>@Html.ActionLink(EntityStrings.AddPOImage, "Create", "POImages", new { purchaseOrderId = item.Id }, null)</li>
-                                <li>@Html.ActionLink(EntityStrings.AddPOShipment, "Create", "POShipments", new { purchaseOrderId = item.Id }, null)</li>
+                                <li class="divider"></li>
+                                <li>@Html.ActionLink(EntityStrings.AddPOShipment, "Create", "POShipments", new { purchaseOrderId = item.Id }, new { input_modal = EntityStrings.AddPOShipment })</li>
                             }
-                            <li>@Html.ActionLink(EntityStrings.POShipmentsList, "Index", "POShipments", new { purchaseOrderId = item.Id }, null)</li>
+                            @if (item.Shipments.Count > 0)
+                            {
+                                <li>@Html.ActionLink(EntityStrings.POShipmentsList, "Index", "POShipments", new { purchaseOrderId = item.Id }, new { input_modal = EntityStrings.POShipmentsList })</li>
+                            }
                             @if (canUserCreate)
                             {
                                 <li class="divider"></li>
@@ -220,9 +224,9 @@
                 <td>
                     @if (!string.IsNullOrEmpty(item.Product?.ImageUrl))
                     {
-                        <label class="btn pt0 pb0 pl0 pr0" style="max-height:53px;overflow:hidden;"
+                        <label class="btn pt0 pb0 pl0 pr0 thumbInListWrapper"
                                onclick="showImage('@Html.Encode(item.Product.ProductCode)', '@AppSettings.Urls.ProductImages/@item.Product.ImageUrl', false)">
-                            <img src="@AppSettings.Urls.ThumbImages/@item.Product.ImageUrl" style="width:40px;" />
+                            <img src="@AppSettings.Urls.ThumbImages/@item.Product.ImageUrl" />
                         </label>
                     }
                     @Html.DisplayFor(modelItem => item.Product)
@@ -267,7 +271,8 @@
                             delivered = shipment.IsDelivered ? delivered + shipment.Quantity : delivered;
                             @Html.DisplayFor(modelShipment => shipment)
                         }
-                        <div>
+                        <div class="pb25">
+                            <hr class="mt2 mb2" />
                             <div title="Total Shipped" class="pull-left text-right" style="width:54px">@shipped.ToString("###,###") |</div>
                             <div title="Total Delivered" class="pull-left text-right" style="width:53px">@delivered.ToString("###,###") |</div>
                             <div title="Shipments Total" class="pull-right">@total.ToString("###,###")</div>
@@ -305,35 +310,69 @@
             }
         </tr>
     </table>
-                        }
-                        else
-                        {
-                            <h4>@MessageStrings.NoResults!</h4>
-                        }
+}
+else
+{
+    <h4>@MessageStrings.NoResults!</h4>
+}
 @Html.Partial("_PagerPartial")
 @Html.Partial("_MessageBoxPartial")
 @section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
     @Html.Partial("_IndexScriptsPartial", "PurchaseOrders")
     <script type="text/javascript">
-        $('#CustomerId').change(function () {
-            var customerId = $(this).val();
-            var targetSelect = $('#CustomerDepartmentId');
-            targetSelect.empty();
-            targetSelect.append($('<option/>', {
-                value: '',
-                text: 'All Departments'
-            }));
-            if (customerId != null && customerId != '') {
-                $.getJSON('/CustomerDepartments/GetCustomerDepartmentList', { customerId: customerId, pageSize: 100 }, function (customerDepartments) {
-                    $.each(customerDepartments, function (index, customerDepartment) {
-                        targetSelect.append($('<option/>', {
-                            value: customerDepartment.Id,
-                            text: customerDepartment.DepartmentName
-                        }));
+        (function () {
+            $.ajaxSetup({
+                cache: false
+            });
+            setActionLinks();
+            $('#CustomerId').change(function () {
+                var customerId = $(this).val();
+                var targetSelect = $('#CustomerDepartmentId');
+                targetSelect.empty();
+                targetSelect.append($('<option/>', {
+                    value: '',
+                    text: 'All Departments'
+                }));
+                if (customerId != null && customerId != '') {
+                    $.getJSON('/CustomerDepartments/GetCustomerDepartmentList', { customerId: customerId, pageSize: 100 }, function (customerDepartments) {
+                        $.each(customerDepartments, function (index, customerDepartment) {
+                            targetSelect.append($('<option/>', {
+                                value: customerDepartment.Id,
+                                text: customerDepartment.DepartmentName
+                            }));
+                        });
                     });
+                }
+            });
+        }());
+        function setActionLinks() {
+            $('a[input-modal]').on('click', function (params) {
+                if (params.ctrlKey || params.metaKey || params.altKey) {
+                    return true;
+                }
+                showMessageBox('@MessageStrings.Loading...', '@MessageStrings.PleaseWait.', false);
+                var title = $(this).attr("input-modal");
+                var url = this.href;
+                url += (url.indexOf('?') == -1) ? '?' : '&';
+                url += 'modal=true';
+                $('#dataInputBody').load(url, function () {
+                    hideMessageBox();
+                    if (title != null || title != '') {
+                        $('#dataInputTitle').html(title);
+                    }
+                    var inputForm = document.getElementById('dataInputForm');
+                    if (isNaN(inputForm)) {
+                        $('#dataInputFooter').show();
+                    }
+                    else {
+                        $('#dataInputFooter').hide();
+                    }
+                    $('#dataInputModal').modal('show');
                 });
-            }
-        });
+                return false;
+            });
+        }
         function toogleAccordionSign() {
             if ($('#filterPanel').hasClass('in')) {
                 $('#filterPanelSign').removeClass('glyphicon-minus').addClass('glyphicon-plus');
