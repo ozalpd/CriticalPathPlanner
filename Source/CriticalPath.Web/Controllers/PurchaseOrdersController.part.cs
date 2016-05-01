@@ -167,8 +167,8 @@ namespace CriticalPath.Web.Controllers
         {
             if (qParams.Cancelled == null)
                 qParams.Cancelled = false;
-            if (qParams.IsApproved == null)
-                qParams.IsApproved = false;
+            if (!(await CanUserSeeRestricted()))
+                qParams.IsApproved = true;
 
             var query = await GetPurchaseOrderQuery(qParams);
             await PutCanUserInViewBag();
@@ -177,13 +177,16 @@ namespace CriticalPath.Web.Controllers
             {
                 result.Items = await query.ToListAsync();
             }
-            ViewBag.FilterPanelExpanded = (qParams.CustomerId.HasValue || qParams.CustomerDepartmentId.HasValue ||
+            ViewBag.FilterPanelExpanded = !qParams.Collapsed && (qParams.CustomerId.HasValue || qParams.CustomerDepartmentId.HasValue ||
                                         qParams.DueDateMin.HasValue || qParams.DueDateMax.HasValue || qParams.HideRestricted ||
-                                        qParams.MerchandiserId.HasValue || qParams.DesignerId.HasValue || 
+                                        qParams.MerchandiserId.HasValue || qParams.DesignerId.HasValue ||
+                                        qParams.OrderDateMin.HasValue || qParams.OrderDateMax.HasValue ||
+                                        qParams.DueDateMin.HasValue || qParams.DueDateMax.HasValue ||
+                                        qParams.SupplierDueDateMin.HasValue || qParams.SupplierDueDateMax.HasValue ||
                                         qParams.SupplierId.HasValue || qParams.PageSize != 20);
 
-            ViewBag.HideRestricted = qParams.HideRestricted;
             PutPagerInViewBag(result);
+            ViewBag.qParams = qParams;
 
             await SetCustomerDepartmentSelectListAsync(qParams.CustomerId ?? 0, qParams.CustomerDepartmentId ?? 0);
             await SetCustomerSelectListAsync(qParams.CustomerId ?? 0);
@@ -716,6 +719,10 @@ namespace CriticalPath.Web.Controllers
         {
             public bool HideRestricted { get; set; }
             public int? MerchandiserId { get; set; }
+            /// <summary>
+            /// Is filter area collapsed
+            /// </summary>
+            public bool Collapsed { get; set; }
         }
     }
 }

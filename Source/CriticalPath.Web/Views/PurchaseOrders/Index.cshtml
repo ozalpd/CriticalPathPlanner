@@ -1,5 +1,6 @@
 @using CriticalPath.Web.Models
 @using CriticalPath.Data
+@using CriticalPath.Web.Controllers
 @using CP.i8n
 @model IEnumerable<PurchaseOrder>
 @{
@@ -9,9 +10,11 @@
     bool canUserEdit = ViewBag.canUserEdit;
     bool canUserCreate = ViewBag.canUserCreate;
     bool canUserDelete = ViewBag.canUserDelete;
-    bool canSeeRestricted = ViewBag.canSeeRestricted && !ViewBag.HideRestricted;
     bool canUserApprove = ViewBag.canUserApprove;
     bool canUserCancelPO = ViewBag.canUserCancelPO;
+
+    PurchaseOrdersController.QueryParameters qParams = ViewBag.qParams;
+    bool canSeeRestricted = ViewBag.canSeeRestricted && !qParams.HideRestricted;
 
     //Records & Pager
     int page = ViewBag.page;
@@ -19,12 +22,21 @@
     int pageCount = ViewBag.pageCount;
     int grandTotal = 0;
 
+    string dateFormat = "yyyy-MM-dd";
+    string orderDateMin = qParams.OrderDateMin.HasValue ? qParams.OrderDateMin.Value.ToString(dateFormat) : string.Empty;
+    string orderDateMax = qParams.OrderDateMax.HasValue ? qParams.OrderDateMax.Value.ToString(dateFormat) : string.Empty;
+    string dueDateMin = qParams.DueDateMin.HasValue ? qParams.DueDateMin.Value.ToString(dateFormat) : string.Empty;
+    string dueDateMax = qParams.DueDateMax.HasValue ? qParams.DueDateMax.Value.ToString(dateFormat) : string.Empty;
+    string supplierDueDateMin = qParams.SupplierDueDateMin.HasValue ? qParams.SupplierDueDateMin.Value.ToString(dateFormat) : string.Empty;
+    string supplierDueDateMax = qParams.SupplierDueDateMax.HasValue ? qParams.SupplierDueDateMax.Value.ToString(dateFormat) : string.Empty;
+
     string filterPanelClass = ViewBag.FilterPanelExpanded ? "accordion-body collapse in" : "accordion-body collapse";
     string filterButtonClass = ViewBag.FilterPanelExpanded ? "glyphicon glyphicon-minus" : "glyphicon glyphicon-plus";
 }
 @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "searchForm" }))
 {
     @Html.Hidden("page", page)
+    @Html.Hidden("collapsed")
     <div class="well hidden-print">
         <div class="accordion">
             <div id="filterAccordion" class="accordion-group row">
@@ -32,17 +44,32 @@
                     <div class="col-md-4">
                         <h4>@EntityStrings.PurchaseOrders</h4>
                     </div>
-                    <div class="col-sm-3 col-md-2">
-                        <div class="checkbox ml20 mt0">
-                            @Html.CheckBox("IsApproved")
-                            @EntityStrings.IsApproved
-                        </div>
-                        <div class="checkbox ml20">
-                            @Html.CheckBox("Cancelled")
-                            @EntityStrings.Cancelled
+                    <div class="col-sm-5 col-sm-offset-1 col-md-4 col-md-offset-0">
+                        @Html.Label(EntityStrings.IsApproved, new { @class="control-label col-xs-5 mt7" })
+                        <div class="col-xs-7">
+                            <select id="IsApproved" name="IsApproved" class="form-control">
+                                @if (!qParams.IsApproved.HasValue)
+                                {
+                                    <option value="null" selected="selected">@ActionStrings.DisplayAll</option>
+                                    <option value="true">@ActionStrings.Yes</option>
+                                    <option value="false">@ActionStrings.No</option>
+                                }
+                                else if (qParams.IsApproved.Value)
+                                {
+                                    <option value="null">@ActionStrings.DisplayAll</option>
+                                    <option value="true" selected="selected">@ActionStrings.Yes</option>
+                                    <option value="false">@ActionStrings.No</option>
+                                }
+                                else
+                                {
+                                    <option value="null">@ActionStrings.DisplayAll</option>
+                                    <option value="true">@ActionStrings.Yes</option>
+                                    <option value="false" selected="selected">@ActionStrings.No</option>
+                                }
+                            </select>
                         </div>
                     </div>
-                    <div class="col-sm-8 col-sm-offset-1 col-md-6 col-md-offset-0">
+                    <div class="col-sm-6 col-md-4">
                         <div class="input-group">
                             @Html.TextBox("SearchString", null, new { @class = "form-control", placeholder = MessageStrings.EnterKeywordHere })
                             <span class="input-group-btn">
@@ -63,10 +90,13 @@
             <div id="filterPanel" class="@filterPanelClass">
                 <div class="accordion-inner">
                     <!-- Accordion inner-->
-                    <div class="form-horizontal">
+                    <div class="form-horizontal mt5">
                         <div class="row mb5">
                             <div class="col-sm-4">
-
+                                <div class="checkbox ml20">
+                                    @Html.CheckBox("Cancelled")
+                                    @EntityStrings.Cancelled
+                                </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="checkbox ml20">
@@ -76,6 +106,56 @@
                             </div>
                             @Html.Partial("_PageSizeSelect")
                         </div>
+
+                        <div class="row mb5">
+                            @Html.Label(EntityStrings.OrderDate, new { @class = "control-label col-sm-5" })
+                            <div class="col-sm-3">
+                                <input type="text" id="OrderDateMin" name="OrderDateMin" class="form-control" value="@orderDateMin" autocomplete="off">
+                            </div>
+                            <div class="col-sm-3">
+                                <input type="text" id="OrderDateMax" name="OrderDateMax" class="form-control" value="@orderDateMax" autocomplete="off">
+                            </div>
+                            <div class="col-sm-1">
+                                <button type="button" class="btn btn-primary pull-right" onclick="$('#OrderDateMin').val(''); $('#OrderDateMax').val('');">
+                                    @ActionStrings.Clear
+                                </button>
+                            </div>
+                        </div>
+
+                        @if (canSeeRestricted)
+                        {
+                            <div class="row mb5">
+                                @Html.Label(EntityStrings.DueDate, new { @class = "control-label col-sm-5" })
+                                <div class="col-sm-3">
+                                    <input type="text" id="DueDateMin" name="DueDateMin" class="form-control" value="@dueDateMin" autocomplete="off">
+                                </div>
+                                <div class="col-sm-3">
+                                    <input type="text" id="DueDateMax" name="DueDateMax" class="form-control" value="@dueDateMax" autocomplete="off">
+                                </div>
+                                <div class="col-sm-1">
+                                    <button type="button" class="btn btn-primary pull-right" onclick="$('#DueDateMax').val(''); $('#DueDateMin').val('');">
+                                        @ActionStrings.Clear
+                                    </button>
+                                </div>
+                            </div>
+                        }
+
+
+                        <div class="row mb5">
+                            @Html.Label(EntityStrings.SupplierDueDate, new { @class = "control-label col-sm-5" })
+                            <div class="col-sm-3">
+                                <input type="text" id="SupplierDueDateMin" name="SupplierDueDateMin" class="form-control" value="@supplierDueDateMin" autocomplete="off">
+                            </div>
+                            <div class="col-sm-3">
+                                <input type="text" id="SupplierDueDateMax" name="SupplierDueDateMax" class="form-control" value="@supplierDueDateMax" autocomplete="off">
+                            </div>
+                            <div class="col-sm-1">
+                                <button type="button" class="btn btn-primary pull-right" onclick="$('#SupplierDueDateMin').val(''); $('#SupplierDueDateMax').val('');">
+                                    @ActionStrings.Clear
+                                </button>
+                            </div>
+                        </div>
+
                         <div class="row mb5">
                             <div class="col-sm-4">
                                 @Html.DropDownList("CustomerId", null, CommonStrings.AllCustomers, htmlAttributes: new { @class = "form-control" })
@@ -89,12 +169,18 @@
                         </div>
                         <div class="row mb5">
                             <div class="col-sm-4">
-                            </div>
-                            <div class="col-sm-4">
                                 @Html.DropDownList("MerchandiserId", null, CommonStrings.AllMerchandisers, htmlAttributes: new { @class = "form-control" })
                             </div>
                             <div class="col-sm-4">
                                 @Html.DropDownList("DesignerId", null, CommonStrings.AllDesigners, htmlAttributes: new { @class = "form-control" })
+                            </div>
+                            <div class="col-sm-4">
+                                <button type="button" class="btn btn-default pull-right" onclick="getPagedData(1)">
+                                    @ActionStrings.Search
+                                </button>
+                                <button type="button" class="btn btn-primary pull-right mr20" onclick="clearFilter()">
+                                    Clear All
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -110,26 +196,64 @@
         <tr>
             <th class="hidden-print" width="20px">@ActionStrings.Action</th>
             <th title="Order Date / Cancel Status / Approve Status">
-                @Html.DisplayNameFor(model => model.OrderDate)<br />
+                @Html.DisplayNameFor(model => model.OrderDate)
+                @if (qParams.OrderDateMin.HasValue || qParams.OrderDateMax.HasValue)
+                {
+                    <span class="glyphicon glyphicon-filter"></span>
+                }<br />
                 Cancel/Appr.
             </th>
             @if (canSeeRestricted)
             {
-                <th>@Html.DisplayNameFor(model => model.DueDate)</th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DueDate)
+                    @if (qParams.DueDateMax.HasValue || qParams.DueDateMin.HasValue || qParams.SupplierDueDateMin.HasValue || qParams.SupplierDueDateMax.HasValue)
+                    {
+                        <span class="glyphicon glyphicon-filter"></span>
+                    }
+                </th>
             }
             <th>@Html.DisplayNameFor(model => model.Product)</th>
             <th>
                 @Html.DisplayNameFor(model => model.PoNr)<br />
                 @Html.DisplayNameFor(model => model.RefCode)
             </th>
-            <th>@Html.DisplayNameFor(model => model.Designer)</th>
-            <th>@EntityStrings.Merchandiser</th>
-            <th>@Html.DisplayNameFor(model => model.Supplier)</th>
+            <th>
+                @Html.DisplayNameFor(model => model.Designer)
+                @if (qParams.DesignerId.HasValue)
+                {
+                    <span class="glyphicon glyphicon-filter"></span>
+                }
+            </th>
+            <th>
+                @EntityStrings.Merchandiser
+                @if (qParams.MerchandiserId.HasValue)
+                {
+                    <span class="glyphicon glyphicon-filter"></span>
+                }
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Supplier)
+                @if (qParams.SupplierId.HasValue)
+                {
+                    <span class="glyphicon glyphicon-filter"></span>
+                }
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Customer)<br />
                 @Html.DisplayNameFor(model => model.CustomerDepartment)
+                @if (qParams.CustomerId.HasValue)
+                {
+                    <span class="glyphicon glyphicon-filter"></span>
+                }
             </th>
-            <th>@Html.DisplayNameFor(model => model.Licensor)</th>
+            <th>
+                @Html.DisplayNameFor(model => model.Licensor)
+                @if (qParams.LicensorId.HasValue)
+                {
+                    <span class="glyphicon glyphicon-filter"></span>
+                }
+            </th>
             <th>@Html.DisplayNameFor(model => model.Quantity)</th>
             <th>@Html.DisplayNameFor(model => model.Shipments)</th>
             @if (canSeeRestricted)
@@ -236,6 +360,7 @@
                     @if (!string.IsNullOrEmpty(item.RefCode))
                     {
                         <br />@Html.DisplayFor(modelItem => item.RefCode)
+
                     }
                 </td>
                 <td>@Html.DisplayFor(modelItem => item.Designer)</td>
@@ -289,26 +414,26 @@
                     </td>
                 }
             </tr>
-                        }
-        <tr class="bottom-row">
-            <td class="hidden-print"></td>
-            <td colspan="3">
-                Total Records: @totalCount
-                Seen: @Model.Count()
-            </td>
-            @if (canSeeRestricted)
-            {
-                <td></td>
-            }
-            <td colspan="3"></td>
-            <td align="right" colspan="2">Total Quantities</td>
-            <td align="right">@grandTotal.ToString("###,###")</td>
-            @if (canSeeRestricted)
-            {
-                <td></td>
-                <td></td>
-            }
-        </tr>
+       }
+       <tr class="bottom-row">
+           <td class="hidden-print"></td>
+           <td colspan="3">
+               Total Records: @totalCount
+               Seen: @Model.Count()
+           </td>
+           @if (canSeeRestricted)
+           {
+               <td></td>
+           }
+           <td colspan="3"></td>
+           <td align="right" colspan="2">Total Quantities</td>
+           <td align="right">@grandTotal.ToString("###,###")</td>
+           @if (canSeeRestricted)
+           {
+               <td></td>
+               <td></td>
+           }
+       </tr>
     </table>
 }
 else
@@ -345,7 +470,61 @@ else
                     });
                 }
             });
+            var dateFormat = "yy-mm-dd";
+            $("#OrderDateMin").datepicker({ dateFormat: dateFormat, numberOfMonths: 2 });
+            $("#OrderDateMax").datepicker({ dateFormat: dateFormat, numberOfMonths: 2 });
+            $("#OrderDateMin").datepicker("option", "onClose", function (selectedDate) {
+                if (selectedDate) {
+                    $("#OrderDateMax").datepicker("option", "minDate", selectedDate);
+                }
+            });
+            $("#OrderDateMax").datepicker("option", "onClose", function (selectedDate) {
+                if (selectedDate) {
+                    $("#OrderDateMin").datepicker("option", "maxDate", selectedDate);
+                }
+            });
+            //Initiliaze DueDate Filter
+            $("#DueDateMin").datepicker({ dateFormat: dateFormat, numberOfMonths: 2 });
+            $("#DueDateMax").datepicker({ dateFormat: dateFormat, numberOfMonths: 2 });
+            $("#DueDateMin").datepicker("option", "onClose", function (selectedDate) {
+                if (selectedDate) {
+                    $("#DueDateMax").datepicker("option", "minDate", selectedDate);
+                }
+            });
+            $("#DueDateMax").datepicker("option", "onClose", function (selectedDate) {
+                if (selectedDate) {
+                    $("#DueDateMin").datepicker("option", "maxDate", selectedDate);
+                }
+            });
+            //Initiliaze SupplierDueDate Filter
+            $("#SupplierDueDateMin").datepicker({ dateFormat: dateFormat, numberOfMonths: 2 });
+            $("#SupplierDueDateMax").datepicker({ dateFormat: dateFormat, numberOfMonths: 2 });
+            $("#SupplierDueDateMin").datepicker("option", "onClose", function (selectedDate) {
+                if (selectedDate) {
+                    $("#SupplierDueDateMax").datepicker("option", "minDate", selectedDate);
+                }
+            });
+            $("#SupplierDueDateMax").datepicker("option", "onClose", function (selectedDate) {
+                if (selectedDate) {
+                    $("#SupplierDueDateMin").datepicker("option", "maxDate", selectedDate);
+                }
+            });
         }());
+        function clearFilter() {
+            $('#OrderDateMin').val('');
+            $('#OrderDateMax').val('');
+            $('#DueDateMin').val('');
+            $('#DueDateMax').val('');
+            $('#SupplierDueDateMin').val('');
+            $('#SupplierDueDateMax').val('');
+
+            setSelectListID('#CustomerId > option', '');
+            setSelectListID('#CustomerDepartmentId > option', '');
+            setSelectListID('#SupplierId > option', '');
+
+            setSelectListID('#DesignerId > option', '');
+            setSelectListID('#MerchandiserId > option', '');
+        }
         function setActionLinks() {
             $('a[input-modal]').on('click', function (params) {
                 if (params.ctrlKey || params.metaKey || params.altKey) {
@@ -376,11 +555,11 @@ else
         function toogleAccordionSign() {
             if ($('#filterPanel').hasClass('in')) {
                 $('#filterPanelSign').removeClass('glyphicon-minus').addClass('glyphicon-plus');
-                console.log('collapsed');
+                $('#collapsed').val(true);
             }
             else {
                 $('#filterPanelSign').removeClass('glyphicon-plus').addClass('glyphicon-minus');
-                console.log('expanded');
+                $('#collapsed').val(false);
             }
         }
     </script>

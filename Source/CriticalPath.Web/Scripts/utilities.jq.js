@@ -92,16 +92,14 @@ function displayRecordStats(visibleRecords, totalRecords) {
  * usage sample => setSelectListID('#SellingCurrencyId > option', ui.item.SellingCurrencyId);
  */
 function setSelectListID(selectListOpts, selectedId) {
-    if (sizingSelect !== null) {
-        $(selectListOpts).each(function () {
-            if (this.value === selectedId) {
-                $(this).prop('selected', true);
-            }
-            else {
-                $(this).prop('selected', false);
-            }
-        });
-    }
+    $(selectListOpts).each(function () {
+        if (this.value === selectedId) {
+            $(this).prop('selected', true);
+        }
+        else {
+            $(this).prop('selected', false);
+        }
+    });
 }
 
 function jsonDateToLocaleDateString(jsonDate) {
