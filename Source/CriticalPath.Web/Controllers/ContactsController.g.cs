@@ -32,9 +32,9 @@ namespace CriticalPath.Web.Controllers
         [Authorize]
         public async Task<ActionResult> Index(QueryParameters qParams)
         {
-            var query = await GetContactQuery(qParams);
             await PutCanUserInViewBag();
-			var result = new PagedList<Contact>(qParams);
+            var query = await GetContactQuery(qParams);
+            var result = new PagedList<Contact>(qParams);
             if (qParams.TotalCount > 0)
             {
                 result.Items = await query.ToListAsync();
@@ -128,7 +128,7 @@ namespace CriticalPath.Web.Controllers
         }
 
         [Authorize]
-        public async Task<ActionResult> Details(int? id)  //GET: /Contacts/Details/5
+        public async Task<ActionResult> Details(int? id, bool? modal)
         {
             if (id == null)
             {
@@ -142,6 +142,10 @@ namespace CriticalPath.Web.Controllers
             }
 
             await PutCanUserInViewBag();
+            if (modal ?? false)
+            {
+                return PartialView("_Details", contact);
+            }
             return View(contact);
         }
 
@@ -165,7 +169,7 @@ namespace CriticalPath.Web.Controllers
         [HttpGet]
         [Authorize(Roles = "admin, supervisor, clerk")]
         [Route("Contacts/Create/{companyId:int?}")]
-        public async Task<ActionResult> Create(int? companyId)  //GET: /Contacts/Create
+        public async Task<ActionResult> Create(int? companyId, bool? modal)
         {
             var contact = new Contact();
             if (companyId != null)
@@ -174,9 +178,15 @@ namespace CriticalPath.Web.Controllers
                 if (company == null)
                     return HttpNotFound();
                 contact.Company = company;
+                contact.CompanyId = companyId.Value;
             }
             await SetContactDefaults(contact);
             SetSelectLists(contact);
+            if (modal ?? false)
+            {
+                ViewBag.Modal = true;
+                return PartialView("_Create", contact);
+            }
             return View(contact);
         }
 
@@ -184,10 +194,8 @@ namespace CriticalPath.Web.Controllers
         [Authorize(Roles = "admin, supervisor, clerk")]
         [ValidateAntiForgeryToken]
         [Route("Contacts/Create/{companyId:int?}")]
-        public async Task<ActionResult> Create(int? companyId, Contact contact)  //POST: /Contacts/Create
+        public async Task<ActionResult> Create(int? companyId, Contact contact, bool? modal)
         {
-            DataContext.SetInsertDefaults(contact, this);
-
             if (ModelState.IsValid)
             {
                 OnCreateSaving(contact);
@@ -196,15 +204,24 @@ namespace CriticalPath.Web.Controllers
                 await DataContext.SaveChangesAsync(this);
  
                 OnCreateSaved(contact);
+                if (modal ?? false)
+                {
+                    return Json(new { saved = true });
+                }
                 return RedirectToAction("Index");
             }
 
             SetSelectLists(contact);
+            if (modal ?? false)
+            {
+                ViewBag.Modal = true;
+                return PartialView("_Create", contact);
+            }
             return View(contact);
         }
 
         [Authorize(Roles = "admin, supervisor, clerk")]
-        public async Task<ActionResult> Edit(int? id)  //GET: /Contacts/Edit/5
+        public async Task<ActionResult> Edit(int? id, bool? modal)
         {
             if (id == null)
             {
@@ -218,16 +235,19 @@ namespace CriticalPath.Web.Controllers
             }
 
             SetSelectLists(contact);
+            if (modal ?? false)
+            {
+                ViewBag.Modal = true;
+                return PartialView("_Edit", contact);
+            }
             return View(contact);
         }
 
         [Authorize(Roles = "admin, supervisor, clerk")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(Contact contact)  //POST: /Contacts/Edit/5
+        public async Task<ActionResult> Edit(Contact contact, bool? modal)
         {
-            DataContext.SetInsertDefaults(contact, this);
-
             if (ModelState.IsValid)
             {
                 OnEditSaving(contact);
@@ -236,16 +256,25 @@ namespace CriticalPath.Web.Controllers
                 await DataContext.SaveChangesAsync(this);
  
                 OnEditSaved(contact);
+                if (modal ?? false)
+                {
+                    return Json(new { saved = true });
+                }
                 return RedirectToAction("Index");
             }
 
             SetSelectLists(contact);
+            if (modal ?? false)
+            {
+                ViewBag.Modal = true;
+                return PartialView("_Edit", contact);
+            }
             return View(contact);
         }
 
 
         [Authorize(Roles = "admin, supervisor")]
-        public async Task<ActionResult> Delete(int? id)  //GET: /Contacts/Delete/5
+        public async Task<ActionResult> Delete(int? id)  //GET: /Contacts
         {
             if (id == null)
             {

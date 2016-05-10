@@ -39,9 +39,9 @@ namespace CriticalPath.Web.Controllers
             return query;
         }
 
-        protected override Task SetContactDefaults(Contact contact)
-        {
-            return base.SetContactDefaults(contact);
-        }
+        //protected override Task SetContactDefaults(Contact contact)
+        //{
+        //    return base.SetContactDefaults(contact);
+        //}
     }
 }

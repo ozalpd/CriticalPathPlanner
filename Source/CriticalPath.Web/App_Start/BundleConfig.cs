@@ -61,6 +61,7 @@ namespace CriticalPath.Web
                       "~/Content/Slate/bootstrap.min.css",
                       "~/Content/themes/dark-hive/jquery-ui.css",
                       "~/Content/themes/dark-hive/theme.css",
+                        "~/Content/font-awesome.min.css",
                       "~/Content/tools.css",
                       "~/Content/Site.css"));
 
@@ -69,6 +70,7 @@ namespace CriticalPath.Web
                       "~/Content/Slate/Light.css",
                       "~/Content/themes/dark-hive/jquery-ui.css",
                       "~/Content/themes/dark-hive/theme.css",
+                        "~/Content/font-awesome.min.css",
                       "~/Content/tools.css",
                       "~/Content/Site.css"));
 
@@ -80,6 +82,7 @@ namespace CriticalPath.Web
                         "~/Content/themes/base/menu.css",
                         "~/Content/themes/base/datepicker.css",
                         "~/Content/themes/base/theme.css",
+                        "~/Content/font-awesome.min.css",
                         "~/Content/tools.css",
                         "~/Content/Site.css"));
 
@@ -91,6 +94,7 @@ namespace CriticalPath.Web
                         "~/Content/themes/base/datepicker.css",
                         "~/Content/themes/base/theme.css",
                         "~/Content/NavbarColors-Blue.css",
+                        "~/Content/font-awesome.min.css",
                         "~/Content/tools.css",
                         "~/Content/Site.css"));
 
@@ -102,6 +106,7 @@ namespace CriticalPath.Web
                         "~/Content/themes/base/datepicker.css",
                         "~/Content/themes/base/theme.css",
                         "~/Content/NavbarColors-Red.css",
+                        "~/Content/font-awesome.min.css",
                         "~/Content/tools.css",
                         "~/Content/Site.css"));
 
@@ -112,6 +117,7 @@ namespace CriticalPath.Web
                         "~/Content/themes/base/menu.css",
                         "~/Content/themes/base/datepicker.css",
                         "~/Content/themes/base/theme.css",
+                        "~/Content/font-awesome.min.css",
                         "~/Content/tools.css",
                         "~/Content/Site.css"));
 
@@ -122,6 +128,7 @@ namespace CriticalPath.Web
                         "~/Content/themes/base/menu.css",
                         "~/Content/themes/base/datepicker.css",
                         "~/Content/themes/base/theme.css",
+                        "~/Content/font-awesome.min.css",
                         "~/Content/tools.css",
                         "~/Content/Site.css"));
 
@@ -133,6 +140,7 @@ namespace CriticalPath.Web
                         "~/Content/themes/base/datepicker.css",
                         "~/Content/themes/base/theme.css",
                         "~/Content/Default/darker.css",
+                        "~/Content/font-awesome.min.css",
                         "~/Content/tools.css",
                         "~/Content/Site.css"));
 
@@ -147,6 +155,7 @@ namespace CriticalPath.Web
                         "~/Content/themes/base/menu.css",
                         "~/Content/themes/base/datepicker.css",
                         "~/Content/themes/base/theme.css",
+                        "~/Content/font-awesome.min.css",
                         "~/Content/tools.css",
                         "~/Content/Site.css"));
 
@@ -161,6 +170,7 @@ namespace CriticalPath.Web
                         "~/Content/themes/base/menu.css",
                         "~/Content/themes/base/datepicker.css",
                         "~/Content/themes/base/theme.css",
+                        "~/Content/font-awesome.min.css",
                         "~/Content/tools.css",
                         "~/Content/Site.css"));
 

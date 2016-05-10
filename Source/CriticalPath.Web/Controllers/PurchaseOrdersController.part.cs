@@ -631,7 +631,7 @@ namespace CriticalPath.Web.Controllers
             {
                 purchaseOrder.Quantity = vm.Quantity > 0 ? vm.Quantity : purchaseOrder.Quantity;
                 purchaseOrder.CustomerDepartmentId = vm.CustomerDepartmentId;
-
+                purchaseOrder.InitialComments = vm.InitialComments;
             }
             if (!purchaseOrder.IsApproved || isApproving)
             {

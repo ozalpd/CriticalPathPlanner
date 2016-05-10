@@ -1,0 +1,166 @@
+@using CriticalPath.Web.Models
+@using CriticalPath.Data
+@using CP.i8n
+@model Contact
+@{
+    bool modal = ViewBag.Modal ?? false;
+
+    //Authorization Flags
+    bool canUserEdit = ViewBag.canUserEdit ?? false;
+    bool canUserCreate = ViewBag.canUserCreate ?? false;
+    bool canUserDelete = ViewBag.canUserDelete ?? false;
+    bool canSeeRestricted = ViewBag.canSeeRestricted ?? false;
+}
+<div class="form-horizontal">
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.FirstName)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.FirstName)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.LastName)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.LastName)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.Company)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.Company)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.EmailWork)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.EmailWork)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.EmailHome)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.EmailHome)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.PhoneMobile)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.PhoneMobile)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.PhoneWork1)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.PhoneWork1)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.PhoneWork2)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.PhoneWork2)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.Notes)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.Notes)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.Discontinued)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.Discontinued)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.DiscontinueDate)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.DiscontinueDate)
+        </div>
+    </div>
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.DiscontinueNotes)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.DiscontinueNotes)
+        </div>
+    </div>
+    @if (canSeeRestricted)
+    {
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.DiscontinuedUserIp)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.DiscontinuedUserIp)
+        </div>
+    </div>
+    }
+    @if (canSeeRestricted)
+    {
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.DiscontinuedUserId)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.DiscontinuedUserId)
+        </div>
+    </div>
+    }
+    @if (canSeeRestricted)
+    {
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.DiscontinuedUser)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.DiscontinuedUser)
+        </div>
+    </div>
+    }
+    @if (canSeeRestricted)
+    {
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.ModifiedUser)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.ModifiedUser)
+        </div>
+    </div>
+    }
+    @if (canSeeRestricted)
+    {
+    <div class="row mb5">
+        <label class="control-label col-md-2 col-sm-3 mb5">
+            @Html.DisplayNameFor(model => model.CreatedUser)
+        </label>
+        <div class="col-lg-8 col-md-9 col-sm-9 mt7">
+            @Html.DisplayFor(m => m.CreatedUser)
+        </div>
+    </div>
+    }
+</div>

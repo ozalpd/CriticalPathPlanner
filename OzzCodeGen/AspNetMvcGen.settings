@@ -1283,9 +1283,9 @@
           <Name>Discontinued</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
-          <InIndexView>true</InIndexView>
+          <InIndexView>false</InIndexView>
           <InDetailsView>true</InDetailsView>
-          <InCreateView>true</InCreateView>
+          <InCreateView>false</InCreateView>
           <InEditView>true</InEditView>
           <HasValidation>true</HasValidation>
           <UseForCreate>Standart</UseForCreate>
@@ -1295,10 +1295,10 @@
           <Name>DiscontinueDate</Name>
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
-          <InIndexView>true</InIndexView>
+          <InIndexView>false</InIndexView>
           <InDetailsView>true</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
           <HasValidation>true</HasValidation>
           <UseForCreate>Standart</UseForCreate>
           <UseForEdit>Standart</UseForEdit>
@@ -1307,9 +1307,9 @@
           <Name>DiscontinueNotes</Name>
           <Exclude>false</Exclude>
           <UseInSearch>true</UseInSearch>
-          <InIndexView>true</InIndexView>
+          <InIndexView>false</InIndexView>
           <InDetailsView>true</InDetailsView>
-          <InCreateView>true</InCreateView>
+          <InCreateView>false</InCreateView>
           <InEditView>true</InEditView>
           <HasValidation>true</HasValidation>
           <UseForCreate>TextBox</UseForCreate>
@@ -1332,9 +1332,9 @@
           <Exclude>false</Exclude>
           <UseInSearch>false</UseInSearch>
           <InIndexView>false</InIndexView>
-          <InDetailsView>false</InDetailsView>
-          <InCreateView>true</InCreateView>
-          <InEditView>true</InEditView>
+          <InDetailsView>true</InDetailsView>
+          <InCreateView>false</InCreateView>
+          <InEditView>false</InEditView>
           <HasValidation>true</HasValidation>
           <UseForCreate>DropDownList</UseForCreate>
           <UseForEdit>DropDownList</UseForEdit>
@@ -1377,7 +1377,7 @@
       <GenerateEditAction>true</GenerateEditAction>
       <GenerateDetailsAction>true</GenerateDetailsAction>
       <IndexViewGeneration>HtmlTableWithMenuAction</IndexViewGeneration>
-      <IndexView>false</IndexView>
+      <IndexView>true</IndexView>
       <DetailsView>true</DetailsView>
       <DetailsPartialView>true</DetailsPartialView>
       <CreateView>true</CreateView>

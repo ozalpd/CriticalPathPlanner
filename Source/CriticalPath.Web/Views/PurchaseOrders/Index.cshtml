@@ -323,6 +323,18 @@
                             }
                         </ul>
                     </div>
+                    @if (!string.IsNullOrEmpty(item.InitialComments))
+                    {
+                        <a href="javascript:showMessageBox('@EntityStrings.InitialComments','@Html.Encode(item.InitialComments)');" title="@EntityStrings.InitialComments" class="btn btn-xs btn-default mb3 mt3">
+                            <i class="fa fa-sticky-note"></i>
+                        </a>
+                    }
+                    @if (!string.IsNullOrEmpty(item.Notes))
+                    {
+                        <a href="javascript:showMessageBox('@EntityStrings.Notes','@Html.Encode(item.Notes)');" title="@EntityStrings.Notes" class="btn btn-xs btn-success mb3 mt3">
+                            <i class="fa fa-sticky-note-o"></i>
+                        </a>
+                    }
                 </td>
                 <td align="right">
                     @Html.DisplayFor(modelItem => item.OrderDate)
