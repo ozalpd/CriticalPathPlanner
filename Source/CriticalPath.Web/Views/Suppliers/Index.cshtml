@@ -81,12 +81,12 @@
                     @:'<li><a href="/Contacts/Create/?companyId=' + params.value + '">@EntityStrings.AddContact</a></li>' +
                 }
                     '<li><a href="/Contacts/Index/?companyId=' + params.value + '">@EntityStrings.Contacts</a></li>' +
-                    '<li class="divider"></li>' +
-                @if(canUserAddContact)
+                @if(false && canUserAddContact)
                 {
+                    @:'<li class="divider"></li>' +
                     @:'<li><a href="/Manufacturers/Create/?supplierId=' + params.value + '">@EntityStrings.AddManufacturer</a></li>' +
+                    @:'<li><a href="/Manufacturers/Index/?supplierId=' + params.value + '">@EntityStrings.Manufacturers</a></li>' +
                 }
-                '<li><a href="/Manufacturers/Index/?supplierId=' + params.value + '">@EntityStrings.Manufacturers</a></li>' +
                 '</ul></div>';
 
                 return actions;

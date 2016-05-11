@@ -78,7 +78,7 @@
   </Vocab>
   <Vocab>
     <Name>AddManufacturer</Name>
-    <Translation>Add Factory</Translation>
+    <Translation>Add Manufacturer</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNew</Name>
@@ -130,7 +130,7 @@
   </Vocab>
   <Vocab>
     <Name>AddNewManufacturer</Name>
-    <Translation>Add New Factory</Translation>
+    <Translation>Add New Manufacturer</Translation>
   </Vocab>
   <Vocab>
     <Name>AddNewOrderItem</Name>
@@ -218,7 +218,7 @@
   </Vocab>
   <Vocab>
     <Name>AddNewSupplier</Name>
-    <Translation>Add New Supplier</Translation>
+    <Translation>Add New Factory</Translation>
   </Vocab>
   <Vocab>
     <Name>AddOrderItem</Name>
@@ -326,7 +326,7 @@
   </Vocab>
   <Vocab>
     <Name>AddRemoveManufacturer</Name>
-    <Translation>Add Remove Factory</Translation>
+    <Translation>Add Remove Manufacturer</Translation>
   </Vocab>
   <Vocab>
     <Name>AddRemovePOAttachment</Name>
@@ -398,7 +398,7 @@
   </Vocab>
   <Vocab>
     <Name>AddRemoveSupplier</Name>
-    <Translation>Add/Remove Supplier</Translation>
+    <Translation>Add/Remove Factory</Translation>
   </Vocab>
   <Vocab>
     <Name>Address</Name>
@@ -442,7 +442,7 @@
   </Vocab>
   <Vocab>
     <Name>AddSupplier</Name>
-    <Translation>Add Supplier</Translation>
+    <Translation>Add Factory</Translation>
   </Vocab>
   <Vocab>
     <Name>Admin</Name>
@@ -474,7 +474,7 @@
   </Vocab>
   <Vocab>
     <Name>AllSuppliers</Name>
-    <Translation>All Suppliers</Translation>
+    <Translation>All Factories</Translation>
   </Vocab>
   <Vocab>
     <Name>Always</Name>
@@ -842,7 +842,7 @@
   </Vocab>
   <Vocab>
     <Name>CreateManufacturer</Name>
-    <Translation>Create Factory</Translation>
+    <Translation>Create Manufacturer</Translation>
   </Vocab>
   <Vocab>
     <Name>CreateNew</Name>
@@ -938,7 +938,7 @@
   </Vocab>
   <Vocab>
     <Name>CreateSupplier</Name>
-    <Translation>Create Supplier</Translation>
+    <Translation>Create Factory</Translation>
   </Vocab>
   <Vocab>
     <Name>CreatorId</Name>
@@ -1090,7 +1090,7 @@
   </Vocab>
   <Vocab>
     <Name>DeleteManufacturer</Name>
-    <Translation>Delete Factory</Translation>
+    <Translation>Delete Manufacturer</Translation>
   </Vocab>
   <Vocab>
     <Name>DeleteOrder</Name>
@@ -1182,7 +1182,7 @@
   </Vocab>
   <Vocab>
     <Name>DeleteSupplier</Name>
-    <Translation>Delete Supplier</Translation>
+    <Translation>Delete Factory</Translation>
   </Vocab>
   <Vocab>
     <Name>Deleting</Name>
@@ -1354,7 +1354,7 @@
   </Vocab>
   <Vocab>
     <Name>EditManufacturer</Name>
-    <Translation>Edit Factory</Translation>
+    <Translation>Edit Manufacturer</Translation>
   </Vocab>
   <Vocab>
     <Name>EditOrder</Name>
@@ -1446,7 +1446,7 @@
   </Vocab>
   <Vocab>
     <Name>EditSupplier</Name>
-    <Translation>Edit Supplier</Translation>
+    <Translation>Edit Factory</Translation>
   </Vocab>
   <Vocab>
     <Name>Email</Name>
@@ -1786,7 +1786,7 @@
   </Vocab>
   <Vocab>
     <Name>Manufacturer</Name>
-    <Translation>Factory</Translation>
+    <Translation>Manufacturer</Translation>
   </Vocab>
   <Vocab>
     <Name>ManufacturerCode</Name>
@@ -1794,11 +1794,11 @@
   </Vocab>
   <Vocab>
     <Name>Manufacturers</Name>
-    <Translation>Factories</Translation>
+    <Translation>Manufacturers</Translation>
   </Vocab>
   <Vocab>
     <Name>ManufacturersList</Name>
-    <Translation>Factories List</Translation>
+    <Translation>Manufacturers List</Translation>
   </Vocab>
   <Vocab>
     <Name>Merchandiser</Name>
@@ -2298,7 +2298,7 @@
   </Vocab>
   <Vocab>
     <Name>RemoveManufacturer</Name>
-    <Translation>Remove Factory</Translation>
+    <Translation>Remove Manufacturer</Translation>
   </Vocab>
   <Vocab>
     <Name>RemovePOAttachment</Name>
@@ -2634,27 +2634,27 @@
   </Vocab>
   <Vocab>
     <Name>Supplier</Name>
-    <Translation>Supplier</Translation>
+    <Translation>Factory</Translation>
   </Vocab>
   <Vocab>
     <Name>SupplierCode</Name>
-    <Translation>Supplier Code</Translation>
+    <Translation>Factory Code</Translation>
   </Vocab>
   <Vocab>
     <Name>SupplierDueDate</Name>
-    <Translation>Supplier's Due Date</Translation>
+    <Translation>Factory's Due Date</Translation>
   </Vocab>
   <Vocab>
     <Name>SupplierId</Name>
-    <Translation>Supplier</Translation>
+    <Translation>Factory</Translation>
   </Vocab>
   <Vocab>
     <Name>Suppliers</Name>
-    <Translation>Suppliers</Translation>
+    <Translation>Factories</Translation>
   </Vocab>
   <Vocab>
     <Name>SuppliersList</Name>
-    <Translation>Suppliers List</Translation>
+    <Translation>Factories List</Translation>
   </Vocab>
   <Vocab>
     <Name>Surname</Name>

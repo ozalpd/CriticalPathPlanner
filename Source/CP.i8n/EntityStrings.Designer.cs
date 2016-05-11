@@ -169,7 +169,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add Factory.
+        ///   Looks up a localized string similar to Add Manufacturer.
         /// </summary>
         public static string AddManufacturer {
             get {
@@ -277,7 +277,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add New Factory.
+        ///   Looks up a localized string similar to Add New Manufacturer.
         /// </summary>
         public static string AddNewManufacturer {
             get {
@@ -412,7 +412,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add New Supplier.
+        ///   Looks up a localized string similar to Add New Factory.
         /// </summary>
         public static string AddNewSupplier {
             get {
@@ -628,7 +628,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add Remove Factory.
+        ///   Looks up a localized string similar to Add Remove Manufacturer.
         /// </summary>
         public static string AddRemoveManufacturer {
             get {
@@ -763,7 +763,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add/Remove Supplier.
+        ///   Looks up a localized string similar to Add/Remove Factory.
         /// </summary>
         public static string AddRemoveSupplier {
             get {
@@ -808,7 +808,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add Supplier.
+        ///   Looks up a localized string similar to Add Factory.
         /// </summary>
         public static string AddSupplier {
             get {
@@ -1357,7 +1357,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Create Factory.
+        ///   Looks up a localized string similar to Create Manufacturer.
         /// </summary>
         public static string CreateManufacturer {
             get {
@@ -1492,7 +1492,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Create Supplier.
+        ///   Looks up a localized string similar to Create Factory.
         /// </summary>
         public static string CreateSupplier {
             get {
@@ -1807,7 +1807,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Delete Factory.
+        ///   Looks up a localized string similar to Delete Manufacturer.
         /// </summary>
         public static string DeleteManufacturer {
             get {
@@ -1942,7 +1942,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Delete Supplier.
+        ///   Looks up a localized string similar to Delete Factory.
         /// </summary>
         public static string DeleteSupplier {
             get {
@@ -2221,7 +2221,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit Factory.
+        ///   Looks up a localized string similar to Edit Manufacturer.
         /// </summary>
         public static string EditManufacturer {
             get {
@@ -2356,7 +2356,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit Supplier.
+        ///   Looks up a localized string similar to Edit Factory.
         /// </summary>
         public static string EditSupplier {
             get {
@@ -2806,7 +2806,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Factory.
+        ///   Looks up a localized string similar to Manufacturer.
         /// </summary>
         public static string Manufacturer {
             get {
@@ -2824,7 +2824,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Factories.
+        ///   Looks up a localized string similar to Manufacturers.
         /// </summary>
         public static string Manufacturers {
             get {
@@ -2833,7 +2833,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Factories List.
+        ///   Looks up a localized string similar to Manufacturers List.
         /// </summary>
         public static string ManufacturersList {
             get {
@@ -3625,7 +3625,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Remove Factory.
+        ///   Looks up a localized string similar to Remove Manufacturer.
         /// </summary>
         public static string RemoveManufacturer {
             get {
@@ -4039,7 +4039,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Supplier.
+        ///   Looks up a localized string similar to Factory.
         /// </summary>
         public static string Supplier {
             get {
@@ -4048,7 +4048,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Supplier Code.
+        ///   Looks up a localized string similar to Factory Code.
         /// </summary>
         public static string SupplierCode {
             get {
@@ -4057,7 +4057,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Supplier&apos;s Due Date.
+        ///   Looks up a localized string similar to Factory&apos;s Due Date.
         /// </summary>
         public static string SupplierDueDate {
             get {
@@ -4066,7 +4066,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Supplier.
+        ///   Looks up a localized string similar to Factory.
         /// </summary>
         public static string SupplierId {
             get {
@@ -4075,7 +4075,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Suppliers.
+        ///   Looks up a localized string similar to Factories.
         /// </summary>
         public static string Suppliers {
             get {
@@ -4084,7 +4084,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Suppliers List.
+        ///   Looks up a localized string similar to Factories List.
         /// </summary>
         public static string SuppliersList {
             get {

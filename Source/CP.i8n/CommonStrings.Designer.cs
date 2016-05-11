@@ -142,7 +142,7 @@ namespace CP.i8n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to All Suppliers.
+        ///   Looks up a localized string similar to All Factories.
         /// </summary>
         public static string AllSuppliers {
             get {

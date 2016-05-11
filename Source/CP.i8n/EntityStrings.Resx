@@ -108,7 +108,7 @@
 	</data>
 
 	<data name="AddManufacturer" xml:space="preserve">
-		<value>Add Factory</value>
+		<value>Add Manufacturer</value>
 	</data>
 
 	<data name="AddNewAspNetUser" xml:space="preserve">
@@ -156,7 +156,7 @@
 	</data>
 
 	<data name="AddNewManufacturer" xml:space="preserve">
-		<value>Add New Factory</value>
+		<value>Add New Manufacturer</value>
 	</data>
 
 	<data name="AddNewPOAttachment" xml:space="preserve">
@@ -216,7 +216,7 @@
 	</data>
 
 	<data name="AddNewSupplier" xml:space="preserve">
-		<value>Add New Supplier</value>
+		<value>Add New Factory</value>
 	</data>
 
 	<data name="AddPOAttachment" xml:space="preserve">
@@ -312,7 +312,7 @@
 	</data>
 
 	<data name="AddRemoveManufacturer" xml:space="preserve">
-		<value>Add Remove Factory</value>
+		<value>Add Remove Manufacturer</value>
 	</data>
 
 	<data name="AddRemovePOAttachment" xml:space="preserve">
@@ -372,7 +372,7 @@
 	</data>
 
 	<data name="AddRemoveSupplier" xml:space="preserve">
-		<value>Add/Remove Supplier</value>
+		<value>Add/Remove Factory</value>
 	</data>
 
 	<data name="Address1" xml:space="preserve">
@@ -392,7 +392,7 @@
 	</data>
 
 	<data name="AddSupplier" xml:space="preserve">
-		<value>Add Supplier</value>
+		<value>Add Factory</value>
 	</data>
 
 	<data name="AfterSteps" xml:space="preserve">
@@ -636,7 +636,7 @@
 	</data>
 
 	<data name="CreateManufacturer" xml:space="preserve">
-		<value>Create Factory</value>
+		<value>Create Manufacturer</value>
 	</data>
 
 	<data name="CreatePOAttachment" xml:space="preserve">
@@ -696,7 +696,7 @@
 	</data>
 
 	<data name="CreateSupplier" xml:space="preserve">
-		<value>Create Supplier</value>
+		<value>Create Factory</value>
 	</data>
 
 	<data name="CreatorId" xml:space="preserve">
@@ -836,7 +836,7 @@
 	</data>
 
 	<data name="DeleteManufacturer" xml:space="preserve">
-		<value>Delete Factory</value>
+		<value>Delete Manufacturer</value>
 	</data>
 
 	<data name="DeletePOAttachment" xml:space="preserve">
@@ -896,7 +896,7 @@
 	</data>
 
 	<data name="DeleteSupplier" xml:space="preserve">
-		<value>Delete Supplier</value>
+		<value>Delete Factory</value>
 	</data>
 
 	<data name="DeliveryDate" xml:space="preserve">
@@ -1020,7 +1020,7 @@
 	</data>
 
 	<data name="EditManufacturer" xml:space="preserve">
-		<value>Edit Factory</value>
+		<value>Edit Manufacturer</value>
 	</data>
 
 	<data name="EditPOAttachment" xml:space="preserve">
@@ -1080,7 +1080,7 @@
 	</data>
 
 	<data name="EditSupplier" xml:space="preserve">
-		<value>Edit Supplier</value>
+		<value>Edit Factory</value>
 	</data>
 
 	<data name="Email" xml:space="preserve">
@@ -1280,7 +1280,7 @@
 	</data>
 
 	<data name="Manufacturer" xml:space="preserve">
-		<value>Factory</value>
+		<value>Manufacturer</value>
 	</data>
 
 	<data name="ManufacturerCode" xml:space="preserve">
@@ -1288,11 +1288,11 @@
 	</data>
 
 	<data name="Manufacturers" xml:space="preserve">
-		<value>Factories</value>
+		<value>Manufacturers</value>
 	</data>
 
 	<data name="ManufacturersList" xml:space="preserve">
-		<value>Factories List</value>
+		<value>Manufacturers List</value>
 	</data>
 
 	<data name="Merchandiser" xml:space="preserve">
@@ -1644,7 +1644,7 @@
 	</data>
 
 	<data name="RemoveManufacturer" xml:space="preserve">
-		<value>Remove Factory</value>
+		<value>Remove Manufacturer</value>
 	</data>
 
 	<data name="RemovePOAttachment" xml:space="preserve">
@@ -1828,27 +1828,27 @@
 	</data>
 
 	<data name="Supplier" xml:space="preserve">
-		<value>Supplier</value>
+		<value>Factory</value>
 	</data>
 
 	<data name="SupplierCode" xml:space="preserve">
-		<value>Supplier Code</value>
+		<value>Factory Code</value>
 	</data>
 
 	<data name="SupplierDueDate" xml:space="preserve">
-		<value>Supplier's Due Date</value>
+		<value>Factory's Due Date</value>
 	</data>
 
 	<data name="SupplierId" xml:space="preserve">
-		<value>Supplier</value>
+		<value>Factory</value>
 	</data>
 
 	<data name="Suppliers" xml:space="preserve">
-		<value>Suppliers</value>
+		<value>Factories</value>
 	</data>
 
 	<data name="SuppliersList" xml:space="preserve">
-		<value>Suppliers List</value>
+		<value>Factories List</value>
 	</data>
 
 	<data name="TargetDate" xml:space="preserve">
