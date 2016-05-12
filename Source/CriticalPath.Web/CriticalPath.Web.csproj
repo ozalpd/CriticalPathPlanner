@@ -433,6 +433,9 @@
     <Content Include="Areas\Admin\Views\Employees\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Employees\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Employees\Index.cshtml" />
+    <Content Include="libs\html2canvas\html2canvas.js" />
+    <Content Include="libs\html2canvas\html2canvas.min.js" />
+    <Content Include="libs\jsPDF\jspdf.min.js" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
