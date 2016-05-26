@@ -10,7 +10,7 @@ namespace CriticalPath.Web.Controllers
     public class FilesController : BaseController
     {
         [Authorize]
-        public ContentResult ImageUpload(HttpPostedFileBase file)
+        public JsonResult ImageUpload(HttpPostedFileBase file)
         {
             var filename = string.Format("{0}.{1}", Guid.NewGuid(), jpg);
 
@@ -20,12 +20,7 @@ namespace CriticalPath.Web.Controllers
             settings = GetResizeSettings(AppSettings.Settings.MaxThumbWidht, AppSettings.Settings.MaxThumbHeight, jpg);
             ResizeImage(file, AppSettings.Urls.ThumbImages, filename, settings);
 
-            return new ContentResult
-            {
-                ContentType = "text/plain",
-                Content = filename,
-                ContentEncoding = Encoding.UTF8
-            };
+            return Json(new { filename = filename });
         }
 
         protected virtual void ResizeImage(HttpPostedFileBase sourceFile, string targetFolder, string targetName, Instructions settings)

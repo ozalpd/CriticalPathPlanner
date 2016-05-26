@@ -88,11 +88,38 @@ namespace CP.i8n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add File.
+        /// </summary>
+        public static string AddFile {
+            get {
+                return ResourceManager.GetString("AddFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Files.
         /// </summary>
         public static string AddFiles {
             get {
                 return ResourceManager.GetString("AddFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Image.
+        /// </summary>
+        public static string AddImage {
+            get {
+                return ResourceManager.GetString("AddImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Images.
+        /// </summary>
+        public static string AddImages {
+            get {
+                return ResourceManager.GetString("AddImages", resourceCulture);
             }
         }
         
@@ -363,6 +390,15 @@ namespace CP.i8n {
         public static string Print {
             get {
                 return ResourceManager.GetString("Print", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Processing.
+        /// </summary>
+        public static string Processing {
+            get {
+                return ResourceManager.GetString("Processing", resourceCulture);
             }
         }
         

@@ -1,0 +1,26 @@
+[
+  {
+    "outputFileName": "libs/jQuery-File-Upload/js/jquery.fileupload-image.js",
+    "inputFiles": [
+      "libs/jQuery-File-Upload/js/jquery.fileupload-image.js"
+    ]
+  },
+  {
+    "outputFileName": "libs/jQuery-File-Upload/js/jquery.fileupload-process.js",
+    "inputFiles": [
+      "libs/jQuery-File-Upload/js/jquery.fileupload-process.js"
+    ]
+  },
+  {
+    "outputFileName": "libs/jQuery-File-Upload/js/jquery.fileupload.js",
+    "inputFiles": [
+      "libs/jQuery-File-Upload/js/jquery.fileupload.js"
+    ]
+  },
+  {
+    "outputFileName": "libs/jQuery-File-Upload/js/jquery.fileupload-validate.js",
+    "inputFiles": [
+      "libs/jQuery-File-Upload/js/jquery.fileupload-validate.js"
+    ]
+  }
+]

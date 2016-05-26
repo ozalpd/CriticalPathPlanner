@@ -65,12 +65,24 @@
     <Translation>İş Pozisyonu Ekle</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddFile</Name>
+    <Translation>Dosya Ekle</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddFiles</Name>
     <Translation>Dosya Ekle</Translation>
   </Vocab>
   <Vocab>
     <Name>AddFreightTerm</Name>
     <Translation>Nakliye Koşulu Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddImage</Name>
+    <Translation>Resim Ekle</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddImages</Name>
+    <Translation>Resim Ekle</Translation>
   </Vocab>
   <Vocab>
     <Name>AddLicensor</Name>
@@ -2075,6 +2087,10 @@
   <Vocab>
     <Name>ProcessId</Name>
     <Translation>Süreç</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Processing</Name>
+    <Translation>İşleniyor</Translation>
   </Vocab>
   <Vocab>
     <Name>ProcessStep</Name>

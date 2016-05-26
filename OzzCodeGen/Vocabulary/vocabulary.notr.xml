@@ -65,12 +65,24 @@
     <Translation>Add Employee Position</Translation>
   </Vocab>
   <Vocab>
+    <Name>AddFile</Name>
+    <Translation>Add File</Translation>
+  </Vocab>
+  <Vocab>
     <Name>AddFiles</Name>
     <Translation>Add Files</Translation>
   </Vocab>
   <Vocab>
     <Name>AddFreightTerm</Name>
     <Translation>Add Freight Term</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddImage</Name>
+    <Translation>Add Image</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>AddImages</Name>
+    <Translation>Add Images</Translation>
   </Vocab>
   <Vocab>
     <Name>AddLicensor</Name>
@@ -2075,6 +2087,10 @@
   <Vocab>
     <Name>ProcessId</Name>
     <Translation>Process</Translation>
+  </Vocab>
+  <Vocab>
+    <Name>Processing</Name>
+    <Translation>Processing</Translation>
   </Vocab>
   <Vocab>
     <Name>ProcessStep</Name>

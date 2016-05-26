@@ -71,8 +71,20 @@
 		<value>Add</value>
 	</data>
 
+	<data name="AddFile" xml:space="preserve">
+		<value>Add File</value>
+	</data>
+
 	<data name="AddFiles" xml:space="preserve">
 		<value>Add Files</value>
+	</data>
+
+	<data name="AddImage" xml:space="preserve">
+		<value>Add Image</value>
+	</data>
+
+	<data name="AddImages" xml:space="preserve">
+		<value>Add Images</value>
 	</data>
 
 	<data name="AddNew" xml:space="preserve">
@@ -193,6 +205,10 @@
 
 	<data name="Print" xml:space="preserve">
 		<value>Print</value>
+	</data>
+
+	<data name="Processing" xml:space="preserve">
+		<value>Processing</value>
 	</data>
 
 	<data name="Register" xml:space="preserve">
