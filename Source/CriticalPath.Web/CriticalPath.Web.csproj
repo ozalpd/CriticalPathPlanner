@@ -479,6 +479,9 @@
       <DependentUpon>jquery.fileupload.js</DependentUpon>
     </Content>
     <Content Include="libs\jQuery-File-Upload\js\jquery.iframe-transport.js" />
+    <Content Include="libs\jQuery-File-Upload\js\jquery.iframe-transport.min.js">
+      <DependentUpon>jquery.iframe-transport.js</DependentUpon>
+    </Content>
     <Content Include="libs\jQuery-File-Upload\js\main.js" />
     <Content Include="libs\jQuery-File-Upload\js\vendor\jquery.ui.widget.js" />
     <Content Include="libs\jsPDF\jspdf.min.js" />

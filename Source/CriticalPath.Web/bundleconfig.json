@@ -22,5 +22,11 @@
     "inputFiles": [
       "libs/jQuery-File-Upload/js/jquery.fileupload-validate.js"
     ]
+  },
+  {
+    "outputFileName": "libs/jQuery-File-Upload/js/jquery.iframe-transport.js",
+    "inputFiles": [
+      "libs/jQuery-File-Upload/js/jquery.iframe-transport.js"
+    ]
   }
 ]

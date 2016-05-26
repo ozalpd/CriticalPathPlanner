@@ -58,6 +58,7 @@
     function submitDataInputForm() {
         var inputForm = $('#dataInputForm');
         if ($(inputForm).valid()) {
+            $('#busyAnima').show();
             var url = $(inputForm).attr('action');
             url += (url.indexOf('?') == -1) ? '?' : '&';
             url += 'modal=true';
@@ -74,11 +75,13 @@
                     else {
                         $('#dataInputBody').html(result);
                     }
+                    $('#busyAnima').hide();
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     $('#dataInputModal').modal('hide');
                     var msgboxMsg = jqXHR.responseText;
                     showMessageBox(errorThrown, msgboxMsg, true);
+                    $('#busyAnima').hide();
                 }
             });
         }

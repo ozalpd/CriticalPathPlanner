@@ -203,7 +203,7 @@ div.accordion .accordion-group .accordion-heading .accordion-toggle {
 }
 
 div.modal-body .form-horizontal {
-    max-height: 70vh;
+    max-height: 66.667vh;
     overflow-y: scroll;
     overflow-x: hidden;
 }

@@ -1,7 +1,8 @@
 @using CriticalPath.Web.Models
 @using CriticalPath.Data
 @using CP.i8n
-<div class="modal fade" id="messageBox"> @* Message Box *@
+<div class="modal fade" id="messageBox">
+    @* Message Box *@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -20,7 +21,8 @@
     </div>@* /.modal-dialog *@
 </div>@* /.modal *@
 
-<div class="modal fade" id="deleteConfirm"> @* Delete Confirm Modal *@
+<div class="modal fade" id="deleteConfirm">
+    @* Delete Confirm Modal *@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -37,8 +39,13 @@
         </div>@* /.modal-content *@
     </div>@* /.modal-dialog *@
 </div>@* /.modal *@
-
-<div class="modal fade" id="dataInputModal"> @* Data Input Modal *@
+<div id="busyAnima" class="modal" style="z-index:55000;background-color:#808080;opacity:0.75;">
+    <div style="opacity:1.0;position:relative;top:50%;transform:translateY(-50%);width:100%;">
+        <img src="~/images/busy.gif" alt="@MessageStrings.PleaseWait" class="center-block" />
+    </div>
+</div>
+<div class="modal fade" id="dataInputModal">
+    @* Data Input Modal *@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
