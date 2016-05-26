@@ -121,6 +121,11 @@ discontinuedUser.Properties.Add(new InterfaceProperty() { TypeName = "string", N
 discontinuedUser.Properties.Add(new InterfaceProperty() { TypeName = "string", Name = "DiscontinuedUserIp" });
 AutoGenInterfaces.Add(discontinuedUser);
 
+InterfaceDefinition person = new InterfaceDefinition() { Name = "IPerson" };
+person.Properties.Add(new InterfaceProperty() { TypeName = "string", Name = "FirstName" });
+person.Properties.Add(new InterfaceProperty() { TypeName = "string", Name = "LastName" });
+AutoGenInterfaces.Add(person);
+
 InterfaceDefinition allPrice = new InterfaceDefinition() { Name = "IAllPrice" };
 InterfaceDefinition allPriceCurrency = new InterfaceDefinition() { Name = "IAllPriceCurrency" };
 

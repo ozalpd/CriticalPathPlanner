@@ -12,7 +12,7 @@ namespace CriticalPath.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Contact : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate, IDiscontinued, IDiscontinuedUser
+    public partial class Contact : ICreatorId, ICreatorIp, ICreateDate, IModifyNr, IModifierId, IModifierIp, IModifyDate, IDiscontinued, IDiscontinuedUser, IPerson
     {
         public int Id { get; set; }
         public int CompanyId { get; set; }

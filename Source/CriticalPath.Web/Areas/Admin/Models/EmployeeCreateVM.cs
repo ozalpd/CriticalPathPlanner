@@ -1,6 +1,8 @@
 ﻿using CriticalPath.Data;
+using CriticalPath.Data.Helpers;
 using OzzIdentity.Models;
-using OzzUtils;
+using OzzIdentity.Resources;
+using System.ComponentModel.DataAnnotations;
 
 namespace CriticalPath.Web.Areas.Admin.Models
 {
@@ -13,10 +15,7 @@ namespace CriticalPath.Web.Areas.Admin.Models
         {
             var user = new OzzUser
             {
-                UserName = string.Format("{0}.{1}", FirstName, LastName)
-                            .RemoveTurkishChars()
-                            .ToLowerInvariant()
-                            .Replace(" ", "."),
+                UserName = this.CreateUserName(),
                 Email = Email,
                 FirstName = FirstName,
                 LastName = LastName,
@@ -25,5 +24,10 @@ namespace CriticalPath.Web.Areas.Admin.Models
 
             return user;
         }
+
+        [Required(ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "Required")]
+        [StringLength(100, MinimumLength = 6, ErrorMessageResourceType = typeof(ErrorStrings), ErrorMessageResourceName = "MinLeght")]
+        [Display(ResourceType = typeof(TitleStrings), Name = "NewPassword")]
+        public string NewPassword { get; set; }
     }
 }

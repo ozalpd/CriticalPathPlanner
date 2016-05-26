@@ -202,6 +202,7 @@
     <Compile Include="Areas\Admin\Models\AppSettingVM.cs" />
     <Compile Include="Areas\Admin\Models\CurrencyEditVM.cs" />
     <Compile Include="Areas\Admin\Models\EmployeeCreateVM.cs" />
+    <Compile Include="Areas\Admin\Models\EmployeePasswordResetVM.cs" />
     <Compile Include="Areas\Admin\Models\FreightTermEditVM.cs" />
     <Compile Include="Areas\Admin\Models\UserAdminVM.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -452,6 +453,7 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="Content\font-awesome.css.map" />
+    <Content Include="Areas\Admin\Views\Employees\ResetPassword.cshtml" />
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.3.js" />
     <Content Include="Scripts\jquery-2.2.3.min.js" />

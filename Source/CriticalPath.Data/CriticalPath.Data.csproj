@@ -65,6 +65,8 @@
     <Compile Include="Contact.cs">
       <DependentUpon>CriticalPathModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\DateTimeExtensions.cs" />
+    <Compile Include="Helpers\PersonExtensions.cs" />
     <Compile Include="Metadata\POAttachment.meta.cs" />
     <Compile Include="Metadata\POAttachmentDTO.meta.cs" />
     <Compile Include="Metadata\POImage.meta.cs" />
@@ -242,6 +244,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\CommonLibraries\OzzUtils\OzzUtils.csproj">
+      <Project>{D417166B-12EB-43B5-AF18-D634AE620F0B}</Project>
+      <Name>OzzUtils</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CP.i8n\CP.i8n.csproj">
       <Project>{08c5a2da-fe18-4320-8b21-9923b16cba0e}</Project>
       <Name>CP.i8n</Name>

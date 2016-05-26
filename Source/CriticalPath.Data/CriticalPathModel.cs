@@ -103,6 +103,12 @@ namespace CriticalPath.Data
         string DiscontinuedUserIp { get; set; }
     }
     
+    public interface IPerson
+    {
+        string FirstName { get; set; }
+        string LastName { get; set; }
+    }
+    
     public interface ISellingPrice
     {
         decimal UnitPrice { get; set; }

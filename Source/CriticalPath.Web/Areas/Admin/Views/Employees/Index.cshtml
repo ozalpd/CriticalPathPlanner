@@ -68,6 +68,7 @@
                 @if (canUserEdit)
                 {
                     @:'<li><a href="@Url.Action("Edit")/' + params.value + '">@ActionStrings.Edit</a></li>' +
+                    @:'<li><a href="@Url.Action("ResetPassword")/' + params.value + '">Reset Password</a></li>' +
                     @:'<li><a href="@(Url.Action("Edit", "Users"))?userName=' + encodeURI(params.data.UserName) + '">@EntityStrings.EditAspNetUser</a></li>' +
                 }
                 @if(canUserDelete)

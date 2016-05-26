@@ -131,7 +131,7 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
         public async Task<ActionResult> Create()
         {
             var vm = new EmployeeCreateVM();
-            await SetEmployeeDefaults(vm);
+            SetEmployeeDefaults(vm);
             await SetEmployeePositionSelectListAsync(vm.PositionId ?? 0);
             return View(vm);
         }
@@ -146,7 +146,7 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 var entity = vm.ToEmployee();
                 //TODO: Implement password reset and send a password recovery mail
                 var user = vm.ToUser();
-                IdentityResult result = await CreateUserUnique(user, "Dnm!2345");
+                IdentityResult result = await CreateUserUnique(user, vm.NewPassword);
                 if (result.Succeeded)
                 {
                     await AddToRoleAsync(user, SecurityRoles.Clerk);
@@ -172,6 +172,11 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
 
             await SetEmployeePositionSelectListAsync(vm.PositionId ?? 0);
             return View(vm);
+        }
+
+        protected void SetEmployeeDefaults(EmployeeCreateVM employee)
+        {
+            employee.NewPassword = "Dnm!2345";
         }
 
         private async Task<IdentityResult> CreateUserUnique(OzzUser user, string password)
@@ -318,6 +323,43 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
 
             await PutCanUserInViewBag();
             return View(new EmployeeDTO(employee));
+        }
+
+
+        [Authorize(Roles = "admin")]
+        public async Task<ActionResult> ResetPassword(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Employee employee = await FindAsyncEmployee(id.Value);
+
+            if (employee == null)
+            {
+                return HttpNotFound();
+            }
+
+            var vm = new EmployeePasswordResetVM(employee);
+
+            return View(vm);
+        }
+
+        [Authorize(Roles = "admin")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> ResetPassword(EmployeePasswordResetVM vm)
+        {
+            if (ModelState.IsValid)
+            {
+                var token = await UserManager.GeneratePasswordResetTokenAsync(vm.AspNetUserId);
+                var result = await UserManager.ResetPasswordAsync(vm.AspNetUserId, token, vm.NewPassword);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Details", new { id = vm.Id });
+                }
+            }
+            return View(vm);
         }
     }
 }

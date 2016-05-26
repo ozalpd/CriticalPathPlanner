@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CriticalPath.Data
 {
-    public partial class EmployeeDTO
+    public partial class EmployeeDTO : IPerson
     {
         partial void Initiliazing(Employee entity)
         {

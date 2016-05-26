@@ -160,10 +160,11 @@ namespace CriticalPath.Data
         public override IQueryable<PurchaseOrder> GetPurchaseOrderQuery()
         {
             return base.GetPurchaseOrderQuery()
-                    .OrderByDescending(po => po.OrderDate)
-                    .ThenByDescending(po => po.ApproveDate)
+                    .OrderBy(po => po.SupplierDueDate)
+                    .ThenBy(po => po.OrderDate)
+                    .ThenBy(po => po.ApproveDate)
                     .ThenBy(po => po.PoNr)
-                    .ThenByDescending(po => po.Id);
+                    .ThenBy(po => po.Id);
         }
 
         public override IQueryable<PurchaseOrderDTO> GetPurchaseOrderDtoQuery(IQueryable<PurchaseOrder> query)
