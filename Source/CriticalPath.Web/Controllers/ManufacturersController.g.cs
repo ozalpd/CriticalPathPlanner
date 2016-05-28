@@ -24,18 +24,18 @@ namespace CriticalPath.Web.Controllers
                 query = from a in query
                         where
                             a.CompanyName.Contains(qParams.SearchString) | 
-                            a.ManufacturerCode.Contains(qParams.SearchString) | 
                             a.City.Contains(qParams.SearchString) | 
-                            a.State.Contains(qParams.SearchString) 
+                            a.State.Contains(qParams.SearchString) | 
+                            a.ManufacturerCode.Contains(qParams.SearchString) 
                         select a;
-            }
-            if (qParams.SupplierId != null)
-            {
-                query = query.Where(x => x.SupplierId == qParams.SupplierId);
             }
             if (qParams.CountryId != null)
             {
                 query = query.Where(x => x.CountryId == qParams.CountryId);
+            }
+            if (qParams.SupplierId != null)
+            {
+                query = query.Where(x => x.SupplierId == qParams.SupplierId);
             }
             if (qParams.Discontinued != null)
             {
@@ -47,7 +47,8 @@ namespace CriticalPath.Web.Controllers
             }
             if (qParams.DiscontinueDateMax != null)
             {
-                query = query.Where(x => x.DiscontinueDate <= qParams.DiscontinueDateMax.Value);
+                var maxDate = qParams.DiscontinueDateMax.Value.AddDays(1);
+                query = query.Where(x => x.DiscontinueDate < maxDate);
             }
 
             qParams.TotalCount = await query.CountAsync();
@@ -70,9 +71,9 @@ namespace CriticalPath.Web.Controllers
         [Authorize]
         public async Task<ActionResult> Index(QueryParameters qParams)
         {
-            var query = await GetManufacturerQuery(qParams);
             await PutCanUserInViewBag();
-			var result = new PagedList<Manufacturer>(qParams);
+            var query = await GetManufacturerQuery(qParams);
+            var result = new PagedList<Manufacturer>(qParams);
             if (qParams.TotalCount > 0)
             {
                 result.Items = await query.ToListAsync();
@@ -81,47 +82,6 @@ namespace CriticalPath.Web.Controllers
             PutPagerInViewBag(result);
             return View(result.Items);
         }
-
-        protected override async Task<bool> CanUserCreate()
-        {
-            if (!_canUserCreate.HasValue)
-            {
-                _canUserCreate = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync() ||
-                                    await IsUserClerkAsync());
-            }
-            return _canUserCreate.Value;
-        }
-        bool? _canUserCreate;
-
-        protected override async Task<bool> CanUserEdit()
-        {
-            if (!_canUserEdit.HasValue)
-            {
-                _canUserEdit = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync() ||
-                                    await IsUserClerkAsync());
-            }
-            return _canUserEdit.Value;
-        }
-        bool? _canUserEdit;
-        
-        protected override async Task<bool> CanUserDelete()
-        {
-            if (!_canUserDelete.HasValue)
-            {
-                _canUserDelete = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync());
-            }
-            return _canUserDelete.Value;
-        }
-        bool? _canUserDelete;
-
-        
-        protected override Task<bool> CanUserSeeRestricted() { return Task.FromResult(true); }
 
         [Authorize]
         public async Task<ActionResult> GetManufacturerList(QueryParameters qParams)
@@ -156,7 +116,7 @@ namespace CriticalPath.Web.Controllers
         }
 
         [Authorize]
-        public async Task<ActionResult> Details(int? id)  //GET: /Manufacturers/Details/5
+        public async Task<ActionResult> Details(int? id, bool? modal)
         {
             if (id == null)
             {
@@ -170,6 +130,10 @@ namespace CriticalPath.Web.Controllers
             }
 
             await PutCanUserInViewBag();
+            if (modal ?? false)
+            {
+                return PartialView("_Details", manufacturer);
+            }
             return View(manufacturer);
         }
 
@@ -193,7 +157,7 @@ namespace CriticalPath.Web.Controllers
         [HttpGet]
         [Authorize(Roles = "admin, supervisor, clerk")]
         [Route("Manufacturers/Create/{supplierId:int?}")]
-        public async Task<ActionResult> Create(int? supplierId)  //GET: /Manufacturers/Create
+        public async Task<ActionResult> Create(int? supplierId, bool? modal)
         {
             var manufacturer = new Manufacturer();
             if (supplierId != null)
@@ -202,11 +166,17 @@ namespace CriticalPath.Web.Controllers
                 if (supplier == null)
                     return HttpNotFound();
                 manufacturer.Supplier = supplier;
+                manufacturer.SupplierId = supplierId.Value;
             }
             await SetManufacturerDefaults(manufacturer);
             await SetCountrySelectList(manufacturer.CountryId);
             await SetSupplierSelectList(manufacturer.SupplierId);
             
+            if (modal ?? false)
+            {
+                ViewBag.Modal = true;
+                return PartialView("_Create", manufacturer);
+            }
             return View(manufacturer);
         }
 
@@ -214,10 +184,8 @@ namespace CriticalPath.Web.Controllers
         [Authorize(Roles = "admin, supervisor, clerk")]
         [ValidateAntiForgeryToken]
         [Route("Manufacturers/Create/{supplierId:int?}")]
-        public async Task<ActionResult> Create(int? supplierId, Manufacturer manufacturer)  //POST: /Manufacturers/Create
+        public async Task<ActionResult> Create(int? supplierId, Manufacturer manufacturer, bool? modal)
         {
-            DataContext.SetInsertDefaults(manufacturer, this);
-
             if (ModelState.IsValid)
             {
                 OnCreateSaving(manufacturer);
@@ -226,17 +194,26 @@ namespace CriticalPath.Web.Controllers
                 await DataContext.SaveChangesAsync(this);
  
                 OnCreateSaved(manufacturer);
+                if (modal ?? false)
+                {
+                    return Json(new { saved = true });
+                }
                 return RedirectToAction("Index");
             }
 
             await SetCountrySelectList(manufacturer.CountryId);
             await SetSupplierSelectList(manufacturer.SupplierId);
             
+            if (modal ?? false)
+            {
+                ViewBag.Modal = true;
+                return PartialView("_Create", manufacturer);
+            }
             return View(manufacturer);
         }
 
         [Authorize(Roles = "admin, supervisor, clerk")]
-        public async Task<ActionResult> Edit(int? id)  //GET: /Manufacturers/Edit/5
+        public async Task<ActionResult> Edit(int? id, bool? modal)
         {
             if (id == null)
             {
@@ -252,16 +229,19 @@ namespace CriticalPath.Web.Controllers
             await SetCountrySelectList(manufacturer.CountryId);
             await SetSupplierSelectList(manufacturer.SupplierId);
             
+            if (modal ?? false)
+            {
+                ViewBag.Modal = true;
+                return PartialView("_Edit", manufacturer);
+            }
             return View(manufacturer);
         }
 
         [Authorize(Roles = "admin, supervisor, clerk")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(Manufacturer manufacturer)  //POST: /Manufacturers/Edit/5
+        public async Task<ActionResult> Edit(Manufacturer manufacturer, bool? modal)
         {
-            DataContext.SetInsertDefaults(manufacturer, this);
-
             if (ModelState.IsValid)
             {
                 OnEditSaving(manufacturer);
@@ -270,18 +250,27 @@ namespace CriticalPath.Web.Controllers
                 await DataContext.SaveChangesAsync(this);
  
                 OnEditSaved(manufacturer);
+                if (modal ?? false)
+                {
+                    return Json(new { saved = true });
+                }
                 return RedirectToAction("Index");
             }
 
             await SetCountrySelectList(manufacturer.CountryId);
             await SetSupplierSelectList(manufacturer.SupplierId);
             
+            if (modal ?? false)
+            {
+                ViewBag.Modal = true;
+                return PartialView("_Edit", manufacturer);
+            }
             return View(manufacturer);
         }
 
 
         [Authorize(Roles = "admin, supervisor")]
-        public async Task<ActionResult> Delete(int? id)  //GET: /Manufacturers/Delete/5
+        public async Task<ActionResult> Delete(int? id)  //GET: /Manufacturers
         {
             if (id == null)
             {
@@ -332,16 +321,91 @@ namespace CriticalPath.Web.Controllers
             return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
 
+        protected override bool CanUserCreate()
+        {
+            if (!_canUserCreate.HasValue)
+            {
+                _canUserCreate = Request.IsAuthenticated && (
+                                    IsUserAdmin() ||
+                                    IsUserSupervisor() ||
+                                    IsUserClerk());
+            }
+            return _canUserCreate.Value;
+        }
+        protected override async Task<bool> CanUserCreateAsync()
+        {
+            if (!_canUserCreate.HasValue)
+            {
+                _canUserCreate = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync() ||
+                                    await IsUserClerkAsync());
+            }
+            return _canUserCreate.Value;
+        }
+        bool? _canUserCreate;
+
+        protected override bool CanUserEdit()
+        {
+            if (!_canUserEdit.HasValue)
+            {
+                _canUserEdit = Request.IsAuthenticated && (
+                                    IsUserAdmin() ||
+                                    IsUserSupervisor() ||
+                                    IsUserClerk());
+            }
+            return _canUserEdit.Value;
+        }
+        protected override async Task<bool> CanUserEditAsync()
+        {
+            if (!_canUserEdit.HasValue)
+            {
+                _canUserEdit = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync() ||
+                                    await IsUserClerkAsync());
+            }
+            return _canUserEdit.Value;
+        }
+        bool? _canUserEdit;
+        
+        protected override bool CanUserDelete()
+        {
+            if (!_canUserDelete.HasValue)
+            {
+                _canUserDelete = Request.IsAuthenticated && (
+                                    IsUserAdmin() ||
+                                    IsUserSupervisor());
+            }
+            return _canUserDelete.Value;
+        }
+        protected override async Task<bool> CanUserDeleteAsync()
+        {
+            if (!_canUserDelete.HasValue)
+            {
+                _canUserDelete = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync());
+            }
+            return _canUserDelete.Value;
+        }
+        bool? _canUserDelete;
+
+        
+        protected override bool CanUserSeeRestricted() { return true; }
+        protected override Task<bool> CanUserSeeRestrictedAsync() { return Task.FromResult(true); }
+
+
         public new partial class QueryParameters : BaseController.QueryParameters
         {
             public QueryParameters() { }
             public QueryParameters(QueryParameters parameters) : base(parameters)
             {
-                SupplierId = parameters.SupplierId;
                 CountryId = parameters.CountryId;
+                SupplierId = parameters.SupplierId;
             }
-            public int? SupplierId { get; set; }
             public int? CountryId { get; set; }
+            public int? SupplierId { get; set; }
             public bool? Discontinued { get; set; }
             public DateTime? DiscontinueDateMin { get; set; }
             public DateTime? DiscontinueDateMax { get; set; }

@@ -67,6 +67,90 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
         }
 
 
+        protected override bool CanUserCreate()
+        {
+            if (!_canUserCreate.HasValue)
+            {
+                _canUserCreate = Request.IsAuthenticated && (
+                                    IsUserAdmin());
+            }
+            return _canUserCreate.Value;
+        }
+        protected override async Task<bool> CanUserCreateAsync()
+        {
+            if (!_canUserCreate.HasValue)
+            {
+                _canUserCreate = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync());
+            }
+            return _canUserCreate.Value;
+        }
+        bool? _canUserCreate;
+
+        protected override bool CanUserEdit()
+        {
+            if (!_canUserEdit.HasValue)
+            {
+                _canUserEdit = Request.IsAuthenticated && (
+                                    IsUserAdmin());
+            }
+            return _canUserEdit.Value;
+        }
+        protected override async Task<bool> CanUserEditAsync()
+        {
+            if (!_canUserEdit.HasValue)
+            {
+                _canUserEdit = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync());
+            }
+            return _canUserEdit.Value;
+        }
+        bool? _canUserEdit;
+        
+        protected override bool CanUserDelete()
+        {
+            if (!_canUserDelete.HasValue)
+            {
+                _canUserDelete = Request.IsAuthenticated && (
+                                    IsUserAdmin());
+            }
+            return _canUserDelete.Value;
+        }
+        protected override async Task<bool> CanUserDeleteAsync()
+        {
+            if (!_canUserDelete.HasValue)
+            {
+                _canUserDelete = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync());
+            }
+            return _canUserDelete.Value;
+        }
+        bool? _canUserDelete;
+
+        protected override bool CanUserSeeRestricted()
+        {
+            if (!_canSeeRestricted.HasValue)
+            {
+                _canSeeRestricted = Request.IsAuthenticated && (
+                                    IsUserAdmin() ||
+                                    IsUserSupervisor());
+            }
+            return _canSeeRestricted.Value;
+        }
+        protected override async Task<bool> CanUserSeeRestrictedAsync()
+        {
+            if (!_canSeeRestricted.HasValue)
+            {
+                _canSeeRestricted = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync());
+            }
+            return _canSeeRestricted.Value;
+        }
+        bool? _canSeeRestricted;
+
+
+
         public new partial class QueryParameters : BaseController.QueryParameters
         {
             public QueryParameters() { }

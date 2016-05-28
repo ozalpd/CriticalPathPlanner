@@ -85,16 +85,29 @@ namespace CriticalPath.Web.Controllers
 
         protected virtual async Task PutCanUserInViewBag()
         {
-            ViewBag.canUserEdit = await CanUserEdit();
-            ViewBag.canUserCreate = await CanUserCreate();
-            ViewBag.canUserDelete = await CanUserDelete();
-            ViewBag.canSeeRestricted = await CanUserSeeRestricted();
+            ViewBag.canUserEdit = await CanUserEditAsync();
+            ViewBag.canUserCreate = await CanUserCreateAsync();
+            ViewBag.canUserDelete = await CanUserDeleteAsync();
+            ViewBag.canSeeRestricted = await CanUserSeeRestrictedAsync();
         }
         //If we forget to implement override methods, we will keep it secure.
-        protected virtual Task<bool> CanUserCreate() { return Task.FromResult(false); }
-        protected virtual Task<bool> CanUserEdit() { return Task.FromResult(false); }
-        protected virtual Task<bool> CanUserDelete() { return Task.FromResult(false); }
-        protected virtual Task<bool> CanUserSeeRestricted() { return Task.FromResult(false); }
+        protected virtual bool CanUserCreate() { return false; }
+        protected virtual bool CanUserEdit() { return false; }
+        protected virtual bool CanUserDelete() { return false; }
+        protected virtual bool CanUserSeeRestricted() { return false; }
+        protected virtual Task<bool> CanUserCreateAsync() { return Task.FromResult(false); }
+        protected virtual Task<bool> CanUserEditAsync() { return Task.FromResult(false); }
+        protected virtual Task<bool> CanUserDeleteAsync() { return Task.FromResult(false); }
+        protected virtual Task<bool> CanUserSeeRestrictedAsync() { return Task.FromResult(false); }
+
+        protected virtual bool IsUserAdmin()
+        {
+            if (!_isUserAdmin.HasValue)
+            {
+                _isUserAdmin = Request.IsAuthenticated && User.IsInRole(SecurityRoles.Admin);
+            }
+            return _isUserAdmin.Value;
+        }
 
         protected virtual async Task<bool> IsUserAdminAsync()
         {
@@ -109,6 +122,15 @@ namespace CriticalPath.Web.Controllers
 
 
 
+        protected virtual bool IsUserClerk()
+        {
+            if (!_isUserClerk.HasValue)
+            {
+                _isUserClerk = Request.IsAuthenticated && User.IsInRole(SecurityRoles.Clerk);
+            }
+            return _isUserClerk.Value;
+        }
+
         protected virtual async Task<bool> IsUserClerkAsync()
         {
             if (!_isUserClerk.HasValue)
@@ -120,6 +142,15 @@ namespace CriticalPath.Web.Controllers
         }
         bool? _isUserClerk;
 
+
+        protected virtual bool IsUserObserver()
+        {
+            if (!_isUserObserver.HasValue)
+            {
+                _isUserObserver = Request.IsAuthenticated && User.IsInRole(SecurityRoles.Observer);
+            }
+            return _isUserObserver.Value;
+        }
 
         protected virtual async Task<bool> IsUserObserverAsync()
         {
@@ -133,6 +164,15 @@ namespace CriticalPath.Web.Controllers
         bool? _isUserObserver;
 
 
+        protected virtual bool IsUserSupervisor()
+        {
+            if (!_isUserSupervisor.HasValue)
+            {
+                _isUserSupervisor = Request.IsAuthenticated && User.IsInRole(SecurityRoles.Supervisor);
+            }
+            return _isUserSupervisor.Value;
+        }
+
         protected virtual async Task<bool> IsUserSupervisorAsync()
         {
             if (!_isUserSupervisor.HasValue)
@@ -144,6 +184,15 @@ namespace CriticalPath.Web.Controllers
         }
         bool? _isUserSupervisor;
 
+
+        protected virtual bool IsUserSupplier()
+        {
+            if (!_isUserSupplier.HasValue)
+            {
+                _isUserSupplier = Request.IsAuthenticated && User.IsInRole(SecurityRoles.Supplier);
+            }
+            return _isUserSupplier.Value;
+        }
 
         protected virtual async Task<bool> IsUserSupplierAsync()
         {

@@ -28,6 +28,19 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                             a.DefaultTitle.Contains(qParams.SearchString) 
                         select a;
             }
+            if (qParams.IsApproved != null)
+            {
+                query = query.Where(x => x.IsApproved == qParams.IsApproved.Value);
+            }
+            if (qParams.ApproveDateMin != null)
+            {
+                query = query.Where(x => x.ApproveDate >= qParams.ApproveDateMin.Value);
+            }
+            if (qParams.ApproveDateMax != null)
+            {
+                var maxDate = qParams.ApproveDateMax.Value.AddDays(1);
+                query = query.Where(x => x.ApproveDate < maxDate);
+            }
 
             qParams.TotalCount = await query.CountAsync();
             return query.Skip(qParams.Skip).Take(qParams.PageSize);
@@ -49,9 +62,9 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
         [Authorize]
         public async Task<ActionResult> Index(QueryParameters qParams)
         {
-            var query = await GetProcessTemplateQuery(qParams);
             await PutCanUserInViewBag();
-			var result = new PagedList<ProcessTemplate>(qParams);
+            var query = await GetProcessTemplateQuery(qParams);
+            var result = new PagedList<ProcessTemplate>(qParams);
             if (qParams.TotalCount > 0)
             {
                 result.Items = await query.ToListAsync();
@@ -60,42 +73,6 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             PutPagerInViewBag(result);
             return View(result.Items);
         }
-
-        protected override async Task<bool> CanUserCreate()
-        {
-            if (!_canUserCreate.HasValue)
-            {
-                _canUserCreate = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync());
-            }
-            return _canUserCreate.Value;
-        }
-        bool? _canUserCreate;
-
-        protected override async Task<bool> CanUserEdit()
-        {
-            if (!_canUserEdit.HasValue)
-            {
-                _canUserEdit = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync());
-            }
-            return _canUserEdit.Value;
-        }
-        bool? _canUserEdit;
-        
-        protected override async Task<bool> CanUserDelete()
-        {
-            if (!_canUserDelete.HasValue)
-            {
-                _canUserDelete = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync());
-            }
-            return _canUserDelete.Value;
-        }
-        bool? _canUserDelete;
-
-        
-        protected override Task<bool> CanUserSeeRestricted() { return Task.FromResult(true); }
 
         [Authorize]
         public async Task<ActionResult> GetProcessTemplateList(QueryParameters qParams)
@@ -123,14 +100,14 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                        {
                            id = x.Id,
                            value = x.TemplateName,
-                           label = x.TemplateName //can be extended as x.Category.CategoryName + "/" + x.TemplateName,
+                           label = x.TemplateName
                        };
 
             return Json(await list.ToListAsync(), JsonRequestBehavior.AllowGet);
         }
 
         [Authorize]
-        public async Task<ActionResult> Details(int? id)  //GET: /ProcessTemplates/Details/5
+        public async Task<ActionResult> Details(int? id, bool? modal)
         {
             if (id == null)
             {
@@ -144,6 +121,10 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             }
 
             await PutCanUserInViewBag();
+            if (modal ?? false)
+            {
+                return PartialView("_Details", processTemplate);
+            }
             return View(processTemplate);
         }
 
@@ -152,13 +133,13 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return BadRequestTextResult();
             }
             ProcessTemplate processTemplate = await FindAsyncProcessTemplate(id.Value);
 
             if (processTemplate == null)
             {
-                return HttpNotFound();
+                return NotFoundTextResult();
             }
 
             return Json(new ProcessTemplateDTO(processTemplate), JsonRequestBehavior.AllowGet);
@@ -166,21 +147,24 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
 
         [HttpGet]
         [Authorize(Roles = "admin")]
-        public async Task<ActionResult> Create()  //GET: /ProcessTemplates/Create
+        public async Task<ActionResult> Create(bool? modal)
         {
             var processTemplate = new ProcessTemplate();
             await SetProcessTemplateDefaults(processTemplate);
             SetSelectLists(processTemplate);
+            if (modal ?? false)
+            {
+                ViewBag.Modal = true;
+                return PartialView("_Create", processTemplate);
+            }
             return View(processTemplate);
         }
 
         [HttpPost]
         [Authorize(Roles = "admin")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(ProcessTemplate processTemplate)  //POST: /ProcessTemplates/Create
+        public async Task<ActionResult> Create(ProcessTemplate processTemplate, bool? modal)
         {
-            DataContext.SetInsertDefaults(processTemplate, this);
-
             if (ModelState.IsValid)
             {
                 OnCreateSaving(processTemplate);
@@ -189,15 +173,24 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 await DataContext.SaveChangesAsync(this);
  
                 OnCreateSaved(processTemplate);
+                if (modal ?? false)
+                {
+                    return Json(new { saved = true });
+                }
                 return RedirectToAction("Create", "ProcessStepTemplates", new { processTemplateId = processTemplate.Id });
             }
 
             SetSelectLists(processTemplate);
+            if (modal ?? false)
+            {
+                ViewBag.Modal = true;
+                return PartialView("_Create", processTemplate);
+            }
             return View(processTemplate);
         }
 
         [Authorize(Roles = "admin")]
-        public async Task<ActionResult> Edit(int? id)  //GET: /ProcessTemplates/Edit/5
+        public async Task<ActionResult> Edit(int? id, bool? modal)
         {
             if (id == null)
             {
@@ -211,16 +204,19 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             }
 
             SetSelectLists(processTemplate);
+            if (modal ?? false)
+            {
+                ViewBag.Modal = true;
+                return PartialView("_Edit", processTemplate);
+            }
             return View(processTemplate);
         }
 
         [Authorize(Roles = "admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(ProcessTemplate processTemplate)  //POST: /ProcessTemplates/Edit/5
+        public async Task<ActionResult> Edit(ProcessTemplate processTemplate, bool? modal)
         {
-            DataContext.SetInsertDefaults(processTemplate, this);
-
             if (ModelState.IsValid)
             {
                 OnEditSaving(processTemplate);
@@ -229,16 +225,25 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 await DataContext.SaveChangesAsync(this);
  
                 OnEditSaved(processTemplate);
+                if (modal ?? false)
+                {
+                    return Json(new { saved = true });
+                }
                 return RedirectToAction("Details", new { id = processTemplate.Id });
             }
 
             SetSelectLists(processTemplate);
+            if (modal ?? false)
+            {
+                ViewBag.Modal = true;
+                return PartialView("_Edit", processTemplate);
+            }
             return View(processTemplate);
         }
 
 
         [Authorize(Roles = "admin")]
-        public async Task<ActionResult> Delete(int? id)  //GET: /ProcessTemplates/Delete/5
+        public async Task<ActionResult> Delete(int? id)  //GET: /ProcessTemplates
         {
             if (id == null)
             {
@@ -289,12 +294,80 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
 
+        protected override bool CanUserCreate()
+        {
+            if (!_canUserCreate.HasValue)
+            {
+                _canUserCreate = Request.IsAuthenticated && (
+                                    IsUserAdmin());
+            }
+            return _canUserCreate.Value;
+        }
+        protected override async Task<bool> CanUserCreateAsync()
+        {
+            if (!_canUserCreate.HasValue)
+            {
+                _canUserCreate = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync());
+            }
+            return _canUserCreate.Value;
+        }
+        bool? _canUserCreate;
+
+        protected override bool CanUserEdit()
+        {
+            if (!_canUserEdit.HasValue)
+            {
+                _canUserEdit = Request.IsAuthenticated && (
+                                    IsUserAdmin());
+            }
+            return _canUserEdit.Value;
+        }
+        protected override async Task<bool> CanUserEditAsync()
+        {
+            if (!_canUserEdit.HasValue)
+            {
+                _canUserEdit = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync());
+            }
+            return _canUserEdit.Value;
+        }
+        bool? _canUserEdit;
+        
+        protected override bool CanUserDelete()
+        {
+            if (!_canUserDelete.HasValue)
+            {
+                _canUserDelete = Request.IsAuthenticated && (
+                                    IsUserAdmin());
+            }
+            return _canUserDelete.Value;
+        }
+        protected override async Task<bool> CanUserDeleteAsync()
+        {
+            if (!_canUserDelete.HasValue)
+            {
+                _canUserDelete = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync());
+            }
+            return _canUserDelete.Value;
+        }
+        bool? _canUserDelete;
+
+        
+        protected override bool CanUserSeeRestricted() { return true; }
+        protected override Task<bool> CanUserSeeRestrictedAsync() { return Task.FromResult(true); }
+
+
         public new partial class QueryParameters : BaseController.QueryParameters
         {
             public QueryParameters() { }
             public QueryParameters(QueryParameters parameters) : base(parameters)
             {
             }
+            public bool? IsApproved { get; set; }
+            public DateTime? ApproveDateMin { get; set; }
+            public DateTime? ApproveDateMax { get; set; }
         }
 
         public partial class PagedList<T> : QueryParameters

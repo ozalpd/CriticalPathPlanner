@@ -43,7 +43,8 @@ namespace CriticalPath.Web.Controllers
             }
             if (qParams.DiscontinueDateMax != null)
             {
-                query = query.Where(x => x.DiscontinueDate <= qParams.DiscontinueDateMax.Value);
+                var maxDate = qParams.DiscontinueDateMax.Value.AddDays(1);
+                query = query.Where(x => x.DiscontinueDate < maxDate);
             }
 
             qParams.TotalCount = await query.CountAsync();
@@ -66,7 +67,7 @@ namespace CriticalPath.Web.Controllers
         }
 
         [Authorize(Roles = "admin, supervisor, clerk")]
-        public async Task<ActionResult> Details(int? id)  //GET: /Customers/Details/5
+        public async Task<ActionResult> Details(int? id, bool? modal)
         {
             if (id == null)
             {
@@ -80,6 +81,10 @@ namespace CriticalPath.Web.Controllers
             }
 
             await PutCanUserInViewBag();
+            if (modal ?? false)
+            {
+                return PartialView("_Details", customer);
+            }
             return View(customer);
         }
 
@@ -102,21 +107,24 @@ namespace CriticalPath.Web.Controllers
 
         [HttpGet]
         [Authorize(Roles = "admin, supervisor, clerk")]
-        public async Task<ActionResult> Create()  //GET: /Customers/Create
+        public async Task<ActionResult> Create(bool? modal)
         {
             var customer = new Customer();
             await SetCustomerDefaults(customer);
             await SetCountrySelectList(customer.CountryId);
+            if (modal ?? false)
+            {
+                ViewBag.Modal = true;
+                return PartialView("_Create", customer);
+            }
             return View(customer);
         }
 
         [HttpPost]
         [Authorize(Roles = "admin, supervisor, clerk")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(Customer customer)  //POST: /Customers/Create
+        public async Task<ActionResult> Create(Customer customer, bool? modal)
         {
-            DataContext.SetInsertDefaults(customer, this);
-
             if (ModelState.IsValid)
             {
                 OnCreateSaving(customer);
@@ -125,15 +133,24 @@ namespace CriticalPath.Web.Controllers
                 await DataContext.SaveChangesAsync(this);
  
                 OnCreateSaved(customer);
+                if (modal ?? false)
+                {
+                    return Json(new { saved = true });
+                }
                 return RedirectToAction("Index");
             }
 
             await SetCountrySelectList(customer.CountryId);
+            if (modal ?? false)
+            {
+                ViewBag.Modal = true;
+                return PartialView("_Create", customer);
+            }
             return View(customer);
         }
 
         [Authorize(Roles = "admin, supervisor, clerk")]
-        public async Task<ActionResult> Edit(int? id)  //GET: /Customers/Edit/5
+        public async Task<ActionResult> Edit(int? id, bool? modal)
         {
             if (id == null)
             {
@@ -147,16 +164,19 @@ namespace CriticalPath.Web.Controllers
             }
 
             await SetCountrySelectList(customer.CountryId);
+            if (modal ?? false)
+            {
+                ViewBag.Modal = true;
+                return PartialView("_Edit", customer);
+            }
             return View(customer);
         }
 
         [Authorize(Roles = "admin, supervisor, clerk")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(Customer customer)  //POST: /Customers/Edit/5
+        public async Task<ActionResult> Edit(Customer customer, bool? modal)
         {
-            DataContext.SetInsertDefaults(customer, this);
-
             if (ModelState.IsValid)
             {
                 OnEditSaving(customer);
@@ -165,16 +185,25 @@ namespace CriticalPath.Web.Controllers
                 await DataContext.SaveChangesAsync(this);
  
                 OnEditSaved(customer);
+                if (modal ?? false)
+                {
+                    return Json(new { saved = true });
+                }
                 return RedirectToAction("Index");
             }
 
             await SetCountrySelectList(customer.CountryId);
+            if (modal ?? false)
+            {
+                ViewBag.Modal = true;
+                return PartialView("_Edit", customer);
+            }
             return View(customer);
         }
 
 
         [Authorize(Roles = "admin, supervisor")]
-        public async Task<ActionResult> Delete(int? id)  //GET: /Customers/Delete/5
+        public async Task<ActionResult> Delete(int? id)  //GET: /Customers
         {
             if (id == null)
             {
@@ -187,9 +216,10 @@ namespace CriticalPath.Web.Controllers
                 return NotFoundTextResult();
             }
 
-            int ordersCount = customer.Orders.Count;
             int contactsCount = customer.Contacts.Count;
-            if ((ordersCount + contactsCount) > 0)
+            int ordersCount = customer.Orders.Count;
+            int departmentsCount = customer.Departments.Count;
+            if ((contactsCount + ordersCount + departmentsCount) > 0)
             {
                 var sb = new StringBuilder();
 
@@ -198,15 +228,21 @@ namespace CriticalPath.Web.Controllers
                 sb.Append(customer.CompanyName);
                 sb.Append("</b>.<br/>");
 
+                if (contactsCount > 0)
+                {
+                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, contactsCount, EntityStrings.Contacts));
+                    sb.Append("<br/>");
+                }
+
                 if (ordersCount > 0)
                 {
                     sb.Append(string.Format(MessageStrings.RelatedRecordsExist, ordersCount, EntityStrings.Orders));
                     sb.Append("<br/>");
                 }
 
-                if (contactsCount > 0)
+                if (departmentsCount > 0)
                 {
-                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, contactsCount, EntityStrings.Contacts));
+                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, departmentsCount, EntityStrings.Departments));
                     sb.Append("<br/>");
                 }
 
@@ -231,6 +267,81 @@ namespace CriticalPath.Web.Controllers
 
             return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
+
+        protected override bool CanUserCreate()
+        {
+            if (!_canUserCreate.HasValue)
+            {
+                _canUserCreate = Request.IsAuthenticated && (
+                                    IsUserAdmin() ||
+                                    IsUserSupervisor() ||
+                                    IsUserClerk());
+            }
+            return _canUserCreate.Value;
+        }
+        protected override async Task<bool> CanUserCreateAsync()
+        {
+            if (!_canUserCreate.HasValue)
+            {
+                _canUserCreate = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync() ||
+                                    await IsUserClerkAsync());
+            }
+            return _canUserCreate.Value;
+        }
+        bool? _canUserCreate;
+
+        protected override bool CanUserEdit()
+        {
+            if (!_canUserEdit.HasValue)
+            {
+                _canUserEdit = Request.IsAuthenticated && (
+                                    IsUserAdmin() ||
+                                    IsUserSupervisor() ||
+                                    IsUserClerk());
+            }
+            return _canUserEdit.Value;
+        }
+        protected override async Task<bool> CanUserEditAsync()
+        {
+            if (!_canUserEdit.HasValue)
+            {
+                _canUserEdit = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync() ||
+                                    await IsUserClerkAsync());
+            }
+            return _canUserEdit.Value;
+        }
+        bool? _canUserEdit;
+        
+        protected override bool CanUserDelete()
+        {
+            if (!_canUserDelete.HasValue)
+            {
+                _canUserDelete = Request.IsAuthenticated && (
+                                    IsUserAdmin() ||
+                                    IsUserSupervisor());
+            }
+            return _canUserDelete.Value;
+        }
+        protected override async Task<bool> CanUserDeleteAsync()
+        {
+            if (!_canUserDelete.HasValue)
+            {
+                _canUserDelete = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync());
+            }
+            return _canUserDelete.Value;
+        }
+        bool? _canUserDelete;
+
+        
+        protected override bool CanUserSeeRestricted() { return true; }
+        protected override Task<bool> CanUserSeeRestrictedAsync() { return Task.FromResult(true); }
+
 
         public new partial class QueryParameters : BaseController.QueryParameters
         {

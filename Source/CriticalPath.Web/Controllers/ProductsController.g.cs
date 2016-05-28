@@ -35,9 +35,17 @@ namespace CriticalPath.Web.Controllers
             {
                 query = query.Where(x => x.SellingCurrencyId == qParams.SellingCurrencyId);
             }
+            if (qParams.SellingCurrency2Id != null)
+            {
+                query = query.Where(x => x.SellingCurrency2Id == qParams.SellingCurrency2Id);
+            }
             if (qParams.BuyingCurrencyId != null)
             {
                 query = query.Where(x => x.BuyingCurrencyId == qParams.BuyingCurrencyId);
+            }
+            if (qParams.BuyingCurrency2Id != null)
+            {
+                query = query.Where(x => x.BuyingCurrency2Id == qParams.BuyingCurrency2Id);
             }
             if (qParams.LicensorCurrencyId != null)
             {
@@ -51,6 +59,10 @@ namespace CriticalPath.Web.Controllers
             {
                 query = query.Where(x => x.RetailCurrencyId == qParams.RetailCurrencyId);
             }
+            if (qParams.Licensed != null)
+            {
+                query = query.Where(x => x.Licensed == qParams.Licensed.Value);
+            }
             if (qParams.Discontinued != null)
             {
                 query = query.Where(x => x.Discontinued == qParams.Discontinued.Value);
@@ -61,7 +73,8 @@ namespace CriticalPath.Web.Controllers
             }
             if (qParams.DiscontinueDateMax != null)
             {
-                query = query.Where(x => x.DiscontinueDate <= qParams.DiscontinueDateMax.Value);
+                var maxDate = qParams.DiscontinueDateMax.Value.AddDays(1);
+                query = query.Where(x => x.DiscontinueDate < maxDate);
             }
 
             qParams.TotalCount = await query.CountAsync();
@@ -84,9 +97,9 @@ namespace CriticalPath.Web.Controllers
         [Authorize]
         public async Task<ActionResult> Index(QueryParameters qParams)
         {
-            var query = await GetProductQuery(qParams);
             await PutCanUserInViewBag();
-			var result = new PagedList<Product>(qParams);
+            var query = await GetProductQuery(qParams);
+            var result = new PagedList<Product>(qParams);
             if (qParams.TotalCount > 0)
             {
                 result.Items = await query.ToListAsync();
@@ -95,57 +108,6 @@ namespace CriticalPath.Web.Controllers
             PutPagerInViewBag(result);
             return View(result.Items);
         }
-
-        protected override async Task<bool> CanUserCreate()
-        {
-            if (!_canUserCreate.HasValue)
-            {
-                _canUserCreate = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync() ||
-                                    await IsUserClerkAsync());
-            }
-            return _canUserCreate.Value;
-        }
-        bool? _canUserCreate;
-
-        protected override async Task<bool> CanUserEdit()
-        {
-            if (!_canUserEdit.HasValue)
-            {
-                _canUserEdit = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync() ||
-                                    await IsUserClerkAsync());
-            }
-            return _canUserEdit.Value;
-        }
-        bool? _canUserEdit;
-        
-        protected override async Task<bool> CanUserDelete()
-        {
-            if (!_canUserDelete.HasValue)
-            {
-                _canUserDelete = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync());
-            }
-            return _canUserDelete.Value;
-        }
-        bool? _canUserDelete;
-
-        protected override async Task<bool> CanUserSeeRestricted()
-        {
-            if (!_canSeeRestricted.HasValue)
-            {
-                _canSeeRestricted = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync() ||
-                                    await IsUserSupervisorAsync() ||
-                                    await IsUserClerkAsync());
-            }
-            return _canSeeRestricted.Value;
-        }
-        bool? _canSeeRestricted;
 
         [Authorize]
         public async Task<ActionResult> GetProductList(QueryParameters qParams)
@@ -180,7 +142,7 @@ namespace CriticalPath.Web.Controllers
         }
 
         [Authorize]
-        public async Task<ActionResult> Details(int? id)  //GET: /Products/Details/5
+        public async Task<ActionResult> Details(int? id, bool? modal)
         {
             if (id == null)
             {
@@ -194,6 +156,10 @@ namespace CriticalPath.Web.Controllers
             }
 
             await PutCanUserInViewBag();
+            if (modal ?? false)
+            {
+                return PartialView("_Details", product);
+            }
             return View(product);
         }
 
@@ -215,6 +181,102 @@ namespace CriticalPath.Web.Controllers
         }
 
 
+        protected override bool CanUserCreate()
+        {
+            if (!_canUserCreate.HasValue)
+            {
+                _canUserCreate = Request.IsAuthenticated && (
+                                    IsUserAdmin() ||
+                                    IsUserSupervisor() ||
+                                    IsUserClerk());
+            }
+            return _canUserCreate.Value;
+        }
+        protected override async Task<bool> CanUserCreateAsync()
+        {
+            if (!_canUserCreate.HasValue)
+            {
+                _canUserCreate = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync() ||
+                                    await IsUserClerkAsync());
+            }
+            return _canUserCreate.Value;
+        }
+        bool? _canUserCreate;
+
+        protected override bool CanUserEdit()
+        {
+            if (!_canUserEdit.HasValue)
+            {
+                _canUserEdit = Request.IsAuthenticated && (
+                                    IsUserAdmin() ||
+                                    IsUserSupervisor() ||
+                                    IsUserClerk());
+            }
+            return _canUserEdit.Value;
+        }
+        protected override async Task<bool> CanUserEditAsync()
+        {
+            if (!_canUserEdit.HasValue)
+            {
+                _canUserEdit = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync() ||
+                                    await IsUserClerkAsync());
+            }
+            return _canUserEdit.Value;
+        }
+        bool? _canUserEdit;
+        
+        protected override bool CanUserDelete()
+        {
+            if (!_canUserDelete.HasValue)
+            {
+                _canUserDelete = Request.IsAuthenticated && (
+                                    IsUserAdmin() ||
+                                    IsUserSupervisor());
+            }
+            return _canUserDelete.Value;
+        }
+        protected override async Task<bool> CanUserDeleteAsync()
+        {
+            if (!_canUserDelete.HasValue)
+            {
+                _canUserDelete = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync());
+            }
+            return _canUserDelete.Value;
+        }
+        bool? _canUserDelete;
+
+        protected override bool CanUserSeeRestricted()
+        {
+            if (!_canSeeRestricted.HasValue)
+            {
+                _canSeeRestricted = Request.IsAuthenticated && (
+                                    IsUserAdmin() ||
+                                    IsUserSupervisor() ||
+                                    IsUserClerk());
+            }
+            return _canSeeRestricted.Value;
+        }
+        protected override async Task<bool> CanUserSeeRestrictedAsync()
+        {
+            if (!_canSeeRestricted.HasValue)
+            {
+                _canSeeRestricted = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync() ||
+                                    await IsUserSupervisorAsync() ||
+                                    await IsUserClerkAsync());
+            }
+            return _canSeeRestricted.Value;
+        }
+        bool? _canSeeRestricted;
+
+
+
         public new partial class QueryParameters : BaseController.QueryParameters
         {
             public QueryParameters() { }
@@ -222,17 +284,22 @@ namespace CriticalPath.Web.Controllers
             {
                 CategoryId = parameters.CategoryId;
                 SellingCurrencyId = parameters.SellingCurrencyId;
+                SellingCurrency2Id = parameters.SellingCurrency2Id;
                 BuyingCurrencyId = parameters.BuyingCurrencyId;
+                BuyingCurrency2Id = parameters.BuyingCurrency2Id;
                 LicensorCurrencyId = parameters.LicensorCurrencyId;
                 RoyaltyCurrencyId = parameters.RoyaltyCurrencyId;
                 RetailCurrencyId = parameters.RetailCurrencyId;
             }
             public int? CategoryId { get; set; }
             public int? SellingCurrencyId { get; set; }
+            public int? SellingCurrency2Id { get; set; }
             public int? BuyingCurrencyId { get; set; }
+            public int? BuyingCurrency2Id { get; set; }
             public int? LicensorCurrencyId { get; set; }
             public int? RoyaltyCurrencyId { get; set; }
             public int? RetailCurrencyId { get; set; }
+            public bool? Licensed { get; set; }
             public bool? Discontinued { get; set; }
             public DateTime? DiscontinueDateMin { get; set; }
             public DateTime? DiscontinueDateMax { get; set; }

@@ -20,9 +20,9 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
         [Authorize]
         public async Task<ActionResult> Index(QueryParameters qParams)
         {
-            var query = await GetFreightTermQuery(qParams);
             await PutCanUserInViewBag();
-			var result = new PagedList<FreightTerm>(qParams);
+            var query = await GetFreightTermQuery(qParams);
+            var result = new PagedList<FreightTerm>(qParams);
             if (qParams.TotalCount > 0)
             {
                 result.Items = await query.ToListAsync();
@@ -31,8 +31,35 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             PutPagerInViewBag(result);
             return View(result.Items);
         }
-        
-        protected override async Task<bool> CanUserCreate()
+
+        [Authorize]
+        public async Task<JsonResult> GetFreightTermsForAutoComplete(QueryParameters qParam)
+        {
+            var query = GetFreightTermQuery()
+                        .Where(x => x.IncotermCode.Contains(qParam.SearchString))
+                        .Take(qParam.PageSize);
+            var list = from x in query
+                       select new
+                       {
+                           id = x.Id,
+                           value = x.IncotermCode,
+                           label = x.IncotermCode
+                       };
+
+            return Json(await list.ToListAsync(), JsonRequestBehavior.AllowGet);
+        }
+
+
+        protected override bool CanUserCreate()
+        {
+            if (!_canUserCreate.HasValue)
+            {
+                _canUserCreate = Request.IsAuthenticated && (
+                                    IsUserAdmin());
+            }
+            return _canUserCreate.Value;
+        }
+        protected override async Task<bool> CanUserCreateAsync()
         {
             if (!_canUserCreate.HasValue)
             {
@@ -43,7 +70,16 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
         }
         bool? _canUserCreate;
 
-        protected override async Task<bool> CanUserEdit()
+        protected override bool CanUserEdit()
+        {
+            if (!_canUserEdit.HasValue)
+            {
+                _canUserEdit = Request.IsAuthenticated && (
+                                    IsUserAdmin());
+            }
+            return _canUserEdit.Value;
+        }
+        protected override async Task<bool> CanUserEditAsync()
         {
             if (!_canUserEdit.HasValue)
             {
@@ -54,7 +90,16 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
         }
         bool? _canUserEdit;
         
-        protected override async Task<bool> CanUserDelete()
+        protected override bool CanUserDelete()
+        {
+            if (!_canUserDelete.HasValue)
+            {
+                _canUserDelete = Request.IsAuthenticated && (
+                                    IsUserAdmin());
+            }
+            return _canUserDelete.Value;
+        }
+        protected override async Task<bool> CanUserDeleteAsync()
         {
             if (!_canUserDelete.HasValue)
             {
@@ -64,6 +109,10 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             return _canUserDelete.Value;
         }
         bool? _canUserDelete;
+
+        
+        protected override bool CanUserSeeRestricted() { return true; }
+        protected override Task<bool> CanUserSeeRestrictedAsync() { return Task.FromResult(true); }
 
 
         public new partial class QueryParameters : BaseController.QueryParameters

@@ -32,25 +32,12 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             return query.Skip(qParams.Skip).Take(qParams.PageSize);
         }
 
-        protected virtual async Task<List<SizingStandardDTO>> GetSizingStandardDtoList(QueryParameters qParams)
-        {
-            var query = await GetSizingStandardQuery(qParams);
-            var list = qParams.TotalCount > 0 ? await query.ToListAsync() : new List<SizingStandard>();
-            var result = new List<SizingStandardDTO>();
-            foreach (var item in list)
-            {
-                result.Add(new SizingStandardDTO(item));
-            }
-
-            return result;
-        }
-
         [Authorize]
         public async Task<ActionResult> Index(QueryParameters qParams)
         {
-            var query = await GetSizingStandardQuery(qParams);
             await PutCanUserInViewBag();
-			var result = new PagedList<SizingStandard>(qParams);
+            var query = await GetSizingStandardQuery(qParams);
+            var result = new PagedList<SizingStandard>(qParams);
             if (qParams.TotalCount > 0)
             {
                 result.Items = await query.ToListAsync();
@@ -59,8 +46,57 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             PutPagerInViewBag(result);
             return View(result.Items);
         }
-        
-        protected override async Task<bool> CanUserCreate()
+
+        [Authorize]
+        public async Task<JsonResult> GetSizingStandardsForAutoComplete(QueryParameters qParam)
+        {
+            var query = GetSizingStandardQuery()
+                        .Where(x => x.Title.Contains(qParam.SearchString))
+                        .Take(qParam.PageSize);
+            var list = from x in query
+                       select new
+                       {
+                           id = x.Id,
+                           value = x.Title,
+                           label = x.Title
+                       };
+
+            return Json(await list.ToListAsync(), JsonRequestBehavior.AllowGet);
+        }
+
+        [Authorize]
+        public async Task<ActionResult> Details(int? id, bool? modal)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            SizingStandard sizingStandard = await FindAsyncSizingStandard(id.Value);
+
+            if (sizingStandard == null)
+            {
+                return HttpNotFound();
+            }
+
+            await PutCanUserInViewBag();
+            if (modal ?? false)
+            {
+                return PartialView("_Details", sizingStandard);
+            }
+            return View(sizingStandard);
+        }
+
+
+        protected override bool CanUserCreate()
+        {
+            if (!_canUserCreate.HasValue)
+            {
+                _canUserCreate = Request.IsAuthenticated && (
+                                    IsUserAdmin());
+            }
+            return _canUserCreate.Value;
+        }
+        protected override async Task<bool> CanUserCreateAsync()
         {
             if (!_canUserCreate.HasValue)
             {
@@ -71,7 +107,16 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
         }
         bool? _canUserCreate;
 
-        protected override async Task<bool> CanUserEdit()
+        protected override bool CanUserEdit()
+        {
+            if (!_canUserEdit.HasValue)
+            {
+                _canUserEdit = Request.IsAuthenticated && (
+                                    IsUserAdmin());
+            }
+            return _canUserEdit.Value;
+        }
+        protected override async Task<bool> CanUserEditAsync()
         {
             if (!_canUserEdit.HasValue)
             {
@@ -82,7 +127,16 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
         }
         bool? _canUserEdit;
         
-        protected override async Task<bool> CanUserDelete()
+        protected override bool CanUserDelete()
+        {
+            if (!_canUserDelete.HasValue)
+            {
+                _canUserDelete = Request.IsAuthenticated && (
+                                    IsUserAdmin());
+            }
+            return _canUserDelete.Value;
+        }
+        protected override async Task<bool> CanUserDeleteAsync()
         {
             if (!_canUserDelete.HasValue)
             {
@@ -93,116 +147,10 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
         }
         bool? _canUserDelete;
 
-        [Authorize]
-        public async Task<ActionResult> GetSizingStandardList(QueryParameters qParams)
-        {
-            var result = await GetSizingStandardDtoList(qParams);
-            return Json(result, JsonRequestBehavior.AllowGet);
-        }
+        
+        protected override bool CanUserSeeRestricted() { return true; }
+        protected override Task<bool> CanUserSeeRestrictedAsync() { return Task.FromResult(true); }
 
-        [Authorize]
-        public async Task<ActionResult> GetSizingStandardPagedList(QueryParameters qParams)
-        {
-            var items = await GetSizingStandardDtoList(qParams);
-            var result = new PagedList<SizingStandardDTO>(qParams, items);
-            return Json(result, JsonRequestBehavior.AllowGet);
-        }
-
-        [Authorize]
-        public async Task<ActionResult> Details(int? id)  //GET: /SizingStandards/Details/5
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            SizingStandard sizingStandard = await FindAsyncSizingStandard(id.Value);
-
-            if (sizingStandard == null)
-            {
-                return HttpNotFound();
-            }
-
-            await PutCanUserInViewBag();
-            return View(sizingStandard);
-        }
-
-        [Authorize]
-        public async Task<ActionResult> GetSizingStandard(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            SizingStandard sizingStandard = await FindAsyncSizingStandard(id.Value);
-
-            if (sizingStandard == null)
-            {
-                return HttpNotFound();
-            }
-
-            return Json(new SizingStandardDTO(sizingStandard), JsonRequestBehavior.AllowGet);
-        }
-
-
-
-        [Authorize(Roles = "admin")]
-        public async Task<ActionResult> Delete(int? id)  //GET: /SizingStandards/Delete/5
-        {
-            if (id == null)
-            {
-                return BadRequestTextResult();
-            }
-            SizingStandard sizingStandard = await FindAsyncSizingStandard(id.Value);
-
-            if (sizingStandard == null)
-            {
-                return NotFoundTextResult();
-            }
-
-            int sizingsCount = sizingStandard.Sizings.Count;
-            int purchaseOrdersCount = sizingStandard.PurchaseOrders.Count;
-            if ((sizingsCount + purchaseOrdersCount) > 0)
-            {
-                var sb = new StringBuilder();
-
-                sb.Append(MessageStrings.CanNotDelete);
-                sb.Append(" <b>");
-                sb.Append(sizingStandard.Title);
-                sb.Append("</b>.<br/>");
-
-                if (sizingsCount > 0)
-                {
-                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, sizingsCount, EntityStrings.Sizings));
-                    sb.Append("<br/>");
-                }
-
-                if (purchaseOrdersCount > 0)
-                {
-                    sb.Append(string.Format(MessageStrings.RelatedRecordsExist, purchaseOrdersCount, EntityStrings.PurchaseOrders));
-                    sb.Append("<br/>");
-                }
-
-                return StatusCodeTextResult(sb, HttpStatusCode.BadRequest);
-            }
-
-            DataContext.SizingStandards.Remove(sizingStandard);
-            try
-            {
-                await DataContext.SaveChangesAsync(this);
-            }
-            catch (Exception ex)
-            {
-                var sb = new StringBuilder();
-                sb.Append(MessageStrings.CanNotDelete);
-                sb.Append(sizingStandard.Title);
-                sb.Append("<br/>");
-                AppendExceptionMsg(ex, sb);
-
-                return StatusCodeTextResult(sb, HttpStatusCode.InternalServerError);
-            }
-
-            return new HttpStatusCodeResult(HttpStatusCode.OK);
-        }
 
         public new partial class QueryParameters : BaseController.QueryParameters
         {

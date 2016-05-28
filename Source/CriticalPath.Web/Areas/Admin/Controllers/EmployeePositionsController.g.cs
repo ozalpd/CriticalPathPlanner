@@ -35,9 +35,9 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
         [Authorize(Roles = "admin, supervisor, clerk")]
         public async Task<ActionResult> Index(QueryParameters qParams)
         {
-            var query = await GetEmployeePositionQuery(qParams);
             await PutCanUserInViewBag();
-			var result = new PagedList<EmployeePosition>(qParams);
+            var query = await GetEmployeePositionQuery(qParams);
+            var result = new PagedList<EmployeePosition>(qParams);
             if (qParams.TotalCount > 0)
             {
                 result.Items = await query.ToListAsync();
@@ -47,44 +47,8 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             return View(result.Items);
         }
 
-        protected override async Task<bool> CanUserCreate()
-        {
-            if (!_canUserCreate.HasValue)
-            {
-                _canUserCreate = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync());
-            }
-            return _canUserCreate.Value;
-        }
-        bool? _canUserCreate;
-
-        protected override async Task<bool> CanUserEdit()
-        {
-            if (!_canUserEdit.HasValue)
-            {
-                _canUserEdit = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync());
-            }
-            return _canUserEdit.Value;
-        }
-        bool? _canUserEdit;
-        
-        protected override async Task<bool> CanUserDelete()
-        {
-            if (!_canUserDelete.HasValue)
-            {
-                _canUserDelete = Request.IsAuthenticated && (
-                                    await IsUserAdminAsync());
-            }
-            return _canUserDelete.Value;
-        }
-        bool? _canUserDelete;
-
-        
-        protected override Task<bool> CanUserSeeRestricted() { return Task.FromResult(true); }
-
         [Authorize(Roles = "admin, supervisor, clerk")]
-        public async Task<ActionResult> Details(int? id)  //GET: /EmployeePositions/Details/5
+        public async Task<ActionResult> Details(int? id, bool? modal)
         {
             if (id == null)
             {
@@ -98,23 +62,32 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
             }
 
             await PutCanUserInViewBag();
+            if (modal ?? false)
+            {
+                return PartialView("_Details", employeePosition);
+            }
             return View(employeePosition);
         }
 
         [HttpGet]
         [Authorize(Roles = "admin")]
-        public async Task<ActionResult> Create()  //GET: /EmployeePositions/Create
+        public async Task<ActionResult> Create(bool? modal)
         {
             var employeePosition = new EmployeePosition();
             await SetEmployeePositionDefaults(employeePosition);
             SetSelectLists(employeePosition);
+            if (modal ?? false)
+            {
+                ViewBag.Modal = true;
+                return PartialView("_Create", employeePosition);
+            }
             return View(employeePosition);
         }
 
         [HttpPost]
         [Authorize(Roles = "admin")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(EmployeePosition employeePosition)  //POST: /EmployeePositions/Create
+        public async Task<ActionResult> Create(EmployeePosition employeePosition, bool? modal)
         {
             if (ModelState.IsValid)
             {
@@ -124,12 +97,86 @@ namespace CriticalPath.Web.Areas.Admin.Controllers
                 await DataContext.SaveChangesAsync(this);
  
                 OnCreateSaved(employeePosition);
+                if (modal ?? false)
+                {
+                    return Json(new { saved = true });
+                }
                 return RedirectToAction("Index");
             }
 
             SetSelectLists(employeePosition);
+            if (modal ?? false)
+            {
+                ViewBag.Modal = true;
+                return PartialView("_Create", employeePosition);
+            }
             return View(employeePosition);
         }
+
+
+        protected override bool CanUserCreate()
+        {
+            if (!_canUserCreate.HasValue)
+            {
+                _canUserCreate = Request.IsAuthenticated && (
+                                    IsUserAdmin());
+            }
+            return _canUserCreate.Value;
+        }
+        protected override async Task<bool> CanUserCreateAsync()
+        {
+            if (!_canUserCreate.HasValue)
+            {
+                _canUserCreate = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync());
+            }
+            return _canUserCreate.Value;
+        }
+        bool? _canUserCreate;
+
+        protected override bool CanUserEdit()
+        {
+            if (!_canUserEdit.HasValue)
+            {
+                _canUserEdit = Request.IsAuthenticated && (
+                                    IsUserAdmin());
+            }
+            return _canUserEdit.Value;
+        }
+        protected override async Task<bool> CanUserEditAsync()
+        {
+            if (!_canUserEdit.HasValue)
+            {
+                _canUserEdit = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync());
+            }
+            return _canUserEdit.Value;
+        }
+        bool? _canUserEdit;
+        
+        protected override bool CanUserDelete()
+        {
+            if (!_canUserDelete.HasValue)
+            {
+                _canUserDelete = Request.IsAuthenticated && (
+                                    IsUserAdmin());
+            }
+            return _canUserDelete.Value;
+        }
+        protected override async Task<bool> CanUserDeleteAsync()
+        {
+            if (!_canUserDelete.HasValue)
+            {
+                _canUserDelete = Request.IsAuthenticated && (
+                                    await IsUserAdminAsync());
+            }
+            return _canUserDelete.Value;
+        }
+        bool? _canUserDelete;
+
+        
+        protected override bool CanUserSeeRestricted() { return true; }
+        protected override Task<bool> CanUserSeeRestrictedAsync() { return Task.FromResult(true); }
 
 
         public new partial class QueryParameters : BaseController.QueryParameters

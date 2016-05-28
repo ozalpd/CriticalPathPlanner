@@ -1040,7 +1040,7 @@
       <RolesCanDelete>admin</RolesCanDelete>
       <GenerateController>true</GenerateController>
       <GenerateActionForAutoComplete>true</GenerateActionForAutoComplete>
-      <GenerateGetQueryMethod>false</GenerateGetQueryMethod>
+      <GenerateGetQueryMethod>true</GenerateGetQueryMethod>
       <GenerateGetDtoQueryMethod>false</GenerateGetDtoQueryMethod>
       <GenerateIndexAction>true</GenerateIndexAction>
       <GenerateGetEntityAction>false</GenerateGetEntityAction>
@@ -5006,4 +5006,5 @@
   <RolesCanEdit>admin, supervisor, clerk</RolesCanEdit>
   <RolesCanCreate>admin, supervisor, clerk</RolesCanCreate>
   <RolesCanDelete>admin, supervisor</RolesCanDelete>
+  <AreCanUserMethodsPublic>false</AreCanUserMethodsPublic>
 </AspNetMvcEngine>

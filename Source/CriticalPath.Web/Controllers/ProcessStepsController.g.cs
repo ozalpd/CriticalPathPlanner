@@ -35,6 +35,19 @@ namespace CriticalPath.Web.Controllers
             {
                 query = query.Where(x => x.TemplateId == qParams.TemplateId);
             }
+            if (qParams.IsApproved != null)
+            {
+                query = query.Where(x => x.IsApproved == qParams.IsApproved.Value);
+            }
+            if (qParams.ApproveDateMin != null)
+            {
+                query = query.Where(x => x.ApproveDate >= qParams.ApproveDateMin.Value);
+            }
+            if (qParams.ApproveDateMax != null)
+            {
+                var maxDate = qParams.ApproveDateMax.Value.AddDays(1);
+                query = query.Where(x => x.ApproveDate < maxDate);
+            }
 
             qParams.TotalCount = await query.CountAsync();
             return query.Skip(qParams.Skip).Take(qParams.PageSize);
@@ -56,9 +69,9 @@ namespace CriticalPath.Web.Controllers
         [Authorize(Roles = "admin, supervisor, clerk")]
         public async Task<ActionResult> Index(QueryParameters qParams)
         {
-            var query = await GetProcessStepQuery(qParams);
             await PutCanUserInViewBag();
-			var result = new PagedList<ProcessStep>(qParams);
+            var query = await GetProcessStepQuery(qParams);
+            var result = new PagedList<ProcessStep>(qParams);
             if (qParams.TotalCount > 0)
             {
                 result.Items = await query.ToListAsync();
@@ -67,8 +80,142 @@ namespace CriticalPath.Web.Controllers
             PutPagerInViewBag(result);
             return View(result.Items);
         }
-        
-        protected override async Task<bool> CanUserCreate()
+
+        [Authorize(Roles = "admin, supervisor, clerk")]
+        public async Task<ActionResult> GetProcessStepList(QueryParameters qParams)
+        {
+            var result = await GetProcessStepDtoList(qParams);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        [Authorize(Roles = "admin, supervisor, clerk")]
+        public async Task<ActionResult> GetProcessStepPagedList(QueryParameters qParams)
+        {
+            var items = await GetProcessStepDtoList(qParams);
+            var result = new PagedList<ProcessStepDTO>(qParams, items);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        [Authorize(Roles = "admin, supervisor, clerk")]
+        public async Task<JsonResult> GetProcessStepsForAutoComplete(QueryParameters qParam)
+        {
+            var query = GetProcessStepQuery()
+                        .Where(x => x.Title.Contains(qParam.SearchString))
+                        .Take(qParam.PageSize);
+            var list = from x in query
+                       select new
+                       {
+                           id = x.Id,
+                           value = x.Title,
+                           label = x.Title
+                       };
+
+            return Json(await list.ToListAsync(), JsonRequestBehavior.AllowGet);
+        }
+
+        [Authorize(Roles = "admin, supervisor, clerk")]
+        public async Task<ActionResult> Details(int? id, bool? modal)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ProcessStep processStep = await FindAsyncProcessStep(id.Value);
+
+            if (processStep == null)
+            {
+                return HttpNotFound();
+            }
+
+            await PutCanUserInViewBag();
+            if (modal ?? false)
+            {
+                return PartialView("_Details", processStep);
+            }
+            return View(processStep);
+        }
+
+        [Authorize(Roles = "admin, supervisor, clerk")]
+        public async Task<ActionResult> GetProcessStep(int? id)
+        {
+            if (id == null)
+            {
+                return BadRequestTextResult();
+            }
+            ProcessStep processStep = await FindAsyncProcessStep(id.Value);
+
+            if (processStep == null)
+            {
+                return NotFoundTextResult();
+            }
+
+            return Json(new ProcessStepDTO(processStep), JsonRequestBehavior.AllowGet);
+        }
+
+        [Authorize(Roles = "admin, supervisor, clerk")]
+        public async Task<ActionResult> Edit(int? id, bool? modal)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ProcessStep processStep = await FindAsyncProcessStep(id.Value);
+
+            if (processStep == null)
+            {
+                return HttpNotFound();
+            }
+
+            SetSelectLists(processStep);
+            if (modal ?? false)
+            {
+                ViewBag.Modal = true;
+                return PartialView("_Edit", processStep);
+            }
+            return View(processStep);
+        }
+
+        [Authorize(Roles = "admin, supervisor, clerk")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Edit(ProcessStep processStep, bool? modal)
+        {
+            if (ModelState.IsValid)
+            {
+                OnEditSaving(processStep);
+ 
+                DataContext.Entry(processStep).State = EntityState.Modified;
+                await DataContext.SaveChangesAsync(this);
+ 
+                OnEditSaved(processStep);
+                if (modal ?? false)
+                {
+                    return Json(new { saved = true });
+                }
+                return RedirectToAction("Index");
+            }
+
+            SetSelectLists(processStep);
+            if (modal ?? false)
+            {
+                ViewBag.Modal = true;
+                return PartialView("_Edit", processStep);
+            }
+            return View(processStep);
+        }
+
+        protected override bool CanUserCreate()
+        {
+            if (!_canUserCreate.HasValue)
+            {
+                _canUserCreate = Request.IsAuthenticated && (
+                                    IsUserAdmin() ||
+                                    IsUserSupervisor() ||
+                                    IsUserClerk());
+            }
+            return _canUserCreate.Value;
+        }
+        protected override async Task<bool> CanUserCreateAsync()
         {
             if (!_canUserCreate.HasValue)
             {
@@ -81,7 +228,18 @@ namespace CriticalPath.Web.Controllers
         }
         bool? _canUserCreate;
 
-        protected override async Task<bool> CanUserEdit()
+        protected override bool CanUserEdit()
+        {
+            if (!_canUserEdit.HasValue)
+            {
+                _canUserEdit = Request.IsAuthenticated && (
+                                    IsUserAdmin() ||
+                                    IsUserSupervisor() ||
+                                    IsUserClerk());
+            }
+            return _canUserEdit.Value;
+        }
+        protected override async Task<bool> CanUserEditAsync()
         {
             if (!_canUserEdit.HasValue)
             {
@@ -94,7 +252,16 @@ namespace CriticalPath.Web.Controllers
         }
         bool? _canUserEdit;
         
-        protected override async Task<bool> CanUserDelete()
+        protected override bool CanUserDelete()
+        {
+            if (!_canUserDelete.HasValue)
+            {
+                _canUserDelete = Request.IsAuthenticated && (
+                                    IsUserAdmin());
+            }
+            return _canUserDelete.Value;
+        }
+        protected override async Task<bool> CanUserDeleteAsync()
         {
             if (!_canUserDelete.HasValue)
             {
@@ -105,95 +272,10 @@ namespace CriticalPath.Web.Controllers
         }
         bool? _canUserDelete;
 
-        [Authorize(Roles = "admin, supervisor, clerk")]
-        public async Task<ActionResult> GetProcessStepList(QueryParameters qParams)
-        {
-            var result = await GetProcessStepDtoList(qParams);
-            return Json(result, JsonRequestBehavior.AllowGet);
-        }
+        
+        protected override bool CanUserSeeRestricted() { return true; }
+        protected override Task<bool> CanUserSeeRestrictedAsync() { return Task.FromResult(true); }
 
-        [Authorize(Roles = "admin, supervisor, clerk")]
-        public async Task<ActionResult> GetProcessStepPagedList(QueryParameters qParams)
-        {
-            var result = new PagedList<ProcessStepDTO>(qParams);
-            result.Items = await GetProcessStepDtoList(qParams);
-            return Json(result, JsonRequestBehavior.AllowGet);
-        }
-
-        [Authorize(Roles = "admin, supervisor, clerk")]
-        public async Task<ActionResult> Details(int? id)  //GET: /ProcessSteps/Details/5
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            ProcessStep processStep = await FindAsyncProcessStep(id.Value);
-
-            if (processStep == null)
-            {
-                return HttpNotFound();
-            }
-
-            await PutCanUserInViewBag();
-            return View(processStep);
-        }
-
-        [Authorize(Roles = "admin, supervisor, clerk")]
-        public async Task<ActionResult> GetProcessStep(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            ProcessStep processStep = await FindAsyncProcessStep(id.Value);
-
-            if (processStep == null)
-            {
-                return HttpNotFound();
-            }
-
-            return Json(new ProcessStepDTO(processStep), JsonRequestBehavior.AllowGet);
-        }
-
-        [Authorize(Roles = "admin, supervisor, clerk")]
-        public async Task<ActionResult> Edit(int? id)  //GET: /ProcessSteps/Edit/5
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            ProcessStep processStep = await FindAsyncProcessStep(id.Value);
-
-            if (processStep == null)
-            {
-                return HttpNotFound();
-            }
-
-            SetSelectLists(processStep);
-            return View(processStep);
-        }
-
-        [Authorize(Roles = "admin, supervisor, clerk")]
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(ProcessStep processStep)  //POST: /ProcessSteps/Edit/5
-        {
-            DataContext.SetInsertDefaults(processStep, this);
-
-            if (ModelState.IsValid)
-            {
-                OnEditSaving(processStep);
- 
-                DataContext.Entry(processStep).State = EntityState.Modified;
-                await DataContext.SaveChangesAsync(this);
- 
-                OnEditSaved(processStep);
-                return RedirectToAction("Index");
-            }
-
-            SetSelectLists(processStep);
-            return View(processStep);
-        }
 
         public new partial class QueryParameters : BaseController.QueryParameters
         {
@@ -205,12 +287,19 @@ namespace CriticalPath.Web.Controllers
             }
             public int? ProcessId { get; set; }
             public int? TemplateId { get; set; }
+            public bool? IsApproved { get; set; }
+            public DateTime? ApproveDateMin { get; set; }
+            public DateTime? ApproveDateMax { get; set; }
         }
 
         public partial class PagedList<T> : QueryParameters
         {
             public PagedList() { }
             public PagedList(QueryParameters parameters) : base(parameters) { }
+            public PagedList(QueryParameters parameters, IEnumerable<T> items) : this(parameters)
+            {
+                Items = items;
+            }
 
             public IEnumerable<T> Items
             {
