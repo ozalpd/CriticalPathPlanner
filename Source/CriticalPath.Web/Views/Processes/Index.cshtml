@@ -16,19 +16,26 @@
     ProcessStepTemplateDTO[] templates = ViewBag.templates as ProcessStepTemplateDTO[];
     int stepsCount = templates.Length;
     string[] stepRenderers = new string[stepsCount];
+    var headerWidth = string.Format("{0}px;", (stepsCount * 92) + 918);
 
     var title = EntityStrings.Processes;
 }
 <div class="row well hidden-print">
-    <div class="col-md-8 col-sm-7">
+    <div class="col-md-6 col-sm-5">
         <h4>@title</h4>
+    </div>
+    <div class="col-sm-2">
+        <a href="javascript:downloadTable('pdf');" class="btn btn-xs btn-default mt5" style="margin-left:-4px;" title="Download PDF"><i class="fa fa-file-pdf-o"></i></a>
+        <a href="javascript:downloadTable();" class="btn btn-xs btn-default mt5" style="margin-right:-6px;" title="Take an image"><i class="fa fa-camera"></i></a>
     </div>
     <div class="col-md-4 col-sm-5">
         @Html.Partial("_SearchBoxPartial")
     </div>
 </div>
-<div class="ag-gridContainer">
-    <div id="mainGrid" class="ag-style ag-basic" style="width:100%;height:480px;"></div>
+<div id="dataTable" class="ag-gridContainer" style="width:100%;height:640px">
+    <div id="mainGrid" class="ag-style ag-basic" style="width:100%;height:640px"></div>
+    <div id="headersForPrint" style="width: @headerWidth"></div>
+    <div class="clearfix" style="margin-top:-20px;"></div>
 </div>
 <nav><ul id="pagerUl" class="pagination"></ul></nav>
 @Html.Partial("_MessageBoxPartial")
@@ -69,7 +76,7 @@
 
             function columnDefs(){
                 return[
-                     { headerName: '@ActionStrings.Action', field: "Id", width: 60, cellRenderer: actionCellRenderer, headerClass:"hidden-print", cellClass:"hidden-print"},
+                     { headerName: '@ActionStrings.Action', field: "Id", width: 60, cellRenderer: actionCellRenderer},
                      { headerName: '@EntityStrings.PurchaseOrder', field: "PoNr", width: 110, headerClass: "wrapText", cellRenderer: purchaseOrderCellRenderer },
                      { headerName: '@Html.DisplayNameFor(m => m.ProductCode)', field: "ProductCode", width: 90, cellRenderer:productCellRenderer, cellClass: "wrapText" },
                      { headerName: '@Html.DisplayNameFor(m => m.ProductDescription)', field: "ProductDescription", width: 90, cellClass: "wrapText" },
@@ -84,6 +91,33 @@
                          @:{ headerName: '@templates[i].Title', headerTooltip: '@templates[i].Title', field: "ProcessSteps", width: 98, cellRenderer: @stepRenderers[i], headerClass: "wrapText" },
                      }
                 ];
+            }
+
+            function setPrintColumns() {
+                var colWidths = [60, 110, 90, 90, 90, 90, 80, 110, 90];
+                var colNames = ['', '@EntityStrings.PurchaseOrder',
+                    '@EntityStrings.ProductCode',
+                    '@EntityStrings.Description',
+                    '@EntityStrings.Customer @EntityStrings.DepartmentName',
+                    '@EntityStrings.Supplier','@EntityStrings.Quantity',
+                    'CP Dates',
+                    'PO Dates'];
+                 @for (int i = 0; i < templates.Length; i++)
+                 {
+                     @: colWidths.push(98);
+                     @: colNames.push('@templates[i].Title');
+                 }
+
+                 for (var i = 0; i < colNames.length; i++) {
+                     var headDiv = $('<div/>')
+                         .addClass('printHeader pull-left')
+                         .text(colNames[i])
+                         .width(colWidths[i]);
+                     headDiv.appendTo('#headersForPrint');
+                 }
+                $('<div/>').addClass('clearfix').appendTo('#headersForPrint');
+                $('#headersForPrint').hide();
+                $('#busyAnima').hide();
             }
 
             @for (int i = 0; i < templates.Length; i++)
@@ -258,12 +292,59 @@
             setPagerButtons($('#pagerUl'), result.Page, result.PageCount);
             displayRecordStats(result.Items.length, result.TotalCount);
             resizeGrid();
+            setPrintColumns();
         }
 
         function submitTargetDate(id) { submitDate(id, {targetDate:$('#dateInput').val()}); }
         function submitForecastDate(id) { submitDate(id, {forecastDate:$('#dateInput').val()}); }
         function submitRealizedDate(id) { submitDate(id, {realizedDate:$('#dateInput').val()}); }
 
+        function downloadTable(opt) {
+            $('#busyAnima').show();            var stepsCount = @stepsCount;
+            var tableWidth = (stepsCount * 92) + 918;
+            gridOptions.headerHeight = 1;
+            $('#dataTable').width(tableWidth);
+            gridOptions.api.setRowData(result.Items);            $('#headersForPrint').show();
+
+            //$('#headersForPrint').css("margin-top", "-10px");
+            $('#mainGrid').css("margin-left", "-60px");
+            $('#headersForPrint').css("margin-left", "-62px");
+            setTimeout(function () {
+                html2canvas($("#dataTable"), {
+                    onrendered: function (canvas) {
+                        if (opt === 'pdf') {
+                            var itemCount = result.Items.length;
+                            var imgHeight = ((itemCount * 57) + 96)/2;
+                            console.log(itemCount);
+                            console.log(result.Items.length)
+                            var imgData = canvas.toDataURL(
+                            'image/png');
+                            var doc = new jsPDF('l', 'mm', 'a3');
+                            doc.addImage(imgData, 'PNG', 10, 10, 410, 105);
+                            doc.save('CPtable.pdf');
+                        }
+                        else {
+                            var a = document.createElement('a');
+                            a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
+                            a.download = 'CPtable.jpg';
+                            a.click();
+                        }
+                        gridOptions.headerHeight = 48;
+                    }
+                });
+            }, 1000);
+            setTimeout(function () {
+                //$('#mainGrid').css("margin-top", "0");
+                $('#mainGrid').css("margin-left", "0");
+                $('#headersForPrint').css("margin-left", "0");
+                $('#headersForPrint').hide();
+                $('#dataTable').css({
+                    width: 'auto',
+                    height: 'auto'
+                });
+                $('#busyAnima').fadeOut('250');
+            }, 1750);
+        }
 
         function onActionMenuClick(menuBtn){
             setTimeout(function(){

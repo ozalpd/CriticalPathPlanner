@@ -57,6 +57,26 @@
     text-shadow: 1px 1px 3px #fff;
 }
 
+#headersForPrint {
+    border: 1px solid #888;
+    position: absolute;
+    margin-left:-2px;
+    top: 135px;
+    width: 200%;
+    background-color: #fff;
+    color: #000;
+    z-index: 2000;
+}
+
+.printHeader {
+    border-left: 1px solid #888;
+    padding: 4px;
+    background-color: #fff;
+    color: #000;
+    height: 48px;
+    overflow: hidden;
+}
+
 div.accordion .accordion-group .accordion-heading .accordion-toggle {
     text-decoration: none;
     color: #DDD;
@@ -64,6 +84,7 @@ div.accordion .accordion-group .accordion-heading .accordion-toggle {
 
 .table-responsive {
     min-height: 400px;
+    background-color: #fff;
 }
 
     .table-responsive .pagination {
@@ -74,26 +95,26 @@ div.accordion .accordion-group .accordion-heading .accordion-toggle {
     margin-bottom: 40px;
 }
 
-.table-striped > tbody > tr:nth-of-type(odd) {
-    background-color: #ddebf7;
-}
+    .table-striped > tbody > tr:nth-of-type(odd) {
+        background-color: #ddebf7;
+    }
 
-.table-striped > tbody > tr:nth-of-type(1) {
-    background-color: #82a5dd;
-    background-image: -webkit-linear-gradient(#9bc2e6, #5b9bd5 60%, #5595d0);
-    background-image: -o-linear-gradient(#9bc2e6, #5b9bd5 60%, #5595d0);
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#9bc2e6), color-stop(60%, #5b9bd5), to(#5595d0));
-    background-image: linear-gradient(#9bc2e6, #5b9bd5 60%, #5595d0);
-    border-top: 1px solid #9bc2e6;
-    border-bottom: 1px solid #9bc2e6;
-    color: #fff;
-    text-shadow: 1px 1px 3px #004;
-    height: 32px !important;
-}
+    .table-striped > tbody > tr:nth-of-type(1) {
+        background-color: #82a5dd;
+        background-image: -webkit-linear-gradient(#9bc2e6, #5b9bd5 60%, #5595d0);
+        background-image: -o-linear-gradient(#9bc2e6, #5b9bd5 60%, #5595d0);
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#9bc2e6), color-stop(60%, #5b9bd5), to(#5595d0));
+        background-image: linear-gradient(#9bc2e6, #5b9bd5 60%, #5595d0);
+        border-top: 1px solid #9bc2e6;
+        border-bottom: 1px solid #9bc2e6;
+        color: #fff;
+        text-shadow: 1px 1px 3px #004;
+        height: 32px !important;
+    }
 
-.table-striped > tbody > tr > td {
-    padding: 1px 4px 1px 4px;
-}
+    .table-striped > tbody > tr > td {
+        padding: 1px 4px 1px 4px;
+    }
 
 .bottom-row {
     background-color: #faf8f0;
@@ -250,8 +271,7 @@ div.modal-body .form-horizontal {
 
 #busyAnima {
     display: block;
-    position: absolute;
-    visibility: hidden;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
