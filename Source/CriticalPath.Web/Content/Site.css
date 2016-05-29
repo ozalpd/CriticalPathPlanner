@@ -62,6 +62,18 @@ div.accordion .accordion-group .accordion-heading .accordion-toggle {
     color: #DDD;
 }
 
+.table-responsive {
+    min-height: 400px;
+}
+
+    .table-responsive .pagination {
+        margin: 60px 0 120px 0;
+    }
+
+.table-striped {
+    margin-bottom: 40px;
+}
+
 .table-striped > tbody > tr:nth-of-type(odd) {
     background-color: #ddebf7;
 }
@@ -81,14 +93,6 @@ div.accordion .accordion-group .accordion-heading .accordion-toggle {
 
 .table-striped > tbody > tr > td {
     padding: 1px 4px 1px 4px;
-}
-
-.table-striped {
-    margin-bottom: 60px;
-}
-
-.table-responsive {
-    min-height: 400px;
 }
 
 .bottom-row {
@@ -243,3 +247,22 @@ div.modal-body .form-horizontal {
             margin-top: 12px;
         }
 }
+
+#busyAnima {
+    display: block;
+    position: absolute;
+    visibility: hidden;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    height: 100vh;
+    z-index: 55000;
+    background-color: rgba(96,96,96, 0.5);
+    opacity: 0.75;
+}
+
+    #busyAnima img {
+        position: relative;
+        top: 33vh;
+    }
