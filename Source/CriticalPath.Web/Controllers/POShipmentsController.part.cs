@@ -43,16 +43,17 @@ namespace CriticalPath.Web.Controllers
             }
 
             var vm = new POShipmentDTO();
-            if (purchaseOrderId != null)
-            {
                 var purchaseOrder = await FindAsyncPurchaseOrder(purchaseOrderId.Value);
-                if (purchaseOrder == null)
-                    return HttpNotFound();
-                vm.PurchaseOrderId = purchaseOrderId.Value;
-                vm.FreightTermId = purchaseOrder.FreightTermId;
-                vm.DeliveryDate = purchaseOrder.DueDate;
-                vm.ShippingDate = purchaseOrder.SupplierDueDate ?? purchaseOrder.OrderDate.AddDays(42);
-            }
+            if (purchaseOrder == null)
+                return HttpNotFound();
+
+            vm.PurchaseOrderId = purchaseOrderId.Value;
+            vm.FreightTermId = purchaseOrder.FreightTermId;
+            vm.DeliveryDate = purchaseOrder.DueDate;
+            vm.ShippingDate = purchaseOrder.SupplierDueDate ?? purchaseOrder.OrderDate.AddDays(42);
+            vm.RefCode = purchaseOrder.RefCode;
+            vm.CustomerRefNr = purchaseOrder.CustomerRefNr;
+
             await SetPOShipmentDefaults(vm);
             await SetFreightTermSelectListAsync(vm.FreightTermId);
             if (modal ?? false)

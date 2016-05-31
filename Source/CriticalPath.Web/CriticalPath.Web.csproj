@@ -630,7 +630,6 @@
     <Content Include="Views\Shared\DisplayTemplates\SizingStandard.cshtml" />
     <Content Include="Views\PurchaseOrders\_ProductSizingPartial.cshtml" />
     <Content Include="Views\Shared\_BaseLayout.cshtml" />
-    <Content Include="Views\PurchaseOrders\_PoSizeRatios.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\ContactDTO.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\CustomerDTO.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\ProductCategoryDTO.cshtml" />
@@ -701,6 +700,7 @@
     <Content Include="Views\Contacts\_Create.cshtml" />
     <Content Include="Views\Contacts\_Details.cshtml" />
     <Content Include="Views\Contacts\_Edit.cshtml" />
+    <Content Include="Views\PurchaseOrders\_ListSizeRatios.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Files\" />

@@ -1,0 +1,14 @@
+﻿@using CriticalPath.Web.Models
+@using CriticalPath.Data
+@using CP.i8n
+@model PurchaseOrder
+
+<div class="row sizingsContainer">
+    @foreach (var rate in Model.SizeRatios.OrderBy(s => s.DisplayOrder))
+    {
+        <div class="sizingBox">
+            <div class="text-center">@rate.Caption</div>
+            <div class="sizingBoxNumber">@rate.Rate</div>
+        </div>
+    }
+</div>

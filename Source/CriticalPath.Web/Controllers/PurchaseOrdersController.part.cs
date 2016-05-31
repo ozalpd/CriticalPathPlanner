@@ -572,6 +572,9 @@ namespace CriticalPath.Web.Controllers
             purchaseOrder.Notes = vm.Notes;
             purchaseOrder.SupplierId = vm.SupplierId;
 
+            purchaseOrder.RefCode = vm.RefCode;
+            purchaseOrder.CustomerRefNr = vm.CustomerRefNr;
+
             if (isApproving)
             {
                 purchaseOrder.DueDate = vm.DueDate;
@@ -603,8 +606,6 @@ namespace CriticalPath.Web.Controllers
 
                 purchaseOrder.LicensorPrice = vm.LicensorPrice;
                 purchaseOrder.LicensorCurrencyId = vm.LicensorCurrencyId;
-                purchaseOrder.RefCode = vm.RefCode;
-                purchaseOrder.CustomerRefNr = vm.CustomerRefNr;
                 //purchaseOrder.LicensorId = vm.LicensorId;
 
                 purchaseOrder.ShipmentHangingFolded = vm.ShipmentHangingFolded;

@@ -25,15 +25,15 @@
         <h4>@title</h4>
     </div>
     <div class="col-sm-2">
-        <a href="javascript:downloadTable('pdf');" class="btn btn-xs btn-default mt5" style="margin-left:-4px;" title="Download PDF"><i class="fa fa-file-pdf-o"></i></a>
-        <a href="javascript:downloadTable();" class="btn btn-xs btn-default mt5" style="margin-right:-6px;" title="Take an image"><i class="fa fa-camera"></i></a>
+        <a href="javascript:downloadTable('pdf');" class="btn btn-sm btn-danger mt5" style="margin-left:-4px;" title="Download a PDF file"><i class="fa fa-file-pdf-o"></i></a>
+        <a href="javascript:downloadTable();" class="btn btn-sm btn-success mt5" style="margin-right:-6px;" title="Download an image file"><i class="fa fa-file-image-o"></i></a>
     </div>
     <div class="col-md-4 col-sm-5">
         @Html.Partial("_SearchBoxPartial")
     </div>
 </div>
-<div id="dataTable" class="ag-gridContainer" style="width:100%;height:640px">
-    <div id="mainGrid" class="ag-style ag-basic" style="width:100%;height:640px"></div>
+<div id="dataTable" class="row" style="height:760px">
+    <div id="mainGrid" class="ag-style ag-basic" style="width:100%;height:760px"></div>
     <div id="headersForPrint" style="width: @headerWidth"></div>
     <div class="clearfix" style="margin-top:-20px;"></div>
 </div>
@@ -266,23 +266,6 @@
 
             $('#mainContent').removeClass('body-content').addClass('wGrid');
             $('#mainFooter').hide();
-            window.addEventListener('resize', onWindowResize);
-
-            function resizeGrid() {
-                var minHeght = 300;
-                var rectGrid = document.getElementById("mainGrid").getBoundingClientRect();
-                var pagerParent = $("#pagerUl").parent();
-                var pagerHeight = pagerParent!=null ? pagerParent.height() + 20 : 110;
-                var newHeight = $(window).height() - rectGrid.top - pagerHeight;
-                if(newHeight < minHeght){
-                    newHeight = minHeght;
-                }
-                $('#mainGrid').height(newHeight);
-            }
-
-            function onWindowResize() {
-                setTimeout(resizeGrid, 100);
-            }
 
             $.ajaxSetup({ cache: false });
             gridOptions = init.gridOptions;
@@ -291,7 +274,6 @@
 
             setPagerButtons($('#pagerUl'), result.Page, result.PageCount);
             displayRecordStats(result.Items.length, result.TotalCount);
-            resizeGrid();
             setPrintColumns();
         }
 
@@ -300,12 +282,13 @@
         function submitRealizedDate(id) { submitDate(id, {realizedDate:$('#dateInput').val()}); }
 
         function downloadTable(opt) {
-            $('#busyAnima').show();            var stepsCount = @stepsCount;
+            $('#busyAnima').show();
+            var stepsCount = @stepsCount;
             var tableWidth = (stepsCount * 92) + 918;
             gridOptions.headerHeight = 1;
             $('#dataTable').width(tableWidth);
-            gridOptions.api.setRowData(result.Items);            $('#headersForPrint').show();
-
+            gridOptions.api.setRowData(result.Items);
+            $('#headersForPrint').show();
             //$('#headersForPrint').css("margin-top", "-10px");
             $('#mainGrid').css("margin-left", "-60px");
             $('#headersForPrint').css("margin-left", "-62px");
@@ -338,10 +321,7 @@
                 $('#mainGrid').css("margin-left", "0");
                 $('#headersForPrint').css("margin-left", "0");
                 $('#headersForPrint').hide();
-                $('#dataTable').css({
-                    width: 'auto',
-                    height: 'auto'
-                });
+                $('#dataTable').css({ width: 'auto' });
                 $('#busyAnima').fadeOut('250');
             }, 1750);
         }
