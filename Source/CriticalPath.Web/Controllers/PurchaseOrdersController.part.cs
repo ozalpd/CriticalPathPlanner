@@ -432,21 +432,19 @@ namespace CriticalPath.Web.Controllers
         [Authorize(Roles = "admin, supervisor, clerk")]
         [ValidateAntiForgeryToken]
         [Route("PurchaseOrders/Create/{customerId:int?}")]
-        public async Task<ActionResult> Create(int? customerId, PurchaseOrderCreateVM purchaseOrderVM)
+        public async Task<ActionResult> Create(int? customerId, PurchaseOrderCreateVM vm)
         {
-            purchaseOrderVM.Id = 0;
+            vm.Id = 0;
             if (ModelState.IsValid)
             {
-                var entity = purchaseOrderVM.ToPurchaseOrder();
+                var entity = vm.ToPurchaseOrder();
                 DataContext.PurchaseOrders.Add(entity);
                 await DataContext.SaveChangesAsync(this);
                 return RedirectToAction("Details", new { id = entity.Id });
             }
 
-            await SetCustomerSelectListAsync(purchaseOrderVM);
-            await SetSupplierSelectList(purchaseOrderVM.SupplierId ?? 0);
-            await SetSectListAsync(purchaseOrderVM);
-            return View(purchaseOrderVM);
+            await SetSectListAsync(vm);
+            return View(vm);
         }
 
         [Authorize(Roles = "admin, supervisor, clerk")]
@@ -495,7 +493,6 @@ namespace CriticalPath.Web.Controllers
             await SetFreightTermSelectListAsync(vm.FreightTermId);
             //await SetProductSelectListAsync(poVM.Product);
             await SetSizingStandardSelectListAsync(vm);
-            await SetCustomerDepartmentSelectListAsync(vm.CustomerId, vm.CustomerDepartmentId ?? 0);
 
             var designers = await DataContext.GetDesignerDtoList();
             ViewBag.DesignerId = new SelectList(designers, "Id", "FullName", vm.DesignerId ?? 0);
@@ -503,6 +500,9 @@ namespace CriticalPath.Web.Controllers
             ViewBag.Merchandiser1Id = new SelectList(merchandisers, "Id", "FullName", vm.Merchandiser1Id ?? 0);
             ViewBag.Merchandiser2Id = new SelectList(merchandisers, "Id", "FullName", vm.Merchandiser2Id ?? 0);
 
+            await SetCustomerSelectListAsync(vm);
+            await SetCustomerDepartmentSelectListAsync(vm.CustomerId, vm.CustomerDepartmentId ?? 0);
+            await SetSupplierSelectList(vm.SupplierId ?? 0);
         }
 
         [Authorize(Roles = "admin, supervisor")]
